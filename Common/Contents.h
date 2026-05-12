@@ -271,5 +271,3 @@ char szTemp[256];
 sprintf(szTemp, "SiegeCooldown in float : %f", _RAT_SiegeCooldown);
 g_pD3dApp->m_pChat->CreateChatChild(szTemp, COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
 #endif
-
-
