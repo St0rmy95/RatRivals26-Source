@@ -1,0 +1,42 @@
+﻿  AtumDBHelper.cpp
+  AtumDBLogWriter.cpp
+  AtumDBManager.cpp
+  AtumDateTime.cpp
+  AtumParamProtocol.cpp
+  AtumParamProtocolFunctions.cpp
+  AtumThread.cpp
+  Config.cpp
+  Global.cpp
+  GlobalGameServer.cpp
+  IOCP.cpp
+  IOCPSocket.cpp
+  Localization.cpp
+  MTAutoCriticalSection.cpp
+  MTCriticalSection.cpp
+  ODBCStatement.cpp
+  Overlapped.cpp
+  QueueINT.cpp
+  SocketHeader.cpp
+  SystemLogManager.cpp
+  ThreadCheck.cpp
+  VMem.cpp
+  VMemPool.cpp
+  WayPointManager.cpp
+  WinPacket.cpp
+  XOR_Lib.cpp
+  md5_lib_src.cpp
+  sha256.cpp
+  GLogDBManager.cpp
+  LogServer.cpp
+  AtumLogDBManager.cpp
+  GLogExecManager.cpp
+  LogGlobal.cpp
+  StdAfx.cpp
+  LogIOCP.cpp
+  LogIOCPSocket.cpp
+  Generating code
+  0 of 1759 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  LogServer.vcxproj -> D:\RatRivals26\Source\Build\Bins\LogServer.exe

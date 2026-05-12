@@ -1,0 +1,36 @@
+﻿  AtumNode.cpp
+  MemPoolClient.cpp
+  VMemClient.cpp
+  INFArmorCollectWnd.cpp
+  INFCityInfinityField.cpp
+  INFGameMain.cpp
+  INFInfinity.cpp
+  ArenaManager.cpp
+  AtumApplication.cpp
+  AtumDatabase.cpp
+  Background.cpp
+  CImm.cpp
+  CInput.cpp
+  CustomOptimizer.cpp
+  FieldWinSocketManager.cpp
+  GlobalImage.cpp
+  IMSocketManager.cpp
+  InfinityManager.cpp
+  InitThread.cpp
+  MapInitThread.cpp
+  MapLoad.cpp
+  MeshInitThread.cpp
+  ProjectAtum.cpp
+  QuadGround.cpp
+  QuadTree.cpp
+  SceneData.cpp
+  SinglePlayGame.cpp
+  VTCThread.cpp
+  Water.cpp
+  WorldRankManager.cpp
+  Generating code
+  4 of 25717 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    529 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ProjectAtum.vcxproj -> D:\RatRivals26\Source\Build\Client\Engine.atm

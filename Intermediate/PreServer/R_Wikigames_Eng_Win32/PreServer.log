@@ -1,0 +1,62 @@
+﻿  StdAfx.cpp
+  AtumDBHelper.cpp
+  AtumDBManager.cpp
+  AtumDateTime.cpp
+  AtumParamProtocol.cpp
+  AtumParamProtocolFunctions.cpp
+  AtumSJ.cpp
+  AtumThread.cpp
+  Config.cpp
+  GameDataLast.cpp
+  GenericHTTPClient.cpp
+  Global.cpp
+  GlobalGameServer.cpp
+  HttpManager.cpp
+  IOCP.cpp
+  IOCPSocket.cpp
+  InnovaLibrary.cpp
+  LoadLibrary.cpp
+  Localization.cpp
+  MTAutoCriticalSection.cpp
+  MTCriticalSection.cpp
+  MapBlock.cpp
+  MapChannel.cpp
+  MapProject.cpp
+  MapWorkspace.cpp
+  Monster.cpp
+  MonsterDBAccess.cpp
+  ODBCStatement.cpp
+  Overlapped.cpp
+  QueueINT.cpp
+  SOAPConnect.cpp
+  SecurityManager.cpp
+  ServerGroup.cpp
+  SocketHeader.cpp
+  SystemLogManager.cpp
+  ThreadCheck.cpp
+  TickManager.cpp
+  VMem.cpp
+  VMemPool.cpp
+  WayPointManager.cpp
+  WinPacket.cpp
+  WinSocket.cpp
+  XOR_Lib.cpp
+  md5_lib_src.cpp
+  sha256.cpp
+  AccountBlockManager.cpp
+  NPlayPCBangModule.cpp
+  PreGlobal.cpp
+  PreTickManager.cpp
+  SPToMPWinSocket.cpp
+  PreServer.cpp
+  SelectiveShutdown.cpp
+  ShutdownTarget.cpp
+  AtumPreDBManager.cpp
+  PreIOCP.cpp
+  PreIOCPSocket.cpp
+  Generating code
+  0 of 4015 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  PreServer.vcxproj -> D:\RatRivals26\Source\Build\Bins\PreServer.exe

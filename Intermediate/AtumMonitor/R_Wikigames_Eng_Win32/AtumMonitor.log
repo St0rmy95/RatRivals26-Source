@@ -1,0 +1,70 @@
+﻿  GlobalGameServer.cpp
+  GridCell.cpp
+  GridCellBase.cpp
+  GridCtrl.cpp
+  GridDropTarget.cpp
+  InPlaceEdit.cpp
+  TitleTip.cpp
+  HttpManager.cpp
+  IOCP.cpp
+  IOCPSocket.cpp
+  Localization.cpp
+  MTAutoCriticalSection.cpp
+  MTCriticalSection.cpp
+  ODBCStatement.cpp
+  Overlapped.cpp
+  QueueINT.cpp
+  SCServerDBConnDlg.cpp
+  SQLReader.cpp
+  SocketHeader.cpp
+  SystemLogManager.cpp
+  Compiling...
+  ThreadCheck.cpp
+  TickManager.cpp
+  VMem.cpp
+  VMemPool.cpp
+  WayPointManager.cpp
+  WinPacket.cpp
+  WinSocket.cpp
+  XOR_Lib.cpp
+  historycombobox.cpp
+  md5_lib_src.cpp
+  AdminWindowDlg.cpp
+  AtumMonitor.cpp
+  AtumMonitorDoc.cpp
+  AtumMonitorView.cpp
+  CheckDBData.cpp
+  CheckItemDialog.cpp
+  ClientFTPUpdateManagerDlg.cpp
+  DlgNewServerGroup.cpp
+  FieldServerDlg.cpp
+  InfoGenDlg.cpp
+  Compiling...
+  LeftView.cpp
+  MainFrm.cpp
+  TrayIcon.cpp
+  DataHeader.cpp
+  TotalHeader.cpp
+  Zipfile1.cpp
+  zipfileDlg.cpp
+  MonitorTickManager.cpp
+  MyFileDialog.cpp
+  PreUserCountDlg.cpp
+  PringDBGDlg.cpp
+  RecordProgress.cpp
+  SQLReaderDlg.cpp
+  SelectServerDlg.cpp
+  SetCityWarTimeDlg.cpp
+  SetMGameEventTypeDlg.cpp
+  StdAfx.cpp
+  TableName.cpp
+  TotalProgress.cpp
+  MonitorNode.cpp
+  Compiling...
+  MonitorWinSocket.cpp
+  Generating code
+  0 of 6334 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  AtumMonitor.vcxproj -> D:\RatRivals26\Source\Build\Tools\AtumMonitor.exe

@@ -1,0 +1,49 @@
+﻿  StdAfx.cpp
+  AtumDateTime.cpp
+  AtumParamProtocol.cpp
+  AtumParamProtocolFunctions.cpp
+  BrowseForFolder.cpp
+  CommandHistory.cpp
+  FTPManager.cpp
+  KbcBmp.cpp
+  KbcButton.cpp
+  ProgressCtrlX.cpp
+  HistoryComboBox.cpp
+  HttpManager.cpp
+  Iexplore.cpp
+  ListBoxEBX.cpp
+  MGameDecryption.cpp
+  RegistryControl.cpp
+  md5.cpp
+  metafile.cpp
+  shieldSecurity.cpp
+  shieldSecurityDll.cpp
+  utility.cpp
+  Compiling...
+  SocketHeader.cpp
+  SystemLogManager.cpp
+  WinPacket.cpp
+  WinSocket.cpp
+  XOR_Lib.cpp
+  md5_lib_src.cpp
+  AtumLauncher.cpp
+  AtumLauncherDlg.cpp
+  DlgGuardAgreement.cpp
+  LoginSuccessDlg.cpp
+  MyCheck.cpp
+  MyComboBox.cpp
+  MyEdit.cpp
+  comboboxebx.cpp
+  PreServerIPDlg.cpp
+  VTCGuardManager.cpp
+  UpdateWinSocket.cpp
+  screenkeyboarddlg.cpp
+  #### Launcher Resource Copy ####
+  125 File(s) copied
+  1 File(s) copied
+  Generating code
+  22 of 3017 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    91 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  AtumLauncher.vcxproj -> D:\RatRivals26\Source\Build\Client\Updater.atm

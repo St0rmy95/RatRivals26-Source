@@ -1,0 +1,191 @@
+﻿  md5_lib_src.cpp
+  Chat.cpp
+  ChatData.cpp
+  ChatMoveData.cpp
+  ChatRender.cpp
+  ChatTab_t.cpp
+  IMEKey.cpp
+  INFAUTOSPRITEBTN.cpp
+  INFAlertMsgBox.cpp
+  INFAniCtrl.cpp
+  INFArenaCreate.cpp
+  INFArenaResult.cpp
+  INFArenaScore.cpp
+  INFArenaScrollBar.cpp
+  INFArenaTeamInfo.cpp
+  INFArenaTxt.cpp
+  INFArmorCollectWnd.cpp
+  INFAttackDirection.cpp
+  INFAutoEditBox.cpp
+  INFBase.cpp
+  INFBaseWarManager.cpp
+  INFChangeCharactor.cpp
+  INFChannelList.cpp
+  INFCharacterInfo.cpp
+  INFCharacterInfoExtend.cpp
+  INFCityArena.cpp
+  INFCityAuction.cpp
+  INFCityBase.cpp
+  INFCityBazaar.cpp
+  INFCityBoard.cpp
+  INFCityCashShop.cpp
+  INFCityInfinityField.cpp
+  INFCityInfinityShop.cpp
+  INFCityInflBuff.cpp
+  INFCityLab.cpp
+  INFCityLeader.cpp
+  INFCityOccupy.cpp
+  INFCityOutPost.cpp
+  INFCityShop.cpp
+  INFCitySkillShop.cpp
+  INFCityStore.cpp
+  INFCitySupply.cpp
+  INFCityWarPointShop.cpp
+  INFCityWarp.cpp
+  INFComboBox.cpp
+  INFComboBoxEX.cpp
+  INFCommuPartyCre.cpp
+  INFCommuPartyInvite.cpp
+  INFCommunity.cpp
+  INFCommunityChatRoom.cpp
+  INFCommunityFriend.cpp
+  INFCommunityGuild.cpp
+  INFCommunityGuildIntroMe.cpp
+  INFCommunityGuildManager.cpp
+  INFCommunityGuildSearch.cpp
+  INFCommunityLetter.cpp
+  INFCommunityParty.cpp
+  INFCommunityReject.cpp
+  INFCommunityUserInfo.cpp
+  INFCommunityUserOpenSetup.cpp
+  INFControl.cpp
+  INFCouponWindow.cpp
+  INFCurselEditBox.cpp
+  INFDamageView.cpp
+  INFDefaultWnd.cpp
+  INFEditBox.cpp
+  INFFadeEffect.cpp
+  INFGameArena.cpp
+  INFGameCountDown.cpp
+  INFGameHelpDesk.cpp
+  INFGameMain.cpp
+  INFGameMainChat.cpp
+  INFGameMainFAQ.cpp
+  INFGameMainMiniMap.cpp
+  INFGameMainOtherInfo.cpp
+  INFGameMainOutPost.cpp
+  INFGameMainQSlot.cpp
+  INFGameMainSysMsg.cpp
+  INFGameMainUnitInfoBar.cpp
+  INFGameMainWisperChat.cpp
+  INFGroupImage.cpp
+  INFGroupManager.cpp
+  INFIcon.cpp
+  INFImage.cpp
+  INFImageBtn.cpp
+  INFImageBtnBoth.cpp
+  INFImageComboBox.cpp
+  INFImageComboBoxEx.cpp
+  INFImageEx.cpp
+  INFImageFile.cpp
+  INFImageList.cpp
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2477,5): error C2065: 'm_bShowSPInfoBCU': undeclared identifier
+  INFImageListBox.cpp
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2478,17): error C2065: 'STRATEGYPOINT_BCU_IMG_POS_X': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2478,56): error C2065: 'my_posxBCU': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2479,17): error C2065: 'STRATEGYPOINT_BCU_IMG_POS_Y': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2479,56): error C2065: 'STRATEGYPOINT_BCU_IMG_POS_Y': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2481,6): error C2065: 'm_nCurrentSPSelectBCUPosX': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2482,6): error C2065: 'm_nCurrentSPSelectBCUPosY': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2483,6): error C2065: 'm_bShowSPInfoBCU': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2485,5): error C2065: 'm_bShowSPInfoANI': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2486,17): error C2065: 'STRATEGYPOINT_ANI_IMG_POS_X': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2486,56): error C2065: 'my_posxANI': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2487,17): error C2065: 'STRATEGYPOINT_ANI_IMG_POS_Y': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2487,56): error C2065: 'STRATEGYPOINT_ANI_IMG_POS_Y': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2489,6): error C2065: 'm_nCurrentSPSelectANIPosX': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2490,6): error C2065: 'm_nCurrentSPSelectANIPosY': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2491,6): error C2065: 'm_bShowSPInfoANI': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2498,6): error C2065: 'm_nCurrentSPSelectBCUPosX': undeclared identifier
+D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2499,6): error C2065: 'm_nCurrentSPSelectBCUPosY': undeclared identifier
+  INFImageListCtrl.cpp
+  INFImageListTreeCtrl.cpp
+  INFImageRadioBtn.cpp
+  INFImportantInfo.cpp
+  INFInfinity.cpp
+  INFInven.cpp
+  INFInvenEquip.cpp
+  INFInvenExtend.cpp
+  INFInvenItem.cpp
+  INFItemInfo.cpp
+  INFItemMenuList.cpp
+  INFItemMixFactoryWnd.cpp
+  INFItemMixWnd.cpp
+  INFListBox.cpp
+  INFLuckyMachine.cpp
+  INFMapLoad.cpp
+  INFMapName.cpp
+  INFMenuList.cpp
+  INFMission.cpp
+  INFMissionAniCtrl.cpp
+  INFMissionMain.cpp
+  INFMissionMapViewCtrl.cpp
+  INFMissionMasterReg.cpp
+  INFMissionPopupInfo.cpp
+  INFMissionSelInfluence.cpp
+  INFMissionTreeInfo.cpp
+  INFMotherShipManager.cpp
+  INFMp3Player.cpp
+  INFNumEditBox.cpp
+  INFOpBigHelper.cpp
+  INFOpInfo.cpp
+  INFOpJoystick.cpp
+  INFOpMain.cpp
+  INFOpSmallHelper.cpp
+  INFOpUserHelper.cpp
+  INFOpWnd.cpp
+  INFOptionMachine.cpp
+  INFOptionSystem.cpp
+  INFOtherCharInfo.cpp
+  INFPilotFace.cpp
+  INFPopupMenu.cpp
+  INFReturnAuctionCenter.cpp
+  INFReturnAuctionList.cpp
+  INFReturnAuctionMsgBox.cpp
+  INFReturnMyAuctionList.cpp
+  INFScrollBar.cpp
+  INFSecuChanPassWnd.cpp
+  INFSecuEditBox.cpp
+  INFSecuLockWnd.cpp
+  INFSecuMain.cpp
+  INFSecuPassWnd.cpp
+  INFSecuSelectMenu.cpp
+  INFSecuSetPassWnd.cpp
+  INFSelect.cpp
+  INFSelectBack.cpp
+  INFSelectMenu.cpp
+  INFSelectOption.cpp
+  INFSingleCurselEditBox.cpp
+  INFSkill.cpp
+  INFSpeakeMsg.cpp
+  INFStageEffect.cpp
+  INFStageEffectData.cpp
+  INFSystem.cpp
+  INFTarget.cpp
+  INFToolTip.cpp
+  INFTrade.cpp
+  INFTradeItemAdd.cpp
+  INFTradeItemBuy.cpp
+  INFTradeItemCenter.cpp
+  INFTradeMyItemShow.cpp
+  INFUnitCreateInfo.cpp
+  INFUnitNameInfo.cpp
+  INFUnitState.cpp
+  INFWarDeclare.cpp
+  INFWeaponInfo.cpp
+  INFWindow.cpp
+  INFWorldMap.cpp
+  INFWorldRankWnd.cpp
+  Interface.cpp
+  SetupConfig.cpp
+  SpriteDrawFix.cpp
