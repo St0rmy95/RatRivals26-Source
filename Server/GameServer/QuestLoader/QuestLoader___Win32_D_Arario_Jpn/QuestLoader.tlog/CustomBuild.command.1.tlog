@@ -1,0 +1,4 @@
+^D:\RATRIVALS26\SOURCE\SERVER\GAMESERVER\QUESTLOADER\QUESTLOADER.L
+flex.exe --wincompat -PQuestLoader -t QuestLoader.l > QuestLoader.l.cpp
+^D:\RATRIVALS26\SOURCE\SERVER\GAMESERVER\QUESTLOADER\QUESTLOADER.Y
+bison.exe -v -pQuestLoader -o QuestLoader.cpp -d QuestLoader.y
