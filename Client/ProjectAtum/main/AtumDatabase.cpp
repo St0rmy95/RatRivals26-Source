@@ -2662,19 +2662,12 @@ ITEM * CAtumDatabase::GetServerItemInfo(int nItemNum)
 			{
 				// 간단 아이템 정보 요청
 				item = itItem->second;
-				// 2006-06-15 by ispark, 일정시간에 패킷을 보내는 것으로 변경
-//				MSG_FC_INFO_GET_SIMPLE_ITEM_INFO sMsg;
-//				sMsg.ItemNum = nItemNum;
-//				g_pFieldWinSocket->SendMsg(T_FC_INFO_GET_SIMPLE_ITEM_INFO, (char*)&sMsg, sizeof(sMsg));
+
 				SetIntDataByVector(g_pD3dApp->m_vecSimpleItemInfo, nItemNum);
 			}
 			else
 			{
 				// 아이템 전체 정보 요청
-				// 2006-06-15 by ispark, 일정시간에 패킷을 보내는 것으로 변경
-//				MSG_FC_INFO_GET_ITEM_INFO sMsg;
-//				sMsg.ItemNum = nItemNum;
-//				g_pFieldWinSocket->SendMsg(T_FC_INFO_GET_ITEM_INFO, (char*)&sMsg, sizeof(sMsg));
 				SetIntDataByVector(g_pD3dApp->m_vecItemInfo, nItemNum);
 			}
 			BOOL bGetInfo = FALSE;

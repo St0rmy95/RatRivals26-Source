@@ -2589,3 +2589,40 @@ char *StrRCaseStr(const char *s, const char *find)
 //	CVMemPool::vmObjectDelete(p, sizeof(ENCHANT));
 //}
 #endif // _ATUM_SERVER
+
+#ifdef _RAT_RANK_SYSTEM
+
+// 1. Initialize the table values exactly once here
+std::map<int, SRANK_DATA> SRANK_SYSTEM::Table = {
+	{ 1, { 1, "\\pTrainee",     0,    { 5.0f,  0.0f, 0.0f, 0.0f, 0.0f, 0.00f }}},
+	{ 2, { 2, "\\cRookie",      5,    { 10.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.00f }}},
+	{ 3, { 3, "\\gPilot",       25,   { 15.0f, 2.0f, 2.0f, 2.0f, 2.0f, 0.00f }}},
+	{ 4, { 4, "\\yFlight_Lead", 100,  { 20.0f, 3.0f, 3.0f, 3.0f, 3.0f, 0.00f }}},
+	{ 5, { 5, "\\rAce_Pilot",   500,  { 30.0f, 4.0f, 4.0f, 4.0f, 4.0f, 0.01f }}},
+	{ 6, { 6, "\\eCommander",   1500, { 45.0f, 5.0f, 5.0f, 5.0f, 5.0f, 0.05f }}},
+	{ 7, { 7, "\\bSky_Marshal", 5000, { 60.0f, 6.0f, 6.0f, 6.0f, 6.0f, 0.10f }}}
+};
+
+// 2. C++11/C++14 safe loop using standard pair iterators
+SRANK_DATA SRANK_SYSTEM::GetRankByFame(int currentFame)
+{
+	// Default fallback row
+	SRANK_DATA GrabbedTable = { 0, "\\gUnknown", 0, { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.00f } };
+
+	// Classic map loop: 'it->first' is the Index, 'it->second' is the SRANK_DATA
+	for (auto it = Table.begin(); it != Table.end(); ++it)
+	{
+		if (currentFame >= it->second.RequiredFame)
+		{
+			GrabbedTable = it->second; // Player qualifies! Save it.
+		}
+		else
+		{
+			return GrabbedTable; // Hit a rank too high, exit early with the last saved rank
+		}
+	}
+
+	return GrabbedTable;
+}
+
+#endif // _RAT_RANK_SYSTEM

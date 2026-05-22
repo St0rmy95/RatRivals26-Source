@@ -419,13 +419,6 @@ CShuttleChild::CShuttleChild()
 	// End 2010-06-15 by shcho&hslee 펫시스템 - 장착품 최대 개수값 변경.
 	
 	m_nOldMapIndex = 0;
-//#ifdef _DEBUG
-//	m_nDebugWarpMove = 0;
-//	m_nDebugSendPacketMove = 0;
-//	m_fDebugWarpCheckTime = 0;
-//	m_fDebugSendCheckTime = 0;
-//#endif
-//	m_fMissileFireTime = 0;
 	
 	// 2005-02-15 by jschoi  -  PK Delay Timer
 	m_pPkNormalTimer = new CPkNormalTimer;
@@ -1696,10 +1689,6 @@ void CShuttleChild::Tick(float fElapsedTime)
 	{
 		TickOperation(fElapsedTime);
 	}
-//	if(m_pSkillEffect)
-//	{
-//		m_pSkillEffect->Tick(fElapsedTime);
-//	}
 	
 	// Ground Attack
 	if(m_pSecondaryWeapon && m_pSecondaryWeapon->GetAttackMode() == ATT_TYPE_GROUND_BOMBING_SEC)
@@ -1728,15 +1717,6 @@ void CShuttleChild::Tick(float fElapsedTime)
 #ifdef C_CLIENT_LIVE_TIME
 	if(g_pD3dApp->m_bClientQuit || g_pD3dApp->GetClientLogOff())
 	{
-// 		if(g_pD3dApp->m_bClientQuit)
-// 		{
-// 			DBGOUT("g_pD3dApp->m_bClientQuit[%d] \n", g_pD3dApp->m_bClientQuit);
-// 		}
-// 		if(g_pD3dApp->GetClientLogOff())
-// 		{
-// 			DBGOUT("g_pD3dApp->GetClientLogOff() [%d] \n", g_pD3dApp->GetClientLogOff());
-// 
-// 		}
 		
 	}
 	else if(g_pD3dApp->IsLockMode() == FALSE)
@@ -1966,32 +1946,6 @@ void CShuttleChild::Tick(float fElapsedTime)
 
 	// 2005-12-29 by ispark, 체크 장착 아이템
 	CheckWearItem(fElapsedTime);
-
-//	const int nKeyMove = 1; // 키보드 감도
-//	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_LEFT))
-//	{
-//		g_pCamera->SetControlCamSideAngle(nKeyMove);
-//	}
-//	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_RIGHT))
-//	{
-//		g_pCamera->SetControlCamSideAngle(-nKeyMove);
-//	}
-//	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_UP))
-//	{
-//		g_pCamera->SetControlCamAngle(nKeyMove);
-//	}
-//	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_DOWN))
-//	{
-//		g_pCamera->SetControlCamAngle(-nKeyMove);
-//	}
-//	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_PRIOR))
-//	{
-//		g_pCamera->SetControlCamPos(nKeyMove);
-//	}
-//	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_NEXT))
-//	{
-//		g_pCamera->SetControlCamPos(-nKeyMove);
-//	}
 
 	// 2005-03-08 by jschoi
 	if((IsPkEnableMap(m_myShuttleInfo.MapChannelIndex.MapIndex) ||
@@ -2529,6 +2483,7 @@ void CShuttleChild::CheckMove(MSG_FC_MOVE_OK* pMsg)
 	{
 		if(pMsg->ClientIndex < 10000)
 		{
+		
 			CMapEnemyIterator itEnemy = g_pScene->m_mapEnemyList.find(pMsg->ClientIndex);
 			// 2005-12-30 by ispark, Enemy가 리스트에 없을 때 정보 요청
 			if(itEnemy != g_pScene->m_mapEnemyList.end())
@@ -3063,271 +3018,6 @@ void CShuttleChild::RenderMirror(POINT *pMirrorPos/*=NULL*/)
 {	
 	g_pGameMain->RenderMirror(pMirrorPos);		
 }
-//{
-////	if(g_pGameMain->m_pInfWindow->m_nLeftWindowInfo == 1 && m_bRenderInven == TRUE)
-//	{
-//		m_bInvenRender = TRUE;
-////		g_pCamera->SetCamType(CAMERA_TYPE_NORMAL);
-//		
-//		int nAmorNum = GetUnitNum();
-//		CEffectInfo* pEffectEngine = NULL;
-//		char chEngineObjectNum[20] = {0,};
-//
-//		if(g_pD3dApp->m_bCharacter)
-//		{
-//			if(g_pD3dApp->m_dwGameState != _SHOP)
-//			{
-//				CItemInfo* pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_CENTER );
-//				nAmorNum = GetUnitNumFromCharacter((pItem?pItem->ItemInfo->SourceIndex:0), m_myShuttleInfo.UnitKind, 0, 0, 2);
-//			}
-//			else if(g_pD3dApp->m_dwGameState == _SHOP)
-//			{
-//				CItemInfo* pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_CENTER );
-//				if(pItem && g_pGameMain->m_pItemInfoWear[POS_CENTER] == NULL)
-//					nAmorNum = GetUnitNumFromCharacter((pItem?pItem->ItemInfo->SourceIndex:0), m_myShuttleInfo.UnitKind, 0, 0, 2);
-//				else
-//					nAmorNum = GetUnitNumFromCharacter((g_pGameMain->m_pItemInfoWear[POS_CENTER]?g_pGameMain->m_pItemInfoWear[POS_CENTER]->ItemInfo->SourceIndex:0), m_myShuttleInfo.UnitKind, 0, 0, 2);			
-//			}
-//		
-//			GUIUnitRenderInfo pInfo;
-//			memset(&pInfo, 0x00, sizeof(GUIUnitRenderInfo));
-//			CAppEffectData	*pEffectTemp;
-//			pEffectTemp = CUnitData::CreateWearItemEffectAtSelectMenu(&pInfo, nAmorNum, BODYCON_LANDED_MASK);
-//
-//			// 무기 메트릭스
-//			m_pMatInvenWeaponOrgPosition[0] = pEffectTemp->m_pCharacterInfo->GetEffectMatrix(BODYCON_WEAPON_POSITION_MASK, RC_EFF_PRIMARY_RIGHT_POSITION);
-//			m_pMatInvenWeaponOrgPosition[1] = pEffectTemp->m_pCharacterInfo->GetEffectMatrix(BODYCON_WEAPON_POSITION_MASK, RC_EFF_PRIMARY_LEFT_POSITION);
-//			m_pMatInvenWeaponOrgPosition[2] = pEffectTemp->m_pCharacterInfo->GetEffectMatrix(BODYCON_WEAPON_POSITION_MASK, RC_EFF_SECONDARY_RIGHT_POSITION);
-//			m_pMatInvenWeaponOrgPosition[3] = pEffectTemp->m_pCharacterInfo->GetEffectMatrix(BODYCON_WEAPON_POSITION_MASK, RC_EFF_SECONDARY_LEFT_POSITION);
-//
-//			// 엔진 오브젝트
-//			CBodyConditionInfo* pBodyTemp = pEffectTemp->m_pCharacterInfo->FindBodyConditionInfo(BODYCON_LANDED_MASK);
-//			if(pBodyTemp)
-//			{
-//				char chEffNum[20] = {0,};
-//				wsprintf(chEffNum, "0%d.eff", GetInvenUseEngineEffectNum(m_myShuttleInfo.UnitKind));
-//				pEffectEngine = pBodyTemp->GetEffectInfo(chEffNum);
-//				if(pEffectEngine)
-//				{
-//					wsprintf(chEngineObjectNum, "0%d.obj", GetInvenUseEngineObjectNum(m_myShuttleInfo.UnitKind));
-//				}
-//			}
-//
-//			if(g_pD3dApp->m_pEffectList)
-//			{
-//				g_pD3dApp->m_pEffectList->DeleteChild((CAtumNode*)pEffectTemp);
-//			}
-//		}
-//		else
-//		{
-//			// 무기 메트릭스
-//			m_pMatInvenWeaponOrgPosition[0] = m_pMatWeaponPosition[0];
-//			m_pMatInvenWeaponOrgPosition[1] = m_pMatWeaponPosition[1];
-//			m_pMatInvenWeaponOrgPosition[2] = m_pMatWeaponPosition[2];
-//			m_pMatInvenWeaponOrgPosition[3] = m_pMatWeaponPosition[3];
-//
-//			// 엔진 오브젝트
-//			CBodyConditionInfo* pBodyTemp = m_pCharacterInfo->FindBodyConditionInfo(BODYCON_LANDED_MASK);
-//			if(pBodyTemp)
-//			{
-//				char chEffNum[20] = {0,};
-//				wsprintf(chEffNum, "0%d.eff", GetInvenUseEngineEffectNum(m_myShuttleInfo.UnitKind));
-//				pEffectEngine = pBodyTemp->GetEffectInfo(chEffNum);
-//				if(pEffectEngine)
-//				{
-//					wsprintf(chEngineObjectNum, "0%d.obj", GetInvenUseEngineObjectNum(m_myShuttleInfo.UnitKind));
-//				}
-//			}
-//		}
-//		
-//		// 기어
-//		CSkinnedMesh* pSkinnedMesh = ((CUnitRender*)m_pRender)->GetUnitMesh(nAmorNum);
-//		if(pSkinnedMesh == NULL)
-//			return;
-//		// 엔진
-//		CSkinnedMesh* pSkinnedMeshEngine = NULL;
-//		if(pEffectEngine != NULL)
-//			pSkinnedMeshEngine = g_pD3dApp->m_pEffectRender->LoadObject(chEngineObjectNum);
-//		float fUnitScaling;
-//		float fUnitPosX;
-//		float fUnitPosY;
-//		float fUnitPosZ;
-//
-//		GetResolutionPos(i_dwKind,
-//			fUnitPosX,fUnitPosY,fUnitPosZ,fUnitScaling);
-//		
-//		fUnitScaling += m_fScaling;
-//		fUnitPosX	 += m_fUnitX;
-//		fUnitPosY	 += m_fUnitY;
-//		fUnitPosZ	 += m_fUnitZ;
-//
-//		//////////////////////////////////////////////////////////////////////////
-//		//
-//		D3DXMATRIX pMatOldView, pMatOldProj, pMatPresView, pMatPresProj, pMatrix;
-//		D3DXMatrixIdentity(&pMatOldView);
-//		D3DXMatrixIdentity(&pMatOldProj);
-//		D3DXMatrixIdentity(&pMatPresView);
-//		D3DXMatrixIdentity(&pMatPresProj);
-//		D3DXMatrixIdentity(&pMatrix);
-//		
-//		D3DXMATRIX pTemp, pMatRotX, pMatRotZ, pMatScaling;
-//		D3DXMatrixIdentity(&pTemp);
-//		D3DXMatrixIdentity(&pMatRotX);
-//		D3DXMatrixIdentity(&pMatRotZ);
-//		D3DXMatrixIdentity(&pMatScaling);
-//		
-//		// 현재 뷰와 프로젝션을 가져온다
-//		g_pD3dDev->GetTransform( D3DTS_VIEW,       &pMatOldView );
-//		g_pD3dDev->GetTransform( D3DTS_PROJECTION, &pMatOldProj );	
-//		
-//		D3DXMatrixScaling(&pMatScaling, fUnitScaling, fUnitScaling+0.002f, fUnitScaling);
-//		D3DXMatrixTranslation(&pTemp, fUnitPosX, fUnitPosY, fUnitPosZ);
-//		D3DXMatrixRotationX(&pMatRotX, m_fRotationX);
-//		D3DXMatrixRotationY(&pMatRotZ, m_fRotationZ);
-//		pMatrix = pMatRotZ*pMatRotX*pTemp*pMatScaling;
-//
-//		// 2006-01-16 by ispark, 무기
-//		m_pMatInvenWeaponSetPosition[0] = m_pMatInvenWeaponOrgPosition[0]*pMatrix;
-//		m_pMatInvenWeaponSetPosition[1] = m_pMatInvenWeaponOrgPosition[1]*pMatrix;
-//		m_pMatInvenWeaponSetPosition[2] = m_pMatInvenWeaponOrgPosition[2]*pMatrix;
-//		m_pMatInvenWeaponSetPosition[3] = m_pMatInvenWeaponOrgPosition[3]*pMatrix;
-//		
-//		g_pD3dDev->SetTransform( D3DTS_VIEW,		&pMatPresView);
-//		g_pD3dDev->SetTransform( D3DTS_PROJECTION,	&pMatPresProj);	
-//		
-//		// 2008-01-21 by bhsohn 창고에서 아머색이 안바뀌는 버그 수정
-//		GUI_BUILDINGNPC* pCurrentBuildingNpc = g_pInterface->m_pCityBase->GetCurrentBuildingNPC();
-//
-//		// 기체
-//		// 2006-02-17 by ispark
-//		if(g_pD3dApp->m_dwGameState != _SHOP 
-//			|| (pCurrentBuildingNpc && IS_STORE_SHOP_TYPE(pCurrentBuildingNpc->buildingInfo.BuildingKind)))// 2008-01-21 by bhsohn 창고에서 아머색이 안바뀌는 버그 수정
-//		{
-//			m_nInvenArmorColorIndex = m_nArmorColorIndex;
-//		}
-//		pSkinnedMesh->m_unTexSelectColor = m_nInvenArmorColorIndex;
-//		pSkinnedMesh->SetWorldMatrix(pMatrix);
-//		pSkinnedMesh->AnotherTexture(1);
-//		pSkinnedMesh->Render(FALSE, _SHUTTLE);
-////      pSkinnedMesh->SetDecalCount(0);
-//		m_pMatInven = pMatrix;
-//
-//		// 엔진
-//		if(pSkinnedMeshEngine != NULL)
-//		{
-//			pSkinnedMeshEngine->SetWorldMatrix(pMatrix);
-//			pSkinnedMeshEngine->AnotherTexture(1);
-//			pSkinnedMeshEngine->Render();
-//		}
-//
-//		// 2007-11-09 by dgwoo 무기 메쉬를 배열에서 벡터로 변경.
-//		for(int i = 0; i < m_vectInvenWeaponMesh.size(); i++)
-//		{
-//			if(m_vectInvenWeaponMesh[i].pInvenWeaponMesh)
-//			{		
-//				DWORD dwSrc,dwDest,dwColorOp;
-//				DWORD dwFogValue = FALSE;	
-//				DWORD dwLightColorOp = 0;					
-//				CEffectInfo* pEffectInfo = GetEffectWeapon(i);
-//				
-//				if(pEffectInfo 	&& (EFFECT_TYPE_OBJECT == pEffectInfo->m_nEffectType))// 오브젝트만 랜더
-//				{
-//					CObjectAni* pEffect = (CObjectAni*)pEffectInfo->m_pEffect;
-//					
-//					//06800370								
-//					{					
-//						g_pD3dDev->GetRenderState(D3DRS_SRCBLEND,&dwSrc);
-//						g_pD3dDev->GetRenderState(D3DRS_DESTBLEND,&dwDest);
-//						g_pD3dDev->GetTextureStageState(0,D3DTSS_COLOROP,&dwColorOp);
-//						
-//						g_pD3dDev->SetRenderState( D3DRS_ALPHATESTENABLE,   pEffect->m_bAlphaTestEnble);//pEffect->m_bAlphaTestEnble
-//						g_pD3dDev->SetRenderState( D3DRS_LIGHTING, TRUE );
-//						
-//						g_pD3dDev->SetRenderState( D3DRS_ZENABLE, pEffect->m_bZbufferEnable);
-//						if( pEffect->m_bZWriteEnable == FALSE)
-//						{
-//							g_pD3dDev->SetRenderState( D3DRS_ZWRITEENABLE, pEffect->m_bZWriteEnable );
-//						}
-//						g_pD3dDev->SetRenderState( D3DRS_ALPHABLENDENABLE,  pEffect->m_bAlphaBlending );
-//						if(pEffect->m_bAlphaBlending)
-//						{
-//							g_pD3dDev->GetRenderState( D3DRS_FOGENABLE,  &dwFogValue );
-//							
-//							g_pD3dDev->SetRenderState(D3DRS_SRCBLEND,pEffect->m_nSrcBlend);
-//							g_pD3dDev->SetRenderState(D3DRS_DESTBLEND,pEffect->m_nDestBlend);
-//						}
-//						g_pD3dDev->SetTextureStageState(0,D3DTSS_COLOROP,pEffect->m_nTextureRenderState);
-//						g_pD3dDev->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TEXTURE );					
-//						
-//						if(pEffect->m_bLightMapUse)
-//						{
-//							g_pD3dDev->GetTextureStageState( 1, D3DTSS_COLOROP, &dwLightColorOp );
-//							g_pD3dDev->SetTextureStageState( 1, D3DTSS_COLOROP, pEffect->m_nLightMapRenderState );
-//							g_pD3dDev->SetTextureStageState( 1, D3DTSS_TEXCOORDINDEX, 0 );
-//							
-//							g_pD3dDev->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_TEXTURE );
-//							g_pD3dDev->SetTextureStageState( 1, D3DTSS_COLORARG2, D3DTA_CURRENT );
-//						}
-//						
-//					}					
-//				}			
-//				m_vectInvenWeaponMesh[i].pInvenWeaponMesh->SetWorldMatrix(m_pMatInvenWeaponSetPosition[m_vectInvenWeaponMesh[i].nMatIndex]);
-//				m_vectInvenWeaponMesh[i].pInvenWeaponMesh->Render();
-//				if(pEffectInfo 	&& (EFFECT_TYPE_OBJECT == pEffectInfo->m_nEffectType))// 오브젝트만 랜더
-//				{
-//					g_pD3dDev->SetRenderState(D3DRS_SRCBLEND,dwSrc);
-//					g_pD3dDev->SetRenderState(D3DRS_DESTBLEND,dwDest);
-//					g_pD3dDev->SetTextureStageState(0,D3DTSS_COLOROP,dwColorOp);
-//
-//					CObjectAni* pEffect = (CObjectAni*)pEffectInfo->m_pEffect;
-//					
-//					//g_pD3dDev->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
-//					if(!pEffect->m_bUseEnvironmentLight)
-//					{
-//						g_pD3dDev->LightEnable( 2, FALSE );
-//					}
-//					if(pEffect->m_bLightMapUse)
-//					{
-//						g_pD3dDev->SetTextureStageState( 1, D3DTSS_COLOROP, dwLightColorOp );
-//					}
-//					if(pEffect->m_nSrcBlend == D3DBLEND_ONE && pEffect->m_nDestBlend == D3DBLEND_ONE && dwFogValue == TRUE)
-//					{
-//						g_pD3dDev->SetRenderState( D3DRS_FOGENABLE,  dwFogValue );
-//					}
-//					if(pEffect->m_bAlphaTestEnble)
-//					{
-//						g_pD3dDev->SetRenderState( D3DRS_ALPHATESTENABLE,  FALSE );
-//					}
-//					if( pEffect->m_bZWriteEnable == FALSE)
-//					{
-//						g_pD3dDev->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
-//					}
-//				}				
-//			}
-//		  
-//			// 2007-11-08 by bhsohn 인벤 이펙트 관련 처리
-//			// 파티클 랜더			
-//			//if(m_stInvenWeaponMesh[i].pInvenParticle)
-//			{				
-//				//g_pD3dApp->m_pEffectRender->ParticleInvenRender();
-//				
-//				g_pD3dApp->m_pEffectRender->RenderParticleInvenVector(m_vectInvenWeaponMesh[i].nMatIndex, 
-//						pMatrix, 
-//						m_pMatInvenWeaponSetPosition[m_vectInvenWeaponMesh[i].nMatIndex], 
-//						fUnitScaling);
-//				
-//			}			
-//		}
-//		// 랜더링 버퍼 초기화
-//		g_pD3dApp->m_pEffectRender->ResetContentInvneParticle();
-//
-//		// 복구
-//		g_pD3dDev->SetTransform( D3DTS_VIEW,		&pMatOldView );
-//		g_pD3dDev->SetTransform( D3DTS_PROJECTION,	&pMatOldProj );
-//		g_pD3dDev->SetRenderState( D3DRS_LIGHTING, TRUE );
-//	}
-//}
-// end 2008-08-22 by bhsohn EP3 인벤토리 처리
 
 
 void CShuttleChild::CheckShadowPos()
@@ -3981,6 +3671,10 @@ void CShuttleChild::UpdateEngine(CItemInfo* pItemInfo)
 	m_bySpeedPenalty = pITEM->SpeedPenalty;					// 2005-08-16 by ispark
 	m_fBURN = (float)pITEM->Time/1000.0f;
 
+	char szTemp[256];
+	sprintf(szTemp, "%f, %f, %f", pITEM->AbilityMin, pITEM->AbilityMax);
+	g_pD3dApp->m_pChat->CreateChatChild(szTemp, COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
+
 	// 2008-09-26 by bhsohn 신규 인첸트 처리
 	// 최소 속도
 	{		
@@ -4055,6 +3749,7 @@ void CShuttleChild::ChangeEngine(CItemInfo* pItemInfo, int nCurrentBURN)
 		m_pEngine->m_bUsing = FALSE;
 		m_pEngine = NULL;
 	}
+
 	D3DXVECTOR3 vTempPos = D3DXVECTOR3(0,0,0);
 //	m_pEngine = new CAppEffectData(this,pItemInfo->ItemNum,vTempPos);				// 2005-08-23 by ispark
 	// 2005-10-25 by ispark
@@ -4074,8 +3769,8 @@ void CShuttleChild::ChangeEngine(CItemInfo* pItemInfo, int nCurrentBURN)
  	m_fShuttleSpeedMax = pITEM->AbilityMax;
  	m_fShuttleSpeedBoosterOn = (float)pITEM->Range;
  	m_fShuttleSpeedMin = pITEM->AbilityMin;
- 	m_fShuttleGroundSpeedMax = pITEM->Charging;			// 2005-11-26 by ispark
- 	m_bySpeedPenalty = pITEM->SpeedPenalty;				// 2005-08-16 by ispark
+ 	m_fShuttleGroundSpeedMax = pITEM->Charging;
+ 	m_bySpeedPenalty = pITEM->SpeedPenalty;
  	m_fBURN = (float)pITEM->Time/1000.0f;
  
  	// 2008-09-26 by bhsohn 신규 인첸트 처리
@@ -4819,40 +4514,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 				//end 2010. 05. 27 by jskim 시네마 적용 카메라 구현
 				m_bMButtonState = TRUE;
-				// 2005-08-08 by ispark
-				// M버튼을 막는다. 그전에 있어서 롤링시 M버튼 사용금지도 추가
-//				if(m_bRollUsed == FALSE)
-//				{
-//					SetShuttleFlight();
-//				}
-// 2005-08-03 by ispark
-// 사용 금지
-//#ifdef _DEBUG
-//				DeletePattern();
-//				CObjectChild * pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPosition(EVENT_TYPE_OBJ_ENTER_BUILDING, m_vPos, 7000.0f);				
-//				if(pCurrentObjEvent)
-//				{
-//					CObjectChild* pObj = g_pScene->FindObjectByIndex(pCurrentObjEvent->m_sEventIndexFrom);					
-//					if(pObj)
-//					{
-//						// 위치 이동
-//						m_vPos = pObj->m_vPos;
-//						g_pCharacterChild->m_vPos = pObj->m_vPos;
-//						
-//						// 메세지 처리
-//						INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE,
-//							T_FC_CHARACTER_CHANGE_CHARACTER_MODE, pSMode, SendBuf);
-//						pSMode->CharacterMode0 = TRUE;
-//						pSMode->PositionAVec3 = m_vPos;
-//						pSMode->TargetAVec3 = m_vVel*1000.0f;
-//						g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE));
-//						
-//						// 캐릭터 모드 변환
-//						g_pD3dApp->m_bCharacter = TRUE;
-//						g_pCharacterChild->InitCharacterData();			  
-//					}
-//				}
-//#endif
+
 				// 2006-05-03 by ispark, 백뷰
 				SetBackView(TRUE);
 			}
@@ -5755,30 +5417,6 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 	m_ptOldPoint.x = x;
 	m_ptOldPoint.y = z;
 
-	// 2005-08-22 by ispark
-	// 들어왔을 때 착륙지점에서 착륙 못하게 막음. 정상적인 착륙이 아니면 날게 한다.
-//	if(g_pGround->m_pTileInfo[x*g_pGround->m_projectInfo.sYSize + z].bEnableLand && bState == FALSE)
-//	{
-////		SendPacket(T_FC_MOVE_LANDING);
-//		// 2004-11-04 by jschoi
-//		// 최초 시작 지점 체크에서 현재 위치가 착륙지점이라면 OnObject인지 검사를 위해 m_vPos 를 m_fAmorHeight 만큼 올려준다.
-//		m_vPos.y += m_fAmorHeight;
-//		if(SetOrderMoveTargetPos() == TRUE )
-//		{
-//			m_vPos = m_vTargetPos;
-//			m_vNextPos = m_vTargetPos;
-//			//m_dwState = _LANDED;
-//			ChangeUnitState( _LANDED );
-//			m_bIsAir = FALSE;
-////			SendPacket(T_FC_MOVE);
-////			g_pD3dApp->SendMovePacket(FALSE);
-//			g_fSendMovePacket = max(g_fSendMovePacket,5.0f);
-//		}
-//	}
-//	else
-//	{
-//		//m_vPos.y += 300.0f;// 지형보다 약간 높게 띄운다, 왜 올릴까?
-//	}
 	// 착륙전 시점이 1인칭이였으면 다시 1인칭으로 변환 
 	if(m_bLandingOldCamtypeFPS)
 	{
@@ -6175,26 +5813,6 @@ void CShuttleChild::SendFieldSocketRequestEventObjectWarpIn(CObjectChild * pObj)
 	if(m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER)
 	{
 		m_pClientParty->FSendPartyRequestPartyObjectEvent(pObj);
-//		char buffer[SIZE_MAX_PACKET];
-//		MSG_FC_PARTY_REQUEST_PARTY_OBJECT_EVENT sMsg;
-//		memset(&sMsg,0x00,sizeof(sMsg));
-//		memset(buffer,0x00,SIZE_MAX_PACKET);
-//		sMsg.ObjectType = pObj->m_nCode;
-//		sMsg.ObjectPosition = pObj->m_vPos;
-//		int nType = T_FC_PARTY_REQUEST_PARTY_OBJECT_EVENT;
-//		memcpy(buffer, &nType, SIZE_FIELD_TYPE_HEADER);
-//		int cont = 0;
-//		int i; for(i=0;i<MAX_PARTY_NUMBER - 1;i++)
-//		{
-//			if(m_nCharactUniqueNumber[i])
-//			{
-//				memcpy(buffer+SIZE_FIELD_TYPE_HEADER+sizeof(sMsg)+(cont)*sizeof(UINT), &m_nCharactUniqueNumber[i], sizeof(UINT));
-//				cont++;
-//			}
-//		}
-//		sMsg.nPartyMembers = cont;
-//		memcpy(buffer+SIZE_FIELD_TYPE_HEADER, &sMsg, sizeof(sMsg));
-//		g_pD3dApp->m_pFieldWinSocket->Write(buffer, SIZE_FIELD_TYPE_HEADER + sizeof(sMsg) + cont*sizeof(UINT));
 	}
 	else
 	{
@@ -6203,14 +5821,6 @@ void CShuttleChild::SendFieldSocketRequestEventObjectWarpIn(CObjectChild * pObj)
 		{
 			MSG_FC_EVENT_REQUEST_OBJECT_EVENT sMsg;
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM
-// 2011-02-08 by jhahn EP4 트리거 시스템
-// 			if ((pObj->m_nCode/10000000) == 9)
-// 			{
-// 				pObj->m_nCode =  pObj->m_nCode - 90000000;
-// 			}
-//end 2011-02-08 by jhahn EP4 트리거 시스템
-#endif
 			sMsg.ObjectType = pObj->m_nCode;
 			sMsg.ObjectPosition = pObj->m_vPos;
 			g_pFieldWinSocket->SendMsg( T_FC_EVENT_REQUEST_OBJECT_EVENT, (char*)&sMsg, sizeof(sMsg) );
@@ -6333,14 +5943,7 @@ void CShuttleChild::CheckEventTypeObject()
 					ChangeUnitState( _NORMAL );
 					m_bWarpLink = FALSE;
 					m_bKeyBlock = FALSE;										// 2005-10-26 by ispark
-					// 2007-06-12 by bhsohn 미션 인터페이스 수정안					
-//					if(g_pGameMain->m_pMissionInfo->GetMissionMapIndex())
-//					{
-//						INIT_MSG_WITH_BUFFER(MSG_FC_QUEST_MOVE_QUEST_MAP, T_FC_QUEST_MOVE_QUEST_MAP,
-//											pSQuestMove, SendBuf);
-//						pSQuestMove->QuestIndex0 = g_pGameMain->m_pMissionInfo->GetMissionIndex()->QuestIndex;
-//						g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_QUEST_MOVE_QUEST_MAP));
-//					}
+
 					SendGoMissionMap();					
 					
 				}
@@ -6582,14 +6185,7 @@ void CShuttleChild::CheckEventTypeObject()
 					ChangeUnitState( _NORMAL );
 					m_bWarpLink = FALSE;
 					m_bKeyBlock = FALSE;										// 2005-10-26 by ispark
-					// 2007-06-12 by bhsohn 미션 인터페이스 수정안
-//					if(g_pGameMain->m_pMissionInfo->GetMissionMapIndex())
-//					{
-//						INIT_MSG_WITH_BUFFER(MSG_FC_QUEST_MOVE_QUEST_MAP, T_FC_QUEST_MOVE_QUEST_MAP,
-//											pSQuestMove, SendBuf);
-//						pSQuestMove->QuestIndex0 = g_pGameMain->m_pMissionInfo->GetMissionIndex()->QuestIndex;
-//						g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_QUEST_MOVE_QUEST_MAP));
-//					}	
+	
 					SendGoMissionMap();
 				}
 			}
@@ -6765,11 +6361,6 @@ void CShuttleChild::InitItemPoint()
 
 	/*--------------------------------------------------------------------------*/
 	pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_CENTER );
-	// 우선 기체에 관한 것이므로 FALSE로 설정
-	// 2005-08-23 by ispark
-
-	// 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
-	//ChangeUnitCharacterInfo((pItem?pItem->ItemInfo->SourceIndex:0), m_myShuttleInfo.UnitKind, m_myShuttleInfo.BodyCondition, FALSE );
 
 	int nDefenseNum = 0;
 
@@ -6788,8 +6379,6 @@ void CShuttleChild::InitItemPoint()
 				nDefenseNum = pItem->ItemInfo->SourceIndex;
 		}
 	}
-	// 2010. 03. 18 by jskim 몬스터변신 카드
-	//ChangeUnitCharacterInfo( nDefenseNum, m_myShuttleInfo.UnitKind, m_myShuttleInfo.BodyCondition, FALSE );
 	BOOL bMonTras = FALSE;
 
 	if( m_MonsterTransformer )
@@ -7953,82 +7542,6 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 //		}
 		m_vMoveVel = m_vPos - vtempPos;
 		D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, 기어 이동 방향
-
-
-		// 2010. 03. 25 by ckPark 사망시 5초이상 추락하면 부활메세지 추가
-
-// 		// 추락시 충돌 처리 2004.06.19 jschoi
-// 		BOOL bResult = CheckCollMapObject();
-// 		if(m_vPos.y < CheckMap(m_vPos) + 2.0f || bResult)
-// 		{
-// 			ChangeUnitState( _FALLEN );
-// 			g_fSendMovePacket = max(g_fSendMovePacket,5.0f);
-// 
-// 			// 2005-08-22 by ispark
-// 			// 연료가 0일 때 추락후 보여줄 메시지 박스와 메시지 처리
-// 			// 2005-12-16 by ispark
-// 			// 죽은상태가 아닌 경우만 FUELALLIN 처리
-// 			if(FALSE == COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_DEAD_MASK)
-// 				&& 0 >= m_myShuttleInfo.CurrentEP)// && 
-// 			//	!COMPARE_BODYCON_BIT(g_pShuttleChild->m_myShuttleInfo.BodyCondition,BODYCON_DEAD_MASK))
-// 			{
-// 				ChangeUnitState( _FUELALLIN );
-// 				// 메세지 처리
-// 				g_pFieldWinSocket->WriteMessageType(T_FC_CHARACTER_FALLING_BY_FUEL_ALLIN);
-// 				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050819_0100, COLOR_ERROR);
-// 			}
-// 			else
-// 			{
-// 				// 2005-03-28 by jschoi - 죽었을 때 부활 카드 사용
-// 				CItemInfo* pItemInfo = g_pStoreData->SerchRevivalUseItem();
-// 				MAP_INFO* pMapInfo = g_pDatabase->GetMapInfo(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);
-// // 2005-12-05 by ispark, 
-// //				if(g_pD3dApp->m_bDeadByP2PPK == TRUE)// 1:1결투하다가 적에게 죽은 경우
-// 				// 2006-01-02 by ispark, 다른 세력맵이면
-// 				// 2006-04-10 by ispark, 부활 카드 수정, 1:1 결투는 제외
-// 				// 2006-11-17 by ispark, 이벤트 맵에서는 제외
-// 				// 2007-05-15 by dgwoo, 아레나 맵에서 제외.
-// 				if(g_pD3dApp->m_bDeadByP2PPK == FALSE && 
-// 					pItemInfo &&
-// 					IsRevivalUseItem())
-// 				{
-// 					char strRevivalMsg[512] = {0,};
-// 					// 2009-04-21 by bhsohn 아이템 DesParam추가
-// 					//sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ParameterValue1);	// "%s를 사용하시겠습니까? 확률은 %.0f입니다."
-// 					sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ArrParameterValue[0]);	// "%s를 사용하시겠습니까? 확률은 %.0f입니다."
-// 					g_pGameMain->m_pInfWindow->AddMsgBox(strRevivalMsg, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);
-// 				}
-// 				else
-// 				{
-// 					// 2006-11-17 by ispark, 부활 카드가 있지만 이벤트 맵이라면
-// 					if(pItemInfo && IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType))
-// 					{
-// 						char chMsg[512] = {0,};
-// 						wsprintf(chMsg, STRMSG_C_061117_0000, pItemInfo->ItemInfo->ItemName);	// "이벤트맵에서는 %s 아이템을 사용할 수 없습니다."
-// 						g_pD3dApp->m_pChat->CreateChatChild(chMsg, COLOR_ERROR);
-// 					}
-// 
-// 					SendDeadMsg();
-// 				}
-// 
-// 
-// // 2005-12-05 by ispark, 부활 카드 삭제
-// //				else if(pItemInfo = g_pStoreData->FindItemInInventoryByItemNum(ITEM_NUM_CASH_CASH_NORMAL_RESTORE))
-// //				{
-// //					g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0001, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);//"일반 부활 카드를 사용하시겠습니까? (취소시 격납고로 이동합니다.)"
-// //				}
-// //				else if(pItemInfo = g_pStoreData->FindItemInInventoryByItemNum(ITEM_NUM_CASH_CASH_SUPER_RESTORE))
-// //				{
-// //					g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0002, _Q_USE_SUPER_RESTORE,0,0,0,pItemInfo->UniqueNumber);//"슈퍼 부활 카드를 사용하시겠습니까? (취소시 격납고로 이동합니다.)"
-// //				}
-// //				else
-// //				{// 부활 카드가 없다면
-// //					g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0003, _Q_DEAD_RETURN);	//"격납고로 이동합니다."
-// //				}
-// 
-// 				ResetBodyCondition(BODYCON_EXPLOSION_MASK);
-// 			}
-// 		}
 		
 
 		// 추락시 충돌 처리
@@ -8664,18 +8177,6 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 			//{
 //			nFBMove++;
 			CheckBoosterState(fElapsedTime,true,nOldBoosterType);
-			//}
-			//				if(g_pD3dApp->m_dwGameState == _SHOP &&
-			//					g_pGameMain->m_pShop->m_pNPCWindow->m_buildingInfo.BuildingIndex != 0)
-			//				{
-			//					SendPacket(T_FC_EVENT_LEAVE_BUILDING);
-			//					//더이상 패킷을 안보내기 위해 미리 나온다.
-			//					g_pD3dApp->ChangeGameState(_GAME);
-			//					m_fEventCheckTime = 2.0f;
-			//					m_bEventReady = TRUE;
-			//					ChangeUnitState( _NORMAL );
-			//					g_pGameMain->m_pMission->m_bShow = FALSE;
-			//				}
 		}
 		else
 		{
@@ -8711,23 +8212,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 			m_nBooster = BOOSTER_TYPE_STOP;
 		}
 	}
-	//		if(!g_pD3dApp->m_bChatMode &&
-	//			!m_bReflexionKeyBlock && 
-	//			(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE))&&
-	//			m_myShuttleInfo.CurrentEP > 0 &&
-	//			m_bAttackMode != _SIEGE &&
-	//			m_bReChargeBURN )
-	//		{
-	//			m_nShuttleStopState = 0;
-	//			m_nBooster = BOOSTER_TYPE_MAX;
-	//			nFBMove = 1;
-	//		}
-	//		if(m_nBooster == BOOSTER_TYPE_MAX)
-	//		{
-	//			// 이륙하게 된다.
-	//			SendPacket(T_FC_MOVE_TAKEOFF);
-	//			m_bIsAir = TRUE;
-	//		}
+
 	// 2006-11-02 by dgwoo A기어는 여기서 처리.
 	if(!IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex) &&
 		m_bLandingField == FALSE &&
@@ -9198,12 +8683,8 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		&& (g_pGround->m_pTileInfo[nCheckX*g_pGround->m_projectInfo.sYSize + nCheckZ].bEventType == EVENT_TYPE_ENTER_BUILDING
 		|| g_pGround->m_pTileInfo[nCheckX*g_pGround->m_projectInfo.sYSize + nCheckZ].bEventType == EVENT_TYPE_LANDING))
 	{
-		// 상점으로 들어감을 알린다
-//		if(m_fDTEventCheckTime <= 0.0f && m_vPos.y <= fHeight + m_fAmorHeight)
 		{
-			// 강제로 Move를 전송한다.
-			//				SendPacket(T_FC_MOVE);
-			//				g_pD3dApp->SendMovePacket(FALSE);
+
 			
 			g_pD3dApp->m_vClientOldPos = m_vPos;
 			//				g_pD3dApp->m_dwLastTickTime = g_pD3dApp->m_dwCurTickTime;
@@ -9997,20 +9478,9 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 				g_pD3dApp->m_bFixUnitDirMode = FALSE;		
 			}
 		}	
-//		else if(IS_DT(m_myShuttleInfo.UnitKind) && (m_bAttackMode == _SIEGE))
-//		{// 2006-11-16 by dgwoo 에어시즈 모드일때.
-//			//m_fShuttleSpeed -= m_fShuttleSpeed * fElapsedTime * 4.0f;
-//			m_fShuttleSpeed = 0;
-//			m_fTempGravity = 0.0f;
-//			
-//		}
 
 		else
 		{// Move_Air
-			
-			// 이 부분은 새로 만들어진 부분
-			// 코드에서 아래쪽에 주석으로 된 부분이 예전 코드 
-			// 유닛의 움직임에 대해 매우 민감한 부분이므로 반드시 확인 해야 함.
 
 			// 2005-05-31 by jschoi - 유닛이 상하 이동 시 속도 차이를 두고 하강 시 빠른 속도로 이동
 			float GRAVITY = 98.0f;		// 짝퉁 중력 가속도 
@@ -10065,17 +9535,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 					m_fShuttleSpeed = 0.0f;
 				}
 			}
-			// 2008-11-13 by bhsohn 조이스틱 작업
-//			else if(((g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S) &&
-//				!g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE))|| // 스페이스바 안 눌렀을 때
-			// 2014-09-04 by ymjoo S키 토글
-// 			else if(((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) &&
-// 				!g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE))|| // 스페이스바 안 눌렀을 때
-// 				m_bOrderMove || 
-// //				g_pD3dApp->m_bChatMode ||				// 2005-11-16 by ispark 채팅시 에어브레이크 삭제
-// 				g_pD3dApp->m_bFixUnitDirMode) &&
-// 				m_bUnitStop == FALSE &&
-// 				m_bPenaltyUnitStop == FALSE)								// 2005-08-08 by ispark 유닛정지시 사용 안함
+
 			else if((((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) || m_bToggleKeyS) &&
 				!g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE))|| // 스페이스바 안 눌렀을 때
 				m_bOrderMove || 
@@ -10087,20 +9547,11 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 			{
 
 				float fAddSpeed = (m_fShuttleSpeed - m_fRealShuttleSpeedMin)*fElapsedTime*AIR_BREAK;
-				// 2015-05-13 by jwlee 리버스엔진 사용시 속도 끊김 현상 수정
-// 				if ( fabs(fAddSpeed) < 0.005f )
-// 					m_fShuttleSpeed /= 2;
-// 				else
-//					m_fShuttleSpeed -= fAddSpeed;
+
 				if ( fabs(fAddSpeed) >= 0.005f )
 				m_fShuttleSpeed -= fAddSpeed;
 				// end 2015-05-13 by jwlee 리버스엔진 사용시 속도 끊김 현상 수정
-
-				// 2013-06-27 by bhsohn M기어[리버스엔진] 충돌체크 안되는 부분 처리
-// 				if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-// 				{
-// 					m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-// 				}				
+		
 				if(m_fReverserIgnoreTime <= 0)
 				{
 					if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
@@ -10216,235 +9667,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 				}
 			}
 		}
-/*
-		// 2004-11-30 by jschoi
-		if(m_nShuttleStopState == 4)	// 워프 아웃 패턴 종료시 에어 브레이크 서서히 속력을 줄인다.
-		{
-			m_fShuttleSpeed -= (m_fRealShuttleSpeedMin - m_fShuttleSpeed)*fElapsedTime;
-			if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-			{
-				m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-			}
-
-//			if(m_fShuttleSpeed > 60.0f)
-//			{
-//				m_fShuttleSpeed -= m_fShuttleSpeed*fElapsedTime/2;
-//			}
-//			else
-//			{
-//				m_fShuttleSpeed -= 30.0f*fElapsedTime;
-//			}
-//
-//			if(m_fShuttleSpeed < 0)
-//			{
-//				m_fShuttleSpeed = 0;
-//
-//				// 2005-05-11 by jschoi
-////				m_nShuttleStopState = 3;
-//				if(	IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind) )
-//				{// M,A 기어
-//					m_nShuttleStopState = 1;
-//				}
-//				else
-//				{// B,I 기어
-//					m_nShuttleStopState = 3;
-//					m_nBooster = BOOSTER_TYPE_AIRBREAK;
-//					g_pD3dApp->m_pSound->StopD3DSound( SOUND_HIGH_BOOSTER );
-//				}			
-//				
-//			}
-		}
-		else if(nFBMove == 0)
-		{
-			if(g_pD3dApp->m_dwGameState == _SHOP)
-			{// 상점 이벤트 중일때 속도는 줄인다.
-				if(m_fShuttleSpeed > 1.0f)
-				{
-					m_fShuttleSpeed -= 50.0f*fElapsedTime;
-					if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-					{
-						m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-					}
-//					if(m_fShuttleSpeed < 0.0f)
-//					{
-//						m_fShuttleSpeed = 0.0f;
-//					}
-				}
-				else if(m_fShuttleSpeed < -1.0f)
-				{
-					m_fShuttleSpeed += 50.0f*fElapsedTime;
-					if(m_fShuttleSpeed > 0.0f)
-					{
-						m_fShuttleSpeed = 0.0f;
-					}
-				}
-				else
-				{
-					m_fShuttleSpeed = 0.0f;
-				}
-			}
-			else
-			{
-				if(IS_BT(m_myShuttleInfo.UnitKind) || IS_ST(m_myShuttleInfo.UnitKind))
-				{
-					if(m_nBooster == BOOSTER_TYPE_AIRBREAK)
-					{
-//						m_fShuttleSpeed = 0.0f;
-						m_fShuttleSpeed -= m_fShuttleSpeed*fElapsedTime;
-						if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-						{
-							m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-						}
-//						if(m_fShuttleSpeed < 0)
-//							m_fShuttleSpeed = 0;
-					}
-					else
-					{
-						// 속도가 오버 되었는지 체크
-						if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-							m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-//						else if(m_fShuttleSpeed > m_fShuttleSpeedBoosterOn)
-//							m_fShuttleSpeed = m_fShuttleSpeedBoosterOn;
-						else if(m_fShuttleSpeed > m_fRealShuttleSpeedBoosterOn)
-							m_fShuttleSpeed = m_fRealShuttleSpeedBoosterOn;
-//						else if(m_fShuttleSpeed > m_fShuttleSpeedMax)
-						else if(m_fShuttleSpeed > m_fRealShuttleSpeedMax)
-							m_fShuttleSpeed -= 30.0f*fElapsedTime;
-					}
-				}
-				else
-				{
-					if(IS_DT(m_myShuttleInfo.UnitKind) && !m_bIsAir)
-					{
-						if(m_fShuttleSpeed > 1.0f)
-						{
-							m_fShuttleSpeed -= 20.0f*fElapsedTime;
-							if(m_fShuttleSpeed < 0.0f)
-							{
-								g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
-								m_fShuttleSpeed = 0.0f;
-							}
-						}
-						else if(m_fShuttleSpeed < -1.0f)
-						{
-							m_fShuttleSpeed += 20.0f*fElapsedTime;
-							if(m_fShuttleSpeed > 0.0f)
-							{
-								g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
-								m_fShuttleSpeed = 0.0f;
-							}
-						}
-						else
-						{
-							g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
-							m_fShuttleSpeed = 0.0f;
-						}
-					}
-				
-					// 앞 키가 안눌렀을때 속도 증감이 없다 현재 속도 유지
-					if(m_fShuttleSpeed < -1.0f)
-					{
-						m_fShuttleSpeed += 20.0f*fElapsedTime;
-						if(m_fShuttleSpeed > 0.0f)
-						{
-							g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
-							m_fShuttleSpeed = 0.0f;
-						}
-					}
-					if((g_pStoreData->GetTotalWeight() / CAtumSJ::GetTransport(&g_pShuttleChild->m_myShuttleInfo)) > 0.9f)
-					{
-						if(m_fShuttleSpeed < 0)
-						{
-							g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
-							m_fShuttleSpeed = 0;
-						}
-						else if(m_fShuttleSpeed > (m_fRealShuttleSpeedMin<0 ? 10 :m_fRealShuttleSpeedMin))
-						{
-							m_fShuttleSpeed = (m_fRealShuttleSpeedMin<0 ? 10 :m_fRealShuttleSpeedMin);
-						}
-					}
-					// 속도가 오버 되었는지 체크
-					if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-						m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-//					else if(m_fShuttleSpeed > m_fShuttleSpeedBoosterOn)
-//						m_fShuttleSpeed = m_fShuttleSpeedBoosterOn;
-					else if(m_fShuttleSpeed > m_fRealShuttleSpeedBoosterOn)
-						m_fShuttleSpeed = m_fRealShuttleSpeedBoosterOn;
-//					else if(m_fShuttleSpeed > m_fShuttleSpeedMax)
-					else if(m_fShuttleSpeed > m_fRealShuttleSpeedMax)
-						m_fShuttleSpeed -= 30.0f*fElapsedTime;
-				}
-			}
-		}
-		else
-		{	// ship의 움직임[앞,뒤] 키가 눌러졌을때
-			// 아래 3줄 ... 부스터 일때는 부스터 의 속도 만큼 가속도가 적용된다-일반비행시는 일반속도만큼.
-			if(m_nBooster == BOOSTER_TYPE_AIRBREAK)
-			{
-//				m_fShuttleSpeed = 0.0f;
-				m_fShuttleSpeed -= m_fShuttleSpeed*fElapsedTime;
-				if(m_fShuttleSpeed < 0)
-				{
-					g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
-					m_fShuttleSpeed = 0;
-				}
-			}
-			else
-			{
-				if(nFBMove == -1)
-				{
-					if(m_fShuttleSpeed > m_fRealShuttleSpeedMin)
-						m_fShuttleSpeed -= 70.0f*fElapsedTime;
-					else if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
-						m_fShuttleSpeed = m_fRealShuttleSpeedMin;
-				}
-				else
-				{
-					if(m_nBooster == BOOSTER_TYPE_MAX)
-					{
-//						if(m_fShuttleSpeed < m_fShuttleSpeedBoosterOn)
-						if(m_fShuttleSpeed < m_fRealShuttleSpeedBoosterOn)
-						{
-//							float fGap = m_fShuttleSpeedBoosterOn - m_fShuttleSpeed;
-							float fGap = m_fRealShuttleSpeedBoosterOn - m_fShuttleSpeed;
-							m_fShuttleSpeed += fGap*fElapsedTime;
-//							if(m_fShuttleSpeed > m_fShuttleSpeedBoosterOn)
-//								m_fShuttleSpeed = m_fShuttleSpeedBoosterOn;
-							if(m_fShuttleSpeed > m_fRealShuttleSpeedBoosterOn)
-								m_fShuttleSpeed = m_fRealShuttleSpeedBoosterOn;
-						}
-					}
-					else
-					{
-//						if(m_fShuttleSpeed < m_fShuttleSpeedMax)
-						if(m_fShuttleSpeed < m_fRealShuttleSpeedMax)
-						{
-//							float fGap = m_fShuttleSpeedMax - m_fShuttleSpeed;
-							float fGap = m_fRealShuttleSpeedMax - m_fShuttleSpeed;
-							m_fShuttleSpeed += fGap*fElapsedTime;
-//							if(m_fShuttleSpeed > m_fShuttleSpeedMax)
-//								m_fShuttleSpeed = m_fShuttleSpeedMax;
-							if(m_fShuttleSpeed > m_fRealShuttleSpeedMax)
-								m_fShuttleSpeed = m_fRealShuttleSpeedMax;
-						}
-//						else if(m_fShuttleSpeed > m_fShuttleSpeedMax)
-						else if(m_fShuttleSpeed > m_fRealShuttleSpeedMax)
-						{
-//							float fGap = m_fShuttleSpeed - m_fShuttleSpeedMax;
-							float fGap = m_fShuttleSpeed - m_fRealShuttleSpeedMax;
-							m_fShuttleSpeed -= fGap*fElapsedTime;
-//							if(m_fShuttleSpeed < m_fShuttleSpeedMax)
-//								m_fShuttleSpeed = m_fShuttleSpeedMax;
-							if(m_fShuttleSpeed < m_fRealShuttleSpeedMax)
-								m_fShuttleSpeed = m_fRealShuttleSpeedMax;
-						}
-					}
-				}
-			}
-		}
-
-*/
-
+	
 	}
 	else if(m_dwState == _LANDING)
 	{
@@ -10582,17 +9805,6 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 
 	m_vMoveVel = m_vNextPos - m_vPos;
 	D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, 기어 이동 방향
-
-// 2005-08-08 by ispark
-// 기존 F11키를 없앤다.
-//#ifdef _DEBUG
-//	if(m_bUnitStop)
-//	{
-//		m_fShuttleSpeed = 0.0f;
-//		m_fTempGravity = 0.0f;
-//		m_fRealShuttleSpeedMin = 0.0f;
-//	}
-//#endif
 }
 
 #define SHUTTLE_MAP_COLL_RATE			5.0f

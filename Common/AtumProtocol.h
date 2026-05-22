@@ -6157,6 +6157,7 @@ typedef mt_vector<SATTACK_PARAMETER>			mtvectSATTACK_PARAMETER;		// 2007-06-07 b
 typedef vector<SATTACK_PARAMETER>				vectSATTACK_PARAMETER;			// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
 #endif
 
+#ifdef _RAT_ANTI_CHEAT
 typedef struct
 {
 	ClientIndex_t	AttackIndex;
@@ -6168,11 +6169,24 @@ typedef struct
 	USHORT			RemainedBulletFuel;	// 남은 총알(혹은 Fuel)의 수
 	UINT			SkillNum;			// 스킬 사용 시 사용
 	ClientIndex_t	DelegateClientIdx;	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 몬스터 간 2형 무기 폭팔 처리 할 위임 클라이언트
-#ifdef _RAT_ANTI_CHEAT
+
 	float			ServerExplosionRange_Secondary;
 	float			ServerWarheadSpeed_Secondary;
-#endif
 } MSG_FC_BATTLE_ATTACK_OK;				// F->C_in_range
+#else
+typedef struct
+{
+	ClientIndex_t	AttackIndex;
+	MEX_TARGET_INFO	TargetInfo;
+	AVECTOR3		FirePosition;		// 무기의 발사 위치
+	BYTE			AttackType;			// 공격 타입, ATT_TYPE_XXX
+	UID16_t			WeaponIndex;		// 클라이언트에서 발사된 총알의 인덱스, 서버에서 생성, CUID16Generator 사용
+	UINT			ItemNum;			// 무기의 ItemNum
+	USHORT			RemainedBulletFuel;	// 남은 총알(혹은 Fuel)의 수
+	UINT			SkillNum;			// 스킬 사용 시 사용
+	ClientIndex_t	DelegateClientIdx;	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 몬스터 간 2형 무기 폭팔 처리 할 위임 클라이언트
+} MSG_FC_BATTLE_ATTACK_OK;				// F->C_in_range
+#endif
 
 typedef struct
 {

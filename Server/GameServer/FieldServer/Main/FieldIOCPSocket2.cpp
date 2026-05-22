@@ -21075,6 +21075,7 @@ void CFieldIOCPSocket::AddCharacterFame(int i_nAddCharacterFameValues/*=1*/, int
 		// 변경 정보를 클라이언트로 전송한다.
 		CheckAndUpdateStatus();
 		SendCharacterInfo(T_FC_CHARACTER_CHANGE_PKPOINT);
+
 		
 		// DB에 저장
 		QPARAM_CHARACTER_CHANGE_PKPOINT *pQChangePKPointLoser = new QPARAM_CHARACTER_CHANGE_PKPOINT;
@@ -21735,35 +21736,6 @@ BOOL CFieldIOCPSocket::ResetAllSkillAndEnchant()
 	m_ParamFactor.Reset();									// 모든 ParamFactor 초기화
 	this->m_InvokingItemManager.Init();		// 2009-09-09 ~ 2010-02-10 by dhjin, 인피니티 - 발동류장착아이템, 초기화
 
-
-// 2009-09-09 ~ 2010-02-10 by dhjin, 인피니티 - 발동류장착아이템
-// 	m_SkillManager.ApplyAllPermanentAndAtivatedSkills();	// PermanentSill 적용
-// 	ApplyEnchant(&m_ItemProwOut);							// 1형 무기 Enchant 적용(모든 인챈트가 적용됨)
-// 	ApplyEnchant(&m_ItemWingOut);							// 2형 무기 Enchant 적용(모든 인챈트가 적용됨)
-// 	ApplyRareFix(((ITEM_GENERAL*)m_ItemProwOut.ItemNum));	// 1형 무기 Rare 적용
-// 	ApplyRareFix(((ITEM_GENERAL*)m_ItemWingOut.ItemNum));	// 2형 무기 Rare 적용
-// 	
-// 	ApplyEnchant(&m_ItemCenter);							// 아머 Enchant 적용(HP,DP를 제외한 인챈트 적용)
-// 	ApplyArmorParamFactor();								// 아머 3,4번 Param 적용
-// 	
-// 	// 2008-09-23 by dhjin, 신규 인첸트
-// 	ApplyEnchant(&m_ItemRear);		// 엔진 적용
-// 	ApplyEnchant(&m_ItemProw);		// 레이더 적용
-// 	
-// 	ChangeHP(GetCharacterTotalHP());
-// 	ChangeDP(GetCharacterTotalDP());
-// 	
-// 	///////////////////////////////////////////////////////////////////////////////
-// 	// 2006-04-24 by cmkwon
-// 	this->ApplyParamFactorWithAllUsingTimeLimitedOnlyCardItemW();
-// 	
-// 	///////////////////////////////////////////////////////////////////////////////
-// 	// 2006-04-24 by cmkwon
-// 	ITEM_GENERAL *pAccesoryTimeLimiteItemG = GetAttachItemGeneralByPosition(POS_PET);
-// 	if(pAccesoryTimeLimiteItemG)
-// 	{
-// 		ApplyParamFactorWithAccesoryTimeLimiteItem(pAccesoryTimeLimiteItemG->ItemInfo);
-// 	}
 	///////////////////////////////////////////////////////////////////////////////
 	// 2009-09-09 ~ 2010-02-10 by dhjin, 인피니티 - 발동류장착아이템	
 	m_SkillManager.ApplyAllPermanentAndAtivatedSkills();	// PermanentSill 와 ActivateSkill 기능 적용
@@ -29655,6 +29627,105 @@ void CFieldIOCPSocket::InfluenceWarBonus2Killer(CFieldIOCPSocket *i_pFISockDeade
 
 	// 2006-02-09 by cmkwon, 명성치 보너스
 	this->AddCharacterFame();
+#ifdef _RAT_KILL_MSG // Kill Message Announce
+	// 1. GATHER DATA & CONSTRUCT STRING ONCE (Outside the Loop)
+	USHORT MapIndex = this->m_character.MapChannelIndex.MapIndex;
+	if (MapIndex)
+	{
+		string MapName = CAtumSJ::GetMapName(MapIndex);
+
+		BYTE PlayerInfluence = this->m_character.InfluenceType;
+		string PlayerName = this->m_character.CharacterName;
+		string PlayerGear = CAtumSJ::GetGLOGUnitKindString(this->m_character.UnitKind);
+
+		BYTE EnemyInfluence = pDeadedChar->InfluenceType;
+		string EnemyName = pDeadedChar->CharacterName;
+		string EnemyGear = CAtumSJ::GetGLOGUnitKindString(pDeadedChar->UnitKind);
+
+		// Resolve Player Gear Abbreviation
+		if (PlayerGear == UNITKIND_ENG_BGEAR)       PlayerGear = "(BG)";
+		else if (PlayerGear == UNITKIND_ENG_MGEAR)  PlayerGear = "(MG)";
+		else if (PlayerGear == UNITKIND_ENG_AGEAR)  PlayerGear = "(AG)";
+		else if (PlayerGear == UNITKIND_ENG_IGEAR)  PlayerGear = "(IG)";
+		else                                        PlayerGear = "(U??)";
+
+		// Resolve Enemy Gear Abbreviation
+		if (EnemyGear == UNITKIND_ENG_BGEAR)        EnemyGear = "(BG)";
+		else if (EnemyGear == UNITKIND_ENG_MGEAR)   EnemyGear = "(MG)";
+		else if (EnemyGear == UNITKIND_ENG_AGEAR)   EnemyGear = "(AG)";
+		else if (EnemyGear == UNITKIND_ENG_IGEAR)   EnemyGear = "(IG)";
+		else                                        EnemyGear = "(U??)";
+
+		char szTemp[256];
+		BOOL SendMessage = false;
+
+		// Check Influence Types and format the buffer
+		if (PlayerInfluence == INFLUENCE_TYPE_VCN)
+		{
+			if (EnemyInfluence == INFLUENCE_TYPE_ANI)
+			{
+				sprintf(szTemp, "\\e%s\\p%s\\m Has Killed \\c%s\\p%s\\m in \\r%s\\m!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str(), MapName.c_str());
+				SendMessage = true;
+			}
+			else if (EnemyInfluence == INFLUENCE_TYPE_VCN)
+			{
+				sprintf(szTemp, "\\e%s\\p%s\\m Has Won Againts \\e%s\\p%s\\m in a Duel!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str());
+				SendMessage = true;
+			}
+			else
+			{
+				sprintf(szTemp, "\\e%s\\p%s\\m Has Killed \\w%s\\p%s\\m!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str());
+				SendMessage = true;
+			}
+		}
+		else if (PlayerInfluence == INFLUENCE_TYPE_ANI)
+		{
+			if (EnemyInfluence == INFLUENCE_TYPE_VCN)
+			{
+				sprintf(szTemp, "\\c%s\\p%s\\m Has Killed \\e%s\\p%s\\m in \\r%s\\m!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str(), MapName.c_str());
+				SendMessage = true;
+			}
+			else if (EnemyInfluence == INFLUENCE_TYPE_ANI)
+			{
+				sprintf(szTemp, "\\c%s\\p%s\\m Has Won Againts \\c%s\\p%s\\m in a Duel!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str());
+				SendMessage = true;
+			}
+			else
+			{
+				sprintf(szTemp, "\\c%s\\p%s\\m Has Killed \\w%s\\p%s\\m!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str());
+				SendMessage = true;
+			}
+		}
+		else
+		{
+			sprintf(szTemp, "\\c%s\\p%s\\m Has Killed \\w%s\\p%s\\m!", PlayerName.c_str(), PlayerGear.c_str(), EnemyName.c_str(), EnemyGear.c_str());
+			SendMessage = true;
+		}
+
+		// 2. BROADCAST LOOP (Only runs if a valid message was generated)
+		if (SendMessage)
+		{
+			CFieldIOCPSocket* pSock = NULL;
+			int maxClients = ms_pFieldIOCP->GetArrayClientSize();
+
+			for (int i = CLIENT_INDEX_START_NUM; i < maxClients; i++)
+			{
+				pSock = (CFieldIOCPSocket*)ms_pFieldIOCP->GetIOCPSocket(i);
+
+				if (pSock
+					&& pSock->IsValidCharacter(FALSE)
+					&& pSock->IsCheckInfluenceTypeANDSocketType(INFLUENCE_TYPE_ALL_MASK, ST_CLIENT_TYPE)
+					&& pSock->IsCheckLevel(1, CHARACTER_MAX_LEVEL)
+					&& pSock->GetCharacter() // Added safety nullptr check before accessing UnitKind
+					&& COMPARE_BIT_FLAG(pSock->GetCharacter()->UnitKind, UNITKIND_ALL_MASK))
+				{
+					// Just send the pre-built buffer instantly
+					pSock->SendString128(STRING_128_USER_NOTICE, szTemp);
+				}
+			}
+		}
+	}
+#endif // _RAT_KILL_MSG
 
 	CHARACTER2ITEMLIST *pChar2ItemList = ms_pFieldIOCP->FindCharacter2Item(pDeadedChar->InfluenceType, pDeadedChar->UnitKind);
 	if(NULL == pChar2ItemList)

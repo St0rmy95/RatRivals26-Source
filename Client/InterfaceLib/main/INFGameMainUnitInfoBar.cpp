@@ -663,13 +663,29 @@ void CINFGameMainUnitInfoBar::SetEXP(float fExp)
 	// 2006-02-07 by ispark
 	fExp = min(99.99f, fExp);
 	fExp = max(0.00f, fExp);
+#ifdef _RAT_RANK_SYSTEM
+	int PlayerFame = g_pShuttleChild->m_myShuttleInfo.Propensity;
+
+	SRANK_SYSTEM pRANK_SYSTEM;
+	SRANK_DATA pRANK_DATA = pRANK_SYSTEM.GetRankByFame(PlayerFame);
+
+#endif
+
 	if (g_pShuttleChild->m_myShuttleInfo.Level == CHARACTER_MAX_LEVEL)
 	{
+#ifdef _RAT_RANK_SYSTEM
+		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "\\m[%s\\m] \\wLevel \\c%d", pRANK_DATA.Name.c_str(), g_pShuttleChild->m_myShuttleInfo.Level);
+#else
 		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "Level %d", g_pShuttleChild->m_myShuttleInfo.Level);
+#endif
 	}
 	else
 	{
+#ifdef _RAT_RANK_SYSTEM
+		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "\\m[%s\\m] \\wLv.\\c%d \\e%5.1f%%", pRANK_DATA.Name.c_str(), g_pShuttleChild->m_myShuttleInfo.Level, fExp);
+#else
 		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "Lv.%d  %5.2f%%", g_pShuttleChild->m_myShuttleInfo.Level, fExp);
+#endif
 	}
 	m_fGageRate[GAMEMAIN_GAGE_EXP_UP] = fExp/100.0f;
 }

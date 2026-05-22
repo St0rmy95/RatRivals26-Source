@@ -981,6 +981,7 @@ float CFieldIOCPSocket::GetPlusWarPointRate(void)
 Experience_t CFieldIOCPSocket::ChangeExperience(Experience_t fChangeValue, BOOL i_bApplyPartner /*=FALSE*/, BOOL i_bApplyPlusRate/*=TRUE*/, BOOL i_bCheckValidGameUser/*=TRUE*/, INT nInSamePartyMember/*=1*/, CFieldMonster* pTargetMonster/*=NULL*/) // 2011-08-22 by hskim, 파트너 시스템 2차 - 기능 구현
 	// 2012-10-12 by jhjang 해피 아워 경험치 보너스 시스템 리뉴얼
 {
+	
 	BOOL bSendHappyHourEventInfo = FALSE;	// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
 
 	// 2015-08-11 by jwlee 만렙 확장으로 인해 얻을 수 있는 경험치 제한 10억으로 변경 
@@ -994,15 +995,6 @@ Experience_t CFieldIOCPSocket::ChangeExperience(Experience_t fChangeValue, BOOL 
 	}
 	// end 2012-01-16 by hskim, EP4 - 경험치 버그 예방 : 3억 이상이면 경험치 못먹도록 방지
 
-// 2006-11-16 by cmkwon, 시스템 변경으로 필요 없음
-//	///////////////////////////////////////////////////////////////////////////////
-//	// 2006-06-14 by cmkwon
-//	if(i_bCheckValidGameUser
-//		&& FALSE == this->IsValidGameUser())
-//	{// 2006-06-14 by cmkwon, 베트남 정액제 체크 - 경험치
-//		return;
-//	}
-
 	///////////////////////////////////////////////////////////////////////////////
 	// 경험치 추가 Rate를 구한다
 	if(i_bApplyPlusRate)
@@ -1014,24 +1006,6 @@ Experience_t CFieldIOCPSocket::ChangeExperience(Experience_t fChangeValue, BOOL 
 		
 	}
 	
-///////////////////////////////////////////////////////////////////////////////
-// 2007-06-14 by cmkwon, 게임 지속 시간 제한 기본 시스템으로 수정 - 아래와 같이 수정
-//	///////////////////////////////////////////////////////////////////////////////
-//	// 2006-11-16 by cmkwon, 베트남에 하루에 3시간 이상 게임하면 경험치 50%감소, 5시간 이상이면 경험치 습득 없음(퀘스트 제외)
-//	if(i_bCheckValidGameUser
-//		&& LANGUAGE_TYPE_VIETNAMESE == g_pFieldGlobal->GetLanguageType())
-//	{// 2006-11-16 by cmkwon, 베트남만 처리된다
-//
-//		int nGameContinueTimeOfToday = this->GetCurGameContinueTimeInSecondOfToday();
-//		if(nGameContinueTimeOfToday > TERM_GAME_PLAYTIME_LIMIT_LAST_SEC)
-//		{// 2006-11-23 by cmkwon, 경험치/SPI 습득 없음
-//			return 0;
-//		}
-//		if(nGameContinueTimeOfToday > TERM_GAME_PLAYTIME_LIMIT_FIRST_SEC)
-//		{// 2006-11-23 by cmkwon, 경험치/SPI 습득 50%
-//			fChangeValue	/= 2;
-//		}
-//	}
 	if(i_bCheckValidGameUser)
 	{
 		float	fApplyRate		= 0.0f;
@@ -1427,19 +1401,6 @@ void CFieldIOCPSocket::ChangeHP(USHORT i_nHP)
 		SendCharacterInfo(T_FC_CHARACTER_CHANGE_CURRENTHP);
 	}
 
-// 2005-03-07 by cmkwon, DB에 저장할 필요없음
-//	// Update DB
-//	QPARAM_CHARACTER_CHANGE_HPDPSPEP *pQChangeHPDPSPEP = new QPARAM_CHARACTER_CHANGE_HPDPSPEP;
-//	pQChangeHPDPSPEP->CharacterUniqueNumber = m_character.CharacterUniqueNumber;
-//	pQChangeHPDPSPEP->HP = m_character.HP;
-//	pQChangeHPDPSPEP->DP = m_character.DP;
-//	pQChangeHPDPSPEP->SP = m_character.SP;
-//	pQChangeHPDPSPEP->EP = m_character.EP;
-//	pQChangeHPDPSPEP->CurrentHP = m_character.CurrentHP;
-//	pQChangeHPDPSPEP->CurrentDP = m_character.CurrentDP;
-//	pQChangeHPDPSPEP->CurrentSP = m_character.CurrentSP;
-//	pQChangeHPDPSPEP->CurrentEP = m_character.CurrentEP;
-//	ms_pFieldIOCP->m_pAtumDBManager->MakeAndEnqueueQuery(QT_ChangeHPDPSPEP, this, m_character.AccountUniqueNumber, pQChangeHPDPSPEP);
 }
 
 void CFieldIOCPSocket::ChangeDP(USHORT i_nDP)
@@ -14970,6 +14931,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_CHARACTER_GET_OTHER_MOVE(const char* 
 		pMoveOK->PositionVector	= pOtherSock->m_character.PositionVector;
 		pMoveOK->TargetVector	= pOtherSock->m_character.TargetVector*1000.0f;
 		pMoveOK->UpVector		= pOtherSock->m_character.UpVector;
+
 		SendAddData(pMoveOKBuf, MSG_SIZE(MSG_FC_MOVE_OK));
 	}
 	else
@@ -18341,8 +18303,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_MOVE(const char* pPacket, int nLength
 	if(FALSE == COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_DEAD_MASK)
 		&& m_character.HP > 0
 		&& GetClientState() == CS_PLAYING)
-	{	// 클라이언트가 Dead 상태가 아니면
-		// 클라이언트의 이동 정보를 NPC 서버에 전송한다.
+	{
 
 		INIT_MSG(MSG_FN_MOVE_OK, T_FN_MOVE_OK, pSendMoveOK, SendBuf);
 		pSendMoveOK->ChannelIndex	= m_pCurrentFieldMapChannel->m_MapChannelIndex.ChannelIndex;
@@ -18353,31 +18314,17 @@ ProcessResult CFieldIOCPSocket::Process_FC_MOVE(const char* pPacket, int nLength
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
-	// 주위 캐릭터에게 이동 정보 전송
-// 2006-11-08 by cmkwon, 아래와 같이 수정함(IsInvisibleCharacter 변수로 처리 함)
-//	if(FALSE == COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_STEALTH_MASK)
 	if(FALSE == this->IsInvisibleCharacter()
 		&& FALSE == IS_TUTORIAL_MAP_INDEX(m_pCurrentFieldMapChannel->GetMapChannelIndex().MapIndex))
 	{
 		// Send Move OK
 		INIT_MSG(MSG_FC_MOVE_OK, T_FC_MOVE_OK, msgMoveOK, SendBuf);
 		msgMoveOK->ClientIndex		= m_character.ClientIndex;
-// 2007-03-29 by cmkwon, 아래와 같이 비트플래그 변수 추가함
-//		msgMoveOK->CharacterMode0	= m_character.CharacterMode;
 		msgMoveOK->moveBitFlag		= this->Get_MSG_FC_MOVE_BIT_FLAG();		
 		msgMoveOK->PositionVector	= m_character.PositionVector;
 		msgMoveOK->TargetVector		= m_character.TargetVector*1000.0f;
 		msgMoveOK->UpVector			= m_character.UpVector;
-// 2005-09-23 by cmkwon		
-//		this->m_mtvectClientIdxForSend.lock();
-//		this->m_mtvectClientIdxForSend.clear();
-//		this->m_mtvectClientIdxForExcludeSend.clear();
-//		{
-//			m_dwSendCountsMoveOK++;
-//			ms_pFieldIOCP->SendInRangeCharacterMoveOK(this, SendBuf, MSG_SIZE(MSG_FC_MOVE_OK)
-//				, m_pCurrentFieldMapChannel, m_dwSendCountsMoveOK);
-//		}
-//		this->m_mtvectClientIdxForSend.unlock();
+		
 		m_dwSendCountsMoveOK++;
 			
 		//////////////////////////////////////////////////////////////////////////
@@ -19539,11 +19486,11 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 		// end 2013-07-23 by jhseol, 몬스터 추가대미지 미적용 옵션.
 		this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - tmBuffPercent 추가		// 2013-05-09 by hskim, 세력 포인트 개선
 		
-#ifdef _RAT_ANTI_CHEAT_EXPLOSION_and_WARHEADSPEED
+#ifdef _RAT_ANTI_CHEAT // Weapon Explosion and Speed
 		CParamFactor* pAttParamFactor = this->GetParamFactor();
 		pMsgAttackOK->ServerExplosionRange_Secondary = CAtumSJ::GetExplosionRange(pAttackItem, pAttParamFactor);
 		pMsgAttackOK->ServerWarheadSpeed_Secondary = CAtumSJ::GetWarHeadSpeed(pAttackItem, pAttParamFactor);
-#endif // _RAT_ANTI_CHEAT_EXPLOSION_and_WARHEADSPEED
+#endif // _RAT_ANTI_CHEAT
 	
 
 		this->APInsertAttackParameter(&attParam);
@@ -26730,27 +26677,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_ITEM_USE_ENCHANT(const char* pPacket,
 				&& pSock->IsCheckLevel(1, CHARACTER_MAX_LEVEL)
 				&& COMPARE_BIT_FLAG(pSock->GetCharacter()->UnitKind, UNITKIND_ALL_MASK))	// 2008-09-09 by cmkwon, /세력소환 명령어 인자 리스트에 기어타입 추가 - 기어타입 인자 추가
 			{
-// 				typedef struct
-// 				{
-// 					char		szCharacterName[SIZE_MAX_CHARACTER_NAME];
-// 					char		szSucItemFullName[SIZE_MAX_RARE_FIX_NAME + SIZE_MAX_ITEM_NAME + SIZE_MAX_RARE_FIX_NAME + 20]; // prefix len + item name len + suffix len
-// 					BYTE		flag;
-// 				} MSG_FC_INFO_ENCHANT_DISPLAY;
-// #define T1_FC_INFO_ENCHANT_DISPLAY				0x80
-// #define T_FC_INFO_ENCHANT_DISPLAY				(MessageType_t)((T0_FC_INFO<<8)|T1_FC_INFO_ENCHANT_DISPLAY)
-//  				INIT_MSG_WITH_BUFFER(MSG_FC_INFO_ENCHANT_DISPLAY, T_FC_INFO_ENCHANT_DISPLAY, pSucMessage, pSucMessageBuf);
-//				// 예외 맵의 유저 체크
-// 				MAP_CHANNEL_INDEX pMapChannel;
-// 				if(pMapChannel->IsSameMapChannelIndex(pSock->m_character.MapChannelIndex))
-// 				{
-// 					continue;
-// 				}
-// 				// 아레나 진행중인지 체크
-// 				if(IS_MAP_INFLUENCE_ARENA(pSock->m_pCurrentFieldMapChannel->GetMapInfluenceTypeW()))
-// 				{
-// 					continue;	
-// 				}	
-//				pSock->SendAddData(pSucMessageBuf, sizeof(MSG_FC_INFO_ENCHANT_DISPLAY));
+
 #ifdef _RAT_LAB_MSG
 				RARE_ITEM_INFO* pPrefixInfo = ms_pFieldIOCP->GetRareItemInfo(pItemTarget->PrefixCodeNum);
 				RARE_ITEM_INFO* pSuffixInfo = ms_pFieldIOCP->GetRareItemInfo(pItemTarget->SuffixCodeNum);

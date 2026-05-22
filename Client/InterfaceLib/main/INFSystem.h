@@ -204,8 +204,6 @@ typedef struct
 	
 #ifdef _RAT_FOV
 	int sFOVangle;
-
-	int sScalePerc;
 #endif
 
 	int	sTarget ;

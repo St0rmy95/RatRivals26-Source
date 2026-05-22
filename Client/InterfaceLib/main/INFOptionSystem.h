@@ -251,11 +251,6 @@ private:
 	CINFImage* m_pFovStep;
 	CD3DHanFont* m_pFovFont;
 	POINT					m_pFovFontPos;
-
-	CINFScrollBar* m_pScaleImg;
-	CINFImage* m_pScaleStep;
-	CD3DHanFont* m_pScaleFont;
-	POINT					m_pScaleFontPos;
 #endif
 
 	// 2008-11-13 by bhsohn 조이스틱 작업

@@ -224,9 +224,6 @@
 #define OPTION_RADIO_MP3_Y				622
 
 #ifdef _RAT_FOV
-#define OPTION_SCALE_CROSS_X	165
-#define OPTION_SCALE_CROSS_Y	581
-
 #define OPTION_FOV_X			165
 #define OPTION_FOV_Y			517
 #endif
@@ -461,10 +458,6 @@ CINFOptionSystem::CINFOptionSystem(CAtumNode* pParent)
 	m_pFovImg = NULL;
 	m_pFovStep = NULL;
 	m_pFovFont = NULL;
-
-	m_pScaleImg = NULL;
-	m_pScaleStep = NULL;
-	m_pScaleFont = NULL;
 #endif
 }
 
@@ -523,26 +516,8 @@ CINFOptionSystem::~CINFOptionSystem()
 	SAFE_DELETE(m_pFovImg);
 	SAFE_DELETE(m_pFovStep);
 	SAFE_DELETE(m_pFovFont);
-
-	SAFE_DELETE(m_pScaleImg);
-	SAFE_DELETE(m_pScaleStep);
-	SAFE_DELETE(m_pScaleFont);
 #endif
 }
-
-#ifdef _RAT_FOV
-enum FOV_SETTING {
-	FOVa = 60,
-	FOVb = 70,
-	FOVc = 80,
-	FOVd = 90,
-	FOVe = 100,
-	FOVf = 110,
-	FOVg = 120,
-	FOVh = 130,
-	FOVi = 140
-};
-#endif
 
 HRESULT CINFOptionSystem::InitDeviceObjects()
 {
@@ -687,13 +662,6 @@ HRESULT CINFOptionSystem::InitDeviceObjects()
 			m_pFovFont = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 9, D3DFONT_ZENABLE, FALSE, 256, 32);
 		}
 		m_pFovFont->InitDeviceObjects(g_pD3dDev);
-	}
-
-	{
-		if (NULL == m_pScaleFont) {
-			m_pScaleFont = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 9, D3DFONT_ZENABLE, FALSE, 256, 32);
-		}
-		m_pScaleFont->InitDeviceObjects(g_pD3dDev);
 	}
 #endif
 
@@ -977,33 +945,12 @@ HRESULT CINFOptionSystem::InitDeviceObjects()
 	);
 	m_pFovImg->SetGameData(m_pGameData);
 	m_pFovImg->InitDeviceObjects();
-	m_pFovImg->SetNumberOfData(_RAT_FOV_MAX);
+	m_pFovImg->SetNumberOfData(_RAT_FOV_MAX - 60);
 	m_pFovImg->SetCurrentIndex(g_pSOption->sFOVangle - 60);
 	//	m_pFovImg->SetCurrentIndex(1); //05-03-2017 by inet - after relog fov always come back to 60
 	m_pFovStep = new CINFImage;
 	pDataHeader = FindResource("mp_vol");
 	m_pFovStep->InitDeviceObjects(pDataHeader->m_pData, pDataHeader->m_DataSize);
-
-
-
-	m_pScaleImg = new CINFScrollBar(this,
-		OPTION_SCALE_CROSS_X,
-		OPTION_SCALE_CROSS_Y,
-		72, //lenght
-		1,
-		6,
-		11,
-		"mp_vol",
-		INFSCROLL_TYPE_HORIZONTAL
-	);
-	m_pScaleImg->SetGameData(m_pGameData);
-	m_pScaleImg->InitDeviceObjects();
-	m_pScaleImg->SetNumberOfData(100); //100%
-	m_pScaleImg->SetCurrentIndex(g_pSOption->sScalePerc - 10);
-	//	m_pFovImg->SetCurrentIndex(1); //05-03-2017 by inet - after relog fov always come back to 60
-	m_pScaleStep = new CINFImage;
-	pDataHeader = FindResource("mp_vol");
-	m_pScaleStep->InitDeviceObjects(pDataHeader->m_pData, pDataHeader->m_DataSize);
 #endif
 	// 라디오 버튼 갱신
 	UpdateOptionInterface(&m_struOpInfo);
@@ -1162,20 +1109,6 @@ HRESULT CINFOptionSystem::RestoreDeviceObjects()
 		g_pD3dApp->GetBackBufferDesc().Height - 37,
 		g_pD3dApp->GetBackBufferDesc().Width - 9,
 		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (_RAT_FOV_MAX - _RAT_FOV_MIN)));
-
-
-	m_pScaleStep->RestoreDeviceObjects();
-	m_pScaleFont->RestoreDeviceObjects();
-	m_pScaleImg->SetScrollLinePos(OPTION_SCALE_CROSS_X, OPTION_SCALE_CROSS_Y);
-	m_pScaleImg->SetWheelRect(g_pD3dApp->GetBackBufferDesc().Width - 256,
-		g_pD3dApp->GetBackBufferDesc().Height - 37,
-		g_pD3dApp->GetBackBufferDesc().Width - 9,
-		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (10 - 100)));
-	m_pScaleImg->RestoreDeviceObjects();
-	m_pScaleImg->SetWheelRect(g_pD3dApp->GetBackBufferDesc().Width - 256,
-		g_pD3dApp->GetBackBufferDesc().Height - 37,
-		g_pD3dApp->GetBackBufferDesc().Width - 9,
-		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (10 - 100)));
 #endif
 
 #ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI시스템 변경
@@ -1330,15 +1263,6 @@ HRESULT CINFOptionSystem::DeleteDeviceObjects()
 		SAFE_DELETE(m_pFovStep);
 	if (m_pFovFont)
 		SAFE_DELETE(m_pFovFont);
-
-	if (m_pScaleImg) {
-		m_pScaleImg->DeleteDeviceObjects();
-		SAFE_DELETE(m_pScaleImg);
-	}
-	if (m_pScaleStep)
-		SAFE_DELETE(m_pScaleStep);
-	if (m_pScaleFont)
-		SAFE_DELETE(m_pScaleFont);
 #endif
 	
 #ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI시스템 변경
@@ -1502,16 +1426,6 @@ HRESULT CINFOptionSystem::InvalidateDeviceObjects()
 	{
 		m_pFovFont->InvalidateDeviceObjects();
 	}
-
-	if (m_pScaleImg) {
-		m_pFovImg->InvalidateDeviceObjects();
-	}
-	if (m_pScaleStep) {
-		m_pFovStep->InvalidateDeviceObjects();
-	}
-	if (m_pScaleFont) {
-		m_pScaleFont->InvalidateDeviceObjects();
-	}
 #endif
 	
 	m_bRestored = FALSE;
@@ -1531,15 +1445,6 @@ void CINFOptionSystem::Tick()
 	if (g_pSOption->sFOVangle != nAngle)
 	{
 		g_pSOption->sFOVangle = nAngle;
-	}
-	//scale crosshair
-	int nScale = m_pScaleImg->GetCurrentScrollIndex() + 10;
-
-	if (nScale >= 100)
-		nScale = 100;
-
-	if (g_pSOption->sScalePerc != nScale) {
-		g_pSOption->sScalePerc = nScale;
 	}
 #endif
 	FLOG( "CINFOptionSystem::Tick()" );
@@ -1796,22 +1701,10 @@ void CINFOptionSystem::Render()
 		m_pFovImg->Render();
 	}
 	{
-		m_pScaleImg->Render();
-	}
-	{
 		int nAngle = m_pFovImg->GetCurrentScrollIndex() + 60;
-		int nScale = m_pScaleImg->GetCurrentScrollIndex() + 10;
 		//int nAngle = m_pFovImg->GetCurrentScrollIndex();
 		//if (nAngle <= _INET_FOV_MIN)
 		//	nAngle = _INET_FOV_MIN;
-
-
-		char szTempScalePerc[50];
-		sprintf(szTempScalePerc, "%d%%", nScale - 10);
-		m_pScaleFont->DrawText(m_pScaleFontPos.x, m_pScaleFontPos.y,
-			GUI_FONT_COLOR_W,
-			szTempScalePerc);
-		MEMSET_ZERO(szTempScalePerc, sizeof(szTempScalePerc));
 
 		char szTempFOVAngle[50];
 		sprintf(szTempFOVAngle, "%d�", nAngle);
@@ -1837,12 +1730,6 @@ int CINFOptionSystem::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			//g_pInterface->SaveOptionFile(); //by Inet - save only by apply button to avoid 1kkkkkkk saves to option.sys file
 			g_pD3dApp->SetCamPosInit();
 
-			return INF_MSGPROC_BREAK;
-		}
-	}
-
-	if (m_pScaleImg) {
-		if (m_pScaleImg->WndProc(uMsg, wParam, lParam) == INF_MSGPROC_BREAK) {
 			return INF_MSGPROC_BREAK;
 		}
 	}
@@ -2202,14 +2089,6 @@ void CINFOptionSystem::UpdateBtnPos(int nBackPosX, int nBackPosY)
 		m_pFovFontPos.x = nPosX - 30;
 		m_pFovFontPos.y = nPosY - 7;
 		m_pFovImg->SetScrollLinePos(nPosX, nPosY);
-	}
-
-	{
-		nPosX = nBackPosX + OPTION_SCALE_CROSS_X;
-		nPosY = nBackPosY + OPTION_SCALE_CROSS_Y;
-		m_pScaleFontPos.x = nPosX - 30;
-		m_pScaleFontPos.y = nPosY - 7;
-		m_pScaleImg->SetScrollLinePos(nPosX, nPosY);
 	}
 #endif
 
@@ -3616,9 +3495,6 @@ void CINFOptionSystem::OnClickApply()
 #ifdef _RAT_FOV
 	m_pSOptionOld.sFOVangle = m_pFovImg->GetCurrentScrollIndex() + 60;
 	m_struOpInfo.struSOptionSetup.sFOVangle = m_pFovImg->GetCurrentScrollIndex() + 60;
-
-	m_pSOptionOld.sScalePerc = m_pScaleImg->GetCurrentScrollIndex() + 10;
-	m_struOpInfo.struSOptionSetup.sScalePerc = m_pScaleImg->GetCurrentScrollIndex() + 10;
 #endif
 	// 인터페이스 위치
 	{

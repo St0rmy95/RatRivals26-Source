@@ -260,10 +260,12 @@
 #define _RAT_AG_SIEGE_GROUND_SENSIVITY 0.05f // 0.1f = NORMAL
 #define _RAT_AG_SIEGE_AIR_SENSIVITY 0.05f // 0.1f = NORMAL
 
-#define _RAT_ANTI_CHEAT // More Calculations for AntiCheat
-#define _RAT_ANTI_CHEAT_EXPLOSION_and_WARHEADSPEED
+#define _RAT_ANTI_CHEAT // Rat's Custom Anti-Cheat
 
 #define _RAT_OPEN_SUPPLY_SHOP // Open Supply Shop
+
+#define _RAT_RANK_SYSTEM // RankSystem
+#define _RAT_KILL_MSG // To Send server Kill Messages
 
 #endif //_RAT
 

@@ -2026,8 +2026,6 @@ void CInterface::InitOptionData()
 
 #ifdef _RAT_FOV
 	g_pSOption->sFOVangle = OPTION_DEFAULT_FOV;
-
-	g_pSOption->sScalePerc = 100;
 #endif
 	g_pSOption->sHandle = TRUE ;										// 마우스 포인트 보이기
 	switch(g_pD3dApp->m_bDegree)
@@ -2169,12 +2167,6 @@ BOOL CInterface::LoadOptionFile()
 
 	if (g_pSOption->sFOVangle <= _RAT_FOV_MIN)
 		g_pSOption->sFOVangle = _RAT_FOV_MIN;
-
-	if (g_pSOption->sScalePerc >= 100)
-		g_pSOption->sScalePerc = 100;
-
-	if (g_pSOption->sScalePerc <= 10)
-		g_pSOption->sScalePerc = 10;
 #endif
 
 	if(g_pSOption->sSoundVolume > 0) 

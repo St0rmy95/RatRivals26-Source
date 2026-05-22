@@ -10152,6 +10152,7 @@ VOID CAtumApplication::FieldSocketMoveOk( MSG_FC_MOVE_OK* pMsg)
 	{
 		if(m_pShuttleChild)
 			m_pShuttleChild->CheckMove(pMsg);
+
 	}
 }
 

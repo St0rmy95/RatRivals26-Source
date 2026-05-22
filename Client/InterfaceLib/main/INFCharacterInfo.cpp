@@ -1093,6 +1093,7 @@ void CINFCharacterInfo::Render()
 
 #if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI) // 2008-04-30 by bhsohn 태국 버전 추가
 	wsprintf(buff, "%d", g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Level);
+
 #else
 	wsprintf(buff, "%2d", g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Level);
 #endif
