@@ -717,23 +717,9 @@ public:
 
 	// 공격 관련
 // 2005-12-13 by cmkwon, splash damage를 서버에서는 전체 공격만 적용한다.
-//	static float CalcSplashDamageWeightByExposionRange(enumAttackToTarget attackType, ITEM *pAttackItem, CParamFactor *i_pParamFactor, float fDistance, BYTE *pDamageKind, int i_nAddExplosionRange);	// check: ATTACK 프로토콜 수정되면 삭제, deprecated, 20040902, kelovon
-//	static float CalcSplashDamageWeightByExposionRange(enumAttackToTarget attackType, ITEM *pAttackItem, CParamFactor *i_pParamFactor, float fDistance, int i_nAddExplosionRange);
 	static int CalcSplashDamageKindByMonsterAllAttack(ITEM *i_pAttackItem, float i_fDistance, int i_nAddExplosionRange);
-//	static BOOL ProcessSplashDamage(enumAttackToTarget type,
-//						  CFieldIOCPSocket *pAttackSocket, void* pAttackUnit,
-//						  D3DXVECTOR3 explosionPosition, ITEM *pAttackItem,
-//						  ClientIndex_t clientIndexToExclude);
 	static void ProcessSplashDamageC2All(CFieldIOCPSocket *i_pAttFSock, SATTACK_PARAMETER *i_pAttParam, float i_fRadius, D3DXVECTOR3 *i_pVec3TargetPos);		// 2006-11-29 by dhjin, 
 	static void ProcessSplashDamageMonsterAllAttack(MSG_FN_BATTLE_ATTACK_PRIMARY *i_pAttackPri, CFieldIOCPSocket *i_pAttackMonSock, CFieldMonster *pAttackMon, ITEM *pAttackItem);
-// 2007-06-07 by cmkwon, 2형무기 계산식 시스템 변경으로 함수변경(CalcDamageOfAttackNew<-CalcDamageOfAttack)
-//	static float CalcDamageOfAttack(enumAttackToTarget type, float fDamageWeight,
-//						  CFieldIOCPSocket *pAttackSocket, void* pAttackUnit,
-//						  CFieldIOCPSocket *pTargetSocket, void *pTargetUnit,
-//						  ITEM *pAttackItem, BYTE *pDamageKind,
-//						  D3DXVECTOR3 &TargetPosition,
-//						  float fSkillAppliedAttackRange = 0.0f, float fActualAttackDistance = 0.0f,
-//						  UINT ItemFieldIndex = 0);
 	// 2007-06-07 by cmkwon, 2형무기 계산식 시스템 변경으로 함수변경(CalcDamageOfAttackNew<-CalcDamageOfAttack)
 	static float CalcDamageOfAttackNew(BYTE *o_pDamageKind, enumAttackToTarget i_attType, float i_fDamageWeight,
 						  CFieldIOCPSocket *i_pAttackSocket, void* i_pAttackUnit, SATTACK_PARAMETER *i_pAttParam,
@@ -1340,8 +1326,11 @@ public:
 	BOOL APInsertAttackParameter(SATTACK_PARAMETER *i_pAttParam);
 	SATTACK_PARAMETER *APFindAttackParameterNoLock(UID16_t i_WeaponIndex);
 	BOOL APPopAttackParameter(SATTACK_PARAMETER *o_pAttParam, UID16_t i_WeaponIndex);
+#ifdef _RAT_ANTI_CHEAT
+	void APCalcAttckParameter(SATTACK_PARAMETER* o_pAttParam, ITEM* i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent = 0.0f, bool isDroneAttack = false);
+#else
 	void APCalcAttckParameter(SATTACK_PARAMETER *o_pAttParam, ITEM *i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent = 0.0f);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
-
+#endif
 	// 2007-06-13 by cmkwon, 예당 7월 PC방 프로모션(콩이벤트 구현) - 추가됨
 	void OnDoMinutelyWorkByTimerManager(void);
 

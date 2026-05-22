@@ -2826,6 +2826,161 @@ struct SArenaPlayInfo
 ///////////////////////////////////////////////////////////////////////////////
 struct CHARACTER_DB_EX;
 
+#ifdef _RAT_ANTI_CHEAT
+
+struct SATTACK_COOLDOWN {
+	DWORD	Primary_LastAttackTime;
+	UINT	Primary_ReAttacktime;
+
+	DWORD	Secondary_LastAttackTime;
+	UINT	Secondary_ReAttacktime;
+
+	INT		Secondary_ShotCount;
+	INT		Secondary_ShotCountMAX;
+
+	BOOL	Secondary_isOnUse = false;
+};
+
+struct CHARACTER
+{
+	SATTACK_COOLDOWN	ATTACK_INFO;
+
+	ClientIndex_t		ClientIndex;
+	char				AccountName[SIZE_MAX_ACCOUNT_NAME];			// 사용자 아이디
+	UID32_t				AccountUniqueNumber;						//  계정 고유 번호
+	char				CharacterName[SIZE_MAX_CHARACTER_NAME];		// 유닛(캐릭터) 이름
+	UID32_t				CharacterUniqueNumber;						// 캐릭터 고유번호
+	BYTE				Gender;							// false(0) : 여, true(1) : 남
+	BYTE				PilotFace;						// 화면에 나타나는 인물 케릭터
+	BYTE				CharacterMode;					// 2005-07-13 by cmkwon, 현재 캐릭터 상태 플래그
+	USHORT				Race;							// 종족
+	USHORT				UnitKind;						// 유닛의 종류
+	BYTE				InfluenceType;					// 세력 타입으로
+	BYTE				SelectableInfluenceMask;		// 2005-12-07 by cmkwon, 세력선택시 선택가능한 세력Mask, 한계정에는 하나의 세력만 선택 가능함
+	BYTE				AutoStatType;					// 자동 분배 스탯 타입
+	GEAR_STAT			GearStat;						// 기어 스탯
+	GEAR_STAT			TotalGearStat;					// 통합 기어 스탯 - 컴퓨터 아이템 스탯 포함
+	char				GuildName[SIZE_MAX_GUILD_NAME];	// 길드 이름
+	UID32_t				GuildUniqueNumber;				// 길드 번호, 0이면 길드 없음
+	BYTE				Level;							//
+	Experience_t		Experience;						//
+	Experience_t		DownExperience;					// 캐릭이 죽을때 떨어진 경험치
+	INT					DownSPIOnDeath;					// 2006-04-10 by cmkwon, 캐릭이 죽을때 떨어진 SPI
+	BodyCond_t			BodyCondition;					// 상태, bit flag 사용
+	INT					Propensity;						// 명성치, 성향(선, 악)
+	BYTE				Status;							// 신분
+	USHORT				PKWinPoint;						// PK 승리 수치
+	USHORT				PKLossPoint;					// PK 패배 수치
+	USHORT				Material;						// 재질(HI : Main, LOW : Sub)
+	SHORT				HP;								// Health Point
+	float				CurrentHP;						// Current Health Point
+	SHORT				DP;								// 쉴드, Defense Point
+	float				CurrentDP;						// 현재 쉴드, Current Defense Point
+	SHORT				SP;								// Skill Point
+	SHORT				CurrentSP;						//
+	SHORT				EP;								// Fuel
+	float				CurrentEP;						// Current Fuel
+	char				PetName[SIZE_MAX_PET_NAME];
+	BYTE				PetLevel;
+	Experience_t		PetExperience;
+	MAP_CHANNEL_INDEX	MapChannelIndex;				// 캐릭터가 속한 맵 및 채널
+	D3DXVECTOR3			PositionVector;					// 캐릭터 좌표
+	D3DXVECTOR3			TargetVector;					//
+	D3DXVECTOR3			UpVector;						//
+	BYTE				MaxLevel;
+	BYTE				BonusStat;						// 추가 2002.12.13
+	// 2005-11-15 by cmkwon, 삭제함
+	//	BYTE				BonusSkillPoint;				// 추가 2002.12.13
+	BYTE				BonusStatPoint;					// 2005-11-15 by cmkwon, 레벨업이 아닌 다른방법으로 받은 보너스 스탯 포인트, BonusSkillPoint를 변경함 // 추가 2002.12.13
+	PartyID_t			LastPartyID;					// 마지막 파티 ID, 비정상적으로 종료되었을 때 파티 유지를 위해 쓰임
+	INT					RacingPoint;					// 2009-11-02 by cmkwon, 캐쉬(인벤/창고 확장) 아이템 추가 구현 - 하위첫번째1Byte:인벤추가개수, 하위두번째1Byte:창고추가개수, 하위세번째/네번째2Byte는 사용하지 않음, // Racing 결과 Point
+	LONGLONG			TotalPlayTime;					// 초단위
+	ATUM_DATE_TIME		CreatedTime;					// 캐릭터 생성 시간
+	ATUM_DATE_TIME		LastStartedTime;				// 최종 게임 시작 시간
+	ATUM_DATE_TIME		LevelUpTime;					// 2006-12-18 by dhjin, 레벨업 시간
+	INT					WarPoint;						// 2007-04-17 by dhjin, WP
+	INT					CumulativeWarPoint;				// 2007-05-28 by dhjin, 누적WP
+	INT					ArenaWin;						// 2007-06-07 by dhjin, 아레나 승패 전적 승
+	INT					ArenaLose;						// 2007-06-07 by dhjin, 아레나 승패 전적 패
+	INT					ArenaDisConnect;				// 2007-06-07 by dhjin, 아레나 강제 종료
+	LONGLONG			PCBangTotalPlayTime;			// 2007-06-07 by dhjin, PC방 총 플레이 시간, 초단위
+	INT					SecretInfoOption;				// 2008-06-23 by dhjin, EP3 유저정보옵션 -
+	char				NickName[SIZE_MAX_CHARACTER_NAME];	// 2009-02-12 by cmkwon, EP3-3 월드랭킹시스템 구현 - 월드 랭킹을 위한 NickName
+	SArenaPlayInfo		ArenaPlayInfo;					// 2012-04-12 by jhseol, 아레나 추가개발 - 보상 : 아레나 플레이 정보
+
+	// 2013-02-28 by bckim, 복귀유져 버프추가
+	BYTE				bUsingReturnItem;
+	// 2015-05-26 by bckim, 베트남 블럭계정 로그인되는 문제 로그 추출
+	BYTE				bIsBlockedUser;
+	// End. 2015-05-26 by bckim, 베트남 블럭계정 로그인되는 문제 로그 추출
+
+	CHARACTER()
+	{
+		bUsingReturnItem = 0;
+	}
+	// end 2013-02-28 by bckim, 복귀유져 버프추가
+
+	// operator overloading
+	CHARACTER& operator=(const CHARACTER_DB_EX& rhs);
+	// 2009-10-12 by cmkwon, 프리스카 제거 방안 적용 - 
+	// 	BYTE GetInfluenceMask(void)
+	// 	{
+	// 		if(COMPARE_INFLUENCE(InfluenceType, INFLUENCE_TYPE_NORMAL|INFLUENCE_TYPE_VCN))
+	// 		{
+	// 			return INFLUENCE_TYPE_NORMAL|INFLUENCE_TYPE_VCN;
+	// 		}
+	// 		return InfluenceType;
+	// 	}
+		///////////////////////////////////////////////////////////////////////////////
+		// 2009-10-12 by cmkwon, 프리스카 제거 방안 적용 - 
+	BYTE GetInfluenceMask(void)
+	{
+		if (IS_NORMAL_INFLUENCE_TYPE(InfluenceType))
+		{
+			if (IS_ANI_CITY_MAP_INDEX(Material))
+			{
+				return INFLUENCE_TYPE_NORMAL | INFLUENCE_TYPE_ANI;
+			}
+			return INFLUENCE_TYPE_NORMAL | INFLUENCE_TYPE_VCN;
+		}
+
+		return InfluenceType | INFLUENCE_TYPE_NORMAL;
+	};
+	///////////////////////////////////////////////////////////////////////////////
+	/// \fn			
+	/// \brief		// 2009-10-12 by cmkwon, 프리스카 제거 방안 적용 - 
+	/// \author		cmkwon
+	/// \date		2009-10-12 ~ 2009-10-12
+	/// \warning	
+	///
+	/// \param		
+	/// \return		
+	///////////////////////////////////////////////////////////////////////////////
+	USHORT GetStartCityMapIndex(void)
+	{
+		switch (InfluenceType)
+		{
+		case INFLUENCE_TYPE_NORMAL:
+		{
+			if (IS_ANI_CITY_MAP_INDEX(Material))
+			{
+				return Material;
+			}
+			return VCN_CITY_MAP_INDEX;	// 2009-10-12 by cmkwon, 설정되지 않은 유저 기본
+		}
+		case INFLUENCE_TYPE_VCN:				return VCN_CITY_MAP_INDEX;
+		case INFLUENCE_TYPE_ANI:				return ANI_CITY_MAP_INDEX;
+		}
+
+		return VCN_CITY_MAP_INDEX;		// 2009-10-12 by cmkwon, 기본맵
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	// 2009-11-02 by cmkwon, 캐쉬(인벤/창고 확장) 아이템 추가 구현 - 
+	BYTE GetAddedPermanentInventoryCount(BYTE i_enStorage = ITEM_IN_CHARACTER);
+	BOOL SetAddedPermanentInventoryCount(BYTE i_byAddCount, BYTE i_enStorage = ITEM_IN_CHARACTER);
+};
+#else
 struct CHARACTER
 {
 	ClientIndex_t		ClientIndex;
@@ -2963,6 +3118,7 @@ struct CHARACTER
 	BYTE GetAddedPermanentInventoryCount(BYTE i_enStorage=ITEM_IN_CHARACTER);
 	BOOL SetAddedPermanentInventoryCount(BYTE i_byAddCount, BYTE i_enStorage=ITEM_IN_CHARACTER);
 };
+#endif // RAT_ANTI_CHEAT
 
 // 공격 타입: C(캐릭터), M(몬스터), I(필드아이템), CI(캐릭터에 종속된 아이템)
 typedef enum

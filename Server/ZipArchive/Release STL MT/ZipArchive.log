@@ -50,5 +50,5 @@
   decompress.c
   huffman.c
   randtable.c
-D:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(1577,5): warning MSB8012: TargetPath(D:\RatRivals26\Source\Server\ZipArchive\Release STL MT\ZipArchive.lib) does not match the Library's OutputFile property value (D:\RatRivals26\Source\Build\Lib\ZipArchive.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+D:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(1580,5): warning MSB8012: TargetPath(D:\RatRivals26\Source\Server\ZipArchive\Release STL MT\ZipArchive.lib) does not match the Library's OutputFile property value (D:\RatRivals26\Source\Build\Lib\ZipArchive.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
   ZipArchive.vcxproj -> D:\RatRivals26\Source\Server\ZipArchive\Release STL MT\ZipArchive.lib

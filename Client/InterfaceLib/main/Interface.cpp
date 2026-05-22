@@ -973,6 +973,7 @@ HRESULT CInterface::InvalidateSelectObjects()
 void CInterface::Tick()
 {
 	FLOG( "CInterface::Tick()" );
+
 	switch(g_pD3dApp->m_dwGameState)
 	{
 	case _SELECT:

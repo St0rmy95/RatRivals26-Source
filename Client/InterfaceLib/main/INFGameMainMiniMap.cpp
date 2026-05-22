@@ -2628,7 +2628,7 @@ void CINFGameMainMiniMap::GetMiniBigMapCityPos(D3DXVECTOR3 vPos, float *fPosx, f
 	if(g_pGround->m_nMapNumber == 2001)
 	{
 	
-#ifdef C_EPSODE4_SETTING_JHAHN
+#ifndef C_EPSODE4_SETTING_JHAHN
 		// 2011-10-26 by jhahn µµ½Ã¸Ê ¹Ì´Ï ¸Ê º¸Á¤
 		*fPosx = (((4019 - vPos.x) * 512) / 2283);		// *fPosx = (((4019 - vPos.x) * 512) / 2283);   
 		*fPosy = (((vPos.z - 4101) * 512) / 2283);		// *fPosy = (((vPos.z - X) * Y) / Z);			
@@ -2649,7 +2649,7 @@ void CINFGameMainMiniMap::GetMiniBigMapCityPos(D3DXVECTOR3 vPos, float *fPosx, f
 	if(g_pGround->m_nMapNumber == 2002)
 	{
 
-#ifdef C_EPSODE4_SETTING_JHAHN
+#ifndef C_EPSODE4_SETTING_JHAHN
 		// 2011-10-26 by jhahn µµ½Ã¸Ê ¹Ì´Ï ¸Ê º¸Á¤
 		*fPosx = (((4081 - vPos.x) * 512) / 2283);
 		*fPosy = (((vPos.z - 3958) * 512) / 2283);
@@ -2713,7 +2713,7 @@ void CINFGameMainMiniMap::GetMiniSmallMapCityPos(D3DXVECTOR3 vPos, float *fPosx,
 	// ¹ÙÀÌÁ¦´Ï´º
 	if(g_pGround->m_nMapNumber == 2001)
 	{
-#ifdef C_EPSODE4_SETTING_JHAHN
+#ifndef C_EPSODE4_SETTING_JHAHN
 		// 2011-10-26 by jhahn µµ½Ã¸Ê ¹Ì´Ï ¸Ê º¸Á¤
 		*fPosx = (((4019 - vPos.x) * 512) / 2283);
 		*fPosy = (((vPos.z - 4101) * 512) / 2283);
@@ -2733,7 +2733,7 @@ void CINFGameMainMiniMap::GetMiniSmallMapCityPos(D3DXVECTOR3 vPos, float *fPosx,
 	// ¾Ë¸µÅÏ
 	if(g_pGround->m_nMapNumber == 2002)
 	{
-#ifdef C_EPSODE4_SETTING_JHAHN
+#ifndef C_EPSODE4_SETTING_JHAHN
 		// 2011-10-26 by jhahn µµ½Ã¸Ê ¹Ì´Ï ¸Ê º¸Á¤
 		*fPosx = (((4081 - vPos.x) * 512) / 2039);
 		*fPosy = (((vPos.z - 4058) * 512) / 2039);

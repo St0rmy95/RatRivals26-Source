@@ -3,7 +3,6 @@
   ChatData.cpp
   ChatMoveData.cpp
   ChatRender.cpp
-  ChatTab_t.cpp
   IMEKey.cpp
   INFAUTOSPRITEBTN.cpp
   INFAlertMsgBox.cpp
@@ -58,13 +57,18 @@
   INFCommunityReject.cpp
   INFCommunityUserInfo.cpp
   INFCommunityUserOpenSetup.cpp
+  INFCommunityVOIP.cpp
   INFControl.cpp
   INFCouponWindow.cpp
+  INFCreateMenu.cpp
   INFCurselEditBox.cpp
   INFDamageView.cpp
   INFDefaultWnd.cpp
+  INFDissolution.cpp
   INFEditBox.cpp
+  INFEnemyItemInfo.cpp
   INFFadeEffect.cpp
+  INFFirstAnniversaryEvent.cpp
   INFGameArena.cpp
   INFGameCountDown.cpp
   INFGameHelpDesk.cpp
@@ -89,25 +93,7 @@
   INFImageEx.cpp
   INFImageFile.cpp
   INFImageList.cpp
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2477,5): error C2065: 'm_bShowSPInfoBCU': undeclared identifier
   INFImageListBox.cpp
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2478,17): error C2065: 'STRATEGYPOINT_BCU_IMG_POS_X': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2478,56): error C2065: 'my_posxBCU': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2479,17): error C2065: 'STRATEGYPOINT_BCU_IMG_POS_Y': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2479,56): error C2065: 'STRATEGYPOINT_BCU_IMG_POS_Y': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2481,6): error C2065: 'm_nCurrentSPSelectBCUPosX': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2482,6): error C2065: 'm_nCurrentSPSelectBCUPosY': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2483,6): error C2065: 'm_bShowSPInfoBCU': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2485,5): error C2065: 'm_bShowSPInfoANI': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2486,17): error C2065: 'STRATEGYPOINT_ANI_IMG_POS_X': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2486,56): error C2065: 'my_posxANI': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2487,17): error C2065: 'STRATEGYPOINT_ANI_IMG_POS_Y': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2487,56): error C2065: 'STRATEGYPOINT_ANI_IMG_POS_Y': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2489,6): error C2065: 'm_nCurrentSPSelectANIPosX': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2490,6): error C2065: 'm_nCurrentSPSelectANIPosY': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2491,6): error C2065: 'm_bShowSPInfoANI': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2498,6): error C2065: 'm_nCurrentSPSelectBCUPosX': undeclared identifier
-D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2499,6): error C2065: 'm_nCurrentSPSelectBCUPosY': undeclared identifier
   INFImageListCtrl.cpp
   INFImageListTreeCtrl.cpp
   INFImageRadioBtn.cpp
@@ -189,3 +175,4 @@ D:\RatRivals26\Source\Client\InterfaceLib\main\INFGameMainUnitInfoBar.cpp(2499,6
   Interface.cpp
   SetupConfig.cpp
   SpriteDrawFix.cpp
+  InterfaceLib.vcxproj -> D:\RatRivals26\Source\Build\Lib\InterfaceLib.lib

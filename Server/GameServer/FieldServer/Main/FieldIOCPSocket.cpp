@@ -2231,153 +2231,6 @@ void CFieldIOCPSocket::ApplyComputerGearStat(DestParam_t desParam, float paramVa
 	}
 }
 
-// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-//BOOL CFieldIOCPSocket::ProcessSplashDamage(enumAttackToTarget type,
-//					  CFieldIOCPSocket *pAttackSocket, void* pAttackUnit,
-//					  D3DXVECTOR3 explosionPosition, ITEM *pAttackItem,
-//					  ClientIndex_t clientIndexToExclude)
-//{
-//	if ((!(pAttackItem->Kind == ITEMKIND_FOR_MON_ALLATTACK) && !IS_SECONDARY_WEAPON(pAttackItem->Kind)) || pAttackItem->ExplosionRange <= 0)
-//	{
-//		return FALSE;
-//	}
-//
-//	vector<ClientIndex_t>	ClientIndexVector;
-//	vector<ClientIndex_t>	*pClientIndexVector = NULL;
-//	IOCPWorkerTLSDATA		*pTLSData = ms_pFieldIOCP->GetIOCPWorkerTLSDATA();
-//	CFieldIOCP				*pFieldIOCP = pAttackSocket->ms_pFieldIOCP;
-//	CFieldMapChannel		*pMapChannel = NULL;
-//
-//	float					fDistance = 0;
-//	float					fDamage = 0;
-//	BYTE					DamageKind = DAMAGEKIND_NO_DAMAGE;
-//
-//	if(NULL == pTLSData)
-//	{
-//		ClientIndexVector.reserve(100);
-//		pClientIndexVector = &ClientIndexVector;
-//	}
-//	else
-//	{
-//		pClientIndexVector = &pTLSData->clientIndexVector;
-//	}
-//
-//	if (type == C2M)
-//	{
-//		pMapChannel = pAttackSocket->m_pCurrentFieldMapChannel;
-//
-//		int nMonsters = pMapChannel->GetAdjacentMonsterIndexes(
-//							explosionPosition.x, explosionPosition.z,
-//							CAtumSJ::GetExplosionRange(pAttackItem, &pAttackSocket->m_ParamFactor), pClientIndexVector);
-//
-//		if (nMonsters <= 0)
-//		{
-//			return FALSE;
-//		}
-//
-//		int i = 0;
-//		while (i < nMonsters)
-//		{
-//			CHARACTER			*pAttackCharacter = (CHARACTER*)pAttackUnit;
-//			CFieldIOCPSocket	*pTargetNPCSocket = NULL;
-//			CFieldMonster		*pMonster = NULL;
-//			ClientIndex_t		tmpMonsterIndex = (*pClientIndexVector)[i];
-//
-//			if ( tmpMonsterIndex == clientIndexToExclude
-//				|| !pAttackSocket->CheckValidAttackTargetMonster(tmpMonsterIndex, pAttackSocket->m_character.MapChannelIndex.ChannelIndex, pMonster))
-//			{
-//				i++;
-//				continue;
-//			}
-//
-//			fDistance = D3DXVec3Length(&(explosionPosition - pMonster->PositionVector));
-//			DamageKind = DAMAGEKIND_NO_DAMAGE;
-//
-//			float fDamageWeight
-//				= pAttackSocket->CalcSplashDamageWeightByExposionRange(C2M, pAttackItem, &pAttackSocket->m_ParamFactor, fDistance, &DamageKind, pMonster->MonsterInfoPtr->Size);
-//
-//			if (DamageKind != DAMAGEKIND_NO_DAMAGE)
-//			{
-//				fDamage = CalcDamageOfAttack(C2M, fDamageWeight, pAttackSocket,	// @ProcessSplashDamage()
-//					pAttackCharacter, pTargetNPCSocket, pMonster, pAttackItem,
-//					&DamageKind, explosionPosition);
-//			}
-//			else
-//			{
-//				fDamage = 0.0f;
-//			}
-//
-//#ifdef _DEBUG
-//			pAttackSocket->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0000, i, tmpMonsterIndex, fDamage, fDamageWeight*100);
-//#endif
-//
-//			i++;
-//		}
-//	}
-//	else if (type == C2C)
-//	{
-//		// not implemented yet
-//		ASSERT_NOT_IMPLEMENTED_YET();
-//	}
-//	else if (type == M2C)
-//	{
-////#ifdef _DEBUG
-////		DBGOUT("M2C Splash\r\n");
-////#endif
-//		CFieldMonster *pAttackMonster = (CFieldMonster*)pAttackUnit;
-//		pMapChannel = pAttackMonster->m_pCurrentFieldMapChannelMonster;
-//
-//		int nCharacters = pMapChannel->GetAdjacentCharacterIndexes(
-//							explosionPosition.x, explosionPosition.z,
-//							CAtumSJ::GetExplosionRange(pAttackItem, &pAttackSocket->m_ParamFactor), pClientIndexVector);
-//
-//		if (nCharacters <= 0)
-//		{
-//			return FALSE;
-//		}
-//
-//		int i = 0;
-//		while (i < nCharacters)
-//		{
-//			CFieldIOCPSocket	*pTargetCharacterSocket = NULL;
-//			CHARACTER			*pTargetCharacter = NULL;
-//			ClientIndex_t		tmpClientIndex = (*pClientIndexVector)[i];
-//
-//			if (tmpClientIndex == clientIndexToExclude
-//				|| !pAttackSocket->CheckValidAttackTargetCharacter(tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-//			{
-//				i++;
-//				continue;
-//			}
-//
-//			fDistance = D3DXVec3Length(&(explosionPosition - pTargetCharacter->PositionVector));
-//			DamageKind = DAMAGEKIND_NO_DAMAGE;
-//
-//			float fDamageWeight
-//				= pAttackSocket->CalcSplashDamageWeightByExposionRange(M2C, pAttackItem, &pAttackSocket->m_ParamFactor, fDistance, &DamageKind, 10);
-//
-//			if (DamageKind != DAMAGEKIND_NO_DAMAGE)
-//			{
-//				fDamage = CalcDamageOfAttack(M2C, fDamageWeight, pAttackSocket,	// @ProcessSplashDamage()
-//					pAttackMonster, pTargetCharacterSocket, pTargetCharacter, pAttackItem,
-//					&DamageKind, explosionPosition);
-//			}
-//			else
-//			{
-//				fDamage = 0.0f;
-//			}
-//
-//#ifdef _DEBUG
-//			pTargetCharacterSocket->SendString128(STRING_128_ADMIN_CMD, STRMSG_S_F2NOTIFY_0001, i, pTargetCharacter->CharacterName, fDamage);
-//#endif
-//
-//			i++;
-//		}
-//	}
-//
-//	return TRUE;
-//}
-
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2412,7 +2265,6 @@ void CFieldIOCPSocket::ProcessSplashDamageC2All(CFieldIOCPSocket *i_pAttFSock, S
 	CFieldMapChannel		*pFMChann = i_pAttFSock->m_pCurrentFieldMapChannel;
 	if(NULL == pFMChann){						return;}
 
-	
 	///////////////////////////////////////////////////////////////////////////////
 	// 2006-12-01 by dhjin, C2ALLC Splash µ¥¹ÌÁö Ã³¸®
 	int nUnits = pFMChann->GetExactCharacterIndexes(&ClientIndexVector, i_pVec3TargetPos, i_fRadius, i_pAttFSock->m_character.ClientIndex);
@@ -2574,296 +2426,6 @@ void CFieldIOCPSocket::ProcessSplashDamageC2All(CFieldIOCPSocket *i_pAttFSock, S
 void CFieldIOCPSocket::ProcessSplashDamageMonsterAllAttack(MSG_FN_BATTLE_ATTACK_PRIMARY *i_pAttackPri, CFieldIOCPSocket *i_pAttackMonSock
 														   , CFieldMonster *i_pAttackMon, ITEM *i_pAttackItem)
 {
-// 2010-03-16 by cmkwon, ÀÎÇÇ2Â÷ MtoM, MtoC Å¸°Ù º¯°æ °ü·Ã ¼öÁ¤ - ¾Æ·¡¿Í °°ÀÌ ÀüÃ¼¸¦ ¼öÁ¤ÇÔ.
-// 	if (i_pAttackItem->Kind != ITEMKIND_FOR_MON_ALLATTACK
-// 		|| i_pAttackItem->ExplosionRange <= 0)
-// 	{// 2005-12-13 by cmkwon, ¾ÆÀÌÅÛ ¼³Á¤ ¿À·ù
-// 		char szTemp[1024];
-// 		sprintf(szTemp, "[Error] Monster Item Error, Monster(%d:%s) MonsterItem(%d:%s), ItemKind(%s), ExplosionRange(%d)\r\n"
-// 			, i_pAttackMon->MonsterInfoPtr->MonsterUnitKind, i_pAttackMon->MonsterInfoPtr->MonsterName
-// 			, i_pAttackItem->ItemNum, i_pAttackItem->ItemName, CAtumSJ::GetItemKindName(i_pAttackItem->Kind), i_pAttackItem->ExplosionRange);
-// 		DbgOut(szTemp);
-// 		g_pFieldGlobal->WriteSystemLog(szTemp);
-// 		return;
-// 	}
-// 
-// 	///////////////////////////////////////////////////////////////////////////////
-// 	// 2007-10-22 by cmkwon, Ã¼Å© Ãß°¡
-// 	if(NULL == i_pAttackMon)
-// 	{
-// 		return;
-// 	}
-// 	MONSTER_INFO *pMonInfo = i_pAttackMon->MonsterInfoPtr;
-// 	if(NULL == pMonInfo
-// 		|| FALSE == i_pAttackMon->IsValidMonster())
-// 	{
-// 		return;
-// 	}
-// 	
-// 	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_ATTACK_OK, T_FC_BATTLE_ATTACK_OK, pSFCAttackOK, Sendbuf);
-// 	pSFCAttackOK->AttackIndex						= i_pAttackPri->AttackIndex;
-// 	pSFCAttackOK->TargetInfo.TargetIndex			= i_pAttackPri->TargetIndex;
-// 	pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 	pSFCAttackOK->TargetInfo.TargetPosition			= i_pAttackPri->TargetPosition;
-// 	pSFCAttackOK->FirePosition.Reset();	
-// 	pSFCAttackOK->AttackType						= ATT_TYPE_GENERAL_PRI;
-// 	pSFCAttackOK->WeaponIndex						= i_pAttackPri->WeaponIndex;
-// 	pSFCAttackOK->ItemNum							= i_pAttackItem->ItemNum;	// ¸ó½ºÅÍÀÇ °ø°Ý ¹«±â ItemNumÀ» ¼³Á¤
-// 	pSFCAttackOK->RemainedBulletFuel				= 0;
-// 	pSFCAttackOK->SkillNum							= 0;
-// 
-// 	vector<ClientIndex_t>	ClientIndexVector;		ClientIndexVector.reserve(100);
-// 	CFieldMapChannel		*pMapChannel = i_pAttackMon->m_pCurrentFieldMapChannelMonster;
-// 
-// 	// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
-// 	SATTACK_PARAMETER attParam;	
-// 	MEMSET_ZERO(&attParam, sizeof(attParam));
-// 	i_pAttackMon->APCalcAttckParameter(&attParam, i_pAttackItem, i_pAttackPri->WeaponIndex);
-// 	
-// // 2009-09-09 ~ 2010-01-20 by dhjin, ÀÎÇÇ´ÏÆ¼ - °ø°ÝÀÚ Áß½É ¹Ý°æÀ¸·Î Ã¼Å©ÇÑ´Ù. ¹Ø°ú °°ÀÌ ¼öÁ¤
-// //	D3DXVECTOR3		vec3ExplosionPos = A2DX(i_pAttackPri->TargetPosition);		
-// 	D3DXVECTOR3		vec3ExplosionPos = i_pAttackMon->PositionVector;
-//
-// 	////////////////////////////////////////////////////////////////////////////////
-// 	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - BELL_INFINITY_DEFENSE_MONSTER ¸ó½ºÅÍ´Â BELL_INFINITY_ATTACK_MONSTER ¸ó½ºÅÍ¿¡°Ô¸¸ °ø°Ý
-// 	if(BELL_INFINITY_DEFENSE_MONSTER == pMonInfo->Belligerence) {
-// 		int nMonsters = pMapChannel->GetAdjacentMonsterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 							pMapChannel->GetMonsterVisibleDiameterW(), &ClientIndexVector);	
-// 		if (nMonsters <= 0) {
-// 			// 2005-12-13 by cmkwon, Å¸°ÙÀÌ ¾øÀ½
-// 			return;
-// 		}
-// 		
-// 		for(int i= 0; i < nMonsters; i++) {
-// 			///////////////////////////////////////////////////////////////////////////////
-// 			// ÃÊ±âÈ­
-// 			CFieldMonster *pTargetFMonster = pMapChannel->GetFieldMonster(i_pAttackPri->TargetIndex, 105);
-// 			if(NULL == pTargetFMonster
-// 				|| pTargetFMonster->m_enMonsterState != MS_PLAYING
-// 				|| TRUE == COMPARE_BODYCON_BIT(pTargetFMonster->BodyCondition, BODYCON_DEAD_MASK)
-// 				|| BELL_INFINITY_ATTACK_MONSTER != pTargetFMonster->MonsterInfoPtr->Belligerence) {
-// 				continue;
-// 			}
-// 			pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 			pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 			
-// 			float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetFMonster->PositionVector));
-// 			BYTE	DamageKind = i_pAttackMonSock->CalcSplashDamageKindByMonsterAllAttack(i_pAttackItem, fDistance, 0);
-// 			if(DAMAGEKIND_NO_DAMAGE != DamageKind) 
-// 			{// 2007-10-22 by cmkwon, µ¥¹ÌÁö°¡ ¾ø´ÂÁö Ã¼Å©
-// 				float fDamage = CalcDamageOfAttackMonsterToMonster(1.0f
-// 					, i_pAttackMonSock, i_pAttackMon, &attParam, (void*)pTargetFMonster);
-// 
-// 				///////////////////////////////////////////////////////////////////////
-// 				// 2010-03-16 by cmkwon, ÀÎÇÇ2Â÷ MtoM, MtoC Å¸°Ù º¯°æ °ü·Ã ¼öÁ¤ - Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
-// 				INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, Send2NPC);
-// 				pSetAttackChar->ChannelIndex	= pMapChannel->GetMapChannelIndex().ChannelIndex;
-// 				pSetAttackChar->AttackIndex		= i_pAttackPri->AttackIndex;
-// 				pSetAttackChar->TargetIndex		= i_pAttackPri->TargetIndex;
-// 				pSetAttackChar->DamageAmount	= fDamage;
-// 				pSetAttackChar->ItemKind		= attParam.pWeaponItemInfo->Kind;
-// 				pMapChannel->Send2NPCServerW(Send2NPC, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));
-// 			}
-// 				
-// 			ms_pFieldIOCP->SendInRangeMessageAroundCharacter(i_pAttackPri->AttackIndex, Sendbuf
-// 				, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), i_pAttackMon->m_pCurrentFieldMapChannelMonster
-// 				, FALSE, i_pAttackMon->m_pCurrentFieldMapChannelMonster->GetMonsterVisibleDiameterW());
-// 		}// end_for(int i= 0; i < nMonsters; i++)
-// 		
-// 		return;
-// 	}
-// 
-// 	////////////////////////////////////////////////////////////////////////////////
-// 	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - BELL_INFINITY_ATTACK_MONSTER ¸ó½ºÅÍ´Â BELL_INFINITY_DEFENSE_MONSTER ¸ó½ºÅÍ¿Í À¯Àú °ø°Ý
-// 	if(BELL_INFINITY_ATTACK_MONSTER == pMonInfo->Belligerence) {
-// 		int nMonsters = pMapChannel->GetAdjacentMonsterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 			pMapChannel->GetMonsterVisibleDiameterW(), &ClientIndexVector);	
-// 		if (nMonsters > 0) {
-// 			for(int i= 0; i < nMonsters; i++) {
-// 				///////////////////////////////////////////////////////////////////////////////
-// 				// ÃÊ±âÈ­
-// 				CFieldMonster *pTargetFMonster = pMapChannel->GetFieldMonster(i_pAttackPri->TargetIndex, 105);
-// 				if(NULL == pTargetFMonster
-// 					|| pTargetFMonster->m_enMonsterState != MS_PLAYING
-// 					|| TRUE == COMPARE_BODYCON_BIT(pTargetFMonster->BodyCondition, BODYCON_DEAD_MASK)
-// 					|| BELL_INFINITY_DEFENSE_MONSTER != pTargetFMonster->MonsterInfoPtr->Belligerence) {
-// 					continue;
-// 				}
-// 				pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 				pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 				
-// 				float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetFMonster->PositionVector));
-// 				BYTE	DamageKind = i_pAttackMonSock->CalcSplashDamageKindByMonsterAllAttack(i_pAttackItem, fDistance, 0);
-// 				if(DAMAGEKIND_NO_DAMAGE != DamageKind) 
-// 				{// 2007-10-22 by cmkwon, µ¥¹ÌÁö°¡ ¾ø´ÂÁö Ã¼Å©
-// 					float fDamage = CalcDamageOfAttackMonsterToMonster(1.0f
-// 						, i_pAttackMonSock, i_pAttackMon, &attParam, (void*)pTargetFMonster);
-// 
-// 					///////////////////////////////////////////////////////////////////////
-// 					// 2010-03-16 by cmkwon, ÀÎÇÇ2Â÷ MtoM, MtoC Å¸°Ù º¯°æ °ü·Ã ¼öÁ¤ - Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
-// 					INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, Send2NPC);
-// 					pSetAttackChar->ChannelIndex	= pMapChannel->GetMapChannelIndex().ChannelIndex;
-// 					pSetAttackChar->AttackIndex		= i_pAttackPri->AttackIndex;
-// 					pSetAttackChar->TargetIndex		= i_pAttackPri->TargetIndex;
-// 					pSetAttackChar->DamageAmount	= fDamage;
-// 					pSetAttackChar->ItemKind		= attParam.pWeaponItemInfo->Kind;
-// 					pMapChannel->Send2NPCServerW(Send2NPC, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));
-// 				}
-// 				
-// 				ms_pFieldIOCP->SendInRangeMessageAroundCharacter(i_pAttackPri->AttackIndex, Sendbuf
-// 					, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), i_pAttackMon->m_pCurrentFieldMapChannelMonster
-// 					, FALSE, i_pAttackMon->m_pCurrentFieldMapChannelMonster->GetMonsterVisibleDiameterW());
-// 			}// end_for(int i= 0; i < nMonsters; i++)	
-// 		}
-// 
-// 		int nCharacters = pMapChannel->GetAdjacentCharacterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 			pMapChannel->GetMonsterVisibleDiameterW(), &ClientIndexVector);
-// 		if (nCharacters > 0)
-// 		{// 2005-12-13 by cmkwon, Å¸°ÙÀÌ ¾øÀ½
-// 			for(int i= 0; i < nCharacters; i++)
-// 			{
-// 				///////////////////////////////////////////////////////////////////////////////
-// 				// ÃÊ±âÈ­
-// 				pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 				pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 				
-// 				CFieldIOCPSocket	*pTargetCharacterSocket = NULL;
-// 				CHARACTER			*pTargetCharacter = NULL;
-// 				ClientIndex_t		tmpClientIndex = ClientIndexVector[i];
-// 				
-// 				if (FALSE == i_pAttackMonSock->CheckValidAttackTargetCharacter(pMapChannel, tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-// 				{
-// 					continue;
-// 				}
-// 				
-// 				float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetCharacter->PositionVector));
-// 				BYTE	DamageKind = i_pAttackMonSock->CalcSplashDamageKindByMonsterAllAttack(i_pAttackItem, fDistance, 0);
-// 				if(DAMAGEKIND_NO_DAMAGE != DamageKind)
-// 				{// 2007-10-22 by cmkwon, µ¥¹ÌÁö°¡ ¾ø´ÂÁö Ã¼Å©
-// 					float fDamage = CalcDamageOfAttackNew(&DamageKind, M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, &attParam, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0.0f : fDistance ));
-// 				}
-// 				
-// 				if(pTargetCharacter
-// 					&& pTargetCharacterSocket->IsValidCharacter())
-// 				{
-// 					pTargetCharacterSocket->SendAddData(Sendbuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK));
-// 				}
-// 			}// end_for(int i= 0; i < nCharacters; i++)
-// 		}
-// 		return;
-// 	}
-// 
-// 	int nCharacters = pMapChannel->GetAdjacentCharacterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 						pMapChannel->GetMonsterVisibleDiameterW(), &ClientIndexVector);
-// 	if (nCharacters <= 0)
-// 	{// 2005-12-13 by cmkwon, Å¸°ÙÀÌ ¾øÀ½
-// 		return;
-// 	}
-// 
-// 	////////////////////////////////////////////////////////////////////////////////
-// 	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - À§·Î ¼öÁ¤
-// 	// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
-// // 	SATTACK_PARAMETER attParam;	
-// // 	MEMSET_ZERO(&attParam, sizeof(attParam));
-// // 	i_pAttackMon->APCalcAttckParameter(&attParam, i_pAttackItem, i_pAttackPri->WeaponIndex);
-// // 
-// // 	D3DXVECTOR3		vec3ExplosionPos = A2DX(i_pAttackPri->TargetPosition);
-// 	for(int i= 0; i < nCharacters; i++)
-// 	{
-// 		///////////////////////////////////////////////////////////////////////////////
-// 		// ÃÊ±âÈ­
-// 		pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 		pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 
-// 		CFieldIOCPSocket	*pTargetCharacterSocket = NULL;
-// 		CHARACTER			*pTargetCharacter = NULL;
-// 		ClientIndex_t		tmpClientIndex = ClientIndexVector[i];
-// 
-// 		if (FALSE == i_pAttackMonSock->CheckValidAttackTargetCharacter(pMapChannel, tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-// 		{
-// 			continue;
-// 		}
-// 
-// 		if(FALSE == IS_SAME_CHARACTER_MONSTER_INFLUENCE(pTargetCharacter->InfluenceType, pMonInfo->Belligerence)
-// 			&& BELL_INFINITY_DEFENSE_MONSTER != pMonInfo->Belligerence)		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - BELL_INFINITY_DEFENSE_MONSTER ¸ó½ºÅÍ¿¡°Ô °ø°Ý ¹ÞÁö ¾ÊÀ½.
-// 		{// 2007-10-22 by cmkwon, °°Àº ¼¼·ÂÀÎÁö Ã¼Å©ÇÑ´Ù.
-// 
-// 			float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetCharacter->PositionVector));
-// 			BYTE	DamageKind = i_pAttackMonSock->CalcSplashDamageKindByMonsterAllAttack(i_pAttackItem, fDistance, 0);
-// 			if(DAMAGEKIND_NO_DAMAGE != DamageKind)
-// 			{// 2007-10-22 by cmkwon, µ¥¹ÌÁö°¡ ¾ø´ÂÁö Ã¼Å©
-// 				float fDamage = CalcDamageOfAttackNew(&DamageKind, M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, &attParam, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0.0f : fDistance ));
-// 			}
-// 		}
-// 
-// 		if(pTargetCharacter
-// 			&& pTargetCharacterSocket->IsValidCharacter())
-// 		{
-// 			pTargetCharacterSocket->SendAddData(Sendbuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK));
-// 		}
-// 	}// end_for(int i= 0; i < nCharacters; i++)
-// 
-// // 2007-10-22 by cmkwon, À§¿Í °°ÀÌ ¼öÁ¤ÇÔ, °°Àº ¼¼·Â ¸ó½ºÅÍ Ã³¸®°¡ µÇ¾î ÀÖÁö ¾Ê¾ÒÀ½
-// //	for(int i= 0; i < nCharacters; i++)
-// //	{
-// //		///////////////////////////////////////////////////////////////////////////////
-// //		// ÃÊ±âÈ­
-// //		pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// //		pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// //
-// //		CFieldIOCPSocket	*pTargetCharacterSocket = NULL;
-// //		CHARACTER			*pTargetCharacter = NULL;
-// //		ClientIndex_t		tmpClientIndex = ClientIndexVector[i];
-// //
-// //		if (i_pAttackMonSock->CheckValidAttackTargetCharacter(pMapChannel, tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-// //		{
-// //			float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetCharacter->PositionVector));
-// //			BYTE	DamageKind = i_pAttackMonSock->CalcSplashDamageKindByMonsterAllAttack(i_pAttackItem, fDistance, 0);
-// //
-// //			if(DAMAGEKIND_NO_DAMAGE != DamageKind)
-// //			{
-// //// 2006-12-04 by dhjin, Ã¼ÇÁ »çÃâ·Î ÀÎÇÏ¿© ±âÁ¸¿¡ ´õ¹Ì ¼Ò½º º¯°æ.
-// ////				pSFCAttackOK->TargetInfo.TargetIndex			= pTargetCharacter->ClientIndex;	// 2005-12-14 by cmkwon, Å¸°Ù ÀÎµ¦½º¸¦ ¼³Á¤ÇÔ
-// ////				mt_auto_lock dummyLock(&pTargetCharacterSocket->m_mapFieldDummy);			// lock m_mapFieldDummy
-// ////				if (pTargetCharacterSocket->m_mapFieldDummy.empty())
-// ////				{// ÇÇ°ø°ÝÀÚ°¡ Dummy¸¦ ´Þ°í ÀÖÁö ¾ÊÀ» ¶§
-// ////					pSFCAttackOK->TargetInfo.TargetItemFieldIndex = 0;			// 2005-12-13 by cmkwon, ÃÊ±âÈ­
-// ////
-// ////					float fDamage = CalcDamageOfAttack(M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem
-// ////						, &DamageKind, vec3ExplosionPos, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0 : fDistance ));
-// ////#ifdef _DEBUG
-// ////					pTargetCharacterSocket->SendString128(STRING_128_ADMIN_CMD, "MonSplash: Idx(%d) Damage(%3.1f) to %s"
-// ////						, i, fDamage, i_pAttackMon->MonsterInfoPtr->MonsterName);
-// ////#endif
-// ////				}
-// ////				else
-// ////				{// ÇÇ°ø°ÝÀÚ°¡ Dummy¸¦ ´Þ°í ÀÖÀ» ¶§
-// ////					
-// ////					FIELD_DUMMY *pTargetDummy = (pTargetCharacterSocket->m_mapFieldDummy.begin())->second;
-// ////					pSFCAttackOK->TargetInfo.TargetItemFieldIndex = pTargetDummy->ItemFieldIndex;
-// ////					
-// ////					float fDamage = CalcDamageOfAttack(M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem
-// ////						, &DamageKind, vec3ExplosionPos, 0, 0, (pTargetDummy==NULL?NULL:pTargetDummy->ItemFieldIndex));
-// ////#ifdef _DEBUG
-// ////					pTargetCharacterSocket->SendString128(STRING_128_ADMIN_CMD, "MonSplash(dummy): Idx(%d) Damage(%3.1f) to %s"
-// ////						, i, fDamage, i_pAttackMon->MonsterInfoPtr->MonsterName);
-// ////#endif
-// ////				}
-// //				float fDamage = CalcDamageOfAttackNew(&DamageKind, M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, &attParam, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0.0f : fDistance ));
-// //// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
-// ////				// 2006-12-04 by dhjin, ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
-// ////				float fDamage = CalcDamageOfAttack(M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem
-// ////					, &DamageKind, vec3ExplosionPos, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0 : fDistance ));
-// //
-// //			}// end_if(DAMAGEKIND_NO_DAMAGE != DamageKind)
-// //		}// end_if (i_pAttackMonSock->CheckValidAttackTargetCharacter(tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-// //
-// //		if(pTargetCharacterSocket
-// //			&& pTargetCharacterSocket->IsValidCharacter(FALSE))
-// //		{
-// //			pTargetCharacterSocket->SendAddData(Sendbuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK));
-// //		}
-// //	}// end_for(int i= 0; i < nCharacters; i++)
 	///////////////////////////////////////////////////////////////////////////////
 	// 2010-03-16 by cmkwon, ÀÎÇÇ2Â÷ MtoM, MtoC Å¸°Ù º¯°æ °ü·Ã ¼öÁ¤ - 
 	if ((ITEMKIND_FOR_MON_ALLATTACK != i_pAttackItem->Kind && ITEMKIND_FOR_MON_RANGE_ATTACK != i_pAttackItem->Kind)
@@ -4602,43 +4164,12 @@ BOOL CFieldIOCPSocket::RewardOfBossMonster(CFieldIOCPSocket *pLastAttackedUser, 
 ///////////////////////////////////////////////////////////////////////////////
 int CFieldIOCPSocket::SupplyBullet(ITEM_GENERAL *i_pWeaponItem, ITEM *i_pBulletItem, int i_nSupplyCount)
 {
-// 2007-10-06 by cmkwon, ¸â¹ö½± ÇýÅÃ ¼öÁ¤ - º£Æ®³² ÃÑ¾Ë µÎ¹è Á¦¿Ü, ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
-//	if(i_nSupplyCount <= 0
-//		|| 2*i_pWeaponItem->ItemInfo->Charging <= i_pWeaponItem->CurrentCount)	// 2007-09-06 by cmkwon, ¸â¹ö½± ÇýÅÃ ¼öÁ¤ - Ã¼Å© ¼öÁ¤, ÃÑ¾ËÀ» µÎ¹è Ã¤¿ï ¼ö ÀÖ´Ù
-//	{
-//		return 0;
-//	}
-//
-//	///////////////////////////////////////////////////////////////////////////////	
-//	// 2007-09-06 by cmkwon, ¸â¹ö½± ÇýÅÃ ¼öÁ¤ - ÃÑ¾ËÀ» µÎ¹è Ã¤¿ï ¼ö ÀÖ´Ù
-//	if(m_ItemManager.IsExistPremiumCard())
-//	{// 2007-09-06 by cmkwon, ¸â¹ö½± Ã¼Å©
-//
-//		// 2007-09-06 by cmkwon, ¸â¹ö½± ÇýÅÃ ¼öÁ¤ - ÃÑ¾ËÀ» µÎ¹è Ã¤¿ï ¼ö ÀÖ´Ù
-//		i_nSupplyCount = min(i_nSupplyCount, 2*i_pWeaponItem->ItemInfo->Charging - i_pWeaponItem->CurrentCount);
-//	}
-//	else
-//	{
-//		i_nSupplyCount = min(i_nSupplyCount, i_pWeaponItem->ItemInfo->Charging - i_pWeaponItem->CurrentCount);
-//	}
-
 	// 2007-10-06 by cmkwon, º¸±Þ °³¼ö Ã¼Å© 
 	if(i_nSupplyCount <= 0)
 	{
 		return 0;
 	}
 
-// 2007-10-15 by cmkwon, ¸â¹ö½¬ À¯Àú´Â ÅºÃ¢ÀÌ µÎ¹è·Î Ä¿Áø´Ù
-//	int nMaxChargingCnt = i_pWeaponItem->ItemInfo->Charging;
-//	///////////////////////////////////////////////////////////////////////////////	
-//	// 2007-09-06 by cmkwon, ¸â¹ö½± ÇýÅÃ ¼öÁ¤ - ÃÑ¾ËÀ» µÎ¹è Ã¤¿ï ¼ö ÀÖ´Ù
-//	// 2007-10-06 by cmkwon, ¸â¹ö½± ÇýÅÃ ¼öÁ¤ - º£Æ®³² ÃÑ¾Ë µÎ¹è Á¦¿Ü
-//	if(LANGUAGE_TYPE_VIETNAMESE != g_pFieldGlobal->GetLanguageType()
-//		&& m_ItemManager.IsExistPremiumCard())
-//	{// 2007-09-06 by cmkwon, ¸â¹ö½± Ã¼Å©
-//
-//		nMaxChargingCnt = 2*i_pWeaponItem->ItemInfo->Charging;
-//	}
 	int nMaxChargingCnt = i_pWeaponItem->GetMaxBulletCount(m_ItemManager.IsExistPremiumCard(),IsEffectInWingout());	
 	// 2007-10-15 by cmkwon, ¸â¹ö½¬ À¯Àú´Â ÅºÃ¢ÀÌ µÎ¹è·Î Ä¿Áø´Ù			// 2014-12-08 by bckim, jwLee °í±Þ¹«±â ÀÌÆåÆ® ÀåÅº¼ö È®Àå ±â´ÉÃß°¡
 	
@@ -6497,7 +6028,12 @@ int CFieldIOCPSocket::OnSecondaryAttack( int shotCount, BYTE i_atktype /* = NULL
 // 2006-11-08 by cmkwon, ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤ÇÔ(IsInvisibleCharacter º¯¼ö·Î Ã³¸® ÇÔ)
 //	if (COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_STEALTH_MASK))
 	if(this->IsInvisibleCharacter())
-	{// stealth »óÅÂÀÌ¸é returnÇÔ
+	{// stealth »óÅÂÀÌ¸é returnÇÔü
+		return 0;
+	}
+
+	if (m_character.BodyCondition == BODYCON_STEALTH_MASK)
+	{
 		return 0;
 	}
 
@@ -7391,11 +6927,6 @@ BOOL CFieldIOCPSocket::PreSendAddData(BYTE *i_pbyData, int i_nSize, int i_nWrite
 					&& GetCharacter()->ClientIndex != pAttOK->TargetInfo.TargetIndex)
 				{
 
-//  						g_pFieldGlobal->WriteSystemLogEX(TRUE, "ÀÓ½Ã¿ë CFieldIOCPSocket::PreSendAddData CliIdx|%4d| MsgTy|%s| AttIdx|%d| TarIdx|%d| WriteBufCnt|%d| %d, %d, %d\r\n"
-//  							, this->GetClientArrayIndex(), GetProtocolTypeString(msgTy), pAttOK->AttackIndex, pAttOK->TargetInfo.TargetIndex, i_nWriteBufCnts
-// 							, pAttOK->SkillNum, pAttOK->AttackIndex, pAttOK->TargetInfo.TargetIndex);
-					// 2008-03-13 by cmkwon, ´ë±Ô¸ð ÀüÀï½Ã Å¬¶óÀÌ¾ðÆ® ÆÃ±â´Â°Å ¼öÁ¤ - 
-					//						 ³×Æ®¿öÅ© »óÅÂ°¡ ÁÁÁö ¾ÊÀ¸¸é °øÆø/ÁöÆø ½ºÅ³ »ç¿ë¾ÈÇÑ »óÅÂ°Å³ª, ³»°¡ °ø°ÝÇÑ Á¤º¸, ³ª¸¦ °ø°ÝÇÑ Á¤º¸¸¦ Á¦¿ÜÇÑ ³ª¸ÓÁö °ø°Ý Á¤º¸¸¦ Àü¼ÛÇÏÁö ¾Ê´Â´Ù.
 					m_nDeletedPacketCount++;
 					return FALSE;
 				}
@@ -19490,28 +19021,33 @@ BYTE CFieldIOCPSocket::CalcDamageKind(float fDistance, float fDistanceVar)
 	}
 }
 
-ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, int nLength, int &nBytesUsed)
+#ifdef _RAT_ANTI_CHEAT
+ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, int nLength, int& nBytesUsed)
 {
 	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_ATTACK,
-									MSG_FC_BATTLE_ATTACK, pMsgAttack);
+		MSG_FC_BATTLE_ATTACK, pMsgAttack);
 
 	// °¢Á¾ º¯¼ö ÁØºñ
-	ITEM				*pAttackItem		= NULL;
-	ITEM_GENERAL		*pAttackItemGeneral	= NULL;
-	enumAttackToTarget	eAttack2Target		= ERR2ERR;
-	CFieldIOCPSocket	*pTargetSocket		= NULL;
-	CHARACTER			*pTargetCharacter	= NULL;
-	CFieldMonster		*pTargetMonster		= NULL;
+	ITEM* pAttackItem = NULL;
+	ITEM_GENERAL* pAttackItemGeneral = NULL;
+	enumAttackToTarget	eAttack2Target = ERR2ERR;
+	CFieldIOCPSocket* pTargetSocket = NULL;
+	CHARACTER* pTargetCharacter = NULL;
+	CFieldMonster* pTargetMonster = NULL;
 
-	float				fDistance			= 0.0f;		// °ø°ÝÀÚ¿Í °ø°Ý´ë»ó°úÀÇ °Å¸®¸¦ ÀúÀå
-	float				fSkillAppliedRange	= 0.0f;		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ ÀúÀå
-	float				fDamage				= 0.0f;		// ÃÖÁ¾ µ¥¹ÌÁö
-	BYTE				DamageKind			= DAMAGEKIND_NORMAL;
-	INT					temp_Petattack		= 0;		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®(º¯¼ö Ãß°¡)
-	
-	ITEM				*pITEMforProcessSplashAttack = NULL;	// 2006-12-01 by dhjin,
-	D3DXVECTOR3			tmVecTargetPos		= A2DX(pMsgAttack->TargetInfo.TargetPosition);
-		
+	float				fDistance = 0.0f;		// °ø°ÝÀÚ¿Í °ø°Ý´ë»ó°úÀÇ °Å¸®¸¦ ÀúÀå
+	float				fSkillAppliedRange = 0.0f;		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ ÀúÀå
+	float				fDamage = 0.0f;		// ÃÖÁ¾ µ¥¹ÌÁö
+	BYTE				DamageKind = DAMAGEKIND_NORMAL;
+	INT					temp_Petattack = 0;		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®(º¯¼ö Ãß°¡)
+
+	ITEM* pITEMforProcessSplashAttack = NULL;	// 2006-12-01 by dhjin,
+	D3DXVECTOR3			tmVecTargetPos = A2DX(pMsgAttack->TargetInfo.TargetPosition);
+
+	// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+	bool isDroneAttack = false;
+	// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT
+
 	// °ø°ÝÀÚ°¡  À¯È¿ÇÑÁö Ã¼Å©
 	if (FALSE == this->IsValidCharacter()
 		|| COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_EVENT_HANDLE_MASK))
@@ -19521,10 +19057,10 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 	////////////////////////////////////////////////////////////////////////////////
 	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »çÀÏ·±Æ® µð¹öÇÁ Ã¼Å©, »óÀ§¿¡¼­ Ã¼Å©ÇÑ´Ù.
-	if( (this->m_SkillManager.m_FieldDebuff.CheckApplyingDebuff(DES_SKILL_MON_SILENCE_PRIMARY)
-		&& IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType) ) 
+	if ((this->m_SkillManager.m_FieldDebuff.CheckApplyingDebuff(DES_SKILL_MON_SILENCE_PRIMARY)
+		&& IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
 		|| (this->m_SkillManager.m_FieldDebuff.CheckApplyingDebuff(DES_SKILL_MON_SILENCE_SECOND)
-			&& IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType) )
+			&& IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
 		) {
 		SendErrorMessage(T_FC_BATTLE_ATTACK, ERR_DEBUFF_SKILL_APPLYING_SLIENCE);
 		return RES_BREAK;
@@ -19535,49 +19071,79 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 	//////////////////////////////////////////////////////////////////////////
 	// 2007-07-16 by dhjin, Tutorial ¸ÊÀÌ¸é Àü¿ë ¹«±â ÇÒ´ç.
-	if(IS_TUTORIAL_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
+	if (IS_TUTORIAL_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
 	{
 		pAttackItem = GetTutorialWeaponInfo(pMsgAttack->AttackType);
 		if (pAttackItem == NULL || pAttackItem->ItemNum == NULL)
 		{
 			return RES_BREAK;
 		}
-	}	
+	}
 	else
 	{
 		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®(Ã³¸® º¯°æ)
 		// Attack Item ÇÒ´ç ¹× È®ÀÎ
 		if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
-		{				
-			pAttackItem = &m_ItemProwOut; 
-			pAttackItemGeneral	= (ITEM_GENERAL*)pAttackItem->ItemNum;
+		{
+			pAttackItem = &m_ItemProwOut;
+			pAttackItemGeneral = (ITEM_GENERAL*)pAttackItem->ItemNum;
 
 			// 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
 			//pAttackItem			= pAttackItemGeneral->ItemInfo;				// 2007-02-06 by cmkwon, ÀåÂø ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ¸¦ lock°ú »ó°ü¾ø´Â Æ÷ÀÎÅÍ·Î º¯°æÇÑ´Ù.
-			if ( pAttackItemGeneral )
+			if (pAttackItemGeneral)
+			{
 				pAttackItem = pAttackItemGeneral->ItemInfo;
+
+				// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+				// Check time difference between attacks
+				if (timeGetTime() - m_character.ATTACK_INFO.Primary_LastAttackTime < m_character.ATTACK_INFO.Primary_ReAttacktime)
+				{
+					return RES_BREAK;
+				}
+				// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+			}
 			// End 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
 		}
-		else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType)) 
+		else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
 		{
-			pAttackItem = &m_ItemWingOut; 
-			pAttackItemGeneral	= (ITEM_GENERAL*)pAttackItem->ItemNum;
+			pAttackItem = &m_ItemWingOut;
+			pAttackItemGeneral = (ITEM_GENERAL*)pAttackItem->ItemNum;
 
 			// 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
 			//pAttackItem			= pAttackItemGeneral->ItemInfo;				// 2007-02-06 by cmkwon, ÀåÂø ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ¸¦ lock°ú »ó°ü¾ø´Â Æ÷ÀÎÅÍ·Î º¯°æÇÑ´Ù.
-			if ( pAttackItemGeneral )
+			if (pAttackItemGeneral)
+			{
 				pAttackItem = pAttackItemGeneral->ItemInfo;
+
+				// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+				// a Prevention for RA if weapon is NOT USED YET or AFTER USE
+				if (!m_character.ATTACK_INFO.Secondary_isOnUse)
+				{
+					// Check time difference between attacks
+					if (timeGetTime() - m_character.ATTACK_INFO.Secondary_LastAttackTime < m_character.ATTACK_INFO.Secondary_ReAttacktime)
+					{
+						return RES_BREAK;
+					}
+				}
+				// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+				
+			}
 			// End 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
-		}
-		
-		if(ATT_TYPE_PET_ATK == pMsgAttack->AttackType)
+		} 
+
+		if (ATT_TYPE_PET_ATK == pMsgAttack->AttackType)
 		{
-			temp_Petattack = ms_pFieldIOCP->m_cPetDataManager.GetPetLevelDataFromAttackItemNum(m_ItemPet.LinkItem,m_ItemPet.SkillLevel);
-			pAttackItem = ms_pFieldIOCP->GetItemInfo( temp_Petattack );
+			temp_Petattack = ms_pFieldIOCP->m_cPetDataManager.GetPetLevelDataFromAttackItemNum(m_ItemPet.LinkItem, m_ItemPet.SkillLevel);
+			pAttackItem = ms_pFieldIOCP->GetItemInfo(temp_Petattack);
 			//pAttackItemGeneral	= (ITEM_GENERAL*)pAttackItem->ItemNum;
 			//pAttackItem			= pAttackItemGeneral->ItemInfo;
 			// 2010-11-01 by jskim, Æê µ¥¹ÌÁö View º¯°æ
-			DamageKind			= DAMAGEKIND_PET;
+			DamageKind = DAMAGEKIND_PET;
+
+			// RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+			isDroneAttack = true;
+			// // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT // RAT_ANTI_CHEAT 
+			
 			// end 2010-11-01 by jskim, Æê µ¥¹ÌÁö View º¯°æ
 		} //Æê °ø°Ý 1Çü ¹«±â ¾ÆÀÌÅÛ Á¤º¸
 
@@ -19592,17 +19158,16 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 	// MSG_FC_BATTLE_ATTACK_OK ÁØºñ
 	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_ATTACK_OK, T_FC_BATTLE_ATTACK_OK, pMsgAttackOK, pMsgAttackOKBuf);
-	pMsgAttackOK->AttackIndex		= m_character.ClientIndex;
-	pMsgAttackOK->TargetInfo		= pMsgAttack->TargetInfo;
-	pMsgAttackOK->FirePosition		= pMsgAttack->FirePosition;
-	pMsgAttackOK->WeaponIndex		= m_WeaponIndexGenerator.GetNext();
-	pMsgAttackOK->AttackType		= pMsgAttack->AttackType;
-	pMsgAttackOK->ItemNum			= pAttackItem->ItemNum;
-	pMsgAttackOK->SkillNum			= pMsgAttack->SkillNum;
+	pMsgAttackOK->AttackIndex = m_character.ClientIndex;
+	pMsgAttackOK->TargetInfo = pMsgAttack->TargetInfo;
+	pMsgAttackOK->FirePosition = pMsgAttack->FirePosition;
+	pMsgAttackOK->WeaponIndex = m_WeaponIndexGenerator.GetNext();
+	pMsgAttackOK->AttackType = pMsgAttack->AttackType;
+	pMsgAttackOK->ItemNum = pAttackItem->ItemNum;
+	pMsgAttackOK->SkillNum = pMsgAttack->SkillNum;
 	pMsgAttackOK->TargetInfo.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
-//	pMsgAttackOK->RemainedBulletFuel= ;	// OnXXXAttack() ÀÌÈÄ¿¡ ÇÒ´ç
+	//	pMsgAttackOK->RemainedBulletFuel= ;	// OnXXXAttack() ÀÌÈÄ¿¡ ÇÒ´ç
 
- 
 	// AttackToTarget °áÁ¤
 	eAttack2Target = CAtumSJ::GetAttackToTarget(m_character.ClientIndex, pMsgAttack->TargetInfo);
 	if (eAttack2Target == ERR2ERR)
@@ -19611,50 +19176,52 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 	}
 
 	// 2014-02-05 by jhseol, Ä³³ª´Ù °ø°ÝÀ§Á¶ ¸Þ¸ð¸®ÇÙ º¸¾È°­È­
-	if ( DAMAGEKIND_NORMAL == DamageKind )
+	if (DAMAGEKIND_NORMAL == DamageKind)
 	{
-		switch(eAttack2Target)
+		switch (eAttack2Target)
 		{
 		case C2C:
 		case C2M:
 		case C2I:
 		case C2CI:
+		{
+			D3DXVECTOR3 tsetTargetPosition = tmVecTargetPos;
+			int	AttackDistance = (int)D3DXVec3Length(&(tsetTargetPosition - m_character.PositionVector));
+			int	AttackPossibleRange = 0;
+
+
+			if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
 			{
-				D3DXVECTOR3 tsetTargetPosition = tmVecTargetPos;
-				int	AttackDistance = (int)D3DXVec3Length(&(tsetTargetPosition - m_character.PositionVector));
-				int	AttackPossibleRange = 0;
-
-				if ( IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType) )
-				{
-					AttackPossibleRange = (int)max(0.1f, m_ItemProw.AbilityMin*(1.0f+m_ParamFactor.pfm_RANGE_01+m_ParamFactor.pfm_ATTACK_RANGE_01));
-				}
-				else if ( IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType) ) 
-				{
-					AttackPossibleRange = (int)max(0.1f, m_ItemProw.AbilityMax*(1.0f+m_ParamFactor.pfm_RANGE_02+m_ParamFactor.pfm_ATTACK_RANGE_02));
-				}
-//				SendString128(STRING_128_ADMIN_CMD, "»ç°Å¸®:%.4f,  °ø°Ý°Å¸®:%.4f", fAttackRange, testfDist);
-
-				if ( 100 <= AttackDistance - AttackPossibleRange )
-				{
-//					SendString128(STRING_128_ADMIN_CMD, "¹ö±×¾²³Ä?? ºí¶ô´çÇØº¼Åß??");
-					g_pFieldGlobal->WriteSystemLogEX(FALSE, "[HACK_USER] AttackRange Hacking _ AUID(%d) CUID(%d) AttackPossibleRange(%d) AttackDistance(%d)\r\n"
-						, m_character.AccountUniqueNumber, m_character.CharacterUniqueNumber, AttackPossibleRange, AttackDistance);
-					return RES_BREAK;
-				}
+				AttackPossibleRange = (int)max(0.1f, m_ItemProw.AbilityMin * (1.0f + m_ParamFactor.pfm_RANGE_01 + m_ParamFactor.pfm_ATTACK_RANGE_01));
 			}
-			break;
+			else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
+			{
+				AttackPossibleRange = (int)max(0.1f, m_ItemProw.AbilityMax * (1.0f + m_ParamFactor.pfm_RANGE_02 + m_ParamFactor.pfm_ATTACK_RANGE_02));
+			}
+			//				SendString128(STRING_128_ADMIN_CMD, "»ç°Å¸®:%.4f,  °ø°Ý°Å¸®:%.4f", fAttackRange, testfDist);
+
+			if (100 <= AttackDistance - AttackPossibleRange)
+			{
+				//					SendString128(STRING_128_ADMIN_CMD, "¹ö±×¾²³Ä?? ºí¶ô´çÇØº¼Åß??");
+				g_pFieldGlobal->WriteSystemLogEX(FALSE, "[HACK_USER] AttackRange Hacking _ AUID(%d) CUID(%d) AttackPossibleRange(%d) AttackDistance(%d)\r\n"
+					, m_character.AccountUniqueNumber, m_character.CharacterUniqueNumber, AttackPossibleRange, AttackDistance);
+				return RES_BREAK;
+			}
+		}
+		break;
 		default:
 			break;
 		}
+
 	}
 	// end 2014-02-05 by jhseol, Ä³³ª´Ù °ø°ÝÀ§Á¶ ¸Þ¸ð¸®ÇÙ º¸¾È°­È­
 
 	///////////////////////////////////////////////////////////////////////////////
 	// 2006-01-20 by cmkwon, ¼¼·ÂÀü º¸½º ¸ó½ºÅÍ °ø°Ý ¸Þ½ÃÁö 
-	if(C2M == eAttack2Target)
+	if (C2M == eAttack2Target)
 	{
-		CFieldMonster *pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
-		if(pFMon
+		CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+		if (pFMon
 			&& MS_PLAYING == pFMon->m_enMonsterState
 			&& COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_BOSS_MONSTER)
 			// 2007-08-23 by cmkwon, ¸ð¼±Àü º¸½º ¸ó½ºÅÍ ±¸ºÐ Ã³¸® - ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤ÇÔ, Ãß°¡µÈ µðÆÄÀÎ »ç¿ë
@@ -19663,19 +19230,19 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 			&& FALSE == COMPARE_BODYCON_BIT(pFMon->BodyCondition, BODYCON_DEAD_MASK))
 		{
 			DWORD		dwCurTick = timeGetTime();
-			if(dwCurTick - pFMon->m_dwLastTickInfluenceBossAttackedMsg > TICKGAP_SEND_INVASION_MSG)
+			if (dwCurTick - pFMon->m_dwLastTickInfluenceBossAttackedMsg > TICKGAP_SEND_INVASION_MSG)
 			{
-				pFMon->m_dwLastTickInfluenceBossAttackedMsg		= dwCurTick;
+				pFMon->m_dwLastTickInfluenceBossAttackedMsg = dwCurTick;
 
 				INIT_MSG_WITH_BUFFER(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION, T_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION, pSInvasion, Sendbuf);
-				pSInvasion->MonsterUnitkind		= pFMon->MonsterInfoPtr->MonsterUnitKind;
+				pSInvasion->MonsterUnitkind = pFMon->MonsterInfoPtr->MonsterUnitKind;
 				ms_pFieldIOCP->SendMessageToAllClients(Sendbuf, MSG_SIZE(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION), GET_SAME_CHARACTER_INFL_BY_MONSTER_BELL(pFMon->MonsterInfoPtr->Belligerence));
 			}
-		}			
+		}
 
 		///////////////////////////////////////////////////////////////////////////////
 		// 2009-12-11 by cmkwon, µ¥¹ÌÁö ¾î±×·Î·Î Å¸°ÙÀ» º¯°æÇÏ´Â ¸ó½ºÅÍ ±¸Çö - 
-		if(pFMon && pFMon->IsValidMonster())
+		if (pFMon && pFMon->IsValidMonster())
 		{
 			this->SetTargetMonsterIndex(pMsgAttack->TargetInfo.TargetIndex);
 		}
@@ -19684,7 +19251,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 	///////////////////////////////////////////////////////////////////////////
 	// 2007-02-06 by cmkwon
 	// 1. 1Çü, 2Çü ¹«±â ÃÑ¾Ë¼ö Ã¼Å©
-	if(IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
+	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
 	{// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
 		if (FALSE == OnPrimaryAttack(pMsgAttack->AttackType))
 		{
@@ -19713,24 +19280,24 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 	// ³²Àº ÇöÀç bullet ÇÒ´ç
 	//////////////////////////////////////////////////////////////////////////
 	// 2007-07-16 by dhjin, Tutorial ¸ÊÀÌ¸é Àü¿ë ¹«±â ÇÒ´ç.
-	if(IS_TUTORIAL_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
+	if (IS_TUTORIAL_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
 	{
 		pMsgAttackOK->RemainedBulletFuel = 100;
 	}
 	else
 	{
 		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
-		if(ATT_TYPE_PET_ATK == pMsgAttack->AttackType)
+		if (ATT_TYPE_PET_ATK == pMsgAttack->AttackType)
 		{
 			pMsgAttackOK->RemainedBulletFuel = 100;
 		}
-		else if(ATT_TYPE_PET_ATK != pMsgAttack->AttackType)
+		else if (ATT_TYPE_PET_ATK != pMsgAttack->AttackType)
 		{
-		pMsgAttackOK->RemainedBulletFuel = pAttackItemGeneral->CurrentCount;
-	}
+			pMsgAttackOK->RemainedBulletFuel = pAttackItemGeneral->CurrentCount;
+		}
 		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
 	}
-	
+
 	igLock.auto_unlock_cancel();
 
 	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - ½ºÅ³ »ç¿ë¿©ºÎ¿Í ¼¼·Âºñ¿¡ µû¸¥ ¹öÇÁ È¿°ú ºñÀ² °è»ê
@@ -19738,7 +19305,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 	if (TRUE == m_SkillManager.IsSkillActivatedByItemNum(TURN_AROUND_BUFF_SKILL_1ST) || TRUE == m_SkillManager.IsSkillActivatedByItemNum(TURN_AROUND_BUFF_SKILL_3RD))
 	{
 		// 2014-03-25 by jekim, ½Â¸®ÀÇ È¯È£
-		if(0 == ms_pFieldIOCP->m_InflWarManager.GetPVPBuffPercent(m_character.InfluenceType,&tmBuffPercent))
+		if (0 == ms_pFieldIOCP->m_InflWarManager.GetPVPBuffPercent(m_character.InfluenceType, &tmBuffPercent))
 		{
 			tmBuffPercent = 0.0f;
 		}
@@ -19749,29 +19316,19 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 	///////////////////////////////////////////////////////////////////////////
 	// 1Çü ¹«±â °ø°ÝÀÎ °æ¿ì ÀÌ°Å³ª Æê °ø°ÝÀÏ °æ¿ì 
 	///////////////////////////////////////////////////////////////////////////
-	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType) || ATT_TYPE_PET_ATK == pMsgAttack->AttackType ) // 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê ¹«±âÀÏ °æ¿ì(Ãß°¡)
+	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType) || ATT_TYPE_PET_ATK == pMsgAttack->AttackType) // 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê ¹«±âÀÏ °æ¿ì(Ãß°¡)
 	{
 		// ChagingSkill Ã³¸®
 		CChargingSkillApplier tmpChargingSkillApplier(&pITEMforProcessSplashAttack, FALSE, pAttackItem, this);
 		// 2013-03-12 by jhseol, ½ºÅ³ ³Ñ¹ö¸µ ½Ã½ºÅÛ ¼öÁ¤
-#ifdef SC_SKILL_NUMBERING_RENEWAL_JHSEOL_BHSOHN
-#else	// #ifdef SC_SKILL_NUMBERING_RENEWAL_JHSEOL_BHSOHN
-		ITEM_SKILL *pSkillItem	= m_ItemManager.GetFirstSkillBySkillBaseNum(pMsgAttack->SkillNum);	// 2006-12-01 by dhjin,	
-// 		ITEM *pItemInfo = ms_pFieldIOCP->GetItemInfo(pMsgAttack->SkillNum);
-// 		ITEM_SKILL *pSkillItem = NULL;
-// 		if ( NULL != pItemInfo )
-// 		{
-// 			pSkillItem	= m_ItemManager.GetFirstSkillBySkillBaseNum(pItemInfo->NextSkill);	// 2006-12-01 by dhjin,	
-// 		}
-#endif	// #ifdef SC_SKILL_NUMBERING_RENEWAL_JHSEOL_BHSOHN
 		// end 2013-03-12 by jhseol, ½ºÅ³ ³Ñ¹ö¸µ ½Ã½ºÅÛ ¼öÁ¤
-		
+
 		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ °è»ê
 		fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);
-		
-		if(pITEMforProcessSplashAttack)
+
+		if (pITEMforProcessSplashAttack)
 		{// 2006-12-01 by dhjin, Splash Ã³¸® ¾Æ·¡¿¡¼­ ÇÑ´Ù
-			
+
 			SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
 		}
 		else
@@ -19783,18 +19340,19 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 			MEMSET_ZERO(&attParam, sizeof(attParam));
 			attParam.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
 			// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
-			enumAttackToTarget	tempAttack2Target		= eAttack2Target;
-			if(C2M == tempAttack2Target)
+			enumAttackToTarget	tempAttack2Target = eAttack2Target;
+			if (C2M == tempAttack2Target)
 			{
-				CFieldMonster *pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
-				if(pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+				CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+				if (pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
 				{
 					tempAttack2Target = C2NULL;
 				}
 			}
+
 			// end 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
-			this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡	// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
-			
+			this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent, isDroneAttack);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡	// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
+
 			///////////////////////////////////////////////////////////////////////
 			// °ø°ÝÀÚ¿Í ÇÇ°ø°ÝÀÚ¿¡ µû¶ó µ¥¹ÌÁö °è»ê
 			///////////////////////////////////////////////////////////////////////
@@ -19812,13 +19370,13 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 				BOOL bRet = CAtumSJ::CheckTargetErrorAngle(&m_character, m_character.PositionVector, pTargetCharacter->PositionVector, tmVecTargetPos, fDistance);
 				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
 				fDamage = CalcDamageOfAttackNew(&DamageKind, C2C, 1.0f, this, &m_character, &attParam, pTargetSocket, &pTargetSocket->m_character, fSkillAppliedRange, fDistance);
-// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
-//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this, &m_character, pTargetSocket, &pTargetSocket->m_character, pAttackItem,
-//					&DamageKind, tmVecTargetPos, fSkillAppliedRange, fDistance);
+				// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+				//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this, &m_character, pTargetSocket, &pTargetSocket->m_character, pAttackItem,
+				//					&DamageKind, tmVecTargetPos, fSkillAppliedRange, fDistance);
 				pTargetSocket->m_uidAttackerGuildUID = 0;
 
 				pTargetSocket->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0028, this->m_character.CharacterName, fDamage);
-				this->SendString128(STRING_128_DEBUG_L3,  STRMSG_S_F2NOTIFY_0029, pTargetCharacter->CharacterName, fDamage);
+				this->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0029, pTargetCharacter->CharacterName, fDamage);
 			}
 			else if (eAttack2Target == C2M)
 			{
@@ -19833,55 +19391,55 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 				////////////////////////////////////////////////////////////////////////////////
 				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - µ¥¹ÌÁö ¹ÞÁö ¾Ê´Â´Ù.
-				if(BELL_INFINITY_DEFENSE_MONSTER == pTargetMonster->MonsterInfoPtr->Belligerence) {
+				if (BELL_INFINITY_DEFENSE_MONSTER == pTargetMonster->MonsterInfoPtr->Belligerence) {
 					return RES_BREAK;
 				}
 
 				////////////////////////////////////////////////////////////////////////////////
 				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹è¸®¾î Ã¼Å©
-				if(pTargetMonster->CheckBarrierHave()) {
-					if(pTargetMonster->CheckBarrierUsing()) {
+				if (pTargetMonster->CheckBarrierHave()) {
+					if (pTargetMonster->CheckBarrierUsing()) {
 						INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MONSTER_BARRIER_USING, T_FC_BATTLE_MONSTER_BARRIER_USING, pSendMsg, SendBuf);
-						pSendMsg->MonsterIndex		= pTargetMonster->MonsterIndex;
-						this->SendAddData(SendBuf,  MSG_SIZE(MSG_FC_BATTLE_MONSTER_BARRIER_USING));
+						pSendMsg->MonsterIndex = pTargetMonster->MonsterIndex;
+						this->SendAddData(SendBuf, MSG_SIZE(MSG_FC_BATTLE_MONSTER_BARRIER_USING));
 						SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
 						return RES_BREAK;
 					}
-					if(pTargetMonster->BarrierUse()) {
+					if (pTargetMonster->BarrierUse()) {
 						INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MONSTER_BARRIER_USE, T_FC_BATTLE_MONSTER_BARRIER_USE, pSendMsg, SendBuf);
-						pSendMsg->MonsterIndex		= pTargetMonster->MonsterIndex;
-						pSendMsg->SkillItemNum		= pTargetMonster->m_bBarrierInfo.SkillNum;
-						m_pCurrentFieldMapChannel->SendMessageToAllInChannel(SendBuf,  MSG_SIZE(MSG_FC_BATTLE_MONSTER_BARRIER_USE));
+						pSendMsg->MonsterIndex = pTargetMonster->MonsterIndex;
+						pSendMsg->SkillItemNum = pTargetMonster->m_bBarrierInfo.SkillNum;
+						m_pCurrentFieldMapChannel->SendMessageToAllInChannel(SendBuf, MSG_SIZE(MSG_FC_BATTLE_MONSTER_BARRIER_USE));
 						SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
 						return RES_BREAK;
 					}
 				}
-				
+
 				// start 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
-				if( NULL != pTargetMonster && TRUE == pTargetMonster->IsTriggerFunction() )
+				if (NULL != pTargetMonster && TRUE == pTargetMonster->IsTriggerFunction())
 				{
 					mt_auto_lock mtAuto(&pTargetMonster->m_mtVectTriggerFunctionPtr);
 
-					for(int i=0; i<pTargetMonster->m_mtVectTriggerFunctionPtr.size(); i++)
+					for (int i = 0; i < pTargetMonster->m_mtVectTriggerFunctionPtr.size(); i++)
 					{
-						CTriggerFunction *pTriggerFunction = pTargetMonster->m_mtVectTriggerFunctionPtr[i];
-						if( TRUE == pTriggerFunction->OnIsInvincible(pTargetMonster->MonsterInfoPtr->MonsterUnitKind, this) )
+						CTriggerFunction* pTriggerFunction = pTargetMonster->m_mtVectTriggerFunctionPtr[i];
+						if (TRUE == pTriggerFunction->OnIsInvincible(pTargetMonster->MonsterInfoPtr->MonsterUnitKind, this))
 						{
 							return RES_BREAK;
 						}
 						// 2013-01-23 by jhseol, ÀüÀï ½Ã Å©¸®½ºÅ»¸¸ °ø°Ý ºÒ°¡´É ÇÏµµ·Ï ¼öÁ¤
-						if ( TRUE == pTriggerFunction->OnIsCrystal() 
-							&& FALSE == ms_pFieldIOCP->IsBurningMap( pTriggerFunction->GetMapIndex() ) )	// 2014-04-10 by bckim, ¹ö´×¸ÊÀº Á¦¿Ü(ÀüÀï½Ã Å©¸®½ºÅ» °ø°Ý ºÒ°¡´É)
+						if (TRUE == pTriggerFunction->OnIsCrystal()
+							&& FALSE == ms_pFieldIOCP->IsBurningMap(pTriggerFunction->GetMapIndex()))	// 2014-04-10 by bckim, ¹ö´×¸ÊÀº Á¦¿Ü(ÀüÀï½Ã Å©¸®½ºÅ» °ø°Ý ºÒ°¡´É)
 						{
 							// 2012-12-15 by jhseol, ÀüÀï ½Ã½ºÅÛ ¸®´º¾ó - ÀüÀï½Ã Æ®¸®°Å ¹«Àû»óÅÂ(ÀÏ½ÃÁ¤Áö) Å©¸®½ºÅ» °ø°ÝÈ½¼ö ÀúÀå : 50¹ø °ø°ÝÇÒ¶§¸¶´Ù ¸Þ¼¼Áö Ãâ·Â
-							if ( ms_pFieldIOCP->m_InflWarManager.IsDoingInfluenceWar() )
+							if (ms_pFieldIOCP->m_InflWarManager.IsDoingInfluenceWar())
 							{
 								m_nCrystalAttackCount++;
-								if( 1 == m_nCrystalAttackCount )
+								if (1 == m_nCrystalAttackCount)
 								{
 									SendString128(STRING_128_USER_NOTICE, STRMSG_121126_0001);
 								}
-								if( 50 <= m_nCrystalAttackCount )
+								if (50 <= m_nCrystalAttackCount)
 								{
 									m_nCrystalAttackCount = 0;
 								}
@@ -19900,12 +19458,12 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 				BOOL bRet = CAtumSJ::CheckTargetErrorAngle(&m_character, m_character.PositionVector, pTargetMonster->PositionVector, tmVecTargetPos, fDistance);
 				fDamage = CalcDamageOfAttackNew(&DamageKind, C2M, 1.0f, this, &m_character, &attParam, pTargetSocket, pTargetMonster, fSkillAppliedRange, fDistance);
-// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
-//				fDamage = CalcDamageOfAttack(C2M, 1.0f, this, &m_character, pTargetSocket, pTargetMonster, pAttackItem,
-//						&DamageKind, tmVecTargetPos, fSkillAppliedRange, fDistance);
+				// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+				//				fDamage = CalcDamageOfAttack(C2M, 1.0f, this, &m_character, pTargetSocket, pTargetMonster, pAttackItem,
+				//						&DamageKind, tmVecTargetPos, fSkillAppliedRange, fDistance);
 
-				///////////////////////////////////////////////////////////////////////
-				// Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
+								///////////////////////////////////////////////////////////////////////
+								// Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
 				INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, SendBuf);
 				pSetAttackChar->ChannelIndex = m_character.MapChannelIndex.ChannelIndex;
 				pSetAttackChar->AttackIndex = pMsgAttackOK->AttackIndex;
@@ -19915,15 +19473,10 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 				m_pCurrentFieldMapChannel->Send2NPCServerW(SendBuf, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));
 
 				////////////////////////////////////////////////////////////////////////////////
-				// 2009-09-09 ~ 2010-01-15 by dhjin, ÀÎÇÇ´ÏÆ¼ - Àý´ë°ª Å¸°ÝÄ¡ ¾ÆÀÌÅÛ °í±Þ¹«±â¿ë(±â¹«¿Í ºÐ·ù), ¹Ø°ú °°ÀÌ ¼öÁ¤.
-				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Àý´ë°ª Ãß°¡ Å¸°ÝÄ¡ ¾ÆÀÌÅÛ
-//				if(0 < this->GetParamAddAttack()) {
-//					this->AddAttackDamage(this, &m_character, pTargetMonster, &attParam);
-//				}
 				// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
-				if ( NULL != pTargetMonster && NULL != pTargetMonster->MonsterInfoPtr && FALSE == COMPARE_MPOPTION_BIT(pTargetMonster->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+				if (NULL != pTargetMonster && NULL != pTargetMonster->MonsterInfoPtr && FALSE == COMPARE_MPOPTION_BIT(pTargetMonster->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
 				{
-					if(0 < this->GetParamAddAttack()
+					if (0 < this->GetParamAddAttack()
 						&& 0 < fDamage) {
 						this->AddAttackDamage(this, &m_character, pTargetMonster, this->GetParamAddAttack(), &attParam);
 					}
@@ -19948,9 +19501,9 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 				DamageKind = DAMAGEKIND_NORMAL;
 				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
 				fDamage = CalcDamageOfAttackNew(&DamageKind, C2C, 1.0f, this, &m_character, &attParam, pTargetSocket, pTargetCharacter);
-// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
-//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this, &m_character, pTargetSocket, pTargetCharacter,
-//						pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
+				// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+				//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this, &m_character, pTargetSocket, pTargetCharacter,
+				//						pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
 				pTargetSocket->m_uidAttackerGuildUID = 0;
 			}
 			else if (eAttack2Target == C2NULL)
@@ -19974,32 +19527,39 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 		MEMSET_ZERO(&attParam, sizeof(attParam));
 		attParam.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
 		// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
-		enumAttackToTarget	tempAttack2Target		= eAttack2Target;
-		if(C2M == tempAttack2Target)
+		enumAttackToTarget	tempAttack2Target = eAttack2Target;
+		if (C2M == tempAttack2Target)
 		{
-			CFieldMonster *pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
-			if(pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+			CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+			if (pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
 			{
 				tempAttack2Target = C2NULL;
 			}
 		}
 		// end 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
 		this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡		// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
+		
+#ifdef _RAT_ANTI_CHEAT_EXPLOSION_and_WARHEADSPEED
+		CParamFactor* pAttParamFactor = this->GetParamFactor();
+		pMsgAttackOK->ServerExplosionRange_Secondary = CAtumSJ::GetExplosionRange(pAttackItem, pAttParamFactor);
+		pMsgAttackOK->ServerWarheadSpeed_Secondary = CAtumSJ::GetWarHeadSpeed(pAttackItem, pAttParamFactor);
+#endif // _RAT_ANTI_CHEAT_EXPLOSION_and_WARHEADSPEED
+	
 
 		this->APInsertAttackParameter(&attParam);
-		
+
 #ifdef S_B_GEAR_DAMAGE_PROBABILITY_INFO			// 2013-05-06 by bckim, B±â¾î Å¸°Ù µ¥¹ÌÁö È®ÀÎ
-		if( IS_BGEAR( m_character.UnitKind) )
+		if (IS_BGEAR(m_character.UnitKind))
 		{
-			g_pFieldGlobal->WriteSystemLogEX(FALSE, "###### [AccountName(UID) : %s(%d)][CharacterName(UID) : %s(%d)][attParam->fAttack:%f]\r\n",m_character.AccountName,m_character.AccountUniqueNumber,m_character.CharacterName,m_character.CharacterUniqueNumber,attParam.fAttack);	// 2013-10-16 by jhseol, ¼­¹ö µð¹ö±ë½Ã ºÒÇÊ¿ä DBGOUT Ãâ·Â ÄÚµå Á¦°Å
-		}	
+			g_pFieldGlobal->WriteSystemLogEX(FALSE, "###### [AccountName(UID) : %s(%d)][CharacterName(UID) : %s(%d)][attParam->fAttack:%f]\r\n", m_character.AccountName, m_character.AccountUniqueNumber, m_character.CharacterName, m_character.CharacterUniqueNumber, attParam.fAttack);	// 2013-10-16 by jhseol, ¼­¹ö µð¹ö±ë½Ã ºÒÇÊ¿ä DBGOUT Ãâ·Â ÄÚµå Á¦°Å
+		}
 #endif
 
-		if(C2M == eAttack2Target)
+		if (C2M == eAttack2Target)
 		{// 2006-11-07 by cmkwon, 2Çü ¹«±â¸¦ ½ð °æ¿ì ¹Ù·Î °ø°ÝÀÚ°¡ ¼³Á¤µÇµµ·Ï
 
-			CFieldMonster *pFMon = m_pCurrentFieldMapChannel->GetFieldMonster(pMsgAttack->TargetInfo.TargetIndex, 30);
-			if(pFMon
+			CFieldMonster* pFMon = m_pCurrentFieldMapChannel->GetFieldMonster(pMsgAttack->TargetInfo.TargetIndex, 30);
+			if (pFMon
 				&& pFMon->m_enMonsterState == MS_PLAYING)
 			{
 				pFMon->SetAttackerCliIdx(this->GetCharacter()->ClientIndex);
@@ -20008,10 +19568,10 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 		///////////////////////////////////////////////////////////////////////////////
 		// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-		SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);		
+		SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
 	}
 
-	if(pITEMforProcessSplashAttack)
+	if (pITEMforProcessSplashAttack)
 	{// 2006-12-01 by dhjin, 
 
 		// ChagingSkill Ã³¸®
@@ -20023,11 +19583,11 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 		MEMSET_ZERO(&attParam, sizeof(attParam));
 		attParam.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
 		// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
-		enumAttackToTarget	tempAttack2Target		= eAttack2Target;
-		if(C2M == tempAttack2Target)
+		enumAttackToTarget	tempAttack2Target = eAttack2Target;
+		if (C2M == tempAttack2Target)
 		{
-			CFieldMonster *pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
-			if(pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+			CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+			if (pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
 			{
 				tempAttack2Target = C2NULL;
 			}
@@ -20036,29 +19596,26 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 		this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡		// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
 
 		fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);		// 2006-12-06 by dhjin, 
-		if(pITEMforProcessSplashAttack)
+		if (pITEMforProcessSplashAttack)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-12-13 by cmkwon, °Å¸®¿¡ µû¸¥ È®·ü Àû¿ë
 			float fActualDistance = D3DXVec3Length(&(m_character.PositionVector - tmVecTargetPos));
-			if(fActualDistance <= fSkillAppliedRange*2)
+			if (fActualDistance <= fSkillAppliedRange * 2)
 			{
 				float fTmpMultValue = 1.0f;
-				if (fActualDistance > fSkillAppliedRange*EFFECTIVE_ATTACK_RANGE_MULTIPLIER)
+				if (fActualDistance > fSkillAppliedRange * EFFECTIVE_ATTACK_RANGE_MULTIPLIER)
 				{
 					fTmpMultValue = MIN_ATTACK_DECREASE_FACTOR;
 				}
-				else if(fActualDistance > fSkillAppliedRange)
+				else if (fActualDistance > fSkillAppliedRange)
 				{
-					fTmpMultValue = 2*(MIN_ATTACK_DECREASE_FACTOR-1)*fActualDistance/fSkillAppliedRange + 3 - 2*MIN_ATTACK_DECREASE_FACTOR;
+					fTmpMultValue = 2 * (MIN_ATTACK_DECREASE_FACTOR - 1) * fActualDistance / fSkillAppliedRange + 3 - 2 * MIN_ATTACK_DECREASE_FACTOR;
 				}
-				
-				// 2010-07-19 by dhjin, È®·ü ¼ö½Ä º¯°æ
-//				float fAttackSuccessProbability = PROB256_MAX_VALUE * fTmpMultValue;
-//				int nRand = RAND256();
-//				if (nRand <= (int)fAttackSuccessProbability)
+
+
 				float fAttackSuccessProbability = PROB100_MAX_VALUE * fTmpMultValue;
-				float fRand = RANDF2(0,100);
+				float fRand = RANDF2(0, 100);
 				if (fRand <= fAttackSuccessProbability)
 				{
 					ProcessSplashDamageC2All(this, &attParam, pITEMforProcessSplashAttack->Range, &tmVecTargetPos);
@@ -20069,352 +19626,574 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 
 	return RES_RETURN_TRUE;
 }
+#else
+ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, int nLength, int& nBytesUsed)
+{
+	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_ATTACK,
+		MSG_FC_BATTLE_ATTACK, pMsgAttack);
 
-// 2007-02-06 by cmkwon, Ã³¸® ÇÔ¼ö¸¦ À§¿Í °°ÀÌ ¼öÁ¤ÇÔ, lock ¹üÀ§ °ü·Ã ¼öÁ¤
-//{
-//	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_ATTACK,
-//									MSG_FC_BATTLE_ATTACK, pMsgAttack);
-//
-//	// °¢Á¾ º¯¼ö ÁØºñ
-//	ITEM				*pAttackItem		= NULL;
-//	ITEM_GENERAL		*pAttackItemGeneral	= NULL;
-//	enumAttackToTarget	eAttack2Target		= ERR2ERR;
-//	CFieldIOCPSocket	*pTargetSocket		= NULL;
-//	CHARACTER			*pTargetCharacter	= NULL;
-//	CFieldMonster		*pTargetMonster		= NULL;
-//
-//	float				fDistance			= 0.0f;		// °ø°ÝÀÚ¿Í °ø°Ý´ë»ó°úÀÇ °Å¸®¸¦ ÀúÀå
-//	float				fSkillAppliedRange	= 0.0f;		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ ÀúÀå
-//	float				fDamage				= 0.0f;		// ÃÖÁ¾ µ¥¹ÌÁö
-//	BYTE				DamageKind			= DAMAGEKIND_NORMAL;
-//	
-//	ITEM				*pITEMforProcessSplashAttack = NULL;	// 2006-12-01 by dhjin,
-//	D3DXVECTOR3			tmVecTargetPos		= A2DX(pMsgAttack->TargetInfo.TargetPosition);
-//		
-//	// °ø°ÝÀÚ°¡  À¯È¿ÇÑÁö Ã¼Å©
-//	if (FALSE == this->IsValidCharacter()
-//		|| COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_EVENT_HANDLE_MASK))
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	///////////////////////////////////////////////////////////////////////////////
-//	// 2006-12-01 by dhjin
-//	mt_auto_lock igLock(&m_ItemManager.m_mapItemGeneral);
-//
-//	// Attack Item ÇÒ´ç ¹× È®ÀÎ
-//	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType)) { pAttackItem = &m_ItemProwOut; }
-//	else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType)) { pAttackItem = &m_ItemWingOut; }
-//	if (pAttackItem == NULL || pAttackItem->ItemNum == NULL)
-//	{
-//		return RES_BREAK;
-//	}
-//	pAttackItemGeneral = (ITEM_GENERAL*)pAttackItem->ItemNum;
-//
-//	// MSG_FC_BATTLE_ATTACK_OK ÁØºñ
-//	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_ATTACK_OK, T_FC_BATTLE_ATTACK_OK, pMsgAttackOK, pMsgAttackOKBuf);
-//	pMsgAttackOK->AttackIndex		= m_character.ClientIndex;
-//	pMsgAttackOK->TargetInfo		= pMsgAttack->TargetInfo;
-//	pMsgAttackOK->FirePosition		= pMsgAttack->FirePosition;
-//	pMsgAttackOK->WeaponIndex		= m_WeaponIndexGenerator.GetNext();
-//	pMsgAttackOK->AttackType		= pMsgAttack->AttackType;
-//	pMsgAttackOK->ItemNum			= pAttackItemGeneral->ItemNum;
-//	pMsgAttackOK->SkillNum			= pMsgAttack->SkillNum;
-////	pMsgAttackOK->RemainedBulletFuel= ;	// OnXXXAttack() ÀÌÈÄ¿¡ ÇÒ´ç
-//
-//	// AttackToTarget °áÁ¤
-//	eAttack2Target = CAtumSJ::GetAttackToTarget(m_character.ClientIndex, pMsgAttack->TargetInfo);
-//	if (eAttack2Target == ERR2ERR)
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	///////////////////////////////////////////////////////////////////////////////
-//	// 2006-01-20 by cmkwon, ¼¼·ÂÀü º¸½º ¸ó½ºÅÍ °ø°Ý ¸Þ½ÃÁö 
-//	if(C2M == eAttack2Target)
-//	{
-//		CFieldMonster *pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
-//		if(pFMon
-//			&& MS_PLAYING == pFMon->m_enMonsterState
-//			&& COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_BOSS_MONSTER)
-//			&& IS_INFLWAR_MONSTER(pFMon->MonsterInfoPtr->Belligerence)
-//			&& FALSE == COMPARE_BODYCON_BIT(pFMon->BodyCondition, BODYCON_DEAD_MASK))
-//		{
-//			DWORD		dwCurTick = timeGetTime();
-//			if(dwCurTick - pFMon->m_dwLastTickInfluenceBossAttackedMsg > TICKGAP_SEND_INVASION_MSG)
-//			{
-//				pFMon->m_dwLastTickInfluenceBossAttackedMsg = dwCurTick;
-//
-//				INIT_MSG_WITH_BUFFER(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION, T_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION, pSInvasion, Sendbuf);
-//				pSInvasion->MonsterUnitkind		= pFMon->MonsterInfoPtr->MonsterUnitKind;
-//				ms_pFieldIOCP->SendMessageToAllClients(Sendbuf, MSG_SIZE(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION), GET_SAME_CHARACTER_INFL_BY_MONSTER_BELL(pFMon->MonsterInfoPtr->Belligerence));
-//			}
-//		}			
-//	}
-//
-//	///////////////////////////////////////////////////////////////////////////
-//	// 1Çü ¹«±â °ø°ÝÀÎ °æ¿ì
-//	///////////////////////////////////////////////////////////////////////////
-//	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
-//	{
-//		// OnPrimaryAttack() Ã³¸®
-//		if (!OnPrimaryAttack())
-//		{
-//			return RES_BREAK;
-//		}
-//
-//		// ChagingSkill Ã³¸®
-//		CChargingSkillApplier tmpChargingSkillApplier(&pITEMforProcessSplashAttack, FALSE, pAttackItem, this);
-//
-//		// ³²Àº ÇöÀç bullet ÇÒ´ç
-//		if (IS_PRIMARY_WEAPON_1(pAttackItem->Kind))			// 1-1Çü ¾ÆÀÌÅÛ
-//		{
-//			pMsgAttackOK->RemainedBulletFuel = pAttackItemGeneral->CurrentCount;
-//		}
-//		else if (IS_PRIMARY_WEAPON_2(pAttackItem->Kind))	// 1-2Çü(beam·ù) ¾ÆÀÌÅÛ
-//		{
-//			pMsgAttackOK->RemainedBulletFuel = (USHORT)m_character.CurrentEP;
-//		}
-//
-//		ITEM_SKILL *pSkillItem	= m_ItemManager.GetFirstSkillBySkillBaseNum(pMsgAttack->SkillNum);	// 2006-12-01 by dhjin, 
-//		
-//		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ °è»ê
-//		fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);
-//
-//		if(pITEMforProcessSplashAttack)
-//		{// 2006-12-01 by dhjin, Splash Ã³¸® ¾Æ·¡¿¡¼­ ÇÑ´Ù
-//			
-//			SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
-//		}
-//		else
-//		{// 2006-12-01 by dhjin, Splash Ã³¸®°¡ ÇÊ¿äÇÏÁö ¾ÈÀº°Í¸¸ Ã³¸®, Splash Ã³¸®´Â Á¦ÀÏ ¾Æ·¡¿¡¼­ Ã³¸®
-//	#ifdef _DEBUG
-//			SendString128(STRING_128_DEBUG_L3, "%5.2f vs %5.2f(%5.2f*%5.2f)"
-//				, fDistance, fSkillAppliedRange, (float)pAttackItem->Range
-//				, (1.0f + (IS_PRIMARY_WEAPON(pAttackItem->Kind)?m_ParamFactor.pfm_RANGE_01:m_ParamFactor.pfm_RANGE_02)));
-//	#endif
-//
-//	#ifdef _DEBUG
-//			SendString128(STRING_128_DEBUG_L1, "A: %3.1f~%3.1f",
-//							CAtumSJ::GetMinAttackC(&m_character, pAttackItem, &m_ParamFactor, TRUE),
-//							CAtumSJ::GetMaxAttackC(&m_character, pAttackItem, &m_ParamFactor, TRUE));
-//	#endif
-//			///////////////////////////////////////////////////////////////////////
-//			// °ø°ÝÀÚ¿Í ÇÇ°ø°ÝÀÚ¿¡ µû¶ó µ¥¹ÌÁö °è»ê
-//			///////////////////////////////////////////////////////////////////////
-//			if (eAttack2Target == C2C)
-//			{
-//				if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttack->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
-//				{
-//					pMsgAttackOK->TargetInfo.SetNullTarget();
-//					///////////////////////////////////////////////////////////////////////////////
-//					// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//					SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
-//					return RES_BREAK;
-//				}
-//
-//				BOOL bRet = CAtumSJ::CheckTargetErrorAngle(&m_character, m_character.PositionVector, pTargetCharacter->PositionVector,
-//															tmVecTargetPos, fDistance);
-//	// 2005-07-19 by cmkwon, CAtumSJ::CheckTargetErrorAngleÇÔ¼ö³»¿¡¼­ fDistance¸¦ °è»êÇÑ´Ù. °ø°Ý½Ã Å¬¶óÀÌ¾ðÆ®¸¦ Ç×»ó ½Å·ÚÇÑ´Ù. °Å¸®, °¢ Â÷ÀÌ¸¦ Ã¼Å©ÇÏÁö ¾Ê´Â´Ù
-//	//			if (bRet)
-//				{
-//					pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-//					fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK(), C2C
-//						&m_character, pTargetSocket, &pTargetSocket->m_character, pAttackItem,
-//						&DamageKind, tmVecTargetPos,
-//						fSkillAppliedRange, fDistance);
-//					pTargetSocket->m_uidAttackerGuildUID = 0;
-//				}
-//				
-//				pTargetSocket->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0028, this->m_character.CharacterName, fDamage);
-//				this->SendString128(STRING_128_DEBUG_L3,  STRMSG_S_F2NOTIFY_0029, pTargetCharacter->CharacterName, fDamage);
-//			}
-//			else if (eAttack2Target == C2M)
-//			{
-//				if (!CheckValidAttackTargetMonster(m_character.InfluenceType, pMsgAttack->TargetInfo.TargetIndex, m_character.MapChannelIndex.ChannelIndex, pTargetMonster))
-//				{
-//					pMsgAttackOK->TargetInfo.SetNullTarget();
-//					///////////////////////////////////////////////////////////////////////////////
-//					// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//					SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
-//					return RES_BREAK;
-//				}
-//
-//				BOOL bRet = CAtumSJ::CheckTargetErrorAngle(&m_character, m_character.PositionVector, pTargetMonster->PositionVector,
-//															tmVecTargetPos, fDistance);
-//	// 2005-07-19 by cmkwon, CAtumSJ::CheckTargetErrorAngleÇÔ¼ö³»¿¡¼­ fDistance¸¦ °è»êÇÑ´Ù. °ø°Ý½Ã Å¬¶óÀÌ¾ðÆ®¸¦ Ç×»ó ½Å·ÚÇÑ´Ù. °Å¸®, °¢ Â÷ÀÌ¸¦ Ã¼Å©ÇÏÁö ¾Ê´Â´Ù
-//	//			if (bRet)
-//				{
-//					fDamage = CalcDamageOfAttack(C2M, 1.0f, this,		// @Process_FC_BATTLE_ATTACK(), C2M
-//						&m_character, pTargetSocket, pTargetMonster, pAttackItem,
-//						&DamageKind, tmVecTargetPos,
-//						fSkillAppliedRange, fDistance);
-//				}
-//
-//				///////////////////////////////////////////////////////////////////////
-//				// Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
-//				INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, SendBuf);
-//				pSetAttackChar->ChannelIndex = m_character.MapChannelIndex.ChannelIndex;
-//				pSetAttackChar->AttackIndex = pMsgAttackOK->AttackIndex;
-//				pSetAttackChar->TargetIndex = pMsgAttackOK->TargetInfo.TargetIndex;
-//				pSetAttackChar->DamageAmount = fDamage;
-//				pSetAttackChar->ItemKind = pAttackItem->Kind;
-//				m_pCurrentFieldMapChannel->Send2NPCServerW(SendBuf, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));
-//			}
-//			else if (eAttack2Target == C2I)
-//			{
-//			}
-//			else if (eAttack2Target == C2CI)
-//			{
-//				// ÇÇ°ø°ÝÀÚ°¡ Dummy¸¦ ´Þ°í ÀÖÀ» ¶§
-//				if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttack->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
-//				{
-//					pMsgAttackOK->TargetInfo.SetNullTarget();
-//					///////////////////////////////////////////////////////////////////////////////
-//					// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//					SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
-//					return RES_BREAK;
-//				}
-//// 2006-12-04 by dhjin, Ã¼ÇÁ »çÃâ·Î ÀÎÇÏ¿© ±âÁ¸¿¡ ´õ¹Ì ¼Ò½º º¯°æ.
-////			// lock m_mapFieldDummy
-////			mt_auto_lock dummyLock(&pTargetSocket->m_mapFieldDummy);
-////
-////			if (!pTargetSocket->m_mapFieldDummy.empty())
-////				{
-////				FIELD_DUMMY *pTargetDummy = pTargetSocket->m_mapFieldDummy.findLock(pMsgAttack->TargetInfo.TargetItemFieldIndex);
-////					if (pTargetDummy == NULL)
-////					{
-////						DamageKind = DAMAGEKIND_NORMAL;
-////						pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-////						fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK(), C2CI
-////							&m_character, pTargetSocket, pTargetCharacter,
-////							pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
-////						pTargetSocket->m_uidAttackerGuildUID = 0;
-////	#ifdef _DEBUG
-////						SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0030, pTargetCharacter->CharacterName, fDamage);
-////	#endif
-////					}
-////					else
-////					{
-////						DamageKind = DAMAGEKIND_NORMAL;
-////						pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-////						fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK(), C2CI
-////							&m_character, pTargetSocket, pTargetCharacter,
-////							pAttackItem, &DamageKind, pTargetCharacter->PositionVector,
-////							0.0f, 0.0f, pTargetDummy->ItemFieldIndex);
-////						pTargetSocket->m_uidAttackerGuildUID = 0;
-////	#ifdef _DEBUG
-////						SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0031, pTargetCharacter->CharacterName, fDamage);
-////	#endif
-////					}				
-////				}
-//				// 2006-12-04 by dhjin
-//				DamageKind = DAMAGEKIND_NORMAL;
-//				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK(), C2CI
-//						&m_character, pTargetSocket, pTargetCharacter,
-//						pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
-//				pTargetSocket->m_uidAttackerGuildUID = 0;
-//			}
-//			else if (eAttack2Target == C2NULL)
-//			{
-//	#ifdef _DEBUG
-//				SendString128(STRING_128_DEBUG_L2, "NULL Target by Client");
-//	#endif
-//				// set null target
-//				pMsgAttackOK->TargetInfo.SetNullTarget();
-//			}
-//
-//			///////////////////////////////////////////////////////////////////////
-//			// ATTACK_OK Àü¼Û
-//			// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//			SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
-//		}// END - 		if(FALSE == bProcessSplashAttack)
-//
-//	}
-//	///////////////////////////////////////////////////////////////////////////
-//	// 2Çü ¹«±â °ø°ÝÀÎ °æ¿ì
-//	///////////////////////////////////////////////////////////////////////////
-//	else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
-//	{
-//		// °ø°Ý ¹üÀ§ È®ÀÎ
-//		if (CAtumSJ::IsCharacterTarget(eAttack2Target) || CAtumSJ::IsMonsterTarget(eAttack2Target))
-//		{
-//			D3DXVECTOR3 tmpTargetPosition = tmVecTargetPos;
-//			float fDist = D3DXVec3Length(&(tmpTargetPosition - m_character.PositionVector));
-//			if (fDist > 1.5f * CAtumSJ::GetAttackRange(&m_ItemWingOut, &m_ParamFactor))
-//			{
-//				return RES_BREAK;
-//			}
-//		}
-//
-//		if (!OnSecondaryAttack(1))	// ATTACK_SECONDARY
-//		{
-//			return RES_BREAK;
-//		}
-//
-//		if(C2M == eAttack2Target)
-//		{// 2006-11-07 by cmkwon, 2Çü ¹«±â¸¦ ½ð °æ¿ì ¹Ù·Î °ø°ÝÀÚ°¡ ¼³Á¤µÇµµ·Ï
-//
-//			CFieldMonster *pFMon = m_pCurrentFieldMapChannel->GetFieldMonster(pMsgAttack->TargetInfo.TargetIndex, 30);
-//			if(pFMon
-//				&& pFMon->m_enMonsterState == MS_PLAYING)
-//			{
-//				pFMon->SetAttackerCliIdx(this->GetCharacter()->ClientIndex);
-//			}
-//		}
-//
-//		// ³²Àº ÃÑ¾Ë ¼ö ÇÒ´ç
-//		pMsgAttackOK->RemainedBulletFuel = pAttackItemGeneral->CurrentCount;
-//		
-//		///////////////////////////////////////////////////////////////////////////////
-//		// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//		SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);		
-//	}
-//	///////////////////////////////////////////////////////////////////////////
-//	// Ã³¸® ÇÏÁö ¾Ê´Â ATT_TYPE ÀÎ °æ¿ì
-//	///////////////////////////////////////////////////////////////////////////
-//	else
-//	{
-//		return RES_BREAK;
-//	}
-//	igLock.auto_unlock_cancel();
-//
-//	if(pITEMforProcessSplashAttack)
-//	{// 2006-12-01 by dhjin, 
-//
-//		// ChagingSkill Ã³¸®
-//		CChargingSkillApplier tmpChargingSkillApplier(&pITEMforProcessSplashAttack, TRUE, pAttackItem, this);
-//		fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);		// 2006-12-06 by dhjin, 
-//		if(pITEMforProcessSplashAttack)
-//		{
-//			///////////////////////////////////////////////////////////////////////////////
-//			// 2006-12-13 by cmkwon, °Å¸®¿¡ µû¸¥ È®·ü Àû¿ë
-//			float fActualDistance = D3DXVec3Length(&(m_character.PositionVector - tmVecTargetPos));
-//			if(fActualDistance <= fSkillAppliedRange*2)
-//			{
-//				float fTmpMultValue = 1.0f;
-//				if (fActualDistance > fSkillAppliedRange*EFFECTIVE_ATTACK_RANGE_MULTIPLIER)
-//				{
-//					fTmpMultValue = MIN_ATTACK_DECREASE_FACTOR;
-//				}
-//				else if(fActualDistance > fSkillAppliedRange)
-//				{
-//					fTmpMultValue = 2*(MIN_ATTACK_DECREASE_FACTOR-1)*fActualDistance/fSkillAppliedRange + 3 - 2*MIN_ATTACK_DECREASE_FACTOR;
-//				}
-//				
-//				float fAttackSuccessProbability = PROB256_MAX_VALUE * fTmpMultValue;
-//				int nRand = RAND256();
-//				if (nRand <= (int)fAttackSuccessProbability)
-//				{
-//					ProcessSplashDamageC2All(this, pAttackItem, pITEMforProcessSplashAttack->Range, &tmVecTargetPos);
-//				}
-//			}
-//		}
-//	}
-//
-//	return RES_RETURN_TRUE;
-//}
+	// °¢Á¾ º¯¼ö ÁØºñ
+	ITEM* pAttackItem = NULL;
+	ITEM_GENERAL* pAttackItemGeneral = NULL;
+	enumAttackToTarget	eAttack2Target = ERR2ERR;
+	CFieldIOCPSocket* pTargetSocket = NULL;
+	CHARACTER* pTargetCharacter = NULL;
+	CFieldMonster* pTargetMonster = NULL;
+
+	float				fDistance = 0.0f;		// °ø°ÝÀÚ¿Í °ø°Ý´ë»ó°úÀÇ °Å¸®¸¦ ÀúÀå
+	float				fSkillAppliedRange = 0.0f;		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ ÀúÀå
+	float				fDamage = 0.0f;		// ÃÖÁ¾ µ¥¹ÌÁö
+	BYTE				DamageKind = DAMAGEKIND_NORMAL;
+	INT					temp_Petattack = 0;		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®(º¯¼ö Ãß°¡)
+
+	ITEM* pITEMforProcessSplashAttack = NULL;	// 2006-12-01 by dhjin,
+	D3DXVECTOR3			tmVecTargetPos = A2DX(pMsgAttack->TargetInfo.TargetPosition);
+
+	// °ø°ÝÀÚ°¡  À¯È¿ÇÑÁö Ã¼Å©
+	if (FALSE == this->IsValidCharacter()
+		|| COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_EVENT_HANDLE_MASK))
+	{
+		return RES_BREAK;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »çÀÏ·±Æ® µð¹öÇÁ Ã¼Å©, »óÀ§¿¡¼­ Ã¼Å©ÇÑ´Ù.
+	if ((this->m_SkillManager.m_FieldDebuff.CheckApplyingDebuff(DES_SKILL_MON_SILENCE_PRIMARY)
+		&& IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
+		|| (this->m_SkillManager.m_FieldDebuff.CheckApplyingDebuff(DES_SKILL_MON_SILENCE_SECOND)
+			&& IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
+		) {
+		SendErrorMessage(T_FC_BATTLE_ATTACK, ERR_DEBUFF_SKILL_APPLYING_SLIENCE);
+		return RES_BREAK;
+	}
+	///////////////////////////////////////////////////////////////////////////////
+	// 2006-12-01 by dhjin
+	mt_auto_lock igLock(&m_ItemManager.m_mapItemGeneral);
+
+	//////////////////////////////////////////////////////////////////////////
+	// 2007-07-16 by dhjin, Tutorial ¸ÊÀÌ¸é Àü¿ë ¹«±â ÇÒ´ç.
+	if (IS_TUTORIAL_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
+	{
+		pAttackItem = GetTutorialWeaponInfo(pMsgAttack->AttackType);
+		if (pAttackItem == NULL || pAttackItem->ItemNum == NULL)
+		{
+			return RES_BREAK;
+		}
+	}
+	else
+	{
+		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®(Ã³¸® º¯°æ)
+		// Attack Item ÇÒ´ç ¹× È®ÀÎ
+		if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
+		{
+			pAttackItem = &m_ItemProwOut;
+			pAttackItemGeneral = (ITEM_GENERAL*)pAttackItem->ItemNum;
+
+			// 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
+			//pAttackItem			= pAttackItemGeneral->ItemInfo;				// 2007-02-06 by cmkwon, ÀåÂø ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ¸¦ lock°ú »ó°ü¾ø´Â Æ÷ÀÎÅÍ·Î º¯°æÇÑ´Ù.
+			if (pAttackItemGeneral)
+			{
+				pAttackItem = pAttackItemGeneral->ItemInfo;
+
+			}
+			// End 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
+		}
+		else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
+		{
+			pAttackItem = &m_ItemWingOut;
+			pAttackItemGeneral = (ITEM_GENERAL*)pAttackItem->ItemNum;
+
+			// 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
+			//pAttackItem			= pAttackItemGeneral->ItemInfo;				// 2007-02-06 by cmkwon, ÀåÂø ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ¸¦ lock°ú »ó°ü¾ø´Â Æ÷ÀÎÅÍ·Î º¯°æÇÑ´Ù.
+			if (pAttackItemGeneral)
+				pAttackItem = pAttackItemGeneral->ItemInfo;
+			// End 2010. 11. 23. by hsLee.	pAttackItemGeneral Æ÷ÀÎÅÍ NULL °ü·Ã Ã¼Å© Ãß°¡.
+		}
+
+		if (ATT_TYPE_PET_ATK == pMsgAttack->AttackType)
+		{
+			temp_Petattack = ms_pFieldIOCP->m_cPetDataManager.GetPetLevelDataFromAttackItemNum(m_ItemPet.LinkItem, m_ItemPet.SkillLevel);
+			pAttackItem = ms_pFieldIOCP->GetItemInfo(temp_Petattack);
+			//pAttackItemGeneral	= (ITEM_GENERAL*)pAttackItem->ItemNum;
+			//pAttackItem			= pAttackItemGeneral->ItemInfo;
+			// 2010-11-01 by jskim, Æê µ¥¹ÌÁö View º¯°æ
+			DamageKind = DAMAGEKIND_PET;
+			// end 2010-11-01 by jskim, Æê µ¥¹ÌÁö View º¯°æ
+		} //Æê °ø°Ý 1Çü ¹«±â ¾ÆÀÌÅÛ Á¤º¸
+
+		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®(Ã³¸® º¯°æ)
+		if (pAttackItem == NULL || pAttackItem->ItemNum == NULL)
+		{
+			return RES_BREAK;
+		}
+		//pAttackItemGeneral	= (ITEM_GENERAL*)pAttackItem->ItemNum;
+		//pAttackItem			= pAttackItemGeneral->ItemInfo;				// 2007-02-06 by cmkwon, ÀåÂø ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ¸¦ lock°ú »ó°ü¾ø´Â Æ÷ÀÎÅÍ·Î º¯°æÇÑ´Ù.
+	}
+
+	// MSG_FC_BATTLE_ATTACK_OK ÁØºñ
+	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_ATTACK_OK, T_FC_BATTLE_ATTACK_OK, pMsgAttackOK, pMsgAttackOKBuf);
+	pMsgAttackOK->AttackIndex = m_character.ClientIndex;
+	pMsgAttackOK->TargetInfo = pMsgAttack->TargetInfo;
+	pMsgAttackOK->FirePosition = pMsgAttack->FirePosition;
+	pMsgAttackOK->WeaponIndex = m_WeaponIndexGenerator.GetNext();
+	pMsgAttackOK->AttackType = pMsgAttack->AttackType;
+	pMsgAttackOK->ItemNum = pAttackItem->ItemNum;
+	pMsgAttackOK->SkillNum = pMsgAttack->SkillNum;
+	pMsgAttackOK->TargetInfo.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
+	//	pMsgAttackOK->RemainedBulletFuel= ;	// OnXXXAttack() ÀÌÈÄ¿¡ ÇÒ´ç
+
+	// AttackToTarget °áÁ¤
+	eAttack2Target = CAtumSJ::GetAttackToTarget(m_character.ClientIndex, pMsgAttack->TargetInfo);
+	if (eAttack2Target == ERR2ERR)
+	{
+		return RES_BREAK;
+	}
+
+	// 2014-02-05 by jhseol, Ä³³ª´Ù °ø°ÝÀ§Á¶ ¸Þ¸ð¸®ÇÙ º¸¾È°­È­
+	if (DAMAGEKIND_NORMAL == DamageKind)
+	{
+		switch (eAttack2Target)
+		{
+		case C2C:
+		case C2M:
+		case C2I:
+		case C2CI:
+		{
+			D3DXVECTOR3 tsetTargetPosition = tmVecTargetPos;
+			int	AttackDistance = (int)D3DXVec3Length(&(tsetTargetPosition - m_character.PositionVector));
+			int	AttackPossibleRange = 0;
+
+
+			if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
+			{
+				AttackPossibleRange = (int)max(0.1f, m_ItemProw.AbilityMin * (1.0f + m_ParamFactor.pfm_RANGE_01 + m_ParamFactor.pfm_ATTACK_RANGE_01));
+			}
+			else if (IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType))
+			{
+				AttackPossibleRange = (int)max(0.1f, m_ItemProw.AbilityMax * (1.0f + m_ParamFactor.pfm_RANGE_02 + m_ParamFactor.pfm_ATTACK_RANGE_02));
+			}
+			//				SendString128(STRING_128_ADMIN_CMD, "»ç°Å¸®:%.4f,  °ø°Ý°Å¸®:%.4f", fAttackRange, testfDist);
+
+			if (100 <= AttackDistance - AttackPossibleRange)
+			{
+				//					SendString128(STRING_128_ADMIN_CMD, "¹ö±×¾²³Ä?? ºí¶ô´çÇØº¼Åß??");
+				g_pFieldGlobal->WriteSystemLogEX(FALSE, "[HACK_USER] AttackRange Hacking _ AUID(%d) CUID(%d) AttackPossibleRange(%d) AttackDistance(%d)\r\n"
+					, m_character.AccountUniqueNumber, m_character.CharacterUniqueNumber, AttackPossibleRange, AttackDistance);
+				return RES_BREAK;
+			}
+		}
+		break;
+		default:
+			break;
+		}
+
+	}
+	// end 2014-02-05 by jhseol, Ä³³ª´Ù °ø°ÝÀ§Á¶ ¸Þ¸ð¸®ÇÙ º¸¾È°­È­
+
+	///////////////////////////////////////////////////////////////////////////////
+	// 2006-01-20 by cmkwon, ¼¼·ÂÀü º¸½º ¸ó½ºÅÍ °ø°Ý ¸Þ½ÃÁö 
+	if (C2M == eAttack2Target)
+	{
+		CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+		if (pFMon
+			&& MS_PLAYING == pFMon->m_enMonsterState
+			&& COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_BOSS_MONSTER)
+			// 2007-08-23 by cmkwon, ¸ð¼±Àü º¸½º ¸ó½ºÅÍ ±¸ºÐ Ã³¸® - ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤ÇÔ, Ãß°¡µÈ µðÆÄÀÎ »ç¿ë
+			//&& IS_INFLWAR_MONSTER(pFMon->MonsterInfoPtr->Belligerence)
+			&& IS_MOTHERSHIPWAR_MONSTER(pFMon->MonsterInfoPtr->Belligerence)
+			&& FALSE == COMPARE_BODYCON_BIT(pFMon->BodyCondition, BODYCON_DEAD_MASK))
+		{
+			DWORD		dwCurTick = timeGetTime();
+			if (dwCurTick - pFMon->m_dwLastTickInfluenceBossAttackedMsg > TICKGAP_SEND_INVASION_MSG)
+			{
+				pFMon->m_dwLastTickInfluenceBossAttackedMsg = dwCurTick;
+
+				INIT_MSG_WITH_BUFFER(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION, T_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION, pSInvasion, Sendbuf);
+				pSInvasion->MonsterUnitkind = pFMon->MonsterInfoPtr->MonsterUnitKind;
+				ms_pFieldIOCP->SendMessageToAllClients(Sendbuf, MSG_SIZE(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION), GET_SAME_CHARACTER_INFL_BY_MONSTER_BELL(pFMon->MonsterInfoPtr->Belligerence));
+			}
+		}
+
+		///////////////////////////////////////////////////////////////////////////////
+		// 2009-12-11 by cmkwon, µ¥¹ÌÁö ¾î±×·Î·Î Å¸°ÙÀ» º¯°æÇÏ´Â ¸ó½ºÅÍ ±¸Çö - 
+		if (pFMon && pFMon->IsValidMonster())
+		{
+			this->SetTargetMonsterIndex(pMsgAttack->TargetInfo.TargetIndex);
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// 2007-02-06 by cmkwon
+	// 1. 1Çü, 2Çü ¹«±â ÃÑ¾Ë¼ö Ã¼Å©
+	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType))
+	{// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
+		if (FALSE == OnPrimaryAttack(pMsgAttack->AttackType))
+		{
+			return RES_BREAK;
+		}
+	}
+	else // IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType)
+	{
+		// °ø°Ý ¹üÀ§ È®ÀÎ
+		if (CAtumSJ::IsCharacterTarget(eAttack2Target) || CAtumSJ::IsMonsterTarget(eAttack2Target))
+		{
+			D3DXVECTOR3 tmpTargetPosition = tmVecTargetPos;
+			float fDist = D3DXVec3Length(&(tmpTargetPosition - m_character.PositionVector));
+			if (fDist > 1.5f * CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor))
+			{
+				return RES_BREAK;
+			}
+		}
+		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
+		if (FALSE == OnSecondaryAttack(1, pMsgAttack->AttackType))
+		{
+			return RES_BREAK;
+		}
+	}
+
+	// ³²Àº ÇöÀç bullet ÇÒ´ç
+	//////////////////////////////////////////////////////////////////////////
+	// 2007-07-16 by dhjin, Tutorial ¸ÊÀÌ¸é Àü¿ë ¹«±â ÇÒ´ç.
+	if (IS_TUTORIAL_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
+	{
+		pMsgAttackOK->RemainedBulletFuel = 100;
+	}
+	else
+	{
+		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
+		if (ATT_TYPE_PET_ATK == pMsgAttack->AttackType)
+		{
+			pMsgAttackOK->RemainedBulletFuel = 100;
+		}
+		else if (ATT_TYPE_PET_ATK != pMsgAttack->AttackType)
+		{
+			pMsgAttackOK->RemainedBulletFuel = pAttackItemGeneral->CurrentCount;
+		}
+		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®( ÆÖÀÏ °æ¿ì Åº¾à Ã³¸® ¾ÈÇÏ°Ô º¯°æ)
+	}
+
+	igLock.auto_unlock_cancel();
+
+	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - ½ºÅ³ »ç¿ë¿©ºÎ¿Í ¼¼·Âºñ¿¡ µû¸¥ ¹öÇÁ È¿°ú ºñÀ² °è»ê
+	float tmBuffPercent = 0.0f;
+	if (TRUE == m_SkillManager.IsSkillActivatedByItemNum(TURN_AROUND_BUFF_SKILL_1ST) || TRUE == m_SkillManager.IsSkillActivatedByItemNum(TURN_AROUND_BUFF_SKILL_3RD))
+	{
+		// 2014-03-25 by jekim, ½Â¸®ÀÇ È¯È£
+		if (0 == ms_pFieldIOCP->m_InflWarManager.GetPVPBuffPercent(m_character.InfluenceType, &tmBuffPercent))
+		{
+			tmBuffPercent = 0.0f;
+		}
+		// end 2014-03-25 by jekim, ½Â¸®ÀÇ È¯È£
+	}
+	// end 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - ½ºÅ³ »ç¿ë¿©ºÎ¿Í ¼¼·Âºñ¿¡ µû¸¥ ¹öÇÁ È¿°ú ºñÀ² °è»ê
+
+	///////////////////////////////////////////////////////////////////////////
+	// 1Çü ¹«±â °ø°ÝÀÎ °æ¿ì ÀÌ°Å³ª Æê °ø°ÝÀÏ °æ¿ì 
+	///////////////////////////////////////////////////////////////////////////
+	if (IS_PRIMARY_ATT_TYPE(pMsgAttack->AttackType) || ATT_TYPE_PET_ATK == pMsgAttack->AttackType) // 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê ¹«±âÀÏ °æ¿ì(Ãß°¡)
+	{
+		// ChagingSkill Ã³¸®
+		CChargingSkillApplier tmpChargingSkillApplier(&pITEMforProcessSplashAttack, FALSE, pAttackItem, this);
+		// 2013-03-12 by jhseol, ½ºÅ³ ³Ñ¹ö¸µ ½Ã½ºÅÛ ¼öÁ¤
+		// end 2013-03-12 by jhseol, ½ºÅ³ ³Ñ¹ö¸µ ½Ã½ºÅÛ ¼öÁ¤
+
+		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ °è»ê
+		fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);
+
+		if (pITEMforProcessSplashAttack)
+		{// 2006-12-01 by dhjin, Splash Ã³¸® ¾Æ·¡¿¡¼­ ÇÑ´Ù
+
+			SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+		}
+		else
+		{// 2006-12-01 by dhjin, Splash Ã³¸®°¡ ÇÊ¿äÇÏÁö ¾ÈÀº°Í¸¸ Ã³¸®, Splash Ã³¸®´Â Á¦ÀÏ ¾Æ·¡¿¡¼­ Ã³¸®
+
+			///////////////////////////////////////////////////////////////////////////////			
+			// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤À¸·Î Ãß°¡			
+			SATTACK_PARAMETER attParam;
+			MEMSET_ZERO(&attParam, sizeof(attParam));
+			attParam.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
+			// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+			enumAttackToTarget	tempAttack2Target = eAttack2Target;
+			if (C2M == tempAttack2Target)
+			{
+				CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+				if (pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+				{
+					tempAttack2Target = C2NULL;
+				}
+			}
+
+			// end 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+			this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡	// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
+			
+			///////////////////////////////////////////////////////////////////////
+			// °ø°ÝÀÚ¿Í ÇÇ°ø°ÝÀÚ¿¡ µû¶ó µ¥¹ÌÁö °è»ê
+			///////////////////////////////////////////////////////////////////////
+			if (eAttack2Target == C2C)
+			{
+				if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttack->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
+				{
+					pMsgAttackOK->TargetInfo.SetNullTarget();
+					///////////////////////////////////////////////////////////////////////////////
+					// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
+					SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+					return RES_BREAK;
+				}
+
+				BOOL bRet = CAtumSJ::CheckTargetErrorAngle(&m_character, m_character.PositionVector, pTargetCharacter->PositionVector, tmVecTargetPos, fDistance);
+				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
+				fDamage = CalcDamageOfAttackNew(&DamageKind, C2C, 1.0f, this, &m_character, &attParam, pTargetSocket, &pTargetSocket->m_character, fSkillAppliedRange, fDistance);
+				// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+				//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this, &m_character, pTargetSocket, &pTargetSocket->m_character, pAttackItem,
+				//					&DamageKind, tmVecTargetPos, fSkillAppliedRange, fDistance);
+				pTargetSocket->m_uidAttackerGuildUID = 0;
+
+				pTargetSocket->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0028, this->m_character.CharacterName, fDamage);
+				this->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0029, pTargetCharacter->CharacterName, fDamage);
+			}
+			else if (eAttack2Target == C2M)
+			{
+				if (!CheckValidAttackTargetMonster(m_character.InfluenceType, pMsgAttack->TargetInfo.TargetIndex, m_character.MapChannelIndex.ChannelIndex, pTargetMonster))
+				{
+					pMsgAttackOK->TargetInfo.SetNullTarget();
+					///////////////////////////////////////////////////////////////////////////////
+					// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
+					SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+					return RES_BREAK;
+				}
+
+				////////////////////////////////////////////////////////////////////////////////
+				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - µ¥¹ÌÁö ¹ÞÁö ¾Ê´Â´Ù.
+				if (BELL_INFINITY_DEFENSE_MONSTER == pTargetMonster->MonsterInfoPtr->Belligerence) {
+					return RES_BREAK;
+				}
+
+				////////////////////////////////////////////////////////////////////////////////
+				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹è¸®¾î Ã¼Å©
+				if (pTargetMonster->CheckBarrierHave()) {
+					if (pTargetMonster->CheckBarrierUsing()) {
+						INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MONSTER_BARRIER_USING, T_FC_BATTLE_MONSTER_BARRIER_USING, pSendMsg, SendBuf);
+						pSendMsg->MonsterIndex = pTargetMonster->MonsterIndex;
+						this->SendAddData(SendBuf, MSG_SIZE(MSG_FC_BATTLE_MONSTER_BARRIER_USING));
+						SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+						return RES_BREAK;
+					}
+					if (pTargetMonster->BarrierUse()) {
+						INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MONSTER_BARRIER_USE, T_FC_BATTLE_MONSTER_BARRIER_USE, pSendMsg, SendBuf);
+						pSendMsg->MonsterIndex = pTargetMonster->MonsterIndex;
+						pSendMsg->SkillItemNum = pTargetMonster->m_bBarrierInfo.SkillNum;
+						m_pCurrentFieldMapChannel->SendMessageToAllInChannel(SendBuf, MSG_SIZE(MSG_FC_BATTLE_MONSTER_BARRIER_USE));
+						SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+						return RES_BREAK;
+					}
+				}
+
+				// start 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
+				if (NULL != pTargetMonster && TRUE == pTargetMonster->IsTriggerFunction())
+				{
+					mt_auto_lock mtAuto(&pTargetMonster->m_mtVectTriggerFunctionPtr);
+
+					for (int i = 0; i < pTargetMonster->m_mtVectTriggerFunctionPtr.size(); i++)
+					{
+						CTriggerFunction* pTriggerFunction = pTargetMonster->m_mtVectTriggerFunctionPtr[i];
+						if (TRUE == pTriggerFunction->OnIsInvincible(pTargetMonster->MonsterInfoPtr->MonsterUnitKind, this))
+						{
+							return RES_BREAK;
+						}
+						// 2013-01-23 by jhseol, ÀüÀï ½Ã Å©¸®½ºÅ»¸¸ °ø°Ý ºÒ°¡´É ÇÏµµ·Ï ¼öÁ¤
+						if (TRUE == pTriggerFunction->OnIsCrystal()
+							&& FALSE == ms_pFieldIOCP->IsBurningMap(pTriggerFunction->GetMapIndex()))	// 2014-04-10 by bckim, ¹ö´×¸ÊÀº Á¦¿Ü(ÀüÀï½Ã Å©¸®½ºÅ» °ø°Ý ºÒ°¡´É)
+						{
+							// 2012-12-15 by jhseol, ÀüÀï ½Ã½ºÅÛ ¸®´º¾ó - ÀüÀï½Ã Æ®¸®°Å ¹«Àû»óÅÂ(ÀÏ½ÃÁ¤Áö) Å©¸®½ºÅ» °ø°ÝÈ½¼ö ÀúÀå : 50¹ø °ø°ÝÇÒ¶§¸¶´Ù ¸Þ¼¼Áö Ãâ·Â
+							if (ms_pFieldIOCP->m_InflWarManager.IsDoingInfluenceWar())
+							{
+								m_nCrystalAttackCount++;
+								if (1 == m_nCrystalAttackCount)
+								{
+									SendString128(STRING_128_USER_NOTICE, STRMSG_121126_0001);
+								}
+								if (50 <= m_nCrystalAttackCount)
+								{
+									m_nCrystalAttackCount = 0;
+								}
+								return RES_BREAK;
+							}
+							else
+							{
+								m_nCrystalAttackCount = 0;
+							}
+							// end 2012-12-15 by jhseol, ÀüÀï ½Ã½ºÅÛ ¸®´º¾ó - ÀüÀï½Ã Æ®¸®°Å ¹«Àû»óÅÂ(ÀÏ½ÃÁ¤Áö) Å©¸®½ºÅ» °ø°ÝÈ½¼ö ÀúÀå : 50¹ø °ø°ÝÇÒ¶§¸¶´Ù ¸Þ¼¼Áö Ãâ·Â
+						}
+						// end 2013-01-23 by jhseol, ÀüÀï ½Ã Å©¸®½ºÅ»¸¸ °ø°Ý ºÒ°¡´É ÇÏµµ·Ï ¼öÁ¤
+					}
+				}
+				// end 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
+
+				BOOL bRet = CAtumSJ::CheckTargetErrorAngle(&m_character, m_character.PositionVector, pTargetMonster->PositionVector, tmVecTargetPos, fDistance);
+				fDamage = CalcDamageOfAttackNew(&DamageKind, C2M, 1.0f, this, &m_character, &attParam, pTargetSocket, pTargetMonster, fSkillAppliedRange, fDistance);
+				// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+				//				fDamage = CalcDamageOfAttack(C2M, 1.0f, this, &m_character, pTargetSocket, pTargetMonster, pAttackItem,
+				//						&DamageKind, tmVecTargetPos, fSkillAppliedRange, fDistance);
+
+								///////////////////////////////////////////////////////////////////////
+								// Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
+				INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, SendBuf);
+				pSetAttackChar->ChannelIndex = m_character.MapChannelIndex.ChannelIndex;
+				pSetAttackChar->AttackIndex = pMsgAttackOK->AttackIndex;
+				pSetAttackChar->TargetIndex = pMsgAttackOK->TargetInfo.TargetIndex;
+				pSetAttackChar->DamageAmount = fDamage;
+				pSetAttackChar->ItemKind = pAttackItem->Kind;
+				m_pCurrentFieldMapChannel->Send2NPCServerW(SendBuf, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));
+
+				////////////////////////////////////////////////////////////////////////////////
+				// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+				if (NULL != pTargetMonster && NULL != pTargetMonster->MonsterInfoPtr && FALSE == COMPARE_MPOPTION_BIT(pTargetMonster->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+				{
+					if (0 < this->GetParamAddAttack()
+						&& 0 < fDamage) {
+						this->AddAttackDamage(this, &m_character, pTargetMonster, this->GetParamAddAttack(), &attParam);
+					}
+				}
+				// end 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+			}
+			else if (eAttack2Target == C2I)
+			{
+			}
+			else if (eAttack2Target == C2CI)
+			{
+				// ÇÇ°ø°ÝÀÚ°¡ Dummy¸¦ ´Þ°í ÀÖÀ» ¶§
+				if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttack->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
+				{
+					pMsgAttackOK->TargetInfo.SetNullTarget();
+					///////////////////////////////////////////////////////////////////////////////
+					// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
+					SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+					return RES_BREAK;
+				}
+				// 2006-12-04 by dhjin
+				DamageKind = DAMAGEKIND_NORMAL;
+				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
+				fDamage = CalcDamageOfAttackNew(&DamageKind, C2C, 1.0f, this, &m_character, &attParam, pTargetSocket, pTargetCharacter);
+				// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+				//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this, &m_character, pTargetSocket, pTargetCharacter,
+				//						pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
+				pTargetSocket->m_uidAttackerGuildUID = 0;
+			}
+			else if (eAttack2Target == C2NULL)
+			{
+				// set null target
+				pMsgAttackOK->TargetInfo.SetNullTarget();
+			}
+
+			///////////////////////////////////////////////////////////////////////
+			// ATTACK_OK Àü¼Û
+			// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
+			SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+		}// END - 		if(FALSE == bProcessSplashAttack)
+	}
+	else // IS_SECONDARY_ATT_TYPE(pMsgAttack->AttackType)
+	{
+
+		///////////////////////////////////////////////////////////////////////////////
+		// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤
+		SATTACK_PARAMETER attParam;
+		MEMSET_ZERO(&attParam, sizeof(attParam));
+		attParam.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
+		// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+		enumAttackToTarget	tempAttack2Target = eAttack2Target;
+		if (C2M == tempAttack2Target)
+		{
+			CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+			if (pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+			{
+				tempAttack2Target = C2NULL;
+			}
+		}
+		// end 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+		this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡		// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
+
+		this->APInsertAttackParameter(&attParam);
+
+#ifdef S_B_GEAR_DAMAGE_PROBABILITY_INFO			// 2013-05-06 by bckim, B±â¾î Å¸°Ù µ¥¹ÌÁö È®ÀÎ
+		if (IS_BGEAR(m_character.UnitKind))
+		{
+			g_pFieldGlobal->WriteSystemLogEX(FALSE, "###### [AccountName(UID) : %s(%d)][CharacterName(UID) : %s(%d)][attParam->fAttack:%f]\r\n", m_character.AccountName, m_character.AccountUniqueNumber, m_character.CharacterName, m_character.CharacterUniqueNumber, attParam.fAttack);	// 2013-10-16 by jhseol, ¼­¹ö µð¹ö±ë½Ã ºÒÇÊ¿ä DBGOUT Ãâ·Â ÄÚµå Á¦°Å
+		}
+#endif
+
+		if (C2M == eAttack2Target)
+		{// 2006-11-07 by cmkwon, 2Çü ¹«±â¸¦ ½ð °æ¿ì ¹Ù·Î °ø°ÝÀÚ°¡ ¼³Á¤µÇµµ·Ï
+
+			CFieldMonster* pFMon = m_pCurrentFieldMapChannel->GetFieldMonster(pMsgAttack->TargetInfo.TargetIndex, 30);
+			if (pFMon
+				&& pFMon->m_enMonsterState == MS_PLAYING)
+			{
+				pFMon->SetAttackerCliIdx(this->GetCharacter()->ClientIndex);
+			}
+		}
+
+		///////////////////////////////////////////////////////////////////////////////
+		// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
+		SendInRangeMessageAroundMe(pMsgAttackOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), TRUE);
+	}
+
+	if (pITEMforProcessSplashAttack)
+	{// 2006-12-01 by dhjin, 
+
+		// ChagingSkill Ã³¸®
+		CChargingSkillApplier tmpChargingSkillApplier(&pITEMforProcessSplashAttack, TRUE, pAttackItem, this);
+
+		///////////////////////////////////////////////////////////////////////////////		
+		// 2007-06-08 by cmkwon, 2Çü °ø°ÝÈ®·ü,ÇÇ¾î½ºÀ²,°ø°Ý·Â °è»ê ½Ã½ºÅÛ ¼öÁ¤ - ÇÏÀÌÆÛ¼¦ ½ºÅ³ Àû¿ë ÈÄ ¾Æ·¡ÀÇ ÇÔ¼ö¸¦ È£ÃâÇØ¾ß ÇÔ
+		SATTACK_PARAMETER attParam;
+		MEMSET_ZERO(&attParam, sizeof(attParam));
+		attParam.MultiTargetIndex = pMsgAttack->TargetInfo.MultiTargetIndex;		// 2011-03-21 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ ¸ÖÆ¼ Å¸°ÙÆÃ ±â´É Ãß°¡
+		// 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+		enumAttackToTarget	tempAttack2Target = eAttack2Target;
+		if (C2M == tempAttack2Target)
+		{
+			CFieldMonster* pFMon = m_pCurrentFieldMapChannel->m_pFieldMapProject->GetFieldMonsterW(m_character.MapChannelIndex.ChannelIndex, pMsgAttack->TargetInfo.TargetIndex, 110);
+			if (pFMon && MS_PLAYING == pFMon->m_enMonsterState && COMPARE_MPOPTION_BIT(pFMon->MonsterInfoPtr->MPOption, MPOPTION_BIT_ADD_DAMAGE_UNAPPLIED))
+			{
+				tempAttack2Target = C2NULL;
+			}
+		}
+		// end 2013-07-23 by jhseol, ¸ó½ºÅÍ Ãß°¡´ë¹ÌÁö ¹ÌÀû¿ë ¿É¼Ç.
+		this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - tmBuffPercent Ãß°¡		// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
+
+		fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);		// 2006-12-06 by dhjin, 
+		if (pITEMforProcessSplashAttack)
+		{
+			///////////////////////////////////////////////////////////////////////////////
+			// 2006-12-13 by cmkwon, °Å¸®¿¡ µû¸¥ È®·ü Àû¿ë
+			float fActualDistance = D3DXVec3Length(&(m_character.PositionVector - tmVecTargetPos));
+			if (fActualDistance <= fSkillAppliedRange * 2)
+			{
+				float fTmpMultValue = 1.0f;
+				if (fActualDistance > fSkillAppliedRange * EFFECTIVE_ATTACK_RANGE_MULTIPLIER)
+				{
+					fTmpMultValue = MIN_ATTACK_DECREASE_FACTOR;
+				}
+				else if (fActualDistance > fSkillAppliedRange)
+				{
+					fTmpMultValue = 2 * (MIN_ATTACK_DECREASE_FACTOR - 1) * fActualDistance / fSkillAppliedRange + 3 - 2 * MIN_ATTACK_DECREASE_FACTOR;
+				}
+
+
+				float fAttackSuccessProbability = PROB100_MAX_VALUE * fTmpMultValue;
+				float fRand = RANDF2(0, 100);
+				if (fRand <= fAttackSuccessProbability)
+				{
+					ProcessSplashDamageC2All(this, &attParam, pITEMforProcessSplashAttack->Range, &tmVecTargetPos);
+				}
+			}
+		}
+	}
+
+	return RES_RETURN_TRUE;
+}
+#endif // _RAT_ANTI_CHEAT
 
 ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK_FIND(const char* pPacket, int nLength, int &nBytesUsed)
 {
@@ -20851,338 +20630,6 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK_FIND(const char* pPacke
 	SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);	
 	return RES_RETURN_TRUE;
 }
-// 2007-02-06 by cmkwon, À§¿Í °°ÀÌ ¼öÁ¤ÇÔ, lock ¹üÀ§ °ü·Ã ¼öÁ¤
-//{
-//	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_ATTACK_FIND,
-//									MSG_FC_BATTLE_ATTACK_FIND, pMsgAttackFind);
-//
-//	// °¢Á¾ º¯¼ö ÁØºñ
-//	ITEM				*pAttackItem		= NULL;
-//	ITEM_GENERAL		*pAttackItemGeneral	= NULL;
-//	enumAttackToTarget	eAttack2Target		= ERR2ERR;
-//	CFieldIOCPSocket	*pTargetSocket		= NULL;
-//	CHARACTER			*pTargetCharacter	= NULL;
-//	CFieldMonster		*pTargetMonster		= NULL;
-//	CFieldMonster		*pAttackMonster		= NULL;
-//
-//	float				fDistance			= 0.0f;		// °ø°ÝÀÚ¿Í °ø°Ý´ë»ó°úÀÇ °Å¸®¸¦ ÀúÀå
-//	float				fSkillAppliedRange	= 0.0f;		// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ ÀúÀå
-//	float				fDamage				= 0.0f;		// ÃÖÁ¾ µ¥¹ÌÁö
-//	BYTE				DamageKind			= DAMAGEKIND_NORMAL;
-//	float				fDamageWeight		= 0.0f;		// splash¿¡ ÀÇÇÑ weight
-//	
-//	// 2Çü ¹«±â °ø°Ý¸¸ ÇØ´ç, 1ÇüÀº ¹«½Ã
-//	if (IS_PRIMARY_ATT_TYPE(pMsgAttackFind->AttackType))
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	// ÀÚ±â ÀÚ½ÅÀÇ °ø°ÝÀÌ°Å³ª ¸ó½ºÅÍÀÇ °ø°ÝÀÌ¾î¾ß ÇÔ!
-//	if (m_character.ClientIndex != pMsgAttackFind->AttackIndex
-//		&& !IS_MONSTER_CLIENT_INDEX(pMsgAttackFind->AttackIndex))
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	// °ø°ÝÀÚ°¡ À¯È¿ÇÑÁö Ã¼Å©
-//	if (FALSE == this->IsValidCharacter()
-//		|| COMPARE_BODYCON_BIT(m_character.BodyCondition, BODYCON_EVENT_HANDLE_MASK))
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	// AttackToTarget °áÁ¤
-//	eAttack2Target = CAtumSJ::GetAttackToTarget(pMsgAttackFind->AttackIndex, pMsgAttackFind->TargetInfo);
-//	if (eAttack2Target == ERR2ERR)
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	// MSG_FC_BATTLE_ATTACK_FIND_OK ÁØºñ
-//	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_ATTACK_FIND_OK, T_FC_BATTLE_ATTACK_FIND_OK, pMsgAttackFindOK, pMsgAttackFindOKBuf);
-//	pMsgAttackFindOK->AttackIndex		= pMsgAttackFind->AttackIndex;
-//	pMsgAttackFindOK->TargetIndex		= pMsgAttackFind->TargetInfo.TargetIndex;
-//	pMsgAttackFindOK->TargetItemFieldIndex	= pMsgAttackFind->TargetInfo.TargetItemFieldIndex;
-//	pMsgAttackFindOK->WeaponIndex		= pMsgAttackFind->WeaponIndex;
-//	pMsgAttackFindOK->AttackType		= pMsgAttackFind->AttackType;
-//
-//	// °ø°ÝÀÚ¿¡ µû¸¥ ºÐ·ù
-//	if (CAtumSJ::IsCharacterAttacker(eAttack2Target))
-//	{
-//		// Attack Item ÇÒ´ç ¹× È®ÀÎ
-//		pAttackItem = &m_ItemWingOut;
-//		if (pAttackItem == NULL || pAttackItem->ItemNum == NULL)
-//		{
-//			return RES_BREAK;
-//		}
-//		pAttackItemGeneral = (ITEM_GENERAL*)pAttackItem->ItemNum;
-//	}
-//	else if (CAtumSJ::IsMonsterAttacker(eAttack2Target))
-//	{
-//		pAttackMonster = m_pCurrentFieldMapChannel->GetFieldMonster(pMsgAttackFind->AttackIndex, 8);
-//		if(NULL == pAttackMonster
-//			//|| MS_PLAYING != pMonster->m_enMonsterState	// 20030109 cmkwon µÎ¹øÂ° ¹«±â´Â ¸ó½ºÅÍ°¡ Á×¾îµµ °è»êÃ³¸®
-//			|| TRUE == COMPARE_BODYCON_BIT(pAttackMonster->BodyCondition, BODYCON_DEAD_MASK))
-//		{
-//			return RES_BREAK;
-//		}
-//
-//		// Attack Item ÇÒ´ç ¹× È®ÀÎ
-//		pAttackItem = pAttackMonster->FindItemPtrWithItemNum(pMsgAttackFind->ItemNum);
-//		if(NULL == pAttackItem)
-//		{
-//			// °ø°Ý¹«±â°¡ À¯È¿ ÇÏÁö ¾ÊÀ½
-//			return RES_BREAK;
-//		}
-//	}
-//	else
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	///////////////////////////////////////////////////////////////////////////////
-//	// 2006-09-08 by cmkwon, Ä³¸¯ÅÍ°ø°Ý ¾ÆÀÌÅÛ ÀåÂø º¯°æÀ» Ã¼Å©ÇÑ´Ù.
-//	UID16_t uid16Cur = m_WeaponIndexGenerator.GetCurrent();
-//	if(IS_VALID_CLIENT_INDEX(pMsgAttackFind->AttackIndex)
-//		&& pMsgAttackFind->WeaponIndex > uid16Cur)
-//	{
-//		SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);
-//		return RES_BREAK;
-//	}
-//
-//	// º¸Á¤°ª Àû¿ëµÈ °ø°Ý ¹üÀ§ °è»ê
-//	fSkillAppliedRange = CAtumSJ::GetAttackRange(pAttackItem, &m_ParamFactor);
-//#ifdef _DEBUG
-//	SendString128(STRING_128_DEBUG_L3, "%5.2f vs %5.2f(%5.2f*%5.2f)"
-//		, fDistance, fSkillAppliedRange, (float)pAttackItem->Range
-//		, (1.0f + (IS_PRIMARY_WEAPON(pAttackItem->Kind)?m_ParamFactor.pfm_RANGE_01:m_ParamFactor.pfm_RANGE_02)));
-//#endif
-//
-//	///////////////////////////////////////////////////////////////////////
-//	// °ø°ÝÀÚ¿Í ÇÇ°ø°ÝÀÚ¿¡ µû¶ó µ¥¹ÌÁö °è»ê
-//	///////////////////////////////////////////////////////////////////////
-//	if (eAttack2Target == C2C)
-//	{
-//		if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttackFind->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
-//		{
-//			pMsgAttackFindOK->TargetIndex			= 0;
-//			pMsgAttackFindOK->TargetItemFieldIndex	= 0;
-//			///////////////////////////////////////////////////////////////////////////////
-//			// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//			SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);
-//			return RES_BREAK;
-//		}
-//
-//		fDamageWeight = 1.0f;		// 2005-12-13 by cmkwon
-//// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-////		// 2Çü ¹«±â´Â ¿ÀÂ÷°¢ °è»ê ¾øÀ½
-////		fDistance = D3DXVec3Length(&(A2DX(pMsgAttackFind->TargetInfo.TargetPosition) - pTargetCharacter->PositionVector));
-////
-////		if (IS_SECONDARY_WEAPON(pAttackItem->Kind) && pAttackItem->ExplosionRange > 0)
-////		{
-////			fDamageWeight
-////				= CalcSplashDamageWeightByExposionRange(C2C, pAttackItem, &this->m_ParamFactor, fDistance, 10);
-//////			DBGOUT("	Distance(%5.1f) ExplosionRange(%d) ==> DamageWeight(%4.2f)\n",
-//////				fDistance, pAttackItem->ExplosionRange, fDamageWeight);
-////		}
-////		else
-////		{
-////			fDamageWeight = 1.0f;
-////		}
-//
-//		if (fDamageWeight > 0.0f)
-//		{
-//			pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-//			fDamage = CalcDamageOfAttack(C2C, fDamageWeight, this,		// @Process_FC_BATTLE_ATTACK_FIND(), C2C
-//				&m_character, pTargetSocket, &pTargetSocket->m_character, pAttackItem,
-//				&DamageKind, A2DX(pMsgAttackFind->TargetInfo.TargetPosition));
-//			pTargetSocket->m_uidAttackerGuildUID = 0;
-//		}
-//
-//#ifdef _DEBUG
-//		pTargetSocket->SendString128(STRING_128_DEBUG_L1, STRMSG_S_F2NOTIFY_0032, this->m_character.CharacterName, fDamage);
-//		SendString128(STRING_128_DEBUG_L1, STRMSG_S_F2NOTIFY_0033, pTargetCharacter->CharacterName, fDamage);
-//#endif
-//	}
-//	else if (eAttack2Target == C2M)
-//	{
-//		if (!CheckValidAttackTargetMonster(m_character.InfluenceType, pMsgAttackFind->TargetInfo.TargetIndex, m_character.MapChannelIndex.ChannelIndex, pTargetMonster))
-//		{
-//			pMsgAttackFindOK->TargetIndex = 0;
-//			pMsgAttackFindOK->TargetItemFieldIndex = 0;
-//			///////////////////////////////////////////////////////////////////////////////
-//			// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//			SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);
-//			return RES_BREAK;
-//		}
-//
-//		fDamageWeight = 1.0f;		// 2005-12-13 by cmkwon
-//// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-////		// 2Çü ¹«±â´Â ¿ÀÂ÷°¢ °è»ê ¾øÀ½
-////		fDistance = D3DXVec3Length(&(A2DX(pMsgAttackFind->TargetInfo.TargetPosition) - pTargetMonster->PositionVector));
-////
-////		if (IS_SECONDARY_WEAPON(pAttackItem->Kind) && pAttackItem->ExplosionRange > 0)
-////		{
-////			fDamageWeight
-////				= CalcSplashDamageWeightByExposionRange(C2M, pAttackItem, &this->m_ParamFactor, fDistance, pTargetMonster->MonsterInfoPtr->Size);
-////		}
-////		else
-////		{
-////			fDamageWeight = 1.0f;
-////		}
-//
-//		if (fDamageWeight > 0.0f)
-//		{
-//			fDamage = CalcDamageOfAttack(C2M, fDamageWeight, this,		// @Process_FC_BATTLE_ATTACK_FIND(), C2M
-//				&m_character, pTargetSocket, pTargetMonster, pAttackItem,
-//				&DamageKind, A2DX(pMsgAttackFind->TargetInfo.TargetPosition));
-//		}
-//
-//#ifdef _DEBUG
-//		this->SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0034, pTargetMonster->MonsterIndex, fDamage, (int)fDamage);
-//#endif
-//
-//		///////////////////////////////////////////////////////////////////////
-//		// Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
-//		INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, SendBuf);
-//		pSetAttackChar->ChannelIndex = m_character.MapChannelIndex.ChannelIndex;
-//		pSetAttackChar->AttackIndex = pMsgAttackFindOK->AttackIndex;
-//		pSetAttackChar->TargetIndex = pMsgAttackFindOK->TargetIndex;
-//		pSetAttackChar->DamageAmount = fDamage;
-//		pSetAttackChar->ItemKind = pAttackItem->Kind;
-//		m_pCurrentFieldMapChannel->Send2NPCServerW(SendBuf, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));
-//
-//// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-////		///////////////////////////////////////////////////////////////////////
-////		// splash damage Àû¿ë
-////		ProcessSplashDamage(C2M, this, &m_character, A2DX(pMsgAttackFind->TargetInfo.TargetPosition), pAttackItem, pMsgAttackFind->TargetInfo.TargetIndex);
-//	}
-//	else if (eAttack2Target == C2I)
-//	{
-//	}
-//	else if (eAttack2Target == C2CI)
-//	{
-//		// ÇÇ°ø°ÝÀÚ°¡ Dummy¸¦ ´Þ°í ÀÖÀ» ¶§
-//		if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttackFind->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
-//		{
-//			pMsgAttackFindOK->TargetIndex			= 0;
-//			pMsgAttackFindOK->TargetItemFieldIndex	= 0;
-//			///////////////////////////////////////////////////////////////////////////////
-//			// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//			SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);
-//			return RES_BREAK;
-//		}
-//// 2006-12-04 by dhjin, Ã¼ÇÁ »çÃâ·Î ÀÎÇÏ¿© ±âÁ¸¿¡ ´õ¹Ì ¼Ò½º º¯°æ.
-////		// lock m_mapFieldDummy
-////		mt_auto_lock dummyLock(&pTargetSocket->m_mapFieldDummy);
-////
-////		if (!pTargetSocket->m_mapFieldDummy.empty())
-////		{
-////			FIELD_DUMMY *pTargetDummy = pTargetSocket->m_mapFieldDummy.findLock(pMsgAttackFind->TargetInfo.TargetItemFieldIndex);
-////
-////			if (pTargetDummy == NULL)
-////			{
-////				DamageKind = DAMAGEKIND_NORMAL;
-////				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-////				fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK_FIND(), C2CI
-////					&m_character, pTargetSocket, pTargetCharacter,
-////					pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
-////				pTargetSocket->m_uidAttackerGuildUID = 0;
-////#ifdef _DEBUG
-////				SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0035, pTargetCharacter->CharacterName, fDamage);
-////#endif
-////			}
-////			else
-////			{
-////				DamageKind = DAMAGEKIND_NORMAL;
-////				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-////				fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK_FIND(), C2CI
-////					&m_character, pTargetSocket, pTargetCharacter,
-////					pAttackItem, &DamageKind, pTargetCharacter->PositionVector,
-////					0.0f, 0.0f, pTargetDummy->ItemFieldIndex);
-////				pTargetSocket->m_uidAttackerGuildUID = 0;
-////#ifdef _DEBUG
-////				SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0036, pTargetCharacter->CharacterName, fDamage);
-////#endif
-////			}
-////		}
-//		// 2006-12-04 by dhjin, ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
-//		DamageKind = DAMAGEKIND_NORMAL;
-//		pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-//		fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_ATTACK_FIND(), C2CI
-//			&m_character, pTargetSocket, pTargetCharacter,
-//			pAttackItem, &DamageKind, pTargetCharacter->PositionVector);
-//		pTargetSocket->m_uidAttackerGuildUID = 0;
-//
-//	}
-//	else if (eAttack2Target == C2NULL)
-//	{
-//#ifdef _DEBUG
-//		SendString128(STRING_128_DEBUG_L2, "NULL Target by Client");
-//#endif
-//		// set null target
-//		pMsgAttackFindOK->TargetIndex = 0;
-//		pMsgAttackFindOK->TargetItemFieldIndex = 0;
-//	}
-//	else if (eAttack2Target == M2C)
-//	{
-//		if(!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgAttackFind->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
-//		{
-//			pMsgAttackFindOK->TargetIndex = 0;
-//			pMsgAttackFindOK->TargetItemFieldIndex = 0;
-//			///////////////////////////////////////////////////////////////////////////////
-//			// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//			SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);
-//			return RES_BREAK;
-//		}
-//
-//		fDamageWeight = 1.0f;		// 2005-12-13 by cmkwon
-//// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-////		// 2Çü ¹«±â´Â ¿ÀÂ÷°¢ °è»ê ¾øÀ½
-////		fDistance = D3DXVec3Length(&(A2DX(pMsgAttackFind->TargetInfo.TargetPosition) - pTargetCharacter->PositionVector));
-////
-////		if (IS_SECONDARY_WEAPON(pAttackItem->Kind) && pAttackItem->ExplosionRange > 0)
-////		{
-////			fDamageWeight
-////				= CalcSplashDamageWeightByExposionRange(M2C, pAttackItem, NULL, fDistance, 10);
-////		}
-////		else
-////		{
-////			fDamageWeight = 1.0f;
-////		}
-//
-//		if (fDamageWeight > 0.0f)
-//		{
-//			fDamage = CalcDamageOfAttack(M2C, fDamageWeight, NULL,		// @Process_FC_BATTLE_ATTACK_FIND(), M2C
-//				pAttackMonster, pTargetSocket, (void*)pTargetCharacter, pAttackItem,
-//				&DamageKind, A2DX(pMsgAttackFind->TargetInfo.TargetPosition));
-//		}
-//
-//#ifdef _DEBUG
-//		pTargetSocket->SendString128(STRING_128_DEBUG_L1, STRMSG_S_F2NOTIFY_0037, pAttackMonster->MonsterInfoPtr->MonsterUnitKind, fDamage);
-//#endif
-//	}
-//	else if (eAttack2Target == M2I)
-//	{
-//	}
-//	else if (eAttack2Target == M2CI)
-//	{
-//	}
-//	else if (eAttack2Target == M2NULL)
-//	{
-//	}
-//	else
-//	{
-//		// cannot handle type
-//		return RES_BREAK;
-//	}
-//
-//	///////////////////////////////////////////////////////////////////////
-//	// ATTACK_FIND_OK Àü¼Û
-//	// 2005-04-18 by cmkwon, Æ©Åä¸®¾ó¸Ê°ü·Ã Ã³¸®´Â SendInRangeMessageAroundCharacter_()ÇÔ¼ö ³»¿¡¼­ Ã³¸®µÇ¾î ÀÖÀ½
-//	SendInRangeMessageAroundMe(pMsgAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_FIND_OK), TRUE);	
-//	return RES_RETURN_TRUE;
-//}
 
 ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_DROP_MINE(const char* pPacket, int nLength, int &nBytesUsed)
 {
@@ -21375,349 +20822,13 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_MINE_ATTACK_FIND(const char* p
 	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_MINE_ATTACK_FIND,
 									MSG_FC_BATTLE_MINE_ATTACK_FIND, pMsgMineAttackFind);
 
-// 2007-06-08 by cmkwon, ÇöÀç´Â »ç¿ëÇÏÁö ¾Ê´Â ÇÁ·ÎÅäÄÝÀÓ
-//	// AttackToTarget °áÁ¤
-//	enumAttackToTarget eAttack2Target = CAtumSJ::GetAttackToTarget(m_character.ClientIndex, pMsgMineAttackFind->TargetInfo);
-//	if (eAttack2Target == ERR2ERR)
-//	{
-//		return RES_BREAK;
-//	}
-////#ifdef _DEBUG
-////	SendString128(STRING_128_USER_NOTICE, "MAF: %#08x", pMsgMineAttackFind->ItemFieldIndex);
-////#endif
-//
-//	// lock m_setCharacDropMine
-//	mt_auto_lock mineLock(&m_setCharacDropMine);
-//
-//	// ¸¶ÀÎÀÇ Á¸Àç ¿©ºÎ È®ÀÎ
-//	DROPMINE *pDropMine = (DROPMINE*)pMsgMineAttackFind->ItemFieldIndex;
-//	CMapBlock *pMapBlock = NULL;
-//	if (!IsValidDropMine(pDropMine, pMapBlock) || pMapBlock == NULL)
-//	{
-//		SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_NO_SUCH_ITEM);
-//		return RES_BREAK;
-//	}
-//
-//	// Ä³¸¯ÅÍÀÇ drop mine list¿¡¼­ »èÁ¦
-//	m_setCharacDropMine.deleteLock(pDropMine);
-//
-//	// ¸¶ÀÎ Á¦°Å
-//	pMapBlock->m_setMapBlockDropMine.deleteLock(pDropMine);
-//
-//
-//	// ÀÚµ¿ º¯¼ö·Î º¯È¯ ÈÄ »èÁ¦, ÀÌÈÄ¿¡´Â tmpDropMine¸¸ »ç¿ëÇÏ±â, pDropMine »ç¿ëÇÏ¸é err!
-//	DROPMINE tmpDropMine = *pDropMine;
-//	SAFE_DELETE(pDropMine);
-//
-//	// µ¥¹ÌÁö Ã³¸®
-//	if (CAtumSJ::IsCharacterTarget(eAttack2Target))
-//	{
-//		///////////////////////////////////////////////////////////////////////
-//		// °ø°Ý ´ë»óÀÌ CharacterÀÎ °æ¿ì
-//		///////////////////////////////////////////////////////////////////////
-//
-//		// À¯È¿¼º È®ÀÎ
-//		CFieldIOCPSocket	*pTargetSocket		= NULL;
-//		CHARACTER			*pTargetCharacter	= NULL;
-//		if (!CheckValidAttackTargetCharacter(m_pCurrentFieldMapChannel, pMsgMineAttackFind->TargetInfo.TargetIndex, pTargetSocket, pTargetCharacter))
-//		{
-//			// 2004-11-17 by cmkwon, Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¿¡·¯°¡ ÀüÇô ÇÊ¿ä ¾ø´Ù°íÇÔ
-//			//SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_INVALID_CLIENTINDEX, pMsgMineAttackFind->TargetInfo.TargetIndex);
-//			return RES_BREAK;
-//		}
-//
-//// 2005-03-08 by cmkwon, 
-////		// P2P PK ¸ðµå È¤Àº ÆÄÆ¼Àü ÀÏ¶§¸¸ Ã³¸®µÊ
-////		if (m_peerP2PPKClientIndex != pMsgMineAttackFind->TargetInfo.TargetIndex
-////			&& (m_pFieldParty == NULL || m_pFieldParty->m_PeerBattlePartyID == 0)
-////		)
-////		{
-////			SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_NOT_ALLOWED_ATTACK);
-////			return RES_BREAK;
-////		}
-//
-//		BYTE DamageKind = DAMAGEKIND_NO_DAMAGE;
-//		float fDamage = 0.0f;
-//
-//		if (eAttack2Target == C2C)
-//		{
-//			// ¹ÝÀÀ ¹Ý°æ È®ÀÎ - ±× µ¿¾È °ø°Ý ´ë»óÀÌ ÀÌµ¿ÇÒ °¡´É¼ºÀÌ ³ôÀ¸¹Ç·Î 1.5¹è Á¤µµ¸¦ °öÇØ¼­ ReactionRange¸¦ ´ÃÀÎ´Ù
-//			if (D3DXVec3Length(&(tmpDropMine.Position - pTargetCharacter->PositionVector))
-//					> 1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor))
-//			{
-//// 2004-12-08 by cmkwon, Å¬¶óÀÌ¾ðÆ®¿¡¼­ ÇÊ¿ä¾ø´Â ¿¡·¯ Ã³¸®
-////				SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_TOO_FAR_TO_DO,
-////					(int)D3DXVec3Length(&(tmpDropMine.Position - pTargetCharacter->PositionVector)),
-////					(int)1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor));
-//				DamageKind = DAMAGEKIND_NO_DAMAGE;
-//				fDamage = 0.0f;
-//			}
-//			else
-//			{
-//				DamageKind = DAMAGEKIND_NORMAL;
-//				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this,	// @Process_FC_BATTLE_MINE_ATTACK_FIND()
-//					&m_character, pTargetSocket, pTargetCharacter,
-//					tmpDropMine.pItemInfo, &DamageKind, pTargetCharacter->PositionVector);
-//				pTargetSocket->m_uidAttackerGuildUID = 0;
-////#ifdef _DEBUG
-////				SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0038, pTargetCharacter->CharacterName, fDamage);
-////#endif
-//			}
-//
-//			INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MINE_ATTACK_FIND_OK, T_FC_BATTLE_MINE_ATTACK_FIND_OK, pMsgMineAttackFindOK, pMsgMineAttackFindOKBuf);
-//			pMsgMineAttackFindOK->ItemFieldIndex = pMsgMineAttackFind->ItemFieldIndex;
-//			pMsgMineAttackFindOK->TargetInfo.TargetIndex = pTargetCharacter->ClientIndex;
-//			pMsgMineAttackFindOK->TargetInfo.TargetItemFieldIndex = 0;
-//			pMsgMineAttackFindOK->TargetInfo.TargetPosition = pMsgMineAttackFind->TargetInfo.TargetPosition;
-//
-//			ms_pFieldIOCP->SendInRangeMessageAroundPosition(tmpDropMine.Position, pMsgMineAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_MINE_ATTACK_FIND_OK), m_pCurrentFieldMapChannel);
-//		}
-//		else if (eAttack2Target == C2CI)
-//		{
-//// 2006-12-04 by dhjin, Ã¼ÇÁ »çÃâ·Î ÀÎÇÏ¿© ±âÁ¸¿¡ ´õ¹Ì ¼Ò½º º¯°æ.
-////			// ÇÇ°ø°ÝÀÚ°¡ Dummy¸¦ ´Þ°í ÀÖÀ» ¶§
-////
-////			// lock m_mapFieldDummy
-////			mt_auto_lock dummyLock(&pTargetSocket->m_mapFieldDummy);
-////			if(pTargetSocket->m_mapFieldDummy.empty())
-////			{
-////				return RES_BREAK;
-////			}
-////
-////			FIELD_DUMMY *pTargetDummy = (pTargetSocket->m_mapFieldDummy.begin())->second;
-////
-////			// ¹ÝÀÀ ¹Ý°æ È®ÀÎ - ±× µ¿¾È °ø°Ý ´ë»óÀÌ ÀÌµ¿ÇÒ °¡´É¼ºÀÌ ³ôÀ¸¹Ç·Î 1.5¹è Á¤µµ¸¦ °öÇØ¼­ ReactionRange¸¦ ´ÃÀÎ´Ù
-////			if (D3DXVec3Length(&(tmpDropMine.Position - pTargetCharacter->PositionVector))
-////					> 1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor))
-////			{
-////// 2004-12-08 by cmkwon, Å¬¶óÀÌ¾ðÆ®¿¡¼­ ÇÊ¿ä¾ø´Â ¿¡·¯ Ã³¸®
-//////				SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_TOO_FAR_TO_DO,
-//////					(int)D3DXVec3Length(&(tmpDropMine.Position - pTargetCharacter->PositionVector)),
-//////					(int)1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor));
-////				DamageKind = DAMAGEKIND_NO_DAMAGE;
-////				fDamage = 0.0f;
-////			}
-////			else
-////			{
-////				DamageKind = DAMAGEKIND_NORMAL;
-////				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-////				fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_MINE_ATTACK_FIND()
-////					&m_character, pTargetSocket, pTargetCharacter,
-////					tmpDropMine.pItemInfo, &DamageKind, pTargetCharacter->PositionVector,
-////					0.0f, 0.0f, (pTargetDummy==NULL?NULL:pTargetDummy->ItemFieldIndex));
-////				pTargetSocket->m_uidAttackerGuildUID = 0;
-//////#ifdef _DEBUG
-//////				SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0039, pTargetCharacter->CharacterName, fDamage);
-//////#endif
-////			}
-//
-//			// 2006-12-04 by dhjin, ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
-//			// ¹ÝÀÀ ¹Ý°æ È®ÀÎ - ±× µ¿¾È °ø°Ý ´ë»óÀÌ ÀÌµ¿ÇÒ °¡´É¼ºÀÌ ³ôÀ¸¹Ç·Î 1.5¹è Á¤µµ¸¦ °öÇØ¼­ ReactionRange¸¦ ´ÃÀÎ´Ù
-//			if (D3DXVec3Length(&(tmpDropMine.Position - pTargetCharacter->PositionVector))
-//					> 1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor))
-//			{
-//				DamageKind = DAMAGEKIND_NO_DAMAGE;
-//				fDamage = 0.0f;
-//			}
-//			else
-//			{
-//				DamageKind = DAMAGEKIND_NORMAL;
-//				pTargetSocket->m_uidAttackerGuildUID = this->m_character.GuildUniqueNumber;
-//				fDamage = CalcDamageOfAttack(C2C, 1.0f, this,		// @Process_FC_BATTLE_MINE_ATTACK_FIND()
-//					&m_character, pTargetSocket, pTargetCharacter,
-//					tmpDropMine.pItemInfo, &DamageKind, pTargetCharacter->PositionVector,
-//					0.0f, 0.0f);
-//				pTargetSocket->m_uidAttackerGuildUID = 0;
-//			}
-//
-//			INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MINE_ATTACK_FIND_OK, T_FC_BATTLE_MINE_ATTACK_FIND_OK, pMsgMineAttackFindOK, pMsgMineAttackFindOKBuf);
-//			pMsgMineAttackFindOK->ItemFieldIndex = pMsgMineAttackFind->ItemFieldIndex;
-//			pMsgMineAttackFindOK->TargetInfo.TargetIndex = pTargetCharacter->ClientIndex;
-//			pMsgMineAttackFindOK->TargetInfo.TargetItemFieldIndex = 0;
-//			pMsgMineAttackFindOK->TargetInfo.TargetPosition = pMsgMineAttackFind->TargetInfo.TargetPosition;
-//
-//			ms_pFieldIOCP->SendInRangeMessageAroundPosition(tmpDropMine.Position, pMsgMineAttackFindOKBuf, MSG_SIZE(MSG_FC_BATTLE_MINE_ATTACK_FIND_OK), m_pCurrentFieldMapChannel);
-//		}
-//		else
-//		{
-//			//ASSERT_NOT_IMPLEMENTED_YET();
-//		}
-//	}
-//	else if (CAtumSJ::IsMonsterTarget(eAttack2Target))
-//	{
-//		///////////////////////////////////////////////////////////////////////
-//		// °ø°Ý ´ë»óÀÌ MONSTERÀÎ °æ¿ì
-//		///////////////////////////////////////////////////////////////////////
-//
-//		// À¯È¿¼º È®ÀÎ
-//		CFieldIOCPSocket	*pTargetNPCSocket	= NULL;
-//		CFieldMonster		*pMonster			= NULL;
-//		if (!CheckValidAttackTargetMonster(m_character.InfluenceType, pMsgMineAttackFind->TargetInfo.TargetIndex, m_character.MapChannelIndex.ChannelIndex, pMonster))
-//		{
-//			// 2004-11-17 by cmkwon, Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¿¡·¯°¡ ÀüÇô ÇÊ¿ä ¾ø´Ù°íÇÔ
-//			//SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_INVALID_CLIENTINDEX, pMsgMineAttackFind->TargetInfo.TargetIndex);
-//			return RES_BREAK;
-//		}
-//
-//		D3DXVECTOR3 tmpExplosionPosition = pMonster->PositionVector;	// ³ªÁß¿¡ splash damage¿¡ ¾²±â À§ÇØ ÇÒ´ç
-//		float fDamage = 0.0f;
-//		// ¹ÝÀÀ ¹Ý°æ È®ÀÎ - ±× µ¿¾È °ø°Ý ´ë»óÀÌ ÀÌµ¿ÇÒ °¡´É¼ºÀÌ ³ôÀ¸¹Ç·Î 1.5¹è Á¤µµ¸¦ °öÇØ¼­ ReactionRange¸¦ ´ÃÀÎ´Ù
-//		if (D3DXVec3Length(&(tmpDropMine.Position - pMonster->PositionVector))
-//				> 1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor))
-//		{
-//// 2004-12-08 by cmkwon, Å¬¶óÀÌ¾ðÆ®¿¡¼­ ÇÊ¿ä¾ø´Â ¿¡·¯ Ã³¸®
-////			SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_TOO_FAR_TO_DO,
-////				(int)D3DXVec3Length(&(tmpDropMine.Position - pMonster->PositionVector)),
-////				(int)1.5f*CAtumSJ::GetReactionRange(tmpDropMine.pItemInfo, &m_ParamFactor));
-//			fDamage = 0;
-//		}
-//		else
-//		{
-//			// °ø°Ý!
-//			BYTE DamageKind = DAMAGEKIND_NORMAL;
-//			fDamage = CalcDamageOfAttack(C2M, 1.0f, this,		// @Process_FC_BATTLE_MINE_ATTACK_FIND()
-//				&m_character, pTargetNPCSocket, pMonster, tmpDropMine.pItemInfo,
-//				&DamageKind, pMonster->PositionVector);
-////#ifdef _DEBUG
-////			SendString128(STRING_128_DEBUG_L3, STRMSG_S_F2NOTIFY_0040, pMonster->MonsterName, fDamage);
-////#endif
-//		}
-//
-//		// ¸¶ÀÎ °ø°ÝÀ» ¸ó½ºÅÍ¿¡°Ô ¾Ë¸²
-//		INIT_MSG_WITH_BUFFER(MSG_FN_BATTLE_SET_ATTACK_CHARACTER, T_FN_BATTLE_SET_ATTACK_CHARACTER, pSetAttackChar, pSetAttackCharBuf);
-//		pSetAttackChar->ChannelIndex	= m_pCurrentFieldMapChannel->m_MapChannelIndex.ChannelIndex;
-//		pSetAttackChar->AttackIndex		= m_character.ClientIndex;
-//		pSetAttackChar->TargetIndex		= pMonster->MonsterIndex;
-//		pSetAttackChar->DamageAmount	= fDamage;
-//		pSetAttackChar->ItemKind		= ITEMKIND_MINE;
-//		m_pCurrentFieldMapChannel->Send2NPCServerW(pSetAttackCharBuf, MSG_SIZE(MSG_FN_BATTLE_SET_ATTACK_CHARACTER));	// Attack Á¤º¸¸¦ NPC¿¡°Ô º¸³¿
-//
-//		if(FALSE == IS_TUTORIAL_MAP_INDEX(m_pCurrentFieldMapChannel->GetMapChannelIndex().MapIndex))
-//		{
-//			// ¸¶ÀÎ °ø°Ý °á°ú¸¦ º¸³¿, ÀÚ½ÅÀº Á¦¿Ü
-//			INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_MINE_ATTACK_FIND_OK, T_FC_BATTLE_MINE_ATTACK_FIND_OK, pMsgMineAttackFindOK, pMsgMineAttackFindOKBuf);
-//			pMsgMineAttackFindOK->ItemFieldIndex					= pMsgMineAttackFind->ItemFieldIndex;
-//			pMsgMineAttackFindOK->TargetInfo.TargetIndex			= pMonster->MonsterIndex;
-//			pMsgMineAttackFindOK->TargetInfo.TargetItemFieldIndex	= 0;
-//			pMsgMineAttackFindOK->TargetInfo.TargetPosition			= pMsgMineAttackFind->TargetInfo.TargetPosition;
-//			ms_pFieldIOCP->SendInRangeMessageAroundPosition(tmpDropMine.Position, pMsgMineAttackFindOKBuf,
-//				MSG_SIZE(MSG_FC_BATTLE_MINE_ATTACK_FIND_OK), m_pCurrentFieldMapChannel,	m_character.ClientIndex);
-//		}
-//
-//// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-////		///////////////////////////////////////////////////////////////////
-////		// splash damage Àû¿ë
-////		ProcessSplashDamage(C2M, this, &m_character, tmpExplosionPosition, tmpDropMine.pItemInfo, pMsgMineAttackFind->TargetInfo.TargetIndex);
-//	}
-//	else
-//	{
-//		// error
-//		SendErrorMessage(T_FC_BATTLE_MINE_ATTACK_FIND, ERR_PROTOCOL_INVALID_CLIENTINDEX, pMsgMineAttackFind->TargetInfo.TargetIndex);
-//		return RES_BREAK;
-//	}
-
 	return RES_RETURN_TRUE;
 }
-
-// 2005-12-13 by cmkwon, splash damage¸¦ ¼­¹ö¿¡¼­´Â ÀüÃ¼ °ø°Ý¸¸ Àû¿ëÇÑ´Ù.
-//float CFieldIOCPSocket::CalcSplashDamageWeightByExposionRange(enumAttackToTarget attackType
-//															  , ITEM *pAttackItem
-//															  , CParamFactor *i_pParamFactor
-//															  , float fDistance
-//															  , int i_nAddExplosionRange)
-//{
-//	return 1.0f;
-//
-//// 2005-07-29 by hblee : °Å¸®Ã¼Å©´Â ¾øÀ½.
-////	float fDamageWeight = 0.0f;
-////	float fTmpExplosionRange
-////		= (i_pParamFactor==NULL?pAttackItem->ExplosionRange:CAtumSJ::GetExplosionRange(pAttackItem, i_pParamFactor)) + i_nAddExplosionRange;
-////
-////	if (fDistance > fTmpExplosionRange)
-////	{
-////		fDamageWeight = 0;
-//////		SendString128(STRING_128_ADMIN_CMD, "SPLASH: %5.2f > %d -> 0%%", fDistance, fTmpExplosionRange);
-////	}
-////	else
-////	{
-////		if (attackType == C2M
-////			&& (pAttackItem->Kind == ITEMKIND_BUNDLE || pAttackItem->Kind == ITEMKIND_ROCKET)
-////		)
-////		{
-////			// C2MÀÌ¸é¼­ ·ÎÄÏÀÌ³ª ¹øµéÀº 100% ´Ù ÁÖ±â
-////			fDamageWeight = 1.0f;
-////		}
-////		else
-////		{
-////			// ³ª¸ÓÁö´Â °è»ê
-////			fDamageWeight = ((fTmpExplosionRange - fDistance)/fTmpExplosionRange)*0.5f + 0.5f;
-////		}
-//////		SendString128(STRING_128_ADMIN_CMD, "SPLASH: 0 < %5.2f < %d -> %5.2f%%", fDistance, fTmpExplosionRange, fDamageWeight*100);
-////	}
-////
-////	return fDamageWeight;
-//}
-//
-//float CFieldIOCPSocket::CalcSplashDamageWeightByExposionRange(enumAttackToTarget attackType
-//															  , ITEM *pAttackItem
-//															  , CParamFactor *i_pParamFactor
-//															  , float fDistance
-//															  , BYTE *pDamageKind
-//															  , int i_nAddExplosionRange)
-//{
-//	float fDamageWeight = 0.0f;
-//	float fTmpExplosionRange
-//		= (i_pParamFactor==NULL?pAttackItem->ExplosionRange:CAtumSJ::GetExplosionRange(pAttackItem, i_pParamFactor)) + i_nAddExplosionRange;
-//
-//	if (fDistance > fTmpExplosionRange)
-//	{
-//		*pDamageKind = DAMAGEKIND_NO_DAMAGE;
-//		fDamageWeight = 0;
-////		SendString128(STRING_128_ADMIN_CMD, "SPLASH: %5.2f > %d -> 0%%", fDistance, fTmpExplosionRange);
-//	}
-//	else
-//	{
-//		*pDamageKind = DAMAGEKIND_NORMAL;
-//
-//		if (attackType == C2M
-//			&& (pAttackItem->Kind == ITEMKIND_BUNDLE || pAttackItem->Kind == ITEMKIND_ROCKET)
-//		)
-//		{
-//			// C2MÀÌ¸é¼­ ·ÎÄÏÀÌ³ª ¹øµéÀº 100% ´Ù ÁÖ±â
-//			fDamageWeight = 1.0f;
-//		}
-//		else
-//		{
-//			// ³ª¸ÓÁö´Â °è»ê
-//			fDamageWeight = ((fTmpExplosionRange - fDistance)/fTmpExplosionRange)*0.5f + 0.5f;
-//		}
-////		SendString128(STRING_128_ADMIN_CMD, "SPLASH: 0 < %5.2f < %d -> %5.2f%%", fDistance, fTmpExplosionRange, fDamageWeight*100);
-//	}
-//
-//	return fDamageWeight;
-//
-///*	if (fDistance <= fPerfectDamageDistance)
-//	{
-//		return DAMAGEKIND_PERFECT;
-//	}
-//	else if (fDistance > fExplosionDistance)
-//	{
-//		return DAMAGEKIND_NO_DAMAGE;
-//	}
-//	else // if (fDistance > fPerfectDamageDistance && fDistance <= fExplosionDistance)
-//	{
-//#ifdef _DEBUG
-//		assert(fDistance > fPerfectDamageDistance && fDistance <= fExplosionDistance);
-//#endif
-//		return (DAMAGE_100 - (DAMAGE_100 - fMinDamage)*(fDistance - fPerfectDamageDistance)/(fExplosionDistance - fPerfectDamageDistance));
-//	}
-//*/
-//}
 
 int CFieldIOCPSocket::CalcSplashDamageKindByMonsterAllAttack(ITEM *i_pAttackItem, float i_fDistance, int i_nAddExplosionRange)
 {
 	float fTmpExplosionRange = i_pAttackItem->ExplosionRange + i_nAddExplosionRange;
+
 	if (i_fDistance > fTmpExplosionRange)
 	{
 		return DAMAGEKIND_NO_DAMAGE;
@@ -21730,65 +20841,6 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_DROP_DUMMY(const char* pPacket
 {
 	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_DROP_DUMMY,
 									MSG_FC_BATTLE_DROP_DUMMY, pMsgDropDummy);
-// 2006-12-04 by dhjin, ´õ¹Ì¸¦ Ã¼Å©·Î ¼öÁ¤ÇßÀ½
-//	// lock m_mapFieldDummy
-//	mt_auto_lock dummyLock(&m_mapFieldDummy);
-//
-//	// ´õ¹Ì°¡ µ¹°í ÀÖÀ¸¸é ¹«½ÃÇÔ
-//	if (!m_mapFieldDummy.empty())
-//	{
-//		SendErrorMessage(T_FC_BATTLE_DROP_DUMMY, ERR_PROTOCOL_ALREADY_ITEM_ACTIVATED, m_mapFieldDummy.size());
-//		return RES_BREAK;
-//	}
-//
-//	// ´õ¹Ì°¡ ÀåÀüµÇ¾îÀÖ´ÂÁö È®ÀÎ
-//	if (m_ItemWingOut.ItemNum == NULL || m_ItemWingOut.Kind != ITEMKIND_DUMMY)
-//	{
-//		SendErrorMessage(T_FC_BATTLE_DROP_DUMMY, ERR_PROTOCOL_NO_SUCH_ITEM);
-//		return RES_BREAK;
-//	}
-//
-//	ITEM_GENERAL *pItem = (ITEM_GENERAL*)m_ItemWingOut.ItemNum;
-//
-//	// ´õ¹Ì´Â ÇÑ¹ø¿¡ ´Ù ½ð´Ù.
-//	int nNumOfDummies = CAtumSJ::GetTotalSecondaryShotCountPerReattackTime(&m_ItemWingOut, &m_ParamFactor);
-//
-//	if (!(nNumOfDummies = OnSecondaryAttack(nNumOfDummies)))	// DROP_DUMMY
-//	{
-//		return RES_BREAK;
-//	}
-//
-//	if (nNumOfDummies > 0)
-//	{
-//		INIT_MSG_WITH_BUFFER(MSG_FC_STORE_UPDATE_ITEM_COUNT, T_FC_STORE_UPDATE_ITEM_COUNT, pUpdateCount, pUpdateCountBuf);
-//		pUpdateCount->ItemUniqueNumber = pItem->UniqueNumber;
-//		pUpdateCount->ItemUpdateType = IUT_BULLET;
-//		pUpdateCount->NewCount = pItem->CurrentCount;
-//		SendAddData(pUpdateCountBuf, MSG_SIZE(MSG_FC_STORE_UPDATE_ITEM_COUNT));
-//	}
-//
-//	// ÀÌ msg¸¦ loop ¾È¿¡¼­ ÀçÈ°¿ëÇÔ
-//	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_DROP_DUMMY_OK, T_FC_BATTLE_DROP_DUMMY_OK, pMsgDropDummyOK, pMsgDropDummyOKBuf);
-//	pMsgDropDummyOK->ItemNum = pItem->ItemNum;
-//	pMsgDropDummyOK->AttackIndex = m_character.ClientIndex;
-//	for (int i = 0; i < nNumOfDummies; i++)
-//	{
-//		FIELD_DUMMY *pFieldDummy = new FIELD_DUMMY(pItem->ItemInfo);
-//
-//		// m_mapFieldDummy¿¡ »ðÀÔ
-//		m_mapFieldDummy.insertLock((UINT)pFieldDummy, pFieldDummy);
-//
-//		// ±¸Á¶Ã¼ ³ª¸ÓÁöºÎºÐ ¿Ï¼º
-//		pMsgDropDummyOK->ItemFieldIndex = (UINT)pFieldDummy;
-//#ifdef _DEBUG
-//		SendString128(STRING_128_ADMIN_CMD, "DropDummy[%#08x] == [%#08x]\r\n", pMsgDropDummyOK->ItemFieldIndex, pFieldDummy->ItemFieldIndex);
-//#endif
-//
-//		ms_pFieldIOCP->SendInRangeMessageAroundCharacter(m_character.ClientIndex, pMsgDropDummyOKBuf, MSG_SIZE(MSG_FC_BATTLE_DROP_DUMMY_OK)
-//			, m_pCurrentFieldMapChannel, TRUE, m_pCurrentFieldMapChannel->GetUserVisibleDiameterW());
-//
-//		m_TimerManager.StartTimerField(TE_TYPE_DELETE_DUMMY, m_ItemWingOut.Time, (UINT)pFieldDummy);
-//	}
 
 	return RES_RETURN_TRUE;
 }
@@ -31698,11 +30750,13 @@ ProcessResult CFieldIOCPSocket::Process_FC_CITY_REQUEST_ENTER_BUILDING(const cha
 
 	// MSG_FC_CITY_REQUEST_ENTER_BUILDING_OK Àü¼Û
 	INIT_MSG_WITH_BUFFER(MSG_FC_CITY_REQUEST_ENTER_BUILDING_OK, T_FC_CITY_REQUEST_ENTER_BUILDING_OK, pMsgEnterBuildingOK, pMsgEnterBuildingOKBuf);
+
 	pMsgEnterBuildingOK->BuildingIndex					= pBuildingNPC->BuildingIndex;
 // 2006-02-08 by cmkwon
 //	pMsgEnterBuildingOK->fCityWarTexRate				= m_pCurrentFieldMapChannel->CityWarGetTexPercent(pRequestEnterBuidling->BuildingIndex, m_character.GuildUniqueNumber);
 	pMsgEnterBuildingOK->fInflDistributionTexPercent	= ms_pFieldIOCP->GetInfluenceTypeDistirbutionTexPercent(m_character.InfluenceType);
 	SendAddData(pMsgEnterBuildingOKBuf, MSG_SIZE(MSG_FC_CITY_REQUEST_ENTER_BUILDING_OK));
+
 	return RES_RETURN_TRUE;
 }
 

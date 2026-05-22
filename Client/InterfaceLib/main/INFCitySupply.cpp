@@ -719,27 +719,6 @@ int CINFCitySupply::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					}
 				}
 			}
-// 2005-11-02 by ispark
-// 스크롤 코드는 나중을 위해서 남겨둠
-//			if(m_bLButtonDown && m_bScrollLock)
-//			{
-//				// 스크롤바로 이동시
-//				m_ptScroll.y += pt.y - m_ptTempScroll.y;
-//				m_ptTempScroll = pt;
-//
-//				if(m_ptScroll.y <= SUPPLY_SCROLL_START_Y)
-//				{
-//					m_ptScroll.y = SUPPLY_SCROLL_START_Y;
-//					return INF_MSGPROC_BREAK;
-//				}
-//				else if(m_ptScroll.y >= SUPPLY_DOWN_Y - SUPPLY_SCROLL_SIZE_Y - 3)
-//				{
-//					m_ptScroll.y = SUPPLY_DOWN_Y - SUPPLY_SCROLL_SIZE_Y - 3;
-//					return INF_MSGPROC_BREAK;
-//				}
-//				
-//				return INF_MSGPROC_BREAK;
-//			}
 		}
 		break;
 	case WM_LBUTTONDOWN:
@@ -1175,12 +1154,6 @@ void CINFCitySupply::InitData(BOOL bSupply)
 		//m_stSupply[3].fSupplyRate = g_pShuttleChild->m_pPrimaryWeapon->GetRealItemInfo()->Charging - g_pShuttleChild->m_pPrimaryWeapon->GetItemGeneral()->CurrentCount;
 		int nMaxCharge = g_pShuttleChild->m_pPrimaryWeapon->GetRealItemInfo()->Charging;
 
-//#ifndef LANGUAGE_VIETNAM
-//		if(g_pD3dApp->IsPrimiumUser())
-//		{
-//			nMaxCharge = (2*g_pShuttleChild->m_pPrimaryWeapon->GetRealItemInfo()->Charging);
-//		}
-//#endif
 		// 2007-10-15 by bhsohn 총알 아이템 추가 처리
 		// 2014-12-08 by bckim, jwLee 고급무기 이펙트 장탄수 확장 기능추가
 		if (g_pShuttleChild->m_pSecondaryWeapon)
@@ -1215,12 +1188,7 @@ void CINFCitySupply::InitData(BOOL bSupply)
 		nMaxCharge = g_pGameMain->GetMaxBulletItem(g_pShuttleChild->m_pSecondaryWeapon->GetRealItemInfo()->Charging, g_pShuttleChild->m_pSecondaryWeapon->GetItemGeneral()->ColorCode);
 		// end 2014-12-08 by bckim, jwLee 고급무기 이펙트 장탄수 확장 기능추가
 		// end 2007-10-15 by bhsohn 총알 아이템 추가 처리	
-//#ifndef LANGUAGE_VIETNAM
-//		if(g_pD3dApp->IsPrimiumUser())
-//		{
-//			nMaxCharge = (2*g_pShuttleChild->m_pSecondaryWeapon->GetRealItemInfo()->Charging);
-//		}
-//#endif
+
 		m_stSupply[4].fSupplyRate = nMaxCharge - g_pShuttleChild->m_pSecondaryWeapon->GetItemGeneral()->CurrentCount;
 		// end 2007-09-06 by bhsohn 프리미엄 유저는 총알수 2배
 

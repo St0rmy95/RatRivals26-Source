@@ -260,14 +260,36 @@
 #define _RAT_AG_SIEGE_GROUND_SENSIVITY 0.05f // 0.1f = NORMAL
 #define _RAT_AG_SIEGE_AIR_SENSIVITY 0.05f // 0.1f = NORMAL
 
-#define _RAT_FFA // Free For All
+#define _RAT_ANTI_CHEAT // More Calculations for AntiCheat
+#define _RAT_ANTI_CHEAT_EXPLOSION_and_WARHEADSPEED
+
+#define _RAT_OPEN_SUPPLY_SHOP // Open Supply Shop
 
 #endif //_RAT
 
-#define _LOG_EXAMPLE // Placed to see an example here for Client Log
-#ifndef _LOG_EXAMPLE
+#ifdef _LOG_EXAMPLE_CLIENT // Placed to see an example here for Client Log
 // LOG to Chat
 char szTemp[256];
 sprintf(szTemp, "SiegeCooldown in float : %f", _RAT_SiegeCooldown);
 g_pD3dApp->m_pChat->CreateChatChild(szTemp, COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
+// OR
+g_pD3dApp->m_pChat->CreateChatChild("Refinery OPEN", COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
+// OR
+char szTemp[256];
+sprintf(szTemp, "[BOMBING DBG] ExplosionRange1 : %f\n", attackData.fExplosionRange);
+// This pushes it straight to Visual Studio Output tab
+OutputDebugStringA(szTemp)
+#endif
+
+#ifdef _LOG_EXAMPLE_SERVER // Placed to see an example here for Server Log
+char szTemp[256];
+sprintf(szTemp, "SiegeCooldown in float : %f", _RAT_SiegeCooldown);
+SendString128(STRING_128_ADMIN_CMD, szTemp);
+// OR
+g_pGlobal->WriteSystemLogEX(
+	TRUE,
+	"[DB Error] DBServer connection failed!"
+);
+// OR
+SendString128(STRING_128_ADMIN_CMD, "사거리:%.4f,  공격거리:%.4f", fSkillAppliedRange, fDistance);
 #endif

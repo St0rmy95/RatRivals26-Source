@@ -1434,71 +1434,6 @@ void CUnitData::DeleteWearItemEffect( CAppEffectData * pEffect )
 	}
 }
 
-
-///////////////////////////////////////////////////////////////////////////////
-/// \fn			void CUnitData::CreatePrimaryWeaponByFieldServer( CUnitData* pTarget, 
-///												  MSG_FC_BATTLE_ATTACK_RESULT_PRIMARY *pPrimary, 
-///												  MSG_FC_BATTLE_ATTACK_ITEM_RESULT_PRIMARY* pItemPrimary  )
-/// \brief		Field server에서 Primaryweapon생성의 허락이 떨어졌을 경우 생성하는 코드
-/// \author		dhkwon
-/// \date		2004-03-21 ~ 2004-03-21
-/// \warning	pPrimary, pItemPrimary 둘중 하나만 NULL이 아니어야 한다.
-///
-/// \param		
-/// \return		
-///////////////////////////////////////////////////////////////////////////////
-/*
-void CUnitData::CreatePrimaryWeaponByFieldServer( CUnitData* pTarget, 
-												  MSG_FC_BATTLE_ATTACK_RESULT_PRIMARY *pPrimary, 
-												  MSG_FC_BATTLE_ATTACK_ITEM_RESULT_PRIMARY* pItemPrimary  )
-{
-	FLOG("CUnitData::CreatePrimaryWeaponByFieldServer( CUnitData* pTarget, ...");
-	ASSERT_ASSERT( (pPrimary && !pItemPrimary) || (!pPrimary && pItemPrimary) );
-	ITEM * pItem = g_pDatabase->GetServerItemInfo(MSG_PRIMARY_WEAPONITEMNUMBER(pPrimary,pItemPrimary));
-	if(!pItem)
-	{
-		DBGOUT("서버에 아이템 정보 요청으로 무기 생성 안됨(index:%d)\n",MSG_PRIMARY_WEAPONITEMNUMBER(pPrimary,pItemPrimary));
-		return;
-	}
-	if(pPrimary)
-	{
-		if(m_dwPartType == _MONSTER && m_PrimaryAttackData1.WeaponItemNumber != pPrimary->WeaponItemNumber)
-		{
-			m_PrimaryAttack.fCheckAttackTime = 0.0f;
-		}
-		memcpy(&m_PrimaryAttackData1,pPrimary,sizeof(MSG_FC_BATTLE_ATTACK_RESULT_PRIMARY));
-		m_bIsItemAttack = FALSE;
-	}
-	else
-	{
-		memcpy(&m_PrimaryAttackData2,pItemPrimary,sizeof(MSG_FC_BATTLE_ATTACK_ITEM_RESULT_PRIMARY));
-		m_bIsItemAttack = TRUE;
-	}
-	m_pPrimaryAttackTarget = pTarget;
-	if(this == g_pShuttleChild || m_dwPartType == _ENEMY)
-	{
-		CheckPrimaryAttack(TRUE, NULL);
-	}
-	else// monster
-	{
-		CheckPrimaryAttack(TRUE, pItem);
-	}
-}
-*/
-///////////////////////////////////////////////////////////////////////////////
-/// \fn			CUnitData::CreateWeaponByFieldServer( MSG_FC_BATTLE_ATTACK_OK* pMsg )
-/// \brief		Attack 결과 처리(화면에 총알 이펙트 생성)
-///				1. Attack index로 공격자 판별 : CAtumApplication::FieldSocketBattleAttackOk
-///				3. 1,2형 구분 ( this function )
-///				2. AttackType으로 공격방법 판별 : CUnitData::CheckAttack
-///				4. Target 처리(아이템,유닛) : Weapon constructor
-/// \author		dhkwon
-/// \date		2004-09-07 ~ 2004-09-07
-/// \warning	
-///
-/// \param		
-/// \return		
-///////////////////////////////////////////////////////////////////////////////
 void CUnitData::CreateWeaponByFieldServer( MSG_FC_BATTLE_ATTACK_OK* pMsg )
 {
 	if(IS_PRIMARY_ATT_TYPE(pMsg->AttackType))
@@ -2162,7 +2097,7 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			{
 				attackData.bZigZagWeapon = FALSE;
 			}
-			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM,&m_paramFactor);
+			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 
 			// 2009. 11. 23 by jskim 리소스 로딩 구조 변경
 			// 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
@@ -2204,18 +2139,15 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			{
 				attackData.bZigZagWeapon = TRUE;
 			}
-			attackData.fExplosionRange = CAtumSJ::GetExplosionRange(pWeaponITEM, &g_pShuttleChild->m_paramFactor);
+			attackData.fExplosionRange = attackData.AttackData.ServerExplosionRange_Secondary;
 			// 2007-06-15 by dgwoo 아래 함수로 만들것.
-			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM,&m_paramFactor);
+			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 			//pWeaponITEM->RepeatTime * (1.0f+m_paramFactor.pfm_WARHEAD_SPEED);
 
-			// 2009. 11. 23 by jskim 리소스 로딩 구조 변경
-			// 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
-			//CWeaponMissileData *pWeaponMissileData = new CWeaponMissileData(this, pWeaponITEM, attackData);
-			//CWeaponMissileData *pWeaponMissileData = new CWeaponMissileData( this, pWeaponITEM, attackData, pEffectItem );
 			// end 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
 			CWeaponMissileData *pWeaponMissileData = new CWeaponMissileData( this, pWeaponITEM, attackData, pEffectItem,LoadingPriority);	
 			//end 2009. 11. 23 by jskim 리소스 로딩 구조 변경
+
 
 			pWeapon = (CWeapon*)pWeaponMissileData;
 			g_pScene->m_pWeaponData->AddChild(pWeapon);
@@ -2234,7 +2166,7 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 		break;
 	case ORBIT_UPDOWN_ROCKET_270:
 		{
-			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM,&m_paramFactor);
+			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 
 			// 2009. 11. 23 by jskim 리소스 로딩 구조 변경
 			// 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
@@ -2254,12 +2186,9 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			// 2006-08-14 by ispark, 로켓형과 같이 쓰이는 몹이 있다. 그러므로 임시 저장후 다시 셋팅
 			BOOL bSaveZigZagTemp = attackData.bZigZagWeapon;
 			attackData.bZigZagWeapon = 0;
-			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM,&m_paramFactor);
+			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 
 			// 2009. 11. 23 by jskim 리소스 로딩 구조 변경
-			// 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
-			//CWeaponMissileData *pWeaponMissileData = new CWeaponMissileData(this, pWeaponITEM, attackData);
-			//CWeaponMissileData *pWeaponMissileData = new CWeaponMissileData( this, pWeaponITEM, attackData, pEffectItem );
 			// end 2009. 08. 27 by ckPark 그래픽 리소스 변경 시스템 구현
 			CWeaponMissileData *pWeaponMissileData = new CWeaponMissileData( this, pWeaponITEM, attackData, pEffectItem);
 			//end 2009. 11. 23 by jskim 리소스 로딩 구조 변경

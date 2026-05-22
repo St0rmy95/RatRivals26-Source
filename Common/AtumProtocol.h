@@ -12,14 +12,14 @@
 	| size | encode_flag +   N    | seq. # | MSGs ... | dummy  | checksum |
 	| (2B) |   (1bit)    + (7bit) |  (1B)  |          | (0~3B) |   (1B)   |
 	-----------------------------------------------------------------------
-                                  <- XOR -><----------- XOR -------------->
+								  <- XOR -><----------- XOR -------------->
 
 	* 암호화되지 않은 데이터인 경우
 	---------------------------------------------------
 	| size | encode_flag +   N    | seq. # | MSGs ... |
 	| (2B) |   (1bit)    + (7bit) |  (1B)  |          |
 	---------------------------------------------------
-           <----------- 0x0000 ------------>
+		   <----------- 0x0000 ------------>
 
 	* message header
 	-------------------------
@@ -95,15 +95,15 @@
 #include "ThreadCheck.h"
 
 #if defined(_ATUM_CLIENT)		// 2008-03-25 by cmkwon, 클라이언트 실행 파일
-	// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 아래의 헤더 파일로 변경됨
-	//#include "AntiCpSvrFunc.h"				// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - AntiCpSvrFunc.h 파일의 정의를 그대로 사용하고 클라이언트에도 헤더파일 전달하기
-	// 2008-12-19 by cmkwon, 한국 Yedang 핵쉴드 모니터링 서버 설정 추가 - 
-	//#include "AntiCpXSvr.h"					// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 
-	#include "HShield.h"					// 2008-12-19 by cmkwon, 한국 Yedang 핵쉴드 모니터링 서버 설정 추가 - 
+// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 아래의 헤더 파일로 변경됨
+//#include "AntiCpSvrFunc.h"				// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - AntiCpSvrFunc.h 파일의 정의를 그대로 사용하고 클라이언트에도 헤더파일 전달하기
+// 2008-12-19 by cmkwon, 한국 Yedang 핵쉴드 모니터링 서버 설정 추가 - 
+//#include "AntiCpXSvr.h"					// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 
+#include "HShield.h"					// 2008-12-19 by cmkwon, 한국 Yedang 핵쉴드 모니터링 서버 설정 추가 - 
 #else
-	// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 
-	//#include "Security\AntiCpSvrFunc.h"		// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - AntiCpSvrFunc.h 파일의 정의를 그대로 사용하고 클라이언트에도 헤더파일 전달하기
-	#include "Security\AntiCpXSvr.h"		// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 
+// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 
+//#include "Security\AntiCpSvrFunc.h"		// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - AntiCpSvrFunc.h 파일의 정의를 그대로 사용하고 클라이언트에도 헤더파일 전달하기
+#include "Security\AntiCpXSvr.h"		// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 
 #endif
 
 
@@ -125,7 +125,7 @@ const char* GetKillLogTypeString(INT msgType);
 // End. 2014-03-31 by bckim, 모든 몬스터 킬로그 ( 캐나다 요청) 
 
 
-void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char *peerIP, ENServerType st = ST_INVALID_TYPE, BYTE printLevel = PRINTLEVEL_NO_MSG);
+void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char* peerIP, ENServerType st = ST_INVALID_TYPE, BYTE printLevel = PRINTLEVEL_NO_MSG);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Message Type 0 (대분류)
@@ -1158,7 +1158,7 @@ void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char *peerIP, ENServ
 // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 변경 오브젝트를 위해!!!! 
 #define T1_FN_EVENT_NEW_CHANGE_OBJECT			0x10
 #define T1_FN_EVENT_RESET_CHANGE_OBJECT			0x11
-	
+
 // FP_EVENT	
 #define T1_FP_EVENT_NOTIFY_WARP					0x00
 #define T1_FP_EVENT_NOTIFY_WARP_OK				0x01
@@ -3277,7 +3277,7 @@ struct MSG_FC_CITYWAR_END_WAR
 	MapIndex_t			CityWarMapIndex3;
 	UID32_t				OccupyGuildUID3;
 	char				szOccupyGuildName3[SIZE_MAX_GUILD_NAME];
-	ATUM_DATE_TIME		atimeNextCityWarDefaultTime;	
+	ATUM_DATE_TIME		atimeNextCityWarDefaultTime;
 };
 struct MSG_FC_CITYWAR_GET_OCCUPYINFO_OK
 {
@@ -3449,7 +3449,7 @@ struct MSG_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES
 // 2013-08-01 by jhseol, 역전의 버프 리뉴얼
 struct MSG_FC_WAR_INFLUENCE_CONSECUTIVE_POINT
 {
-	float PVPBuffPercent;	
+	float PVPBuffPercent;
 };
 // end 2013-08-01 by jhseol, 역전의 버프 리뉴얼
 
@@ -3457,11 +3457,11 @@ struct MSG_FC_WAR_INFLUENCE_CONSECUTIVE_POINT
 struct MSG_FC_INFLUENCE_SHOW_INFO
 {
 	BYTE	InfluenceType;
-	INT		TurnAroundPoint;	
+	INT		TurnAroundPoint;
 };
 // End. 2014-06-17 by bckim, 세력 불균형 ( 세력정보 및 우세세력 표시 )
 
-	
+
 ///////////////////////////////////////////////////////////////////////////////
 // 2006-07-26 by cmkwon
 // T0_FC_BAZAAR
@@ -3539,15 +3539,15 @@ struct MSG_FC_BAZAAR_SELL_REQUEST_ITEMLIST
 };
 
 struct SBAZAAR_SELL_ITEM
-{	
+{
 	int				nSellItemNum0;
 	int				nSellAmount0;
 	int				nSellEachPrice0;
 	UID64_t			itemUID;					// 2006-07-26 by cmkwon
 	INT				PrefixCodeNum0;				// 접두사, 없으면 0
 	INT				SuffixCodeNum0;				// 접미사, 없으면 0
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
-//	INT				ColorCode0;					// 튜닝시 아머의 ColorCode
+	// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
+	//	INT				ColorCode0;					// 튜닝시 아머의 ColorCode
 	INT				ShapeItemNum0;			// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 	INT				EffectItemNum0;			// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 	INT				CoolingTime;			// 2009-09-09 ~ 2010-02-10 by dhjin, 인피니티 - 발동류장착아이템
@@ -3570,7 +3570,7 @@ struct MSG_FC_BAZAAR_SELL_ITEM_ENCHANTLIST_OK
 
 struct MSG_FC_BAZAAR_SELL_BUY_ITEM
 {
-	ClientIndex_t	clientIndex0;			
+	ClientIndex_t	clientIndex0;
 	UID64_t			itemUID;					// 2006-07-26 by cmkwon
 	int				nAmount0;
 };
@@ -3668,12 +3668,12 @@ struct MSG_FI_CASH_PREMIUM_CARD_INFO
 {// 2006-09-14 by dhjin, 여단 초대시 맴버쉽 정보 필요
 	UID32_t			AccountUID;
 	INT				nCardItemNum1;
-//	ATUM_DATE_TIME	atumTimeUpdatedTime1;	// 수정된 시간
+	//	ATUM_DATE_TIME	atumTimeUpdatedTime1;	// 수정된 시간
 	ATUM_DATE_TIME	atumTimeExpireTime1;	// 만료 시간		// 2008-06-20 by dhjin, EP3 여단 수정 사항 - 만료 시간 필요
-//	float			fExpRate1;
-//	float			fDropRate1;
-//	float			fDropRareRate1;
-//	float			fExpRepairRate1;
+	//	float			fExpRate1;
+	//	float			fDropRate1;
+	//	float			fDropRareRate1;
+	//	float			fExpRepairRate1;
 };
 
 struct MSG_FI_GUILD_RANK
@@ -3714,7 +3714,7 @@ struct MSG_FN_CITYWAR_CHANGE_OCCUPY_INFO
 #define STRING_128_SYSTEM_NOTICE	7	// 사용자에게 주는 알림		// 2012-03-30 by hskim, EP4 트리거 시스템 이벤트 알림
 #define STRING_128_USER_POPUP	8	// 사용자에게 주는 팝업알림		// 2013-05-31 by jhseol,bckim 아머 컬렉션
 #define STRING_128_USER_OPERATOR	9	// 사용자에게 		// 2013-10-02 by bckim, 보스몬스터 보상강화 스트링 보완작업 
-	
+
 
 // SendErrorMessage등에 Type으로 사용하기 위해
 #define T_PRE_IOCP								(MessageType_t)((T0_PRE<<8)|T1_PRE_IOCP)
@@ -3854,8 +3854,8 @@ typedef struct
 	USHORT	FtpPort;
 	char	FtpAccountName[SIZE_MAX_ACCOUNT_NAME];
 	char	FtpPassword[SIZE_MAX_PASSWORD];
-// 2005-12-23 by cmkwon
-//	char	FtpUpdateDir[SIZE_MAX_FTP_FILE_PATH];	// 업데이트할 파일이 있는 경로
+	// 2005-12-23 by cmkwon
+	//	char	FtpUpdateDir[SIZE_MAX_FTP_FILE_PATH];	// 업데이트할 파일이 있는 경로
 	char	FtpUpdateDownloadDir[SIZE_MAX_FTP_FILE_PATH];	// 2005-12-23 by cmkwon, 업데이트할 파일 다운로드 경로
 } MSG_PC_CONNECT_UPDATE_INFO;
 
@@ -3872,8 +3872,8 @@ typedef struct
 {
 	BYTE	LoginType;		// LOGIN_TYPE_XXX
 
-// 2008-10-08 by cmkwon, 대만 2단계 계정 시스템 지원 구현(email->uid) - 
-//	char	AccountName[SIZE_MAX_ACCOUNT_NAME];
+	// 2008-10-08 by cmkwon, 대만 2단계 계정 시스템 지원 구현(email->uid) - 
+	//	char	AccountName[SIZE_MAX_ACCOUNT_NAME];
 	char	AccountName[SIZE_MAX_ORIGINAL_ACCOUNT_NAME];	// 2008-10-08 by cmkwon, 대만 2단계 계정 시스템 지원 구현(email->uid) - 
 
 	BYTE	Password[SIZE_MAX_PASSWORD_MD5];
@@ -3954,8 +3954,8 @@ struct SGAME_SERVER_GROUP		// 2007-05-02 by cmkwon, PreServer 정보
 {
 	char	szGameServerGroupName[SIZE_MAX_GAME_SERVER_GROUP_NAME];
 	char	szPreServerIP0[SIZE_MAX_IPADDRESS];
-// 2007-09-05 by cmkwon, EXE_1에 로그인 서버 선택 인터페이스 수정 - Port는 기본포트를 사용함
-//	USHORT	usPreServerPort0;
+	// 2007-09-05 by cmkwon, EXE_1에 로그인 서버 선택 인터페이스 수정 - Port는 기본포트를 사용함
+	//	USHORT	usPreServerPort0;
 	USHORT	usPreServerTab8OrderIndex;			// 2007-09-05 by cmkwon, EXE_1에 로그인 서버 선택 인터페이스 수정 - 필드추가
 };
 typedef vector<SGAME_SERVER_GROUP>		vectSGAME_SERVER_GROUP;			// 2007-05-15 by cmkwon
@@ -3975,8 +3975,8 @@ typedef MSG_PC_CONNECT_NETWORK_CHECK	MSG_PC_CONNECT_NETWORK_CHECK_OK;		// 2007-0
 
 struct MSG_PC_CONNECT_LOGIN_BLOCKED
 {
-// 2008-10-08 by cmkwon, 대만 2단계 계정 시스템 지원 구현(email->uid) -
-//	char			szAccountName[SIZE_MAX_ACCOUNT_NAME];				// 2007-01-10 by cmkwon
+	// 2008-10-08 by cmkwon, 대만 2단계 계정 시스템 지원 구현(email->uid) -
+	//	char			szAccountName[SIZE_MAX_ACCOUNT_NAME];				// 2007-01-10 by cmkwon
 	char			szAccountName[SIZE_MAX_ORIGINAL_ACCOUNT_NAME];		// 2008-10-08 by cmkwon, 대만 2단계 계정 시스템 지원 구현(email->uid) -
 
 	int				nBlockedType;
@@ -4038,8 +4038,8 @@ typedef struct
 	INT		RI_WingIn;			// 2005-03-17 by cmkwon (마크)
 	INT		RI_WingOut;			// POS_WINGOUT의 ItemNum, 날개의 바깥쪽, 장전(2형무기 - 로켓계열 or 미사일계열)
 	INT		RI_Center;			// POS_CENTER의 ItemNum, 중앙 (방어계열 - 아머) 고려
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 필요 없음
-//	INT		RI_ArmorColorCode;	// 2005-12-08 by cmkwon, 아머의 색상칼라
+	// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 필요 없음
+	//	INT		RI_ArmorColorCode;	// 2005-12-08 by cmkwon, 아머의 색상칼라
 	INT		RI_Rear;			// POS_REAR의 ItemNum, 후미 (엔진계열)
 
 	// 2010-06-15 by shcho&hslee 펫시스템
@@ -4048,7 +4048,7 @@ typedef struct
 
 	// 2010-06-15 by shcho&hslee 펫시스템
 	//INT		RI_Pet;				// 2005-03-17 by cmkwon (시간제한 악세사리)
-	INT		RI_AccessoryTimeLimit;	
+	INT		RI_AccessoryTimeLimit;
 
 	BOOL	RI_Invisible;		// 2006-11-27 by dhjin, 캐릭터 보이지 않는 플래그
 	INT		RI_Prow_ShapeItemNum;			// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 레이더 ShapeItemNum
@@ -4075,88 +4075,88 @@ typedef struct
 	///////////////////////////////////////////////////////////////////////////////
 	BOOL SetRenderInfoWithPOS(INT i_nPos, INT i_nItemNum, INT i_nShapeItemNum, INT i_nEffectItemNum)
 	{
-		switch(i_nPos)
+		switch (i_nPos)
 		{
 
-			case POS_PROW:			// 레이더 - 외형변경가능
-				{
-					RI_Prow					= i_nItemNum;
-					RI_Prow_ShapeItemNum	= i_nShapeItemNum;
-				}
-				break;
+		case POS_PROW:			// 레이더 - 외형변경가능
+		{
+			RI_Prow = i_nItemNum;
+			RI_Prow_ShapeItemNum = i_nShapeItemNum;
+		}
+		break;
 
-			case POS_PROWIN:		// CPU 컴퓨터 - 
-				{
-					RI_ProwIn					= i_nItemNum;		// 2012-06-20 by isshin CPU 정보 버그 수정
-				}
-				break;
+		case POS_PROWIN:		// CPU 컴퓨터 - 
+		{
+			RI_ProwIn = i_nItemNum;		// 2012-06-20 by isshin CPU 정보 버그 수정
+		}
+		break;
 
-			case POS_PROWOUT:		// 1형 무기 - 외형변경가능 + 탄두이펙트변경가능
-				{
-					RI_ProwOut					= i_nItemNum;
-					RI_ProwOut_ShapeItemNum		= i_nShapeItemNum;
-					RI_ProwOut_EffectItemNum	= i_nEffectItemNum;
-				}
-				break;
+		case POS_PROWOUT:		// 1형 무기 - 외형변경가능 + 탄두이펙트변경가능
+		{
+			RI_ProwOut = i_nItemNum;
+			RI_ProwOut_ShapeItemNum = i_nShapeItemNum;
+			RI_ProwOut_EffectItemNum = i_nEffectItemNum;
+		}
+		break;
 
-			case POS_WINGIN:		// 마크 - 외형변경가능
-				{
-					RI_WingIn					= i_nItemNum;
-					RI_WingIn_ShapeItemNum		= i_nShapeItemNum;
-				}
-				break;
-				
-			case POS_WINGOUT:		// 2형 무기 - 외형변경가능 + 탄두이펙트변경가능
-				{
-					RI_WingOut					= i_nItemNum;
-					RI_WingOut_ShapeItemNum		= i_nShapeItemNum;
-					RI_WingOut_EffectItemNum	= i_nEffectItemNum;
-				}
-				break;
+		case POS_WINGIN:		// 마크 - 외형변경가능
+		{
+			RI_WingIn = i_nItemNum;
+			RI_WingIn_ShapeItemNum = i_nShapeItemNum;
+		}
+		break;
 
-			case POS_CENTER:		// 아머 - 외형변경가능
-				{
-					RI_Center					= i_nItemNum;
-					RI_Center_ShapeItemNum		= i_nShapeItemNum;
-				}
-				break;
+		case POS_WINGOUT:		// 2형 무기 - 외형변경가능 + 탄두이펙트변경가능
+		{
+			RI_WingOut = i_nItemNum;
+			RI_WingOut_ShapeItemNum = i_nShapeItemNum;
+			RI_WingOut_EffectItemNum = i_nEffectItemNum;
+		}
+		break;
 
-			case POS_REAR:			// 엔진 - 
-				{
-					RI_Rear		= i_nItemNum;
-				}
-				break;
+		case POS_CENTER:		// 아머 - 외형변경가능
+		{
+			RI_Center = i_nItemNum;
+			RI_Center_ShapeItemNum = i_nShapeItemNum;
+		}
+		break;
 
-			// 2010-06-15 by shcho&hslee 펫시스템 - 선언 변경.
-			//case POS_ATTACHMENT:	// 연료탱크 or 지도자의광휘 - 
-			case POS_ACCESSORY_UNLIMITED :
-				{
-					//RI_Attachment	= i_nItemNum;
-					RI_AccessoryUnLimited	= i_nItemNum;
-				}
-				break;
+		case POS_REAR:			// 엔진 - 
+		{
+			RI_Rear = i_nItemNum;
+		}
+		break;
 
-			// 2010-06-15 by shcho&hslee 펫시스템 - 선언 변경.
-			//case POS_PET:						// 시간제한 악세사리 - 
-			case POS_ACCESSORY_TIME_LIMIT :		// 시간제한 악세사리 - 
-				{
-					//RI_Pet			= i_nItemNum;
-					RI_AccessoryTimeLimit = i_nItemNum;
-				}
-				break;
+		// 2010-06-15 by shcho&hslee 펫시스템 - 선언 변경.
+		//case POS_ATTACHMENT:	// 연료탱크 or 지도자의광휘 - 
+		case POS_ACCESSORY_UNLIMITED:
+		{
+			//RI_Attachment	= i_nItemNum;
+			RI_AccessoryUnLimited = i_nItemNum;
+		}
+		break;
 
-			// 2010-06-15 by shcho&hslee 펫시스템
-			case POS_PET :
-				{
-					RI_Pet					= i_nItemNum;
-					RI_Pet_ShapeItemNum		= i_nShapeItemNum;
-				}
-				break;
+		// 2010-06-15 by shcho&hslee 펫시스템 - 선언 변경.
+		//case POS_PET:						// 시간제한 악세사리 - 
+		case POS_ACCESSORY_TIME_LIMIT:		// 시간제한 악세사리 - 
+		{
+			//RI_Pet			= i_nItemNum;
+			RI_AccessoryTimeLimit = i_nItemNum;
+		}
+		break;
 
-			default:
-				{
-					return FALSE;
-				}
+		// 2010-06-15 by shcho&hslee 펫시스템
+		case POS_PET:
+		{
+			RI_Pet = i_nItemNum;
+			RI_Pet_ShapeItemNum = i_nShapeItemNum;
+		}
+		break;
+
+		default:
+		{
+			return FALSE;
+		}
 		}
 		return TRUE;
 	};
@@ -4386,8 +4386,8 @@ typedef struct
 	char		ServerGroupName[SIZE_MAX_SERVER_NAME];
 	SERVER_ID	IMServerID;								// 2006-05-10 by cmkwon
 	DWORD		Padding[SIZE_MAX_PACKET_PADDING];		// 2011-07-21 by hskim, 인증 서버 구현 - 기존 서버와 호환 안되도록 구조체 크기 바꿈
-// 2006-05-10 by cmkwon, IMServerID 변수로 변경 - IP 정보도 줘야한다.
-//	int		IMServerListenPort;
+	// 2006-05-10 by cmkwon, IMServerID 변수로 변경 - IP 정보도 줘야한다.
+	//	int		IMServerListenPort;
 } MSG_IP_CONNECT_IM_CONNECT;
 
 typedef struct
@@ -4444,7 +4444,7 @@ struct MSG_PP_CONNECT		// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer
 	int			nPreServerGroupCnts;				// PreServer Count
 	int			nEnableGameServerGroupCnts;			// Active ServerGroup Count
 	char		szReserve[100];						// 
-	char *GetWriteLogString(char *o_szLogString)
+	char* GetWriteLogString(char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%d|%d|%15s|%d|%d|%d|%d|%d|%d\r\n", nServiceUID, nLanguageType, szPreServerIP, nPreServerPort
 			, byIsOnlyChoiceServer, byIsTestServer, byIsUseExternalAuthentication, nPreServerGroupCnts, nEnableGameServerGroupCnts);
@@ -4466,11 +4466,11 @@ struct MSG_PATUM_CONNECT
 	int			nPreServerGroupCnts;
 	int			nEnableGameServerGroupCnts;
 	char		szReserve[50];
-	char *GetWriteLogString(char *o_szLogString)
+	char* GetWriteLogString(char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%s|%d|%s|%d|%d|%d|%d|%d\r\n", szGameName, szServerIP, nServerPort, szCurrentVer, nLanguageType,
 			byTestServer, byUseExternalAuthentication, nPreServerGroupCnts, nEnableGameServerGroupCnts);
-			
+
 		return o_szLogString;
 	}
 };
@@ -4482,7 +4482,7 @@ struct MSG_PATUM_CONNECT_OK
 
 struct MSG_PATUM_CONNECT_FAIL
 {
-	char		szReserve[100];	
+	char		szReserve[100];
 };
 
 // start 2011-06-22 by hskim, 사설 서버 방지
@@ -4513,7 +4513,7 @@ typedef struct
 struct MSG_FI_EVENT_CHAT_BLOCK				// 2008-12-30 by cmkwon, 지도자 채팅 제한 카드 구현 - 
 {
 	char	szBlockedCharacterName[SIZE_MAX_CHARACTER_NAME];
-	int		nBlockedMinutes;	
+	int		nBlockedMinutes;
 };
 
 
@@ -4524,17 +4524,17 @@ struct TIMER_EVENT;
 struct TIMER_EVENT_4_EXCHANGE
 {
 	TimerEventType		Type;
-//	TimeUnit_t			StartTimeStamp;			// milli-seconds
-//	TimeUnit_t			ExpireTime;				// milli-seconds
+	//	TimeUnit_t			StartTimeStamp;			// milli-seconds
+	//	TimeUnit_t			ExpireTime;				// milli-seconds
 	TimeUnit_t			TimeInterval;			// milli-seconds, (ExpireTime - StartTimeStamp)
-//	CFieldIOCPSocket	*pFieldIOCPSocket;
+	//	CFieldIOCPSocket	*pFieldIOCPSocket;
 	UID32_t				CharacterUniqueNumber;	// event를 시작한 charac이 나가고 다른 charac이 socket을 사용하는 경우를 막기 위해, IsUsing()과 CharacterUniqueNumber가 같아야 함!
-//	ClientIndex_t		ClientIndex;			// event를 시작한 charac이 나가고 다른 charac이 socket을 사용하는 경우를 막기 위해, IsUsing()과 ClientIndex가 같아야 함!
+	//	ClientIndex_t		ClientIndex;			// event를 시작한 charac이 나가고 다른 charac이 socket을 사용하는 경우를 막기 위해, IsUsing()과 ClientIndex가 같아야 함!
 	float				FloatParam1;			// delete_item류: 남은 Endurance
 	INT					IntParam1;				// delete_item류: ItemNum
-//	TIMER_EVENT_BUCKET	*pCurrentBucket;
+	//	TIMER_EVENT_BUCKET	*pCurrentBucket;
 
-	// operator overloading
+		// operator overloading
 	TIMER_EVENT_4_EXCHANGE& operator=(const TIMER_EVENT& rhs);
 };
 
@@ -4578,11 +4578,11 @@ typedef struct
 
 typedef enum
 {
-	GST_GAMESTART				= 0,
-	GST_CONN_GAMESTART			= 1,
-	GST_WARP_CONN_GAMESTART		= 2,
-	GST_WARP_SAME_MAP			= 3,
-	GST_WARP_SAME_FIELD_SERVER	= 4
+	GST_GAMESTART = 0,
+	GST_CONN_GAMESTART = 1,
+	GST_WARP_CONN_GAMESTART = 2,
+	GST_WARP_SAME_MAP = 3,
+	GST_WARP_SAME_FIELD_SERVER = 4
 } GameStartType;
 
 typedef struct {
@@ -4658,15 +4658,15 @@ typedef struct
 	BOOL	CalcBandwidth;
 	USHORT	LoadedMapCounts;
 	int		nMGameEventType;
-// 2007-01-08 by cmkwon, 메시지 구조체가 커져서 T_PM_AUTO_UPDATE_FTP_SERVER_SETTING 프로토콜로 전송
-//	char	FtpIP[SIZE_MAX_FTP_URL];
-//	USHORT	FtpPort;
-//	char	FtpAccountName[SIZE_MAX_ACCOUNT_NAME];
-//	char	FtpPassword[SIZE_MAX_PASSWORD];
-//	char	ClientFTPUpdateUploadDir[SIZE_MAX_FTP_FILE_PATH];	// UPDATE_DIR
-//	char	LauncherFileUploadPath[SIZE_MAX_FTP_FILE_PATH];	// LAUNCHER_FILE_NAME
-//	char	DeleteFileListUploadPath[SIZE_MAX_FTP_FILE_PATH];	// DELFILELIST_FILE_NAME
-//	char	NoticeFileUploadPath[SIZE_MAX_FTP_FILE_PATH];		// NOTICE_FILE_NAME
+	// 2007-01-08 by cmkwon, 메시지 구조체가 커져서 T_PM_AUTO_UPDATE_FTP_SERVER_SETTING 프로토콜로 전송
+	//	char	FtpIP[SIZE_MAX_FTP_URL];
+	//	USHORT	FtpPort;
+	//	char	FtpAccountName[SIZE_MAX_ACCOUNT_NAME];
+	//	char	FtpPassword[SIZE_MAX_PASSWORD];
+	//	char	ClientFTPUpdateUploadDir[SIZE_MAX_FTP_FILE_PATH];	// UPDATE_DIR
+	//	char	LauncherFileUploadPath[SIZE_MAX_FTP_FILE_PATH];	// LAUNCHER_FILE_NAME
+	//	char	DeleteFileListUploadPath[SIZE_MAX_FTP_FILE_PATH];	// DELFILELIST_FILE_NAME
+	//	char	NoticeFileUploadPath[SIZE_MAX_FTP_FILE_PATH];		// NOTICE_FILE_NAME
 } MSG_PM_CONNECT_OK;
 
 ///////////////////////////////
@@ -4786,8 +4786,8 @@ typedef struct
 
 typedef enum
 {
-	FRIEND_TYPE_FRIEND		= 0,
-	FRIEND_TYPE_REJECT		= 1
+	FRIEND_TYPE_FRIEND = 0,
+	FRIEND_TYPE_REJECT = 1
 } FRIEND_TYPE;
 
 typedef struct
@@ -4882,8 +4882,8 @@ typedef MSG_FI_CHAT_MAP					MSG_FI_CHAT_REGION;
 typedef struct
 {
 	UID32_t		CharacterUniqueNumber;
-// 2008-05-15 by dhjin, EP3 - 채팅 시스템 변경
-//	BitFlag8_t	ChatFlag;				// 채팅 설정 flag
+	// 2008-05-15 by dhjin, EP3 - 채팅 시스템 변경
+	//	BitFlag8_t	ChatFlag;				// 채팅 설정 flag
 	BitFlag16_t	ChatFlag;				// 채팅 설정 flag
 } MSG_FI_CHAT_CHANGE_CHAT_FLAG;
 
@@ -5056,7 +5056,7 @@ typedef struct
 
 typedef struct
 {
-	ClientIndex_t	ClientIndex;	
+	ClientIndex_t	ClientIndex;
 } MSG_FC_CHARACTER_GAMEEND_OK;
 
 typedef struct
@@ -5089,8 +5089,8 @@ typedef struct
 	ClientIndex_t	ClientIndex;
 	BYTE			Level;
 	BYTE			BonusStat;
-// 2005-11-15 by cmkwon, 제거함
-//	BYTE			BonusSkillPoint;
+	// 2005-11-15 by cmkwon, 제거함
+	//	BYTE			BonusSkillPoint;
 } MSG_FC_CHARACTER_CHANGE_LEVEL;
 
 typedef struct
@@ -5216,7 +5216,7 @@ typedef struct
 } MSG_FC_CHARACTER_USE_BONUSSTAT;
 
 struct MSG_FC_CHARACTER_USE_BONUSSTAT_OK		// 2006-09-18 by cmkwon
-{	
+{
 	BYTE	byReaminBonusStat;
 };
 
@@ -5268,8 +5268,8 @@ struct MEX_OTHER_CHARACTER_INFO
 	BodyCond_t		BodyCondition;
 	INT				Propensity;			// 2005-12-27 by cmkwon, 성향(선,악)이 아니고 명성으로 사용중
 	UID32_t			CharacterUniqueNumber;
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 사용하지 않으므로 삭제
-//	INT				RacingPoint;		// Racing 결과 Point
+	// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 사용하지 않으므로 삭제
+	//	INT				RacingPoint;		// Racing 결과 Point
 	UID32_t			GuildUniqueNumber;
 	MAP_CHANNEL_INDEX	MapChannelIndex;		// 캐릭터가 속한 맵 및 채널, 2006-01-18 by cmkwon, 추가함
 	AVECTOR3		PositionVector;
@@ -5294,30 +5294,30 @@ struct MEX_OTHER_CHARACTER_INFO
 	// operator overloading
 	MEX_OTHER_CHARACTER_INFO& operator=(const CHARACTER& rhs)
 	{
-		ClientIndex				= rhs.ClientIndex;
-		CharacterUniqueNumber	= rhs.CharacterUniqueNumber;
+		ClientIndex = rhs.ClientIndex;
+		CharacterUniqueNumber = rhs.CharacterUniqueNumber;
 		STRNCPY_MEMSET(CharacterName, rhs.CharacterName, SIZE_MAX_CHARACTER_NAME);
-		Gender					= rhs.Gender;
-		PilotFace				= rhs.PilotFace;
-		CharacterMode0			= rhs.CharacterMode;
-		InfluenceType			= rhs.InfluenceType;
-		Race					= rhs.Race;
-		UnitKind				= rhs.UnitKind;
-		Level1					= rhs.Level;
-		Propensity				= rhs.Propensity;
-		Status					= rhs.Status;
-		PKWinPoint				= rhs.PKWinPoint;
-		PKLossPoint				= rhs.PKLossPoint;
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 사용하지 않으므로 삭제
-//		RacingPoint				= rhs.RacingPoint;
-		GuildUniqueNumber		= rhs.GuildUniqueNumber;
-		BodyCondition			= rhs.BodyCondition;
-		MapChannelIndex			= rhs.MapChannelIndex;
-		PositionVector			= rhs.PositionVector;
-		TargetVector			= rhs.TargetVector*1000.0f;
-		UpVector				= rhs.UpVector;
-		UsingReturnItem			= rhs.bUsingReturnItem;		// 2013-02-28 by bckim, 복귀유져 버프추가
-								
+		Gender = rhs.Gender;
+		PilotFace = rhs.PilotFace;
+		CharacterMode0 = rhs.CharacterMode;
+		InfluenceType = rhs.InfluenceType;
+		Race = rhs.Race;
+		UnitKind = rhs.UnitKind;
+		Level1 = rhs.Level;
+		Propensity = rhs.Propensity;
+		Status = rhs.Status;
+		PKWinPoint = rhs.PKWinPoint;
+		PKLossPoint = rhs.PKLossPoint;
+		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 사용하지 않으므로 삭제
+		//		RacingPoint				= rhs.RacingPoint;
+		GuildUniqueNumber = rhs.GuildUniqueNumber;
+		BodyCondition = rhs.BodyCondition;
+		MapChannelIndex = rhs.MapChannelIndex;
+		PositionVector = rhs.PositionVector;
+		TargetVector = rhs.TargetVector * 1000.0f;
+		UpVector = rhs.UpVector;
+		UsingReturnItem = rhs.bUsingReturnItem;		// 2013-02-28 by bckim, 복귀유져 버프추가
+
 		return *this;
 	}
 };
@@ -5334,7 +5334,7 @@ typedef struct
 	INT				CurrentHP;
 	INT				MonsterUnitKind;
 	SHORT			MonsterForm;
-	AVECTOR3		PositionVector;	
+	AVECTOR3		PositionVector;
 	AVECTOR3		TargetVector;
 	BodyCond_t		BodyCondition;
 	INT				MaxHP;
@@ -5505,7 +5505,7 @@ struct MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE_OK
 	AVECTOR3			PositionAVec3;
 	AVECTOR3			TargetAVec3;
 };
-	
+
 struct MSG_FC_CHARACTER_GET_REAL_WEAPON_INFO_OK		// 2005-12-21 by cmkwon
 {
 	UID64_t		ItemUID0;
@@ -5642,7 +5642,7 @@ struct MSG_FC_CHARACTER_GET_USER_INFO_OK
 	BYTE				PilotFace;						// 화면에 나타나는 인물 케릭터
 	char				CharacterName[SIZE_MAX_CHARACTER_NAME];		// 유닛(캐릭터) 이름
 	USHORT				UnitKind;						// 유닛의 종류	
-	UID32_t				GuildUID;							
+	UID32_t				GuildUID;
 	char				GuildName[SIZE_MAX_GUILD_NAME];	// 길드 이름
 	BYTE				Level;
 	MAP_CHANNEL_INDEX	MapChannelIndex;
@@ -5817,11 +5817,11 @@ typedef struct
 } MSG_FC_MOVE;
 
 struct MSG_FC_MOVE_BIT_FLAG					// 2007-03-29 by cmkwon
-{	
-	BYTE			CharacterMode0:1;		// 
-	BYTE			Invisible0:1;			// 인비지블 스킬 사용 상태
-	BYTE			ChargingSkill:1;		// 2007-04-02 by cmkwon, A-Gear 차징 스킬 사용 상태
-	BYTE			HyperShot:1;			// A-Gear 하이퍼샷 스킬 사용 상태
+{
+	BYTE			CharacterMode0 : 1;		// 
+	BYTE			Invisible0 : 1;			// 인비지블 스킬 사용 상태
+	BYTE			ChargingSkill : 1;		// 2007-04-02 by cmkwon, A-Gear 차징 스킬 사용 상태
+	BYTE			HyperShot : 1;			// A-Gear 하이퍼샷 스킬 사용 상태
 	// 2012-12-06 by jhseol, 서치아이 범위 캐릭터 중심으로 변경
 	bool			bSearchEye_1;			// 일반 서치아이
 	bool			bSearchEye_2;			// 강화 서치아이
@@ -5839,7 +5839,7 @@ struct MSG_FC_MOVE_BIT_FLAG					// 2007-03-29 by cmkwon
 
 // 2012-12-06 by jhseol, 서치아이 범위 캐릭터 중심으로 변경
 struct UsingItemBitFlag
-{	
+{
 	bool			bSearchEye_1;			// 일반 서치아이
 	bool			bSearchEye_2;			// 강화 서치아이
 	bool			bUsingBarialSkill;		// 2013-01-29 by jhseol, 베리어 스킬 이펙트 버그
@@ -5857,8 +5857,8 @@ struct UsingItemBitFlag
 typedef struct
 {
 	ClientIndex_t	ClientIndex;
-// 2007-03-29 by cmkwon, 아래와 같이 비트플래그 변수를 하나 추가함
-//	BYTE			CharacterMode0;		// 2005-07-29 by cmkwon
+	// 2007-03-29 by cmkwon, 아래와 같이 비트플래그 변수를 하나 추가함
+	//	BYTE			CharacterMode0;		// 2005-07-29 by cmkwon
 	MSG_FC_MOVE_BIT_FLAG moveBitFlag;	// 2007-03-29 by cmkwon
 	AVECTOR3		PositionVector;
 	AVECTOR3		TargetVector;
@@ -5933,7 +5933,7 @@ typedef struct
 {
 	D3DXVECTOR3		WeaponVel;
 	D3DXVECTOR3		PetLeftVel;
-	D3DXVECTOR3		PetRightVel;	
+	D3DXVECTOR3		PetRightVel;
 } MSG_FC_MOVE_WEAPON_VEL;		// C->F, 무기의 방향의 움직임 전송
 
 typedef struct
@@ -6004,8 +6004,8 @@ struct MSG_FC_MOVE_HACKSHIELD_HACKING_CLIENT	// 2006-06-05 by cmkwon
 	long			lHackingClinetCode;			// ERR_AHNHS_XXXXXX	
 	char			szErrString[SIZE_STRING_128];			// 2006-10-20 by cmkwon, 추가함(해킹 프로그램명)
 };
-	
-	
+
+
 struct MSG_FC_MOVE_XIGNCODE_REQ_SCAN_INIT	// 2008-11-28 by cmkwon, 대만 Netpower_Tpe XignCode(게임가드) 적용 - 
 {
 	BYTE	byCurDataIndex;		// 0,1,2,3,...
@@ -6122,21 +6122,40 @@ typedef struct
 
 ///////////////////////////////////////////////////////////////////////////////
 // 2007-06-04 by cmkwon
+#ifdef _RAT_ANTI_CHEAT
 struct SATTACK_PARAMETER
 {
 	UID16_t			WeaponIndex;					// 탄두 고유번호 - 2형 무기만 처리됨
 	DWORD			dwShotTick;						// 2007-06-08 by cmkwon, 발사 Tick
-	ITEM			*pWeaponItemInfo;				// 공격 무기 아이템 정보
+	ITEM* pWeaponItemInfo;				// 공격 무기 아이템 정보
 	float			fAttackProbability;				// 공격 확률
 	float			fPierceAttackProbability;		// 공격 피어스율
 	float			fAttack;						// 공격력
 	float			fMaxAttack;						// 최대공격력	
 	ClientIndex_t	TargetIndex;					// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
 	BYTE			AttackType;						// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
-	USHORT			MultiTargetIndex;				// 2011-04-04 by hskim, 인피니티 3차 - 몬스터 멀티 타겟팅 기능 추가
+	USHORT			MultiTargetIndex;				// 2011-04-04 by hskim, 인피니티 3차 - 몬스터 멀티 타겟팅 기능 추�
 };
 typedef mt_vector<SATTACK_PARAMETER>			mtvectSATTACK_PARAMETER;		// 2007-06-07 by cmkwon
 typedef vector<SATTACK_PARAMETER>				vectSATTACK_PARAMETER;			// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
+
+#else
+struct SATTACK_PARAMETER
+{
+	UID16_t			WeaponIndex;					// 탄두 고유번호 - 2형 무기만 처리됨
+	DWORD			dwShotTick;						// 2007-06-08 by cmkwon, 발사 Tick
+	ITEM* pWeaponItemInfo;				// 공격 무기 아이템 정보
+	float			fAttackProbability;				// 공격 확률
+	float			fPierceAttackProbability;		// 공격 피어스율
+	float			fAttack;						// 공격력
+	float			fMaxAttack;						// 최대공격력	
+	ClientIndex_t	TargetIndex;					// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
+	BYTE			AttackType;						// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
+	USHORT			MultiTargetIndex;				// 2011-04-04 by hskim, 인피니티 3차 - 몬스터 멀티 타겟팅 기능 추�
+};
+typedef mt_vector<SATTACK_PARAMETER>			mtvectSATTACK_PARAMETER;		// 2007-06-07 by cmkwon
+typedef vector<SATTACK_PARAMETER>				vectSATTACK_PARAMETER;			// 2010-04-05 by cmkwon, 인피2차 M2M 2형 무기 보완 처리 - 
+#endif
 
 typedef struct
 {
@@ -6149,6 +6168,10 @@ typedef struct
 	USHORT			RemainedBulletFuel;	// 남은 총알(혹은 Fuel)의 수
 	UINT			SkillNum;			// 스킬 사용 시 사용
 	ClientIndex_t	DelegateClientIdx;	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 몬스터 간 2형 무기 폭팔 처리 할 위임 클라이언트
+#ifdef _RAT_ANTI_CHEAT
+	float			ServerExplosionRange_Secondary;
+	float			ServerWarheadSpeed_Secondary;
+#endif
 } MSG_FC_BATTLE_ATTACK_OK;				// F->C_in_range
 
 typedef struct
@@ -6357,8 +6380,8 @@ typedef struct
 typedef struct
 {
 	UID64_t		ItemUniqueNumber;
-//	BYTE		NumOfDummies;			// check: 사라짐. 20030930, kelovon with jinking
-//	ARRAY_(AVECTOR3);					// DUMMY의 위치(기체에 대한 상대 좌표), check: 사라짐. 20030930, kelovon with jinking
+	//	BYTE		NumOfDummies;			// check: 사라짐. 20030930, kelovon with jinking
+	//	ARRAY_(AVECTOR3);					// DUMMY의 위치(기체에 대한 상대 좌표), check: 사라짐. 20030930, kelovon with jinking
 } MSG_FC_BATTLE_DROP_DUMMY;				// 더미는 한번에 다 쏜다.
 
 // 2007-06-21 by cmkwon, 체프 하나의 메시지로 모두 전송 - 아래와 같이 구조체 수정
@@ -6703,11 +6726,11 @@ typedef struct _IM_PARTY_MEMBER_INFO
 	_IM_PARTY_MEMBER_INFO& operator=(const IMPartyMember& rhs);
 	inline _IM_PARTY_MEMBER_INFO& operator=(const CHARACTER& rhs)
 	{
-		this->CharacterUniqueNumber	= rhs.CharacterUniqueNumber;
-		this->PilotFace				= rhs.PilotFace;
-		this->UnitKind				= rhs.UnitKind;
-		this->Race					= rhs.Race;
-		this->Level					= rhs.Level;
+		this->CharacterUniqueNumber = rhs.CharacterUniqueNumber;
+		this->PilotFace = rhs.PilotFace;
+		this->UnitKind = rhs.UnitKind;
+		this->Race = rhs.Race;
+		this->Level = rhs.Level;
 		STRNCPY_MEMSET(this->CharacterName, rhs.CharacterName, SIZE_MAX_CHARACTER_NAME);
 		this->MapChannelIndex = rhs.MapChannelIndex;
 		return *this;
@@ -6775,18 +6798,18 @@ typedef struct _FIELD_PARTY_MEMBER_INFO
 	// operator overloading
 	inline _FIELD_PARTY_MEMBER_INFO& operator=(const CHARACTER& rhs)
 	{
-		this->CharacterUniqueNumber	= rhs.CharacterUniqueNumber;
-		this->ClientIndex			= rhs.ClientIndex;
-		this->HP					= rhs.HP;
-		this->CurrentHP				= rhs.CurrentHP;
-		this->DP					= rhs.DP;
-		this->CurrentDP				= rhs.CurrentDP;
-		this->SP					= rhs.SP;
-		this->CurrentSP				= rhs.CurrentSP;
-		this->EP					= rhs.EP;
-		this->CurrentEP				= rhs.CurrentEP;
+		this->CharacterUniqueNumber = rhs.CharacterUniqueNumber;
+		this->ClientIndex = rhs.ClientIndex;
+		this->HP = rhs.HP;
+		this->CurrentHP = rhs.CurrentHP;
+		this->DP = rhs.DP;
+		this->CurrentDP = rhs.CurrentDP;
+		this->SP = rhs.SP;
+		this->CurrentSP = rhs.CurrentSP;
+		this->EP = rhs.EP;
+		this->CurrentEP = rhs.CurrentEP;
 		STRNCPY_MEMSET(this->CharacterName, rhs.CharacterName, SIZE_MAX_CHARACTER_NAME);
-		this->MapChannelIndex		= rhs.MapChannelIndex;
+		this->MapChannelIndex = rhs.MapChannelIndex;
 		return *this;
 	}
 } FIELD_PARTY_MEMBER_INFO;
@@ -7034,7 +7057,7 @@ typedef struct
 typedef struct
 {
 	// 2011-02-22 by shcho&hsSon, 편대버프 해제 안되는 버그 수정
-	BOOL		Formation_On_Off;			
+	BOOL		Formation_On_Off;
 	// end 2011-02-22 by shcho&hsSon, 편대버프 해제 안되는 버그 수정
 	UID32_t		CharacterUniqueNumber;
 } MSG_IC_PARTY_CANCEL_FLIGHT_POSITION;		// C -> I -> Cm
@@ -7060,15 +7083,15 @@ typedef struct {
 	UID32_t			CharacterUniqueNumber;	// 아이템 창작이 갱신된 파티원
 	BYTE			ItemPosition;			// POS_XXX
 	INT				ItemNum;
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 변경
-//	INT				ColorCode;				// 2005-12-08 by cmkwon, 아머 색상 튜닝 정보
+	// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 변경
+	//	INT				ColorCode;				// 2005-12-08 by cmkwon, 아머 색상 튜닝 정보
 	INT				nShapeItemNum;		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 	INT				nEffectItemNum;		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 } MSG_IC_PARTY_UPDATE_ITEM_POS;				// I->C, 파티원이 아이템 장착을 수정했을 때 전송
 
 typedef struct
 {
-	UID32_t			AllPartyMemberCharacterUniqueNumber[SIZE_MAX_PARTY_MEMBER-1];
+	UID32_t			AllPartyMemberCharacterUniqueNumber[SIZE_MAX_PARTY_MEMBER - 1];
 } MSG_IC_PARTY_ALL_FLIGHT_POSITION;
 
 struct MSG_IC_PARTY_LIST_INFO
@@ -7106,7 +7129,7 @@ struct MSG_IC_PARTY_LIST_INFO_OK
 
 struct MSG_IC_PARTY_CHANGE_INFO
 {// 2008-06-04 by dhjin, EP3 편대 수정 - 편대 자유 참여
-	SPARTY_INFO	PartyInfo;					
+	SPARTY_INFO	PartyInfo;
 };
 typedef MSG_IC_PARTY_CHANGE_INFO	MSG_IC_PARTY_INFO;
 
@@ -7119,7 +7142,7 @@ struct SRECOMMENDATION_MEMBER_INFO
 struct MSG_IC_PARTY_RECOMMENDATION_MEMBER_OK
 {// 2008-06-04 by dhjin, EP3 편대 수정 - 추천 케릭터 요청
 	UINT		Count;
-	ARRAY_(SRECOMMENDATION_MEMBER_INFO);	
+	ARRAY_(SRECOMMENDATION_MEMBER_INFO);
 };
 
 
@@ -7143,7 +7166,7 @@ struct MSG_IC_PARTY_RECOMMENDATION_MEMBER_OK
 typedef struct
 {
 	UID32_t			CharacterUniqueNumber;
-//	char			CurrentMapName[SIZE_MAX_MAP_NAME];	// check: 다른 필드서버에 있는 파티원은 관리하지 않기로 하면서 제거, 20031010, 확정&구현되면 삭제 가능
+	//	char			CurrentMapName[SIZE_MAX_MAP_NAME];	// check: 다른 필드서버에 있는 파티원은 관리하지 않기로 하면서 제거, 20031010, 확정&구현되면 삭제 가능
 } FI_PARTY_MEMBER_INFO;	// Field Server와 IM Server 사이에 사용하는 파티원 정보
 
 // 편대 비행중인 파티원 워프
@@ -7223,7 +7246,7 @@ typedef struct
 	PartyID_t		PeerPartyID2;				// 파티 2의 대상 파티
 } MSG_FI_PARTY_NOTIFY_BATTLE_PARTY_OK;			// I->F, 파티전을 알림에 대한 ACK
 
-typedef struct  {
+typedef struct {
 	INT				ItemNum;					// 아이템의 종류
 	USHORT			Amount;						// 아이템의 개수
 	ClientIndex_t	ClientIndex;
@@ -7245,8 +7268,8 @@ typedef struct {
 	UID32_t			CharacterUniqueNumber;	// 아이템 창작이 갱신된 파티원
 	BYTE			ItemPosition;			// POS_XXX
 	INT				ItemNum;
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 변경
-//	INT				ColorCode;				// 2005-12-08 by cmkwon, 아머 색상 튜닝 정보
+	// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 변경
+	//	INT				ColorCode;				// 2005-12-08 by cmkwon, 아머 색상 튜닝 정보
 	INT				nShapeItemNum;		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 	INT				nEffectItemNum;		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 } MSG_FI_PARTY_UPDATE_ITEM_POS;				// F->I, 파티원이 아이템 장착을 수정했을 때 전송
@@ -7254,7 +7277,7 @@ typedef struct {
 typedef struct
 {
 	PartyID_t		PartyID;
-	UID32_t			AllPartyMemberCharacterUniqueNumber[SIZE_MAX_PARTY_MEMBER-1];
+	UID32_t			AllPartyMemberCharacterUniqueNumber[SIZE_MAX_PARTY_MEMBER - 1];
 } MSG_FI_PARTY_ALL_FLIGHT_POSITION;
 
 typedef struct
@@ -7456,7 +7479,7 @@ typedef struct
 #define GUILD_MARK_STATE_NONE					((BYTE)0)	// 마크 없는 상태
 #define GUILD_MARK_STATE_WAITING_PERMISSION		((BYTE)1)	// 마크 허용을 기다리는 상태, 게임상에서는 사용 불가
 #define GUILD_MARK_STATE_NORMAL					((BYTE)2)	// 마크 사용 중인 상태
-char *GetStringGuildMarkState(BYTE i_byGuildMarkState, BOOL i_bForUser=FALSE);
+char* GetStringGuildMarkState(BYTE i_byGuildMarkState, BOOL i_bForUser = FALSE);
 
 
 typedef struct
@@ -7814,13 +7837,13 @@ struct MSG_IC_GUILD_UPDATE_INTRODUCTION
 struct MSG_IC_GUILD_UPDATE_SELFINTRODUCTION
 {// 2008-05-28 by dhjin, EP3 - 여단 수정 사항 - 자기 소개 작성
 	UID32_t			TargetGuildUID;
-	char			SelfIntroduction[SIZE_MAX_NOTICE];	
+	char			SelfIntroduction[SIZE_MAX_NOTICE];
 };
 
 struct MSG_IC_GUILD_CHANGE_FAME_RANK
 {// 2008-06-10 by dhjin, EP3 - 여단 수정 사항 - 여단 명성 변경
-	INT		GuildTotalFameRank;				
-	INT		GuildMonthlyFameRank;			
+	INT		GuildTotalFameRank;
+	INT		GuildMonthlyFameRank;
 };
 
 struct MSG_IC_GUILD_APPLICANT_INVITE
@@ -7945,7 +7968,7 @@ struct MSG_FC_QUEST_MOVE_QUEST_MAP
 struct MSG_FC_QUEST_PUT_ALL_QUEST_MONSTER_COUNT
 {
 	INT		NumOfMonsterCount;
-	ARRAY_(MEX_QUEST_MONSTER_COUNT);	
+	ARRAY_(MEX_QUEST_MONSTER_COUNT);
 };	// 2005-10-25 by cmkwon
 
 typedef MEX_QUEST_MONSTER_COUNT					MSG_FC_QUEST_UPDATE_MONSTER_COUNT; 	// 2005-10-25 by cmkwon
@@ -8032,11 +8055,11 @@ struct MSG_FC_MONSTER_SUMMON_MONSTER
 };
 struct MSG_FC_MONSTER_TUTORIAL_MONSTER_DEAD_NOTIFY
 {
-	ClientIndex_t	monsterIdx;	
+	ClientIndex_t	monsterIdx;
 };
 struct MSG_FC_MONSTER_TUTORIAL_MONSTER_DELETE
 {
-	ClientIndex_t	monsterIdx;	
+	ClientIndex_t	monsterIdx;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -8123,17 +8146,17 @@ struct MEX_CHARACTER_1
 	float			CurrentHP;					// 에너지
 	AVECTOR3		PositionVector;				// 캐릭터 좌표
 
-	MEX_CHARACTER_1 &operator=(const CHARACTER &rhs)
+	MEX_CHARACTER_1& operator=(const CHARACTER& rhs)
 	{
-		Race					= rhs.Race;
-		UnitKind				= rhs.UnitKind;
-		InfluenceType0			= rhs.InfluenceType;
-		CharacterMode0			= rhs.CharacterMode;
-		CharacterUniqueNumber	= rhs.CharacterUniqueNumber;
-		GuildUID				= rhs.GuildUniqueNumber;
-		BodyCondition			= rhs.BodyCondition;
-		CurrentHP				= rhs.CurrentHP;
-		PositionVector			= rhs.PositionVector;
+		Race = rhs.Race;
+		UnitKind = rhs.UnitKind;
+		InfluenceType0 = rhs.InfluenceType;
+		CharacterMode0 = rhs.CharacterMode;
+		CharacterUniqueNumber = rhs.CharacterUniqueNumber;
+		GuildUID = rhs.GuildUniqueNumber;
+		BodyCondition = rhs.BodyCondition;
+		CurrentHP = rhs.CurrentHP;
+		PositionVector = rhs.PositionVector;
 		return *this;
 	};
 };
@@ -8175,7 +8198,7 @@ typedef struct
 {
 	ChannelIndex_t		ChannelIndex;
 	ClientIndex_t		MonsterIndex;
-	float				CurrentHP;				
+	float				CurrentHP;
 } MSG_FN_MONSTER_CHANGE_HP;
 
 typedef struct : MSG_FC_CHARACTER_CHANGE_BODYCONDITION
@@ -8202,8 +8225,8 @@ typedef struct
 struct MSG_FN_MONSTER_AUTO_DESTROYED		// 2006-04-17 by cmkwon
 {
 	MAP_CHANNEL_INDEX	MapChannIdx;				// 2007-11-26 by cmkwon, 몬스터 자동삭제 메시지 TCP로 전송(N->F) - MSG_FN_MONSTER_AUTO_DESTROYED 에 필드 추가
-// 2007-11-26 by cmkwon, 몬스터 자동삭제 메시지 TCP로 전송(N->F) - MapChannIdx 로 추가
-//	ChannelIndex_t		ChannelIndex;
+	// 2007-11-26 by cmkwon, 몬스터 자동삭제 메시지 TCP로 전송(N->F) - MapChannIdx 로 추가
+	//	ChannelIndex_t		ChannelIndex;
 	ClientIndex_t		MonsterIndex;
 	BodyCond_t			BodyCondition;				// 2007-11-26 by cmkwon, 몬스터 자동삭제 메시지 TCP로 전송(N->F) - MSG_FN_MONSTER_AUTO_DESTROYED 에 필드 추가
 };
@@ -8351,8 +8374,8 @@ typedef struct
 typedef struct
 {
 	BUILDINGNPC		BuildingNPCInfo;
-// 2006-02-08 by cmkwon
-//	float			fCityWarTexRate;				//
+	// 2006-02-08 by cmkwon
+	//	float			fCityWarTexRate;				//
 	float			fInflDistributionTexPercent;	// 2006-02-08 by cmkwon, 세력분포 세금
 } MSG_FC_EVENT_ENTER_BUILDING;				// F->C
 
@@ -8462,7 +8485,7 @@ typedef struct
 {
 	MapIndex_t	MapIndex;
 	INT			TargetIndex;			// EVENTINFO에 존재하는 TargetIndex	
-} MSG_FC_EVENT_REQUEST_SHOP_WARP;	
+} MSG_FC_EVENT_REQUEST_SHOP_WARP;
 
 struct MSG_FC_EVENT_CHARACTERMODE_ENTER_BUILDING
 {
@@ -8510,7 +8533,7 @@ typedef struct
 	char				AccountName[SIZE_MAX_ACCOUNT_NAME];
 	char				CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t				CharacterUniqueNumber;
-	MAP_CHANNEL_INDEX	MapChannelIndex;	
+	MAP_CHANNEL_INDEX	MapChannelIndex;
 } MSG_FP_EVENT_GAME_STARTED;			// F->P, Client가 게임을 시작함(맵으로 들어옴)
 
 typedef struct
@@ -8518,7 +8541,7 @@ typedef struct
 	char				AccountName[SIZE_MAX_ACCOUNT_NAME];
 	char				CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t				CharacterUniqueNumber;
-	MAP_CHANNEL_INDEX	MapChannelIndex;	
+	MAP_CHANNEL_INDEX	MapChannelIndex;
 } MSG_FP_EVENT_MAP_CHANGED;				// F->P, Client가 맵을 이동함
 
 // T0_FP_MONITOR
@@ -8741,7 +8764,7 @@ struct MSG_FC_STORE_EXPIRE_USINGITEM		// 2006-10-11 by cmkwon
 
 struct MSG_FC_STORE_UPDATE_ITEMSTORAGE
 {
-//	UID32_t			PossessCharacter;		// 2006-09-18 by dhjin, 선택된 케릭터
+	//	UID32_t			PossessCharacter;		// 2006-09-18 by dhjin, 선택된 케릭터
 	UID64_t			ItemUniqueNumber;
 	UID32_t			FromItemStorage;
 	UID32_t			ToItemStorage;
@@ -8939,11 +8962,11 @@ typedef struct {
 	ClientIndex_t	ClientIndex;
 	BYTE			ItemPosition;	// POS_XXX
 	INT				ItemNum;
-// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 변경
-//	INT				ColorCode;		// 2005-12-08 by cmkwon, 아머 색상 튜닝 정보
+	// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 변경
+	//	INT				ColorCode;		// 2005-12-08 by cmkwon, 아머 색상 튜닝 정보
 	INT				nShapeItemNum;		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
 	INT				nEffectItemNum;		// 2009-08-26 by cmkwon, 그래픽 리소스 변경 시스템 구현 - 
-  	INT				nPetLevel;		// 2012-12-05 by hskim, 파트너 기간제 외형 변경
+	INT				nPetLevel;		// 2012-12-05 by hskim, 파트너 기간제 외형 변경
 } MSG_FC_ITEM_UPDATE_ITEM_POS;		// F->C, 아이템 장착(전)을 갱신함, 아이템 장착을 바꾸면 주위에 전송함
 
 typedef struct
@@ -9064,8 +9087,8 @@ struct MSG_FC_ITEM_USE_INFLUENCE_BUFF				// 2006-04-21 by cmkwon
 };
 struct MSG_FC_ITEM_USE_INFLUENCE_BUFF_OK			// 2006-04-21 by cmkwon
 {
-// 2009-01-05 by dhjin, 미션마스터 - 편대 버프 아이템 추가 - 밑과 같이 변경
-//	UID64_t			ItemUniqueNumber;
+	// 2009-01-05 by dhjin, 미션마스터 - 편대 버프 아이템 추가 - 밑과 같이 변경
+	//	UID64_t			ItemUniqueNumber;
 	char			ItemUseCharacterName[SIZE_MAX_CHARACTER_NAME];
 	INT				ItemNum;
 };
@@ -9219,7 +9242,7 @@ struct SHOP_ITEM
 	// 2010-01-26 by cmkwon, 캐쉬 아이템 한정판매 시스템 구현 - 매진여부
 	BOOL IsSoldOutShopItem(void)
 	{
-		if(SOLD_OUT_REMAIN_COUNT_FOR_LIMITED_EDITION != RemainCountForLimitedEdition)
+		if (SOLD_OUT_REMAIN_COUNT_FOR_LIMITED_EDITION != RemainCountForLimitedEdition)
 		{
 			return FALSE;
 		}
@@ -9227,7 +9250,7 @@ struct SHOP_ITEM
 	}
 	BOOL IsLimitedEditionShopItem(void)
 	{
-		if(SOLD_OUT_REMAIN_COUNT_FOR_LIMITED_EDITION > RemainCountForLimitedEdition)
+		if (SOLD_OUT_REMAIN_COUNT_FOR_LIMITED_EDITION > RemainCountForLimitedEdition)
 		{
 			return FALSE;
 		}
@@ -9239,14 +9262,14 @@ struct SHOP_ITEM
 	// 현재 추가되는건 개인만 쓸 수 있는 1회성 상점에 한정 판매 기능(DB 저장이 필요없는)이 들어감 (크리스탈 시스템)
 	// 만일 여러 사람이 동시에 사용하는 한정 판매 기능이 필요하다면 동기화 및 추가 기능이 들어가야함
 
-	BOOL IsAvailableShopItem(int Amount)		
+	BOOL IsAvailableShopItem(int Amount)
 	{
-		if( UNLIMITED_REMAIN_COUNT_FOR_LIMITED_EDITION == RemainCountForLimitedEdition )
+		if (UNLIMITED_REMAIN_COUNT_FOR_LIMITED_EDITION == RemainCountForLimitedEdition)
 		{
 			return TRUE;
 		}
-		
-		if( Amount <= RemainCountForLimitedEdition )
+
+		if (Amount <= RemainCountForLimitedEdition)
 		{
 			return TRUE;
 		}
@@ -9420,7 +9443,7 @@ struct MSG_FC_SHOP_INFLUENCE_BUFF
 
 struct MSG_FC_SHOP_INFLUENCE_BUFF_OK
 {
-	INT	nLastSkillNum;	
+	INT	nLastSkillNum;
 };
 // end 2013-05-09 by hskim, 세력 포인트 개선
 
@@ -9559,11 +9582,11 @@ struct MSG_FC_TRADE_OK_TRADE_NOTIFY		// 2008-11-21 by cmkwon, 거래 승인 확인 시�
 
 typedef enum
 {
-	COUNTDOWN_TYPE_P2P_WAR		= 0,
-	COUNTDOWN_TYPE_PARTY_WAR	= 1,
-	COUNTDOWN_TYPE_GUILD_WAR	= 2,
-	COUNTDOWN_TYPE_RACING		= 3,
-	COUNTDOWN_TYPE_INVALID		= 4
+	COUNTDOWN_TYPE_P2P_WAR = 0,
+	COUNTDOWN_TYPE_PARTY_WAR = 1,
+	COUNTDOWN_TYPE_GUILD_WAR = 2,
+	COUNTDOWN_TYPE_RACING = 3,
+	COUNTDOWN_TYPE_INVALID = 4
 } COUNTDOWN_TYPE;
 // T0_FC_COUNTDOWN
 typedef struct
@@ -9620,10 +9643,10 @@ typedef struct
 	UID64_t			CreatedPetUID;
 
 	char			PetName[SIZE_MAX_PET_NAME];
-	
+
 	INT				PetIndex;
 	INT				PetLevel;
-	
+
 	Experience_t	PetExp;
 
 	// 클라에서 필요한 정보 받아서 처리 by hskim
@@ -9749,7 +9772,7 @@ typedef struct
 	ClientIndex_t	AttackIndex;
 	ClientIndex_t	TargetIndex;	// target이 없는 skill인 경우 0
 	ATUM_DATE_TIME	UseTime;		// 2006-11-17 by dhjin, 2차 스킬 사용 시간
-//	BOOL			UseSkillTimeOk;	// 2006-11-17 by dhjin, 0 -> 2차 스킬 사용 대기 시간, 1 -> 2차 스킬 사용할 수 있다.
+	//	BOOL			UseSkillTimeOk;	// 2006-11-17 by dhjin, 0 -> 2차 스킬 사용 대기 시간, 1 -> 2차 스킬 사용할 수 있다.
 } MSG_FC_SKILL_USE_SKILL_OK;
 
 typedef struct
@@ -9856,19 +9879,19 @@ struct MEX_MONSTER_INFO
 	// operator overloading
 	MEX_MONSTER_INFO& operator=(const MONSTER_INFO& rhs)
 	{
-		this->MonsterUnitKind	= rhs.MonsterUnitKind;
+		this->MonsterUnitKind = rhs.MonsterUnitKind;
 		STRNCPY_MEMSET(this->MonsterName, rhs.MonsterName, SIZE_MAX_MONSTER_NAME);
-		this->Level				= rhs.Level;
-		this->HP				= rhs.MonsterHP;
-		this->Size				= rhs.Size;
-		this->Belligerence		= rhs.Belligerence;				// 호전성
-		this->AlphaBlending		= rhs.AlphaBlending;
-		this->RenderIndex		= rhs.RenderIndex;
-		this->ScaleValue		= rhs.ScaleValue;
-		this->TextureIndex		= rhs.TextureIndex;
-		this->SourceIndex		= rhs.SourceIndex;
-		this->MPOption			= rhs.MPOption;
-		this->ClickEvent		= rhs.ClickEvent;				// 2007-09-05 by dhjin
+		this->Level = rhs.Level;
+		this->HP = rhs.MonsterHP;
+		this->Size = rhs.Size;
+		this->Belligerence = rhs.Belligerence;				// 호전성
+		this->AlphaBlending = rhs.AlphaBlending;
+		this->RenderIndex = rhs.RenderIndex;
+		this->ScaleValue = rhs.ScaleValue;
+		this->TextureIndex = rhs.TextureIndex;
+		this->SourceIndex = rhs.SourceIndex;
+		this->MPOption = rhs.MPOption;
+		this->ClickEvent = rhs.ClickEvent;				// 2007-09-05 by dhjin
 		STRNCPY_MEMSET(this->PortraitFileName, rhs.PortraitFileName, SIZE_MAX_FILE_NAME);	// 2010-03-31 by dhjin, 인피니티(기지방어) - 몬스터 초상화 파일
 
 		return *this;
@@ -9940,15 +9963,15 @@ struct MEX_ITEM_INFO
 	USHORT		Range;							// 공격범위, 엔진류인 경우에는 부스터 가동 시 속도
 	UINT		Price;							// 최소 거래 수량의 가격
 	UINT		CashPrice;						// 최소 거래 수량의 현금 가격
-// 2009-04-21 by cmkwon, ITEM에 DesParam 필드 개수 8개로 늘리기 - 
-// 	BYTE		DestParameter1;					// 대상파라미터1
-// 	float		ParameterValue1;				// 수정파라미터1
-// 	BYTE		DestParameter2;					// 대상파라미터2
-// 	float		ParameterValue2;				// 수정파라미터2
-// 	BYTE		DestParameter3;					// 대상파라미터3
-// 	float		ParameterValue3;				// 수정파라미터3
-// 	BYTE		DestParameter4;					// 대상파라미터4
-// 	float		ParameterValue4;				// 수정파라미터4
+	// 2009-04-21 by cmkwon, ITEM에 DesParam 필드 개수 8개로 늘리기 - 
+	// 	BYTE		DestParameter1;					// 대상파라미터1
+	// 	float		ParameterValue1;				// 수정파라미터1
+	// 	BYTE		DestParameter2;					// 대상파라미터2
+	// 	float		ParameterValue2;				// 수정파라미터2
+	// 	BYTE		DestParameter3;					// 대상파라미터3
+	// 	float		ParameterValue3;				// 수정파라미터3
+	// 	BYTE		DestParameter4;					// 대상파라미터4
+	// 	float		ParameterValue4;				// 수정파라미터4
 	DestParam_t	ArrDestParameter[SIZE_MAX_DESPARAM_COUNT_IN_ITEM];	// 2011-08-01 by hskim, 파트너 시스템 2차 - 자료형 변경 (DestParameter - 255 -> 32767 지원)) - // 2009-04-21 by cmkwon, ITEM에 DesParam 필드 개수 8개로 늘리기 - 
 	float		ArrParameterValue[SIZE_MAX_DESPARAM_COUNT_IN_ITEM];	// 2009-04-21 by cmkwon, ITEM에 DesParam 필드 개수 8개로 늘리기 - 
 
@@ -10001,24 +10024,24 @@ struct MSG_FC_INFO_GET_CURRENT_MAP_INFO_OK
 
 enum
 {
-	HAPPYEV_STATE_TYPE_END				= 0,			// 일반 해피아워 이벤트 종료됨
-	HAPPYEV_STATE_TYPE_START			= 1,			// 일반 해피아워 이벤트 시작됨
-	HAPPYEV_STATE_TYPE_STARTING			= 2,			// 일반 해피아워 이벤트 진행중
-	PCBANG_HAPPYEV_STATE_TYPE_END		= 10,			// PCBang 해피아워 이벤트 종료됨
-	PCBANG_HAPPYEV_STATE_TYPE_START		= 11,			// PCBang 해피아워 이벤트 시작됨
-	PCBANG_HAPPYEV_STATE_TYPE_STARTING	= 12,			// PCBang 해피아워 이벤트 진행중
-	GAME_EVENT_GROUP_MOTHERSHIP_END			= 20,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
-	GAME_EVENT_GROUP_MOTHERSHIP_START		= 21,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
-	GAME_EVENT_GROUP_MOTHERSHIP_STARTING	= 22,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
-	GAME_EVENT_GROUP_ITEM_END				= 30,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
-	GAME_EVENT_GROUP_ITEM_START				= 31,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
-	GAME_EVENT_GROUP_ITEM_STARTING			= 32,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
-	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_END			= 40,		// 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
-	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_START		= 41,		// 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
-	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_STARTING	= 42,		// 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
-	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_2ND_END			= 50,		// 2012-05-08 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템 2차
-	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_2ND_START		= 51,		// 2012-05-08 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템 2차
-	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_2ND_STARTING	= 52		// 2012-05-08 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템 2차
+	HAPPYEV_STATE_TYPE_END = 0,			// 일반 해피아워 이벤트 종료됨
+	HAPPYEV_STATE_TYPE_START = 1,			// 일반 해피아워 이벤트 시작됨
+	HAPPYEV_STATE_TYPE_STARTING = 2,			// 일반 해피아워 이벤트 진행중
+	PCBANG_HAPPYEV_STATE_TYPE_END = 10,			// PCBang 해피아워 이벤트 종료됨
+	PCBANG_HAPPYEV_STATE_TYPE_START = 11,			// PCBang 해피아워 이벤트 시작됨
+	PCBANG_HAPPYEV_STATE_TYPE_STARTING = 12,			// PCBang 해피아워 이벤트 진행중
+	GAME_EVENT_GROUP_MOTHERSHIP_END = 20,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
+	GAME_EVENT_GROUP_MOTHERSHIP_START = 21,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
+	GAME_EVENT_GROUP_MOTHERSHIP_STARTING = 22,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
+	GAME_EVENT_GROUP_ITEM_END = 30,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
+	GAME_EVENT_GROUP_ITEM_START = 31,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
+	GAME_EVENT_GROUP_ITEM_STARTING = 32,		// 2008-05-20 by cmkwon, 모든 이벤트(HappyHoure,MotherShip,Item) 그룹 동시에 가능하게 - 
+	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_END = 40,		// 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
+	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_START = 41,		// 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
+	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_STARTING = 42,		// 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
+	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_2ND_END = 50,		// 2012-05-08 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템 2차
+	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_2ND_START = 51,		// 2012-05-08 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템 2차
+	GAME_EVENT_GROUP_CRYSTAL_SYSTEM_2ND_STARTING = 52		// 2012-05-08 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템 2차
 };
 struct MSG_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_OK
 {
@@ -10034,7 +10057,7 @@ struct MSG_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_OK
 	float			fWarPointRate2;			// 2007-06-26 by dhjin, 워포인트 이벤트 관련 추가
 
 	// 2013-08-12 by bckim, 신규해피아워
-	float			fHPRecoveryRate;	
+	float			fHPRecoveryRate;
 	float			fSHDRecoveryRate;
 	float			fSPRecoveryRate;
 	float			fWeaponEnchantRate;
@@ -10175,8 +10198,8 @@ typedef struct
 typedef struct
 {
 	INT		BuildingIndex;
-// 2006-02-08 by cmkwon
-//	float	fCityWarTexRate;			//
+	// 2006-02-08 by cmkwon
+	//	float	fCityWarTexRate;			//
 	float	fInflDistributionTexPercent;	// 2006-02-08 by cmkwon, 세력분포 세금
 } MSG_FC_CITY_REQUEST_ENTER_BUILDING_OK;	// F->C, 상점 진입 완료를 알림
 
@@ -10294,7 +10317,7 @@ typedef struct
 // 2014-01-27 by bckim, 버그 트랩
 typedef struct
 {
-	UID32_t				CharacterUniqueNumber;	
+	UID32_t				CharacterUniqueNumber;
 } MSG_FC_BUGTRAP_ACCEPT;		// C -> F
 // End. 2014-01-27 by bckim, 버그 트랩
 
@@ -10477,34 +10500,34 @@ typedef struct
 // 2010-04-20 by cmkwon, 신규 러키 머신 구현 - 
 enum EN_ENCHANT_LOGTYPE
 {
-	ENCHANT_LOGTYPE_UNKNOWN						= 0,		// 
-	ENCHANT_LOGTYPE_ENCHANT_FAIL				= 100,		// 인챈트 실패
-	ENCHANT_LOGTYPE_ENCHANT_SUCCESS				= 101,		// 인챈트 성공
-	ENCHANT_LOGTYPE_ENCHANT_INIT_FAIL			= 110,		// 인챈트 초기화 성공
-	ENCHANT_LOGTYPE_ENCHANT_INIT_SUCCESS		= 111,
-	ENCHANT_LOGTYPE_GAMBLE_PREFIX_FAIL			= 120,		// 접두 겜블 성공
-	ENCHANT_LOGTYPE_GAMBLE_PREFIX_SUCCESS		= 121,
-	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_FAIL			= 122,		// 접미 겜블 성공
-	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_SUCCESS		= 123,
-	ENCHANT_LOGTYPE_GAMBLE_PREFIX_INIT_FAIL		= 130,		// 접두 겜블 초기화 성공
-	ENCHANT_LOGTYPE_GAMBLE_PREFIX_INIT_SUCCESS	= 131,
-	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_INIT_FAIL		= 132,		// 접미 겜블 초기화 성공
-	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_INIT_SUCCESS	= 133
+	ENCHANT_LOGTYPE_UNKNOWN = 0,		// 
+	ENCHANT_LOGTYPE_ENCHANT_FAIL = 100,		// 인챈트 실패
+	ENCHANT_LOGTYPE_ENCHANT_SUCCESS = 101,		// 인챈트 성공
+	ENCHANT_LOGTYPE_ENCHANT_INIT_FAIL = 110,		// 인챈트 초기화 성공
+	ENCHANT_LOGTYPE_ENCHANT_INIT_SUCCESS = 111,
+	ENCHANT_LOGTYPE_GAMBLE_PREFIX_FAIL = 120,		// 접두 겜블 성공
+	ENCHANT_LOGTYPE_GAMBLE_PREFIX_SUCCESS = 121,
+	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_FAIL = 122,		// 접미 겜블 성공
+	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_SUCCESS = 123,
+	ENCHANT_LOGTYPE_GAMBLE_PREFIX_INIT_FAIL = 130,		// 접두 겜블 초기화 성공
+	ENCHANT_LOGTYPE_GAMBLE_PREFIX_INIT_SUCCESS = 131,
+	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_INIT_FAIL = 132,		// 접미 겜블 초기화 성공
+	ENCHANT_LOGTYPE_GAMBLE_SUFFIX_INIT_SUCCESS = 133
 };
-char *GetEnchatLogTypeString(int i_nEnchantLogTy);		// 2010-04-20 by cmkwon, 신규 러키 머신 구현 - 
-int GetEnchantLogType(ITEM *i_pEnchantItemInfo, BOOL i_bSuccessFlag);
+char* GetEnchatLogTypeString(int i_nEnchantLogTy);		// 2010-04-20 by cmkwon, 신규 러키 머신 구현 - 
+int GetEnchantLogType(ITEM* i_pEnchantItemInfo, BOOL i_bSuccessFlag);
 
 
 
 // 2013-07-01 by bckim, 10인챈트 미만 하이퍼카드처리, 로그추가, 운영툴 보완
 enum EN_TRY_ENCHANT_SUCCESS_LOGTYPE
 {
-	TRY_ENCHANT_FAIL		= 0,
-	TRY_ENCHANT_SUCCESS		= 1,				
-	TRY_ENCHANT_PREVENT_5	= 5,
-	TRY_ENCHANT_PREVENT_10	= 10
+	TRY_ENCHANT_FAIL = 0,
+	TRY_ENCHANT_SUCCESS = 1,
+	TRY_ENCHANT_PREVENT_5 = 5,
+	TRY_ENCHANT_PREVENT_10 = 10
 };
-char *GetTryEnchantSuccessTypeString(int i_nSuccessType);
+char* GetTryEnchantSuccessTypeString(int i_nSuccessType);
 // End. 2013-07-01 by bckim, 10인챈트 미만 하이퍼카드처리, 로그추가, 운영툴 보완
 
 
@@ -10674,7 +10697,7 @@ char *GetTryEnchantSuccessTypeString(int i_nSuccessType);
 
 #define T1_FL_LOG_BUGTRAP_ACCEPT						0xE5	// 229		// 2014-01-27 by bckim, 버그 트랩
 #define T1_FL_LOG_USE_SKILL								0xE6	// 230 - // 2014-03-31 by jekim, 스킬 사용 로그
-																													
+
 #define T1_FL_LOG_ALL_MONSTER_KILL_LOG					0xE7	// 230		// 2014-03-31 by bckim, 모든 몬스터 킬로그 ( 캐나다 요청)
 
 #define T1_FL_LOG_MONITOR_RELOAD_VERSION_INFO_OK		0xFE	// 254 - // 2013-03-14 by jhseol, 버전인포 리로드 시 접속 허용 IP리스트도 갱신
@@ -10843,7 +10866,7 @@ struct MSG_FL_LOG_LOGIN
 #ifdef S_ARARIO_HSSON
 	CHAR	PublisherName[SIZE_MAX_GAME_PUBLISHER_NAME];				// 2010-11 by dhjin, 아라리오 채널링 로그인.
 #endif
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%u|%s|%d.%d.%d.%d|%s\r\n", GetGameLogTypeString(i_nLogType), AccountUniqueNumber, AccountName
 			, IPAddress[0], IPAddress[1], IPAddress[2], IPAddress[3], ServerGroupName);
@@ -10860,7 +10883,7 @@ struct MSG_FL_LOG_LOGOUT
 #ifdef S_ARARIO_HSSON
 	CHAR	PublisherName[SIZE_MAX_GAME_PUBLISHER_NAME];				// 2010-11 by dhjin, 아라리오 채널링 로그인.
 #endif
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%u|%s|%d.%d.%d.%d|%s\r\n", GetGameLogTypeString(i_nLogType), AccountUniqueNumber, AccountName
 			, IPAddress[0], IPAddress[1], IPAddress[2], IPAddress[3], ServerGroupName);
@@ -10876,7 +10899,7 @@ struct FL_USER_LOG_BASE
 	MapIndex_t	CurrentMapIndex;
 	ChannelIndex_t	CurrentChannIdx;		// 2007-11-30 by cmkwon, 같은맵에 채널이 다를 경우도 워프 처리 - FL_USER_LOG_BASE 에 필드 추가
 	AVECTOR3	CurrentPosition;
-	char *GetLogBaseString(char *o_szLogString)
+	char* GetLogBaseString(char* o_szLogString)
 	{
 		// 2007-11-30 by cmkwon, 같은맵에 채널이 다를 경우도 워프 처리 - 게임 로그 내용 수정
 		sprintf(o_szLogString, "%d|%d|%d|(%d, %d, %d)", CharacterUniqueNumber, CurrentMapIndex, CurrentChannIdx, CurrentPosition.x, CurrentPosition.y, CurrentPosition.z);
@@ -10884,12 +10907,12 @@ struct FL_USER_LOG_BASE
 	}
 };
 
-struct MSG_FL_LOG_LEVEL: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_LEVEL : public FL_USER_LOG_BASE
 {
 	BYTE		FromLevel;
 	BYTE		ToLevel;
 	LONGLONG	TotalPlayTime;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%d|%I64d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), FromLevel, ToLevel, TotalPlayTime);
@@ -10897,11 +10920,11 @@ struct MSG_FL_LOG_LEVEL: public FL_USER_LOG_BASE
 	}
 };					// 레벨 변화
 
-struct MSG_FL_LOG_EXP: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_EXP : public FL_USER_LOG_BASE
 {
 	float		AcquiredExperience;	// 습득 경험치
 	LONGLONG	CharacterExperiece;	// 최종 경험치, Experience_t이나 DB에는 BIGINT로 저장
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%.0f|%I64d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), AcquiredExperience, CharacterExperiece);
@@ -10909,19 +10932,19 @@ struct MSG_FL_LOG_EXP: public FL_USER_LOG_BASE
 	}
 };					// 경험치 변화
 
-struct MSG_FL_LOG_STAT: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_STAT : public FL_USER_LOG_BASE
 {
 	BYTE	StatKind;				// STAT_XXX, 스탯의 종류
 	BYTE	RemainedBonusStat;		// 쓰고 남은 보너스 스탯
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%d|0\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), StatKind, RemainedBonusStat);
 		return o_szLogString;
 	}
-} ;					// 스탯 사용
+};					// 스탯 사용
 
-struct MSG_FL_LOG_GAME_START: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_GAME_START : public FL_USER_LOG_BASE
 {
 	CHAR	CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t	AccountUniqueNumber;
@@ -10929,7 +10952,7 @@ struct MSG_FL_LOG_GAME_START: public FL_USER_LOG_BASE
 	LONGLONG	TotalPlayTime;		// 총 게임 시간
 	UID32_t		PCBangUID;			// 2007-01-22 by dhjin, 가맹 PCBang UID
 	INT			GameContinueTimeOfToday;	// 2007-11-07 by cmkwon, 오늘게임지속시간 게임로그에 추가 - 필드 추가
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		// 2007-11-07 by cmkwon, 오늘게임지속시간 게임로그에 추가 - GameContinueTimeOfToday 추가
@@ -10939,7 +10962,7 @@ struct MSG_FL_LOG_GAME_START: public FL_USER_LOG_BASE
 	}
 };			// 게임 시작
 
-struct MSG_FL_LOG_GAME_END: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_GAME_END : public FL_USER_LOG_BASE
 {
 	CHAR	CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t	AccountUniqueNumber;
@@ -10962,7 +10985,7 @@ struct MSG_FL_LOG_GAME_END: public FL_USER_LOG_BASE
 	USHORT			UnitKind;											// 2011-12-12 by hskim, GLog 2차
 	BYTE			InfluenceType;										// 2011-12-12 by hskim, GLog 2차
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		// 2007-11-07 by cmkwon, 오늘게임지속시간 게임로그에 추가 - GameContinueTimeOfToday 추가
@@ -10974,31 +10997,31 @@ struct MSG_FL_LOG_GAME_END: public FL_USER_LOG_BASE
 
 
 // 2014-01-27 by bckim, 버그 트랩
-struct MSG_FL_LOG_BUGTRAP_ACCEPT: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_BUGTRAP_ACCEPT : public FL_USER_LOG_BASE
 {
 	CHAR			CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t			AccountUniqueNumber;
 	CHAR			AccountName[SIZE_MAX_ACCOUNT_NAME];
 	UINT			PlayTime;								// 이전 게임 시작 후 게임 시간
-	ATUM_DATE_TIME	LoginDate;	
-	INT				nCloseType;								
+	ATUM_DATE_TIME	LoginDate;
+	INT				nCloseType;
 	BYTE			IPAddress[4];
 	CHAR			ServerGroupName[SIZE_MAX_SERVER_NAME];
 	CHAR			PublisherName[SIZE_MAX_GAME_PUBLISHER_NAME];
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
-		sprintf(o_szLogString, "%s|%s|%s|%d|%u|%s|%d.%d.%d.%d|%s|%s|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName,nCloseType
-			, AccountUniqueNumber, AccountName,IPAddress[0], IPAddress[1], IPAddress[2], IPAddress[3],ServerGroupName,PublisherName, PlayTime);
+		sprintf(o_szLogString, "%s|%s|%s|%d|%u|%s|%d.%d.%d.%d|%s|%s|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName, nCloseType
+			, AccountUniqueNumber, AccountName, IPAddress[0], IPAddress[1], IPAddress[2], IPAddress[3], ServerGroupName, PublisherName, PlayTime);
 		return o_szLogString;
 	}
-};			
+};
 // End. 2014-01-27 by bckim, 버그 트랩
 
 
 // 2014-03-31 by jekim, 스킬 사용 로그
-struct MSG_FL_LOG_USE_SKILL: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_USE_SKILL : public FL_USER_LOG_BASE
 {
 	CHAR			CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t			AccountUniqueNumber;
@@ -11008,50 +11031,50 @@ struct MSG_FL_LOG_USE_SKILL: public FL_USER_LOG_BASE
 	INT				CurrentSP;
 	INT				UsedSP;
 	INT				Type;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
-		if(Type == 0)
+		if (Type == 0)
 		{
 			sprintf(o_szLogString, "%s|%s|%s|%u|%s|USE|%u|%I64d|%u|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName,
-			AccountUniqueNumber, AccountName,SkillNum,ItemAttribute,CurrentSP,UsedSP);
+				AccountUniqueNumber, AccountName, SkillNum, ItemAttribute, CurrentSP, UsedSP);
 		}
-		else if(Type == 1)
+		else if (Type == 1)
 		{
 			sprintf(o_szLogString, "%s|%s|%s|%u|%s|CANCEL|%u|%I64d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName,
-				AccountUniqueNumber, AccountName,SkillNum,ItemAttribute);
+				AccountUniqueNumber, AccountName, SkillNum, ItemAttribute);
 		}
-		else if(Type == 2)
+		else if (Type == 2)
 		{
 			sprintf(o_szLogString, "%s|%s|%s|%u|%s|EFFECT|%u|%I64d|%u|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName,
-				AccountUniqueNumber, AccountName,SkillNum,ItemAttribute,CurrentSP,UsedSP);
+				AccountUniqueNumber, AccountName, SkillNum, ItemAttribute, CurrentSP, UsedSP);
 		}
 		return o_szLogString;
 	}
-};			
+};
 // end 2014-03-31 by jekim, 스킬 사용 로그
 
-struct MSG_FL_LOG_QUEST_COMPLETION: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_QUEST_COMPLETION : public FL_USER_LOG_BASE
 {
 	INT		QuestIndex;				// 퀘스트 인덱스
 	BOOL	bFreePass;				// 2013-08-07 by bckim, 미션프리패스 아이템 //미션프리패스 아이템 사용유무 인자추가 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
-		sprintf(o_szLogString, "%s|%s|%d|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), QuestIndex, bFreePass?"USED":"NOT USED" ); // 2013-08-07 by bckim, 미션프리패스 아이템 //미션프리패스 아이템 사용유무 인자추가 
+		sprintf(o_szLogString, "%s|%s|%d|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), QuestIndex, bFreePass ? "USED" : "NOT USED"); // 2013-08-07 by bckim, 미션프리패스 아이템 //미션프리패스 아이템 사용유무 인자추가 
 		return o_szLogString;
 	}
 };		// 퀘스트 완료
 
 
-struct MSG_FL_LOG_QUEST_COMPENSATION: public FL_USER_LOG_BASE		// 2007-04-18 by cmkwon
+struct MSG_FL_LOG_QUEST_COMPENSATION : public FL_USER_LOG_BASE		// 2007-04-18 by cmkwon
 {
 	INT					QuestIndex;				// 2007-04-18 by cmkwon
 	INT					ExpOfCompensation;
 	INT					BonusStatOfCompensation;
 	INT					LenOfCompensation;		// 보상 아이템 수 (경험치, SPI제외)
 	ARRAY_(char);								// 보상 아이템
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString, char *i_szCompensationItemList)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString, char* i_szCompensationItemList)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%d|%d|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), QuestIndex, ExpOfCompensation, BonusStatOfCompensation, i_szCompensationItemList);
@@ -11060,10 +11083,10 @@ struct MSG_FL_LOG_QUEST_COMPENSATION: public FL_USER_LOG_BASE		// 2007-04-18 by 
 };	// 2007-01-16 by dhjin, 보상 아이템 로그
 
 
-struct MSG_FL_LOG_PKWIN: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_PKWIN : public FL_USER_LOG_BASE
 {
 	UID32_t	PeerCharacterUniqueNumber;	// 상대 캐릭터
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), PeerCharacterUniqueNumber);
@@ -11071,10 +11094,10 @@ struct MSG_FL_LOG_PKWIN: public FL_USER_LOG_BASE
 	}
 };						// 1:1 결투 승리
 
-struct MSG_FL_LOG_PKLOSS: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_PKLOSS : public FL_USER_LOG_BASE
 {
 	UID32_t	PeerCharacterUniqueNumber;	// 상대 캐릭터
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), PeerCharacterUniqueNumber);
@@ -11089,11 +11112,11 @@ struct MSG_FL_LOG_PKLOSS: public FL_USER_LOG_BASE
 #define DAMAGE_BY_FUEL_ALLIN	((BYTE)3)
 #define DAMAGE_BY_NA			((BYTE)10)	// 알 수 없거나 불필요한 경우
 
-struct MSG_FL_LOG_DEAD: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_DEAD : public FL_USER_LOG_BASE
 {
 	INT			DamageKind;			// DAMAGE_BY_XXX, 최종 데미지 종류(PK, 충돌, 몬스터 공격 등)
 	ItemNum_t	ItemNum;			// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 무기 아이템 정보
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), DamageKind, ItemNum);
@@ -11101,12 +11124,12 @@ struct MSG_FL_LOG_DEAD: public FL_USER_LOG_BASE
 	}
 };					// 기체 폭파
 
-struct MSG_FL_LOG_WARP: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_WARP : public FL_USER_LOG_BASE
 {
 	MapIndex_t	TargetMapIndex;		// 워프할 맵
 	ChannelIndex_t	TargetChannIdx;		// 2007-11-30 by cmkwon, 같은맵에 채널이 다를 경우도 워프 처리 - MSG_FL_LOG_WARP 에 필드 추가
 	AVECTOR3	TargetPosition;		// 워프할 맵의 위치
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		// 2007-11-30 by cmkwon, 같은맵에 채널이 다를 경우도 워프 처리 - 게임 로그 수정
@@ -11117,20 +11140,20 @@ struct MSG_FL_LOG_WARP: public FL_USER_LOG_BASE
 
 enum SPEEDHACK_CHECK_TYPE
 {
-	SPEEDHACK_CHECK_TYPE_BY_SERVER		= 0,
-	SPEEDHACK_CHECK_TYPE_BY_CLIENT		= 1
+	SPEEDHACK_CHECK_TYPE_BY_SERVER = 0,
+	SPEEDHACK_CHECK_TYPE_BY_CLIENT = 1
 };
 
-struct MSG_FL_LOG_SPEED_HACK: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_SPEED_HACK : public FL_USER_LOG_BASE
 {
 	BYTE	CheckType;
 	INT 	ReceivedMoveCounts;
 	INT		EngineItemNum;
 	INT		ServerPastTime;
 	INT		ClientPastTime;
-	INT		PastDistance;	
+	INT		PastDistance;
 	INT		CurrentSpeed;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%d|%d|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CheckType, ReceivedMoveCounts
@@ -11139,13 +11162,13 @@ struct MSG_FL_LOG_SPEED_HACK: public FL_USER_LOG_BASE
 	}
 };
 
-struct MSG_FL_LOG_CREATE_CHARACTER: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_CREATE_CHARACTER : public FL_USER_LOG_BASE
 {
 	CHAR	CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t	AccountUniqueNumber;
 	CHAR	AccountName[SIZE_MAX_ACCOUNT_NAME];
 	USHORT	UnitKind;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%u|%s|%d|1\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName, AccountUniqueNumber
@@ -11154,14 +11177,14 @@ struct MSG_FL_LOG_CREATE_CHARACTER: public FL_USER_LOG_BASE
 	}
 };		// 캐릭터 생성
 
-struct MSG_FL_LOG_DELETE_CHARACTER: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_DELETE_CHARACTER : public FL_USER_LOG_BASE
 {
 	CHAR	CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t	AccountUniqueNumber;
 	CHAR	AccountName[SIZE_MAX_ACCOUNT_NAME];
 	USHORT	UnitKind;
 	USHORT	Level;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%u|%s|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), CharacterName, AccountUniqueNumber
@@ -11170,7 +11193,7 @@ struct MSG_FL_LOG_DELETE_CHARACTER: public FL_USER_LOG_BASE
 	}
 };		// 캐릭터 삭제
 
-struct MSG_FL_LOG_MEMORY_HACK: public FL_USER_LOG_BASE		// 2005-12-20 by cmkwon
+struct MSG_FL_LOG_MEMORY_HACK : public FL_USER_LOG_BASE		// 2005-12-20 by cmkwon
 {
 	int		nItemKind;			// 체크 아이템 종류(1형무기, 2형무기, 엔진, 아머)
 	int		nItemNum0;			// ItemNum
@@ -11179,7 +11202,7 @@ struct MSG_FL_LOG_MEMORY_HACK: public FL_USER_LOG_BASE		// 2005-12-20 by cmkwon
 	float	fValidValue;		// 유효한 값
 	float	fCurrentValue;		// 현재 값
 	int		nParam1;			// 체크 타입에 따라 의미가 다르다
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%d|%I64d|%d|%5.2f|%5.2f|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), nItemKind, nItemNum0
@@ -11188,10 +11211,10 @@ struct MSG_FL_LOG_MEMORY_HACK: public FL_USER_LOG_BASE		// 2005-12-20 by cmkwon
 	}
 };
 
-struct MSG_FL_LOG_PvEWIN: public FL_USER_LOG_BASE		// 2006-03-06 by cmkwon
+struct MSG_FL_LOG_PvEWIN : public FL_USER_LOG_BASE		// 2006-03-06 by cmkwon
 {
 	UID32_t	PeerCharacterUniqueNumber;	// 상대 캐릭터
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), PeerCharacterUniqueNumber);
@@ -11199,10 +11222,10 @@ struct MSG_FL_LOG_PvEWIN: public FL_USER_LOG_BASE		// 2006-03-06 by cmkwon
 	}
 };						// 1:1 결투 승리
 
-struct MSG_FL_LOG_PvELOSS: public FL_USER_LOG_BASE		// 2006-03-06 by cmkwon
+struct MSG_FL_LOG_PvELOSS : public FL_USER_LOG_BASE		// 2006-03-06 by cmkwon
 {
 	UID32_t	PeerCharacterUniqueNumber;	// 상대 캐릭터
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%u\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), PeerCharacterUniqueNumber);
@@ -11217,7 +11240,7 @@ struct FL_ITEM_LOG_BASE
 {
 	UID32_t		CharacterUniqueNumber;
 	MapIndex_t	CurrentMapIndex;
-	char *GetLogItemBaseString(char *o_szLogString)
+	char* GetLogItemBaseString(char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%u|%d", CharacterUniqueNumber, CurrentMapIndex);
 		return o_szLogString;
@@ -11229,7 +11252,7 @@ struct ITEM_FOR_LOG
 	UID64_t		ItemUniqueNumber;
 	INT			ItemNum;
 	INT			CurrentCount;
-	char *GetLogItemString(char *o_szLogString)
+	char* GetLogItemString(char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%I64d|%d|%d", ItemUniqueNumber, ItemNum, CurrentCount);
 		return o_szLogString;
@@ -11239,24 +11262,24 @@ struct ITEM_FOR_LOG
 	// operator overloading
 	ITEM_FOR_LOG& operator=(const ITEM_GENERAL& rhs)
 	{
-		this->ItemUniqueNumber	= rhs.UniqueNumber;
-		this->ItemNum			= rhs.ItemNum;
-		this->CurrentCount		= rhs.CurrentCount;
+		this->ItemUniqueNumber = rhs.UniqueNumber;
+		this->ItemNum = rhs.ItemNum;
+		this->CurrentCount = rhs.CurrentCount;
 
 		return *this;
 	}
 #endif // _ATUM_SERVER
 };
 
-struct MSG_FL_LOG_ITEM_CHARACTER_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_CHARACTER_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;	// 변경 개수, 			// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - MSG_FL_LOG_ITEM_STORE_ITEM 에 필드 추가
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
-// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - 
-//		sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
+		// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - 
+		//		sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
 		sprintf(o_szLogString, "%s|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem), ChangeCount);
 		return o_szLogString;
 	}
@@ -11264,17 +11287,17 @@ struct MSG_FL_LOG_ITEM_CHARACTER_ITEM: public FL_ITEM_LOG_BASE
 
 
 // 2012-12-17 by bckim, 길드창고 아이템 이동 관련 추가로그 
-struct MSG_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;
 	UID32_t			GuildUID;	/// 길드 UID
 	CHAR			GuildName[SIZE_MAX_GUILD_NAME];	/// 길드 이름 
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
-		sprintf(o_szLogString, "%s|%s|%d|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp),GuildUID,GuildName,Item4Log.GetLogItemString(szItem), ChangeCount);
+		sprintf(o_szLogString, "%s|%s|%d|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), GuildUID, GuildName, Item4Log.GetLogItemString(szItem), ChangeCount);
 		return o_szLogString;
 	}
 };
@@ -11282,13 +11305,13 @@ struct MSG_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT: public FL_ITEM_LOG_BASE
 
 
 
-struct MSG_FL_LOG_ITEM_GET_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_GET_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	UID32_t			StoreCharacterUID;			// 2006-11-01 by cmkwon
 	INT				ChangeCount;
 	BYTE			ItemUpdateType;				// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - IUT_XXX
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - 
@@ -11296,29 +11319,29 @@ struct MSG_FL_LOG_ITEM_GET_ITEM: public FL_ITEM_LOG_BASE
 		sprintf(o_szLogString, "%s|%s|%d|%s|%d|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), StoreCharacterUID, Item4Log.GetLogItemString(szItem), ChangeCount, GetItemUpdateTypeString(ItemUpdateType));
 		return o_szLogString;
 	}
-} ;			// Drop Item 습득
+};			// Drop Item 습득
 
 // 2013-08-05 by bckim, 용해 대상아이템 로그 추가
-struct MSG_FL_LOG_ITEM_DISSOLUTION_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_DISSOLUTION_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;
-	BYTE			ItemUpdateType;	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	BYTE			ItemUpdateType;
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem), ChangeCount, GetItemUpdateTypeString(ItemUpdateType));
 		return o_szLogString;
 	}
-} ;		
+};
 // End. 2013-08-05 by bckim, 용해 대상아이템 로그 추가
 
-struct MSG_FL_LOG_ITEM_GET_ITEM_2: public FL_ITEM_LOG_BASE		// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - 새로 추가함
+struct MSG_FL_LOG_ITEM_GET_ITEM_2 : public FL_ITEM_LOG_BASE		// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - 새로 추가함
 {
 	ITEM_FOR_LOG	Item4Log;
 	UID32_t			StoreCharacterUID;			// 2006-11-01 by cmkwon
 	INT				ChangeCount;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%d|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), StoreCharacterUID, Item4Log.GetLogItemString(szItem), ChangeCount);
@@ -11340,7 +11363,7 @@ typedef MSG_FL_LOG_ITEM_GET_ITEM_2		MSG_FL_LOG_ITEM_DRAW_FROM_STORE;		// 창고에�
 
 typedef MSG_FL_LOG_ITEM_GET_ITEM_2		MSG_FL_LOG_ITEM_GET_WITH_SAME_ACCOUNT;		// 2012-12-27 by bckim, 동일계정, 각각의 케릭터간의 아이템 이동시 로그추가
 
-struct MSG_FL_LOG_ITEM_TRADE_SEND: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_TRADE_SEND : public FL_ITEM_LOG_BASE
 {
 	UID32_t			PeerCharacterUniqueNumber;	// 거래 상대
 	char			PeerCharacterName[SIZE_MAX_CHARACTER_NAME];	// 거래 상대
@@ -11349,7 +11372,7 @@ struct MSG_FL_LOG_ITEM_TRADE_SEND: public FL_ITEM_LOG_BASE
 	BYTE			bGiftItem;					// 2007-11-13 by cmkwon, 선물하기 기능 추가 - 선물하기 로그 플래그 변수
 	BYTE			bRearrangeItem;				// 2007-11-29 by cmkwon, 카운터블아이템 합쳐지는 게임 로그 남기기 - 
 	BYTE			bStoreItem;					// 2007-11-29 by cmkwon, 카운터블아이템 합쳐지는 게임 로그 남기기 - FALSE 이면 인벤, FALSE 가 아니면 캐릭터창고
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		// 2007-11-13 by cmkwon, 선물하기 기능 추가 - 선물하기 로그 플래그 변수
@@ -11360,7 +11383,7 @@ struct MSG_FL_LOG_ITEM_TRADE_SEND: public FL_ITEM_LOG_BASE
 	}
 };					// 아이템 거래: 주기
 
-struct MSG_FL_LOG_ITEM_TRADE_RECV: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_TRADE_RECV : public FL_ITEM_LOG_BASE
 {
 	UID32_t			PeerCharacterUniqueNumber;	// 거래 상대
 	char			PeerCharacterName[SIZE_MAX_CHARACTER_NAME];	// 거래 상대
@@ -11369,7 +11392,7 @@ struct MSG_FL_LOG_ITEM_TRADE_RECV: public FL_ITEM_LOG_BASE
 	BYTE			bGiftItem;					// 2007-11-13 by cmkwon, 선물하기 기능 추가 - 선물하기 로그 플래그 변수
 	BYTE			bRearrangeItem;				// 2007-11-29 by cmkwon, 카운터블아이템 합쳐지는 게임 로그 남기기 - 
 	BYTE			bStoreItem;					// 2007-11-29 by cmkwon, 카운터블아이템 합쳐지는 게임 로그 남기기 - FALSE 이면 인벤, FALSE 가 아니면 캐릭터창고
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		// 2007-11-13 by cmkwon, 선물하기 기능 추가 - 선물하기 로그 플래그 변수
@@ -11381,7 +11404,7 @@ struct MSG_FL_LOG_ITEM_TRADE_RECV: public FL_ITEM_LOG_BASE
 };					// 아이템 거래: 받기
 
 // 2007-06-05 by cmkwon, 레어정보/인챈트정보도 저장하기
-struct MSG_FL_LOG_ITEM_THROWAWAY_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_THROWAWAY_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;	// 거래 개수
@@ -11389,32 +11412,32 @@ struct MSG_FL_LOG_ITEM_THROWAWAY_ITEM: public FL_ITEM_LOG_BASE
 	INT				SuffixCodeNum;			// 2007-06-05 by cmkwon
 	INT				EnchatItemNumCount;		// 2007-06-05 by cmkwon, EnchantItemNum List Count
 	_ARRAY(INT);							// 2007-06-05 by cmkwon, EnchantItemNum List
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%d|%d", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem), ChangeCount
 			, PrefixCodeNum, SuffixCodeNum);
 		return o_szLogString;
 	}
-} ;	// 아이템 버리기
+};	// 아이템 버리기
 
 // 2013-07-01 by bckim, 10인챈트 미만 하이퍼카드처리, 로그추가, 운영툴 보완
-struct MSG_FL_LOG_ITEM_TRY_ENCHANT_INFO: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_TRY_ENCHANT_INFO : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				Success;
-	INT				PrefixCodeNum;	
-	INT				SuffixCodeNum;	
+	INT				PrefixCodeNum;
+	INT				SuffixCodeNum;
 	INT				EnchantCount;
-	_ARRAY(INT);					
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	_ARRAY(INT);
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%s|%d|%d|%d", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem),
-			GetTryEnchantSuccessTypeString(Success),EnchantCount, PrefixCodeNum, SuffixCodeNum);
+			GetTryEnchantSuccessTypeString(Success), EnchantCount, PrefixCodeNum, SuffixCodeNum);
 		return o_szLogString;
 	}
-} ;	
+};
 
 struct MSG_FL_LOG_ITEM_TRY_ENCHANT_INFO_STRING
 {
@@ -11424,7 +11447,7 @@ struct MSG_FL_LOG_ITEM_TRY_ENCHANT_INFO_STRING
 // End. 2013-07-01 by bckim, 10인챈트 미만 하이퍼카드처리, 로그추가, 운영툴 보완
 
 
-struct MSG_FL_LOG_ITEM_BUY_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_BUY_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;	// 거래 개수
@@ -11436,23 +11459,23 @@ struct MSG_FL_LOG_ITEM_BUY_ITEM: public FL_ITEM_LOG_BASE
 	CHAR			CharacterName[SIZE_MAX_CHARACTER_NAME]; // 2010-06-01 by shcho, GLogDB 관련 -
 	INT				CharacterLevel;							// 2010-06-01 by shcho, GLogDB 관련 - GLogDB필드가 int 형이므로 Int로 받는다.
 	CHAR			ItemName[SIZE_MAX_ITEM_NAME];			// 2010-06-01 by shcho, GLogDB 관련 -
-	
+
 	BOOL			GLog;									// 2011-12-12 by hskim, GLog 2차
 	UID32_t			AccountUniqueNumber;					// 2011-12-12 by hskim, GLog 2차
 	INT				ItemNum;								// 2011-12-12 by hskim, GLog 2차
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
-			, ChangeCount, RemainedMoney,IsCashItem, nRemainCountForLimitedEdition);
+			, ChangeCount, RemainedMoney, IsCashItem, nRemainCountForLimitedEdition);
 		return o_szLogString;
 	}
 };			// 아이템 구매
 
 
 // 2012-10-16 by bckim, 캐쉬아이템 지불정보 Log 추가
-struct MSG_FL_LOG_ITEM_BUY_CASH_PRICE: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_BUY_CASH_PRICE : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;								// 아이템 고유넘버, 아이템번호
 	UID32_t			AccountUniqueNumber;					// 계정 고유 넘버 
@@ -11467,14 +11490,14 @@ struct MSG_FL_LOG_ITEM_BUY_CASH_PRICE: public FL_ITEM_LOG_BASE
 	INT64			nInfinity3;
 	INT64			nInfinity4;
 	INT64			nInfinity5;
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
-		char szTemp[1024]; 
+		char szTemp[1024];
 		//						%s|%s|%d|%d   |%d|%A|%T|%S   |%W   |%C   |%1   |%2   |%3   |%4   |%5|														
-		sprintf(o_szLogString, "%s|%s|%d|%I64d|%d|%d|%d|%I64d|%I64d|%I64d|%I64d|%I64d|%I64d|%I64d|%d\r\n", GetGameLogTypeString(i_nLogType),GetLogItemBaseString(szTemp)
-			,AccountUniqueNumber, Item4Log.ItemUniqueNumber, Item4Log.ItemNum, nAmount, nType
-			,nSPI,nWarPoint,nCash,nInfinity1,nInfinity2,nInfinity3,nInfinity4,nInfinity5);
+		sprintf(o_szLogString, "%s|%s|%d|%I64d|%d|%d|%d|%I64d|%I64d|%I64d|%I64d|%I64d|%I64d|%I64d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp)
+			, AccountUniqueNumber, Item4Log.ItemUniqueNumber, Item4Log.ItemNum, nAmount, nType
+			, nSPI, nWarPoint, nCash, nInfinity1, nInfinity2, nInfinity3, nInfinity4, nInfinity5);
 		return o_szLogString;
 	}
 };
@@ -11495,21 +11518,21 @@ struct MSG_FL_LOG_ITEM_INITIALIZED_GUILD_STORE
 	INT			Kind;
 	INT			CurrentCount;
 
-	INT			GuildUniqueNumber;	
+	INT			GuildUniqueNumber;
 	CHAR		GuildName[SIZE_MAX_GUILD_NAME];
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%s|%d|%s|%d|%s|%I64d|%d|%d\r\n", GetGameLogTypeString(i_nLogType)
-			,GuildUniqueNumber, GuildName, AccountUniqueNumber,AccountName,CharacterUniqueNumber,CharacterName, ItemUniqueNumber,ItemNum,CurrentCount);
+			, GuildUniqueNumber, GuildName, AccountUniqueNumber, AccountName, CharacterUniqueNumber, CharacterName, ItemUniqueNumber, ItemNum, CurrentCount);
 		return o_szLogString;
-	}				
+	}
 };
 // 2012-12-20 by bckim, 세력초기화시 길드창고아이템이 길드장에게 옮겨지는 아이템 로그. End
 
 
 
-struct MSG_FL_LOG_ITEM_SELL_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_SELL_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;	// 거래 개수
@@ -11518,7 +11541,7 @@ struct MSG_FL_LOG_ITEM_SELL_ITEM: public FL_ITEM_LOG_BASE
 	INT				SuffixCodeNum;			// 2007-07-20 by cmkwon, 판매아이템 로그 추가 - 접미
 	INT				EnchatItemNumCount;		// 2007-07-20 by cmkwon, 판매아이템 로그 추가 - EnchantItemNum List Count
 	_ARRAY(INT);							// 2007-07-20 by cmkwon, 판매아이템 로그 추가 - EnchantItemNum List
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		// 2007-07-20 by cmkwon, 판매아이템 로그 추가 - 접두/접미 추가
@@ -11528,10 +11551,10 @@ struct MSG_FL_LOG_ITEM_SELL_ITEM: public FL_ITEM_LOG_BASE
 	}
 };		// 아이템 판매
 
-struct MSG_FL_LOG_ITEM_USE_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_USE_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
@@ -11539,10 +11562,10 @@ struct MSG_FL_LOG_ITEM_USE_ITEM: public FL_ITEM_LOG_BASE
 	}
 };			// 아이템 사용
 
-struct MSG_FL_LOG_ITEM_USE_ENERGY: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_USE_ENERGY : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
@@ -11550,7 +11573,7 @@ struct MSG_FL_LOG_ITEM_USE_ENERGY: public FL_ITEM_LOG_BASE
 	}
 };		// 에너지류 아이템 사용
 
-struct MSG_FL_LOG_ITEM_USE_ENCHANT: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_USE_ENCHANT : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				EnchantLogType;	// ENCHANT_LOGTYPE_FAIL, ENCHANT_LOGTYPE_SUCCESS, ENCHANT_LOGTYPE_TARGETITEM, ENCHANT_LOGTYPE_ATTACHITEM
@@ -11562,8 +11585,8 @@ struct MSG_FL_LOG_ITEM_USE_ENCHANT: public FL_ITEM_LOG_BASE
 	BOOL			bSuccessFlag;				// 2010-04-20 by cmkwon, 신규 러키 머신 구현 - 
 	UID64_t			arrAddedItemUID[2];			// 2010-04-20 by cmkwon, 신규 러키 머신 구현 - (추가 수정) - 
 	INT				arrAddedItemNum[2];			// 2010-04-20 by cmkwon, 신규 러키 머신 구현 - (추가 수정) - 
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 
@@ -11583,33 +11606,33 @@ struct MSG_FL_LOG_ITEM_USE_ENCHANT: public FL_ITEM_LOG_BASE
 	}
 };		// 인챈트류 아이템 사용
 
-struct MSG_FL_LOG_ITEM_STORE_ITEM: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_STORE_ITEM : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ChangeCount;	// 변경 개수, 			// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - MSG_FL_LOG_ITEM_STORE_ITEM 에 필드 추가
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
-// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - 
-//		sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
+		// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - 
+		//		sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
 		sprintf(o_szLogString, "%s|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem), ChangeCount);
 		return o_szLogString;
 	}
 };		// 2008-02-15 by cmkwon, 인벤<->창고 이동 로그 수정 - 인벤-->창고 로 카운터블 아이템 이동시 창고에 해당 아이템 추가 및 개수 변경시 저장, // 창고 소유 아이템 저장, 창고 시작 아이템
 
 
-struct MSG_FL_LOG_ITEM_USE_MIX: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_USE_MIX : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	BOOL						IsSuccess;										// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - 
 	ITEM_UID_W_ITEMNUM_COUNT	arrSourceItemList[COUNT_ITEM_MIXING_SOURCE];	// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		// 2008-09-26 by cmkwon, 조합시 GameLog 수정 - 아래와 같이 수정 함
 		//sprintf(o_szLogString, "%s|%s|%s|-1\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem));
-		sprintf(o_szLogString, "%s|%s|%s|%s|%I64d|%d|%d|%I64d|%d|%d|%I64d|%d|%d|%I64d|%d|%d|%I64d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), 
-			((IsSuccess)?"SUCCESS":"FAIL") , Item4Log.GetLogItemString(szItem)  // 2013-07-02 by bckim, 조합로그 보완 
+		sprintf(o_szLogString, "%s|%s|%s|%s|%I64d|%d|%d|%I64d|%d|%d|%I64d|%d|%d|%I64d|%d|%d|%I64d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp),
+			((IsSuccess) ? "SUCCESS" : "FAIL"), Item4Log.GetLogItemString(szItem)  // 2013-07-02 by bckim, 조합로그 보완 
 			, arrSourceItemList[0].ItemUID, arrSourceItemList[0].ItemNum, arrSourceItemList[0].Count, arrSourceItemList[1].ItemUID, arrSourceItemList[1].ItemNum, arrSourceItemList[1].Count
 			, arrSourceItemList[2].ItemUID, arrSourceItemList[2].ItemNum, arrSourceItemList[2].Count, arrSourceItemList[3].ItemUID, arrSourceItemList[3].ItemNum, arrSourceItemList[3].Count
 			, arrSourceItemList[4].ItemUID, arrSourceItemList[4].ItemNum, arrSourceItemList[4].Count);
@@ -11617,13 +11640,13 @@ struct MSG_FL_LOG_ITEM_USE_MIX: public FL_ITEM_LOG_BASE
 	}
 };			// 조합 정보, CurrentCount( 0이면 실패 1이면 성공)
 
-struct MSG_FL_LOG_ITEM_USE_CHANGE_CHARACTER_NAME_ORIGIN: public FL_ITEM_LOG_BASE
+struct MSG_FL_LOG_ITEM_USE_CHANGE_CHARACTER_NAME_ORIGIN : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	char			szOriginCharName[SIZE_MAX_CHARACTER_NAME];
 	char			szNewCharName[SIZE_MAX_CHARACTER_NAME];
 	DWORD			Padding[SIZE_MAX_PACKET_PADDING];		// 2011-07-21 by hskim, 인증 서버 구현 - 기존 서버와 호환 안되도록 구조체 크기 바꿈
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%s|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
@@ -11635,13 +11658,13 @@ struct MSG_FL_LOG_ITEM_USE_CHANGE_CHARACTER_NAME_ORIGIN: public FL_ITEM_LOG_BASE
 typedef MSG_FL_LOG_ITEM_TRADE_SEND		MSG_FL_LOG_ITEM_BAZAAR_SEND;		// 2006-07-28 by cmkwon
 typedef MSG_FL_LOG_ITEM_TRADE_RECV		MSG_FL_LOG_ITEM_BAZAAR_RECV;		// 2006-07-28 by cmkwon
 
-struct MSG_FL_LOG_ITEM_SPI: public FL_ITEM_LOG_BASE			// 2006-10-27 by cmkwon
+struct MSG_FL_LOG_ITEM_SPI : public FL_ITEM_LOG_BASE			// 2006-10-27 by cmkwon
 {
 	ITEM_FOR_LOG	Item4Log;
 	BYTE			ItemUpdateType;	// 2006-10-27 by cmkwon, IUT_XXXX
 	INT				ChangeCount;	// 변경 개수
 	INT				RemainedMoney;	// 남은 돈
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%s|%d|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
@@ -11654,7 +11677,7 @@ struct MSG_FL_LOG_ITEM_SPI: public FL_ITEM_LOG_BASE			// 2006-10-27 by cmkwon
 //typedef MSG_FL_LOG_ITEM_GET_ITEM		MSG_FL_LOG_ITEM_GET_ITEM_BY_ITEMEVENT;		// 56 - ItemEvent에 의한 아이템 추가, 2007-01-11 by cmkwon
 typedef MSG_FL_LOG_ITEM_GET_ITEM_2		MSG_FL_LOG_ITEM_GET_ITEM_BY_ITEMEVENT;		// 56 - ItemEvent에 의한 아이템 추가, 2007-01-11 by cmkwon
 
-struct MSG_FL_LOG_WARPOINT																						
+struct MSG_FL_LOG_WARPOINT
 {// 58 - WarPoint 변경, 2007-05-15 by dhjin
 	UID32_t			AccountUID;
 	CHAR			AccountName[SIZE_MAX_ACCOUNT_NAME];
@@ -11665,7 +11688,7 @@ struct MSG_FL_LOG_WARPOINT
 	INT				CumulativeWarPoint;
 	BYTE			WPUpdateType;				// 2009-01-22 by cmkwon, 전쟁 관련 게임 로그 수정 - MSG_FL_LOG_WARPOINT에 추가
 	INT				ArenaPlayCount;				// 2012-04-12 by jhseol, 아레나 추가개발 - 보상 : 플레이한 아레나 횟수 로그 추가
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		// 2009-01-22 by cmkwon, 전쟁 관련 게임 로그 수정 - 아래와 같이 추가함.
 		//sprintf(o_szLogString, "%s|%d|%s|%d|%s|%d|%d|%d\r\n"
@@ -11681,14 +11704,14 @@ struct MSG_FL_LOG_WARPOINT
 	}
 };
 
-struct MSG_FL_LOG_ARENA_TEAM_MATCH																				
+struct MSG_FL_LOG_ARENA_TEAM_MATCH
 {// 59 - Arena 팀 매칭, 2007-06-11 by dhjin
 	BYTE			TeamMode;
 	BYTE			TeamSize;
 	BYTE			StartLevel;
 	BYTE			EndLevel;
 	MapIndex_t		ArenaMap;	// 2012-04-12 by jhseol, 아레나 추가개발 - 선택한 아레나 맵 로그 추가
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		//////////////////////////////////////////////////////////////////////
 		// 2012-04-12 by jhseol, 아레나 추가개발 - 선택한 아레나 맵 로그 추가
@@ -11699,14 +11722,14 @@ struct MSG_FL_LOG_ARENA_TEAM_MATCH
 	}
 };
 
-struct MSG_FL_LOG_TUTORIAL_COMPLETION																				
+struct MSG_FL_LOG_TUTORIAL_COMPLETION
 {// 60 - Tutorial, 2007-07-06 by dhjin
 	UID32_t			AccountUID;
 	CHAR			AccountName[SIZE_MAX_ACCOUNT_NAME];
 	UID32_t			CharacterUID;
 	CHAR			CharacterName[SIZE_MAX_CHARACTER_NAME];
 	INT				TutorialNum;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%s|%d|%s|%d\r\n"
 			, GetGameLogTypeString(i_nLogType), AccountUID, AccountName, CharacterUID, CharacterName, TutorialNum);
@@ -11728,7 +11751,7 @@ struct MSG_FL_LOG_GUILD_STORE
 	INT				SuffixCodeNum;
 	INT				ItemResultCount;
 	INT				ItemChangeCount;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%s|%d|%s|%d|%s|%I64d|%d|%d|%d|%d|%d\r\n"
 			, GetGameLogTypeString(i_nLogType), GuildUID, GuildName, AccountUID, AccountName, CharacterUID, CharacterName
@@ -11737,25 +11760,25 @@ struct MSG_FL_LOG_GUILD_STORE
 	}
 };
 
-struct MSG_FL_LOG_OUTPOST_START																				
+struct MSG_FL_LOG_OUTPOST_START
 {// 61 - OutPost시작 로그, 2007-10-02 by dhjin
 	MapIndex_t			OutPostMapIdx;
 	BYTE				PossessInflTy;
 	UID32_t				PossessGuildUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%u\r\n", GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID);
 		return o_szLogString;
 	}
 };
 
-struct MSG_FL_LOG_OUTPOST_END																				
+struct MSG_FL_LOG_OUTPOST_END
 {// 62 - OutPost종료 로그, 2007-10-02 by dhjin
 	MapIndex_t			OutPostMapIdx;
 	BYTE				PossessInflTy;
 	UID32_t				PossessGuildUID;
 	CHAR				PossessGuildName[SIZE_MAX_GUILD_NAME];
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|%u|%s\r\n"
 			, GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID, PossessGuildName);
@@ -11763,7 +11786,7 @@ struct MSG_FL_LOG_OUTPOST_END
 	}
 };
 
-struct MSG_FL_LOG_EXPEDIENCYFUND																				
+struct MSG_FL_LOG_EXPEDIENCYFUND
 {// 63 - 판공비 증/감 로그, 2007-10-02 by dhjin
 	MapIndex_t		MapIndex;
 	UID32_t			CharacterUID;	// 2007-10-16 by cmkwon, 로그 추가 - 추가
@@ -11772,11 +11795,11 @@ struct MSG_FL_LOG_EXPEDIENCYFUND
 	INT				Count;
 	INT				ExpediencyFundVRate;	// 2007-10-16 by cmkwon, 로그 추가 - EXPEDIENCYFUND_RATE_VALUE 로 나눈것이 실제 징수율
 	INT				TotalCount;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		// 2007-10-16 by cmkwon, 로그 추가 - 수정함
 		sprintf(o_szLogString, "%s|%d|%u|%u|%d|%d|%.3f|%d\r\n"
-			, GetGameLogTypeString(i_nLogType), MapIndex, CharacterUID, GuildUID, Increase, Count, ((float)ExpediencyFundVRate)/EXPEDIENCYFUND_RATE_VALUE, TotalCount);
+			, GetGameLogTypeString(i_nLogType), MapIndex, CharacterUID, GuildUID, Increase, Count, ((float)ExpediencyFundVRate) / EXPEDIENCYFUND_RATE_VALUE, TotalCount);
 		return o_szLogString;
 	}
 };
@@ -11790,8 +11813,8 @@ typedef struct
 	INT				ClientCount;
 	INT				MonsterCount;
 	char			MapName[SIZE_MAX_MAP_NAME];						// 2010-06-01 by shcho, GLogDB 관련 -
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), MapIndex, ChannelIndex, ClientCount, MonsterCount);
 		return o_szLogString;
 	}
@@ -11802,20 +11825,20 @@ typedef struct
 	INT				ClientCount;
 	INT				MonsterCount;
 	BOOL			bGlogUpdate;		// 2010-06-01 by shcho, GLogDB 관련 -
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|0|0|%d|%d\r\n", GetGameLogTypeString(i_nLogType), ClientCount, MonsterCount);
 		return o_szLogString;
 	}
 } MSG_FL_LOG_SERVER_INFO_TOTAL;
 
-struct MSG_FL_LOG_HACKING_LOG: public FL_USER_LOG_BASE
+struct MSG_FL_LOG_HACKING_LOG : public FL_USER_LOG_BASE
 {
 	char			AccountName0[SIZE_MAX_ACCOUNT_NAME];
 	long			hackingCode;
 	char			szErrString[SIZE_STRING_128];			// 2006-10-20 by cmkwon, 추가함(해킹 프로그램명)
 	char			IPAddress[SIZE_MAX_IPADDRESS];
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%s|%s\r\n", GetGameLogTypeString(i_nLogType), AccountName0, GetLogBaseString(szTemp), hackingCode, IPAddress, szErrString);
@@ -11828,14 +11851,14 @@ struct MSG_FL_LOG_HACKING_LOG: public FL_USER_LOG_BASE
 typedef struct
 {
 	MAP_CHANNEL_INDEX	MapChannel;
- 	INT					MonsterUnitKind;
- 	ATUM_DATE_TIME		CreatedTime;
- 	ATUM_DATE_TIME		DeadTime;
- 	char				AttackUser[SIZE_MAX_USERLIST_ON_BOSS_MONSTER_DEAD][SIZE_MAX_CHARACTER_NAME];
- 	INT					LenOfDropItemList;		// Drop Item List string의 길이
+	INT					MonsterUnitKind;
+	ATUM_DATE_TIME		CreatedTime;
+	ATUM_DATE_TIME		DeadTime;
+	char				AttackUser[SIZE_MAX_USERLIST_ON_BOSS_MONSTER_DEAD][SIZE_MAX_CHARACTER_NAME];
+	INT					LenOfDropItemList;		// Drop Item List string의 길이
 	ARRAY_(char);								// Drop Item List string
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString, char *i_szDropItemList)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString, char* i_szDropItemList)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\r\n", GetGameLogTypeString(i_nLogType), MapChannel.MapIndex, MapChannel.ChannelIndex, MonsterUnitKind
 			, CreatedTime.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING)), DeadTime.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING))
 			, AttackUser[0], AttackUser[1], AttackUser[2], AttackUser[3], AttackUser[4], AttackUser[5]
@@ -11847,28 +11870,28 @@ typedef struct
 // 2014-03-31 by bckim, 모든 몬스터 킬로그 ( 캐나다 요청) 
 struct MSG_FL_LOG_ALL_MONSTER_KILL_LOG
 {
-	INT			MonsterLogType;	
+	INT			MonsterLogType;
 
-	UID32_t		CharacterUID;	
-	CHAR		CharacterName[SIZE_MAX_CHARACTER_NAME];	
+	UID32_t		CharacterUID;
+	CHAR		CharacterName[SIZE_MAX_CHARACTER_NAME];
 	UID32_t		AccountUID;
 	CHAR		AccountName[SIZE_MAX_ACCOUNT_NAME];
 	MapIndex_t	CurrentMapIndex;
-	
+
 	INT			MonsterUnitKind;
-	char		MonsterName[SIZE_MAX_MONSTER_NAME];	
+	char		MonsterName[SIZE_MAX_MONSTER_NAME];
 	INT			MonsterHP;			// 만피	
 	float		CurrentHP;			// 현피 
 	float		Damage;
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		//sprintf(o_szLogString, "%s|%d|%d|%s|%d|%s|%d|%d|%s|%f|%f\r\n", GetGameLogTypeString(i_nLogType),MonsterLogType,CharacterUID,	CharacterName,AccountUID,AccountName,
-		sprintf(o_szLogString, "%s|%s|%d|%s|%d|%s|%d|%d|%s|%8.1f(%d)|%5.2f\r\n", GetGameLogTypeString(i_nLogType),GetKillLogTypeString(MonsterLogType),CharacterUID,	CharacterName,AccountUID,AccountName,
-			CurrentMapIndex,MonsterUnitKind,MonsterName,CurrentHP,MonsterHP,Damage);
+		sprintf(o_szLogString, "%s|%s|%d|%s|%d|%s|%d|%d|%s|%8.1f(%d)|%5.2f\r\n", GetGameLogTypeString(i_nLogType), GetKillLogTypeString(MonsterLogType), CharacterUID, CharacterName, AccountUID, AccountName,
+			CurrentMapIndex, MonsterUnitKind, MonsterName, CurrentHP, MonsterHP, Damage);
 		return o_szLogString;
 	}
-};	
+};
 // End. 2014-03-31 by bckim, 모든 몬스터 킬로그 ( 캐나다 요청) 
 
 struct MSG_FL_LOG_INFLWAR_START
@@ -11877,8 +11900,8 @@ struct MSG_FL_LOG_INFLWAR_START
 	BYTE				InfluenceType2;
 	INT					MonsterUnitKind;
 	BYTE				MonBell;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), MothershipCreatedMapIdx, InfluenceType2, MonsterUnitKind, MonBell);
 		return o_szLogString;
 	}
@@ -11890,8 +11913,8 @@ struct MSG_FL_LOG_INFLWAR_END
 	INT					MonsterUnitKind;
 	BYTE				MonBell;
 	BOOL				DeadFlag;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), MothershipCreatedMapIdx, InfluenceType2, MonsterUnitKind, MonBell, DeadFlag);
 		return o_szLogString;
 	}
@@ -11905,8 +11928,8 @@ struct MSG_FL_LOG_OUTPOSTWAR_RESET_START
 	UID32_t				GuildUID4Reset;
 	UID32_t				ResetUserGuildUID;
 	UID32_t				ResetUserCharacterUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%u|%d|%u|%u|%u\r\n", GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID, InflTy4Reset, GuildUID4Reset, ResetUserGuildUID, ResetUserCharacterUID);
 		return o_szLogString;
 	}
@@ -11918,8 +11941,8 @@ struct MSG_FL_LOG_OUTPOSTWAR_RESET_DESTROY
 	UID32_t				PossessGuildUID;
 	BYTE				InflTy4Reset;
 	UID32_t				GuildUID4Reset;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%u|%d|%u\r\n", GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID, InflTy4Reset, GuildUID4Reset);
 		return o_szLogString;
 	}
@@ -11929,8 +11952,8 @@ struct MSG_FL_LOG_OUTPOSTWAR_RESET_COMPLETE
 	MapIndex_t			OutPostMapIdx;
 	BYTE				PossessInflTy;
 	UID32_t				PossessGuildUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%u\r\n", GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID);
 		return o_szLogString;
 	}
@@ -11946,7 +11969,7 @@ struct MSG_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY
 	UID32_t				GuildUID4Reset;
 	UID32_t				ArrGuildUID[SIZE_MAX_OUTPOSTWAR_DAMAGELIST];
 	float				ArrDamage[SIZE_MAX_OUTPOSTWAR_DAMAGELIST];
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		// 2007-10-16 by cmkwon, 데미지 리스트를 외부에서 만들어 이어서 붙인다
 		sprintf(o_szLogString, "%s|%d|%d|%u|%d|%u", GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID, InflTy4Reset, GuildUID4Reset);
@@ -11961,32 +11984,32 @@ struct MSG_FL_LOG_OUTPOSTWAR_SET_NEXTTIME
 	UID32_t				UserGuildUID;
 	UID32_t				UserCharacterUID;
 	ATUM_DATE_TIME		NextTime;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%u|%u|%u|%s\r\n", GetGameLogTypeString(i_nLogType), OutPostMapIdx, PossessInflTy, PossessGuildUID, UserGuildUID, UserCharacterUID, NextTime.GetDateTimeString(STRNBUF(SIZE_MAX_ATUM_DATE_TIME_STRING)));
 		return o_szLogString;
-	}	
+	}
 };
 
 struct MSG_FL_LOG_POLL_VOTE
 {// 2007-11-08 by dhjin
 	UID32_t				VoteCharacterUID;
 	UID32_t				CharacterUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d\r\n", GetGameLogTypeString(i_nLogType), VoteCharacterUID, CharacterUID);
 		return o_szLogString;
-	}	
+	}
 };
 
 struct MSG_FL_LOG_POLL_DELETE_LEADERCANDIDATE
 {// 2007-11-08 by dhjin
 	UID32_t				CharacterUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d\r\n", GetGameLogTypeString(i_nLogType), CharacterUID);
 		return o_szLogString;
-	}	
+	}
 };
 
 struct MSG_FL_LOG_DISMEMBER_GUILD
@@ -11994,26 +12017,26 @@ struct MSG_FL_LOG_DISMEMBER_GUILD
 	UID32_t				GuildUID;
 	char				GuildName[SIZE_MAX_GUILD_NAME];
 	UID32_t				GuildCommanderUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GuildUID, GuildName, GuildCommanderUID);
 		return o_szLogString;
-	}	
+	}
 };
 
-struct MSG_FL_LOG_NOTIFY_MSG_DELETE: public SNOTIFY_MSG		// 2007-11-28 by cmkwon, 통지시스템 구현 -
+struct MSG_FL_LOG_NOTIFY_MSG_DELETE : public SNOTIFY_MSG		// 2007-11-28 by cmkwon, 통지시스템 구현 -
 {
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%I64d|%u|%d|%s|%u|%s|%s\r\n", GetGameLogTypeString(i_nLogType), NotifyMsgUID, CharacterUID, NotifyMsgType, NotifyMsgString, SenderCharacterUID, SenderCharacterName, CreateTime.GetDateTimeString(STRNBUF(SIZE_MAX_ATUM_DATE_TIME_STRING)));
 		return o_szLogString;
-	}	
+	}
 };
-struct MSG_FL_LOG_USE_COUPON: public FL_USER_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 쿠폰 사용 게임 로그에 추가 - 
+struct MSG_FL_LOG_USE_COUPON : public FL_USER_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 쿠폰 사용 게임 로그에 추가 - 
 {
 	char AccountName[SIZE_MAX_ACCOUNT_NAME];
 	char CouponNumber[SIZE_MAX_COUPON_NUMBER];
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), AccountName, CouponNumber);
@@ -12021,44 +12044,44 @@ struct MSG_FL_LOG_USE_COUPON: public FL_USER_LOG_BASE		// 2008-01-23 by cmkwon, 
 	}
 };
 
-struct MSG_FL_LOG_ITEM_ATTACH_ITEM: public FL_ITEM_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 장착/장착해제 게임 로그에 추가 - 
+struct MSG_FL_LOG_ITEM_ATTACH_ITEM : public FL_ITEM_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 장착/장착해제 게임 로그에 추가 - 
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ReaminTimeSec;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
-		char szTemp[1024], szItem[1024];
-		sprintf(o_szLogString, "%s|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
-			, ReaminTimeSec);
-		return o_szLogString;
-	}	
-};
-struct MSG_FL_LOG_ITEM_DETACH_ITEM: public FL_ITEM_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 장착/장착해제 게임 로그에 추가 - 
-{
-	ITEM_FOR_LOG	Item4Log;
-	INT				ReaminTimeSec;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
 			, ReaminTimeSec);
 		return o_szLogString;
 	}
 };
-struct MSG_FL_LOG_ITEM_DELETE: public FL_ITEM_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 장착/장착해제 게임 로그에 추가 - 
+struct MSG_FL_LOG_ITEM_DETACH_ITEM : public FL_ITEM_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 장착/장착해제 게임 로그에 추가 - 
+{
+	ITEM_FOR_LOG	Item4Log;
+	INT				ReaminTimeSec;
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
+		char szTemp[1024], szItem[1024];
+		sprintf(o_szLogString, "%s|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
+			, ReaminTimeSec);
+		return o_szLogString;
+	}
+};
+struct MSG_FL_LOG_ITEM_DELETE : public FL_ITEM_LOG_BASE		// 2008-01-23 by cmkwon, S_F, S_L: 장착/장착해제 게임 로그에 추가 - 
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ItemDeleteType;
 	ATUM_DATE_TIME	atCreatedTime;			// 2009-11-17 by cmkwon, 시작제한 관련 아이템 삭제시 로그 정보 추가 - MSG_FL_LOG_ITEM_DELETE
 	INT				nUsedTime;				// 2009-11-17 by cmkwon, 시작제한 관련 아이템 삭제시 로그 정보 추가 - MSG_FL_LOG_ITEM_DELETE
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		// 2009-11-17 by cmkwon, 시작제한 관련 아이템 삭제시 로그 정보 추가 - 
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%s|%s|%d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
 			, GetItemDeleteTypeString(ItemDeleteType), atCreatedTime.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING)), nUsedTime);
 		return o_szLogString;
-	}		
+	}
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -12069,13 +12092,13 @@ struct MSG_FL_LOG_MS_WAR
 	INT				MonsterUID;
 	INT				ContributionPoint;
 	ATUM_DATE_TIME	MSWarStartTime;
-	BYTE			WinInfluence;	
+	BYTE			WinInfluence;
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%s|%d\r\n", GetGameLogTypeString(i_nLogType), AttInfluence, MonsterUID, ContributionPoint, MSWarStartTime.GetDateTimeString(STRNBUF(SIZE_MAX_ATUM_DATE_TIME_STRING)), WinInfluence);
 		return o_szLogString;
-	}	
+	}
 };
 
 struct MSG_FL_LOG_SP_WAR
@@ -12083,13 +12106,13 @@ struct MSG_FL_LOG_SP_WAR
 	BYTE			AttInfluence;
 	INT				SPSummonMapIndex;
 	ATUM_DATE_TIME	SPWarStartTime;
-	BYTE			WinInfluence;	
+	BYTE			WinInfluence;
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%s|%d\r\n", GetGameLogTypeString(i_nLogType), AttInfluence, SPSummonMapIndex, SPWarStartTime.GetDateTimeString(STRNBUF(SIZE_MAX_ATUM_DATE_TIME_STRING)), WinInfluence);
 		return o_szLogString;
-	}	
+	}
 };
 
 struct MSG_FL_LOG_WAR_CONTRIBUTION
@@ -12100,11 +12123,11 @@ struct MSG_FL_LOG_WAR_CONTRIBUTION
 	INT			nPay;
 	BYTE		byPayType;
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%I64d|%d|%d\r\n", GetGameLogTypeString(i_nLogType), CharacterUID, nMapIndex, nContribution, nPay, byPayType);
 		return o_szLogString;
-	}	
+	}
 };
 
 struct MSG_FL_LOG_WAR_CONTRIBUTION_GEAR
@@ -12117,8 +12140,8 @@ struct MSG_FL_LOG_WAR_CONTRIBUTION_GEAR
 	INT				nIGearCount;
 	INT				nAGearCount;
 	INT				nMGearCount;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%I64d|%I64d|%I64d|%I64d|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType)
 			, nTotalBGearContribution, nTotalIGearContribution, nTotalAGearContribution, nTotalMGearContribution
 			, nBGearCount, nIGearCount, nAGearCount, nMGearCount);
@@ -12128,15 +12151,15 @@ struct MSG_FL_LOG_WAR_CONTRIBUTION_GEAR
 
 struct MSG_FL_LOG_LUCKY_DROP
 {// 2009-03-31 by dhjin, 럭키머신 로그
-	INT				MysteryItemDropNum;				
+	INT				MysteryItemDropNum;
 	INT				DropItemNum;
 	ATUM_DATE_TIME	Starttime;				// 럭키머신 시작 시간, 2008-11-04 by dhjin, 럭키머신
 	ATUM_DATE_TIME	Endtime;				// 럭키머신 종료 시간, 2008-11-04 by dhjin, 럭키머신
 	INT				CountPerPeriod;			// 기간동안 드랍될 최대 아이템 수, 2008-11-04 by dhjin, 럭키머신
 	INT				DropCount;				// 기간동안 현재 드랍된 아이템 수, 2008-11-04 by dhjin, 럭키머신
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%d|%d|%s|%s|%d|%d\r\n", GetGameLogTypeString(i_nLogType)
 			, MysteryItemDropNum, DropItemNum, Starttime.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING)), Endtime.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING))
 			, CountPerPeriod, DropCount);
@@ -12165,8 +12188,8 @@ struct MSG_FL_LOG_INFINITY_START {
 		MEMSET_ZERO(this, sizeof(MSG_FL_LOG_INFINITY_START));
 	}
 	// end 2014-01-24 by jhseol, 인피 게임로그 정보 추가
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		// 2014-01-24 by jhseol, 인피 게임로그 정보 추가
 //		sprintf(o_szLogString, "%s|%I64d|%d|%d|%s(%d)|%d|%d|%f|%f|%f|%d\r\n", GetGameLogTypeString(i_nLogType)
 //			, InfinityCreateUID, MainServerID, InfluenceType, CharacterName, CharacterUID, Level, UnitKind, Experience, CurrentHP, CurrentDP, CurrentSP);
@@ -12177,12 +12200,12 @@ struct MSG_FL_LOG_INFINITY_START {
 	}
 };
 
-struct MSG_FL_LOG_INFINITY_START_ITEM : public FL_ITEM_LOG_BASE	{
+struct MSG_FL_LOG_INFINITY_START_ITEM : public FL_ITEM_LOG_BASE {
 	// 194 - // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 시작시 아이템 복사 정보
 	ITEM_FOR_LOG	Item4Log;
 	INT				ReaminTimeMSec;
 	UID64_t			MainSvrItemUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%I64d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
 			, ReaminTimeMSec, MainSvrItemUID);
@@ -12193,28 +12216,28 @@ struct MSG_FL_LOG_INFINITY_START_ITEM : public FL_ITEM_LOG_BASE	{
 struct MSG_FL_LOG_INFINITY_CINEMA {
 	// 195 - // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 연출 로그
 	InfinityCreateUID_t		InfinityCreateUID;		// 해당 방의 고유 번호
-	MSec_t					StartTime;	
+	MSec_t					StartTime;
 	EffectIdx_t				EffectIdx;
-	ObjectIdx_t				ObjectIdx;	
+	ObjectIdx_t				ObjectIdx;
 	ObjectNum_t				ChangeObjectIdx;
 	MonIdx_t				MonsterIdx;
 	MSec_t					CameraTremble;
 	CinemaTalk_t			CinemaTalk[SIZE_MAX_CINEMATALK_DESCRIPTION];
 	QuestIndex_t			QuestIndex;		// 2011-03-09 by hskim, 인피니티 3차 - 시네마 퀘스트 인덱스 설정 추가 -
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		sprintf(o_szLogString, "%s|%I64d|%d|%d|%d|%d|%d|%d|%s|%d\r\n", GetGameLogTypeString(i_nLogType)
 			, InfinityCreateUID, StartTime, EffectIdx, ObjectIdx, ChangeObjectIdx, MonsterIdx, CameraTremble, CinemaTalk, QuestIndex);		// 2011-03-09 by hskim, 인피니티 3차 - 시네마 퀘스트 인덱스 설정 추가
 		return o_szLogString;
 	}
 };
 
-struct MSG_FL_LOG_MONSTER_SKILL	{
+struct MSG_FL_LOG_MONSTER_SKILL {
 	// 196 - // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 몬스터 스킬 사용시
 	MonIdx_t				MonsterIdx;
 	ItemNum_t				MonsterSkillNum;
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		sprintf(o_szLogString, "%s|%d|%d\r\n", GetGameLogTypeString(i_nLogType)
 			, MonsterIdx, MonsterSkillNum);
 		return o_szLogString;
@@ -12225,7 +12248,7 @@ struct MSG_FL_LOG_HPACTION_TALK {
 	// 197 - // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 몬스터 대화 사용시
 	MonIdx_t				MonsterIdx;
 	HPTalk_t				HPTalk[SIZE_MAX_HPTALK_DESCRIPTION];
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		sprintf(o_szLogString, "%s|%d|%s\r\n", GetGameLogTypeString(i_nLogType)
 			, MonsterIdx, HPTalk);
 		return o_szLogString;
@@ -12257,8 +12280,8 @@ struct MSG_FL_LOG_INFINITY_FIN {
 		MEMSET_ZERO(this, sizeof(MSG_FL_LOG_INFINITY_FIN));
 	}
 	// end 2014-01-24 by jhseol, 인피 게임로그 정보 추가
-		
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		// 2014-01-24 by jhseol, 인피 게임로그 정보 추가
 // 		sprintf(o_szLogString, "%s|%I64d|%d|%d|%s(%d)|%d|%d|%f|%f|%f|%d|%d|%d|%d\r\n", GetGameLogTypeString(i_nLogType)
 // 			, InfinityCreateUID, MainServerID, InfluenceType, CharacterName, CharacterUID, Level, UnitKind, Experience, CurrentHP, CurrentDP, CurrentSP, Clear, KillCount, DeathCount);
@@ -12269,12 +12292,12 @@ struct MSG_FL_LOG_INFINITY_FIN {
 	}
 };
 
-struct MSG_FL_LOG_INFINITY_FIN_ITEM : public FL_ITEM_LOG_BASE	{
+struct MSG_FL_LOG_INFINITY_FIN_ITEM : public FL_ITEM_LOG_BASE {
 	// 199 - // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 종료시 아이템 복사 정보 
 	ITEM_FOR_LOG	Item4Log;
 	INT				ReaminTimeMSec;
 	UID64_t			MainSvrItemUID;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%I64d\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
 			, ReaminTimeMSec, MainSvrItemUID);
@@ -12282,18 +12305,18 @@ struct MSG_FL_LOG_INFINITY_FIN_ITEM : public FL_ITEM_LOG_BASE	{
 	}
 };
 
-struct MSG_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER	{
+struct MSG_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER {
 	// 200 - // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가, 종료시 살아있는 몬스터 정보
 	MonIdx_t				MonsterIdx;
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString) {		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString) {
 		sprintf(o_szLogString, "%s|%d\r\n", GetGameLogTypeString(i_nLogType)
 			, MonsterIdx);
 		return o_szLogString;
-	}	
+	}
 };
 
-struct MSG_FL_LOG_PET_LEVEL: public FL_USER_LOG_BASE	{
+struct MSG_FL_LOG_PET_LEVEL : public FL_USER_LOG_BASE {
 	// 213 - // 2011-09-15 by hskim, 파트너 시스템 2차 - 파트너 레벨 변경
 	BYTE		FromPetLevel;
 	BYTE		ToPetLevel;
@@ -12303,7 +12326,7 @@ struct MSG_FL_LOG_PET_LEVEL: public FL_USER_LOG_BASE	{
 	Experience_t	PetTotalExp;
 	Experience_t	PetAcquisitionExp;
 	// 2012-10-04 by hskim, 한국 자체 서비스 (가비아 IDC) - 파트너 로그 보안
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024];
 		sprintf(o_szLogString, "%s|%s|%I64d|%f|%f|%d|%d|%I64d\r\n", GetGameLogTypeString(i_nLogType), GetLogBaseString(szTemp), UniqueNumber, PetTotalExp, PetAcquisitionExp, FromPetLevel, ToPetLevel, TotalPlayTime);
@@ -12315,9 +12338,9 @@ struct MSG_FL_LOG_PET_LEVEL: public FL_USER_LOG_BASE	{
 struct MSG_FL_LOG_CONNECT_USER_NEW
 {
 	char AccountName[SIZE_MAX_ACCOUNT_NAME];
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%s\r\n", GetGameLogTypeString(i_nLogType), AccountName);
 		return o_szLogString;
 	}
@@ -12326,9 +12349,9 @@ struct MSG_FL_LOG_CONNECT_USER_NEW
 struct MSG_FL_LOG_CONNECT_USER_LOGIN
 {
 	char AccountName[SIZE_MAX_ACCOUNT_NAME];
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{		
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%s\r\n", GetGameLogTypeString(i_nLogType), AccountName);
 		return o_szLogString;
 	}
@@ -12345,10 +12368,10 @@ struct MSG_FL_GLOG_NEW_ACCOUNT_INFO
 	char AccountName[SIZE_MAX_ACCOUNT_NAME];		// 계정이름
 	CHAR		CertifyCode[USER_CI_SIZE];			// CI 값		// 2014-02-10 by jhseol&bckim, 체널링 - 한국 유저 정보 추가저장
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
-	{	
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
+	{
 		sprintf(o_szLogString, "%s|%s|%d|%I64d|%s\r\n", GetGameLogTypeString(i_nLogType), RegisteredDate.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING))
-			,Type, AccountUniqueNumber, AccountName);
+			, Type, AccountUniqueNumber, AccountName);
 		return o_szLogString;
 	}
 };
@@ -12364,10 +12387,10 @@ struct MSG_FL_LOG_ACCOUNTCONNECT
 
 	MSG_FL_LOG_ACCOUNTCONNECT()
 	{
-		LogType			=	NULL;
-		UserSerial		=	NULL;
-		IP				=	NULL;
-		GameServerID	=	NULL;	
+		LogType = NULL;
+		UserSerial = NULL;
+		IP = NULL;
+		GameServerID = NULL;
 	}
 };
 
@@ -12385,15 +12408,15 @@ struct MSG_FL_LOG_CHARDATA
 
 	MSG_FL_LOG_CHARDATA()
 	{
-		LogType			=	NULL;
-		UserSerial		=	NULL;
-		CharSerial		=	NULL;
-		Class			=	NULL;
-		Lv				=	NULL;
-		Exp				=	NULL;
-		GameMoney		=	NULL;
-		Playtime		=	NULL;
-		GameServerID	=	NULL;
+		LogType = NULL;
+		UserSerial = NULL;
+		CharSerial = NULL;
+		Class = NULL;
+		Lv = NULL;
+		Exp = NULL;
+		GameMoney = NULL;
+		Playtime = NULL;
+		GameServerID = NULL;
 	}
 };
 
@@ -12401,53 +12424,53 @@ struct MSG_FL_LOG_ITEM
 {
 	SHORT		LogType;
 	UID64_t		ItemSerial;
-	UID64_t		Count1;			
-	UID64_t		Count2;			
-	UID64_t		CharSerial;			
-	int			CharLv;	
-	int			GameServerID;	
-	
+	UID64_t		Count1;
+	UID64_t		Count2;
+	UID64_t		CharSerial;
+	int			CharLv;
+	int			GameServerID;
+
 	MSG_FL_LOG_ITEM()
 	{
-		LogType			=	NULL;
-		ItemSerial		=	NULL;
-		Count1			=	NULL;
-		Count2			=	NULL;
-		CharSerial		=	NULL;	
-		CharLv			=	NULL;
-		GameServerID	=	NULL;
-	}		
+		LogType = NULL;
+		ItemSerial = NULL;
+		Count1 = NULL;
+		Count2 = NULL;
+		CharSerial = NULL;
+		CharLv = NULL;
+		GameServerID = NULL;
+	}
 };
 
 struct MSG_FL_LOG_ITEMSTATE
-{			
-	SHORT		LogType;			
-	UID64_t		ItemSerial;	
-	UID64_t		Count;		
-	UID64_t		CharSerial;	
+{
+	SHORT		LogType;
+	UID64_t		ItemSerial;
+	UID64_t		Count;
+	UID64_t		CharSerial;
 	int			CharLv;
-	int			GameServerID;	
-	
+	int			GameServerID;
+
 	MSG_FL_LOG_ITEMSTATE()
 	{
-		LogType			=	NULL;			
-		ItemSerial		=	NULL;		
-		Count			=	NULL;		
-		CharSerial		=	NULL;		
-		CharLv			=	NULL;
-		GameServerID	=	NULL;
+		LogType = NULL;
+		ItemSerial = NULL;
+		Count = NULL;
+		CharSerial = NULL;
+		CharLv = NULL;
+		GameServerID = NULL;
 	}
 };
 
 struct MSG_FL_LOG_SERVER
-{	
-	SHORT		LogType;			
+{
+	SHORT		LogType;
 	int			GameServerID;
-	
+
 	MSG_FL_LOG_SERVER()
-	{	
-		LogType			=	NULL;
-		GameServerID	=	NULL;
+	{
+		LogType = NULL;
+		GameServerID = NULL;
 	}
 };
 // end 2012-10-08 by khkim, GLog 2차
@@ -12463,8 +12486,8 @@ struct MSG_FL_LOG_STATISTICS_MONEY
 	StatisticsMoneyUnit_t	ClusterOrb;
 	StatisticsMoneyUnit_t	GalaxyOrb;
 	StatisticsMoneyUnit_t	UniverseOrb;
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|\r\n", GetGameLogTypeString(i_nLogType));
 		return o_szLogString;
@@ -12473,7 +12496,7 @@ struct MSG_FL_LOG_STATISTICS_MONEY
 // end 2012-01-16 by hskim, 통계 - 화패
 
 // 2012-10-10 by hskim, 기간제 속성 구현 (기간제 외형) 
-struct MSG_FL_LOG_FIXED_TERM_SHAPE_START: public FL_ITEM_LOG_BASE	
+struct MSG_FL_LOG_FIXED_TERM_SHAPE_START : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ShapeItemNum;		// 외형 번호
@@ -12481,7 +12504,7 @@ struct MSG_FL_LOG_FIXED_TERM_SHAPE_START: public FL_ITEM_LOG_BASE
 	ATUM_DATE_TIME	Starttime;			// 외형 변경 시작 시간
 	ATUM_DATE_TIME	Endtime;			// 외형 변경 종료 시간
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%d|%s|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
@@ -12490,7 +12513,7 @@ struct MSG_FL_LOG_FIXED_TERM_SHAPE_START: public FL_ITEM_LOG_BASE
 	}
 };
 
-struct MSG_FL_LOG_FIXED_TERM_SHAPE_END: public FL_ITEM_LOG_BASE	
+struct MSG_FL_LOG_FIXED_TERM_SHAPE_END : public FL_ITEM_LOG_BASE
 {
 	ITEM_FOR_LOG	Item4Log;
 	INT				ShapeItemNum;		// 외형 변경 아이템 번호
@@ -12498,7 +12521,7 @@ struct MSG_FL_LOG_FIXED_TERM_SHAPE_END: public FL_ITEM_LOG_BASE
 	ATUM_DATE_TIME	Starttime;			// 외형 변경 시작 시간
 	ATUM_DATE_TIME	Endtime;			// 외형 변경 종료 시간
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		char szTemp[1024], szItem[1024];
 		sprintf(o_szLogString, "%s|%s|%s|%d|%d|%s|%s\r\n", GetGameLogTypeString(i_nLogType), GetLogItemBaseString(szTemp), Item4Log.GetLogItemString(szItem)
@@ -12584,10 +12607,10 @@ struct MSG_FL_LOG_FIXED_TERM_SHAPE_END: public FL_ITEM_LOG_BASE
 typedef struct
 {
 	USHORT	NumOfClients;
-// 2013-10-01 by jekim, 툴에 각 세력별 접속 유저 수 추가.
+	// 2013-10-01 by jekim, 툴에 각 세력별 접속 유저 수 추가.
 	USHORT  NumOfBCU;
 	USHORT  NumOfANI;
-// end 2013-10-01 by jekim, 툴에 각 세력별 접속 유저 수 추가.
+	// end 2013-10-01 by jekim, 툴에 각 세력별 접속 유저 수 추가.
 } MSG_FM_GET_NUM_CLIENTS_OK;
 typedef MSG_FM_GET_NUM_CLIENTS_OK		MSG_PM_GET_NUM_CLIENTS_OK;
 typedef MSG_FM_GET_NUM_CLIENTS_OK		MSG_IM_GET_NUM_CLIENTS_OK;
@@ -12611,7 +12634,7 @@ typedef MSG_FM_PRINTMAP		MSG_NM_PRINTMAP;
 typedef struct
 {
 	MAP_CHANNEL_INDEX		MapChannelIndex;
-} MSG_FM_SAVE_MAPBLOCK_INFO, *PMSG_FM_SAVE_MAPBLOCK_INFO;
+} MSG_FM_SAVE_MAPBLOCK_INFO, * PMSG_FM_SAVE_MAPBLOCK_INFO;
 
 typedef MSG_FM_SAVE_MAPBLOCK_INFO		MSG_NM_SAVE_MAPBLOCK_INFO;
 
@@ -12649,7 +12672,7 @@ typedef struct
 typedef struct
 {
 	BOOL	bChagedFlag;
-} MSG_FM_CHANGE_BANDWIDTH_FLAG_OK, *PMSG_FM_CHANGE_BANDWIDTH_FLAG_OK;
+} MSG_FM_CHANGE_BANDWIDTH_FLAG_OK, * PMSG_FM_CHANGE_BANDWIDTH_FLAG_OK;
 typedef MSG_FM_CHANGE_BANDWIDTH_FLAG_OK		MSG_PM_CHANGE_BANDWIDTH_FLAG_OK;
 typedef MSG_FM_CHANGE_BANDWIDTH_FLAG_OK		MSG_NM_CHANGE_BANDWIDTH_FLAG_OK;
 typedef MSG_FM_CHANGE_BANDWIDTH_FLAG_OK		MSG_IM_CHANGE_BANDWIDTH_FLAG_OK;
@@ -12687,10 +12710,10 @@ typedef struct
 	UINT		MaxUserCounts;
 	UINT		AccumulatedMonsterCounts;
 	UINT		CurrentMonsterCounts;
-// 2013-11-04 by jekim, 툴에 맵별로 각 세력별 접속 유저 수 추가.
+	// 2013-11-04 by jekim, 툴에 맵별로 각 세력별 접속 유저 수 추가.
 	UINT        NumOfBCU;
 	UINT        NumOfANI;
-// end 2013-11-04 by jekim, 툴에 맵별로 각 세력별 접속 유저 수 추가.
+	// end 2013-11-04 by jekim, 툴에 맵별로 각 세력별 접속 유저 수 추가.
 } MSG_FM_GET_MAP_USER_COUNTS_ACK;
 
 typedef struct
@@ -13090,8 +13113,8 @@ typedef struct
 
 typedef struct
 {
-// 2006-04-15 by cmkwon, 필드 변경
-//	BYTE	AuthOK;				// 0: FALSE, 1:TRUE
+	// 2006-04-15 by cmkwon, 필드 변경
+	//	BYTE	AuthOK;				// 0: FALSE, 1:TRUE
 	USHORT	AccountType0;		// 계정 권한
 	DWORD	Padding[SIZE_MAX_PACKET_PADDING];		// 2011-07-21 by hskim, 인증 서버 구현 - 기존 서버와 호환 안되도록 구조체 크기 바꿈
 	int		IsMasang;	// 2012-06-16 by jhseol, 아레나 추가개발part2 - 전달 : 마상 내부가 아니면 사용 불가
@@ -13213,7 +13236,7 @@ struct MEX_SERVER_GROUP_INFO_FOR_ADMIN				// 2008-04-29 by cmkwon, 서버군 정보 D
 {
 	char		ServerName[SIZE_MAX_SERVER_NAME];
 	SERVER_ID	IMServerID;
-	INT			UserCount;						
+	INT			UserCount;
 	BYTE		IMServerState;						// SERVER_STATE_XXX
 	SERVER_ID	FieldServerID;
 	BYTE		FieldServerState;					// SERVER_STATE_XXX
@@ -13224,9 +13247,9 @@ struct MEX_SERVER_GROUP_INFO_FOR_ADMIN				// 2008-04-29 by cmkwon, 서버군 정보 D
 
 typedef struct
 {
-// 2008-04-29 by cmkwon, 서버군 정보 DB에 추가(신규 계정 캐릭터 생성 제한 시스템추가) - 
-//	INT		NumOfServers;
-//	ARRAY_(MEX_SERVER_INFO_FOR_ADMIN);
+	// 2008-04-29 by cmkwon, 서버군 정보 DB에 추가(신규 계정 캐릭터 생성 제한 시스템추가) - 
+	//	INT		NumOfServers;
+	//	ARRAY_(MEX_SERVER_INFO_FOR_ADMIN);
 	INT		NumOfServerGroups;						// 2008-04-29 by cmkwon, 서버군 정보 DB에 추가(신규 계정 캐릭터 생성 제한 시스템추가) - 
 	ARRAY_(MEX_SERVER_GROUP_INFO_FOR_ADMIN);		// 2008-04-29 by cmkwon, 서버군 정보 DB에 추가(신규 계정 캐릭터 생성 제한 시스템추가) - 
 } MSG_PA_ADMIN_GET_SERVER_INFO_OK;
@@ -13293,8 +13316,8 @@ typedef struct
 
 typedef struct
 {
-// 2006-04-15 by cmkwon, 필드 변경
-//	BYTE	AuthOK;				// 0: FALSE, 1:TRUE
+	// 2006-04-15 by cmkwon, 필드 변경
+	//	BYTE	AuthOK;				// 0: FALSE, 1:TRUE
 	USHORT	AccountType0;		// 계정 권한
 } MSG_IA_ADMIN_CONNECT_OK;
 
@@ -13314,7 +13337,7 @@ typedef MSG_IC_CHAT_ALL				MSG_IA_ADMIN_CHAT_ALL;
 
 typedef struct
 {
-	INT			UserCount;						
+	INT			UserCount;
 	BYTE		ServerState;	// SERVER_STATE_XXX
 } MSG_IA_ADMIN_GET_SERVER_INFO_OK;
 
@@ -13336,8 +13359,8 @@ typedef struct
 
 typedef struct
 {
-// 2006-04-15 by cmkwon, 필드 변경
-//	BYTE	AuthOK;				// 0: FALSE, 1:TRUE
+	// 2006-04-15 by cmkwon, 필드 변경
+	//	BYTE	AuthOK;				// 0: FALSE, 1:TRUE
 	USHORT	AccountType0;		// 계정 권한
 } MSG_FA_ADMIN_CONNECT_OK;
 
@@ -13411,7 +13434,7 @@ struct MSG_IC_CHATROOM_REQUEST_INVITE_QUESTION
 
 struct MSG_IC_CHATROOM_ACCEPT_INVITE
 {// 2008-06-17 by dhjin, EP3 채팅방 - 채팅방 초대 승락
-	INT		ChatRoomNum; 
+	INT		ChatRoomNum;
 };
 
 struct MSG_IC_CHATROOM_ACCEPT_INVITE_OK
@@ -13571,9 +13594,9 @@ typedef struct
 
 typedef struct
 {
-	BYTE				byJoinedFlag:1;					// 1 bit 사용, 레이싱에 참여 되었는지의 플래그
-	BYTE				byJoinedOrder:7;				// 7 bit 사용, 레이싱에 참여된 순서(ex, 8명이면 1부터 8까지)
-	MAP_CHANNEL_INDEX	mapChannIdx;	
+	BYTE				byJoinedFlag : 1;					// 1 bit 사용, 레이싱에 참여 되었는지의 플래그
+	BYTE				byJoinedOrder : 7;				// 7 bit 사용, 레이싱에 참여된 순서(ex, 8명이면 1부터 8까지)
+	MAP_CHANNEL_INDEX	mapChannIdx;
 } MSG_FC_RACING_JOIN_REQUEST_ACK;
 
 typedef struct
@@ -13590,14 +13613,14 @@ typedef struct
 
 typedef struct
 {
-	BYTE				byCheckedFlag:1;
-	BYTE				byCheckPointIndex:7;	
+	BYTE				byCheckedFlag : 1;
+	BYTE				byCheckPointIndex : 7;
 	BYTE				byRanking;
 } MSG_FC_RACING_CHECKPOINT_CHECK_ACK;
 
 typedef struct
 {
-	 BYTE				byRanking;
+	BYTE				byRanking;
 } MSG_FC_RACING_FINISHED;
 
 typedef struct
@@ -13795,7 +13818,7 @@ struct MSG_FC_ARENA_ROOM_WAR_INFO
 	BYTE			ArenaMode;
 	BYTE			VCNDeathCount;			// 2007-04-17 by dhjin, 바이제니유 데스매치 포인트
 	BYTE			ANIDeathCount;			// 2007-04-17 by dhjin, 알링턴 데스매치 포인트
-//	ATUM_DATE_TIME	Time;					// 2007-04-17 by dhjin, 대전 남은 시간
+	//	ATUM_DATE_TIME	Time;					// 2007-04-17 by dhjin, 대전 남은 시간
 };
 
 struct MSG_FC_ARENA_ROOM_WAR_FINISH
@@ -13879,7 +13902,7 @@ struct SARENA_REQUEST_CREATE_TEAMINFO
 struct MSG_FC_ARENA_REQUEST_CREATE_TEAMINFO_OK
 {
 	BYTE	ArenaRequetCreateTeamInfoListCount; // 2007-04-26 by dhjin
-	_ARRAY(SARENA_REQUEST_CREATE_TEAMINFO);	
+	_ARRAY(SARENA_REQUEST_CREATE_TEAMINFO);
 };
 
 // 2007-05-23 by dhjin, 상대 팀 정보 전송
@@ -13988,7 +14011,7 @@ struct MSG_FC_TUTORIAL_START_OK
 	_ARRAY(STUTORIAL_LIST_INFO);
 };
 
-struct MSG_FC_TUTORIAL_COMPLETE 
+struct MSG_FC_TUTORIAL_COMPLETE
 {// 2007-07-06 by dhjin, Tutorial 완료 번호
 	INT		TutorialNum;
 };
@@ -14050,7 +14073,7 @@ struct MSG_FC_OUTPOST_PROTECTOR_DESTROY
 
 struct MSG_FC_OUTPOST_RESET_START
 {// 2007-08-16 by dhjin, 중앙처리장치 제어 시작
-	ClientIndex_t	TargetIndex;	
+	ClientIndex_t	TargetIndex;
 };
 
 struct MSG_FC_OUTPOST_RESET_START_OK
@@ -14084,20 +14107,20 @@ struct MSG_FC_OUTPOST_WAR_END
 	CHAR	GuildName[SIZE_MAX_GUILD_NAME];
 };
 
-struct MSG_FC_OUTPOST_NEXTWAR_INFO_REQUEST_OK 
+struct MSG_FC_OUTPOST_NEXTWAR_INFO_REQUEST_OK
 {// 2007-08-13 by dhjin, 전진기지전 시간 설정 정보 전송
 	ATUM_DATE_TIME	    OutPostNextWarTime;
 	INT					OutPostNextWarSelectTimeChoice;
 	INT					OutPostNextWarTimeListCount;
-	_ARRAY(ATUM_DATE_TIME);	
+	_ARRAY(ATUM_DATE_TIME);
 };
 
-struct MSG_FC_OUTPOST_NEXTWAR_SET_TIME 
+struct MSG_FC_OUTPOST_NEXTWAR_SET_TIME
 {// 2007-08-13 by dhjin, 전진기지전 다음 시간 설정
 	INT		OutPostNextWarSelectTimeChoice;
 };
 
-struct MSG_FC_OUTPOST_NEXTWAR_SET_TIME_OK 
+struct MSG_FC_OUTPOST_NEXTWAR_SET_TIME_OK
 {// 2007-09-06 by dhjin, 전진기지전 다음 시간 설정 정보를 모든 유저에게 보내준다.
 	MapIndex_t		MapIndex;
 	ATUM_DATE_TIME	OutPostNextWarTime;
@@ -14111,14 +14134,14 @@ struct SOUTPOST_WAR_INFO
 	INT				OutPostWarResetRamainSecondTime;	// 2007-10-04 by dhjin, 리셋 완료까지 남은 시간
 	ATUM_DATE_TIME	OutPostWarStartTime;
 	ATUM_DATE_TIME  OutPostWarEndTime;
-//	ATUM_DATE_TIME	OutPostWarResetStartTime;
-//	ATUM_DATE_TIME	OutPostWarResetEndTime;
+	//	ATUM_DATE_TIME	OutPostWarResetStartTime;
+	//	ATUM_DATE_TIME	OutPostWarResetEndTime;
 };
 
 struct MSG_FC_OUTPOST_WAR_INFO
 {// 2007-09-14 by dhjin, 유저 접속 시 전쟁기지 전쟁이 시작 중이면 전쟁기지 정보를 유저에게 보내준다.
 	INT					OutPostWarInfoListCount;
-	_ARRAY(SOUTPOST_WAR_INFO);	
+	_ARRAY(SOUTPOST_WAR_INFO);
 };
 
 
@@ -14137,7 +14160,7 @@ struct MSG_FC_INFO_NOTICE_REQUEST
 	INT		MapIndex;
 };
 
-struct MSG_FC_INFO_NOTICE_REQUEST_OK 
+struct MSG_FC_INFO_NOTICE_REQUEST_OK
 {// 2007-08-13 by dhjin, 공지사항 요청 전송
 	CHAR	NoticeString[SIZE_MAX_NOTICE];
 };
@@ -14148,7 +14171,7 @@ struct MSG_FC_INFO_NOTICE_REG
 	CHAR	NoticeString[SIZE_MAX_NOTICE];
 };
 
-struct MSG_FC_INFO_NOTICE_MODIFY 
+struct MSG_FC_INFO_NOTICE_MODIFY
 {// 2007-08-13 by dhjin, 공지사항 수정
 	UID32_t	GuildUID;
 	CHAR	NoticeString[SIZE_MAX_NOTICE];
@@ -14167,24 +14190,24 @@ struct MSG_FC_INFO_NOTICE_MODIFY
 #define T_FC_INFO_SECONDARYPASSWORD_LOCK				(MessageType_t)((T0_FC_INFO<<8)|T1_FC_INFO_SECONDARYPASSWORD_LOCK)				// 2007-09-12 by cmkwon, 베트남 2차패스워드 구현 - 프로토콜 추가, C->F
 #define T_FC_INFO_SECONDARYPASSWORD_LOCK_OK				(MessageType_t)((T0_FC_INFO<<8)|T1_FC_INFO_SECONDARYPASSWORD_LOCK_OK)			// 2007-09-12 by cmkwon, 베트남 2차패스워드 구현 - 프로토콜 추가, F->C
 
-struct MSG_FC_INFO_EXPEDIENCYFUND_REQUEST 
+struct MSG_FC_INFO_EXPEDIENCYFUND_REQUEST
 {// 2007-08-13 by dhjin, 판공비 정보 요청
 	INT 	MapIndex;
 };
 
-struct MSG_FC_INFO_EXPEDIENCYFUND_REQUEST_OK 
+struct MSG_FC_INFO_EXPEDIENCYFUND_REQUEST_OK
 {// 2007-08-13 by dhjin, 판공비 정보 전송
 	INT		CumulativeExpediencyFund;
 	INT		ExpediencyFund;
 	INT		ExpediencyFundRate;
 };
 
-struct MSG_FC_INFO_EXPEDIENCYFUND_PAYBACK 
+struct MSG_FC_INFO_EXPEDIENCYFUND_PAYBACK
 {// 2007-08-13 by dhjin, 판공비 신청 요청
 	INT	 ExpediencyFundPayBackCount;
 };
 
-struct MSG_FC_INFO_EXPEDIENCYFUND_PAYBACK_OK 
+struct MSG_FC_INFO_EXPEDIENCYFUND_PAYBACK_OK
 {// 2007-08-13 by dhjin, 판공비 신청 처리 정보 전송
 	INT		CumulativeExpediencyFund;
 	INT		ExpediencyFund;
@@ -14234,7 +14257,7 @@ struct MSG_FC_EVENT_CLICK_TELEPORT_OK
 
 struct MSG_FC_EVENT_TELEPORT_BUILDCOMPLETE
 {// 2007-09-06 by dhjin, 텔레포트 완성
-	MapIndex_t 		MapIndex;	
+	MapIndex_t 		MapIndex;
 };
 
 struct MSG_FC_EVENT_TELEPORT_DESTROY
@@ -14430,7 +14453,7 @@ struct MSG_FC_INFO_GET_GUILDMARK_OK
 	INT				GuildMarkSize;
 	INT				GuildMarkVersion;
 	UID32_t			GuildUID;
-	ARRAY_(char);									
+	ARRAY_(char);
 };
 
 // 2007-12-27 by dhjin, 아레나 통합 - 아레나 프로토콜 MainField <=> ArenaField 
@@ -14501,7 +14524,7 @@ struct MSG_FtoA_ARENA_TEAM_MATCHING_OK
 {
 	ClientIndex_t	AFSClientIndex;
 	UID32_t			AccountUID;
-	UID32_t			AFSCharacterUID;		
+	UID32_t			AFSCharacterUID;
 };
 
 struct MSG_FtoA_ARENA_SERVER_PAY
@@ -14573,8 +14596,8 @@ struct MSG_FC_INFO_MSWARINFO_DISPLAY
 
 struct MSG_FC_INFO_MSWARINFO_DISPLAY_OPTION
 {// 2008-03-26 by dhjin, 모선전 정보 표시 기획안 - 모선전 정보 옵션
-	SHORT			MSWarOptionType;		
-	UID32_t			CharacterUID;		
+	SHORT			MSWarOptionType;
+	UID32_t			CharacterUID;
 	ClientIndex_t	ClientIndex;
 };
 
@@ -14712,7 +14735,7 @@ struct MSG_FC_QUEST_MISSIONMASTER_HELP_INVITE_OK
 {
 	ClientIndex_t	ClientIdx;
 	UID32_t			CharacterUID;		// 2008-12-02 by dhjin, 미션마스터 케릭터
-	char			CharacterName[SIZE_MAX_CHARACTER_NAME];	
+	char			CharacterName[SIZE_MAX_CHARACTER_NAME];
 };
 
 struct MSG_FC_QUEST_MISSIONMASTER_HELP_REJECT
@@ -14724,7 +14747,7 @@ struct MSG_FC_QUEST_MISSIONMASTER_HELP_REJECT_OK
 {
 	ClientIndex_t	ClientIdx;
 	UID32_t			CharacterUID;		// 2008-12-02 by dhjin, 미션마스터 케릭터
-	char			CharacterName[SIZE_MAX_CHARACTER_NAME];	
+	char			CharacterName[SIZE_MAX_CHARACTER_NAME];
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -14990,9 +15013,9 @@ struct MSG_FC_INFINITY_CREATE_OK {
 #define T_FC_INFINITY_MEMBER_INFO_LIST_OK			(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_MEMBER_INFO_LIST_OK)			// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 맴버 정보, F -> C
 struct MSG_FC_INFINITY_JOIN {
 	eINFINITY_MODE		InfinityMode;
-	InfinityCreateUID_t	InfinityCreateUID;	
+	InfinityCreateUID_t	InfinityCreateUID;
 	InfiModeUID_t		InfinityModeUID;		// 2010-03-23 by cmkwon, 인피니티 입장 캐쉬 아이템 구현 - 
-};	
+};
 struct MSG_FC_INFINITY_JOIN_REQUEST_MASTERUSER {
 	ClientIndex_t		ReQuestClientIdx;
 	CHAR				ReQuestCharacterName[SIZE_MAX_CHARACTER_NAME];
@@ -15003,7 +15026,7 @@ struct MSG_FC_INFINITY_JOIN_REQUEST_MASTERUSER_OK {
 	ClientIndex_t		ReQuestClientIdx;
 	BOOL				bAccept;
 	eINFINITY_MODE		InfinityMode;
-	InfinityCreateUID_t	InfinityCreateUID;	
+	InfinityCreateUID_t	InfinityCreateUID;
 };
 struct MSG_FC_INFINITY_JOIN_OK {
 	ClientIndex_t		JoinClientIdx;
@@ -15052,7 +15075,7 @@ struct MSG_FtoA_INFINITY_IMPUTE_LIST {
 	ClientIndex_t	AFSClientIndex;
 	INT				InfinityImputeListCount;
 	BOOL			bHaveReentryTicket;			// 2010-03-23 by cmkwon, 인피니티 입장 캐쉬 아이템 구현 - 
-	_ARRAY(INFINITY_IMPUTE);	
+	_ARRAY(INFINITY_IMPUTE);
 };
 
 #define T_FC_INFINITY_READY							(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_READY)			// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 래디 버튼 누름, C -> F
@@ -15070,7 +15093,7 @@ struct MSG_FC_INFINITY_READY_CANCEL_OK {
 // 2010. 05. 31 by hsLee 인피니티 필드 2차 난이도 조절. (오브젝트 몬스터 밸런스 적용 문제 수정.) - 인피니티 방 난이도 변경시 모두 래디 취소 패킷.
 struct MSG_FC_INFINITY_READY_CANCEL_ALL_OK
 {
-	 InfinityCreateUID_t	InfinityCreateUID;
+	InfinityCreateUID_t	InfinityCreateUID;
 };
 // End 2010. 05. 31 by hsLee 인피니티 필드 2차 난이도 조절. (오브젝트 몬스터 밸런스 적용 문제 수정.)
 
@@ -15211,8 +15234,8 @@ struct MSG_FtoA_INFINITY_UPDATE_ITEM_PET {
 // end 2011-09-30 by hskim, 파트너 시스템 2차
 
 struct MSG_FtoA_INFINITY_DELETE_ITEM {
-//	INT InfinityDeleteItemInfoListCount;
-//	_ARRAY(INFINITY_DELETE_ITEM_INFO);
+	//	INT InfinityDeleteItemInfoListCount;
+	//	_ARRAY(INFINITY_DELETE_ITEM_INFO);
 	UID32_t			AccountUID;
 	UID32_t			MFSCharacterUID;
 	ClientIndex_t	MFSClientIndex;
@@ -15271,7 +15294,7 @@ struct MSG_FtoA_INFINITY_USING_TIME_LIMIT_ITEM {
 };
 
 // start 2011-09-29 by hskim, 파트너 시스템 2차
-struct MSG_FtoA_INFINITY_COME_BACK_PREWORK 
+struct MSG_FtoA_INFINITY_COME_BACK_PREWORK
 {
 	UID32_t			AccountUID;
 	UID32_t			MFSCharacterUID;
@@ -15379,7 +15402,7 @@ struct MSG_FC_INFINITY_SET_LIMITTIME {
 #define T_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER		(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER)		// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 입장 취소
 struct MSG_FC_INFINITY_JOIN_CANCEL {
 	eINFINITY_MODE		InfinityMode;
-	InfinityCreateUID_t	InfinityCreateUID;	
+	InfinityCreateUID_t	InfinityCreateUID;
 };
 struct MSG_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER {
 	ClientIndex_t		JoinCancelClientIdx;
@@ -15420,7 +15443,7 @@ struct MSG_FtoA_INFINITY_STATE_CHANGE {
 // start 2011-05-17 by hskim, 인피니티 3차 - 시네마 연출
 #define T_FC_INFINITY_MOVIE						(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_MOVIE)				// 2011-05-17 by hskim, 인피니티 3차 - 시네마 연출, F -> C
 
-struct MSG_FC_INFINITY_MOVIE 
+struct MSG_FC_INFINITY_MOVIE
 {
 	INT			UniqueNumber;			// 연출 번호
 	USHORT		Command;				// MOVIE_COMMAND_START, MOVIE_COMMAND_END
@@ -15450,7 +15473,7 @@ struct MSG_FC_PARTY_AUTO_CREATED {
 //////////////////////////////////////////////////////////////////////
 // 2012-04-12 by jhseol, 아레나 추가개발 - 자동파티 : 자동으로 만들 파티의 정보.
 struct MSG_FC_PARTY_AUTO_CREATED_THE_ARENA {
-	SPARTY_INFO				PartyInfo; 
+	SPARTY_INFO				PartyInfo;
 };
 // end 2012-04-12 by jhseol, 아레나 추가개발 - 자동파티 : 자동으로 만들 파티의 정보.
 
@@ -15517,7 +15540,7 @@ struct MSG_FC_ITEM_END_COOLINGTIME_ITEM_OK {
 
 #define T_FC_ITEM_GET_COOLINGTIME_INFO		(MessageType_t)((T0_FC_ITEM<<8)|T1_FC_ITEM_GET_COOLINGTIME_INFO)	// 2009-09-09 ~ 2010-02-10 by dhjin, 인피니티 - 발동류장착아이템, 쿨타임 정보 요청 C->F
 #define T_FC_ITEM_GET_COOLINGTIME_INFO_OK	(MessageType_t)((T0_FC_ITEM<<8)|T1_FC_ITEM_GET_COOLINGTIME_INFO_OK)	// 2009-09-09 ~ 2010-02-10 by dhjin, 인피니티 - 발동류장착아이템, 쿨타임 정보 요청 F->C
-struct MSG_FC_ITEM_GET_COOLINGTIME_INFO_OK	{
+struct MSG_FC_ITEM_GET_COOLINGTIME_INFO_OK {
 	UID64_t			ItemUID;
 	INT				CoolingTimeStamp;		// 지금까지 사용된 시간(단위:초)
 };
@@ -15571,33 +15594,33 @@ struct MSG_FtoA_INFINITY_START_CHECK		// 2010-03-23 by cmkwon, 인피니티 입장 캐�
 {
 	UID32_t			AccountUID;
 	UID32_t			MFSCharacterUID;
-	ClientIndex_t	MFSClientIndex;	
-	ClientIndex_t	AFSClientIndex;	
+	ClientIndex_t	MFSClientIndex;
+	ClientIndex_t	AFSClientIndex;
 	BOOL			bCheckReentryTicket;	// 
 	eINFINITY_MODE		InfinityMode;
-	InfinityCreateUID_t	InfinityCreateUID;	
+	InfinityCreateUID_t	InfinityCreateUID;
 };
 
 struct MSG_FtoA_INFINITY_START_CHECK_ACK		// 2010-03-23 by cmkwon, 인피니티 입장 캐쉬 아이템 구현 - 
 {
 	Err_t			ErrorCode;
- 	UID32_t			AccountUID;
-	ClientIndex_t	AFSClientIndex;	
+	UID32_t			AccountUID;
+	ClientIndex_t	AFSClientIndex;
 	eINFINITY_MODE		InfinityMode;
-	InfinityCreateUID_t	InfinityCreateUID;	
+	InfinityCreateUID_t	InfinityCreateUID;
 };
 
 #define T_FN_BATTLE_ATTACK_SKILL_CANCEL					(MessageType_t)((T0_FN_BATTLE<<8)|T1_FN_BATTLE_ATTACK_SKILL_CANCEL)				// 2010-03-31 by dhjin, 인피니티(기지방어) - N -> F
 struct MSG_FN_BATTLE_ATTACK_SKILL_CANCEL
 {
 	MAP_CHANNEL_INDEX	MapInfo;
-	ClientIndex_t		MonsterIndex;				
+	ClientIndex_t		MonsterIndex;
 	INT					SkillItemNum;				// 스킬의 ItemNum
 };
 
 #define T_FC_MONSTER_SKILL_CANCEL							(MessageType_t)((T0_FC_MONSTER<<8)|T1_FC_MONSTER_SKILL_CANCEL)			// 2010-03-31 by dhjin, 인피니티(기지방어) - , F->C(n)
 struct MSG_FC_MONSTER_SKILL_CANCEL {
-	ClientIndex_t		MonsterIndex;				
+	ClientIndex_t		MonsterIndex;
 	INT					SkillItemNum;				// 스킬의 ItemNum
 };
 
@@ -15623,8 +15646,8 @@ struct MSG_FtoA_INFINITY_UPDATE_USER_MAP_INFO
 #define T_FC_INFINITY_DIFFICULTY_LIST_OK		(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_DIFFICULTY_LIST_OK) // AFS -> C // 2010-05-04 by shcho, 클라이언트 난이도 정보 목록 요청에 응답
 struct MSG_INFINITY_DIFFICULTY_LIST_OK
 {
- 	int Difficulty_List_count; //리스트가 몇 개인지 보냄.
- 	_ARRAY(INFINITY_DIFFICULTY_BONUS_INFO);
+	int Difficulty_List_count; //리스트가 몇 개인지 보냄.
+	_ARRAY(INFINITY_DIFFICULTY_BONUS_INFO);
 };
 // 2010-05-04 by shcho, 인피니티 난이도 조절 end
 
@@ -15633,7 +15656,7 @@ struct MSG_INFINITY_DIFFICULTY_LIST_OK
 #define T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL		(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL)		// C -> AFS // 2010-05-24 by hsLee, 난이도 변경 요청.
 #define T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK	(MessageType_t)((T0_FC_INFINITY<<8)|T1_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK)	// AFS -> C // 2010-05-24 by hsLee, 난이도 변경 요청 결과.
 
-struct MSG_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL 
+struct MSG_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL
 {
 	INT	InfinityDifficultyLevel;
 };
@@ -15885,7 +15908,7 @@ struct MSG_FC_INFINITY_SKIP_ENDING_CINEMA_OK		// 인피니티 시네마 연출 스킵 결과 
 {
 	BOOL			EnableSkip;								// 연출 스킵 적용 구별 인자.
 	BOOL			NormalEnding;							// 정상 연출 종료 & 스킵 요청 구별 인자.
-	
+
 	char			szCharName[SIZE_MAX_CHARACTER_NAME];	// 스킵일 경우 System Message처리에 사용할 요청자 캐릭터 이름.
 
 	ATUM_DATE_TIME	sUpdateTenderItemStartTime;			// 입찰 아이템의 입찰 제한 시간 갱신값. (연출 스킵이 적용된 시각).
@@ -15920,7 +15943,7 @@ struct MSG_FtoA_INFINITY_TENDER_ITEM
 	UID64_t		CharacterUID;						// 케릭터 UID
 	CHAR		CharacterName[SIZE_MAX_CHARACTER_NAME];	// 케릭터 이름
 	INT			MFSClientIdx;
-	
+
 };
 // END 2010-06-25 by shcho, 인피니티 관련로그 찍기 - 습득 아이템 정보 DB저장
 
@@ -15956,7 +15979,7 @@ struct QPARAM_AUTHENTICATION_ACCOUNT
 	BYTE	byUseExternalAuthentication;
 	int		nPreServerGroupCnts;
 	int		nEnableGameServerGroupCnts;
-	
+
 	BOOL	bAccept;
 	BOOL	bShutdown;
 	char	szAcceptComment[SIZE_MAX_AUTH_ACCEPT_COMMENT];
@@ -15998,7 +16021,7 @@ struct MSG_IP_SELECTIVE_SHUTDOWN_NOTICE
 struct MSG_IP_RELOAD_GUILD_INFO
 {
 	UID32_t	GuildUniqueNumber;				// 길드 고유번호
-	UID32_t	CharacterUniqueNumberDel;	
+	UID32_t	CharacterUniqueNumberDel;
 };
 typedef MSG_IP_RELOAD_GUILD_INFO	MSG_PA_RELOAD_GUILD_INFO;
 // End.  2014-02-11 by bckim, 세력초기화시 정보 동기화처리
@@ -16010,11 +16033,11 @@ typedef MSG_IP_RELOAD_GUILD_INFO	MSG_PA_RELOAD_GUILD_INFO;
 #define T_FC_SHUTDOWNMINS_USER_ENDGAME			(MessageType_t)((T0_FC_CONNECT<<8)|T1_FC_CONNECT_SHUTDOWNMINS_USER_ENDGAME)	// nobody
 
 // end 2011-11-03 by shcho, yedang 셧다운제 구현 - 
-		 
+
 // start 2011-10-18 by hskim, EP4 [트리거 시스템] - 화산재 / 모래 폭풍
 #define T_FC_TRIGGER_MAP_BUFF_SKILL				(MessageType_t)((T0_FC_TRIGGER<<8)|T1_FC_TRIGGER_MAP_BUFF_SKILL)
 
-struct MSG_FC_TRIGGER_MAP_BUFF_SKILL 
+struct MSG_FC_TRIGGER_MAP_BUFF_SKILL
 {
 	ClientIndex_t		ClientIndex;				// 클라이언트 인덱스
 	INT					SkillItemNum;				// 스킬의 ItemNum
@@ -16080,7 +16103,7 @@ typedef struct
 #define T_FC_CHARACTER_XIGNCODE_C_ACK_PACKET		(MessageType_t)((T0_FC_CHARACTER<<8)|T1_FC_CHARACTER_XIGNCODE_C_ACK_PACKET)
 struct MSG_FC_CHARACTER_XIGNCODE_ACK_PACKET
 {
-	BYTE	byXigndAckMsg[XC_PACKET_SIZE+1];	
+	BYTE	byXigndAckMsg[XC_PACKET_SIZE + 1];
 };
 
 #define T_FC_CHARACTER_XIGNCODE_C_ACK_CODE		(MessageType_t)((T0_FC_CHARACTER<<8)|T1_FC_CHARACTER_XIGNCODE_C_ACK_CODE)
@@ -16157,7 +16180,7 @@ struct MSG_FC_CHARACTER_XIGNCODE_ACK_PACKET
 #define GLOG_IL_LT_CITYWAR_BRING_SUMOFTEX		0x38
 #define GLOG_IL_LT_MARKET						0x39	// 2013-11-25 by jhseol&bckim, 거래소 - GLog 추가
 
-					
+
 
 // 2014-03-20 by bckim, 거래소 GLOG 추가 
 #define GLOG_IL_LT_MARKET_SELLING_SPI			0x41		//	65
@@ -16228,7 +16251,7 @@ struct MSG_FL_LOG_COLLECTION_STATE
 	BYTE				CollectionState;
 	COLLECTION_INFO		CollectionInfo;
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%d|%d(%d)|%d|%d(%s)|%d(%s)\r\n", GetGameLogTypeString(i_nLogType), CollectionInfo.CollectionType, CollectionState, CollectionInfo.AccountUID, CollectionInfo.CharacterUID
 			, CollectionInfo.ShapeNum, CollectionInfo.ShapeItemNum, CollectionInfo.EnchantLevel, CollectionInfo.RemainSeconds, CollectionInfo.EndTime.GetDateTimeString(STRNBUF(SIZE_MAX_SQL_DATETIME_STRING))
@@ -16245,8 +16268,8 @@ struct MSG_FL_LOG_COLLECTION_SHAPE_CHANGE
 	UID64_t				ItemUID;
 	ItemNum_t			BeforeShapeNum;
 	ItemNum_t			AfterShapeNum;
-	
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|%d|%I64d|%d->%d\r\n", GetGameLogTypeString(i_nLogType), CollectionType, AccountUID, CharacterUID, ItemUID, BeforeShapeNum, AfterShapeNum);
 		return o_szLogString;
@@ -16263,7 +16286,7 @@ struct MSG_FL_LOG_ACCOUNT_INFL_CHANGE_BY_ADMIN
 	BYTE				AfterInfl;
 	UID32_t				AdminCharacterUID;
 
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|%d->%d|%d\r\n", GetGameLogTypeString(i_nLogType), AccountUID, CharacterUID, BeforeInfl, AfterInfl, AdminCharacterUID);
 		return o_szLogString;
@@ -16369,7 +16392,7 @@ struct MSG_FC_MARKET_SORT_REQUEST // 정렬 요청 패킷
 	BYTE			SortingType;		// 정렬 종류
 };
 
-typedef struct 
+typedef struct
 {
 	INT nSellingTime;
 } MSG_FC_MARKET_BASE_INFO_HEAD;
@@ -16389,7 +16412,7 @@ typedef struct // 초기화, 검색, 패이징, 정렬 완료 패킷으로 해당 결과에 따른 전체
 typedef struct					// 판매현황 완료 패킷 , 입찰현황 
 {
 	BYTE			MyListItemCount;		// 아이템의 수
-}MSG_FC_MARKET_MY_LIST_DONE,MSG_FC_DESTROY_AUCTION_MY_LIST_DONE;
+}MSG_FC_MARKET_MY_LIST_DONE, MSG_FC_DESTROY_AUCTION_MY_LIST_DONE;
 
 struct MSG_FC_MARKET_SELL_REQUEST // 물품 등록 요청 패킷
 {
@@ -16408,19 +16431,19 @@ struct MSG_FC_MARKET_SELL_OK// 물품 등록 완료 패킷
 typedef struct // 구매, 회수 요청 및 완료 패킷
 {
 	UID64_t			MarketUID;			// 거래소 고유번호
-}MSG_FC_MARKET_BUY_REQUEST, MSG_FC_MARKET_BUY_OK ;
+}MSG_FC_MARKET_BUY_REQUEST, MSG_FC_MARKET_BUY_OK;
 
 typedef struct // 회수 요청
 {
 	UID64_t			MarketUID;			// 거래소 고유번호
-	BYTE			MarketStatus;	
-}MSG_FC_MARKET_GET_REQUEST,MSG_FC_MARKET_GET_OK;
+	BYTE			MarketStatus;
+}MSG_FC_MARKET_GET_REQUEST, MSG_FC_MARKET_GET_OK;
 
 struct MSG_FL_LOG_MARKET_REGISTRATION	// 게임로그 등록
 {
 	UID64_t				ItemUID;
 	MARKET_INFO			MarketInfo;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|(%I64d,%d,%d,%d,%d)|(%I64d|%I64d)\r\n", GetGameLogTypeString(i_nLogType), MarketInfo.AccountUID, MarketInfo.CharacterUID
 			, ItemUID, MarketInfo.ItemNum, MarketInfo.ItemCount, MarketInfo.Price, MarketInfo.MoneyType, MarketInfo.MarketUID, MarketInfo.ItemUID);
@@ -16432,7 +16455,7 @@ struct MSG_FL_LOG_MARKET_BUY			// 게임로그 구매
 	UID32_t				BuyerAccountUID;
 	UID32_t				BuyerCheracterUID;
 	MARKET_INFO			MarketInfo;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|(%d,%d,%I64d,%I64d,%d,%d,%d,%d)\r\n", GetGameLogTypeString(i_nLogType), BuyerAccountUID, BuyerCheracterUID
 			, MarketInfo.AccountUID, MarketInfo.CharacterUID, MarketInfo.MarketUID, MarketInfo.ItemUID, MarketInfo.ItemNum, MarketInfo.ItemCount, MarketInfo.Price, MarketInfo.MoneyType);
@@ -16442,7 +16465,7 @@ struct MSG_FL_LOG_MARKET_BUY			// 게임로그 구매
 struct MSG_FL_LOG_MARKET_GET			// 게임로그 회수
 {
 	MARKET_INFO			MarketInfo;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|(%I64d,%I64d,%d,%d,%d,%d,%d)\r\n", GetGameLogTypeString(i_nLogType), MarketInfo.AccountUID, MarketInfo.CharacterUID
 			, MarketInfo.MarketUID, MarketInfo.ItemUID, MarketInfo.ItemNum, MarketInfo.ItemCount, MarketInfo.Price, MarketInfo.MoneyType, MarketInfo.MarketState);
@@ -16509,12 +16532,12 @@ typedef struct // 회수 요청			// 입력정보 계정정보, 경매 고유번호, 금액, 아이템U
 	UID64_t			ItemUID;			// 아이템 고유번호
 	INT				Price;
 	ATUM_DATE_TIME	DAuctionGetPossibleTime;	// 회수 가능 시간(낙찰 받은(경매종료)시간이 저장된다)
-}MSG_FC_DESTROY_AUCTION_GET_REQUEST,MSG_FC_DESTROY_AUCTION_GET_OK;
+}MSG_FC_DESTROY_AUCTION_GET_REQUEST, MSG_FC_DESTROY_AUCTION_GET_OK;
 
 typedef struct			// 게임로그
 {
 	DESTROY_AUCTION_INFO			DAuctionInfo;
-	char *GetWriteLogString(int i_nLogType, char *o_szLogString)
+	char* GetWriteLogString(int i_nLogType, char* o_szLogString)
 	{
 		sprintf(o_szLogString, "%s|%d|%d|(%I64d,%I64d,%d,%d,%d,%d,%d)\r\n", GetGameLogTypeString(i_nLogType), DAuctionInfo.AccountUID, DAuctionInfo.CharacterUID
 			, DAuctionInfo.DAuctionUID, DAuctionInfo.ItemUID, DAuctionInfo.ItemNum, DAuctionInfo.ItemCount, DAuctionInfo.Price, DAuctionInfo.MoneyType, DAuctionInfo.DAuctionState);

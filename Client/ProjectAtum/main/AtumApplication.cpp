@@ -12822,6 +12822,9 @@ VOID CAtumApplication::FieldSocketEventEnterBuilding(MSG_FC_EVENT_ENTER_BUILDING
 		else
 		{
 			m_pInterface->m_pCityBase->SendLeaveEnterBuilding(pMsg->BuildingNPCInfo.BuildingIndex, -1);
+			char szTemp[256];
+			sprintf(szTemp, "Sent Index: %d", pMsg->BuildingNPCInfo.BuildingIndex);
+			g_pD3dApp->m_pChat->CreateChatChild(szTemp, COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
 		}
 //		if(g_pGameMain && g_pGameMain->m_pShop)
 //		{
@@ -25933,22 +25936,6 @@ void CAtumApplication::RenderDbg()
 	// END 2014-06-18 by ymjoo 화면 상단에 세력 표시
 }
 
-
-
-///////////////////////////////////////////////////////////////////////////////
-/// \fn			CAtumApplication::FieldSocketBattleAttackOk(MSG_FC_BATTLE_ATTACK_OK* pMsg)
-/// \brief		Attack 결과 처리(화면에 총알 이펙트 생성)
-///				1. Attack index로 공격자 판별 ( this function )
-///				2. 1,2형 구분   :  CUnitData::CreateWeaponByFieldServer
-///				3. AttackType으로 공격방법 판별 : CUnitData::CheckAttack
-///				4. Target 처리(아이템,유닛) : Weapon constructor
-/// \author		dhkwon
-/// \date		2004-09-07 ~ 2004-09-07
-/// \warning	
-///
-/// \param		
-/// \return		
-///////////////////////////////////////////////////////////////////////////////
 VOID CAtumApplication::FieldSocketBattleAttackOk(MSG_FC_BATTLE_ATTACK_OK* pMsg)
 {
 	ASSERT_ASSERT(m_pShuttleChild);
@@ -25978,17 +25965,6 @@ VOID CAtumApplication::FieldSocketBattleAttackOk(MSG_FC_BATTLE_ATTACK_OK* pMsg)
 		}
 		g_pShuttleChild->CreateWeaponByFieldServer(pMsg);
 	}
-//	else if(pMsg->TargetInfo.TargetIndex == m_pShuttleChild->m_myShuttleInfo.ClientIndex)
-//	{
-//		// 2005-07-07 by ispark
-//		// 상대방이 나를 공격시
-//		// 2형 공격시
-//		if(IS_SECONDARY_ATT_TYPE(pMsg->AttackType))
-//		{
-//			m_pShuttleChild->SetMissileWarning(TRUE);
-//			m_pShuttleChild->SetMissileCount(m_pShuttleChild->GetMissileCount() + 1);
-//		}
-//	}
 
 	if(pMsg->AttackIndex < 10000) // Enemy
 	{

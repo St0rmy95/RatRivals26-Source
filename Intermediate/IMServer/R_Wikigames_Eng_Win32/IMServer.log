@@ -46,8 +46,8 @@
   IMIOCPSocket.cpp
   PreIMWinSocket.cpp
   Generating code
-  0 of 4426 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  283 of 4508 functions ( 6.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    97 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   IMServer.vcxproj -> D:\RatRivals26\Source\Build\Bins\IMServer.exe

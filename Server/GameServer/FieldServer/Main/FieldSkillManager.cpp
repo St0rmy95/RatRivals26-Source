@@ -1040,16 +1040,8 @@ BOOL CFieldSkillManager::UseSkillTypeToggle(ITEM_SKILL *i_pItemSkill, MSG_FC_SKI
 	
 	// set paramfactor
 	m_pFieldIOCPSocket->m_SkillManager.SetSkillParamFactor(pItemInfo);
+	
 
-// check: 그냥 쏘게 하기, 20041030, kelovon with ClientTeam
-//	// check: shotnum을 증가시키는 스킬이면 강제 세팅하기, 20040902, kelovon
-//	//        게임 시작 즉시 shotnum 증가 스킬 사용하면 총알 안 나가는 버그 수정한 것임
-//	if (pItemInfo->DestParameter1 == DES_SHOTNUM_01 || pItemInfo->DestParameter2 == DES_SHOTNUM_01 ||
-//		pItemInfo->DestParameter3 == DES_SHOTNUM_01 || pItemInfo->DestParameter4 == DES_SHOTNUM_01)
-//	{
-//		m_pFieldIOCPSocket->m_PrimaryShotNumCount
-//			= CAtumSJ::GetTotalPrimaryShotCountPerReattackTime(&m_pFieldIOCPSocket->m_ItemProwOut, &m_pFieldIOCPSocket->m_ParamFactor);
-//	}
 
 	// 타이머 동작
 	m_pFieldIOCPSocket->m_TimerManager.StartTimerField(TE_TYPE_DECREASE_SP, TIMER_DECREASE_SP_INTERVAL,

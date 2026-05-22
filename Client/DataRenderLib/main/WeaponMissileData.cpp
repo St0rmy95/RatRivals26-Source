@@ -1050,7 +1050,6 @@ void CWeaponMissileData::CheckTargetByBomb(float fMovingDistance)
 				fExplosionRange = m_fExplosionRange;
 			}
 			// END 2013-03-21 by bhsohn 대형 몬스터 공폭 안들어가는 문제 해결			
-			
 			if( pTarget && fLengthTemp < 
 				(pTarget->m_pMonMesh!=NULL?pTarget->m_pMonMesh->m_fRadius : pTarget->m_fObjectSize) + fExplosionRange)
 			{

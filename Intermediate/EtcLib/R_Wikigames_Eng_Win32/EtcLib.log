@@ -6,7 +6,6 @@
   AtumParamProtocolFunctions.cpp
   AtumSJ.cpp
   MGameDecryption.cpp
-  Quest.cpp
   UserVariable.cpp
   sha256.cpp
   AbuseFilter.cpp

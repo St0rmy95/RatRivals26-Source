@@ -1507,6 +1507,7 @@ void CINFCityBase::RenderBuildingNPCShop()
 {
 
 	CMapCityShopIterator it = m_mapCityShop.find(m_pCurrentBuildingNPC->buildingInfo.BuildingKind);
+
 	if(it != m_mapCityShop.end())
 	{
 		switch(m_pCurrentBuildingNPC->buildingInfo.BuildingKind)
@@ -1635,6 +1636,7 @@ void CINFCityBase::RenderBuildingNPCShop()
 					g_pD3dApp->m_dwGameState == _CITY ||
 					g_pD3dApp->m_dwGameState == _SHOP)
 				{
+
 					RenderBuildingKindRefinery(it->second);
 				}
 			}
@@ -1967,6 +1969,7 @@ void CINFCityBase::RenderBuildingKindRefinery(CINFBase* pShop)
 	m_pRenewShopRefinery->Move(CITY_BASE_NPC_BOX_START_X, CITY_BASE_NPC_BOX_START_Y - SIZE_NORMAL_WINDOW_Y);
 	m_pRenewShopRefinery->Render();
 #endif
+
 	pShop->Render();
 //	g_pGameMain->m_pInven->RenderOnCityBase();
 }
@@ -4159,13 +4162,6 @@ void CINFCityBase::SetAllCityButtonState(int nState)
 ///////////////////////////////////////////////////////////////////////////////
 void CINFCityBase::RecvEventEnterBuilding(MSG_FC_EVENT_ENTER_BUILDING* pMsg)
 {	
-	// 2004-11-17 by ydkim 필드상점으로 들어갔을때 좌우 창을 닫는다 
-//	g_pGameMain->RightWindowShow(FALSE,g_pGameMain->m_nRightWindowInfo);
-//	g_pGameMain->LeftWindowShow(FALSE,g_pGameMain->m_nLeftWindowInfo);
-	// 2005-11-29 by ispark, 모든 창 닫는다.
-	// 2007-07-20 by bhsohn 브리핑룸 수정
-	//g_pGameMain->InitShowWindow();
-
 	m_nCurrentEnterBuildingIndex = pMsg->BuildingNPCInfo.BuildingIndex;
 	GUI_BUILDINGNPC* pBuilding = FindBuildingNPC(pMsg->BuildingNPCInfo.BuildingIndex);	
 	if(pBuilding == NULL || strlen(pBuilding->buildingInfo.NPCName)<=0)

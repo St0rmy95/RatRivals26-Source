@@ -7076,24 +7076,6 @@ ProcessResult CFieldIOCPSocket::Process_FC_SKILL_USE_SKILL(const char* pPacket, 
 	// 2006-07-26 by cmkwon, 개인 상점 처리 - 구입/판매
 	if(IS_BAZAAR_SKILL(TempSkillItem.ItemInfo))
 	{
-// 2006-11-16 by cmkwon, 시스템 변경으로 필요 없음
-//		if(FALSE == this->IsValidGameUser())
-//		{// 2006-08-09 by cmkwon, 베트남 정액제 처리 - 개인 상점 스킬 사용 불가
-//			SendErrorMessage(T_FC_SKILL_USE_SKILL, ERR_INVALID_GAMEUSER);
-//			return RES_BREAK;
-//		}
-
-// 2006-11-14 by cmkwon, 한글버전도 멤버쉽과 상관없이 이용가능
-//		if(FALSE == m_ItemManager.IsExistPremiumCard())
-//		{// 2006-09-14 by dhjin, 맴버쉽 이용자가 아니면 개인 상점 스킬 사용 불가
-//
-//			if(LANGUAGE_TYPE_KOREAN == g_pFieldGlobal->GetLanguageType())
-//			{// 2006-10-11 by cmkwon, 한글버전만 불가, 영어/베트남은 상관없이 이용가능 
-//				SendErrorMessage(T_FC_SKILL_USE_SKILL, ERR_NO_MEMBERSHIP_USER, pSkillItem->ItemNum);
-//				return RES_BREAK;
-//			}
-//		}
-		///////////////////////////////////////////////////////////////////////////////
 		// 2008-07-01 by dhjin, 베트남 2차패스워드 적용 - 개인상점 시 체크
 		if(FALSE == this->CheckSecondaryPasswordLock())
 		{
@@ -7115,13 +7097,6 @@ ProcessResult CFieldIOCPSocket::Process_FC_SKILL_USE_SKILL(const char* pPacket, 
 			SendErrorMessage(T_FC_SKILL_USE_SKILL, ERR_INVISIBLE_STATE, TempSkillItem.ItemNum);
 			return RES_BREAK;
 		}
-		
-// 2007-05-25 by dhjin, 퀘스트 진행중에도 개인 상점 개설 가능
-//		if(this->GetCharacterQuestInProgress())
-//		{// 2006-08-07 by cmkwon, 퀘스트 진행중에는 개인 상점 개설 불가
-//			SendErrorMessage(T_FC_SKILL_USE_SKILL, ERR_PROTOCOL_QUEST_IS_IN_PROGRESS, TempSkillItem.ItemNum);
-//			return RES_BREAK;
-//		}
 
 		if(BAZAAR_STATE_NONE != m_bazaarManager.GetBazaarState())
 		{
@@ -7142,17 +7117,6 @@ ProcessResult CFieldIOCPSocket::Process_FC_SKILL_USE_SKILL(const char* pPacket, 
 			SendErrorMessage(T_FC_SKILL_USE_SKILL, ERR_PROTOCOL_CANNOT_USE_SKILL, TempSkillItem.ItemNum, 1);
 			return RES_BREAK;
 		}
-//////////////////////////////////////////////////////////////////////////
-// 2007-06-04 by dhjin, 바자맵 어느 곳에서나 사용가능.
-//		if(IS_BAZAAR_MAP_INDEX(m_character.MapChannelIndex.MapIndex))
-//		{
-//			EVENTINFO *pEvInfo = GetCurrentFieldMapChannel()->GetTileEventInfoW(&m_character.PositionVector);
-//			if (EVENT_TYPE_ENTER_BUILDING_BAZAAR != pEvInfo->m_bEventType)
-//			{
-//				SendErrorMessage(T_FC_SKILL_USE_SKILL, ERR_PROTOCOL_CANNOT_USE_SKILL, TempSkillItem.ItemNum, 2);
-//				return RES_BREAK;
-//			}
-//		}
 
 		if(NULL != m_pFieldParty)
 		{
@@ -32152,12 +32116,172 @@ BOOL CFieldIOCPSocket::APPopAttackParameter(SATTACK_PARAMETER *o_pAttParam, UID1
 /// \param		
 /// \return		
 ///////////////////////////////////////////////////////////////////////////////
+#ifdef _RAT_ANTI_CHEAT
+void CFieldIOCPSocket::APCalcAttckParameter(SATTACK_PARAMETER* o_pAttParam, ITEM* i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent, bool isDroneAttack)	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
+{
+	BOOL			bIsPrimaryAttack = FALSE;
+	CParamFactor* pAttParamFactor = this->GetParamFactor();
+	CHARACTER* pCharacter = &this->m_character;
+	Stat_t			statAttackPart = pCharacter->TotalGearStat.AttackPart;
+
+	if (IS_PRIMARY_WEAPON(i_pWeaponItemInfo->Kind))
+	{
+		o_pAttParam->dwShotTick = 0;
+		bIsPrimaryAttack = TRUE;
+	}
+	else
+	{// 2007-06-08 by cmkwon, 2형 탄두만 처리
+		o_pAttParam->dwShotTick = timeGetTime();
+		bIsPrimaryAttack = FALSE;
+	}
+
+	o_pAttParam->WeaponIndex = i_WeaponIndex;
+	o_pAttParam->pWeaponItemInfo = i_pWeaponItemInfo;
+	o_pAttParam->fAttackProbability = CAtumSJ::GetAttackProbabilityC(i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, statAttackPart, pCharacter->Level, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선 - // 2010-02-19 by cmkwon, 100이하 레벨 최대스탯 수치 버그 수정 - 인자추가(, BYTE i_byLevel)
+	o_pAttParam->fPierceAttackProbability = CAtumSJ::GetAttackC_PierceAttackProbability(statAttackPart, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, pCharacter->Level, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선 - // 2010-02-19 by cmkwon, 100이하 레벨 최대스탯 수치 버그 수정 - 인자추가(, BYTE i_byLevel)// 2008-09-22 by dhjin, 신규 인첸트
+	o_pAttParam->fAttack = CAtumSJ::GetAttackC(pCharacter, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가		// 2013-05-09 by hskim, 세력 포인트 개선
+	o_pAttParam->fMaxAttack = CAtumSJ::GetMaxAttackC(pCharacter, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
+
+		// Check is Primary
+		if(bIsPrimaryAttack)
+		{ 
+			// Check if its NOT Drone Attack
+			if (!isDroneAttack)
+			{
+				// Variables to Keep for Check on AntiCheat
+				DWORD	New_Primary_LastAttackTime = timeGetTime();
+				UINT	New_Primary_ReAttacktime = 1000 * CAtumSJ::GetShotCountReattackTime(i_pWeaponItemInfo, pAttParamFactor);
+
+				m_character.ATTACK_INFO.Primary_LastAttackTime = New_Primary_LastAttackTime;
+				m_character.ATTACK_INFO.Primary_ReAttacktime = New_Primary_ReAttacktime;
+
+				// AntiCheat Detection
+				if (m_character.ATTACK_INFO.Primary_LastAttackTime != New_Primary_LastAttackTime)
+				{
+					SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+					SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+					SendString128(STRING_128_ADMIN_CMD, "Has Time : %u, Needs to Be : %u", m_character.ATTACK_INFO.Primary_LastAttackTime, New_Primary_LastAttackTime);
+				}
+				// AntiCheat Detection
+				if (m_character.ATTACK_INFO.Primary_ReAttacktime != New_Primary_ReAttacktime)
+				{
+					SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+					SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+					SendString128(STRING_128_ADMIN_CMD, "Has Rea : %i, Needs to Be : %i", m_character.ATTACK_INFO.Primary_ReAttacktime, New_Primary_ReAttacktime);
+				}
+			}
+		}
+		else // Secondary
+		{
+
+
+			// Variables to Keep for Check on AntiCheat
+			INT		New_Secondary_ShotCount = m_character.ATTACK_INFO.Secondary_ShotCount + 1;
+			INT		New_Secondary_ShotCountMAX = CAtumSJ::GetTotalSecondaryShotCountPerReattackTime(i_pWeaponItemInfo, pAttParamFactor);
+
+			// Enable isOnUSE
+			m_character.ATTACK_INFO.Secondary_isOnUse = true;
+			// Set Max
+			m_character.ATTACK_INFO.Secondary_ShotCountMAX = New_Secondary_ShotCountMAX;
+			// Add +1
+			m_character.ATTACK_INFO.Secondary_ShotCount = New_Secondary_ShotCount;
+
+			// AntiCheat Detection
+			if (m_character.ATTACK_INFO.Secondary_ShotCountMAX != New_Secondary_ShotCountMAX)
+			{
+				SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+				SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+				SendString128(STRING_128_ADMIN_CMD, "Has ShotCountMAX : %i, Needs to Be : %i", m_character.ATTACK_INFO.Secondary_ShotCountMAX, New_Secondary_ShotCountMAX);
+			}
+			// AntiCheat Detection
+			if (m_character.ATTACK_INFO.Secondary_ShotCount != New_Secondary_ShotCount)
+			{
+				SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+				SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+				SendString128(STRING_128_ADMIN_CMD, "Has ShotCountMAX : %i, Needs to Be : %i", m_character.ATTACK_INFO.Secondary_ShotCount, New_Secondary_ShotCount);
+			}
+
+			// Add a Control Point
+			if (m_character.ATTACK_INFO.Secondary_ShotCount >= m_character.ATTACK_INFO.Secondary_ShotCountMAX)
+			{
+				// Variables to Keep for Check on AntiCheat
+				DWORD	New_Secondary_LastAttackTime = timeGetTime();
+				UINT	New_Secondary_ReAttacktime = CAtumSJ::GetReattackTime(i_pWeaponItemInfo, pAttParamFactor) - 1; // add -1 incase client can't shoot (2.00 --> 1.99 RA)
+
+				// Set Them to Prevent Early Fire
+				m_character.ATTACK_INFO.Secondary_LastAttackTime = New_Secondary_LastAttackTime;
+				m_character.ATTACK_INFO.Secondary_ReAttacktime = New_Secondary_ReAttacktime;
+
+				// Set Max
+				New_Secondary_ShotCountMAX = CAtumSJ::GetTotalSecondaryShotCountPerReattackTime(i_pWeaponItemInfo, pAttParamFactor);
+				// Reset
+				New_Secondary_ShotCount = 0;
+
+				m_character.ATTACK_INFO.Secondary_ShotCountMAX = New_Secondary_ShotCountMAX;
+				m_character.ATTACK_INFO.Secondary_ShotCount = New_Secondary_ShotCount;
+
+				// Reset isOnUSE
+				m_character.ATTACK_INFO.Secondary_isOnUse = false;
+
+				// AntiCheat Detection
+				if (m_character.ATTACK_INFO.Secondary_LastAttackTime != New_Secondary_LastAttackTime)
+				{
+					SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+					SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+					SendString128(STRING_128_ADMIN_CMD, "Has Time : %u, Needs to Be : %u", m_character.ATTACK_INFO.Secondary_LastAttackTime, New_Secondary_LastAttackTime);
+				}
+				// AntiCheat Detection
+				if (m_character.ATTACK_INFO.Secondary_ReAttacktime != New_Secondary_ReAttacktime)
+				{
+					SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+					SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+					SendString128(STRING_128_ADMIN_CMD, "Has Rea : %i, Needs to Be : %i", m_character.ATTACK_INFO.Secondary_ReAttacktime, New_Secondary_ReAttacktime);
+				}
+
+				// AntiCheat Detection
+				if (m_character.ATTACK_INFO.Secondary_ShotCountMAX != New_Secondary_ShotCountMAX)
+				{
+					SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+					SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+					SendString128(STRING_128_ADMIN_CMD, "Has ShotCountMAX : %i, Needs to Be : %i", m_character.ATTACK_INFO.Secondary_ShotCountMAX, New_Secondary_ShotCountMAX);
+				}
+				// AntiCheat Detection
+				if (m_character.ATTACK_INFO.Secondary_ShotCount != New_Secondary_ShotCount)
+				{
+					SendString128(STRING_128_ADMIN_CMD, "_RAT_ANTI_CHEAT TRIGGERED!!!!!!!");
+					SendString128(STRING_128_ADMIN_CMD, "WARNING! %c is Hacking!", m_character.AccountName);
+					SendString128(STRING_128_ADMIN_CMD, "Has ShotCountMAX : %i, Needs to Be : %i", m_character.ATTACK_INFO.Secondary_ShotCount, New_Secondary_ShotCount);
+				}
+			}
+		}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 
+	if (g_pFieldGlobal->IsArenaServer()
+
+		// 수정
+		&& TRUE == IS_INFINITY_STATE_PLAYING(this->m_InfinityPlayingInfo.InfinityState)) {
+		// end 2011-04-08 by hskim, 인피니티 3차 - 시네마 단계별 기능 구현
+
+		// 아레나 서버에서 인피니티 중이라면 기본무기 최소 공격력 보정
+		if (o_pAttParam->fAttack < this->m_InfinityPlayingInfo.RevisionStandardWeapon) {
+			o_pAttParam->fAttack = this->m_InfinityPlayingInfo.RevisionStandardWeapon;
+		}
+		if (o_pAttParam->fMaxAttack < this->m_InfinityPlayingInfo.RevisionStandardWeapon) {
+			o_pAttParam->fMaxAttack = this->m_InfinityPlayingInfo.RevisionStandardWeapon;
+		}
+	}
+
+	m_CurrentAttackItemNum = i_pWeaponItemInfo->ItemNum;					// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가
+}
+#else
 void CFieldIOCPSocket::APCalcAttckParameter(SATTACK_PARAMETER *o_pAttParam, ITEM *i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent)	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
 {
 	BOOL			bIsPrimaryAttack	= FALSE;
 	CParamFactor	*pAttParamFactor	= this->GetParamFactor();
 	CHARACTER		*pCharacter			= &this->m_character;
-	Stat_t			statAttackPart		= pCharacter->TotalGearStat.AttackPart; 
+	Stat_t			statAttackPart		= pCharacter->TotalGearStat.AttackPart;
+
 	if(IS_PRIMARY_WEAPON(i_pWeaponItemInfo->Kind))
 	{
 		o_pAttParam->dwShotTick				= 0;
@@ -32174,13 +32298,10 @@ void CFieldIOCPSocket::APCalcAttckParameter(SATTACK_PARAMETER *o_pAttParam, ITEM
 	o_pAttParam->fPierceAttackProbability	= CAtumSJ::GetAttackC_PierceAttackProbability(statAttackPart, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, pCharacter->Level, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선 - // 2010-02-19 by cmkwon, 100이하 레벨 최대스탯 수치 버그 수정 - 인자추가(, BYTE i_byLevel)// 2008-09-22 by dhjin, 신규 인첸트
 	o_pAttParam->fAttack					= CAtumSJ::GetAttackC(pCharacter, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가		// 2013-05-09 by hskim, 세력 포인트 개선
 	o_pAttParam->fMaxAttack					= CAtumSJ::GetMaxAttackC(pCharacter, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
+
 	////////////////////////////////////////////////////////////////////////////////
 	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 
 	if(g_pFieldGlobal->IsArenaServer()
-
-		// start 2011-04-08 by hskim, 인피니티 3차 - 시네마 단계별 기능 구현
-		// 기존
-		//&& INFINITY_STATE_PLAYING == this->m_InfinityPlayingInfo.InfinityState) {
 
 		// 수정
 		&& TRUE == IS_INFINITY_STATE_PLAYING(this->m_InfinityPlayingInfo.InfinityState) ) {
@@ -32197,7 +32318,7 @@ void CFieldIOCPSocket::APCalcAttckParameter(SATTACK_PARAMETER *o_pAttParam, ITEM
 
 	m_CurrentAttackItemNum	= i_pWeaponItemInfo->ItemNum;					// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 게임로그 추가
 }
-
+#endif // _RAT_ANTI_CHEAT
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CFieldIOCPSocket::OnDoMinutelyWorkByTimerManager(void)
 /// \brief		
@@ -38968,242 +39089,6 @@ BOOL CFieldIOCPSocket::MonsterAttackSecM2M(CFieldMonster * i_pAttackMonster, MSG
 	return TRUE;
 }
 
-// 2010-03-16 by cmkwon, 인피2차 MtoM, MtoC 타겟 변경 관련 수정 - CFieldIOCPSocket::ProcessSplashDamageMonsterAllAttack#로 통합
-// ///////////////////////////////////////////////////////////////////////////////
-// /// \fn			void CFieldIOCPSocket::ProcessRangeDamageMonsterAllAttack(MSG_FN_BATTLE_ATTACK_PRIMARY *i_pAttackPri, CFieldIOCPSocket *i_pAttackMonSock, CFieldMonster *i_pAttackMon, ITEM *i_pAttackItem)
-// /// \brief		인피니티 - 몬스터 범위 공격
-// /// \author		dhjin
-// /// \date		2009-09-09 ~ 2010
-// /// \warning	
-// ///
-// /// \param		
-// /// \return		
-// ///////////////////////////////////////////////////////////////////////////////
-// void CFieldIOCPSocket::ProcessRangeDamageMonsterAllAttack(MSG_FN_BATTLE_ATTACK_PRIMARY *i_pAttackPri, CFieldIOCPSocket *i_pAttackMonSock, CFieldMonster *i_pAttackMon, ITEM *i_pAttackItem) {
-// 	if (i_pAttackItem->Kind != ITEMKIND_FOR_MON_RANGE_ATTACK
-// 		|| i_pAttackItem->ExplosionRange <= 0)
-// 	{// 2005-12-13 by cmkwon, 아이템 설정 오류
-// 		char szTemp[1024];
-// 		sprintf(szTemp, "[Error] Monster Item Error, Monster(%d:%s) MonsterItem(%d:%s), ItemKind(%s), ExplosionRange(%d)\r\n"
-// 			, i_pAttackMon->MonsterInfoPtr->MonsterUnitKind, i_pAttackMon->MonsterInfoPtr->MonsterName
-// 			, i_pAttackItem->ItemNum, i_pAttackItem->ItemName, CAtumSJ::GetItemKindName(i_pAttackItem->Kind), i_pAttackItem->ExplosionRange);
-// 		DbgOut(szTemp);
-// 		g_pFieldGlobal->WriteSystemLog(szTemp);
-// 		return;
-// 	}
-// 	
-// 	///////////////////////////////////////////////////////////////////////////////
-// 	// 2007-10-22 by cmkwon, 체크 추가
-// 	if(NULL == i_pAttackMon)
-// 	{
-// 		return;
-// 	}
-// 	MONSTER_INFO *pMonInfo = i_pAttackMon->MonsterInfoPtr;
-// 	if(NULL == pMonInfo
-// 		|| FALSE == i_pAttackMon->IsValidMonster())
-// 	{
-// 		return;
-// 	}
-// 	
-// 	INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_ATTACK_OK, T_FC_BATTLE_ATTACK_OK, pSFCAttackOK, Sendbuf);
-// 	pSFCAttackOK->AttackIndex						= i_pAttackPri->AttackIndex;
-// 	pSFCAttackOK->TargetInfo.TargetIndex			= i_pAttackPri->TargetIndex;
-// 	pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 	pSFCAttackOK->TargetInfo.TargetPosition			= i_pAttackPri->TargetPosition;
-// 	pSFCAttackOK->FirePosition.Reset();	
-// 	pSFCAttackOK->AttackType						= ATT_TYPE_GENERAL_PRI;
-// 	pSFCAttackOK->WeaponIndex						= i_pAttackPri->WeaponIndex;
-// 	pSFCAttackOK->ItemNum							= i_pAttackItem->ItemNum;	// 몬스터의 공격 무기 ItemNum을 설정
-// 	pSFCAttackOK->RemainedBulletFuel				= 0;
-// 	pSFCAttackOK->SkillNum							= 0;
-// 	
-// 	vector<ClientIndex_t>	ClientIndexVector;		ClientIndexVector.reserve(100);
-// 	CFieldMapChannel		*pMapChannel = i_pAttackMon->m_pCurrentFieldMapChannelMonster;
-// 	
-// 	// 2007-06-08 by cmkwon, 2형 공격확률,피어스율,공격력 계산 시스템 수정
-// 	SATTACK_PARAMETER attParam;	
-// 	MEMSET_ZERO(&attParam, sizeof(attParam));
-// 	i_pAttackMon->APCalcAttckParameter(&attParam, i_pAttackItem, i_pAttackPri->WeaponIndex);
-// 	
-// 	// 2009-09-09 ~ 2010-01-20 by dhjin, 인피니티 - 공격자 중심 반경으로 체크한다. 밑과 같이 수정
-// //	D3DXVECTOR3		vec3ExplosionPos = A2DX(i_pAttackPri->TargetPosition);		
-// 	D3DXVECTOR3		vec3ExplosionPos = i_pAttackMon->PositionVector;
-// 	
-// 	////////////////////////////////////////////////////////////////////////////////
-// 	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - BELL_INFINITY_DEFENSE_MONSTER 몬스터는 BELL_INFINITY_ATTACK_MONSTER 몬스터에게만 공격
-// 	// 1. 폭발 범위 안에 있는 BELL_INFINITY_ATTACK_MONSTER 몬스터 목록 뽑는다.
-// 	// 2. 범위각 안에 있는 BELL_INFINITY_ATTACK_MONSTER 몬스터라면 빙고.
-// 	if(BELL_INFINITY_DEFENSE_MONSTER == pMonInfo->Belligerence) {
-// 		int nMonsters = pMapChannel->GetAdjacentMonsterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 															i_pAttackItem->ExplosionRange, &ClientIndexVector);		//	1. 폭발 범위 안에 있는 BELL_INFINITY_ATTACK_MONSTER 몬스터 목록 뽑는다.
-// 		if (nMonsters <= 0) {
-// 			// 2005-12-13 by cmkwon, 타겟이 없음
-// 			return;
-// 		}
-// 		
-// 		for(int i= 0; i < nMonsters; i++) {
-// 			///////////////////////////////////////////////////////////////////////////////
-// 			// 초기화
-// 			CFieldMonster *pTargetFMonster = pMapChannel->GetFieldMonster(i_pAttackPri->TargetIndex, 108);
-// 			if(NULL == pTargetFMonster
-// 				|| pTargetFMonster->m_enMonsterState != MS_PLAYING
-// 				|| TRUE == COMPARE_BODYCON_BIT(pTargetFMonster->BodyCondition, BODYCON_DEAD_MASK)
-// 				|| BELL_INFINITY_ATTACK_MONSTER != pTargetFMonster->MonsterInfoPtr->Belligerence) {
-// 				continue;
-// 			}
-// 			pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 			pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 			
-// 			float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetFMonster->PositionVector));
-// 			D3DXVECTOR3		tmUnitVec3M2C;
-// 			D3DXVec3Normalize(&tmUnitVec3M2C, &(pTargetFMonster->PositionVector - i_pAttackMon->PositionVector));		// 현재 몬스터에서 클라이언트를 향하는 Target Vector를 구한다.
-// 			float fPinPoint = ACOS(D3DXVec3Dot(&i_pAttackMon->TargetVector, &tmUnitVec3M2C));						// 몬스터에서 Target Vector와 위에서 구한 현재 Target Vector 사이의 각을 구한다
-// 			if(fPinPoint <= i_pAttackItem->RangeAngle) {
-// 				// 2. 범위각 안에 있는 BELL_INFINITY_ATTACK_MONSTER 몬스터라면 빙고.
-// 				float fDamage = CalcDamageOfAttackMonsterToMonster(1.0f
-// 					, i_pAttackMonSock, i_pAttackMon, &attParam, (void*)pTargetFMonster);
-// 			}
-// 
-// 			ms_pFieldIOCP->SendInRangeMessageAroundCharacter(i_pAttackPri->AttackIndex, Sendbuf
-// 				, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), i_pAttackMon->m_pCurrentFieldMapChannelMonster
-// 				, FALSE, i_pAttackMon->m_pCurrentFieldMapChannelMonster->GetMonsterVisibleDiameterW());
-// 		}// end_for(int i= 0; i < nMonsters; i++)
-// 		
-// 		return;
-// 	}
-// 
-// 	////////////////////////////////////////////////////////////////////////////////
-// 	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - BELL_INFINITY_ATTACK_MONSTER 몬스터는 BELL_INFINITY_DEFENSE_MONSTER 몬스터와 유저 공격
-// 	// 1. 폭발 범위 안에 있는 BELL_INFINITY_DEFENSE_MONSTER 몬스터 목록 뽑는다.
-// 	// 2. 범위각 안에 있는 BELL_INFINITY_DEFENSE_MONSTER 몬스터라면 빙고.
-// 	// 3. 폭발 범위 안에 있는 유저 목록 뽑는다.
-// 	// 4. 범위각 안에 있는 유저라면 빙고.
-// 	if(BELL_INFINITY_ATTACK_MONSTER == pMonInfo->Belligerence) {
-// 		int nMonsters = pMapChannel->GetAdjacentMonsterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 															i_pAttackItem->ExplosionRange, &ClientIndexVector);					// 1. 폭발 범위 안에 있는 BELL_INFINITY_DEFENSE_MONSTER 몬스터 목록 뽑는다.
-// 		if (nMonsters > 0) {
-// 			for(int i= 0; i < nMonsters; i++) {
-// 				///////////////////////////////////////////////////////////////////////////////
-// 				// 초기화
-// 				CFieldMonster *pTargetFMonster = pMapChannel->GetFieldMonster(i_pAttackPri->TargetIndex, 105);
-// 				if(NULL == pTargetFMonster
-// 					|| pTargetFMonster->m_enMonsterState != MS_PLAYING
-// 					|| TRUE == COMPARE_BODYCON_BIT(pTargetFMonster->BodyCondition, BODYCON_DEAD_MASK)
-// 					|| BELL_INFINITY_DEFENSE_MONSTER != pTargetFMonster->MonsterInfoPtr->Belligerence) {
-// 					continue;
-// 				}
-// 				pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 				pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 				
-// 				float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetFMonster->PositionVector));
-// 				D3DXVECTOR3		tmUnitVec3M2C;
-// 				D3DXVec3Normalize(&tmUnitVec3M2C, &(pTargetFMonster->PositionVector - i_pAttackMon->PositionVector));		// 현재 몬스터에서 클라이언트를 향하는 Target Vector를 구한다.
-// 				float fPinPoint = ACOS(D3DXVec3Dot(&i_pAttackMon->TargetVector, &tmUnitVec3M2C));						// 몬스터에서 Target Vector와 위에서 구한 현재 Target Vector 사이의 각을 구한다
-// 				if(fPinPoint <= i_pAttackItem->RangeAngle) {
-// 					// 2. 범위각 안에 있는 BELL_INFINITY_DEFENSE_MONSTER 몬스터라면 빙고.
-// 					float fDamage = CalcDamageOfAttackMonsterToMonster(1.0f
-// 						, i_pAttackMonSock, i_pAttackMon, &attParam, (void*)pTargetFMonster);
-// 				}
-// 
-// 				ms_pFieldIOCP->SendInRangeMessageAroundCharacter(i_pAttackPri->AttackIndex, Sendbuf
-// 					, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK), i_pAttackMon->m_pCurrentFieldMapChannelMonster
-// 					, FALSE, i_pAttackMon->m_pCurrentFieldMapChannelMonster->GetMonsterVisibleDiameterW());
-// 			}// end_for(int i= 0; i < nMonsters; i++)	
-// 		}
-// 		
-// 		int nCharacters = pMapChannel->GetAdjacentCharacterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 									i_pAttackItem->ExplosionRange, &ClientIndexVector);	// 3. 폭발 범위 안에 있는 유저 목록 뽑는다.
-// 		if (nCharacters <= 0) {
-// 			for(int i= 0; i < nCharacters; i++)
-// 			{
-// 				///////////////////////////////////////////////////////////////////////////////
-// 				// 초기화
-// 				pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 				pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 				
-// 				CFieldIOCPSocket	*pTargetCharacterSocket = NULL;
-// 				CHARACTER			*pTargetCharacter = NULL;
-// 				ClientIndex_t		tmpClientIndex = ClientIndexVector[i];
-// 				
-// 				if (FALSE == i_pAttackMonSock->CheckValidAttackTargetCharacter(pMapChannel, tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-// 				{
-// 					continue;
-// 				}
-// 				
-// 				if(FALSE == IS_SAME_CHARACTER_MONSTER_INFLUENCE(pTargetCharacter->InfluenceType, pMonInfo->Belligerence)
-// 					&& BELL_INFINITY_DEFENSE_MONSTER != pMonInfo->Belligerence)		// 2009-09-09 ~ 2010 by dhjin, 인피니티 - BELL_INFINITY_DEFENSE_MONSTER 몬스터에게 공격 받지 않음.
-// 				{// 2007-10-22 by cmkwon, 같은 세력인지 체크한다.
-// 					float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetCharacter->PositionVector));
-// 					D3DXVECTOR3		tmUnitVec3M2C;
-// 					D3DXVec3Normalize(&tmUnitVec3M2C, &(pTargetCharacter->PositionVector - i_pAttackMon->PositionVector));		// 현재 몬스터에서 클라이언트를 향하는 Target Vector를 구한다.
-// 					float fPinPoint = ACOS(D3DXVec3Dot(&i_pAttackMon->TargetVector, &tmUnitVec3M2C));						// 몬스터에서 Target Vector와 위에서 구한 현재 Target Vector 사이의 각을 구한다
-// 					if(fPinPoint <= i_pAttackItem->RangeAngle) {
-// 						// 4. 범위각 안에 있는 유저라면 빙고.
-// 						BYTE DamageKind = DAMAGEKIND_NORMAL;
-// 						float fDamage = CalcDamageOfAttackNew(&DamageKind, M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, &attParam, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0.0f : fDistance ));
-// 					}
-// 				}
-// 				
-// 				if(pTargetCharacter
-// 					&& pTargetCharacterSocket->IsValidCharacter())
-// 				{
-// 					pTargetCharacterSocket->SendAddData(Sendbuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK));
-// 				}
-// 			}// end_for(int i= 0; i < nCharacters; i++)
-// 		}
-// 		return;
-// 	}
-// 	
-// 	////////////////////////////////////////////////////////////////////////////////
-// 	// 일반 유저 처리
-// 	// 1. 폭발 범위 안에 있는 유저 목록 뽑는다.
-// 	// 2. 범위각 안에 있는 유저라면 빙고.
-// 	int nCharacters = pMapChannel->GetAdjacentCharacterIndexes(i_pAttackPri->TargetPosition.x, i_pAttackPri->TargetPosition.z,
-// 									i_pAttackItem->ExplosionRange, &ClientIndexVector);	// 1. 폭발 범위 안에 있는 유저 목록 뽑는다.
-// 	if (nCharacters <= 0) {
-// 		return;
-// 	}
-// 
-// 	for(int i= 0; i < nCharacters; i++)
-// 	{
-// 		///////////////////////////////////////////////////////////////////////////////
-// 		// 초기화
-// 		pSFCAttackOK->TargetInfo.TargetIndex			= 0;
-// 		pSFCAttackOK->TargetInfo.TargetItemFieldIndex	= 0;
-// 		
-// 		CFieldIOCPSocket	*pTargetCharacterSocket = NULL;
-// 		CHARACTER			*pTargetCharacter = NULL;
-// 		ClientIndex_t		tmpClientIndex = ClientIndexVector[i];
-// 		
-// 		if (FALSE == i_pAttackMonSock->CheckValidAttackTargetCharacter(pMapChannel, tmpClientIndex, pTargetCharacterSocket, pTargetCharacter))
-// 		{
-// 			continue;
-// 		}
-// 		
-// 		if(FALSE == IS_SAME_CHARACTER_MONSTER_INFLUENCE(pTargetCharacter->InfluenceType, pMonInfo->Belligerence)
-// 			&& BELL_INFINITY_DEFENSE_MONSTER != pMonInfo->Belligerence)		// 2009-09-09 ~ 2010 by dhjin, 인피니티 - BELL_INFINITY_DEFENSE_MONSTER 몬스터에게 공격 받지 않음.
-// 		{// 2007-10-22 by cmkwon, 같은 세력인지 체크한다.
-// 			float	fDistance = D3DXVec3Length(&(vec3ExplosionPos - pTargetCharacter->PositionVector));
-// 			D3DXVECTOR3		tmUnitVec3M2C;
-// 			D3DXVec3Normalize(&tmUnitVec3M2C, &(pTargetCharacter->PositionVector - i_pAttackMon->PositionVector));		// 현재 몬스터에서 클라이언트를 향하는 Target Vector를 구한다.
-// 			float fPinPoint = ACOS(D3DXVec3Dot(&i_pAttackMon->TargetVector, &tmUnitVec3M2C));						// 몬스터에서 Target Vector와 위에서 구한 현재 Target Vector 사이의 각을 구한다
-// 			if(fPinPoint <= i_pAttackItem->RangeAngle) {
-// 				// 2. 범위각 안에 있는 유저라면 빙고.
-// 				BYTE DamageKind = DAMAGEKIND_NORMAL;
-// 				float fDamage = CalcDamageOfAttackNew(&DamageKind, M2C, 1.0f, i_pAttackMonSock, i_pAttackMon, &attParam, pTargetCharacterSocket, pTargetCharacter, i_pAttackItem->Range, ((i_pAttackItem->OrbitType == ORBIT_BODYSLAM) ? 0.0f : fDistance ));
-// 			}
-// 		}
-// 		
-// 		if(pTargetCharacter
-// 			&& pTargetCharacterSocket->IsValidCharacter())
-// 		{
-// 			pTargetCharacterSocket->SendAddData(Sendbuf, MSG_SIZE(MSG_FC_BATTLE_ATTACK_OK));
-// 		}
-// 	}// end_for(int i= 0; i < nCharacters; i++)
-// 
-// 
-// }
-
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CFieldIOCPSocket::GetDelegateClientIdxByMonsterAttackSecM2M(CFieldMonster * i_pAttackMonster, ClientIndex_t * o_pDelegateClientIdx)
 /// \brief		인피니티 - 몬스터 간 2형 공격 판단 해줄 클라이언트 위임자 찾기 - ping좋은 클라이언트? 아님 거리로? 둘 중 하나로 수정해야됨
@@ -39454,6 +39339,10 @@ void CFieldIOCPSocket::AddAttackDamage(CFieldIOCPSocket *i_pAttackSocket, void* 
 			CTriggerFunction *pTriggerFunction = pTargetMonster->m_mtVectTriggerFunctionPtr[i];
 			if( TRUE == pTriggerFunction->OnIsInvincible(pTargetMonster->MonsterInfoPtr->MonsterUnitKind, i_pAttackSocket) )
 			{
+				// LOG to Chat
+				char szTemp[256];
+				sprintf(szTemp, "isInvisible");
+				g_pFieldGlobal->WriteSystemLog(szTemp);
 				return ;
 			}
 			// 2013-01-23 by jhseol, 전쟁 시 크리스탈만 공격 불가능 하도록 수정
