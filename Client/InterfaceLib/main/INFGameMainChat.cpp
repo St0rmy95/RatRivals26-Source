@@ -14,7 +14,7 @@
 #include "ShuttleChild.h"
 #include "CharacterChild.h"				// 2005-07-21 by ispark
 
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 #include "IMSocketManager.h"
 //#include "IMSocket.h"
 
@@ -43,27 +43,27 @@
 #include "CInput.h"
 #include "INFMotherShipManager.h"
 
-#include "TutorialSystem.h"	// 2008-10-20 by bhsohn FAQ ±âÃ¼ »óÅÂ¿¡¼­´Â ¾Èº¸ÀÌ°Ô º¯°æ
+#include "TutorialSystem.h"	// 2008-10-20 by bhsohn FAQ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #include "LocalizeSetting.h"
-// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 #include "CustomOptimizer.h"
 
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #include "INFImageList.h"
 #include "INFImageEx.h"
 #include "INFGroupImage.h"
 #include "INFGroupManager.h"		  
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-#include "INFToolTip.h"			// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#include "INFToolTip.h"			// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// Ãß°¡ ¼öÁ¤ Ã¤ÆÃ
-	// Ã¤ÆÃ Ã¢ºÎºÐÀº CHAT_INPUT_WINDOW_X¿¡µû¶ó À§Ä¡°¡ Á¤ÇØÁø´Ù
-	#define CHAT_WINDOW_X			2//25												// Ã¤ÆÃ ÀÔ·ÂÃ¢ 
-	#define CHAT_WINDOW_Y			(g_pD3dApp->GetBackBufferDesc().Height - 34)//27)	// Ã¤ÆÃ ÀÔ·ÂÃ¢
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+	// Ã¤ï¿½ï¿½ Ã¢ï¿½Îºï¿½ï¿½ï¿½ CHAT_INPUT_WINDOW_Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	#define CHAT_WINDOW_X			2//25												// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢ 
+	#define CHAT_WINDOW_Y			(g_pD3dApp->GetBackBufferDesc().Height - 34)//27)	// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
 	//#define CHAT_WINDOW_W			210 
 	//#define CHAT_WINDOW_H			22
 
@@ -73,21 +73,21 @@
 	#define CHAT_INPUT_WINDOW_H			20
 
 
-	#define CHAT_CHATTAB_VIEW_FLAG_X	(CHAT_WINDOW_X+329)//329)						// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
-	#define CHAT_CHATTAB_VIEW_FLAG_Y	(CHAT_WINDOW_Y)//-7)							// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
-	#define CHAT_CHATTAB_VIEW_FLAG_W	15												// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
-	#define CHAT_CHATTAB_VIEW_FLAG_H	21												// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
+	#define CHAT_CHATTAB_VIEW_FLAG_X	(CHAT_WINDOW_X+329)//329)						// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
+	#define CHAT_CHATTAB_VIEW_FLAG_Y	(CHAT_WINDOW_Y)//-7)							// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
+	#define CHAT_CHATTAB_VIEW_FLAG_W	15												// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
+	#define CHAT_CHATTAB_VIEW_FLAG_H	21												// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
 
-	#define CHAT_MENU_VIEW_X			(CHAT_WINDOW_X - 1)								// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
-	#define CHAT_MENU_VIEW_Y			(CHAT_WINDOW_Y)								// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
-	#define CHAT_MENU_VIEW_W			21												// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
-	#define CHAT_MENU_VIEW_H			22												// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
+	#define CHAT_MENU_VIEW_X			(CHAT_WINDOW_X - 1)								// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+	#define CHAT_MENU_VIEW_Y			(CHAT_WINDOW_Y)								// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+	#define CHAT_MENU_VIEW_W			21												// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+	#define CHAT_MENU_VIEW_H			22												// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 
-	#define CHAT_MENU_LIST_START_X		(CHAT_WINDOW_X+10)							// Ã¤ÆÃ ¸Þ´º ½ÃÀÛ À§Ä¡
-	#define CHAT_MENU_LIST_START_Y		(CHAT_WINDOW_Y-1)							// Ã¤ÆÃ ¸Þ´º ½ÃÀÛ À§Ä¡
+	#define CHAT_MENU_LIST_START_X		(CHAT_WINDOW_X+10)							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+	#define CHAT_MENU_LIST_START_Y		(CHAT_WINDOW_Y-1)							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-	#define CHAT_MENU_LIST_W			150												// ¸Þ´º ¸®½ºÆ® ³ÏÀÌ
-	#define CHAT_MENU_LIST_H			18												// ¸Þ´º ¸®½ºÆ® ³ôÀÌ
+	#define CHAT_MENU_LIST_W			150												// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	#define CHAT_MENU_LIST_H			18												// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
 	#define CHAT_NMENU_BUTTON_STATE_NOM	0		
 	#define CHAT_NMENU_BUTTON_STATE_OVE	1
@@ -97,14 +97,14 @@
 	#define CHAT_CASH_BUTTON_STATE_OVE	0
 	#define CHAT_CASH_BUTTON_STATE_PUH	1
 
-	#define CHAT_NFONT_START_LINE_X		5												// Ã¤ÆÃ ·»´õ¸µ ½ÃÀÛ ¶óÀÎ
-	#define CHAT_NFONT_START_LINE_Y		(CHAT_FONT_START_Y-21)								// Ã¤ÆÃ ·»´õ¸µ ½ÃÀÛ ¶óÀÎ
-	// ±âÅ¸ ¸Þ´º °ü·Ã
+	#define CHAT_NFONT_START_LINE_X		5												// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	#define CHAT_NFONT_START_LINE_Y		(CHAT_FONT_START_Y-21)								// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½Å¸ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//#define CHAT_OTHER_MENU_VOIP		(CHAT_TAB_NUMBER)
-	//#define CHAT_OTHER_MENU_FAQ			(CHAT_TAB_NUMBER+1)								// °¡Å¸ FAQ ¸Þ´º
-	//#define CHAT_OTHER_MENU_PAYITEM		(CHAT_TAB_NUMBER+2)								// ±âÅ¸ À¯·á ¾ÆÀÌÅÛ
+	//#define CHAT_OTHER_MENU_FAQ			(CHAT_TAB_NUMBER+1)								// ï¿½ï¿½Å¸ FAQ ï¿½Þ´ï¿½
+	//#define CHAT_OTHER_MENU_PAYITEM		(CHAT_TAB_NUMBER+2)								// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	#define CHAT_HELPDESK_STRLEN		280//50											// µµ¿ò¸» ±ÛÀÚ¸£±â(ÇÈ¼¿°ªÀ¸·Î º¯°æ)
+	#define CHAT_HELPDESK_STRLEN		280//50											// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½(ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 	#define CHAR_INF_CANDIDATE_POS_X	3
 	#define CHAR_INF_CANDIDATE_POS_Y	(g_pD3dApp->GetBackBufferDesc().Height-35)
@@ -113,7 +113,7 @@
 	#define CHAT_INPUT_LANGUAGE_Y		(CHAT_WINDOW_Y)
 	#define CHAT_INPUT_LANGUAGE_WH		20
 
-	// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+	// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 	#define CHAT_CHATMODE_Y				(CHAT_WINDOW_Y - 20)
 	#define CHAT_CHATMODE_X				(CHAT_WINDOW_X)
 	#define CHAT_CHATMODE_GAP			37
@@ -140,9 +140,9 @@
 	#define CHAT_MACRO_APPL_GAP_Y		29
 
 	#ifdef GAMEFORGE4D_CHAT_MACRO_OUTPUT_TIME
-		#define CHAT_MACRO_OUTPUT_TIME		300.0f // 2013-07-30 by ssjung °ÔÀÓ Æ÷Áö ÀÏ °æ¿ì ¸ÅÅ©·Î µô·¹ÀÌ 15ÃÊ ¿¡¼­ 5ºÐÀ¸·Î ¼öÁ¤
+		#define CHAT_MACRO_OUTPUT_TIME		300.0f // 2013-07-30 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 15ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	#else
-		#define CHAT_MACRO_OUTPUT_TIME		15.0f // 2012-03-30 by isshin ¸ÅÅ©·Î ½Ã½ºÅÛ ¹ö±× ¼öÁ¤- Ãâ·Â °£°Ý ½Ã°£
+		#define CHAT_MACRO_OUTPUT_TIME		15.0f // 2012-03-30 by isshin ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 	#endif
 
 	#define CHAT_MACRO_OK_X				(m_nMacroX + 229)
@@ -179,14 +179,14 @@
 	#define VOICECHAT_CAN_BTN_POS_X		(m_nVCCPosX + 250)
 	#define VOICECHAT_CAN_BTN_POS_Y		(m_nVCCPosY + 216)
 
-	// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+	// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	#define CHATMACRO_TRANSCHAT_COUNT	11
 
-	#define  ENCODE_STRING "562C50434D0A4A5D2A47454E3841444E4F1B0115021B185C5552"		// 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
-	#define  KEY_STRING		"!@#$%^&*@#$%^&*()yerijk0095634^%g"							// 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
+	#define  ENCODE_STRING "562C50434D0A4A5D2A47454E3841444E4F1B0115021B185C5552"		// 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
+	#define  KEY_STRING		"!@#$%^&*@#$%^&*()yerijk0095634^%g"							// 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
 
-// 2006-03-07 by ispark, ¾ð¾î¿¡ µû¶ó À§Ä¡ ¼öÁ¤
-	#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ÅÂ±¹ ¹öÀü Ãß°¡
+// 2006-03-07 by ispark, ï¿½ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+	#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		#define STRING_CULL ::StringCullingUserData_ToBlank
 		#define STRING_CULL2 ::StringCullingUserData_ToBlank
 		#define CHAT_STRING_LENGTH			(m_nChatBoxWidth - 11)
@@ -199,10 +199,10 @@
 		#define FONT_INPUT_Y				CHAT_WINDOW_Y + 2
 	#endif
 #else 
-	// Ãß°¡ ¼öÁ¤ Ã¤ÆÃ
-// Ã¤ÆÃ Ã¢ºÎºÐÀº CHAT_INPUT_WINDOW_X¿¡µû¶ó À§Ä¡°¡ Á¤ÇØÁø´Ù
-#define CHAT_WINDOW_X			3//25												// Ã¤ÆÃ ÀÔ·ÂÃ¢ 
-#define CHAT_WINDOW_Y			(g_pD3dApp->GetBackBufferDesc().Height - 20)//27)	// Ã¤ÆÃ ÀÔ·ÂÃ¢
+	// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+// Ã¤ï¿½ï¿½ Ã¢ï¿½Îºï¿½ï¿½ï¿½ CHAT_INPUT_WINDOW_Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define CHAT_WINDOW_X			3//25												// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢ 
+#define CHAT_WINDOW_Y			(g_pD3dApp->GetBackBufferDesc().Height - 20)//27)	// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
 //#define CHAT_WINDOW_W			210 
 //#define CHAT_WINDOW_H			22
 
@@ -212,21 +212,21 @@
 #define CHAT_INPUT_WINDOW_H			20
 
 
-#define CHAT_CHATTAB_VIEW_FLAG_X	(CHAT_WINDOW_X+325)//329)						// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
-#define CHAT_CHATTAB_VIEW_FLAG_Y	(CHAT_WINDOW_Y)//-7)							// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
-#define CHAT_CHATTAB_VIEW_FLAG_W	15												// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
-#define CHAT_CHATTAB_VIEW_FLAG_H	21												// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ ÀÌ¹ÌÁö
+#define CHAT_CHATTAB_VIEW_FLAG_X	(CHAT_WINDOW_X+325)//329)						// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
+#define CHAT_CHATTAB_VIEW_FLAG_Y	(CHAT_WINDOW_Y)//-7)							// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
+#define CHAT_CHATTAB_VIEW_FLAG_W	15												// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
+#define CHAT_CHATTAB_VIEW_FLAG_H	21												// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ ï¿½Ì¹ï¿½ï¿½ï¿½
 
-#define CHAT_MENU_VIEW_X			(CHAT_WINDOW_X+3)											// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
-#define CHAT_MENU_VIEW_Y			(CHAT_WINDOW_Y+2)		// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
-#define CHAT_MENU_VIEW_W			21												// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
-#define CHAT_MENU_VIEW_H			22												// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â
+#define CHAT_MENU_VIEW_X			(CHAT_WINDOW_X+3)											// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+#define CHAT_MENU_VIEW_Y			(CHAT_WINDOW_Y+2)		// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+#define CHAT_MENU_VIEW_W			21												// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+#define CHAT_MENU_VIEW_H			22												// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 
-#define CHAT_MENU_LIST_START_X		(CHAT_WINDOW_X+10)							// Ã¤ÆÃ ¸Þ´º ½ÃÀÛ À§Ä¡
-#define CHAT_MENU_LIST_START_Y		(CHAT_WINDOW_Y-1)							// Ã¤ÆÃ ¸Þ´º ½ÃÀÛ À§Ä¡
+#define CHAT_MENU_LIST_START_X		(CHAT_WINDOW_X+10)							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+#define CHAT_MENU_LIST_START_Y		(CHAT_WINDOW_Y-1)							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-#define CHAT_MENU_LIST_W			150												// ¸Þ´º ¸®½ºÆ® ³ÏÀÌ
-#define CHAT_MENU_LIST_H			18												// ¸Þ´º ¸®½ºÆ® ³ôÀÌ
+#define CHAT_MENU_LIST_W			150												// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+#define CHAT_MENU_LIST_H			18												// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
 #define CHAT_NMENU_BUTTON_STATE_NOM	0		
 #define CHAT_NMENU_BUTTON_STATE_OVE	1
@@ -236,14 +236,14 @@
 #define CHAT_CASH_BUTTON_STATE_OVE	0
 #define CHAT_CASH_BUTTON_STATE_PUH	1
 
-#define CHAT_NFONT_START_LINE_X		5												// Ã¤ÆÃ ·»´õ¸µ ½ÃÀÛ ¶óÀÎ
-#define CHAT_NFONT_START_LINE_Y		(CHAT_FONT_START_Y-21)								// Ã¤ÆÃ ·»´õ¸µ ½ÃÀÛ ¶óÀÎ
-// ±âÅ¸ ¸Þ´º °ü·Ã
+#define CHAT_NFONT_START_LINE_X		5												// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define CHAT_NFONT_START_LINE_Y		(CHAT_FONT_START_Y-21)								// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½Å¸ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½
 //#define CHAT_OTHER_MENU_VOIP		(CHAT_TAB_NUMBER)
-//#define CHAT_OTHER_MENU_FAQ			(CHAT_TAB_NUMBER+1)								// °¡Å¸ FAQ ¸Þ´º
-//#define CHAT_OTHER_MENU_PAYITEM		(CHAT_TAB_NUMBER+2)								// ±âÅ¸ À¯·á ¾ÆÀÌÅÛ
+//#define CHAT_OTHER_MENU_FAQ			(CHAT_TAB_NUMBER+1)								// ï¿½ï¿½Å¸ FAQ ï¿½Þ´ï¿½
+//#define CHAT_OTHER_MENU_PAYITEM		(CHAT_TAB_NUMBER+2)								// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-#define CHAT_HELPDESK_STRLEN		280//50											// µµ¿ò¸» ±ÛÀÚ¸£±â(ÇÈ¼¿°ªÀ¸·Î º¯°æ)
+#define CHAT_HELPDESK_STRLEN		280//50											// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½(ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 #define CHAR_INF_CANDIDATE_POS_X	3
 #define CHAR_INF_CANDIDATE_POS_Y	(g_pD3dApp->GetBackBufferDesc().Height-35)
@@ -252,7 +252,7 @@
 #define CHAT_INPUT_LANGUAGE_Y		(CHAT_WINDOW_Y+2)
 #define CHAT_INPUT_LANGUAGE_WH		20
 
-// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 #define CHAT_CHATMODE_Y				(CHAT_WINDOW_Y - 17)
 #define CHAT_CHATMODE_X				(CHAT_WINDOW_X)
 #define CHAT_CHATMODE_GAP			37
@@ -279,9 +279,9 @@
 #define CHAT_MACRO_APPL_GAP_Y		29
 
 #ifdef GAMEFORGE4D_CHAT_MACRO_OUTPUT_TIME
-	#define CHAT_MACRO_OUTPUT_TIME		300.0f // 2013-07-30 by ssjung °ÔÀÓ Æ÷Áö ÀÏ °æ¿ì ¸ÅÅ©·Î µô·¹ÀÌ 15ÃÊ ¿¡¼­ 5ºÐÀ¸·Î ¼öÁ¤
+	#define CHAT_MACRO_OUTPUT_TIME		300.0f // 2013-07-30 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 15ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
-	#define CHAT_MACRO_OUTPUT_TIME		15.0f // 2012-03-30 by isshin ¸ÅÅ©·Î ½Ã½ºÅÛ ¹ö±× ¼öÁ¤- Ãâ·Â °£°Ý ½Ã°£
+	#define CHAT_MACRO_OUTPUT_TIME		15.0f // 2012-03-30 by isshin ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 #endif
 
 #define CHAT_MACRO_OK_X				(m_nMacroX + 209)
@@ -318,14 +318,14 @@
 #define VOICECHAT_CAN_BTN_POS_X		(m_nVCCPosX + 250)
 #define VOICECHAT_CAN_BTN_POS_Y		(m_nVCCPosY + 216)
 
-	#define  ENCODE_STRING "562C50434D0A4A5D2A47454E3841444E4F1B0115021B185C5552"		// 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
-	#define  KEY_STRING		"!@#$%^&*@#$%^&*()yerijk0095634^%g"							// 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
+	#define  ENCODE_STRING "562C50434D0A4A5D2A47454E3841444E4F1B0115021B185C5552"		// 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
+	#define  KEY_STRING		"!@#$%^&*@#$%^&*()yerijk0095634^%g"							// 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
 
-// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define CHATMACRO_TRANSCHAT_COUNT	11
 
-// 2006-03-07 by ispark, ¾ð¾î¿¡ µû¶ó À§Ä¡ ¼öÁ¤
-#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ÅÂ±¹ ¹öÀü Ãß°¡
+// 2006-03-07 by ispark, ï¿½ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	#define STRING_CULL ::StringCullingUserData_ToBlank
 	#define STRING_CULL2 ::StringCullingUserData_ToBlank
 #define CHAT_STRING_LENGTH			(m_nChatBoxWidth - 11)
@@ -343,10 +343,10 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent)
 CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
-// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	FLOG( "CINFGameMainChat(CAtumNode* pParent)" );
 
@@ -378,13 +378,13 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 //	m_nSizeMinButtonstate = CHAT_BUTTON_NORMAL;
 	m_nChatSizeBtnNormal  = BUTTON_BOTH_STATE_NORMAL;
 
-	// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	m_nChatBoxWidth		  = CHAT_CHATBOX_START_DEFAULT_MIN_X+100;
 // 	m_nChatBoxHeight	  = CHAT_CHATBOX_START_DEFAULT_MIN_Y;
 
 	if(nWidth <= 0 || nHeight <= 0)
 	{
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_nChatBoxWidth	  = CHAT_CHATBOX_START_DEFAULT_MIN_X+38;
 #else							   
 		m_nChatBoxWidth	  = CHAT_CHATBOX_START_DEFAULT_MIN_X+100;
@@ -397,7 +397,7 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 		m_nChatBoxWidth	  = nWidth;
 		m_nChatBoxHeight  = nHeight;
 	}
-	// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	m_nChatBoxYPos	  = 0;
@@ -423,17 +423,17 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 //	memset(m_nCurrentScrollHeight,0x00, CHAT_TAB_NUMBER*sizeof(int));	
 	memset(m_strInputMessage, 0x00, sizeof(m_strInputMessage));
 
-	// 2010. 04. 01 by ckPark Ã¤ÆÃÃ¢ ¸Þ¸ð¸® ÃÊ±âÈ­ ¹ö±× ¼öÁ¤
+	// 2010. 04. 01 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½Þ¸ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//memset(m_fTimeOfShowChat,0x00, CHAT_TAB_NUMBER*CHAT_NOT_SHOWBOX_LINE*sizeof(float));
 	memset( m_fTimeOfShowChat, 0x00, CHAT_NOT_SHOWBOX_LINE * sizeof(float) );
-	// end 2010. 04. 01 by ckPark Ã¤ÆÃÃ¢ ¸Þ¸ð¸® ÃÊ±âÈ­ ¹ö±× ¼öÁ¤
+	// end 2010. 04. 01 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½Þ¸ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 //	m_nShowTimeChatType	=	0;
 
-	// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+	// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	InitChatMsgBuff();
-	// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+	// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	
 	m_pFontInput = NULL;	
 	m_bChatMode = FALSE;
@@ -447,7 +447,7 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 
 	memset(m_strMyMent,0x00, 1024);
 
-	// Ã¤ÆÃ º¯°æ 2005.01.13 ydkim
+	// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2005.01.13 ydkim
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 		m_bChatCurrentSelect[i] = TRUE;	
 //	m_bChatCurrentSelect[CHAT_TAB_NORMAL]	= TRUE;
@@ -455,7 +455,7 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 //	m_bChatCurrentSelect[CHAT_TAB_TRADE]	= FALSE;
 
 	m_nSelectChatTab = CHAT_TAB_NORMAL;
-	// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(i = 0 ; i < 10 ; ++i)
 	{
@@ -465,27 +465,27 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 #else
 	m_pFontGM = NULL;
 #endif
-	// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 	memset(m_strInputGm, 0x00, 1024);
 	memset(m_strInputInfluenceLeader, 0x00, 512);
 	m_fTimeGm = 0.0f;
 	m_fTimeInfluenceLeader = 0.0f;
 
-	// Ãß°¡¼öÁ¤ 2005.01.21
+	// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ 2005.01.21
 	for(i=0; i<CHAT_BUTTON_NUMBER3; i++)
 	{
-		m_pNChatFAQ[i] = NULL;								// Ã¤ÆÃ FAQ¹öÆ°
-		m_pNChatMenuView[i] = NULL;							// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â ¹öÆ°
-		m_pNChatVOIPStartMenu[i] = NULL;					// Ã¤ÆÃ VOIP ½ÃÀÛ ¹öÆ°
-		m_pNChatVOIPEndMenu[i] = NULL;						// Ã¤ÆÃ VOIP Á¾·Á ¹öÆ°
+		m_pNChatFAQ[i] = NULL;								// Ã¤ï¿½ï¿½ FAQï¿½ï¿½Æ°
+		m_pNChatMenuView[i] = NULL;							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
+		m_pNChatVOIPStartMenu[i] = NULL;					// Ã¤ï¿½ï¿½ VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
+		m_pNChatVOIPEndMenu[i] = NULL;						// Ã¤ï¿½ï¿½ VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 	}
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
 	{
-		m_pNChatCash[i] = NULL;								// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+		m_pNChatCash[i] = NULL;								// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
  	}
 #endif
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
@@ -493,18 +493,18 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 		m_pNChatCashView[i] = NULL;
 	}
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<INPUT_LANGUAGE_END; i++)
 	{
-		m_pNChatInputLanguage[i] = NULL;					// Ã¤ÆÃ ÀÔ·Â ¾ð¾î
+		m_pNChatInputLanguage[i] = NULL;					// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½
 	}
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
-		m_pNChatMenu[i] = NULL;								// Ã¤ÆÃ ¸Þ´º ¸®½ºÆ®
+		m_pNChatMenu[i] = NULL;								// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	}
-	m_pNChatInput = NULL;									// Ã¤ÆÃ ÀÔ·ÂÃ¢
-	m_pNChatCheck = NULL;									// Ã¤ÆÃ Ã¤Å©¸¶Å©	
-	m_nMenuListButtonState = CHAT_NMENU_BUTTON_STATE_NOM;	// ¸Þ´º¸®½ºÆ® ¹öÆ° »óÅÂ
+	m_pNChatInput = NULL;									// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
+	m_pNChatCheck = NULL;									// Ã¤ï¿½ï¿½ Ã¤Å©ï¿½ï¿½Å©	
+	m_nMenuListButtonState = CHAT_NMENU_BUTTON_STATE_NOM;	// ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 
 	for(i=0; i<CHAT_OTHER_MENU_ALL; i++)
 	{
@@ -570,34 +570,34 @@ CINFGameMainChat::CINFGameMainChat(CAtumNode* pParent, int nWidth, int nHeight)
 	m_pBtnVoiceChatCan			= NULL;
 	m_bVCCMoving				= FALSE;
 	
-	// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+	// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_bMacroIng = FALSE;	
 	for(i = 0; i < CHAT_MACRO_INPUT_COUNT; i++)
 	{
 		memset(&m_sMacroStr[i], 0x00, sizeof(sCHATMACROSTRING));
 	}
 	memset(m_strTempMacro, 0x00, SIZE_MAX_CHAT_MESSAGE);
-	// end 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+	// end 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 
-	// °¢ Ã¤ÆÃ ¶óÀÎ ÃÊ±âÈ­
+	// ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	for(i=0; i<MAX_GAME_MAIN_CHAT_LINE; ++i)
 		m_pFontLine[i]	= NULL;
 
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pBtnChatBG = NULL;
 #endif
 
-	// 2012-10-31 by jhjang Æ÷ÀÎÅÍ ÃÊ±âÈ­ ÄÚµå Ãß°¡
+	// 2012-10-31 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Úµï¿½ ï¿½ß°ï¿½
 	for(i = 0 ; i < 9 ; i ++)
 	{
 		m_pBtnChatMode[i] = NULL;
 	}
-	// end 2012-10-31 by jhjang Æ÷ÀÎÅÍ ÃÊ±âÈ­ ÄÚµå Ãß°¡
+	// end 2012-10-31 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Úµï¿½ ï¿½ß°ï¿½
 }
 
 CINFGameMainChat::~CINFGameMainChat()
@@ -655,7 +655,7 @@ CINFGameMainChat::~CINFGameMainChat()
 		it++;
 	}
 	m_vecFontLine.clear();
-	// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(i = 0 ; i < 10 ; ++i)
 	{
@@ -665,23 +665,23 @@ CINFGameMainChat::~CINFGameMainChat()
 #else
 	SAFE_DELETE(m_pFontGM);
 #endif
-	// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 
-	// Ãß°¡¼öÁ¤ 2005.01.21
+	// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ 2005.01.21
 	for(i=0; i<CHAT_BUTTON_NUMBER3; i++)
 	{
-		SAFE_DELETE(m_pNChatFAQ[i]);								// Ã¤ÆÃ FAQ¹öÆ°
-		SAFE_DELETE(m_pNChatMenuView[i]);							// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â ¹öÆ°
-		SAFE_DELETE(m_pNChatVOIPStartMenu[i]);						// Ã¤ÆÃ VOIP ½ÃÀÛ ¹öÆ°
-		SAFE_DELETE(m_pNChatVOIPEndMenu[i]);						// Ã¤ÆÃ VOIP Á¾·á ¹öÆ°
+		SAFE_DELETE(m_pNChatFAQ[i]);								// Ã¤ï¿½ï¿½ FAQï¿½ï¿½Æ°
+		SAFE_DELETE(m_pNChatMenuView[i]);							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
+		SAFE_DELETE(m_pNChatVOIPStartMenu[i]);						// Ã¤ï¿½ï¿½ VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
+		SAFE_DELETE(m_pNChatVOIPEndMenu[i]);						// Ã¤ï¿½ï¿½ VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 	}
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
 	{
-		SAFE_DELETE(m_pNChatCash[i]);								// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+		SAFE_DELETE(m_pNChatCash[i]);								// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 	}
 #endif
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
@@ -689,17 +689,17 @@ CINFGameMainChat::~CINFGameMainChat()
 		SAFE_DELETE(m_pNChatCashView[i]);
  	}
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<INPUT_LANGUAGE_END; i++)
 	{
-		SAFE_DELETE(m_pNChatInputLanguage[i]);						// Ã¤ÆÃ ÀÔ·Â ¾ð¾î
+		SAFE_DELETE(m_pNChatInputLanguage[i]);						// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½
 	}
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
-		SAFE_DELETE(m_pNChatMenu[i]);								// Ã¤ÆÃ ¸Þ´º ¸®½ºÆ®
+		SAFE_DELETE(m_pNChatMenu[i]);								// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	}
-	SAFE_DELETE(m_pNChatInput);									// Ã¤ÆÃ ÀÔ·ÂÃ¢
-	SAFE_DELETE(m_pNChatCheck);									// Ã¤ÆÃ Ã¤Å©¸¶Å©
+	SAFE_DELETE(m_pNChatInput);									// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
+	SAFE_DELETE(m_pNChatCheck);									// Ã¤ï¿½ï¿½ Ã¤Å©ï¿½ï¿½Å©
 
 	for(i = 0; i < CHAT_MACRO_INPUT_COUNT ; i++)
 	{
@@ -710,14 +710,14 @@ CINFGameMainChat::~CINFGameMainChat()
 	SAFE_DELETE(m_pBtnMacroCancel);
 	SAFE_DELETE(m_pBtnOption);
 
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 	
-	// °¢ Ã¤ÆÃ ¶óÀÎ »èÁ¦
+	// ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<MAX_GAME_MAIN_CHAT_LINE; ++i)
 		SAFE_DELETE(m_pFontLine[i]);
 		
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE( m_pBtnChatBG );
 #endif
 }
@@ -744,14 +744,14 @@ void CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType, 
 	FLOG( "CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType)");
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	// Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ 05.01.21
-	// ±âº» Å¸ÀÔÀº (½Ã½ºÅÛ 4) À¸·Î ÇÑ´Ù
-	// Áö¿ª Ã¤ÆÃ°ú ±Ó¼Ó ¸»Àº 0 ÀÏ¹Ý Ã¤Æ¼À¸·Î ÇÑ´Ù
-	// ±× ¿Ü ±âÅ¸ ±æµå, ÆÄÆ¼, ¸Å¸Å Ã¤ÆÃµî 
+	// Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 05.01.21
+	// ï¿½âº» Å¸ï¿½ï¿½ï¿½ï¿½ (ï¿½Ã½ï¿½ï¿½ï¿½ 4) ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã°ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ 0 ï¿½Ï¹ï¿½ Ã¤Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
+	// ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½, ï¿½ï¿½Æ¼, ï¿½Å¸ï¿½ Ã¤ï¿½Ãµï¿½ 
 	int i=0;
 	if(FALSE == this->IsValidTabIndex(nType)){						return;}
 
-	// ±Ó¸» Ã¤ÆÃ
+	// ï¿½Ó¸ï¿½ Ã¤ï¿½ï¿½
 	if(CHAT_TAB_NORMAL == nType || CHAT_TAB_CASH == nType)
 	{
 		for(i = CHAT_NOT_SHOWBOX_LINE - 1 ; i > 0;i--)
@@ -797,7 +797,7 @@ void CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType, 
 		m_pSystemMsgW->AddBuffer(strBuffer,dwColorType);
 
 	}
-	// 2008-08-14 by dgwoo °Å·¡Ã¤ÆÃ ¸ÅÅ©·Î ±âÈ£±â º¯°æ.
+	// 2008-08-14 by dgwoo ï¿½Å·ï¿½Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	else if(nType == CHAT_TAB_TRADE)
 	{
 		for(i = CHAT_NOT_SHOWBOX_LINE - 1 ; i > 0;i--)
@@ -808,12 +808,12 @@ void CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType, 
 		if(m_bChatCurrentSelect[nType] == TRUE)
 			m_ArrChatTab.PushChatLine(strBuffer, dwColorType,nType);
 		m_ArrChatTabMode[nType].PushChatLine(strBuffer, dwColorType,nType);
-		// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+		// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_bMacroIng)
 		{
 			if(m_nTransChatCount < CHATMACRO_TRANSCHAT_COUNT)
 			{
-				// ¸ÅÅ©·Î »ç¿ë½Ã ¿¡¸¸ º¯¼ö °áÁ¤
+				// ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				m_nTransChatCount++;
 			}
 		}
@@ -830,13 +830,13 @@ void CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType, 
 		m_ArrChatTabMode[nType].PushChatLine(strBuffer, dwColorType,nType);
 	}
 	
-	// GM¿ë
+	// GMï¿½ï¿½
 	if(nType == CHAT_TAB_GAMEMASTER)
 	{
 		m_bHelpDeskRender = FALSE;
 		memset(m_strInputGm, 0x00, 1024);
 		strncpy(m_strInputGm, strBuffer, CHAT_STRING_SIZE_GM);
-		// ½Ã°£ ÃÊ±âÈ­
+		// ï¿½Ã°ï¿½ ï¿½Ê±ï¿½È­
 		m_fTimeGm = CHAT_TIME_OF_NOT_SHOW_BOX_GM;
 		
 		for(i = CHAT_NOT_SHOWBOX_LINE - 1 ; i > 0;i--)
@@ -858,17 +858,17 @@ void CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType, 
 		m_bHelpDeskRender = TRUE;
 		memset(m_strInputGm, 0x00, 1024);
 //		strncpy(m_strInputGm, strBuffer, CHAT_STRING_SIZE_GM);
-		// ½Ã°£ ÃÊ±âÈ­
+		// ï¿½Ã°ï¿½ ï¿½Ê±ï¿½È­
 		m_fTimeGm = CHAT_TIME_OF_NOT_SHOW_BOX_GM;
 
 		strncpy(m_strInputGm, strBuffer, 1024);
 	}
-	// 2006-04-21 by ispark, ÁöµµÀÚ¿ë
+	// 2006-04-21 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½
 	else if(nType == CHAT_TAB_INFLUENCE_LEADER)
 	{
 		memset(m_strInputInfluenceLeader, 0x00, 512);
 		strncpy(m_strInputInfluenceLeader, strBuffer, CHAT_STRING_SIZE_GM);
-		// ½Ã°£ ÃÊ±âÈ­
+		// ï¿½Ã°ï¿½ ï¿½Ê±ï¿½È­
 		m_fTimeInfluenceLeader = CHAT_TIME_OF_NOT_SHOW_BOX_GM;
 		
 		for(i = CHAT_NOT_SHOWBOX_LINE - 1 ; i > 0;i--)
@@ -892,10 +892,10 @@ void CINFGameMainChat::AddBuffer(int nType, char* strBuffer, DWORD dwColorType, 
 
 
 
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-	// ¹®ÀÚ Ãß°¡½Ã ÄÃ¸µµÈ ½ºÆ®¸µ ÃÊ±âÈ­
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	m_listCulledString.clear();
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 }
 
 void CINFGameMainChat::ResetHanFontLine()
@@ -915,7 +915,7 @@ void CINFGameMainChat::ResetHanFontLine()
 
 	int i; for(i=0;i<(CHAT_CHATBOX_START_DEFAULT_MAX_Y/CHAT_FONT_LINE_HEIGHT);i++)
 	{
-		CD3DHanFont* pFont = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9, D3DFONT_ZENABLE,TRUE,1024,32,FALSE,TRUE);	//	ÆùÆ® ¼³Á¤ 
+		CD3DHanFont* pFont = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9, D3DFONT_ZENABLE,TRUE,1024,32,FALSE,TRUE);	//	ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ 
 		pFont->InitDeviceObjects(g_pD3dDev);
 		pFont->RestoreDeviceObjects();
 		
@@ -968,7 +968,7 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 //			m_pTabButton[i][j]->InitDeviceObjects(pDataHeader->m_pData,pDataHeader->m_DataSize) ;
 //		}
 //	}
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int i; for(i=0;i<BUTTON_BOTH_STATE_NUMBER;i++)
 	{
 		m_pChatViewButton[0][i] = new CINFImageEx;
@@ -1021,7 +1021,7 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 	m_pFontInput = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9, D3DFONT_ZENABLE, TRUE,1024,32,TRUE);
 	m_pFontInput->InitDeviceObjects(g_pD3dDev);
 	
-	// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(i = 0 ; i < 10 ; ++i)
 	{
@@ -1034,50 +1034,50 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
  	m_pFontGM = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9, D3DFONT_ZENABLE, TRUE,1024,32);
  	m_pFontGM->InitDeviceObjects(g_pD3dDev);
 #endif
-	// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 
-	// Ãß°¡¼öÁ¤ 2005.01.21
+	// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ 2005.01.21
 	for(i=0; i<CHAT_BUTTON_NUMBER3; i++)
 	{
 		m_pNChatFAQ[i] = new CINFImageEx;
-		wsprintf(buf, "c_nfa%d", i);						// Ã¤ÆÃ FAQ¹öÆ°
+		wsprintf(buf, "c_nfa%d", i);						// Ã¤ï¿½ï¿½ FAQï¿½ï¿½Æ°
 		pDataHeader = FindResource(buf);
 		m_pNChatFAQ[i]->InitDeviceObjects( pDataHeader ) ;
 		
 		m_pNChatMenuView[i] = new CINFImageEx;
-		wsprintf(buf, "c_nme%d", i);						// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â ¹öÆ°
+		wsprintf(buf, "c_nme%d", i);						// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
 		pDataHeader = FindResource(buf);
 		m_pNChatMenuView[i]->InitDeviceObjects( pDataHeader ) ;
 
 		m_pNChatVOIPStartMenu[i] = new CINFImageEx;
-		wsprintf(buf, "c_von%d", i);						// Ã¤ÆÃ VOIP ½ÃÀÛ ¸Þ´º º¸ÀÌ±â ¹öÆ°
+		wsprintf(buf, "c_von%d", i);						// Ã¤ï¿½ï¿½ VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
 		pDataHeader = FindResource(buf);
 		m_pNChatVOIPStartMenu[i]->InitDeviceObjects( pDataHeader ) ;
 
 		m_pNChatVOIPEndMenu[i] = new CINFImageEx;
-		wsprintf(buf, "c_vof%d", i);						// Ã¤ÆÃ  VOIP Á¾·á ¸Þ´º º¸ÀÌ±â ¹öÆ°
+		wsprintf(buf, "c_vof%d", i);						// Ã¤ï¿½ï¿½  VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
 		pDataHeader = FindResource(buf);
 		m_pNChatVOIPEndMenu[i]->InitDeviceObjects( pDataHeader ) ;
 	}
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
 	{
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  		m_pNChatCash[i] = new CINFImageEx;
-		wsprintf(buf, "c_nca%d", i);						// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+		wsprintf(buf, "c_nca%d", i);						// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 		pDataHeader = FindResource(buf);
  		m_pNChatCash[i]->InitDeviceObjects( pDataHeader ) ;
 #endif
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
-		// 2006-06-08 by ispark, À¯·á »óÁ¡ ¹öÆ° º¯°æ
+		// 2006-06-08 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 		m_pNChatCashView[i] = new CINFImageEx;
-//		wsprintf(buf, "cc_sh%d", i);						// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+//		wsprintf(buf, "cc_sh%d", i);						// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 		wsprintf(buf, "shbtn100%d", i);						
 		pDataHeader = FindResource(buf);
 		m_pNChatCashView[i]->InitDeviceObjects( pDataHeader ) ;
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	for(i = 0; i <INPUT_LANGUAGE_END;i++)
@@ -1090,29 +1090,29 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
 		m_pNChatMenu[i] = new CINFImageEx;
-		wsprintf(buf, "chat_li%d", i);						// Ã¤ÆÃ ¸Þ´º ¸®½ºÆ®
+		wsprintf(buf, "chat_li%d", i);						// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		pDataHeader = FindResource(buf);
 		m_pNChatMenu[i]->InitDeviceObjects( pDataHeader ) ;									
 	}
 
 	m_pNChatInput = new CINFImageEx;
-	pDataHeader = FindResource("c_nbar");						// Ã¤ÆÃ ÀÔ·ÂÃ¢
+	pDataHeader = FindResource("c_nbar");						// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
 	m_pNChatInput->InitDeviceObjects( pDataHeader ) ;
 	
 	m_pNChatCheck = new CINFImageEx;
-	pDataHeader = FindResource("c_nchk");						// Ã¤ÆÃ Ã¤Å©¸¶Å©
+	pDataHeader = FindResource("c_nchk");						// Ã¤ï¿½ï¿½ Ã¤Å©ï¿½ï¿½Å©
 	m_pNChatCheck->InitDeviceObjects( pDataHeader ) ;
 
-	// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+	// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	//for(i=0; i<CHAT_TAB_NUMBER; i++)
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
 		m_bChatCurrentSelect[i] = g_pSOption->m_bChatCurrentSelect[i];
 	}	
 	m_bChatCurrentSelect[CHAT_TAB_SPEAKER] = g_pInterface->GetSpeakerMode();
-	// end 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+	// end 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+	// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 	{
 		char szButtonName[32];
 		for(i = 0; i < CHAT_TAB_CHATROOM ; i++)
@@ -1140,22 +1140,22 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 
 		// Setting
 		m_pBtnChatMode[0]->PushButton(TRUE);
-		// ¾Æ·¹³ª, Ã¤ÆÃ¹æÀº ±âº» ºñÈ°¼ºÈ­.
+		// ï¿½Æ·ï¿½ï¿½ï¿½, Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½È°ï¿½ï¿½È­.
 //		m_pBtnChatMode[ChangeChatButtonNumber(CHAT_TAB_GUILD)]->EnableBtn(FALSE);
 //		m_pBtnChatMode[ChangeChatButtonNumber(CHAT_TAB_PARTY)]->EnableBtn(FALSE);
 		m_pBtnChatMode[ChangeChatButtonNumber(CHAT_TAB_ARENA)]->EnableBtn(FALSE);
 		m_pBtnChatMode[ChangeChatButtonNumber(CHAT_TAB_CHATROOM)]->EnableBtn(FALSE);
 
-		// 2008-11-24 by dgwoo ¾Æ·¹³ª Ã¤ÆÃ ÅÇ È°¼ºÈ­ ¾ÈµÇ´Â ¹®Á¦
+		// 2008-11-24 by dgwoo ï¿½Æ·ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
 		CFieldWinSocket* pArenaFieldSocket = g_pD3dApp->m_pFieldWinSocket->GetArenaFieldWinSocket();
 		if(pArenaFieldSocket)
 		{
-			// ¾Æ·¹³ª ¼ÒÄÏ¿¡ ¿­°áµÇ¾îÀÖÀ¸¸é 
+			// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 			m_pBtnChatMode[ChangeChatButtonNumber(CHAT_TAB_ARENA)]->EnableBtn(TRUE);
 		}
-		// end 2008-11-24 by dgwoo ¾Æ·¹³ª Ã¤ÆÃ ÅÇ È°¼ºÈ­ ¾ÈµÇ´Â ¹®Á¦
+		// end 2008-11-24 by dgwoo ï¿½Æ·ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pDataHeader = g_pGameMain->m_GruopImagemanager->FindResource("macro");
 		m_pChatMacroBG = g_pGameMain->m_GruopImagemanager->GetGroupImage(pDataHeader);
 		m_pChatMacroBG->InitDeviceObjects( g_pD3dApp->m_pImageList );		
@@ -1203,38 +1203,38 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 		{
 			m_pBtnOption = new CINFImageBtn;
 		}
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//m_pBtnOption->InitDeviceObjects("copticon");
 		m_pBtnOption->InitDeviceObjects("copticon","STRTOOLTIP99");
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
-	// À½¼º ¿É¼Ç.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½.
 	{
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(NULL == m_pBtnVoiceChatInv)
 		{
 			m_pBtnVoiceChatInv = new CINFImageBtn;
 		}
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//m_pBtnVoiceChatInv->InitDeviceObjects("invs0");
 		m_pBtnVoiceChatInv->InitDeviceObjects("invs0","STRTOOLTIP27");
-		// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(NULL == m_pBtnVoiceChatOk)
 		{
 			m_pBtnVoiceChatOk = new CINFImageBtn;
 		}
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//m_pBtnVoiceChatOk->InitDeviceObjects("oks0");
 		m_pBtnVoiceChatOk->InitDeviceObjects("oks0","STRTOOLTIP40");
-		// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(NULL == m_pBtnVoiceChatCan)
 		{
 			m_pBtnVoiceChatCan = new CINFImageBtn;
 		}
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//m_pBtnVoiceChatCan->InitDeviceObjects("cans0");
 		m_pBtnVoiceChatCan->InitDeviceObjects("cans0","STRTOOLTIP41");
-		// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+		// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 		if(NULL == m_pBothParty)
 		{
@@ -1283,8 +1283,8 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 		m_pBothWhisper->InitDeviceObjects("onoff");
 		m_pBothWhisper->ChangeBoth(BUTTON_BOTH_BACK);
 
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pDataHeader = g_pGameMain->m_GruopImagemanager->FindResource("voiceChat");
 		m_pVoiceChatBG = g_pGameMain->m_GruopImagemanager->GetGroupImage(pDataHeader);
 		m_pVoiceChatBG->InitDeviceObjects( g_pD3dApp->m_pImageList );
@@ -1305,7 +1305,7 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 	}
 	if(m_pSystemMsgW == NULL)
 	{
-		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		//m_pSystemMsgW = new CINFSystemMsgWindow(this);
 		int nStartX, nStartY, nWidth, nHeight;
 		nStartX = nStartY = nWidth = nHeight = -1;		
@@ -1344,7 +1344,7 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 		
 		m_pSystemMsgW = new CINFSystemMsgWindow(this, nStartX, nStartY, nWidth, nHeight);
 		m_pSystemMsgW->SetInterface(m_bChatCurrentSelect[CHAT_TAB_SYSTEM]);
-		// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+		// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 		m_pSystemMsgW->SetGameData(m_pGameData);
 		m_pSystemMsgW->InitDeviceObjects();
@@ -1353,8 +1353,8 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 
 	
 	
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
-	// °¢ ¶óÀÎ ÄÃ¸µ ½ºÆ®¸µ »ý¼º
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<MAX_GAME_MAIN_CHAT_LINE; ++i)
 	{
 		m_pFontLine[i] = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9, D3DFONT_ZENABLE,TRUE,1024,32,FALSE,TRUE);
@@ -1367,15 +1367,15 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 			m_pFontLine[i]->SetUV(0.0f,0.0f,1.0f, 1.0f);
 	}
 
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
- #ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+ #ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	pDataHeader = g_pGameMain->m_GruopImagemanager->FindResource("BGbox");
 	m_pBtnChatBG = g_pGameMain->m_GruopImagemanager->GetGroupImage( pDataHeader );
 #endif
 	return S_OK ;
 }
 
-// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //int CINFGameMainChat::GetRealPos(int nPos)
 //{
 //	int nPosTab = CHAT_TAB_NUMBER-1;
@@ -1428,7 +1428,7 @@ HRESULT CINFGameMainChat::RestoreDeviceObjects()
 		it++;
 	}
 	m_pSystemMsgW->RestoreDeviceObjects();
-	// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(i = 0 ; i < 10 ; ++i)
 	{
@@ -1438,24 +1438,24 @@ HRESULT CINFGameMainChat::RestoreDeviceObjects()
 #else
 	m_pFontGM->RestoreDeviceObjects();
 #endif
-	// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 
-	// Ãß°¡¼öÁ¤ 2005.01.21
+	// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ 2005.01.21
 	for(i=0; i<CHAT_BUTTON_NUMBER3; i++)
 	{
-		m_pNChatFAQ[i]->RestoreDeviceObjects();								// Ã¤ÆÃ FAQ¹öÆ°
-		m_pNChatMenuView[i]->RestoreDeviceObjects();						// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â ¹öÆ°
+		m_pNChatFAQ[i]->RestoreDeviceObjects();								// Ã¤ï¿½ï¿½ FAQï¿½ï¿½Æ°
+		m_pNChatMenuView[i]->RestoreDeviceObjects();						// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
 		m_pNChatVOIPStartMenu[i]->RestoreDeviceObjects();
 		m_pNChatVOIPEndMenu[i]->RestoreDeviceObjects();
 	}
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
 	{
-		m_pNChatCash[i]->RestoreDeviceObjects();							// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+		m_pNChatCash[i]->RestoreDeviceObjects();							// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
  	}																							  
 #endif
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
@@ -1463,17 +1463,17 @@ HRESULT CINFGameMainChat::RestoreDeviceObjects()
 		m_pNChatCashView[i]->RestoreDeviceObjects();
 	}
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<INPUT_LANGUAGE_END; i++)
 	{
 		m_pNChatInputLanguage[i]->RestoreDeviceObjects();
 	}
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
-		m_pNChatMenu[i]->RestoreDeviceObjects();							// Ã¤ÆÃ ¸Þ´º ¸®½ºÆ®
+		m_pNChatMenu[i]->RestoreDeviceObjects();							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	}
-	m_pNChatInput->RestoreDeviceObjects();									// Ã¤ÆÃ ÀÔ·ÂÃ¢
-	m_pNChatCheck->RestoreDeviceObjects();									// Ã¤ÆÃ Ã¤Å©¸¶Å©
+	m_pNChatInput->RestoreDeviceObjects();									// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
+	m_pNChatCheck->RestoreDeviceObjects();									// Ã¤ï¿½ï¿½ Ã¤Å©ï¿½ï¿½Å©
 
 	for(i = 0; i < CHAT_TAB_CHATROOM ; i++)
 	{
@@ -1514,20 +1514,20 @@ HRESULT CINFGameMainChat::RestoreDeviceObjects()
 
 	}
 
-	// 2007-11-05 by bhsohn ¸ó½ºÅÍ ¿ÀºêÁ§Æ® Ã¼Å©¼¶ Ã³¸®
-	// °´Ã¼°¡ »ý¼ºµÇ±â Àü¿¡ ¸ðµç ±Û¾¾¸¦ ³Ö´Â´Ù.
+	// 2007-11-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©ï¿½ï¿½ Ã³ï¿½ï¿½
+	// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
 	g_pD3dApp->m_pChat->ErrorInfoAllAddChat();
 
 
 	
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-	// °¢ Ã¤ÆÃ ¶óÀÎ º¹±¸
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+	// ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<MAX_GAME_MAIN_CHAT_LINE; ++i)
 		m_pFontLine[i]->RestoreDeviceObjects();
 
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pBtnChatBG->RestoreDeviceObjects();														  
 #endif
 
@@ -1586,7 +1586,7 @@ HRESULT CINFGameMainChat::DeleteDeviceObjects()
  	m_pSystemMsgW->DeleteDeviceObjects();
 	SAFE_DELETE(m_pSystemMsgW);
 
-	// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(i = 0 ; i < 10 ; ++i)
 	{
@@ -1599,15 +1599,15 @@ HRESULT CINFGameMainChat::DeleteDeviceObjects()
  	m_pFontGM->DeleteDeviceObjects();
  	SAFE_DELETE(m_pFontGM);
 #endif
-	// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 
-	// Ãß°¡¼öÁ¤ 2005.01.21
+	// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ 2005.01.21
 	for(i=0; i<CHAT_BUTTON_NUMBER3; i++)
 	{
 		m_pNChatFAQ[i]->DeleteDeviceObjects();
 		m_pNChatMenuView[i]->DeleteDeviceObjects();
-		SAFE_DELETE(m_pNChatFAQ[i]);								// Ã¤ÆÃ FAQ¹öÆ°
-		SAFE_DELETE(m_pNChatMenuView[i]);								// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â ¹öÆ°
+		SAFE_DELETE(m_pNChatFAQ[i]);								// Ã¤ï¿½ï¿½ FAQï¿½ï¿½Æ°
+		SAFE_DELETE(m_pNChatMenuView[i]);								// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
 		m_pNChatVOIPStartMenu[i]->DeleteDeviceObjects();
 		m_pNChatVOIPEndMenu[i]->DeleteDeviceObjects();
 		SAFE_DELETE(m_pNChatVOIPStartMenu[i]);
@@ -1615,32 +1615,32 @@ HRESULT CINFGameMainChat::DeleteDeviceObjects()
 	}
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
 	{
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pNChatCash[i]->DeleteDeviceObjects();
-		SAFE_DELETE(m_pNChatCash[i]);								// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+		SAFE_DELETE(m_pNChatCash[i]);								// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 #endif
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
 		m_pNChatCashView[i]->DeleteDeviceObjects();
 		SAFE_DELETE(m_pNChatCashView[i]);
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	for(i=0; i<INPUT_LANGUAGE_END; i++)
 	{
-		m_pNChatInputLanguage[i]->DeleteDeviceObjects();			// Ã¤ÆÃ ÀÔ·Â ¾ð¾î
+		m_pNChatInputLanguage[i]->DeleteDeviceObjects();			// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½
 		SAFE_DELETE(m_pNChatInputLanguage[i]);
 	}
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
 		m_pNChatMenu[i]->DeleteDeviceObjects();
-		SAFE_DELETE(m_pNChatMenu[i]);								// Ã¤ÆÃ ¸Þ´º ¸®½ºÆ®
+		SAFE_DELETE(m_pNChatMenu[i]);								// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	}
 	m_pNChatInput->DeleteDeviceObjects();
-	SAFE_DELETE(m_pNChatInput);									// Ã¤ÆÃ ÀÔ·ÂÃ¢
+	SAFE_DELETE(m_pNChatInput);									// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
 	m_pNChatCheck->DeleteDeviceObjects();
-	SAFE_DELETE(m_pNChatCheck);									// Ã¤ÆÃ Ã¤Å©¸¶Å©
+	SAFE_DELETE(m_pNChatCheck);									// Ã¤ï¿½ï¿½ Ã¤Å©ï¿½ï¿½Å©
 	
 	for(i = 0; i < CHAT_TAB_CHATROOM ; i++)
 	{
@@ -1699,16 +1699,16 @@ HRESULT CINFGameMainChat::DeleteDeviceObjects()
 	}
 
 
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-	// °¢ Ã¤ÆÃ ¶óÀÎ »èÁ¦
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+	// ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<MAX_GAME_MAIN_CHAT_LINE; ++i)
 	{
 		m_pFontLine[i]->DeleteDeviceObjects();
 		SAFE_DELETE(m_pFontLine[i]);
 	}
 
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( m_pBtnChatBG )
 	{
 		m_pBtnChatBG->DeleteDeviceObjects();
@@ -1749,7 +1749,7 @@ HRESULT CINFGameMainChat::InvalidateDeviceObjects()
 	}
 
 	m_pFontInput->InvalidateDeviceObjects();
-	// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(i = 0 ; i < 10 ; ++i)
 	{
@@ -1759,7 +1759,7 @@ HRESULT CINFGameMainChat::InvalidateDeviceObjects()
 #else
 	m_pFontGM->InvalidateDeviceObjects();	
 #endif
-	// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+	// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 
 	vector<CD3DHanFont*>::iterator it = m_vecFontLine.begin();
 	while(it != m_vecFontLine.end())
@@ -1781,21 +1781,21 @@ HRESULT CINFGameMainChat::InvalidateDeviceObjects()
 	m_pSystemMsgW->InvalidateDeviceObjects();
 	
 
-	// Ãß°¡¼öÁ¤ 2005.01.21
+	// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ 2005.01.21
 	for(i=0; i<CHAT_BUTTON_NUMBER3; i++)
 	{
-		m_pNChatFAQ[i]->InvalidateDeviceObjects();								// Ã¤ÆÃ FAQ¹öÆ°
-		m_pNChatMenuView[i]->InvalidateDeviceObjects();						// Ã¤ÆÃ ¸Þ´º º¸ÀÌ±â ¹öÆ°
+		m_pNChatFAQ[i]->InvalidateDeviceObjects();								// Ã¤ï¿½ï¿½ FAQï¿½ï¿½Æ°
+		m_pNChatMenuView[i]->InvalidateDeviceObjects();						// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½Æ°
 		m_pNChatVOIPStartMenu[i]->InvalidateDeviceObjects();
 		m_pNChatVOIPEndMenu[i]->InvalidateDeviceObjects();
 	}
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
 	{
-		m_pNChatCash[i]->InvalidateDeviceObjects();							// Ã¤ÆÃ Ã¤½¬ÃæÀü ¹öÆ°
+		m_pNChatCash[i]->InvalidateDeviceObjects();							// Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 	}
 #endif
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
 	for(i=0; i<CHAT_BUTTON_NUMBER4; i++)
@@ -1803,16 +1803,16 @@ HRESULT CINFGameMainChat::InvalidateDeviceObjects()
 		m_pNChatCashView[i]->InvalidateDeviceObjects();
 	}
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	for(i=0; i<INPUT_LANGUAGE_END; i++)
 		m_pNChatInputLanguage[i]->InvalidateDeviceObjects();
 	for(i=0; i<CHAT_MENULIST_NUMBER; i++)
 	{
-		m_pNChatMenu[i]->InvalidateDeviceObjects();							// Ã¤ÆÃ ¸Þ´º ¸®½ºÆ®
+		m_pNChatMenu[i]->InvalidateDeviceObjects();							// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	}
-	m_pNChatInput->InvalidateDeviceObjects();									// Ã¤ÆÃ ÀÔ·ÂÃ¢
-	m_pNChatCheck->InvalidateDeviceObjects();									// Ã¤ÆÃ Ã¤Å©¸¶Å©
+	m_pNChatInput->InvalidateDeviceObjects();									// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢
+	m_pNChatCheck->InvalidateDeviceObjects();									// Ã¤ï¿½ï¿½ Ã¤Å©ï¿½ï¿½Å©
 
 	for(i = 0; i < CHAT_TAB_CHATROOM ; i++)
 	{
@@ -1852,13 +1852,13 @@ HRESULT CINFGameMainChat::InvalidateDeviceObjects()
 
 
 
-	// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-	// °¢ Ã¤ÆÃ ¶óÀÎ ÇØÁ¦
+	// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+	// ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(i=0; i<MAX_GAME_MAIN_CHAT_LINE; ++i)
 		m_pFontLine[i]->InvalidateDeviceObjects();
-	// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+	// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( m_pBtnChatBG )
 	{
 		m_pBtnChatBG->InvalidateDeviceObjects();
@@ -1879,21 +1879,21 @@ void CINFGameMainChat::TickMacro()
 			{
 				if(m_sMacroStr[i].bAppl == TRUE)
 				{
-					// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+					// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(m_sMacroStr[i].fTime >= 0)
 					{
 						m_sMacroStr[i].fTime -= g_pD3dApp->GetElapsedTime();
 					}
 					
-					if((m_sMacroStr[i].fTime < 0))// &&(m_nTransChatCount >= CHATMACRO_TRANSCHAT_COUNT)) // 2012-03-30 by isshin ¸ÞÅ©·Î ½Ã½ºÅÛ ¹ö±× ¼öÁ¤ - ¸ÅÅ©·Î Ãâ·Â Á¶°Ç(½Ã°£À¸·Î) ¼öÁ¤
-					{// ¸ÅÅ©·Î ½ºÆ®¸µ º¸³»±â.
+					if((m_sMacroStr[i].fTime < 0))// &&(m_nTransChatCount >= CHATMACRO_TRANSCHAT_COUNT)) // 2012-03-30 by isshin ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
+					{// ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 						m_sMacroStr[i].fTime = CHAT_MACRO_OUTPUT_TIME;
-						//send ¸ÅÅ©·Î ½ºÆ®¸µ ¼­¹ö·Î º¸³»±â.
+						//send ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 						g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_SELL_ALL, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_sMacroStr[i].strMacro );
 						m_nTransChatCount = 0;
 						//////////////////////////////////////////
 
-						// ´ÙÀ½ º¸³»¾ß ÇÒ ¸ÅÅ©·Î ½ºÆ®¸µ Ã£±â.
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½.
 						int temp = i;
 						temp++;
 						if(temp >= CHAT_MACRO_INPUT_COUNT)
@@ -1906,18 +1906,18 @@ void CINFGameMainChat::TickMacro()
 							{
 								m_nSendMacroNum = j;
 								break;
-							}// 2012-03-30 by isshin ¸ÅÅ©·Î ½Ã½ºÅÛ ¹ö±× ¼öÁ¤ - ¸ÅÅ©·Î 3¹ø ¹Ì¼³Á¤½Ã Ãâ·Â ¹®Á¦ ¼öÁ¤
+							}// 2012-03-30 by isshin ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Å©ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							else if(m_sMacroStr[2].bAppl == FALSE)
 							{
 								m_nSendMacroNum	= 0;
-							}// end 2012-03-30 by isshin ¸ÅÅ©·Î ½Ã½ºÅÛ ¹ö±× ¼öÁ¤ - ¸ÅÅ©·Î 3¹ø ¹Ì¼³Á¤½Ã Ãâ·Â ¹®Á¦ ¼öÁ¤
+							}// end 2012-03-30 by isshin ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Å©ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						}
 					}
 					
 				}
 				else
 				{
-					// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+					// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_nSendMacroNum++;
 					if(m_nSendMacroNum >= CHAT_MACRO_INPUT_COUNT)
 					{
@@ -1962,7 +1962,7 @@ void CINFGameMainChat::Tick()
 	{
 		m_fTimeInfluenceLeader -= g_pD3dApp->GetElapsedTime();
 	}
-	// ¼­¹ö¿¡¼­ »óÁ¡Á¤º¸°¡ ¿Ã¶§±îÁö ±â´Ù¸°´Ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½
 	if(m_bCheckShopInfo)
 		CheckShopInfo();
 
@@ -1973,7 +1973,7 @@ struct sort_CINFGameMainWisperChat: binary_function<CINFGameMainWisperChat*, CIN
 {
 	bool operator()(CINFGameMainWisperChat *pWisper1, CINFGameMainWisperChat *pWisper2)
 	{
-        return pWisper1->m_nVectorIndex < pWisper2->m_nVectorIndex;	// ¿À¸§ Â÷¼ø Á¤·Ä
+        return pWisper1->m_nVectorIndex < pWisper2->m_nVectorIndex;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     };
 };
 
@@ -1981,11 +1981,11 @@ void CINFGameMainChat::Render()
 {
 	FLOG( "CINFGameMainChat::Render()" );
 
-	// ½ÃÆ¼¿Í µµ½ÃÆÇ´ÜÈÄ ÁÂÇ¥ º¯°æ 
+	// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ 
 	if(g_pD3dApp->m_dwGameState == _CITY)
 	{
-		// µµ½ÃÀÌ¸é ÀÎÅÍÆäÀÌ½º º¸ÀÌ±â
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //		m_nCashButtonGab = 45;
 		m_nChatBoxYPos = g_pD3dApp->GetBackBufferDesc().Height - CHATBOX_CITY_SHOWCHATBOX_INIT_HEIGHT - m_nChatBoxHeight;
 		g_pInterface->m_bShowInterface = TRUE;
@@ -1994,7 +1994,7 @@ void CINFGameMainChat::Render()
 	{
 		if(g_pD3dApp->m_bCharacter == TRUE && !g_pD3dApp->m_bBazaar)
 		{
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //			m_nCashButtonGab = 32;
 		}
 		else
@@ -2004,8 +2004,8 @@ void CINFGameMainChat::Render()
 		m_nChatBoxYPos = g_pD3dApp->GetBackBufferDesc().Height - CHATBOX_FIELD_SHOWCHATBOX_INIT_HEIGHT - m_nChatBoxHeight;
 	}
 
-	// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
-	// Ç®½ºÅ©¸°½Ã Ãª¹Ú½º °¨Ãß±â
+	// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// Ç®ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ Ãªï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 //	if(!g_pInterface->m_bShowInterface&& m_bChatMode == TRUE)
 //	{
 //		m_pChatBox[4]->Move(CHAT_MENUBOX_START_X, CHAT_FONT_START_Y+CHAT_FONT_WIDTH_ENGLISH);
@@ -2017,8 +2017,8 @@ void CINFGameMainChat::Render()
 //	{
 //		DrawChatWindow(CHAT_CHATBOX_START_X, m_nChatBoxYPos, m_nChatBoxWidth, m_nChatBoxHeight);
 //	}
-	// Ç®½ºÅ©¸°½Ã Ãª¹Ú½º °¨Ãß±â
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// Ç®ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ Ãªï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
 	if(!g_pInterface->m_bShowInterface&& m_bChatMode == TRUE && !g_pShuttleChild->IsObserverMode())
 	{
@@ -2036,14 +2036,14 @@ void CINFGameMainChat::Render()
 	{
 		DrawChatWindow(CHAT_CHATBOX_START_X, m_nChatBoxYPos, m_nChatBoxWidth, m_nChatBoxHeight);
 	}
-	// end 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+	// end 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	// Ã¤ÆÃ ¹Ú½º ¸Þ´º (³ë¸», ±Ó¸», ÆÄÆ¼, ±æµå, À½¼º)
+	// Ã¤ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½Þ´ï¿½ (ï¿½ë¸», ï¿½Ó¸ï¿½, ï¿½ï¿½Æ¼, ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½)
 	if(g_pInterface->m_bShowInterface && !g_pShuttleChild->IsObserverMode())
 	{
-		// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+		// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 		int i;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pBtnChatBG->Move(CHAT_CHATMODE_X,CHAT_CHATMODE_Y + 2);
 		m_pBtnChatBG->Render();
 #endif
@@ -2057,7 +2057,7 @@ void CINFGameMainChat::Render()
 
 		m_pBtnOption->Render();
 
-		// Ãß°¡ ¼öÁ¤ Ã¤ÆÃ Ã¢
+		// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ Ã¢
 		m_pNChatMenuView[m_nMenuListButtonState]->Move(CHAT_MENU_VIEW_X, CHAT_MENU_VIEW_Y);
 		m_pNChatMenuView[m_nMenuListButtonState]->Render();
 
@@ -2070,19 +2070,19 @@ void CINFGameMainChat::Render()
 
 		m_pChatViewButton[m_bShowChatBox][m_nChatSizeBtnNormal]->Move(CHAT_CHATTAB_VIEW_FLAG_X,
 			CHAT_CHATTAB_VIEW_FLAG_Y);
-		m_pChatViewButton[m_bShowChatBox][m_nChatSizeBtnNormal]->Render();				// ÃÖ´ëÈ­
+		m_pChatViewButton[m_bShowChatBox][m_nChatSizeBtnNormal]->Render();				// ï¿½Ö´ï¿½È­
 
 		
-		// Ã¤ÆÃÃ¢ ÃÖ¼ÒÈ­
+		// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö¼ï¿½È­
 		if(m_bShowChatBox)
 		{
-// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡
+// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½
 //			m_pChatViewButton[CHAT_BOX_HIDE_IMAGE][m_nSizeMaxButtonstate]->Move(CHAT_CHATBOX_START_X+m_nChatBoxWidth-CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH,
 //				m_nChatBoxYPos + CHAT_MENUBOX_GAB_WIDTH);
-//			m_pChatViewButton[CHAT_BOX_HIDE_IMAGE][m_nSizeMaxButtonstate]->Render();			// ÃÖ¼ÒÈ­ 	
+//			m_pChatViewButton[CHAT_BOX_HIDE_IMAGE][m_nSizeMaxButtonstate]->Render();			// ï¿½Ö¼ï¿½È­ 	
 			
-			// Ã¢ È­¸é¿¡ "Ã¤ÆÃ" Ç¥½Ã 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+			// Ã¢ È­ï¿½é¿¡ "Ã¤ï¿½ï¿½" Ç¥ï¿½ï¿½ 
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pChatShowImage->Move(CHAT_MENUBOX_START_X, m_nChatBoxYPos - CHAT_MENUBOX_GAB_WIDTH);
 #else
 			m_pChatShowImage->Move(CHAT_MENUBOX_START_X, m_nChatBoxYPos + CHAT_MENUBOX_GAB_WIDTH);
@@ -2095,14 +2095,14 @@ void CINFGameMainChat::Render()
 	{
 		int nShowTemp = 0;
 		
-		// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+		// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//if(!g_pInterface->m_bShowInterface)
 		if(!g_pInterface->m_bShowInterface || g_pShuttleChild->IsObserverMode())
 		{
 			nShowTemp = -25;
 		}
 
-		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 		char chatbuf[SIZE_MAX_CHAT_MESSAGE+2];
 // 		memset(chatbuf,0x00,SIZE_MAX_CHAT_MESSAGE);
 // 		strncpy(chatbuf,m_strInputMessage,SIZE_MAX_CHAT_MESSAGE);		
@@ -2113,7 +2113,7 @@ void CINFGameMainChat::Render()
 // 		m_pFontInput->SetTextureWidth(CHAT_INPUT_FONT_LENGTH);		
 // 		m_pFontInput->DrawText(CHAT_FONT_START_X+nShowTemp,CHAT_FONT_START_Y + FONT_INPUT_Y,GUI_FONT_COLOR_Y,chatbuf, 0L);		
 		RenderCursel(nShowTemp);		
-		// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+		// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	}	
 
 	ChatTab_t *pCurChatTab = GetChatTabMode();
@@ -2124,49 +2124,49 @@ void CINFGameMainChat::Render()
 	{
 		if(m_bShowChatBox)
 		{
-			// Ã¤ÆÃÃ¢ È°¼ºÈ­ »óÅÂ
+			// Ã¤ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 			int nMaxRenderLineCounts	= (m_nChatBoxHeight-CHATBOX_IMAGE_GAB_HEITHT_TOP)/CHAT_FONT_LINE_HEIGHT;
 			int nRenderIndex			= pCurChatTab->m_nRenderStartIndex;
 			int nRenderedLineCounts		= 0;
 			int nLineCount = 1;
 			
-			// °øÁö »çÇ× ·»´õ¸µ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(m_fTimeGm>0 && m_bHelpDeskRender == FALSE)
 			{
-				// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+				// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //				m_pFontGM->DrawText(CHAT_NFONT_START_LINE_X, 
 //					m_nChatBoxYPos-15,
 //					COLOR_CHAT_ALL,
 //					m_strInputGm);
-				// end 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+				// end 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			}
 			else if(m_fTimeGm>0 && m_bHelpDeskRender == TRUE)
 			{
 				vector<string> vectemp;
-				// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 				STRING_CULL2(m_strInputGm, CHAT_HELPDESK_STRLEN, &vectemp, m_pFontGM[9]);
 #else
 				STRING_CULL2(m_strInputGm, CHAT_HELPDESK_STRLEN, &vectemp, m_pFontGM);
 #endif
-				// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 				int igm = 0;
 				nLineCount = vectemp.size();
 				
 				for(igm = 0; igm < vectemp.size(); igm++)
 				{
-					// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+					// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 					m_pFontGM[igm]->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos - (nLineCount * 15), COLOR_CHAT_ALL, (char*)vectemp[igm].c_str());
 #else
 					m_pFontGM->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos-(nLineCount * 15), COLOR_CHAT_ALL, (char*)vectemp[igm].c_str());
 #endif
-					// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+					// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 					nLineCount--;
 				}
 				nLineCount = vectemp.size() + 1;
 			}
-// 2008-05-20 by dgwoo µµ¿ò¸»°ú ¼¼·ÂÃ¤ÆÃÀ» ºÐ¸®.
+// 2008-05-20 by dgwoo ï¿½ï¿½ï¿½ò¸»°ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½.
 //			if(m_fTimeInfluenceLeader>0 && !(m_fTimeGm>0 && m_bHelpDeskRender == TRUE))
 //			{
 //				m_pFontGM->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos - 30, 
@@ -2175,7 +2175,7 @@ void CINFGameMainChat::Render()
 //			}
 			if(m_fTimeInfluenceLeader>0)
 			{
-				// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 				m_pFontInfl->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos - (nLineCount * 15), COLOR_INFLUENCE, m_strInputInfluenceLeader);
 #else
@@ -2183,11 +2183,11 @@ void CINFGameMainChat::Render()
  					COLOR_INFLUENCE, 
  					m_strInputInfluenceLeader);
 #endif
-				// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 			}
 			
 			//--------------------------------------------------------------------------//
-			//   Ã¤ÆÃÃ¢¿¡ Æí´ë ¹Ù·Î°¡±â , ¶Ç´Â ¿©´Ü°¡ÀÔÃ¢À» ¹Ù·Î ¶ç¿ï¼ö ÀÖ´Â ÀÎÅÍÆäÀÌ½º ¹öÆ°. 
+			//   Ã¤ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù·Î°ï¿½ï¿½ï¿½ , ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ü°ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Æ°. 
 
 			if(g_pShuttleChild->GetMyShuttleInfo().GuildUniqueNumber == 0 &&
 				m_nChatMode == CHAT_TAB_GUILD)
@@ -2208,21 +2208,21 @@ void CINFGameMainChat::Render()
 			
 
 
-			// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+			// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 // 			vector<CD3DHanFont*>::iterator it = m_vecFontLine.begin();
 // 			while(it != m_vecFontLine.end())
 // 			{
 // 				CD3DHanFont* pFont = *it;
 // 				
 // 				///////////////////////////////////////////////////////////////////////////////
-// 				//	1. ÇÑÁÙÀ» ÇÑÁÙ·Î Rendering ÇÑ´Ù
-// 				//	2. ÇÑÁÙÀ» µÎÁÙ·Î Rendering ÇÑ´Ù
-// 				// 2006-04-13 by ispark, ¼öÁ¤
+// 				//	1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù·ï¿½ Rendering ï¿½Ñ´ï¿½
+// 				//	2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù·ï¿½ Rendering ï¿½Ñ´ï¿½
+// 				// 2006-04-13 by ispark, ï¿½ï¿½ï¿½ï¿½
 // 				int pFontTexWidth = pFont->GetStringSize(pCurChatTab->GetChatLine(nRenderIndex)).cx;
 // //				if(pCurChatTab->ChatLineLength(nRenderIndex)*CHAT_FONT_WIDTH_ENGLISH <= m_nChatBoxWidth - 11)
 // 				if(pFontTexWidth <= CHAT_STRING_LENGTH)
-// 				{// ÇÑÁÙ·Î ÂïÀ»¶§.
-// 					// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+// 				{// ï¿½ï¿½ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// 					// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 // //					if(m_nChatMode == CHAT_TAB_ALLUSER 
 // //						|| m_nChatMode == pCurChatTab->GetType(nRenderIndex))
 // 					{
@@ -2236,7 +2236,7 @@ void CINFGameMainChat::Render()
 // 					
 // 				}
 // 				else
-// 				{// µÎÁÙ·Î ÂïÀ»¶§.
+// 				{// ï¿½ï¿½ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 // 					int nStrlen = pCurChatTab->ChatLineLength(nRenderIndex);
 // 					vector<string> vecChatMessage;
 // 					vecChatMessage.clear();
@@ -2279,64 +2279,64 @@ void CINFGameMainChat::Render()
 // 				it++;			
 // 			}
 
-			// ¸¸¾à ÄÃ¸µ ½ºÆ®¸µÀÌ ÃÊ±âÈ­ ‰ç´Ù¸é ´Ù½Ã »ý¼ºÇÑ´Ù
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Ù¸ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 			if( m_listCulledString.empty() )
 				BuildCulledString();
 
-			BOOL bBreak					= FALSE;	// ·çÇÁ Å»Ãâº¯¼ö
+			BOOL bBreak					= FALSE;	// ï¿½ï¿½ï¿½ï¿½ Å»ï¿½âº¯ï¿½ï¿½
 			CulledStringListItor	end = m_listCulledString.end();
 			for(CulledStringListItor it	= m_listCulledString.begin(); it != end && !bBreak; ++it)
 			{
-				// 2012-11-09 by bhsohn Ã¤ÆÃÃ¢ Null¿À·ù ¼ÒÁö Á¦°Å
+				// 2012-11-09 by bhsohn Ã¤ï¿½ï¿½Ã¢ Nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(it == end)
 				{
 //					DbgOut("it != end #1 \n");
 					break;
 				}
-				// END 2012-11-09 by bhsohn Ã¤ÆÃÃ¢ Null¿À·ù ¼ÒÁö Á¦°Å
+				// END 2012-11-09 by bhsohn Ã¤ï¿½ï¿½Ã¢ Nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-				// Àß·ÁÁø ½ºÆ®¸µ º¤ÅÍ(¹Ø¿¡¼­ ºÎÅÍ ÂïÀ» °ÍÀÌ±â ¶§¹®¿¡ reverse·Î ¼øÈ¸)
+				// ï¿½ß·ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ø¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ reverseï¿½ï¿½ ï¿½ï¿½È¸)
 				std::vector< string >::reverse_iterator vEnd = (*it).rend();
 
 				for(std::vector< string >::reverse_iterator vIt = (*it).rbegin(); vIt != vEnd && !bBreak; ++vIt)
 				{
-					// ÃÖ´ë ·»´õ¸µ ÇÑµµ ³Ñ¾î °¥ ½Ã ·çÇÁ Å»Ãâ
+					// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñµï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 					if(nMaxRenderLineCounts <= nRenderedLineCounts)
 					{
 						bBreak = TRUE;
 						break;
 					}
-					// 2012-11-09 by bhsohn Ã¤ÆÃÃ¢ Null¿À·ù ¼ÒÁö Á¦°Å
+					// 2012-11-09 by bhsohn Ã¤ï¿½ï¿½Ã¢ Nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(vIt == vEnd)
 					{
 						bBreak = TRUE;
 //						DbgOut("it != end #1 \n");
 						break;
 					}
-					// END 2012-11-09 by bhsohn Ã¤ÆÃÃ¢ Null¿À·ù ¼ÒÁö Á¦°Å
+					// END 2012-11-09 by bhsohn Ã¤ï¿½ï¿½Ã¢ Nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					
-					// ·»´õ¸µ
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					m_pFontLine[nRenderedLineCounts]->DrawText(CHAT_NFONT_START_LINE_X,
 															   m_nChatBoxYPos + m_nChatBoxHeight
 															   - (CHAT_FONT_LINE_HEIGHT + CHAT_FONT_LINE_HEIGHT * nRenderedLineCounts),
 															   pCurChatTab->GetColorType(nRenderIndex),
 															   (char*)( (*vIt).c_str() ),
 															   0L);
-					// ·»´õ¸µ ¶óÀÎ¼ö Áõ°¡
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 					nRenderedLineCounts++;
 				}
 
-				// ÀúÀåµÈ ¶óÀÎ¼ö¸¦ ³Ñ¾î °¥ °æ¿ì ·çÇÁ Å»Ãâ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 				if(nRenderIndex == pCurChatTab->m_nStoreEndIndex
 				   || nMaxRenderLineCounts <= nRenderedLineCounts)
 					bBreak = TRUE;
 				
-				// ¿øÇüÅ¥ ÀÎµ¦½º ¼³Á¤
+				// ï¿½ï¿½ï¿½ï¿½Å¥ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(0 > --nRenderIndex)
 				   nRenderIndex = CHAT_BUFFER_NUMBER - 1;
 			}
 
-			// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+			// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 
 
 
@@ -2345,7 +2345,7 @@ void CINFGameMainChat::Render()
 		}
 		else
 		{
-			// Ã¤ÆÃÃ¢ ºñÈ°¼ºÈ­
+			// Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½È°ï¿½ï¿½È­
 			
 			int nMaxRenderLineCounts	= CHAT_NOT_SHOWBOX_LINE;		
 			int nRenderIndex			= pCurChatTab->m_nRenderStartIndex;
@@ -2361,43 +2361,43 @@ void CINFGameMainChat::Render()
 				nChatHeightCity = CHAT_NFONT_START_LINE_Y;//CHAT_FONT_START_Y-10;		
 			}
 			
-			// °øÁö »çÇ× ·»´õ¸µ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(m_fTimeGm>0 && m_bHelpDeskRender == FALSE)
 			{
-				// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+				// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //				m_pFontGM->DrawText(CHAT_NFONT_START_LINE_X, 
 //					nChatHeightCity - (CHAT_FONT_LINE_HEIGHT + CHAT_FONT_LINE_HEIGHT*7),
 //					COLOR_CHAT_ALL,
 //					m_strInputGm);
-				// end 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+				// end 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			}
 			else if(m_fTimeGm>0 && m_bHelpDeskRender == TRUE)
 			{
 				vector<string> vectemp;
-				// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 				STRING_CULL2(m_strInputGm, CHAT_HELPDESK_STRLEN, &vectemp, m_pFontGM[9]);
 #else
 				STRING_CULL2(m_strInputGm, CHAT_HELPDESK_STRLEN, &vectemp, m_pFontGM);
 #endif
-				// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 				int igm = 0;
 				nLineCount = vectemp.size();
 				
 				for(igm = 0; igm < vectemp.size(); igm++)
 				{
-					// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+					// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 					m_pFontGM[igm]->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos - (nLineCount * 15), COLOR_CHAT_ALL, (char*)vectemp[igm].c_str());
 #else
 					m_pFontGM->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos-(nLineCount * 15), COLOR_CHAT_ALL, (char*)vectemp[igm].c_str());
 #endif
-					// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+					// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 					nLineCount--;
 				}
 				nLineCount = vectemp.size() +1;
 			}
-// 2008-05-20 by dgwoo µµ¿ò¸»°ú ¼¼·ÂÃ¤ÆÃÀ» ºÐ¸®.		
+// 2008-05-20 by dgwoo ï¿½ï¿½ï¿½ò¸»°ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½.		
 //			if(m_fTimeInfluenceLeader>0 && !(m_fTimeGm>0 && m_bHelpDeskRender == TRUE))
 //			{
 //				m_pFontGM->DrawText(CHAT_NFONT_START_LINE_X, 
@@ -2407,7 +2407,7 @@ void CINFGameMainChat::Render()
 //			}
 			if(m_fTimeInfluenceLeader>0 )
 			{
-				// 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 				m_pFontInfl->DrawText(CHAT_NFONT_START_LINE_X, m_nChatBoxYPos - (nLineCount * 15), COLOR_INFLUENCE, m_strInputInfluenceLeader);
 #else
@@ -2416,14 +2416,14 @@ void CINFGameMainChat::Render()
  					COLOR_INFLUENCE, 
  					m_strInputInfluenceLeader);
 #endif
-				// END 2014-07-01 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (µµ¿ò¸»)
+				// END 2014-07-01 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 			}
 
 
 
 
-			// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
-			// ÀÏ¹Ý Ã¤ÆÃ
+			// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
+			// ï¿½Ï¹ï¿½ Ã¤ï¿½ï¿½
 // 			vector<CD3DHanFont*>::iterator it = m_vecFontLine.begin();
 // 			while(it != m_vecFontLine.end())
 // 			{
@@ -2446,7 +2446,7 @@ void CINFGameMainChat::Render()
 // 						break;
 // 					}
 // 
-// 					// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+// 					// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 // //					if(m_nChatMode == CHAT_TAB_ALLUSER 
 // //						|| m_nChatMode == pCurChatTab->GetType(nRenderIndex))
 // 					{
@@ -2457,7 +2457,7 @@ void CINFGameMainChat::Render()
 // 							, 0L);
 // 						nRenderedLineCounts++;			
 // 					}
-// 					// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+// 					// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 // 
 // 				}
 // 				vecChatMessage.clear();
@@ -2481,57 +2481,57 @@ void CINFGameMainChat::Render()
 // 				it++;			
 // 			}
 	
-			// ¸¸¾à ÄÃ¸µ ½ºÆ®¸µÀÌ ÃÊ±âÈ­ ‰ç´Ù¸é ´Ù½Ã »ý¼ºÇÑ´Ù
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Ù¸ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 			if( m_listCulledString.empty() )
 				BuildCulledString();
 			
-			BOOL bBreak					= FALSE;	// ·çÇÁ Å»Ãâº¯¼ö
+			BOOL bBreak					= FALSE;	// ï¿½ï¿½ï¿½ï¿½ Å»ï¿½âº¯ï¿½ï¿½
 			CulledStringListItor	end = m_listCulledString.end();
 			for(CulledStringListItor it	= m_listCulledString.begin(); it != end && !bBreak; ++it)
 			{
-				// Àß·ÁÁø ½ºÆ®¸µ º¤ÅÍ(¹Ø¿¡¼­ ºÎÅÍ ÂïÀ» °ÍÀÌ±â ¶§¹®¿¡ reverse·Î ¼øÈ¸)
+				// ï¿½ß·ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ø¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ reverseï¿½ï¿½ ï¿½ï¿½È¸)
 				std::vector< string >::reverse_iterator vEnd = (*it).rend();
 				
 				for(std::vector< string >::reverse_iterator vIt = (*it).rbegin(); vIt != vEnd && !bBreak; ++vIt)
 				{
-					// 2012-11-09 by bhsohn Ã¤ÆÃÃ¢ Null¿À·ù ¼ÒÁö Á¦°Å
+					// 2012-11-09 by bhsohn Ã¤ï¿½ï¿½Ã¢ Nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(vIt == vEnd )
 					{
 //						DbgOut("vIt == vEnd #1 \n");
 						bBreak = TRUE;
 						break;
 					}
-					// END 2012-11-09 by bhsohn Ã¤ÆÃÃ¢ Null¿À·ù ¼ÒÁö Á¦°Å
+					// END 2012-11-09 by bhsohn Ã¤ï¿½ï¿½Ã¢ Nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-					// ÃÖ´ë ·»´õ¸µ ÇÑµµ ³Ñ¾î °¥ ½Ã ·çÇÁ Å»Ãâ
+					// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñµï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 					if(nMaxRenderLineCounts <= nRenderedLineCounts)
 					{
 						bBreak = TRUE;
 						break;
 					}
 					
-					// ·»´õ¸µ
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					m_pFontLine[nRenderedLineCounts]->DrawText(CHAT_NFONT_START_LINE_X,
 															   m_nChatBoxYPos + m_nChatBoxHeight
 															   - (CHAT_FONT_LINE_HEIGHT + CHAT_FONT_LINE_HEIGHT * nRenderedLineCounts),
 															   pCurChatTab->GetColorType(nRenderIndex),
 															   (char*)( (*vIt).c_str() ),
 															   0L);
-					// ·»´õ¸µ ¶óÀÎ¼ö Áõ°¡
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 					nRenderedLineCounts++;
 				}
 				
-				// ÀúÀåµÈ ¶óÀÎ¼ö¸¦ ³Ñ¾î °¥ °æ¿ì ·çÇÁ Å»Ãâ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 				if(nRenderIndex == pCurChatTab->m_nStoreEndIndex
 					|| nMaxRenderLineCounts <= nRenderedLineCounts)
 					bBreak = TRUE;
 				
-				// ¿øÇüÅ¥ ÀÎµ¦½º ¼³Á¤
+				// ï¿½ï¿½ï¿½ï¿½Å¥ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(0 > --nRenderIndex)
 					nRenderIndex = CHAT_BUFFER_NUMBER - 1;
 			}
 
-			// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+			// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 
 
 
@@ -2539,37 +2539,37 @@ void CINFGameMainChat::Render()
 
 		}	
 	}
-	// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+	// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
  	//m_pSystemMsgW->Render();
 	//RenderMacro();
 	//RenderVoiceChatOption();
 	
 
-//	// Ãß°¡ Ã¤ÆÃ ¸®½ºÆ®
+//	// ï¿½ß°ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 //	if(m_bMenuListUse)	ViewChatMenuList();
 	
-	// À¯·á ¾ÆÀÌÅÛ ±¸ÀÔ
-	// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//if(g_pD3dApp->GetTestServerFlag() == FALSE && g_pInterface->m_bShowInterface && g_pD3dApp->m_dwGameState != _SHOP)
 	if(g_pD3dApp->GetTestServerFlag() == FALSE && !g_pShuttleChild->IsObserverMode()&& g_pInterface->m_bShowInterface && g_pD3dApp->m_dwGameState != _SHOP
-		&& g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+		&& g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
-		// 2007-10-18 by bhsohn ¿¹´çÀº Ä³½¬¼¥ º¸ÀÌÁö ¾ÊÀ½
-		// 2009-03-03 by bhsohn ÀÏº» Ä³½¬ »óÁ¡ ¹öÆ° Ç¥½Ã
+		// 2007-10-18 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2009-03-03 by bhsohn ï¿½Ïºï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Ç¥ï¿½ï¿½
 //#ifndef YEDANG_RELEASE
 //#if defined(YEDANG_RELEASE) 
 //#else
-// 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined(C_CASH_SHOP_NOT_USE_JWLEE)
 #else
 		m_pNChatCashView[m_nOtherCashList]->Move(CHAT_MENU_CASH_START_X-3, CHAT_MENU_CASH_START_Y-m_nCashButtonGab);
 		m_pNChatCashView[m_nOtherCashList]->Render();
 #endif
-// end 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+// end 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //#endif
 	}
 	
-	// ÈÄº¸Ã¢ ¸®½ºÆ® (IME)
+	// ï¿½Äºï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½Æ® (IME)
 	if(SET_MAIN_CHAT_CANDIDATE == g_nRenderCandidate)
 		g_pD3dApp->RenderCandidate(CHAR_INF_CANDIDATE_POS_X, CHAR_INF_CANDIDATE_POS_Y);
 
@@ -2579,7 +2579,7 @@ void CINFGameMainChat::Render()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+/// \author		// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-07-10 ~ 2008-07-10
 /// \warning	
 ///
@@ -2642,7 +2642,7 @@ void CINFGameMainChat::DrawChatWindow(int x, int y, int cx, int cy)
 	m_pChatBox[0]->Move(x,y);
 	m_pChatBox[0]->Render();
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int nPosX = x + m_pChatBox[0]->GetImgSize().x;
 	int nImageSizeX = ( CHAT_CHATBOX_START_DEFAULT_MIN_X - m_pChatBox[0]->GetImgSize().x - m_pChatBox[2]->GetImgSize().x ) / 2;
 
@@ -2845,7 +2845,7 @@ int	CINFGameMainChat::WndProcVoiceOption(UINT uMsg, WPARAM wParam, LPARAM lParam
 
 				}
 				if(m_bVolumCon)
-				{// º¼·ý Å©±â ÄÁÆ®·ÑÁß.
+				{// ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½.
 					m_nPosVolum += (pt.x - m_ptOldVolumPos.x);
 					if(m_nPosVolum > VOICECHAT_SPK_W)
 					{
@@ -2901,7 +2901,7 @@ int	CINFGameMainChat::WndProcVoiceOption(UINT uMsg, WPARAM wParam, LPARAM lParam
 						pt.x < VOICECHAT_SPK_POS_X + m_nPosVolum + m_pImgSpkVolBar->GetImgSize().x &&
 						pt.y > VOICECHAT_SPK_POS_Y &&
 						pt.y < VOICECHAT_SPK_POS_Y + m_pImgSpkVolBar->GetImgSize().y
-						&& (g_pGameMain->GetVoiceType() != VOICE_NONE))	// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+						&& (g_pGameMain->GetVoiceType() != VOICE_NONE))	// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					{
 						m_bVolumCon = TRUE;
 						m_ptOldVolumPos = pt;
@@ -2921,7 +2921,7 @@ int	CINFGameMainChat::WndProcVoiceOption(UINT uMsg, WPARAM wParam, LPARAM lParam
 				m_bVCCMoving = FALSE;
 				
 				if(m_bVolumCon)
-				{// º¼·ý Å©±â ÄÁÆ®·ÑÁß.				
+				{// ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½.				
 					if(m_nPosVolum > VOICECHAT_SPK_W)
 					{
 						m_nPosVolum = VOICECHAT_SPK_W;
@@ -2965,22 +2965,22 @@ int	CINFGameMainChat::WndProcVoiceOption(UINT uMsg, WPARAM wParam, LPARAM lParam
 					}
 					if(m_pBothWhisper->OnLButtonDown(pt))
 					{
-						// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+						// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //						m_pBothGuild->ChangeBoth(TRUE);
 //						m_pBothChat->ChangeBoth(TRUE);
 //						m_pBothParty->ChangeBoth(TRUE);
 //						if(m_pBothWhisper->GetBoth() == BUTTON_BOTH_FRONT)
 //						{
-//							// À½¼ºÃ¤ÆÃ Á¾·á.
+//							// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 //							SetVOIPExit();
 //						}else
 //						{
-//							// 2008-07-15 by dgwoo ¿©±â¼± on½ÃÅ³¼ö ¾øÀ¸¸ç off¸¸ °¡´ÉÇÏ´Ù.
+//							// 2008-07-15 by dgwoo ï¿½ï¿½ï¿½â¼± onï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ offï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 //							//OnSoundButtonClick();
 //						}
-						// 2009-01-19 by bhsohn VOIP 1:1ÅëÈ­ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+						// 2009-01-19 by bhsohn VOIP 1:1ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 						SetVOIPExit();						
-						// end 2009-01-19 by bhsohn VOIP 1:1ÅëÈ­ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+						// end 2009-01-19 by bhsohn VOIP 1:1ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 					}
 					if(m_pBtnVoiceChatInv->OnLButtonUp(pt))
 					{
@@ -2993,9 +2993,9 @@ int	CINFGameMainChat::WndProcVoiceOption(UINT uMsg, WPARAM wParam, LPARAM lParam
 					if(m_pBtnVoiceChatCan->OnLButtonUp(pt))
 					{
 						ShowVoiceChatControl(FALSE);
-						// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+						// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						g_pInterface->m_pToolTip->m_bToolTipState = FALSE;
-						// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+						// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						//--------------------------------------------------------------------------//
 	//					COPYDATASTRUCT	copyData;
 	//					DWORD			nVolum = 0;
@@ -3138,15 +3138,15 @@ int	CINFGameMainChat::WndProcMacro(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						pt.x < CHAT_MACRO_INPUT_1_X + CHAT_MACRO_INPUT_W &&
 						pt.y > CHAT_MACRO_INPUT_1_Y + (CHAT_MACRO_APPL_GAP_Y * i) &&
 						pt.y < CHAT_MACRO_INPUT_1_Y + CHAT_MACRO_INPUT_H + (CHAT_MACRO_APPL_GAP_Y * i))
-					{// ÀÔ·ÂÃ¢ Å¬¸¯½Ã 
+					{// ï¿½Ô·ï¿½Ã¢ Å¬ï¿½ï¿½ï¿½ï¿½ 
 						m_nActMacro = i;
 						memset(m_strTempMacro,0x00,SIZE_MAX_CHAT_MESSAGE);
 						//memset(g_pD3dApp->m_inputkey.m_full_str,0x00,SIZE_MAX_CHAT_MESSAGE);
 						g_pD3dApp->CleanText();
 
-						// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+						// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						InitChatMsgBuff();
-						// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+						// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 						return INF_MSGPROC_BREAK;
 					}
@@ -3184,9 +3184,9 @@ int	CINFGameMainChat::WndProcMacro(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						m_bChatMode = FALSE;
 						g_pD3dApp->CleanText();
 						
-						// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+						// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						InitChatMsgBuff();
-						// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+						// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 						memset(m_strTempMacro,0x00,SIZE_MAX_CHAT_MESSAGE);
 						// 2007.04.24 by bhsohn China IME Working
@@ -3246,7 +3246,7 @@ int	CINFGameMainChat::WndProcMacro(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						g_pD3dApp->m_inputkey.m_full_str[strlen(g_pD3dApp->m_pShuttleChild->m_strChatPToP[g_pD3dApp->m_pShuttleChild->m_bOldPToPPos])+1] = ' ';
 						g_pD3dApp->m_inputkey.m_str_pos += strlen(g_pD3dApp->m_pShuttleChild->m_strChatPToP[g_pD3dApp->m_pShuttleChild->m_bOldPToPPos]) + 1;
 					}
-					// 2007-11-05 by dgwoo SIZE_MAX_CHAT_MESSAGE»çÀÌÁî°¡ ³Ñ¾î°¡¸é ¹é½ºÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý.
+					// 2007-11-05 by dgwoo SIZE_MAX_CHAT_MESSAGEï¿½ï¿½ï¿½ï¿½ï¿½î°¡ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½é½ºï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½.
 					strncpy(m_strTempMacro,g_pD3dApp->m_inputkey.m_full_str,strlen(g_pD3dApp->m_inputkey.m_full_str));
 					if(strlen(g_pD3dApp->m_inputkey.m_full_str) >= SIZE_MAX_CHAT_MESSAGE)
 					{
@@ -3269,22 +3269,6 @@ int	CINFGameMainChat::WndProcMacro(UINT uMsg, WPARAM wParam, LPARAM lParam)
 int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	FLOG( "CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)" );
-	// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
-//	if(WndProcWhisperChat(uMsg,wParam,lParam) == INF_MSGPROC_BREAK)
-//		return INF_MSGPROC_BREAK;
-
-//	if(m_bShowMacro && WndProcMacro(uMsg,wParam,lParam) == INF_MSGPROC_BREAK)
-//	{
-//		return INF_MSGPROC_BREAK;
-//	}
-//	if(m_bShowVoiceChatControl && WndProcVoiceOption(uMsg,wParam,lParam) == INF_MSGPROC_BREAK)
-//	{
-//		return INF_MSGPROC_BREAK;
-//	}
-
-	// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
-//	if(m_pSystemMsgW->WndProc(uMsg,wParam,lParam) == INF_MSGPROC_BREAK)
-//		return INF_MSGPROC_BREAK;
 		
 	switch(uMsg)
 	{	
@@ -3295,7 +3279,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			ScreenToClient(g_pD3dApp->GetHwnd(), &pt);
 			CheckMouseReverse(&pt);
 
-			// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+			// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pInterface->m_bShowInterface && g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
 			if(g_pInterface->m_bShowInterface && !g_pShuttleChild->IsObserverMode() && g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
 			{	
@@ -3313,9 +3297,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							pChatTab->GetScrollPositionWithRenderStartIndex(m_nChatBoxHeight-(CHATBOX_IMAGE_GAB_HEITHT_TOP+CHATBOX_SCROLL_IMAGE_SIZE_HEIGHT)
 							, (m_nChatBoxHeight-CHATBOX_IMAGE_GAB_HEITHT_TOP)/CHAT_FONT_LINE_HEIGHT);
 
-						// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+						// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 						m_listCulledString.clear();
-						// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+						// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 						
 						return INF_MSGPROC_BREAK;
 					}
@@ -3326,9 +3310,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							pChatTab->GetScrollPositionWithRenderStartIndex(m_nChatBoxHeight-(CHATBOX_IMAGE_GAB_HEITHT_TOP+CHATBOX_SCROLL_IMAGE_SIZE_HEIGHT)
 							, (m_nChatBoxHeight-CHATBOX_IMAGE_GAB_HEITHT_TOP)/CHAT_FONT_LINE_HEIGHT);					
 
-						// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+						// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 						m_listCulledString.clear();
-						// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+						// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 						
 						return INF_MSGPROC_BREAK;
 					}				
@@ -3343,7 +3327,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			pt.y = HIWORD(lParam);
 			CheckMouseReverse(&pt);
 
-			// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+			// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pInterface->m_bShowInterface)
 			if(g_pInterface->m_bShowInterface && !g_pShuttleChild->IsObserverMode())
 			{
@@ -3358,11 +3342,11 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				{
 					m_bShowMiniWisperUnder = FALSE;
 				}
-				// ¸Þ´º ¼±ÅÃ À¯·á ¾ÆÀÌÅÛ
+				// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if( g_pD3dApp->GetTestServerFlag() == FALSE &&
 					g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE &&
 					g_pD3dApp->m_dwGameState != _SHOP
-					&& g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤)
+					&& g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				{
 					if( pt.x > CHAT_MENU_CASH_START_X-3 &&
 						pt.x < CHAT_MENU_CASH_START_X+CHAT_MENU_CASH_START_W-3 && 
@@ -3436,7 +3420,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				
 
 
-				// ¸Þ´º ¼±ÅÃ(FAQ, À¯·á ¾ÆÀÌÅÛ)
+				// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½(FAQ, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 				m_nVoiceMenu = 0;
 //				if( m_bMenuListUse &&
 //					g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
@@ -3467,7 +3451,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //					}
 //				}
 				
-				// ÃÖ¼ÒÈ­ ºÎºÐ ¼±ÅÃ 05.01.21
+				// ï¿½Ö¼ï¿½È­ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ 05.01.21
 				if( pt.x > CHAT_CHATTAB_VIEW_FLAG_X &&
 					pt.x < CHAT_CHATTAB_VIEW_FLAG_X+CHAT_CHATTAB_VIEW_FLAG_W && 
 					pt.y > CHAT_CHATTAB_VIEW_FLAG_Y && pt.y < CHAT_CHATTAB_VIEW_FLAG_Y+CHAT_CHATTAB_VIEW_FLAG_H &&
@@ -3480,7 +3464,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					m_nChatSizeBtnNormal = BUTTON_BOTH_STATE_NORMAL;			
 				}
 				
-				// Ã¤ÆÃ ¸Þ´º¸®½ºÆ® ¼±ÅÃ 05.01.21
+				// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ 05.01.21
 				if( pt.x > CHAT_MENU_VIEW_X &&
 					pt.x < CHAT_MENU_VIEW_X+CHAT_MENU_VIEW_W && 
 					pt.y > CHAT_MENU_VIEW_Y && pt.y < CHAT_MENU_VIEW_Y+CHAT_MENU_VIEW_H &&
@@ -3500,7 +3484,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					m_nMenuListButtonState = CHAT_NMENU_BUTTON_STATE_NOM;			
 				}
 
-				// ÃÖ´ëÈ­ ºÎºÐ ¼±ÅÃ	
+				// ï¿½Ö´ï¿½È­ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½	
 				if(	pt.x > CHAT_CHATBOX_START_X+m_nChatBoxWidth-CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH &&
 					pt.x < CHAT_CHATBOX_START_X+m_nChatBoxWidth-CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH+CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH &&
 					pt.y > m_nChatBoxYPos + CHAT_MENUBOX_GAB_WIDTH &&
@@ -3521,11 +3505,11 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //					m_nSizeMaxButtonstate = CHAT_BUTTON_NORMAL;				
 				}
 				
-				// Ã¤ÆÃ È­¸é ½ºÅ©·Ñ
+				// Ã¤ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 				if(m_bScrollLock)
 				{
 					int nPointGap = pt.y-m_ptMouse.y;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(m_nCurrentRelScrollOldPosY+nPointGap < CHATBOX_IMAGE_GAB_HEITHT_TOP + 5)
 					{
 						m_nCurrentRelScrollPosY = CHATBOX_IMAGE_GAB_HEITHT_TOP + 5;
@@ -3550,18 +3534,18 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						, m_nCurrentRelScrollPosY-CHATBOX_IMAGE_GAB_HEITHT_TOP);
 
 
-					// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+					// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 					m_listCulledString.clear();
-					// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+					// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 				}
 				
-				// ¸¶¿ì½º Æ÷ÀÎÆ® ¹Ù²Ù±â
+				// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ù²Ù±ï¿½
 				if( m_bShowChatBox &&
 					pt.x > CHAT_CHATBOX_START_X+m_nChatBoxWidth &&
 					pt.x < CHAT_CHATBOX_START_X+m_nChatBoxWidth+CHATBOX_IMAGE_GAB_WIDTH_TOP &&
 					pt.y > m_nChatBoxYPos &&
 					pt.y < m_nChatBoxYPos+CHATBOX_IMAGE_GAB_HEITHT_TOP)
-				{	// Ã¤ÆÃ¹Ú½º Right and Bottom »çÀÌÁî Á¶Á¤À» Å¬¸¯
+				{	// Ã¤ï¿½Ã¹Ú½ï¿½ Right and Bottom ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½
 					
 					g_pInterface->m_pTarget->m_bWisperChatBoxMouseFlag = TRUE;
 					g_pInterface->m_pTarget->SetMouseType(LEFTBOTTOM_ARROW_IMAGE);
@@ -3599,17 +3583,17 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						pChatTab->GetScrollPositionWithRenderStartIndex(m_nChatBoxHeight-(CHATBOX_IMAGE_GAB_HEITHT_TOP+CHATBOX_SCROLL_IMAGE_SIZE_HEIGHT)
 						, (m_nChatBoxHeight-CHATBOX_IMAGE_GAB_HEITHT_TOP)/CHAT_FONT_LINE_HEIGHT);
 
-					// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+					// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 					m_listCulledString.clear();
-					// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+					// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 
-					// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+					// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					stcuctRateRect	stRateRect;
 					memset(&stRateRect, 0x00, sizeof(stcuctRateRect));
 					stRateRect.fRateWidth	= m_nChatBoxWidth;
 					stRateRect.fRateHeight	= m_nChatBoxHeight;
 					g_pD3dApp->SetChatInterfacePOS(&stRateRect);
-					// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+					// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 				
 			}
@@ -3620,9 +3604,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_LBUTTONDOWN:
 		{
-			// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+			// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pInterface->m_bShowInterface && g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
-			// 2009-02-16 by bhsohn ¸¶¿ì½º ¼û±â±â½Ã, Ã¤ÆÃÃ¢ Å¬¸¯ ¾ÈµÇ´Â ¹ö±× ¼öÁ¤
+			// 2009-02-16 by bhsohn ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½Ã¢ Å¬ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pInterface->m_bShowInterface && !g_pShuttleChild->IsObserverMode() && g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
 			BOOL bShowMenu = TRUE;
 			if(g_pInterface->m_pTarget->GetShowTargetCodition() == TRUE 
@@ -3643,25 +3627,25 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					pt.y > WISPERBOX_MINIMUM_WINDOW_BUTTON_Y &&
 					pt.y < WISPERBOX_MINIMUM_WINDOW_BUTTON_Y + WISPERBOX_MINIMUM_WINDOW_HEIGHT)
 				{
-				// 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+				// 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(m_nSmallWindowCount)
-				//end 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+				//end 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_bShowMiniWisper = !m_bShowMiniWisper;
 				}
 
 
 				if(g_pD3dApp->GetTestServerFlag() == FALSE &&
 				   g_pD3dApp->m_dwGameState != _SHOP
-				   && g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤)
+				   && g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				{
-#if defined(C_CASH_SHOP_NOT_USE_JWLEE) // 2015-02-04 by jwLee ÀÏº» Ä³½¬¼¥ »èÁ¦
+#if defined(C_CASH_SHOP_NOT_USE_JWLEE) // 2015-02-04 by jwLee ï¿½Ïºï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
-					// ¸Þ´º ¼±ÅÃ À¯·á ¾ÆÀÌÅÛ
+					// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if( pt.x > CHAT_MENU_CASH_START_X &&
 						pt.x < CHAT_MENU_CASH_START_X+CHAT_MENU_CASH_START_W && 
 						pt.y > CHAT_MENU_CASH_START_Y-m_nCashButtonGab && 
 						pt.y < CHAT_MENU_CASH_START_Y-m_nCashButtonGab+CHAT_MENU_CASH_START_H &&
-						g_pShuttleChild->GetIsUseInterface())						// 2006-06-12 by ispark, ºñÇàÁßÀÏ¶§´Â ¸·´Â´Ù.
+						g_pShuttleChild->GetIsUseInterface())						// 2006-06-12 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 					{
 						if(!g_pGameMain->m_pTrade->m_bTrading)
 						{
@@ -3680,7 +3664,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// Ã¤ÆÃ ¸Þ´º ¼±ÅÃ 
+				// Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 //				if(pt.y>CHAT_MENUBOX_START_Y && pt.y<CHAT_MENUBOX_START_Y+CHAT_MENUBOX_WIDTH+CHAT_MENUBOX_HEITHT)
 //				{
 //					int i; for(i=0;i<CHAT_MENUBOX_SELECT_COUNT;i++)
@@ -3697,7 +3681,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //					}
 //				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+				// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 				if(!m_bMenuListUse)
 				{
 					for(int i = 0; i < CHAT_TAB_CHATROOM ; i++)
@@ -3706,7 +3690,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					}
 				}
 
-				// Ã¤ÆÃÃ¢ ÃÖ´ëÈ­ 
+				// Ã¤ï¿½ï¿½Ã¢ ï¿½Ö´ï¿½È­ 
 				if( pt.x > CHAT_CHATTAB_VIEW_FLAG_X &&
 					pt.x < CHAT_CHATTAB_VIEW_FLAG_X+CHAT_CHATTAB_VIEW_FLAG_W && 
 					pt.y > CHAT_CHATTAB_VIEW_FLAG_Y && pt.y < CHAT_CHATTAB_VIEW_FLAG_Y+CHAT_CHATTAB_VIEW_FLAG_H )
@@ -3726,7 +3710,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// Ã¤ÆÃ ÀÔ·Â ¾ð¾î ¼±ÅÃ
+				// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(pt.x > CHAT_INPUT_LANGUAGE_X && pt.x < CHAT_INPUT_LANGUAGE_X+CHAT_INPUT_LANGUAGE_WH &&
 					pt.y > CHAT_INPUT_LANGUAGE_Y && pt.y < CHAT_INPUT_LANGUAGE_Y+CHAT_INPUT_LANGUAGE_WH)
 				{
@@ -3735,7 +3719,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// Ã¤ÆÃ È­¸é Å©±âÁ¶Àý 
+				// Ã¤ï¿½ï¿½ È­ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 				if( m_bShowChatBox &&
 					pt.x > CHAT_CHATBOX_START_X+m_nChatBoxWidth &&
 					pt.x < CHAT_CHATBOX_START_X+m_nChatBoxWidth+CHATBOX_IMAGE_GAB_WIDTH_TOP &&
@@ -3749,7 +3733,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// ½ºÅ©·Ñ¹Ù ¼±ÅÃ 
+				// ï¿½ï¿½Å©ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 				if( m_bShowChatBox
 					&& pt.x >= m_nChatBoxWidth+CHATBOX_SCROLL_IMAGE_GAP_X
 					&& pt.x < m_nChatBoxWidth+CHATBOX_SCROLL_IMAGE_GAP_X + CHATBOX_SCROLL_IMAGE_SIZE_WIDTH
@@ -3763,7 +3747,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 				
 				/////////////////////////////////////////////////////////////////////////////////////////////////
-				// Ã¤ÆÃ ¸ðµå ¼±ÅÃ ÇØÁ¦
+				// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( pt.x>CHAT_INPUT_WINDOW_X && pt.x<CHAT_INPUT_WINDOW_X+CHAT_INPUT_WINDOW_W &&
 					pt.y>CHAT_INPUT_WINDOW_Y && pt.y<CHAT_INPUT_WINDOW_Y+CHAT_INPUT_WINDOW_H)
 				{
@@ -3771,9 +3755,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					{
 						g_pD3dApp->CleanText();
 						
-						// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+						// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						InitChatMsgBuff();
-						// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+						// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					}
 					g_pD3dApp->m_bChatMode = TRUE;
 					m_bChatMode = TRUE;
@@ -3785,17 +3769,17 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					g_pD3dApp->m_inputkey.EnableIMEControl(g_pD3dApp->m_bChatMode);
 #endif			
 
-					// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-					// 2009-01-21 by bhsohn Ã¤ÆÃ ÅÇ ¸¶¿ì½º·Î Å¬¸¯½Ã, ¡®!¡¯°ª ÀúÀå ¾ÈµÇ´Â ¹®Á¦ ÇØ°á			
+					// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+					// 2009-01-21 by bhsohn Ã¤ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½!ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½			
 // 					if(strlen(g_pD3dApp->m_inputkey.m_full_str)==0)
 // 					{
-// 						// Æ¯¼ö Ã¤ÆÃ Å¸ÀÔ ³²±â±â
+// 						// Æ¯ï¿½ï¿½ Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						if(CheckChatTypeMsg(0, 0))
 // 						{							
 // 						}
 // 						
 // 					}
-					//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+					//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 					// end 2009-01-21 by bhsohn Japan IME
 
 					return INF_MSGPROC_BREAK;
@@ -3813,23 +3797,23 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //				}
 				
 				////////////////////////////////////////////////////////////////////////////////////////
-				// ¸Þ´º ¸®½ºÆ® º¸ÀÌ±â
+				// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ì±ï¿½
 				if( pt.x > CHAT_MENU_VIEW_X &&
 					pt.x < CHAT_MENU_VIEW_X+CHAT_MENU_VIEW_W && 
 					pt.y > CHAT_MENU_VIEW_Y && pt.y < CHAT_MENU_VIEW_Y+CHAT_MENU_VIEW_H  && 
 					(g_pShuttleChild->m_bUnitStop == TRUE || g_pD3dApp->m_bCharacter == TRUE || g_pShuttleChild->m_bLandedMove == TRUE
-					|| (IS_DT(g_pShuttleChild->m_myShuttleInfo.UnitKind) == TRUE && g_pShuttleChild->m_bIsAir == FALSE)))	// 2013-01-16 by mspark, A±â¾î ·£µù ¸ðµå ½Ã Ã¤ÆÃ ¸Þ´º ¹öÆ° Å¬¸¯µÇµµ·Ï ¼öÁ¤
+					|| (IS_DT(g_pShuttleChild->m_myShuttleInfo.UnitKind) == TRUE && g_pShuttleChild->m_bIsAir == FALSE)))	// 2013-01-16 by mspark, Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					m_nMenuListButtonState = CHAT_NMENU_BUTTON_STATE_PUH;
 					m_bMenuList = TRUE;
 					return INF_MSGPROC_BREAK;
 				}
-				// ¸Þ´º ¼±ÅÃ
+				// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_bMenuListUse)
 				{
-					// 2014-01-28 by ymjoo VoIP ±â´É »èÁ¦
+					// 2014-01-28 by ymjoo VoIP ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifndef C_REMOVE_VOIP_YMJOO
-					// À½¼º Åë½Å.
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 					if(pt.x > CHAT_MENU_LIST_START_X &&
 						pt.x < CHAT_MENU_LIST_START_X+CHAT_MENU_LIST_W && 
 						pt.y > CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*CHAT_MENULIST_NUMBER) &&
@@ -3847,17 +3831,17 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //						::SendMessage(g_pD3dApp->m_VOIPState.m_hWndAtumVoIPClient, WM_COPYDATA, (WPARAM)g_pD3dApp->GetHwnd(), (LPARAM)&copyData);
 						
 
-						// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+						// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 						m_listCulledString.clear();
-						// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+						// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 
 
 						return INF_MSGPROC_BREAK;
 					}
 #endif
-					// END 2014-01-28 by ymjoo VoIP ±â´É »èÁ¦
+					// END 2014-01-28 by ymjoo VoIP ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-					// ½ºÇÇÄ¿ ¹öÆ°.
+					// ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½Æ°.
 					if( pt.x > CHAT_MENU_LIST_START_X &&
 						pt.x < CHAT_MENU_LIST_START_X+CHAT_MENU_LIST_W && 
 						pt.y > CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(CHAT_MENULIST_NUMBER - CHAT_TAB_SPEAKER - 1)) &&
@@ -3868,13 +3852,13 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						g_pInterface->SaveOptionFile();
 						if(FALSE == m_bChatCurrentSelect[CHAT_TAB_SPEAKER])
 						{
-							// GM¸í·É¾î°¡ ¾Æ´Ñ°ÍÀº ´Ù Áö¿î´Ù.
+							// GMï¿½ï¿½É¾î°¡ ï¿½Æ´Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 							g_pGameMain->DeleteNotGmMsg();
 						}								
 
-						// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+						// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 						m_listCulledString.clear();
-						// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+						// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 
 						return INF_MSGPROC_BREAK;
 					}
@@ -3890,7 +3874,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						{
 							char buffer[SIZE_MAX_PACKET];							
 							INIT_MSG(MSG_IC_CHAT_CHANGE_CHAT_FLAG, T_IC_CHAT_CHANGE_CHAT_FLAG, pS2Msg, buffer);
-							pS2Msg->bitChatType		= 0xFFFF;			// ¸ðµÎ ÄÑÁø°ÍÀ¸·Î ±âº» ¼³Á¤ÇÔ
+							pS2Msg->bitChatType		= 0xFFFF;			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							
 							m_bChatCurrentSelect[i] = !m_bChatCurrentSelect[i];
 							g_pSOption->m_bChatCurrentSelect[i] = m_bChatCurrentSelect[i];							
@@ -3992,45 +3976,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}						
 					}
 				}				
-				// ¸Þ´º ¼±ÅÃ(FAQ, À¯·á ¾ÆÀÌÅÛ)
+				// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½(FAQ, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 				int nState = FALSE;
-//				if(m_bMenuListUse)
-//				{
-//					BOOL bBreakProc = FALSE;
-//					for(int i=CHAT_TAB_NUMBER; i<CHAT_TAB_NUMBER+CHAT_OTHER_MENU_ALL; i++)
-//					{
-//						if( pt.x > CHAT_MENU_LIST_START_X &&
-//							pt.x < CHAT_MENU_LIST_START_X+CHAT_MENU_LIST_W && 
-//							pt.y > CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(i+1)) && 
-//							pt.y < CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(i+1))+CHAT_MENU_LIST_H )
-//						{
-//							m_nOtherMenuList[i-CHAT_TAB_NUMBER] = CHAT_NMENU_BUTTON_STATE_PUH;
-//							nState		= TRUE;
-//							bBreakProc	= TRUE;
-//							switch(i) 
-//							{
-//							case CHAT_OTHER_MENU_VOIP:
-//								{
-//									m_nVoiceMenu = 2;
-//								}
-//								break;
-//							}
-//						}
-//						else
-//						{
-//							m_nOtherMenuList[i-CHAT_TAB_NUMBER] = CHAT_NMENU_BUTTON_STATE_NOM;
-//						}
-//					}
-//					if(bBreakProc)
-//					{
-//						return INF_MSGPROC_BREAK;
-//					}
-//				}
-//				if(!nState)	m_bMenuListUse = FALSE;
-				//
-				/////////////////////////////////////////////////////////////////////////////////////////////////				
-				// 2005-09-14 by ispark
-				// Ã¢¾È¿¡ ¸¶¿ì½º Å¬¸¯½Ã ¹«È¿
+
 				if(m_bShowChatBox)
 				{
 					if(g_pShuttleChild->GetMyShuttleInfo().GuildUniqueNumber == 0 &&
@@ -4059,9 +4007,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			int i=0;
 
-			// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+			// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pInterface->m_bShowInterface && g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
-			// 2009-02-16 by bhsohn ¸¶¿ì½º ¼û±â±â½Ã, Ã¤ÆÃÃ¢ Å¬¸¯ ¾ÈµÇ´Â ¹ö±× ¼öÁ¤
+			// 2009-02-16 by bhsohn ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½Ã¢ Å¬ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pInterface->m_bShowInterface && !g_pShuttleChild->IsObserverMode() && g_pInterface->m_pTarget->GetShowTargetCodition() == FALSE)
 			BOOL bShowMenu = TRUE;
 			if(g_pInterface->m_pTarget->GetShowTargetCodition() == TRUE 
@@ -4086,15 +4034,15 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 				if(g_pD3dApp->GetTestServerFlag() == FALSE &&
 				   g_pD3dApp->m_dwGameState != _SHOP
-				   && g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤)
+				   && g_pD3dApp->GetArenaState() != ARENA_STATE_ARENA_GAMING )	// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				{
-					// ¸Þ´º ¼±ÅÃ À¯·á ¾ÆÀÌÅÛ
+					// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if( pt.x > CHAT_MENU_CASH_START_X &&
 						pt.x < CHAT_MENU_CASH_START_X+CHAT_MENU_CASH_START_W && 
 						pt.y > CHAT_MENU_CASH_START_Y-m_nCashButtonGab && 
 						pt.y < CHAT_MENU_CASH_START_Y-m_nCashButtonGab+CHAT_MENU_CASH_START_H )
 					{
-						// 2007-12-05 by bhsohn ÀÌ·úÁß¿¡ Ä³½¬¼¥ ¸ø¿­°Ô ÇÔ.
+						// 2007-12-05 by bhsohn ï¿½Ì·ï¿½ï¿½ß¿ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 						BOOL bCanEnterCashShop = TRUE;
 						CHARACTER myShuttle = g_pShuttleChild->GetMyShuttleInfo();
 
@@ -4103,35 +4051,35 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						{
 							bCanEnterCashShop = FALSE;
 						}
-						// 2008-06-24 by bhsohn ¹ÙÀÚ»óÁ¡°ú Ä³½¬»óÁ¡ µ¿½Ã¿¡ ¶ß¿ì±â ºÒ°¡´ÉÇÏ°Ô ÇÔ
+						// 2008-06-24 by bhsohn ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ß¿ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½
 						else if(g_pInterface->IsBazarOpen())
 						{
 							bCanEnterCashShop = FALSE;
 						}
-						// 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
-#if defined(C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT)	// 2015-04-07 by jwlee C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT ÄÜÅÙÃ÷ Ãß°¡
-						// 2015-05-13 by jwlee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ÇØÇÇ¾Æ¿ö, º¸³Ê½º EXP, Ä³½Ã¼¥ ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼³Á¤
+						// 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#if defined(C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT)	// 2015-04-07 by jwlee C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+						// 2015-05-13 by jwlee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½, ï¿½ï¿½ï¿½Ê½ï¿½ EXP, Ä³ï¿½Ã¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //						else if (m_pSystemMsgW->GetInterface())
 						else if (m_pSystemMsgW->GetInterface() && m_pSystemMsgW->m_bShowChatBox)
-						// end 2015-05-13 by jwlee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ÇØÇÇ¾Æ¿ö, º¸³Ê½º EXP, Ä³½Ã¼¥ ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼³Á¤
+						// end 2015-05-13 by jwlee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½, ï¿½ï¿½ï¿½Ê½ï¿½ EXP, Ä³ï¿½Ã¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						{
 							bCanEnterCashShop = FALSE;
 						}
 #endif
-						// end 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
-						// end 2008-06-24 by bhsohn ¹ÙÀÚ»óÁ¡°ú Ä³½¬»óÁ¡ µ¿½Ã¿¡ ¶ß¿ì±â ºÒ°¡´ÉÇÏ°Ô ÇÔ
+						// end 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+						// end 2008-06-24 by bhsohn ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ß¿ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½
 
 						//if(m_bCashButton)
 						if(m_bCashButton && bCanEnterCashShop)
 						{
-							// 2007-10-18 by bhsohn ¿¹´çÀº Ä³½¬¼¥ º¸ÀÌÁö ¾ÊÀ½
-							// 2009-03-03 by bhsohn ÀÏº» Ä³½¬ »óÁ¡ ¹öÆ° Ç¥½Ã
+							// 2007-10-18 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+							// 2009-03-03 by bhsohn ï¿½Ïºï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Ç¥ï¿½ï¿½
 //#ifndef YEDANG_RELEASE
 //#if defined(YEDANG_RELEASE) 
 //#else
 							EnterCashShop();						
 //#endif
-							// end 2007-10-18 by bhsohn ¿¹´çÀº Ä³½¬¼¥ º¸ÀÌÁö ¾ÊÀ½
+							// end 2007-10-18 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							m_nOtherCashList	= CHAT_CASH_BUTTON_STATE_OVE;
 							m_bCashButton		= FALSE;
 							return INF_MSGPROC_BREAK;
@@ -4141,7 +4089,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				m_bCashButton		= FALSE;
 				
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// 2008-05-08 by dgwoo Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ ¼Ò½º Ãß°¡.
+				// 2008-05-08 by dgwoo Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ß°ï¿½.
 				if(m_pBtnOption->OnLButtonUp(pt))
 				{
 					ActiveChatOption(TRUE);
@@ -4152,7 +4100,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					for(int i = 0; i < CHAT_TAB_CHATROOM ; i++)
 					{
 						if(m_pBtnChatMode[i]->OnLButtonUp(pt))
-						{// Ã¤ÆÃ state º¯°æ.
+						{// Ã¤ï¿½ï¿½ state ï¿½ï¿½ï¿½ï¿½.
 							nPushBtn = i;
 							
 						}						
@@ -4177,9 +4125,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						m_pBtnChatMode[m_nChatMode-1]->PushButton(TRUE);
 					}
 
-					// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­	
+					// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­	
 					m_listCulledString.clear();
-					// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+					// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 				}
 				
 
@@ -4187,7 +4135,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// Ã¤ÆÃ ÀÔ·Â ¾ð¾î ¼±ÅÃ
+				// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(pt.x > CHAT_INPUT_LANGUAGE_X && pt.x < CHAT_INPUT_LANGUAGE_X+CHAT_INPUT_LANGUAGE_WH &&
 					pt.y > CHAT_INPUT_LANGUAGE_Y && pt.y < CHAT_INPUT_LANGUAGE_Y+CHAT_INPUT_LANGUAGE_WH &&
 					m_bSelectInputLanguage)
@@ -4197,7 +4145,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					return INF_MSGPROC_BREAK;
 				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// ÃÖ´ëÈ­ ÃÖ¼ÒÈ­ ¹öÆ° »óÅÂ
+				// ï¿½Ö´ï¿½È­ ï¿½Ö¼ï¿½È­ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 				if(	pt.x > CHAT_CHATBOX_START_X+m_nChatBoxWidth-CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH &&
 					pt.x < CHAT_CHATBOX_START_X+m_nChatBoxWidth-CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH+CHATBOX_IMAGE_GAB_MINIMIZE_WIDTH &&
 					pt.y > m_nChatBoxYPos + CHAT_MENUBOX_GAB_WIDTH &&
@@ -4212,12 +4160,12 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //					m_nSizeMaxButtonstate = CHAT_BUTTON_NORMAL;
 				}
 
-				// ¸Þ´º ¸®½ºÆ® º¸ÀÌ±â
+				// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ì±ï¿½
 				if( pt.x > CHAT_MENU_VIEW_X &&
 					pt.x < CHAT_MENU_VIEW_X+CHAT_MENU_VIEW_W && 
 					pt.y > CHAT_MENU_VIEW_Y && pt.y < CHAT_MENU_VIEW_Y+CHAT_MENU_VIEW_H  && 
 					(g_pShuttleChild->m_bUnitStop == TRUE || g_pD3dApp->m_bCharacter == TRUE || g_pShuttleChild->m_bLandedMove == TRUE
-					|| (IS_DT(g_pShuttleChild->m_myShuttleInfo.UnitKind) == TRUE && g_pShuttleChild->m_bIsAir == FALSE)))	// 2013-01-16 by mspark, A±â¾î ·£µù ¸ðµå ½Ã Ã¤ÆÃ ¸Þ´º ¹öÆ° Å¬¸¯µÇµµ·Ï ¼öÁ¤
+					|| (IS_DT(g_pShuttleChild->m_myShuttleInfo.UnitKind) == TRUE && g_pShuttleChild->m_bIsAir == FALSE)))	// 2013-01-16 by mspark, Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					if(m_bMenuList)
 					{
@@ -4284,9 +4232,9 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					
 					memset(m_strInputMessage,0x00,SIZE_MAX_CHAT_MESSAGE);
 
-					// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+					// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					InitChatMsgBuff();
-					// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+					// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 					// by bhsohn 2007-03-12 China Working
 					// 2009-01-12 by bhsohn Japan Working
@@ -4302,7 +4250,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 			if(lParam == WM_KEYDOWN_LPARAM_T)
 			{
-				// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+				// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//if(g_pInterface->m_bShowInterface && m_bChatMode == FALSE && g_pD3dApp->m_bChatMode == FALSE)
 				if(g_pInterface->m_bShowInterface && !g_pShuttleChild->IsObserverMode() && m_bChatMode == FALSE && g_pD3dApp->m_bChatMode == FALSE)
 				{
@@ -4334,7 +4282,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}
 			if(wParam == VK_RETURN)
 			{				
-				// 2008-07-01 by dgwoo EnterÅ°·Î 1Çü¹«±â ¹«ÇÑ¹ß»ç ¸·À½.
+				// 2008-07-01 by dgwoo EnterÅ°ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ¹ß»ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				g_pShuttleChild->m_bLButtonState = FALSE;
 				g_pShuttleChild->m_bRButtonState = FALSE;
 				m_bChatMode = !m_bChatMode;
@@ -4350,12 +4298,12 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				// end by bhsohn 2007-03-12 China Working
 
 				
-				// 2005-04-26 by jschoi - Ã¤ÆÃ Å¸ÀÔ ÀúÀå
+				// 2005-04-26 by jschoi - Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				char strChatType = '\0';
 
-				// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+				// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 				BOOL bBlankMsg = FALSE;
-				// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+				// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
 				// 2007-06-21 by bhsohn China IME Working
 #ifdef LANGUAGE_CHINA
@@ -4367,11 +4315,11 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				{
 					BOOL bSendSpecialChat = FALSE;
 
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//if(m_strInputMessage[0] == '~')
 					if( m_strInputMessage[0] == CHAT_ALL )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// °øÁö Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 						if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 						{
 							if(strlen(m_strInputMessage) > 1)
@@ -4379,28 +4327,28 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_ALL, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 								bSendSpecialChat = TRUE;
 							}
-							// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 							else if(strlen(m_strInputMessage) == 1)
 							{
 								bBlankMsg = TRUE;
 							}							
-							// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-							// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 							//strChatType = '~';
 							strChatType = CHAT_ALL;
-							// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						}
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '@')
 					else if( m_strInputMessage[0] == CHAT_GUILD )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// ±æµå Ã¤ÆÃ
-						// 2008-07-21 by bhsohn ¾Æ·¹³ª¿¡¼­ ¿©´Ü  ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+						// 2008-07-21 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 						//if(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.GuildUniqueNumber != 0)
 						//CHARACTER* pMainInfo = g_pD3dApp->GetMFSMyShuttleInfo();
-						// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+						// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						//if(pMainInfo && pMainInfo->GuildUniqueNumber != 0)
 						UID32_t	uGuildUniqueNumber = g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.GuildUniqueNumber;
 						if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING)
@@ -4418,68 +4366,86 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_GUILD, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 								bSendSpecialChat = TRUE;
 							}
-							// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 							else if(strlen(m_strInputMessage) == 1)
 							{
 								bBlankMsg = TRUE;
 							}							
-							// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-							// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 							//strChatType = '@'; 
 							strChatType = CHAT_GUILD; 
-							// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						}
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '%')
 					else if( m_strInputMessage[0] == CHAT_ARENA )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// ¾Æ·¹³ª Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½Æ·ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 						if(strlen(m_strInputMessage) > 1)
 						{
 							g_pIMSocket->SendChat(T_IC_CHAT_ARENA, g_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 							bSendSpecialChat = TRUE;
 						}
-						// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 						else if(strlen(m_strInputMessage) == 1)
 						{
 							bBlankMsg = TRUE;
 						}							
-						// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-						// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						//strChatType = '%';
 						strChatType = CHAT_ARENA;
-						// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '^')
 					else if( m_strInputMessage[0] == CHAT_WAR )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// ÀüÀï Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 						if(strlen(m_strInputMessage) > 1)
 						{
 							g_pIMSocket->SendChat(T_IC_CHAT_WAR, g_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 							bSendSpecialChat = TRUE;
 						}
-						// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 						else if(strlen(m_strInputMessage) == 1)
 						{
 							bBlankMsg = TRUE;
 						}							
-						// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-						// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						//strChatType = '^';
 						strChatType = CHAT_WAR;
-						// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+#ifdef _RAT_CHAT_SYSTEM
+					else if (m_strInputMessage[0] == _RAT_CHAT_ALL_INFLUENCE)
+					{
+						if(strlen(m_strInputMessage) > 1)
+						{
+							g_pIMSocket->SendChat(T_IC_CHAT_INFLUENCE_ALL_RAT, g_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
+							bSendSpecialChat = TRUE;
+						}
+
+						else if(strlen(m_strInputMessage) == 1)
+						{
+							bBlankMsg = TRUE;
+						}							
+	
+						//strChatType = '>';
+						strChatType = _RAT_CHAT_ALL_INFLUENCE;
+					}
+#endif
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '#')
 					else if( m_strInputMessage[0] == CHAT_PARTY )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// Æí´ë Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 						if(g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType != _NOPARTY)
 						{
 							if(strlen(m_strInputMessage) > 1)
@@ -4487,90 +4453,90 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								g_pIMSocket->SendChat(T_IC_CHAT_PARTY, g_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 								bSendSpecialChat = TRUE;
 							}
-							// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 							else if(strlen(m_strInputMessage) == 1)
 							{
 								bBlankMsg = TRUE;
 							}							
-							// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-							// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 							//strChatType = '#';
 							strChatType = CHAT_PARTY;
-							// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						}
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '!')
 					else if( m_strInputMessage[0] == CHAT_MAP )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// ¸ÊÀüÃ¼ Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½
 						if(strlen(m_strInputMessage) > 1)
 						{
 							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_MAP, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 							bSendSpecialChat = TRUE;
 						}
-						// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 						else if(strlen(m_strInputMessage) == 1)
 						{
 							bBlankMsg = TRUE;
 						}							
-						// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-						// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						//strChatType = '!';
 						strChatType = CHAT_MAP;
-						// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '$')
 					else if( m_strInputMessage[0] == CHAT_SELL_ALL )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// ¸Å¸Å Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½Å¸ï¿½ Ã¤ï¿½ï¿½
 						if(strlen(m_strInputMessage) > 1)
 						{
 							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_SELL_ALL, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 							bSendSpecialChat = TRUE;
 						}
-						// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 						else if(strlen(m_strInputMessage) == 1)
 						{
 							bBlankMsg = TRUE;
 						}							
-						// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-						// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						//strChatType = '$';
 						strChatType = CHAT_SELL_ALL;
-						// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '&')
 					else if( m_strInputMessage[0] == CHAT_CHATROOM )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// À¯·á ¸ÊÀüÃ¼ Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½
 						if(strlen(m_strInputMessage) > 1)
 						{
 							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_CHATROOM, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 							bSendSpecialChat = TRUE;
 						}
-						// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 						else if(strlen(m_strInputMessage) == 1)
 						{
 							bBlankMsg = TRUE;
 						}							
-						// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+						// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-						// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						//strChatType = '&';
 						strChatType = CHAT_CHATROOM;
-						// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+						// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '"')
 					else if( m_strInputMessage[0] == CHAT_PTOP )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// 1:1 ±Ó¼Ó¸» @Ã¤ÆÃ
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// 1:1 ï¿½Ó¼Ó¸ï¿½ @Ã¤ï¿½ï¿½
 						char name[SIZE_MAX_CHARACTER_NAME];
 						memset(name,0x00,SIZE_MAX_CHARACTER_NAME);
 						int n = 1;
@@ -4583,50 +4549,42 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								break;
 							}
 
-// 2007.04.24 by bhsohn China IME Working
-//#ifdef LANGUAGE_CHINA
-//							if(m_strInputMessage[n] == -95)
-//							{
-//								bIsPToP = TRUE;
-//								break;
-//							}
-//#endif
 							n++;
 							if(n==SIZE_MAX_CHARACTER_NAME)
 								break;
 						}
 						if(bIsPToP && n != 1)
 						{
-							// 2006-09-28 by ispark, ³»¿ëÀÌ ¾ø´Ù¸é ¸Þ¼¼Áö º¸³»Áö ¸»°Í
+							// 2006-09-28 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							if(strlen(m_strInputMessage+1+n) == 0)
 							{
 								break;
 							}
 							
-							// 2008-02-26 by bhsohn ÅëÇÕ ¾Æ·¹³ª °ü·Ã ¹ö±× ¼öÁ¤
+							// 2008-02-26 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 							{
-								// ¾Æ·¹³ª °ÔÀÓÁß¿¡´Â ±Ó¼Ó¸» Á¦ÇÑ
+								// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ó¼Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 								break;
 							}
 
  							memcpy(name,m_strInputMessage+1,(n-1));
 							
-							// 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+							// 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 							if(g_pGameMain->IsRejectUser(name))
 							{
-								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080714_0207,COLOR_ERROR);//"\\y°ÅºÎ ¸ñ·Ï¿¡ µî·ÏµÈ ´ë»óÀÔ´Ï´Ù."
+								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080714_0207,COLOR_ERROR);//"\\yï¿½Åºï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								break;
 							}
-							// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+							// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 							if(!g_pD3dApp->IsOptionEtc(OPTION_RADIO_WHISPER))
 							{
-								// ±Ó¼Ó¸» »ç¿ë¾ÈÇÔ.
-								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080716_0203,COLOR_ERROR);//"±Ó¼Ó¸» °ÅºÎ »óÅÂ ÀÔ´Ï´Ù."
+								// ï¿½Ó¼Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080716_0203,COLOR_ERROR);//"ï¿½Ó¼Ó¸ï¿½ ï¿½Åºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."
 								break;
 							}
-							// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
-							// end 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+							// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+							// end 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_PTOP, name, m_strInputMessage+1+n );
 							bSendSpecialChat = TRUE;
 							bool bCheckChat = false;
@@ -4650,12 +4608,12 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 						}
 					}
-					// 2006-04-21 by ispark, ÁöµµÀÚ °øÁö
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2006-04-21 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//if(m_strInputMessage[0] == '*')
 					if( m_strInputMessage[0] == CHAT_INFLUENCE_ALL )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// °øÁö Ã¤ÆÃ						
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½						
 						if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_INFLUENCE_LEADER|RACE_INFLUENCE_SUBLEADER_MASK)
 							|| g_pGameMain->m_pCommunity->GetGuild()->GetMyGuildRank() == GUILD_RANK_COMMANDER)
 						{
@@ -4664,25 +4622,25 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_INFLUENCE_ALL, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage+1 );
 								bSendSpecialChat = TRUE;
 							}
-							// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 							else if(strlen(m_strInputMessage) == 1)
 							{
 								bBlankMsg = TRUE;
 							}							
-							// end 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+							// end 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
-							// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 							//strChatType = '*';
 							strChatType = CHAT_INFLUENCE_ALL;
-							// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+							// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						}
 					}
-					// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+					// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//else if(m_strInputMessage[0] == '/') 
 					else if( m_strInputMessage[0] == CHAT_COMMAND )
-					// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
-					{// ±âÅ¸ °ÔÀÓÀÇ ¸í·É¾î
-						// ¿ÉÀú¹ö ¸ðµå½Ã¿¡´Â ¸ðµç ¸í·É¾î¸¦ ¸·´Â´Ù.
+					// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					{// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É¾ï¿½
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½É¾î¸¦ ï¿½ï¿½ï¿½Â´ï¿½.
 						if(g_pShuttleChild->IsObserverMode())
 						{
 							break;
@@ -4699,13 +4657,6 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							{
 								if(m_strInputMessage[n] == ' ')		// || m_strInputMessage[n] == '\n')
 									break;
-								// 2007.04.24 by bhsohn China IME Working
-//#ifdef LANGUAGE_CHINA
-//								if(m_strInputMessage[n] == -95)
-//								{									
-//									break;
-//								}
-//#endif
 								n++;
 								if(n == strlen(m_strInputMessage))	//SIZE_MAX_CHAT_MESSAGE)
 									break;
@@ -4713,28 +4664,28 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 // 						memcpy(chatOrder,m_strInputMessage+1,n-1);
 						memcpy(chatOrder,m_strInputMessage,n);
-						int re = stricmp(chatOrder,STRCMD_C_COMMAND_CALL);	//"/ÅëÈ­"
+						int re = stricmp(chatOrder,STRCMD_C_COMMAND_CALL);	//"/ï¿½ï¿½È­"
 						if(re==0)
 						{
-							// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+							// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 							{
-								// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+								// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 								//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 								//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 								if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 								else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-								// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+								// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 								break;
 							}
-							// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+							// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							
 							if( g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_NOTLOGIN	)
 							{
@@ -4748,38 +4699,38 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 							else if(g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_ERRORSTATE)
 							{
-								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"±³½ÅÀ» ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."
+								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 							}
 							else
 							{
-								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0016, COLOR_VOIP);//"ÅëÈ­ÁßÀÔ´Ï´Ù."
+								g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0016, COLOR_VOIP);//"ï¿½ï¿½È­ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 							}
 							bSendChat = TRUE;
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_C_COMMAND_PARTYCALL);//"/Æí´ëÅëÈ­"
+							re = stricmp(chatOrder,STRCMD_C_COMMAND_PARTYCALL);//"/ï¿½ï¿½ï¿½ï¿½ï¿½È­"
 							if(re==0)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								if( g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_NOTLOGIN &&
 									g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER &&
@@ -4789,7 +4740,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
  									memcpy(name,m_strInputMessage+n+1,strlen(m_strInputMessage));
 
 									// 2005-10-07 by ispark
-									// Æí´ëÅëÈ­ ÀÎ¿ø¼ö 1(50ÀÌÇÏ ¼ýÀÚ´Â 1¸í), ÀüÃ¼ ¼±ÅÃ(¾È¾²°Å³ª 50¸íÀÌ»óÀº ÀüÃ¼(50))
+									// ï¿½ï¿½ï¿½ï¿½ï¿½È­ ï¿½Î¿ï¿½ï¿½ï¿½ 1(50ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½ 1ï¿½ï¿½), ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½(ï¿½È¾ï¿½ï¿½Å³ï¿½ 50ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼(50))
 									int nConnectCount = 0;
 									nConnectCount = atoi(name);
 									if(nConnectCount > 0 && nConnectCount < 50)
@@ -4800,46 +4751,46 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									{
 										g_pD3dApp->m_VOIPState.nConnectCount = 50;
 									}
-									g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0014, _Q_PARTYMASTER_VOIP, 0,0, DELETE_MASSAGEBOX_TIME);//"Æí´ë°£ ÅëÈ­¸¦ ÇÏ½Ã°Ú½À´Ï±î?"
+									g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0014, _Q_PARTYMASTER_VOIP, 0,0, DELETE_MASSAGEBOX_TIME);//"ï¿½ï¿½ë°£ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 									g_pD3dApp->m_VOIPState.bCaller = TRUE;
 									g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_TRY_REGISTER;
 //									g_pIMSocket->WriteMessageType(T_IC_VOIP_NtoN_CREATEROOM_REQUEST);
 								}
 								else if(g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_ERRORSTATE)
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"±³½ÅÀ» ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								}
 								else
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0009, COLOR_VOIP);//"ÀÌ¹Ì ÅëÈ­ÁßÀÔ´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0009, COLOR_VOIP);//"ï¿½Ì¹ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								}
 								bSendChat = TRUE;
 							}
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_C_COMMAND_PARTYCALLEND);//"/Æí´ëÅëÈ­Á¾·á"
+							re = stricmp(chatOrder,STRCMD_C_COMMAND_PARTYCALLEND);//"/ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½"
 							if(re==0)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								if( g_pD3dApp->m_VOIPState.nVOIPState != _VOIP_NOTLOGIN &&
 									g_pShuttleChild->m_pClientParty->GetNtoNCallState() == TRUE)
@@ -4861,82 +4812,82 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_NOTLOGIN;
 									g_pD3dApp->m_VOIPState.bCaller = FALSE;
 									g_pShuttleChild->m_pClientParty->SetNtoNCallState(FALSE);
-//									DBGOUT("Æí´ëÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù\n");
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0017, COLOR_VOIP);//"Æí´ëÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù"
+//									DBGOUT("ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½\n");
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0017, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½"
 								}
 								bSendChat = TRUE;
 							}
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_C_COMMAND_GUILDCALL);//"/¿©´ÜÅëÈ­"
+							re = stricmp(chatOrder,STRCMD_C_COMMAND_GUILDCALL);//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­"
 							if(re==0)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end  2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end  2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								
 								if( g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_NOTLOGIN &&
 									g_pGameMain->m_pCommunity->GetGuild()->GetMyGuildRank() == GUILD_RANK_COMMANDER &&
 									g_pShuttleChild->m_pClientParty->GetNtoNCallState() == FALSE &&
 									g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState() == FALSE )
 								{
-									g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0007, _Q_GUILDMASTER_VOIP,0,0,DELETE_MASSAGEBOX_TIME);//"¿©´Ü ÅëÈ­¸¦ ÇÏ½Ã°Ú½À´Ï±î?"
+									g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0007, _Q_GUILDMASTER_VOIP,0,0,DELETE_MASSAGEBOX_TIME);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 									g_pD3dApp->m_VOIPState.bCaller = TRUE;
 									g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_TRY_REGISTER;
 //									g_pIMSocket->WriteMessageType(T_IC_VOIP_NtoN_CREATEROOM_REQUEST);
 								}
 								else if(g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_ERRORSTATE)
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"±³½ÅÀ» ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								} 
 								else
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0009, COLOR_VOIP);//"ÀÌ¹Ì ÅëÈ­ÁßÀÔ´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0009, COLOR_VOIP);//"ï¿½Ì¹ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								}
 								bSendChat = TRUE;
 							}
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_C_COMMAND_GUILDCALLEND);//"/¿©´ÜÅëÈ­Á¾·á"
+							re = stricmp(chatOrder,STRCMD_C_COMMAND_GUILDCALLEND);//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½"
 							if(re==0)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								if( g_pD3dApp->m_VOIPState.nVOIPState != _VOIP_NOTLOGIN &&
 									g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState() == TRUE)
@@ -4958,45 +4909,45 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_NOTLOGIN;
 									g_pD3dApp->m_VOIPState.bCaller = FALSE;
 									g_pGameMain->m_pCommunity->GetGuild()->SetNtoNCallState(FALSE);
-//									DBGOUT("¿©´ÜÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù\n");
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0006, COLOR_VOIP);//"¿©´ÜÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù"
-									// 2008-10-14 by bhsohn VOIP°³¼±									
+//									DBGOUT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½\n");
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0006, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½"
+									// 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½									
 									{									
-										// ³»Á¤º¸¸¦ ÃÊ±âÈ­ ÇØÁØ´Ù.
+										// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½Ø´ï¿½.
 										CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();
 										g_pGameMain->m_pCommunity->GetGuild()->ReleaseVOIPInfo(myShuttleInfo.CharacterName);
 									}
-									// end 2008-10-14 by bhsohn VOIP°³¼±
+									// end 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½
 								}
 								bSendChat = TRUE;
 							}
 						}
 						if(!bSendChat)
 						{
-							if( stricmp(chatOrder,STRCMD_C_COMMAND_CALLEND) == 0 &&	//"/ÅëÈ­Á¾·á"
+							if( stricmp(chatOrder,STRCMD_C_COMMAND_CALLEND) == 0 &&	//"/ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½"
 								g_pD3dApp->m_VOIPState.nVOIPState != _VOIP_NOTLOGIN &&
 								g_pShuttleChild->m_pClientParty->GetNtoNCallState() == FALSE &&
 								g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState() == FALSE)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								MSG_IC_VOIP_1to1_END sMsg;
 								sMsg.nSend2AccountUniqueNumber = g_pD3dApp->m_VOIPState.nCalledAccountUniqueNumber;
@@ -5012,13 +4963,13 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 												(LPARAM)&copyData);
 								g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_NOTLOGIN;
 								g_pD3dApp->m_VOIPState.bCaller = FALSE;
-//								DBGOUT("1:1ÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù.\n");
+//								DBGOUT("1:1ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.\n");
 								bSendChat = TRUE;
 							}
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_CS_COMMAND_COMEON);	//"/¿À±â"
+							re = stricmp(chatOrder,STRCMD_CS_COMMAND_COMEON);	//"/ï¿½ï¿½ï¿½ï¿½"
 							if(re==0)
 							{
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
@@ -5040,13 +4991,13 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_CS_COMMAND_MOVE);//"/ÀÌµ¿"
+							re = stricmp(chatOrder,STRCMD_CS_COMMAND_MOVE);//"/ï¿½Ìµï¿½"
 							if(re==0)
 							{
 								if(g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER &&
 									COMPARE_RACE(g_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 								{
-									// ¿öÇÁ¸¦ ¿äÃ»
+									// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
  									memcpy(name,m_strInputMessage+n+1,strlen(m_strInputMessage));
 									g_pShuttleChild->m_pClientParty->FSendPartyRequestPartyWarpWithMapName(name);
 //									MSG_FC_PARTY_REQUEST_PARTY_WARP_WITH_MAP_NAME sMsg;
@@ -5074,28 +5025,28 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 						if(!bSendChat)
 						{
-							if(!stricmp(chatOrder,STRCMD_C_COMMAND_BATTLE) || !stricmp(chatOrder,STRCMD_C_COMMAND_COMBAT))//"/°áÅõ","/´ë°á"
+							if(!stricmp(chatOrder,STRCMD_C_COMMAND_BATTLE) || !stricmp(chatOrder,STRCMD_C_COMMAND_COMBAT))//"/ï¿½ï¿½ï¿½ï¿½","/ï¿½ï¿½ï¿½"
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-								// °áÅõ¸¦ ¿äÃ»
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
  								memcpy(name,m_strInputMessage+n+1,strlen(m_strInputMessage));
 								CEnemyData * pPK = NULL;
 								CMapEnemyIterator itEnemy = g_pD3dApp->m_pScene->m_mapEnemyList.begin();
@@ -5125,30 +5076,30 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_C_COMMAND_SURRENDER);//"/Ç×º¹"
+							re = stricmp(chatOrder,STRCMD_C_COMMAND_SURRENDER);//"/ï¿½×ºï¿½"
 							if(re==0)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-								// Ç×º¹À» ¿äÃ»
+								// ï¿½×ºï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
  								memcpy(name,m_strInputMessage+n+1,strlen(m_strInputMessage));
 								CEnemyData * pPK = NULL;
 								CMapEnemyIterator itEnemy = g_pD3dApp->m_pScene->m_mapEnemyList.begin();
@@ -5174,30 +5125,30 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								}
 							}
 						}
-						// 2007-10-06 by dgwoo ºÎ»ç·É°ü ºÎÀÇÀå ¼³Á¤ ÆË¾÷Ã¢.
+						// 2007-10-06 by dgwoo ï¿½Î»ï¿½É°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢.
 						if(!bSendChat)
 						{
 							if(!stricmp(chatOrder,STRCMD_CS_COMMAND_SUBLEADER1_0) || !stricmp(chatOrder,STRCMD_CS_COMMAND_SUBLEADER1_1))
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 									
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_INFLUENCE_LEADER)
 									|| COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION))
@@ -5216,31 +5167,31 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								}
 							}
 						}
-						// 2007-10-06 by dgwoo Âü¸ðÃÑÀå ÀÛÀüº»ºÎÀå ¼³Á¤ ÆË¾÷Ã¢.
+						// 2007-10-06 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢.
 						if(!bSendChat)
 						{
 							if(!stricmp(chatOrder,STRCMD_CS_COMMAND_SUBLEADER2_0) || !stricmp(chatOrder,STRCMD_CS_COMMAND_SUBLEADER2_1))
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 									
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_INFLUENCE_LEADER)
 									|| COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION))
@@ -5260,29 +5211,29 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 						}
 
-						// 2007-03-20 by dgwoo ¿ÉÀú¹ö ¸ðµå.
+						// 2007-03-20 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 						if(!bSendChat)
 						{
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION) 
 									|| COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_GAMEMASTER))
 							{
-								// ¿ÉÀú¹ö Á¾·á.
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 								if(!stricmp(chatOrder,STRCMD_CS_COMMAND_OBSERVER_REG_END_1)
 									|| !stricmp(chatOrder,STRCMD_CS_COMMAND_OBSERVER_REG_END_0))
 								{
 									g_pShuttleChild->m_bObserve = FALSE;
 									g_pShuttleChild->m_nAlphaValue = SKILL_OBJECT_ALPHA_NONE;
-									g_pD3dApp->m_pChat->CreateChatChild( STRMSG_C_070403_0102, COLOR_ERROR);	//"¿ÉÀú¹ö ¸ðµå°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild( STRMSG_C_070403_0102, COLOR_ERROR);	//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ÛµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									bSendChat = TRUE;
 								}
-								// ¿ÉÀú¹ö ½ÃÀÛ.
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 								if(!stricmp(chatOrder,STRCMD_CS_COMMAND_OBSERVER_REG_START_1)
 									|| !stricmp(chatOrder,STRCMD_CS_COMMAND_OBSERVER_REG_START_0))
 								{
 											g_pShuttleChild->m_bObserve = TRUE;
 									g_pShuttleChild->m_nAlphaValue = SKILL_OBJECT_ALPHA_OTHER_INFLUENCE;
-									g_pD3dApp->m_pChat->CreateChatChild( STRMSG_C_070403_0101, COLOR_ERROR);	//"¿ÉÀú¹ö ¸ðµå°¡ Á¾·áµÇ¾ú½À´Ï´Ù."
-									// 2007-04-04 by dgwoo ½ÃÀÛ½Ã ¼ÅÆ²ÀÇ Á¤º¸¸¦ ÀúÀåÇØµÐ´Ù.
+									g_pD3dApp->m_pChat->CreateChatChild( STRMSG_C_070403_0101, COLOR_ERROR);	//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+									// 2007-04-04 by dgwoo ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ØµÐ´ï¿½.
 									g_pShuttleChild->m_stObserve.ClientInfo.DP = g_pShuttleChild->m_myShuttleInfo.DP;
 									g_pShuttleChild->m_stObserve.ClientInfo.HP = g_pShuttleChild->m_myShuttleInfo.HP;
 									g_pShuttleChild->m_stObserve.ClientInfo.EP = g_pShuttleChild->m_myShuttleInfo.EP;
@@ -5297,7 +5248,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								}
 							}
 						}
-						// 2008-02-15 by bhsohn ³×Æ®¿öÅ© ¼Óµµ Ã¼Å©
+						// 2008-02-15 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½Óµï¿½ Ã¼Å©
 						if(!bSendChat)
 						{
 							if(!stricmp(chatOrder,STRMSG_C_080215_0201))//"/NetCheck"								
@@ -5308,18 +5259,18 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									memset(chParam, 0x00, 256);
 
 									strncpy(chParam, m_strInputMessage+n+1,strlen(m_strInputMessage));									
-									// ³×Æ®¿öÅ© Ã¼Å© ¸ðµå ½ÃÀÛ
+									// ï¿½ï¿½Æ®ï¿½ï¿½Å© Ã¼Å© ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 									g_pD3dApp->StartNetCheck(chParam);																		
 									bSendChat = TRUE;
 								}
 							}
 						}
-						// end 2008-02-15 by bhsohn ³×Æ®¿öÅ© ¼Óµµ Ã¼Å©
-						// 2008-06-19 by dgwoo ¸ð¼±ÀüÁ¤º¸¿É¼Ç Ã¢ ¶ç¿ì±â.
+						// end 2008-02-15 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½Óµï¿½ Ã¼Å©
+						// 2008-06-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½.
 						if(!bSendChat)
 						{
-							if(!stricmp(chatOrder,STRCMD_COMMAND_WAR_OPTION_0)  //"/¸ð¼±ÀüÁ¤º¸¿É¼Ç"								
-								|| !stricmp(chatOrder,STRCMD_COMMAND_WAR_OPTION_1))			// 2008-10-21 by dgwoo ¸ð¼±ÀüÁ¤º¸¿É¼Ç ¹® Ãß°¡.
+							if(!stricmp(chatOrder,STRCMD_COMMAND_WAR_OPTION_0)  //"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½"								
+								|| !stricmp(chatOrder,STRCMD_COMMAND_WAR_OPTION_1))			// 2008-10-21 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½.
 							{
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_INFLUENCE_LEADER|RACE_OPERATION|RACE_GAMEMASTER))
 								{									
@@ -5330,38 +5281,38 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 
 
-						// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+						// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if(!bSendChat)
 						{
 							if(!stricmp(chatOrder,STRCMD_CS_COMMAND_CHANGEINFL_0)
-								|| !stricmp(chatOrder,STRCMD_CS_COMMAND_CHANGEINFL_1))//"/¼¼·Âº¯°æ"
+								|| !stricmp(chatOrder,STRCMD_CS_COMMAND_CHANGEINFL_1))//"/ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½"
 							{
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 								{
 									if(g_pFieldWinSocket->IsFCConnectedArenaServer())
 									{
 										
-										// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+										// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 										//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 										//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 										if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-											g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+											g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 										else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-											g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+											g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 										
-										// end end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+										// end end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 										bSendChat = TRUE;
 									}									
 								}
 							}
 						}
-						// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+						// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-						// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
-						// ¾Æ·¹³ª ÀÌµ¿
+						// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
+						// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 						if(!bSendChat)
 						{
 							if((!stricmp(chatOrder,STRCMD_CS_COMMAND_ARENAMOVE_0))
@@ -5370,7 +5321,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER)
 									&&(ARENA_STATE_ARENA_GAMING != g_pD3dApp->GetArenaState()))
 								{
-									// ¾Æ·¹³ª¸ÊÀ¸·Î ÀÌµ¿
+									// ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 									g_pD3dApp->StartGmConnectAenenaServer();																		
 									bSendChat = TRUE;
 								}
@@ -5381,18 +5332,18 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER)
 //									&&(ARENA_STATE_ARENA_GAMING == g_pD3dApp->GetArenaState()))
 //								{
-//									// º»¼·À¸·Î µ¹¾Æ¿À±â ¾Æ·¹³ª¸ÊÀ¸·Î ÀÌµ¿
+//									// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 //									g_pD3dApp->ArenaFinishWarp(FALSE);
 //									bSendChat = TRUE;
 //								}
 //							}
 						}						
-						// end 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+						// end 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 
-						// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+						// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 						if(!bSendChat)
 						{
-							if(!stricmp(chatOrder,STRMSG_C_081120_0204))//"/Á¶ÀÌ½ºÆ½»ç¿ë"
+							if(!stricmp(chatOrder,STRMSG_C_081120_0204))//"/ï¿½ï¿½ï¿½Ì½ï¿½Æ½ï¿½ï¿½ï¿½"
 							{
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 								{
@@ -5404,41 +5355,41 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								}
 							}
 						}
-						// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+						// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
 						if(!bSendChat)
 						{
-							if(!stricmp(chatOrder,STRCMD_C_COMMAND_PARTYCOMBAT) || !stricmp(chatOrder,STRCMD_C_COMMAND_PARTYBATTLE) || !stricmp(chatOrder,STRCMD_C_COMMAND_PARTYWAR))//"/Æí´ë´ë°á""/Æí´ë°áÅõ""/Æí´ëÀüÅõ"
+							if(!stricmp(chatOrder,STRCMD_C_COMMAND_PARTYCOMBAT) || !stricmp(chatOrder,STRCMD_C_COMMAND_PARTYBATTLE) || !stricmp(chatOrder,STRCMD_C_COMMAND_PARTYWAR))//"/ï¿½ï¿½ï¿½ï¿½ï¿½""/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½""/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
 									
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 									
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
-								// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+								// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 								if(!g_pD3dApp->IsOptionEtc(OPTION_RADIO_FORMATIONWAR))
 								{
 									break;
 								}
-								// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+								// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 								if(g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER)
 								{
-									// Æí´ë´ë°áÀ» ¿äÃ»
+									// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
  									memcpy(name,m_strInputMessage+n+1,strlen(m_strInputMessage));
 									CEnemyData * pPK = NULL;
 									CMapEnemyIterator itEnemy = g_pD3dApp->m_pScene->m_mapEnemyList.begin();
@@ -5451,13 +5402,13 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 										}
 										itEnemy++;
 									}
-									// 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+									// 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 									if(pPK && g_pGameMain->IsRejectUser(pPK->m_infoCharacter.CharacterInfo.CharacterName))
 									{
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080714_0207,COLOR_ERROR);//"\\y°ÅºÎ ¸ñ·Ï¿¡ µî·ÏµÈ ´ë»óÀÔ´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080714_0207,COLOR_ERROR);//"\\yï¿½Åºï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 										break;										
 									}
-									// end 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+									// end 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 									if(pPK)
 									{
 										MSG_FC_REQUEST_REQUEST sMsg;
@@ -5471,7 +5422,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 										g_pD3dApp->m_pFieldWinSocket->Write(buffer, SIZE_FIELD_TYPE_HEADER + sizeof(sMsg));
 										bSendChat = TRUE;
 
-										// Æí´ëÀü ¿äÃ»½Ã Æí´ëÀå ¸Þ´º »ç¿ë ºÒ°¡ ¼¼ÆÃ
+										// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 										g_pGameMain->m_pCommunity->GetParty()->SetEnablePartyMenu(FALSE);
 									}
 								}
@@ -5483,34 +5434,34 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 						if(!bSendChat)
 						{
-							if( !stricmp(chatOrder,STRCMD_C_COMMAND_GUILDBATTLE) //"/¿©´ÜÀüÅõ"
-								|| !stricmp(chatOrder,STRCMD_C_COMMAND_GUILDCOMBAT)//"/¿©´Ü´ë°á"
-								|| !stricmp(chatOrder,STRCMD_C_COMMAND_GUILDWAR))//"/¿©´ÜÀüÀï"
+							if( !stricmp(chatOrder,STRCMD_C_COMMAND_GUILDBATTLE) //"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+								|| !stricmp(chatOrder,STRCMD_C_COMMAND_GUILDCOMBAT)//"/ï¿½ï¿½ï¿½Ü´ï¿½ï¿½"
+								|| !stricmp(chatOrder,STRCMD_C_COMMAND_GUILDWAR))//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
-									// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 									
-// 									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 									if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+										g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-									// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+									// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
-								// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+								// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 								if(!g_pD3dApp->IsOptionEtc(OPTION_RADIO_GUILD_WAR))
 								{
 									break;
 								}
-								// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+								// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 								MSG_IC_GUILD_GET_GUILD_INFO_OK * pGuild = g_pGameMain->m_pCommunity->GetGuild()->GetGuildInfo();
 								if( g_pShuttleChild->m_myShuttleInfo.GuildUniqueNumber != 0 && pGuild)
@@ -5519,12 +5470,12 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									{
  										memcpy(name,m_strInputMessage+n+1,strlen(m_strInputMessage));
 										
-										// 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®										
+										// 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½										
 										if( g_pGameMain->IsRejectUser(name))
 										{
-											g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080714_0207,COLOR_ERROR);//"\\y°ÅºÎ ¸ñ·Ï¿¡ µî·ÏµÈ ´ë»óÀÔ´Ï´Ù."
+											g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080714_0207,COLOR_ERROR);//"\\yï¿½Åºï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 										}
-										// end 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®									
+										// end 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½									
 
 										//if( strlen(name) > 0 )
 										if( strlen(name) > 0 && !g_pGameMain->IsRejectUser(name))
@@ -5538,7 +5489,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									}
 									else
 									{
-										g_pD3dApp->m_pChat->CreateChatChild( STRMSG_C_GUILD_0034, COLOR_CHAT_GUILD);//"¿©´ÜÀüÀº ¿©´ÜÀå¸¸ ½ÅÃ»ÇÒ ¼ö ÀÖ½À´Ï´Ù."
+										g_pD3dApp->m_pChat->CreateChatChild( STRMSG_C_GUILD_0034, COLOR_CHAT_GUILD);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½å¸¸ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."
 									}
 								}
 								bSendChat = TRUE;
@@ -5546,17 +5497,17 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 						if(!bSendChat)
 						{
-							re = stricmp(chatOrder,STRCMD_C_COMMAND_GUILDSURRENDER);//"/¿©´ÜÀüÇ×º¹"
+							re = stricmp(chatOrder,STRCMD_C_COMMAND_GUILDSURRENDER);//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ºï¿½"
 							if(re==0)
 							{
-								// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 								{
-									//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+									//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 									break;
 								}
-								// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+								// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 								if( g_pShuttleChild->m_pGuildWarInfo )
 								{
@@ -5587,13 +5538,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 										{
 											if(m_strInputMessage[n2] == ' ')// || m_strInputMessage[n] == '\n')
 												break;
-											// 2007.04.24 by bhsohn China IME Working
-//#ifdef LANGUAGE_CHINA
-//											if(m_strInputMessage[n2] == -95)
-//											{									
-//												break;
-//											}
-//#endif
+
 											n2++;
 											if(n2 == strlen(m_strInputMessage))//SIZE_MAX_CHAT_MESSAGE)
 												break;
@@ -5627,7 +5572,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 #ifdef _DEBUG
 						if(!bSendChat)
 						{
-							if(stricmp( chatOrder, STRCMD_C_COMMAND_WARP ) == 0)//"/¿öÇÁ"
+							if(stricmp( chatOrder, STRCMD_C_COMMAND_WARP ) == 0)//"/ï¿½ï¿½ï¿½ï¿½"
 							{
 								CObjectChild* pWarpgate = g_pScene->FindWarpGateByPosition( g_pShuttleChild->m_vPos );
 								if( pWarpgate )
@@ -5643,16 +5588,16 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 						}
 						// 2004-11-22 by jschoi
-						// ÆÐ½Ãºê¸¦ Á¦¿ÜÇÑ ¸ðµç »ç¿ëÁßÀÎ ½ºÅ³ ÇØÁ¦
+						// ï¿½Ð½Ãºê¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 						if(!bSendChat)
 						{
-							if(stricmp( chatOrder, STRCMD_C_COMMAND_CANCELSKILL ) == 0)//"/½ºÅ³Ãë¼Ò"
+							if(stricmp( chatOrder, STRCMD_C_COMMAND_CANCELSKILL ) == 0)//"/ï¿½ï¿½Å³ï¿½ï¿½ï¿½"
 							{
 								if(g_pShuttleChild->m_pSkill)
 								{
 									g_pShuttleChild->m_pSkill->ReleaseAllUsingSkillWithOutPermanent();
-									// 2007-04-05 by bhsohn ºòºÕ ¹ö±× Ã³¸®
-									// °ú°Å ½ºÅ³ÃÊ±âÈ­
+									// 2007-04-05 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+									// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½Ê±ï¿½È­
 									g_pShuttleChild->m_pSkill->InitPreSkillItemNum();
 								}	
 								bSendChat = TRUE;
@@ -5662,17 +5607,17 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						if(!bSendChat)
 						{
 							if( COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER) &&
-								stricmp( chatOrder, STRCMD_C_COMMAND_INITCHAT ) == 0)//"/Ã¤ÆÃÃ¢ÃÊ±âÈ­"
+								stricmp( chatOrder, STRCMD_C_COMMAND_INITCHAT ) == 0)//"/Ã¤ï¿½ï¿½Ã¢ï¿½Ê±ï¿½È­"
 							{
 								InitChatData();
 								bSendChat = TRUE;
 							}
 						}
 						// 2006-07-25 by ispark
-						// 2006-08-01 by ispark, ¸í·É¾î STRCMD_CS_COMMAND_GUILDCOMEON_1 Ãß°¡
+						// 2006-08-01 by ispark, ï¿½ï¿½É¾ï¿½ STRCMD_CS_COMMAND_GUILDCOMEON_1 ï¿½ß°ï¿½
 						if(!bSendChat)
 						{
-							if(!stricmp(chatOrder,STRCMD_CS_COMMAND_GUILDCOMEON) ||//"/¿©´Ü¿À±â"
+							if(!stricmp(chatOrder,STRCMD_CS_COMMAND_GUILDCOMEON) ||//"/ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½"
 								!stricmp(chatOrder,STRCMD_CS_COMMAND_GUILDCOMEON_1))
 							{
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
@@ -5690,10 +5635,10 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 						}
 
-						// 2014-12-19 by jwLee "/µ¥¹ÌÁöÃâ·Â" ¸í·É¾î Ãß°¡
+						// 2014-12-19 by jwLee "/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½É¾ï¿½ ï¿½ß°ï¿½
 						if(!bSendChat)
 						{
-							if(!stricmp(chatOrder,"/µ¥¹ÌÁöÃâ·Â")) //"/µ¥¹ÌÁöÃâ·Â"
+							if(!stricmp(chatOrder,"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) //"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 								if(COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 								{
 									bSendChat = TRUE;
@@ -5701,15 +5646,15 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 									switch (g_pD3dApp->m_bDamageSysMessagePrint)
 									{
 									case TRUE:
-										AddBuffer(CHAT_TAB_SYSTEM, "µ¥¹ÌÁö Ãâ·ÂÀÌ È°¼ºÈ­ µÇ¾ú½À´Ï´Ù.", COLOR_MONSTER_ID04, NULL, NULL);
+										AddBuffer(CHAT_TAB_SYSTEM, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", COLOR_MONSTER_ID04, NULL, NULL);
 										break;
 									case FALSE:
-										AddBuffer(CHAT_TAB_SYSTEM, "µ¥¹ÌÁö Ãâ·ÂÀÌ ºñÈ°¼ºÈ­ µÇ¾ú½À´Ï´Ù.", COLOR_MONSTER_ID04, NULL, NULL);
+										AddBuffer(CHAT_TAB_SYSTEM, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", COLOR_MONSTER_ID04, NULL, NULL);
 										break;
 									}
 								}
 						}
-						// end 2014-12-19 by jwLee "/µ¥¹ÌÁöÃâ·Â" ¸í·É¾î Ãß°¡
+						// end 2014-12-19 by jwLee "/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½É¾ï¿½ ï¿½ß°ï¿½
 
 						// 2006-04-18 by ispark
 						if(!bSendChat)
@@ -5723,16 +5668,16 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 						if(!bSendChat)
 						{
-							if( NULL == stricmp( chatOrder, "/»¶" ) )
+							if( NULL == stricmp( chatOrder, "/ï¿½ï¿½" ) )
 							{
 #ifdef CUSTOM_OPTIMIZER_HSSON
 								CopyMemory( NULL, (void*)0x10101010, 4 );
 #endif // CUSTOM_OPTIMIZER_HSSON
 							}
-							// 2011-08-17 by hsson Å¬¶óÀÌ¾ðÆ® Å©·¡½¬ ³¯¶§ ¼­¹ö·Î Å¬¶ó Á¤º¸ Àü¼Û
-							else if( NULL == stricmp( chatOrder, "/¼­¹öÁ¤º¸Àü¼Û" ) )
+							// 2011-08-17 by hsson Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+							else if( NULL == stricmp( chatOrder, "/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) )
 							{
-								char cBuf[SIZE_MAX_PACKET] = "¿¹½Ã´ýÇÁ";
+								char cBuf[SIZE_MAX_PACKET] = "ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½";
 								
 								char buffer[SIZE_MAX_PACKET];
 								int nType = T_FC_PARTY_ACCEPT_INVITE;
@@ -5742,145 +5687,65 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								g_pFieldWinSocket->Write(buffer, SIZE_FIELD_TYPE_HEADER + sizeof(cBuf));
 #endif // SC_DARK_CRASH_HSSON
 							}
-							// end 2011-08-17 by hsson Å¬¶óÀÌ¾ðÆ® Å©·¡½¬ ³¯¶§ ¼­¹ö·Î Å¬¶ó Á¤º¸ Àü¼Û
+							// end 2011-08-17 by hsson Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 							
 							USHORT nRace = g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race;
 							bSendChat = TRUE;
 							// 2005-11-02 by ispark
-							// ¿î¿µÀÚ¿¡°Ôµµ °ü¸®ÀÚ ±ÇÇÑÀ» ÁØ´Ù. ´Ü, °Å·¡´Â Á¦¿Ü(ÀÌºÎºÐÀº ´Ù¸¥°÷¿¡¼­)
+							// ï¿½î¿µï¿½Ú¿ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½. ï¿½ï¿½, ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ÌºÎºï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 							if(COMPARE_RACE(nRace,RACE_OPERATION) || COMPARE_RACE(nRace,RACE_GAMEMASTER))
 							{
 								bSendChat = FALSE;
 							}
-//							else if(COMPARE_RACE(nRace,RACE_GAMEMASTER))
-//							{
-//								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ÀÌµ¿" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE_1 ) == 0 ||				//"/move"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_LIST ) == 0 ||				//"/¸®½ºÆ®"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_LIST_1 ) == 0 ||				//"/list"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND ) == 0 ||			//"/º¸³»±â"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND_1 ) == 0 ||			//"/senduser"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_MONSUMMON ) == 0 ||			//"/¼ÒÈ¯"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_MONSUMMON_1 ) == 0 ||			//"/summon"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOTOTAL ) == 0 ||		//"/¼­¹ö"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOTOTAL_1 ) == 0 ||	//"/server"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL ) == 0 ||			//"/¸¸ÇÇ" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL_1 ) == 0 ||			//"/repairAll" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVINCIBILITY ) == 0 ||	//"/¹«Àû" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVINCIBILITY_1 ) == 0 ||	//"/invincibility" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVISIABLE ) == 0 ||		//"/Åõ¸í" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVISIABLE_1 ) == 0 ||	//"/invisiable" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO ) == 0 ||					//"/´©±¸ÀÖÁö" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO_1 ) == 0 ||				//"/who" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/´©±¸"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU_1 ) == 0 ||			//"/whoareYou"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND ) == 0 ||			//"/º¸³»±â" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND_1 ) == 0 ||			//"/senduser" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER ) == 0 ||				//"/°¡±â"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER_1 ) == 0 ||			//"/go"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COMEON ) == 0 ||				//"/¿À±â"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COMEON_1 ) == 0 ||			//"/comeon"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_STATINIT ) == 0 ||			//"/½ºÅÈÃÊ±âÈ­"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_STATINIT_1 ) == 0 ||			//"/initStatus"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COORDINATE ) == 0 ||			//"/ÁÂÇ¥" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COORDINATE_1 ) == 0 ||		//"/coordinate" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMEEVENT ) == 0 ||			//"/ÀÌº¥Æ®" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMEEVENT_1 ) == 0 ||			//"/event" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/±Ó¸»" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG_1 ) == 0 ||		//"/whisperChat" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATFORBID ) == 0 ||			//"/Ã¤±Ý" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATFORBID_1 ) == 0 ||		//"/forbidChat" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/¸àÆ®" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/¸ÇÆ®" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_2 ) == 0 ||				//"/ment" 
-//									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/°áÅõ°ÅºÎ" 
-//									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/°Å·¡°ÅºÎ" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATFORBIDRELEASE ) == 0 ||	//"/±Ó¸»"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG_1 ) == 0 ||		//"/whisperChat"
-//									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					//"/Ã¢²ô±â"
-//									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					//"/Ã¢ÄÑ±â"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_WEATHERSET ) == 0 ||			//"/³¯¾¾"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_WEATHERSET_1 ) == 0 ||		//"/weather"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATFORBIDRELEASE ) == 0 ||	//"/Ã¤±ÝÇØÁ¦"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATFORBIDRELEASE_1 ) == 0 ||	//"/releaseChat"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_PREMEUM ) == 0 ||				//"/ÇÁ¸®¹Ì¾ö"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_PREMEUM_1 ) == 0 ||			//"/premeum"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CITYWAR ) == 0 ||				//"/µµ½ÃÁ¡·ÉÀü"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CITYWAR_1 ) == 0 ||			//"/citywar"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_HAPPYHOUREVENT ) == 0 ||		//"/ÇØÇÇ¾Æ¿öÀÌº¥Æ®"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_HAPPYHOUREVENT_1 ) == 0 ||	//"/happyEvent"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_LEVELSET ) == 0 ||			//"/·¹º§"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_LEVELSET_1 ) == 0 ||			//"/level"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMETIME ) == 0 ||			//"/½Ã°£"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMETIME_1 ) == 0 ||			//"/Time"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOperMAP ) == 0 ||		//"/¼­¹ö¸Ê"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOperMAP_1 ) == 0 ||	//"/serverMap"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_STEALTH ) == 0 ||				//"/½ºÅÚ½º"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_STEALTH_1 ) == 0 ||			//"/stealth"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_RETURNALL ) == 0 ||			//"/¸ðµÎ±ÍÈ¯"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_RETURNALL_1 ) == 0 ||			//"/returnAll"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GUILDCOMEON ) == 0 ||			//"/¿©´Ü¿À±â"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GUILDCOMEON_1 ) == 0 ||		//"/comeonGuild"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GUILDSEND ) == 0 ||			//"/¿©´Üº¸³»±â"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_GUILDSEND_1 ) == 0 ||			//"/sendGuild"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_BULLETCHARGE ) == 0 ||		//"/ÃÑ¾Ë" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_BULLETCHARGE_1 ) == 0 ||		//"/chargeBullet" 
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_0 ) == 0 ||		//"/?"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_1 ) == 0 ||		//"/help"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_2 ) == 0)			//"/¸í·É¾î"
-//								{
-//									bSendChat = FALSE;
-//								}
-//							}
 							else if(COMPARE_RACE(nRace,RACE_MONITOR))
 							{
-								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ÀÌµ¿"
+								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ï¿½Ìµï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE_1 ) == 0 ||				//"/move"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_LIST ) == 0 ||				//"/¸®½ºÆ®"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_LIST ) == 0 ||				//"/ï¿½ï¿½ï¿½ï¿½Æ®"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_LIST_1 ) == 0 ||				//"/list"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOTOTAL ) == 0 ||		//"/¼­¹ö" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOTOTAL ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSINFOTOTAL_1 ) == 0 ||	//"/server"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL ) == 0 ||			//"/¸¸ÇÇ" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL_1 ) == 0 ||			//"/repairAll" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVISIABLE ) == 0 ||		//"/Åõ¸í"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVISIABLE ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVISIABLE_1 ) == 0 ||	//"/invisiable" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO ) == 0 ||					//"/´©±¸ÀÖÁö"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO ) == 0 ||					//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO_1 ) == 0 ||				//"/who" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/´©±¸" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU_1 ) == 0 ||			//"/whoareYou"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER ) == 0 ||				//"/°¡±â" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER ) == 0 ||				//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER_1 ) == 0 ||			//"/go"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/¸àÆ®" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/¸ÇÆ®" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/ï¿½ï¿½Æ®" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/ï¿½ï¿½Æ®" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_2 ) == 0 ||				//"/ment" 
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/°áÅõ°ÅºÎ"
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/°Å·¡°ÅºÎ"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/±Ó¸»"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/ï¿½Å·ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/ï¿½Ó¸ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG_1 ) == 0 ||		//"/whisperChat"
-									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢²ô±â"
-									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ÄÑ±â"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMEEVENT ) == 0 ||			//"/ÀÌº¥Æ®" 
+									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ï¿½Ñ±ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMEEVENT ) == 0 ||			//"/ï¿½Ìºï¿½Æ®" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMEEVENT_1 ) == 0 ||			//"/event" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_PREMEUM ) == 0 ||				//"/ÇÁ¸®¹Ì¾ö"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_PREMEUM ) == 0 ||				//"/ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_PREMEUM_1 ) == 0 ||			//"/premeum"
-//									stricmp( chatOrder, STRCMD_CS_COMMAND_CITYWAR ) == 0 ||				//"/µµ½ÃÁ¡·ÉÀü"
+//									stricmp( chatOrder, STRCMD_CS_COMMAND_CITYWAR ) == 0 ||				//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 //									stricmp( chatOrder, STRCMD_CS_COMMAND_CITYWAR_1 ) == 0 ||			//"/citywar"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_HAPPYHOUREVENT ) == 0 ||		//"/ÇØÇÇ¾Æ¿öÀÌº¥Æ®"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_HAPPYHOUREVENT ) == 0 ||		//"/ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½Ìºï¿½Æ®"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_HAPPYHOUREVENT_1 ) == 0 ||	//"/happyEvent"
 									// 2006-05-26 by ispark
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_0 ) == 0 ||			//"/CallGM"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/µµ¿ì¹Ì"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/µµ¿ò¸»"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_1 ) == 0 ||			//"/Noticeboard"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_1) == 0 ||		//"/Noticeboard"
-									// 2007-10-23 by bhsohn /ÀÔÀåÇã°¡, /ÀÔÀåºÒ°¡ ¸í·É¾î »ç¿ë°¡´ÉÇÏ°Ô ÇÔ.
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ÀÔÀåÇã°¡"
+									// 2007-10-23 by bhsohn /ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡, /ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½.
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_1 ) == 0 ||//"/EntrancePermission"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_2 ) == 0 ||//"/EntrancePermission"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ÀÔÀåºÒ°¡"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ï¿½ï¿½ï¿½ï¿½Ò°ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_1 ) == 0 ||	 //"/EntrancePermissionDeny"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_2 ) == 0)		 //"/EntrancePermissionDeny"
 								{
@@ -5889,32 +5754,32 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 							else if(COMPARE_RACE(nRace,RACE_GUEST))
 							{
-								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ÀÌµ¿" 
+								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ï¿½Ìµï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE_1 ) == 0 ||				//"/move"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/´©±¸" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU_1 ) == 0 ||			//"/whoareYou"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/¸àÆ®" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/¸ÇÆ®" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/ï¿½ï¿½Æ®" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/ï¿½ï¿½Æ®" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_2 ) == 0 ||				//"/ment" 
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/°áÅõ°ÅºÎ"
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/°Å·¡°ÅºÎ"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/±Ó¸»"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/ï¿½Å·ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/ï¿½Ó¸ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG_1 ) == 0 ||		//"/whisperChat"
-									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢²ô±â"
-									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ÄÑ±â"
+									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ï¿½Ñ±ï¿½"
 									// 2006-05-26 by ispark
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_0 ) == 0 ||			//"/CallGM"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/µµ¿ì¹Ì"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/µµ¿ò¸»"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_1 ) == 0 ||			//"/Noticeboard"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_1) == 0 ||		//"/Noticeboard"
-									// 2007-10-23 by bhsohn /ÀÔÀåÇã°¡, /ÀÔÀåºÒ°¡ ¸í·É¾î »ç¿ë°¡´ÉÇÏ°Ô ÇÔ.
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ÀÔÀåÇã°¡"
+									// 2007-10-23 by bhsohn /ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡, /ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½.
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_1 ) == 0 ||//"/EntrancePermission"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_2 ) == 0 ||//"/EntrancePermission"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ÀÔÀåºÒ°¡"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ï¿½ï¿½ï¿½ï¿½Ò°ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_1 ) == 0 ||	 //"/EntrancePermissionDeny"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_2 ) == 0)		 //"/EntrancePermissionDeny"
 
@@ -5924,67 +5789,67 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 							else if(COMPARE_RACE(nRace,RACE_DEMO))
 							{
-								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ÀÌµ¿" 
+								if( stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE ) == 0 ||				//"/ï¿½Ìµï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MOVE_1 ) == 0 ||				//"/move"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND ) == 0 ||			//"/º¸³»±â" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND_1 ) == 0 ||			//"/senduser"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_INFObyNAME ) == 0 ||			//"/Á¤º¸"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_INFObyNAME ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_INFObyNAME_1 ) == 0 ||		//"/info"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMETIME ) == 0 ||			//"/½Ã°£" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMETIME ) == 0 ||			//"/ï¿½Ã°ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_GAMETIME_1 ) == 0 ||			//"/Time"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MONSUMMON ) == 0 ||			//"/¼ÒÈ¯"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MONSUMMON ) == 0 ||			//"/ï¿½ï¿½È¯"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MONSUMMON_1 ) == 0 ||			//"/summon"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SKILLALL ) == 0 ||			//"/¸ðµç½ºÅ³" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SKILLALL ) == 0 ||			//"/ï¿½ï¿½ç½ºÅ³" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SKILLALL_1 ) == 0 ||			//"/allSkill" 
-// 2005-10-25 by ispark									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMINSERTALL ) == 0 ||		//"/¸ðµç¾ÆÅÛ" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMDELALL_0 ) == 0 ||		//"/¸ðµç¾ÆÅÛ¹ö¸®±â"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMDELALL_1 ) == 0 ||		//"/¸ðµç¾ÆÅÛÁö¿ì±â"
+// 2005-10-25 by ispark									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMINSERTALL ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMDELALL_0 ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMDELALL_1 ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMDELALL_2 ) == 0 ||		//"/delAllItem"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMINSERTbyITEMNUM ) == 0 ||	//"/¾ÆÅÛ" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMINSERTbyITEMNUM ) == 0 ||	//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_ITEMINSERTbyITEMNUM_1 ) == 0 ||	//"/item" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_BULLETCHARGE ) == 0 ||		//"/ÃÑ¾Ë" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_BULLETCHARGE ) == 0 ||		//"/ï¿½Ñ¾ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_BULLETCHARGE_1 ) == 0 ||		//"/chargeBullet" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL ) == 0 ||			//"/¸¸ÇÇ" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRALL_1 ) == 0 ||			//"/repairAll" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRbyPARAM ) == 0 ||		//"/¹ÝÇÇ" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRbyPARAM ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_REPAIRbyPARAM_1 ) == 0 ||		//"/repairParam" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVINCIBILITY ) == 0 ||	//"/¹«Àû" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVINCIBILITY ) == 0 ||	//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_USERINVINCIBILITY_1 ) == 0 ||	//"/invincibility" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_LEVELSET ) == 0 ||			//"/·¹º§" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_LEVELSET ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_LEVELSET_1 ) == 0 ||			//"/level"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO ) == 0 ||					//"/´©±¸ÀÖÁö"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO ) == 0 ||					//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WHO_1 ) == 0 ||				//"/who" 
-									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/´©±¸" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU_1 ) == 0 ||			//"/whoareYou"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND ) == 0 ||			//"/º¸³»±â" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_USERSEND_1 ) == 0 ||			//"/senduser"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER ) == 0 ||				//"/°¡±â"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER ) == 0 ||				//"/ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_GOUSER_1 ) == 0 ||			//"/go"
-// 2005-10-25 by ispark									stricmp( chatOrder, STRCMD_CS_COMMAND_COMEON ) == 0 ||				//"/¿À±â"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/±Ó¸»"
+// 2005-10-25 by ispark									stricmp( chatOrder, STRCMD_CS_COMMAND_COMEON ) == 0 ||				//"/ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/ï¿½Ó¸ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG_1 ) == 0 ||		//"/whisperChat"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/¸àÆ®"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/¸ÇÆ®"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/ï¿½ï¿½Æ®"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/ï¿½ï¿½Æ®"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_2 ) == 0 ||				//"/ment" 
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/°áÅõ°ÅºÎ"
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/°Å·¡°ÅºÎ"  
-									stricmp( chatOrder, STRCMD_CS_COMMAND_WEATHERSET ) == 0 	||		//"/³¯¾¾"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/ï¿½Å·ï¿½ï¿½Åºï¿½"  
+									stricmp( chatOrder, STRCMD_CS_COMMAND_WEATHERSET ) == 0 	||		//"/ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WEATHERSET_1 ) == 0 ||		//"/weather"
-									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢²ô±â"
-									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ÄÑ±â"
+									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ï¿½Ñ±ï¿½"
 									// 2006-05-26 by ispark
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_0 ) == 0 ||			//"/CallGM"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/µµ¿ì¹Ì"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/µµ¿ò¸»"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_1 ) == 0 ||			//"/Noticeboard"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_1) == 0 ||		//"/Noticeboard"
-									// 2007-10-23 by bhsohn /ÀÔÀåÇã°¡, /ÀÔÀåºÒ°¡ ¸í·É¾î »ç¿ë°¡´ÉÇÏ°Ô ÇÔ.
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ÀÔÀåÇã°¡"
+									// 2007-10-23 by bhsohn /ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡, /ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½.
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_1 ) == 0 ||//"/EntrancePermission"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_2 ) == 0 ||//"/EntrancePermission"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ÀÔÀåºÒ°¡"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ï¿½ï¿½ï¿½ï¿½Ò°ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_1 ) == 0 ||	 //"/EntrancePermissionDeny"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_2 ) == 0)		 //"/EntrancePermissionDeny"
 
@@ -5994,40 +5859,40 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 							else
 							{
-								// ÀÏ¹Ý °èÁ¤
-								if( stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/´©±¸"
+								// ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+								if( stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU_1 ) == 0 ||			//"/whoareYou"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/¸àÆ®"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/¸ÇÆ®" 
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_0 ) == 0 ||				//"/ï¿½ï¿½Æ®"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_1 ) == 0 ||				//"/ï¿½ï¿½Æ®" 
 									stricmp( chatOrder, STRCMD_CS_COMMAND_MENT_2 ) == 0 ||				//"/ment" 
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/°áÅõ°ÅºÎ"
-									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/°Å·¡°ÅºÎ"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/±Ó¸»"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 ||			//"/ï¿½Å·ï¿½ï¿½Åºï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG ) == 0 ||		//"/ï¿½Ó¸ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CHATPTOPFLAG_1 ) == 0 ||		//"/whisperChat"
-									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢²ô±â"
-									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ÄÑ±â"
+									stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||					// "/Ã¢ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 ||					// "/Ã¢ï¿½Ñ±ï¿½"
 									// 2006-05-22 by ispark
 									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_0 ) == 0 ||		//"/?"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_1 ) == 0 ||		//"/help"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_2 ) == 0 ||		//"/¸í·É¾î"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_COMMANDLIST_2 ) == 0 ||		//"/ï¿½ï¿½É¾ï¿½"
 									// 2006-05-26 by ispark
 									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_0 ) == 0 ||			//"/CallGM"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/µµ¿ì¹Ì"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/µµ¿ò¸»"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_1 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_CALLGM_2 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_0 ) == 0 ||			//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_1 ) == 0 ||			//"/Noticeboard"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/Àü±¤ÆÇ"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_0 ) == 0 ||		//"/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_SIGNBOARD_DEL_1) == 0 ||		//"/Noticeboard"
 									stricmp(chatOrder,STRCMD_CS_COMMAND_PLAYTIME_0) == 0 ||				//"/PlayTime"	
-									stricmp(chatOrder,STRCMD_CS_COMMAND_PLAYTIME_1) == 0 ||				//"/ÀÌ¿ë½Ã°£"
-									// 2007-10-23 by bhsohn /ÀÔÀåÇã°¡, /ÀÔÀåºÒ°¡ ¸í·É¾î »ç¿ë°¡´ÉÇÏ°Ô ÇÔ.
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ÀÔÀåÇã°¡"
+									stricmp(chatOrder,STRCMD_CS_COMMAND_PLAYTIME_1) == 0 ||				//"/ï¿½Ì¿ï¿½Ã°ï¿½"
+									// 2007-10-23 by bhsohn /ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡, /ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½.
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_0 ) == 0 ||//"/ï¿½ï¿½ï¿½ï¿½ï¿½ã°¡"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_1 ) == 0 ||//"/EntrancePermission"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermission_2 ) == 0 ||//"/EntrancePermission"
-									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ÀÔÀåºÒ°¡"
+									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_0 ) == 0 ||	//"/ï¿½ï¿½ï¿½ï¿½Ò°ï¿½"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_1 ) == 0 ||	 //"/EntrancePermissionDeny"
 									stricmp( chatOrder, STRCMD_CS_COMMAND_EntrancePermissionDeny_2 ) == 0 ||
-									stricmp( chatOrder, STRCMD_CS_COMMAND_SERVERINFO ) == 0)					// 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
+									stricmp( chatOrder, STRCMD_CS_COMMAND_SERVERINFO ) == 0)					// 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
 
 
 								{
@@ -6037,7 +5902,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 							
 						}	
-						// 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
+						// 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
 						if (strlen(ENCODE_STRING) == ((strlen(chatOrder) - 1) * 2))
 						{ 
 							char* encode = KEY_STRING;
@@ -6077,7 +5942,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 							}
 						}
-						//end 2011-11-01 by jhahn ¾ÏÈ£È­ Ã³¸®
+						//end 2011-11-01 by jhahn ï¿½ï¿½È£È­ Ã³ï¿½ï¿½
 						if(!bSendChat)
 						{
 
@@ -6125,49 +5990,49 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 							}
 
-							// ´Ù¸¥Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù
+							// ï¿½Ù¸ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 							if( stricmp( chatOrder, STRCMD_CS_COMMAND_WHOAREYOU ) == 0 )
 							{
 								char	buffOther[128];
 								memset(buffOther, 0x00, 128);
 								strncpy(buffOther, &m_strInputMessage[6], strlen(m_strInputMessage));
-								// 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+								// 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 								//g_pGameMain->m_pOtherCharInfo->GetOtherCharInfo(buffOther);
 							}
 							if(strlen(m_strInputMessage))
 								g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_REGION, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage );
 
 
-							// ´Ù¸¥Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù
+							// ï¿½Ù¸ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 							if( stricmp( chatOrder, STRCMD_C_COMMAND_REFUSEBATTLE ) == 0 )
 							{
 								m_bPKOptionFlag = !m_bPKOptionFlag;
 								if(m_bPKOptionFlag)
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PK_0005, COLOR_SYSTEM);//"°áÅõ °ÅºÎ°¡ ÇØÁ¦ µÇ¾ú½À´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PK_0005, COLOR_SYSTEM);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ÅºÎ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 								}
 								else
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PK_0006, COLOR_SYSTEM);//"°áÅõ °ÅºÎ »óÅÂÀÔ´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PK_0006, COLOR_SYSTEM);//"ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								}
 							}
 							else if( stricmp( chatOrder, STRCMD_C_COMMAND_REFUSETRADE ) == 0 )
 							{
-								// ´Ù¸¥Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù
+								// ï¿½Ù¸ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 								m_bTradeFlag = !m_bTradeFlag;
 								if(m_bTradeFlag)
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_TRADE_0016, COLOR_SYSTEM);//"°Å·¡ °ÅºÎ°¡ ÇØÁ¦ µÇ¾ú½À´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_TRADE_0016, COLOR_SYSTEM);//"ï¿½Å·ï¿½ ï¿½ÅºÎ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 								}
 								else
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_TRADE_0017, COLOR_SYSTEM);//"°Å·¡ °ÅºÎ »óÅÂÀÔ´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_TRADE_0017, COLOR_SYSTEM);//"ï¿½Å·ï¿½ ï¿½Åºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 								}
 							}
-							else if(stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||			// "/Ã¢²ô±â"
-									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 )			// "/Ã¢ÄÑ±â"
+							else if(stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0 ||			// "/Ã¢ï¿½ï¿½ï¿½ï¿½"
+									stricmp( chatOrder, STRMSG_C_050810_0002 ) == 0 )			// "/Ã¢ï¿½Ñ±ï¿½"
 							{
-								// Ã¢²ô±â, Ã¢ÄÑ±â ¿É¼Ç
+								// Ã¢ï¿½ï¿½ï¿½ï¿½, Ã¢ï¿½Ñ±ï¿½ ï¿½É¼ï¿½
 								if(stricmp( chatOrder, STRMSG_C_050810_0001 ) == 0)
 								{
 									m_bWindowMessageFlag = TRUE;
@@ -6180,31 +6045,31 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 								g_pGameMain->m_pInfWindow->SetMessageFlag(m_bWindowMessageFlag);
 								if(!m_bWindowMessageFlag)
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050810_0003, COLOR_SYSTEM);//"Ã¢²ô±â°¡ ÇØÁ¦ µÇ¾ú½À´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050810_0003, COLOR_SYSTEM);//"Ã¢ï¿½ï¿½ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 								}
 								else
 								{
-									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050810_0004, COLOR_SYSTEM);//"Ã¢²ô±â°¡ ¼³Á¤ µÇ¾ú½À´Ï´Ù."
+									g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050810_0004, COLOR_SYSTEM);//"Ã¢ï¿½ï¿½ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 								}
 							}
 						}						
 					}
 //					else if(m_strInputMessage[0] == '&' && COMPARE_RACE(g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 //					{
-//						// ÀÓ½Ã ¿î¿µÀÚ¸¦ À§ÇØ¼­
+//						// ï¿½Ó½ï¿½ ï¿½î¿µï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½
 //						bool bSendChat = FALSE;
 //						char chatOrder[3];
 //						memset(chatOrder,0x00,3);
 // 						memcpy(chatOrder,m_strInputMessage+1,2);
-//						if(!strcmp(chatOrder,"¾È"))
-//						{// ÀÎ»ñ¸»
-//							wsprintf(m_strInputMessage,"¾È³çÇÏ¼¼¿ä ^^ ¾ÆÅù ¿î¿µÀÚÀÔ´Ï´Ù.");
+//						if(!strcmp(chatOrder,"ï¿½ï¿½"))
+//						{// ï¿½Î»ï¿½
+//							wsprintf(m_strInputMessage,"ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ ^^ ï¿½ï¿½ï¿½ï¿½ ï¿½î¿µï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 //							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_ALL, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage );
-//							wsprintf(m_strInputMessage,"¿À´Ãµµ ¾ÆÅù°ú ÇÔ²² Áñ°Å¿î ½Ã°£ µÇ½Ã±æ ¹Ù¶ø´Ï´Ù.");
+//							wsprintf(m_strInputMessage,"ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½Å¿ï¿½ ï¿½Ã°ï¿½ ï¿½Ç½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 //							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_ALL, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage );
 //						}
 //					}
-					// 2007-02-23 by bhsohn °ø°³ Ã¤ÆÃÃ¢ ¹ö±×¼öÁ¤
+					// 2007-02-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 					//else if(bSendSpecialChat == FALSE && strlen(m_strInputMessage))
 					else if(bSendSpecialChat == FALSE && strlen(m_strInputMessage) && FALSE == bBlankMsg )
 					{
@@ -6218,7 +6083,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							int j = 0;
 							for( i = 0; i < nMaxAddIndex; ++i )
 							{
-								strcpy( cBuf[i], "/¾ÆÅÛ " );
+								strcpy( cBuf[i], "/ï¿½ï¿½ï¿½ï¿½ " );
 								CopyMemory( &cBuf[i][6], &m_strInputMessage[j], 9 );
 								j += 9;
 							}
@@ -6229,18 +6094,18 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 						}
 						else
-// 2011. 10. 24 by hsson Ã¤ÆÃ ¾ÈµÇ´ø ¹ö±× ¼öÁ¤
+// 2011. 10. 24 by hsson Ã¤ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif // CUSTOM_OPTIMIZER_HSSON
-// end 2011. 10. 24 by hsson Ã¤ÆÃ ¾ÈµÇ´ø ¹ö±× ¼öÁ¤
+// end 2011. 10. 24 by hsson Ã¤ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						{
 							g_pD3dApp->m_pIMSocket->SendChat(T_IC_CHAT_REGION, g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterName, m_strInputMessage );
 						}
 
 					}
 					g_pD3dApp->CleanText();
-					// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+					// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					InitChatMsgBuff();
-					// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+					// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					memset(m_strInputMessage,0x00,SIZE_MAX_CHAT_MESSAGE);
 					if(strChatType != '\0')
 					{
@@ -6251,12 +6116,12 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 				return INF_MSGPROC_NORMAL;
 			}
-			// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+			// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			if(INF_MSGPROC_BREAK == OnKeyDownCursel(wParam, lParam))
 			{
 				return INF_MSGPROC_BREAK;
 			}				
-			// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+			// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 			// 2007-06-11 by bhsohn China IME Working
 #ifdef LANGUAGE_CHINA
@@ -6267,7 +6132,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 #endif
 		}
 		break;
-		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	case WM_KEYUP:
 		{
 			if(INF_MSGPROC_BREAK == OnKeyUpFunc(wParam, lParam))
@@ -6276,7 +6141,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}				
 		}
 		break;
-		// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+		// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	case WM_IME_STARTCOMPOSITION:
 //	case WM_IME_NOTIFY:
 	case WM_IME_COMPOSITION:
@@ -6294,12 +6159,12 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					bFlag = TRUE;
 				/*--------------------------------------------------------------------------*/
 				
-				// 2009. 06. 29 by ckPark Àü°¢¹®ÀÚ ÀÔ·Â½Ã Ã¤ÆÃ±âÈ£ °è¼Ó ³²´Â ¹®Á¦
+				// 2009. 06. 29 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â½ï¿½ Ã¤ï¿½Ã±ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 				//if(strlen(g_pD3dApp->m_inputkey.m_full_str)!=0)
 				if(strlen(g_pD3dApp->m_inputkey.m_full_str)!=0 || uMsg == WM_IME_STARTCOMPOSITION)
 
-				// end 2009. 06. 29 by ckPark Àü°¢¹®ÀÚ ÀÔ·Â½Ã Ã¤ÆÃ±âÈ£ °è¼Ó ³²´Â ¹®Á¦
+				// end 2009. 06. 29 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â½ï¿½ Ã¤ï¿½Ã±ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 				{
 					memset(m_strInputMessage,0x00,SIZE_MAX_CHAT_MESSAGE);
@@ -6320,8 +6185,8 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						g_pD3dApp->m_inputkey.SetGameText(g_pD3dApp->m_inputkey.GetInputLanguage());
 
 					}
-					// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡					
-					// 2007-11-05 by dgwoo SIZE_MAX_CHAT_MESSAGE»çÀÌÁî°¡ ³Ñ¾î°¡¸é ¹é½ºÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý.
+					// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½					
+					// 2007-11-05 by dgwoo SIZE_MAX_CHAT_MESSAGEï¿½ï¿½ï¿½ï¿½ï¿½î°¡ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½é½ºï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½.
 					// 2009-02-11 by bhsohn Japan MemBug
 					//strncpy(m_strInputMessage,g_pD3dApp->m_inputkey.m_full_str,strlen(g_pD3dApp->m_inputkey.m_full_str));
 					//strncpy(m_strInputMessage,g_pD3dApp->m_inputkey.m_full_str,(SIZE_MAX_CHAT_MESSAGE-1));
@@ -6330,8 +6195,8 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // 						keybd_event(VK_BACK, 0, KEYEVENTF_EXTENDEDKEY, 0);
 // 					}
 					// end 2009-02-11 by bhsohn Japan MemBug
-					// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 					// Ä¿¼­ÀÌµ¿½Ã ÀÌ»óÇÑ Æ÷ÀÎÆ®¿¡ ºí·°ÀÌ ÀâÈ÷´Â ¹ö±× ¼öÁ¤)
+					// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 					// Ä¿ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 // 						if(strlen(m_strNextBackupMessage) > 0)
 // 						{
 // 							int nIMELen	 = GetStringBuffLen(g_pD3dApp->m_inputkey.m_full_str);
@@ -6344,18 +6209,18 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // 						{
 // 							m_ptCurselPos.x = GetStringBuffLen(m_strBkInputMessage);
 // 						}
-// 					// end 2009. 07 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 						// Ä¿¼­ À§Ä¡ ±îÁö °»½Å
+// 					// end 2009. 07 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 						// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);
 // 											
-// 						// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+// 						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 // 					}
 // 					//DBGOUT("INFGameMainChat[%s] \n", g_pD3dApp->m_inputkey.m_full_str);
 //
-// 					// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
-// 					// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 					// ºí·°ÁöÁ¤ »èÁ¦
+// 					// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+// 					// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 					if(m_bCaretCursel==TRUE)
 // 					{
 // 						if(m_ptSelCurselPos.x != -1)
@@ -6369,36 +6234,36 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // 							BlockCleanChat(chLenTmp);	
 // 						}
 // 					}			
-// 		  	     	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È					
+// 		  	     	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 // 				}
 // 				else
 // 				{
-// 					// 2006-09-28 by ispark Æ¯¼ö Ã¤ÆÃ Å¸ÀÔ ³²±â±â
+// 					// 2006-09-28 by ispark Æ¯ï¿½ï¿½ Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 // 					if(!CheckChatTypeMsg(wParam, lParam))
 // 					{
-// 						// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 						// 2009. 07. 15 by ckPark Ã¤ÆÃ¹Ú½º¿¡¼­ ÀüºÎ »èÁ¦½Ã ÇÑ±ÛÀÚ ³²´Â Çö»ó ¼öÁ¤
+// 						// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 						// 2009. 07. 15 by ckPark Ã¤ï¿½Ã¹Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						
-// 						// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+// 						// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 						//memset(m_strInputMessage,0x00,sizeof(m_strInputMessage));
-// 						// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+// 						// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 						
 // 						//memset(m_strInputMessage,0x00,sizeof(m_strInputMessage));
-// 						// end 2009. 07. 15 by ckPark Ã¤ÆÃ¹Ú½º¿¡¼­ ÀüºÎ »èÁ¦½Ã ÇÑ±ÛÀÚ ³²´Â Çö»ó ¼öÁ¤
+// 						// end 2009. 07. 15 by ckPark Ã¤ï¿½Ã¹Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);
 // 						strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
-// 						// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 						// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 					}
 // 				}
-						// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-						// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-						// ºí·°ÁöÁ¤ »èÁ¦
+						// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+						// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					int temp = strlen(m_strBkInputMessage);
 					if(m_bCaretCursel == TRUE)
 					{
 						BlockCleanChat(m_ptCurselPos.x,m_ptSelCurselPos.x);	
 					}		  	     	
-					// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+					// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					
 					//DBGOUT("INFGameMainChat[%s] \n", g_pD3dApp->m_inputkey.m_full_str);
 					
@@ -6406,11 +6271,11 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					{
 						keybd_event(VK_BACK, 0, KEYEVENTF_EXTENDEDKEY, 0);
 					}	 
-					// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+					// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					
-					// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­- Ãß°¡
-					// 2009. 07 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-					// Ä¿¼­ÀÌµ¿½Ã ÀÌ»óÇÑ Æ÷ÀÎÆ®¿¡ ºí·°ÀÌ ÀâÈ÷´Â ¹ö±× ¼öÁ¤
+					// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­- ï¿½ß°ï¿½
+					// 2009. 07 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// Ä¿ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 					if(strlen(m_strNextBackupMessage) > 0)
 // 					{
 // 						int nIMELen	= GetStringBuffLen(g_pD3dApp->m_inputkey.m_full_str);
@@ -6423,19 +6288,19 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // 					{
 // 						m_ptCurselPos.x = GetStringBuffLen(m_strBkInputMessage);
 // 					}
-					// end 2009. 07 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-					//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­- Ãß°¡
+					// end 2009. 07 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­- ï¿½ß°ï¿½
 					m_bCaretCursel = FALSE;
 				}
 				else
 				{
-					// 2006-09-28 by ispark Æ¯¼ö Ã¤ÆÃ Å¸ÀÔ ³²±â±â
+					// 2006-09-28 by ispark Æ¯ï¿½ï¿½ Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 					CheckChatTypeMsg(wParam, lParam);
 				}
 				/*--------------------------------------------------------------------------*/
 				SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);
 				strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
-				//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				g_pD3dApp->m_pSound->PlayD3DSound(SOUND_INPUT_CHAT, g_pShuttleChild->m_vPos, FALSE);
 				if(TRUE == bFlag)
 					return INF_MSGPROC_BREAK;
@@ -6444,7 +6309,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_IME_NOTIFY:
 		{
-			// 2006-03-24 by ispark, ÀÏ¹Ý ¼³Á¤µµ ¿©±â¼­ ÇÑ´Ù.
+			// 2006-03-24 by ispark, ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½Ñ´ï¿½.
 			if(INF_MSGPROC_BREAK == g_pD3dApp->m_inputkey.KeyMapping(g_pD3dApp->GetHwnd(), uMsg, wParam, lParam))
 				return INF_MSGPROC_BREAK;
 		}
@@ -6454,7 +6319,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+/// \author		// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-07-10 ~ 2008-07-10
 /// \warning	
 ///
@@ -6483,27 +6348,27 @@ void CINFGameMainChat::OnSoundButtonClick()
 	{
 		if(!m_strInputMessage[0])
 		{
-			((CINFGameMain*)m_pParent)->m_pInfWindow->AddMsgBox( STRMSG_C_VOIP_0018, _Q_VOIP_NAME);//"À½¼º±³½ÅÇÒ »ó´ë¹æ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿ä."
-			g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_TRY_REGISTER;	// ÀÌ¸§ ¹°¾îº¸´Â µ¿¾È ¿äÃ»ÇÏÁö ¸øÇÏ°Ô ÇÑ´Ù.
+			((CINFGameMain*)m_pParent)->m_pInfWindow->AddMsgBox( STRMSG_C_VOIP_0018, _Q_VOIP_NAME);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½Ï½Ê½Ã¿ï¿½."
+			g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_TRY_REGISTER;	// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½îº¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.
 		}
 		else
 		{
 		}
 	}
 
-	else//1:ÅëÈ­ ½Ãµµ ÁßÁö 2:ÅëÈ­ Á¾·á
+	else//1:ï¿½ï¿½È­ ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ 2:ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 	{
 		if(g_pGameMain->GetVoiceType() == VOICE_PARTY)
 		{
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0012, _Q_VOIP_USING);//"Æí´ë À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0012, _Q_VOIP_USING);//"ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 		}
 		else if(g_pGameMain->GetVoiceType() == VOICE_GUILD)
 		{
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0013, _Q_VOIP_USING);//"¿©´Ü À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0013, _Q_VOIP_USING);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 		}
 		else if(g_pGameMain->GetVoiceType() == VOICE_ONE)
 		{
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0011, _Q_VOIP_USING);//"1:1 À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0011, _Q_VOIP_USING);//"1:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 		}
 	}
 	
@@ -6529,7 +6394,7 @@ void CINFGameMainChat::ProcessWisperChatAddLine(char* strBuffer, DWORD i_dwColor
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
-	// ÀÚ½ÅÀÌ Àü¼ÛÇÑ Ã¤ÆÃ Ã³¸® - ÆË¾÷Ã¢À» Ã£À¸¸é Ã¤ÆÃ ¹öÆÛ¿¡ Ãß°¡ÇÏ°í ¾øÀ¸¸é Ã³¸®°¡ ÇÊ¿ä¾øÀ½
+	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ Ã³ï¿½ï¿½ - ï¿½Ë¾ï¿½Ã¢ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ß°ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½
 	if(0 == strncmp(szWisperFromCharacterName, g_pShuttleChild->m_myShuttleInfo.CharacterName, SIZE_MAX_CHARACTER_NAME))
 	{
 		vectorINFGameMainWisperChatPtr::iterator it(m_vectorINFiGameMainWisperChatPtr.begin());
@@ -6545,7 +6410,7 @@ void CINFGameMainChat::ProcessWisperChatAddLine(char* strBuffer, DWORD i_dwColor
 		return;
 	}    
 
-	// 2006-11-07 by ispark, °ÅÀý ¸®½ºÆ®¿¡ ÀÖ´Â »ç¶÷ÀÌ ³ªÇÑÅ× °É¾úÀ» ¶§
+	// 2006-11-07 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¾ï¿½ï¿½ï¿½ ï¿½ï¿½
 	vector<Reject_t>::iterator itReject = g_pGameMain->m_pCommunity->GetReject()->m_vecReject.begin();
 	while(itReject != g_pGameMain->m_pCommunity->GetReject()->m_vecReject.end())
 	{
@@ -6558,7 +6423,7 @@ void CINFGameMainChat::ProcessWisperChatAddLine(char* strBuffer, DWORD i_dwColor
 	
 	
 	///////////////////////////////////////////////////////////////////////////////
-	// ´Ù¸¥ »ç¶÷ÀÌ Àü¼ÛÇÑ 1:1 Ã¤ÆÃ Ã³¸®
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1:1 Ã¤ï¿½ï¿½ Ã³ï¿½ï¿½
  	CINFGameMainWisperChat *pWisperChat = NULL;
 	vectorINFGameMainWisperChatPtr::iterator it(m_vectorINFiGameMainWisperChatPtr.begin());
 	while (it != m_vectorINFiGameMainWisperChatPtr.end())
@@ -6598,7 +6463,7 @@ void CINFGameMainChat::ProcessWisperChatAddLine(char* strBuffer, DWORD i_dwColor
 	}
 
 	// 2007.04.24 by bhsohn China IME Working
-    // 2007-12-18 by bhsohn Áß±¹ ±Ó¼Ó¸»½Ã IME¹ö±× ¼öÁ¤
+    // 2007-12-18 by bhsohn ï¿½ß±ï¿½ ï¿½Ó¼Ó¸ï¿½ï¿½ï¿½ IMEï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef LANGUAGE_CHINA	
 	//g_pD3dApp->m_inputkey.EnableIMEControl(bWhisperChat);
 #endif
@@ -6624,36 +6489,36 @@ int CINFGameMainChat::ChangeCurrentLineIndex(int CurrentScrollHeight, int ChatBo
 
 void CINFGameMainChat::ViewChatMenuList()
 {
-	// º¸ÀÌ°íÀÚ ÇÏ´Â ¸Þ´º ¸®½ºÆ®
-	// 1. ½Ã½ºÅÛ
-	// 2. ´ëÀü
-	// 3. Æí´ë
-	// 4. ¿©´Ü
-	// 5. ¸Å¸Å
-	// 6. ÀÏ¹Ý
+	// ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	// 1. ï¿½Ã½ï¿½ï¿½ï¿½
+	// 2. ï¿½ï¿½ï¿½ï¿½
+	// 3. ï¿½ï¿½ï¿½
+	// 4. ï¿½ï¿½ï¿½ï¿½
+	// 5. ï¿½Å¸ï¿½
+	// 6. ï¿½Ï¹ï¿½
 	// 7. VOIP						// 2005-10-10 by ispark
 	// 8. FAQ
-	// 9. À¯·á ¾ÆÀÌÅÛ ±¸ÀÔ
+	// 9. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//
-	// 5¹ø±îÁö ±âº» ¸Þ´º 6,7¹øÀº ¼±ÅÃ ¸Þ´º
-	// ¸®½ºÆ® Ãß°¡´Â i À¸·Î ÇÑ´Ù
+	// 5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½Þ´ï¿½ 6,7ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ï¿½ï¿½ i ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
 	{
-		// 2014-01-28 by ymjoo VoIP ±â´É »èÁ¦
+		// 2014-01-28 by ymjoo VoIP ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifndef C_REMOVE_VOIP_YMJOO
 		m_pNChatVOIPStartMenu[m_nVoiceMenu]->Move(CHAT_MENU_LIST_START_X, 
 			CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(CHAT_MENULIST_NUMBER)));
 		m_pNChatVOIPStartMenu[m_nVoiceMenu]->Render();
 #endif
-		// END 2014-01-28 by ymjoo VoIP ±â´É »èÁ¦
+		// END 2014-01-28 by ymjoo VoIP ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
-	// ±âº» Ã¤ÆÃ ¸Þ´º ¸®½ºÆ® 6°³
-	// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+	// ï¿½âº» Ã¤ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® 6ï¿½ï¿½
+	// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_pNChatMenu[CHAT_TAB_SPEAKER]->Move(CHAT_MENU_LIST_START_X, CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(CHAT_MENULIST_NUMBER - CHAT_TAB_SPEAKER - 1)));
 	m_pNChatMenu[CHAT_TAB_SPEAKER]->Render();			
 	if(m_bChatCurrentSelect[CHAT_TAB_SPEAKER] == TRUE)
 	{
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pNChatCheck->Move(CHAT_MENU_LIST_START_X+9, CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(CHAT_MENULIST_NUMBER - CHAT_TAB_SPEAKER - 1)));
 		m_pNChatCheck->Render();
 #else
@@ -6691,9 +6556,9 @@ void CINFGameMainChat::ViewChatMenuList()
 //		}		
 //		i++;
 	}
-	// end 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+	// end 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// Ãß°¡ ¸Þ´º ¸®½ºÆ®
+	// ï¿½ß°ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	// VOIP	// 2005-10-10 by ispark
 //	if(g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_NOTLOGIN)
 
@@ -6704,12 +6569,12 @@ void CINFGameMainChat::ViewChatMenuList()
 //		m_pNChatVOIPEndMenu[m_nVoiceMenu]->Render();
 //	}
 	
-	// 2007-07-30 by bhsohn FAQ¹öÆ° Á¦°Å
+	// 2007-07-30 by bhsohn FAQï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 //	 FAQ
 //		m_pNChatFAQ[m_nOtherMenuList[1]]->Move(CHAT_MENU_LIST_START_X, 
 //			CHAT_MENU_LIST_START_Y-(CHAT_MENU_LIST_H*(i+2)));
 //		m_pNChatFAQ[m_nOtherMenuList[1]]->Render();
-	// end 2007-07-30 by bhsohn FAQ¹öÆ° Á¦°Å
+	// end 2007-07-30 by bhsohn FAQï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 
 //#ifndef _TEST_SERVER	
 
@@ -6726,8 +6591,8 @@ void CINFGameMainChat::EnterCashShop()
 	{
 		if(g_pD3dApp->m_dwGameState == _GAME)
 		{
-			// 2006-06-26 by ispark, µµ½Ã,ÇÊµå ¸ðµÎ ºÒÇÊ¿ä ÇÏ´Ù´Â ±âÈ¹¿¡ µû¶ó¼­ ¸Þ¼¼Áö Ã¢À» Áö¿ò
-//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_SHOP_0014, //"¸ó½ºÅÍÀÇ °ø°ÝÀ» ¹ÞÀ»¼öÀÖ½À´Ï´Ù »óÁ¡¿¡ µé¾î°¡½Ã°Ú½À´Ï±î?"
+			// 2006-06-26 by ispark, ï¿½ï¿½ï¿½ï¿½,ï¿½Êµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½Ï´Ù´ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_SHOP_0014, //"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 //			_Q_CASHITEM_SHOP_OPEN);
 			m_bCashShopOpen = TRUE;
 //			EnterCashShop();
@@ -6761,14 +6626,14 @@ void CINFGameMainChat::EnterCashShop()
 				memcpy(&pBuilding->buildingInfo, pInfo, sizeof(BUILDINGNPC));
 			}
 
-			// 2006-06-01 by ispark, ¸ðµç Ã¢ ´Ý´Â´Ù.
+			// 2006-06-01 by ispark, ï¿½ï¿½ï¿½ Ã¢ ï¿½Ý´Â´ï¿½.
 			g_pGameMain->InitShowWindow();
-			// 2006-06-02 by ispark, »óÁ¡ Á÷Á¢ ¼ÂÆÃ
+			// 2006-06-02 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			g_pD3dApp->ChangeGameState(_SHOP);
 
 			g_pInterface->m_pCityBase->CurrentChangeGuiBuilding(pBuilding);
 			g_pInterface->m_pCityBase->OnCityNPCButtonDown(CITY_NPC_BUTTON_MAIN);
-			g_pD3dApp->m_bRequestEnable = FALSE;			// 2006-07-07 by ispark, ¸Þ¼¼Áö ÀÀ´äÀ» ±â´Ù¸°´Ù.
+			g_pD3dApp->m_bRequestEnable = FALSE;			// 2006-07-07 by ispark, ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½.
 		}
 		else
 		{
@@ -6788,14 +6653,14 @@ void CINFGameMainChat::CheckShopInfo()
 		{			
 			memcpy(&pBuilding->buildingInfo, pInfo, sizeof(BUILDINGNPC));
 		}
-		// 2006-06-01 by ispark, ¸ðµç Ã¢ ´Ý´Â´Ù.
+		// 2006-06-01 by ispark, ï¿½ï¿½ï¿½ Ã¢ ï¿½Ý´Â´ï¿½.
 		g_pGameMain->InitShowWindow();
-		// 2006-06-02 by ispark, »óÁ¡ Á÷Á¢ ¼ÂÆÃ
+		// 2006-06-02 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->ChangeGameState(_SHOP);
 
 		g_pInterface->m_pCityBase->CurrentChangeGuiBuilding(pBuilding);
 		g_pInterface->m_pCityBase->OnCityNPCButtonDown(CITY_NPC_BUTTON_MAIN);
-		g_pD3dApp->m_bRequestEnable = FALSE;			// 2006-07-07 by ispark, ¸Þ¼¼Áö ÀÀ´äÀ» ±â´Ù¸°´Ù.
+		g_pD3dApp->m_bRequestEnable = FALSE;			// 2006-07-07 by ispark, ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½.
 		m_bCheckShopInfo = FALSE;
 	}
 }
@@ -6803,7 +6668,7 @@ void CINFGameMainChat::CheckShopInfo()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CINFGameMainChat::SetVOIPExit(int nVOIPIndex)
-/// \brief		ÅëÈ­ Á¾·á
+/// \brief		ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-10-11 ~ 2005-10-11
 /// \warning	
@@ -6815,7 +6680,7 @@ void CINFGameMainChat::SetVOIPExit()
 {
 	if(g_pGameMain->GetVoiceType() == VOICE_ONE)
 	{
-		//"/ÅëÈ­Á¾·á"
+		//"/ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½"
 		MSG_IC_VOIP_1to1_END sMsg;
 		sMsg.nSend2AccountUniqueNumber = g_pD3dApp->m_VOIPState.nCalledAccountUniqueNumber;
 		g_pIMSocket->SendMsg( T_IC_VOIP_1to1_END, (char*)&sMsg, sizeof(sMsg) );
@@ -6831,15 +6696,15 @@ void CINFGameMainChat::SetVOIPExit()
 		g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_NOTLOGIN;
 		g_pD3dApp->m_VOIPState.bCaller = FALSE;
 		
-		// 2009-01-19 by bhsohn VOIP 1:1ÅëÈ­ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+		// 2009-01-19 by bhsohn VOIP 1:1ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 		{			
 			g_pD3dApp->m_VOIPState.nCallState = _CALLSTATE_1TO1;			
 			g_pGameMain->m_pCommunity->GetGuild()->SetNtoNCallState(FALSE);
 			UpdateVoiceChatType(VOICE_NONE);
 		}
-		// end 2009-01-19 by bhsohn VOIP 1:1ÅëÈ­ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+		// end 2009-01-19 by bhsohn VOIP 1:1ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	}
-//	else if(g_pD3dApp->m_VOIPState.nCallState == _CALLSTATE_PARTY)	// Æí´ë ÅëÈ­Á¾·á
+//	else if(g_pD3dApp->m_VOIPState.nCallState == _CALLSTATE_PARTY)	// ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½
 //	{
 //		if( g_pD3dApp->m_VOIPState.nVOIPState != _VOIP_NOTLOGIN &&
 //			g_pShuttleChild->m_pClientParty->GetNtoNCallState() == TRUE)
@@ -6861,8 +6726,8 @@ void CINFGameMainChat::SetVOIPExit()
 //			g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_NOTLOGIN;
 //			g_pD3dApp->m_VOIPState.bCaller = FALSE;
 //			g_pShuttleChild->m_pClientParty->SetNtoNCallState(FALSE);
-////									DBGOUT("Æí´ëÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù\n");
-//			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0017, COLOR_VOIP);//"Æí´ëÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù"
+////									DBGOUT("ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½\n");
+//			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0017, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½"
 //		}
 //	}
 //	else if(g_pD3dApp->m_VOIPState.nCallState == _CALLSTATE_GUILD)
@@ -6887,8 +6752,8 @@ void CINFGameMainChat::SetVOIPExit()
 //			g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_NOTLOGIN;
 //			g_pD3dApp->m_VOIPState.bCaller = FALSE;
 //			g_pGameMain->m_pCommunity->GetGuild()->SetNtoNCallState(FALSE);
-////									DBGOUT("¿©´ÜÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù\n");
-//			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0006, COLOR_VOIP);//"¿©´ÜÅëÈ­¸¦ Á¾·áÇÕ´Ï´Ù"
+////									DBGOUT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½\n");
+//			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0006, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½"
 //		}
 //	}
 }
@@ -6896,7 +6761,7 @@ void CINFGameMainChat::SetVOIPExit()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CINFGameMainChat::SetCleanChat()
-/// \brief		Ã¤ÆÃ ºÒÈ°¼º°ú ³»¿ë Å¬¸®¾î
+/// \brief		Ã¤ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-11-16 ~ 2005-11-16
 /// \warning	
@@ -6912,9 +6777,9 @@ void CINFGameMainChat::SetCleanChat()
 		g_pD3dApp->m_bChatMode = FALSE;
 		g_pD3dApp->CleanText();
 		
-		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		InitChatMsgBuff();
-		// end 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+		// end 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 		memset(m_strInputMessage,0x00,SIZE_MAX_CHAT_MESSAGE);
 
@@ -6929,7 +6794,7 @@ void CINFGameMainChat::SetCleanChat()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainChat::RenderWisperChat()
-/// \brief		Ã¤ÆÃÃ¢ ±Ó¸» ·»´õ¸µ
+/// \brief		Ã¤ï¿½ï¿½Ã¢ ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-08-01 ~ 2006-08-01
 /// \warning	
@@ -6950,7 +6815,7 @@ void CINFGameMainChat::RenderWisperChat()
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
-	// ±Ó¸» ÆË¾÷Ã¢ Ã³¸®
+	// ï¿½Ó¸ï¿½ ï¿½Ë¾ï¿½Ã¢ Ã³ï¿½ï¿½
 //	if(_CITY == g_pD3dApp->m_dwGameState)
 //	{
 //		SetWisperBoxMinimumStatusInitPosition(g_pD3dApp->GetBackBufferDesc().Width - WISPERBOX_MINIMUM_WINDOW_WIDTH
@@ -6973,7 +6838,7 @@ void CINFGameMainChat::RenderWisperChat()
 	if(m_nClickedWisperChatBoxVectorIndex >= 0
 		&& m_nClickedWisperChatBoxVectorIndex < m_vectorINFiGameMainWisperChatPtr.size())
 	{
-		// 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+		// 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		while (itwi != m_vectorINFiGameMainWisperChatPtr.end())
 // 		{
 // 			pWisper = (*itwi);
@@ -7000,7 +6865,7 @@ void CINFGameMainChat::RenderWisperChat()
 			itwi++;
 		}		
 		LeaveCriticalSection(&g_pD3dApp->m_cs);
-		//end 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+		//end 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		m_nClickedWisperChatBoxVectorIndex = -1;
 
@@ -7028,7 +6893,7 @@ void CINFGameMainChat::RenderWisperChat()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainChat::SetWisperChatShowInterface(BOOL i_bInterface)
-/// \brief		±Í¼Ó¸» Ã¢ ÀÏ°ýÀûÀ¸·Î º¸ÀÌµµ·Ï, ¶Ç´Â ¾Èº¸ÀÌµµ·Ï Ã³¸®.
+/// \brief		ï¿½Í¼Ó¸ï¿½ Ã¢ ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½, ï¿½Ç´ï¿½ ï¿½Èºï¿½ï¿½Ìµï¿½ï¿½ï¿½ Ã³ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2008-06-03 ~ 2008-06-03
 /// \warning	
@@ -7086,7 +6951,7 @@ void CINFGameMainChat::RenderMacro()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CINFGameMainChat::CheckChatTypeMsg(WPARAM wParam, LPARAM lParam)
-/// \brief		¸¶Áö¸·¿¡ ¾´ Ã¤ÆÃ Á¾·ù¿¡ µû¶ó ¼ÂÆÃ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-09-28 ~ 2006-09-28
 /// \warning	
@@ -7096,19 +6961,19 @@ void CINFGameMainChat::RenderMacro()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CINFGameMainChat::CheckChatTypeMsg(WPARAM wParam, LPARAM lParam)
 {
-	// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-// 	if((m_strInputMessage[0] != '~' &&			// °øÁö Ã¤ÆÃ
-// 		m_strInputMessage[0] != '%' &&			// ¾Æ·¹³ª Ã¤ÆÃ
-// 		m_strInputMessage[0] != '@' &&			// ±æµå Ã¤ÆÃ
-// 		m_strInputMessage[0] != '#' &&			// Æí´ë Ã¤ÆÃ
-// 		m_strInputMessage[0] != '^' &&			// ÀüÀï Ã¤ÆÃ
-// 		m_strInputMessage[0] != '!' &&			// ¸ÊÀüÃ¼ Ã¤ÆÃ
-// 		m_strInputMessage[0] != '$' &&			// ¸Å¸Å Ã¤ÆÃ
-// 		// 2008-11-19 by bhsohn ÁöµµÀÚ Ã¤ÆÃ ÀúÀå ¾ÈµÇ´Â ¹®Á¦
-// 		m_strInputMessage[0] != '*' &&			// ÁöµµÀÚ °øÁö	
-// 		// end 2008-11-19 by bhsohn ÁöµµÀÚ Ã¤ÆÃ ÀúÀå ¾ÈµÇ´Â ¹®Á¦
-// 		m_strInputMessage[0] != '&') ||			// À¯·á ¸ÊÀüÃ¼ Ã¤ÆÃ
-// 		//wParam == '\b' )						// º¤½ºÆäÀÌ½º		
+	// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+// 	if((m_strInputMessage[0] != '~' &&			// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+// 		m_strInputMessage[0] != '%' &&			// ï¿½Æ·ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+// 		m_strInputMessage[0] != '@' &&			// ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+// 		m_strInputMessage[0] != '#' &&			// ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+// 		m_strInputMessage[0] != '^' &&			// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+// 		m_strInputMessage[0] != '!' &&			// ï¿½ï¿½ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½
+// 		m_strInputMessage[0] != '$' &&			// ï¿½Å¸ï¿½ Ã¤ï¿½ï¿½
+// 		// 2008-11-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 		m_strInputMessage[0] != '*' &&			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+// 		// end 2008-11-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 		m_strInputMessage[0] != '&') ||			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½
+// 		//wParam == '\b' )						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½		
 // 	{
 // 		return FALSE;
 // 	}
@@ -7122,13 +6987,13 @@ BOOL CINFGameMainChat::CheckChatTypeMsg(WPARAM wParam, LPARAM lParam)
 // 	}
 // 
 // 	g_pD3dApp->m_inputkey.SetGameText(g_pD3dApp->m_inputkey.GetInputLanguage());
-	// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-	// Ã¤ÆÃÃ¢¿¡ Ã¤ÆÃ¸ðµå ¹®ÀÚ°ü·Ã ¹ö±× ¼öÁ¤
+	// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// Ã¤ï¿½ï¿½Ã¢ï¿½ï¿½ Ã¤ï¿½Ã¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// 2009-02-11 by bhsohn Japan MemBug
 	//strncpy(m_strInputMessage,g_pD3dApp->m_inputkey.m_full_str,strlen(g_pD3dApp->m_inputkey.m_full_str));
 	//strncpy(m_strInputMessage,g_pD3dApp->m_inputkey.m_full_str,(SIZE_MAX_CHAT_MESSAGE-1));
 	// end 2009-02-11 by bhsohn Japan MemBug
-	// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	//return TRUE;
 
@@ -7145,7 +7010,7 @@ BOOL CINFGameMainChat::CheckChatTypeMsg(WPARAM wParam, LPARAM lParam)
 		return TRUE;	
 	}
 	return FALSE;
-	//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 }
 
 // 2007-06-21 by bhsohn China IME Working
@@ -7225,8 +7090,8 @@ BOOL CINFGameMainChat::ConvertChinaInputString(char* o_strInputMessage, char* i_
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		µµ¿ò¸» ¹öÆ° Å¬¸¯
-/// \author		// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½
+/// \author		// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2007-06-12 ~ 2007-06-12
 /// \warning	
 ///
@@ -7235,7 +7100,7 @@ BOOL CINFGameMainChat::ConvertChinaInputString(char* o_strInputMessage, char* i_
 ///////////////////////////////////////////////////////////////////////////////
 void CINFGameMainChat::OnClickFAQ()
 {
-	// 2008-10-20 by bhsohn FAQ ±âÃ¼ »óÅÂ¿¡¼­´Â ¾Èº¸ÀÌ°Ô º¯°æ
+	// 2008-10-20 by bhsohn FAQ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(!g_pGameMain->m_bFAQProsFlag)
 	{
 		if(g_pTutorial->IsTutorialMode() == TRUE || 
@@ -7249,24 +7114,24 @@ void CINFGameMainChat::OnClickFAQ()
 			return;
 		}
 	}
-	// end 2008-10-20 by bhsohn FAQ ±âÃ¼ »óÅÂ¿¡¼­´Â ¾Èº¸ÀÌ°Ô º¯°æ
+	// end 2008-10-20 by bhsohn FAQ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	g_pInterface->SetWindowOrder(WNDGameMainFaq);
 	g_pGameMain->m_bFAQProsFlag = !g_pGameMain->m_bFAQProsFlag;
 //	if(g_pGameMain->m_bFAQProsFlag)
 //	{
-//		g_pD3dApp->m_bFixUnitDirMode = TRUE;	// À¯´Ö ¹æÇâ °íÁ¤ ¸ðµå
+//		g_pD3dApp->m_bFixUnitDirMode = TRUE;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //	}
 //	else 
 //	{
-//		g_pD3dApp->m_bFixUnitDirMode = FALSE;	// À¯´Ö ¹æÇâ °íÁ¤ ¸ðµå
+//		g_pD3dApp->m_bFixUnitDirMode = FALSE;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //	}	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+/// \author		// 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-06-12 ~ 2007-06-12
 /// \warning	
 ///
@@ -7293,9 +7158,9 @@ INT CINFGameMainChat::WhisperChatSmallWindowCountMinus(INT i_nIndex)
 
 	CINFGameMainWisperChat *pWisper = NULL;
 	vectorINFGameMainWisperChatPtr::iterator it(m_vectorINFiGameMainWisperChatPtr.begin());
-	// 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+	// 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EnterCriticalSection(&g_pD3dApp->m_cs);
-	//end 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+	//end 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	while(it != m_vectorINFiGameMainWisperChatPtr.end())
 	{
 		pWisper = (*it);
@@ -7305,9 +7170,9 @@ INT CINFGameMainChat::WhisperChatSmallWindowCountMinus(INT i_nIndex)
 		}
 		it++;		
 	}
-	// 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+	// 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	LeaveCriticalSection(&g_pD3dApp->m_cs);
-	//end 2010. 03. 16 by jskim ±Ó¸»Ã¢ ¹ö±× ¼öÁ¤
+	//end 2010. 03. 16 by jskim ï¿½Ó¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	m_nSmallWindowCount--;
 	//DBGOUT("WhisperChatSmallWindowCountMinus(m_nSmallWindowCount = %d)\n",m_nSmallWindowCount);
@@ -7315,7 +7180,7 @@ INT CINFGameMainChat::WhisperChatSmallWindowCountMinus(INT i_nIndex)
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			DWORD CINFGameMainChat::ChangeChatMode(DWORD i_nChatMode)
-/// \brief		È°¼ºÈ­ÁßÀÎ Ã¤ÆÃ ¸ðµå¸¦ º¯°æ.
+/// \brief		È°ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2008-05-09 ~ 2008-05-09
 /// \warning	
@@ -7439,7 +7304,7 @@ void CINFGameMainChat::StartMacro()
 	m_bMacroIng = TRUE;
 	m_nSendMacroNum = 0;
 
-	// 2008-08-18 by bhsohn ¸ÅÅ©·Î Ãß°¡ ¼öÁ¤
+	// 2008-08-18 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_nTransChatCount = CHATMACRO_TRANSCHAT_COUNT;
 
 	int i;
@@ -7447,9 +7312,9 @@ void CINFGameMainChat::StartMacro()
 	{
 		if(m_sMacroStr[i].bAppl == TRUE)
 		{
-			m_sMacroStr[i].fTime = 0;// 2012-03-30 by isshin ¸ÅÅ©·Î ½Ã½ºÅÛ ¹ö±× ¼öÁ¤ - ¸ÅÅ©·Î ÀÛµ¿½Ã ¹Ù·Î Ãâ·Â
+			m_sMacroStr[i].fTime = 0;// 2012-03-30 by isshin ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ûµï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½
 
-			// ½ÃÀÛ À§Ä¡ ÁöÁ¤
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 			m_nSendMacroNum = i;
 			break;
 		}
@@ -7461,7 +7326,7 @@ void CINFGameMainChat::EndMacro()
 	m_nSendMacroNum = 0;
 }
 void CINFGameMainChat::SetVoiceChatVolum(DWORD i_nVolum)
-{// º¼·ý Á¶ÀýÇÏ´Â ÇÔ¼ö¸¦ °è¼Ó È£ÃâÇÏ¸é ¼Óµµ°¡ ¸¹ÀÌ ´À·ÁÁü  Á¦¾îÇÒ¼öÀÖµµ·Ï ±¸Çö.
+{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(m_fVolumConTimeGap > VOICECHAT_SPK_CONTROL_TIME_GAP)
 	{
 		m_fVolumConTimeGap = 0;
@@ -7521,7 +7386,7 @@ void CINFGameMainChat::ShowVoiceChatControl(BOOL i_bShow)
 	{
 		return;
 	}
-	// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+	// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//m_nPosVolum = (g_pGameMain->GetVoiceVolum()/100)*67;
 	UpdateVoiceVolumScroll();
 	g_pInterface->SetWindowOrder(WNDVoiceWnd);
@@ -7530,21 +7395,21 @@ void CINFGameMainChat::ShowVoiceChatControl(BOOL i_bShow)
 }
 void CINFGameMainChat::SendVoiceParty()
 {
-	// 2008-10-14 by bhsohn VOIP°³¼±
+	// 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½
 	if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 	{
 		
-		// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+		// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		
-// 		//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 		//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 		if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-		// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+		// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 		return;
 	}
@@ -7557,30 +7422,30 @@ void CINFGameMainChat::SendVoiceParty()
 	if((g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType != _PARTYMASTER)
 		&& (g_pShuttleChild->m_pClientParty->GetNtoNCallState() == FALSE))
 	{
-		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
-		// ³»°¡ Æí´ë¿øÀÌ¶ó¸é Æí´ëÀåÀÌ À½¼ºÀ» ¾ÈÅ°¸é À½¼º Åë½Å ºÒ°¡´É
-		// Æí´ë¿øÀº ½ÃÀÛÀ» ¸ø½ÃÅ´
+		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å´
 		if(CHECK_TYPE_VOIP_PARTY != g_pShuttleChild->m_pClientParty->GetVoiceTypePartyMaster())
 		{
-			// Æí´ëÀåÀÌ VOIP¸¦ ¾È Å°°íÀÖ³Ä?
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ VOIPï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½Ö³ï¿½?
 			return;		
 		}
 	}
-	// end 2008-10-14 by bhsohn VOIP°³¼±
+	// end 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½
 
 	if(g_pGameMain->GetVoiceType() == VOICE_NONE &&
 		g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER)
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0014, _Q_PARTYMASTER_VOIP);//"Æí´ë°£ ÅëÈ­¸¦ ÇÏ½Ã°Ú½À´Ï±î?"
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0014, _Q_PARTYMASTER_VOIP);//"ï¿½ï¿½ë°£ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 		g_pD3dApp->m_VOIPState.bCaller = TRUE;
 		g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_TRY_REGISTER;
-		// 2005-10-07 by ispark Æí´ëÅëÈ­ ÀüÃ¼·Î ¼±ÅÃ
+		// 2005-10-07 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->m_VOIPState.nConnectCount = 50;
 	}
 	else if(g_pGameMain->GetVoiceType() == VOICE_NONE &&
 		g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMEMBER)
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0003, _Q_JOIN_PARTY_VOIP);	//"Æí´ë°£ ÅëÈ­¿¡ Âü¿©ÇÏ½Ã°Ú½À´Ï±î?"
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0003, _Q_JOIN_PARTY_VOIP);	//"ï¿½ï¿½ë°£ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 	}
 	else
 	{
@@ -7588,17 +7453,17 @@ void CINFGameMainChat::SendVoiceParty()
 			g_pShuttleChild->m_pClientParty->GetNtoNCallState() == TRUE &&
 			g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER)
 		{
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0015, _Q_PARTY_VOIP_END);//"Æí´ë°£ ÅëÈ­¸¦ Á¾·á ÇÏ½Ã°Ú½À´Ï±î?"
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0015, _Q_PARTY_VOIP_END);//"ï¿½ï¿½ë°£ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 		}
 		else
 		{
 			if(g_pGameMain->GetVoiceType() == VOICE_ONE)
 			{
-				g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0011, _Q_VOIP_USING);//"1:1 À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+				g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0011, _Q_VOIP_USING);//"1:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 			}
 			else if(g_pGameMain->GetVoiceType() == VOICE_GUILD)
 			{
-				g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0013, _Q_VOIP_USING);//"¿©´Ü À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+				g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0013, _Q_VOIP_USING);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 			}
 			else if(g_pGameMain->GetVoiceType() == VOICE_PARTY)
 			{
@@ -7613,28 +7478,28 @@ void CINFGameMainChat::SendVoiceParty()
 
 void CINFGameMainChat::SendVoiceGuild()
 {
-	// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+	// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 	{
 		
-		// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+		// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		
-// 		//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-// 		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+// 		//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+// 		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 
 		if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_ARENA )
-			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"¾Æ·¹³ª¿¡¼­´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0203,COLOR_ERROR);//"ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		else if( g_pD3dApp->m_ArenaSocketType == CAtumApplication::ARENASOCKET_INFINITY )
-			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yÀÎÇÇ´ÏÆ¼ ÇÊµå¿¡¼­´Â »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù\y"
+			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_091103_0322,COLOR_ERROR);//"\yï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµå¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½\y"
 
-		// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+		// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 		return;
 	}
-	// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+	// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 
-	// 2008-10-14 by bhsohn VOIP°³¼±
+	// 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½
 	if(PopupVOIPError(VOICE_GUILD))
 	{
 		return;
@@ -7642,29 +7507,29 @@ void CINFGameMainChat::SendVoiceGuild()
 	if((g_pGameMain->m_pCommunity->GetGuild()->GetMyGuildRank() != GUILD_RANK_COMMANDER)
 		&& (g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState() == FALSE))
 	{
-		// ¿©´Ü¿øÀº ½ÃÀÛÀ» ¸ø½ÃÅ´
-		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
-		// ³»°¡ Æí´ë¿øÀÌ¶ó¸é Æí´ëÀåÀÌ À½¼ºÀ» ¾ÈÅ°¸é À½¼º Åë½Å ºÒ°¡´É
-		// Æí´ë¿øÀº ½ÃÀÛÀ» ¸ø½ÃÅ´
+		// ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å´
+		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å´
 		if(!g_pGameMain->m_pCommunity->GetGuild()->IsVoiceONGuildMaster())
 		{
-			// ¿©´ÜÀåÀÌ VOIP¸¦ ¾È Å°°íÀÖ³Ä?
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ VOIPï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½Ö³ï¿½?
 			return;		
 		}
 		
 	}
-	// end 2008-10-14 by bhsohn VOIP°³¼±
+	// end 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½
 	
 	if( g_pD3dApp->m_VOIPState.nVOIPState == _VOIP_NOTLOGIN &&
 		g_pGameMain->m_pCommunity->GetGuild()->GetMyGuildRank() == GUILD_RANK_COMMANDER &&
 		g_pShuttleChild->m_pClientParty->GetNtoNCallState() == FALSE &&
 		g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState() == FALSE )
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0007, _Q_GUILDMASTER_VOIP,0,0,DELETE_MASSAGEBOX_TIME);//"¿©´Ü ÅëÈ­¸¦ ÇÏ½Ã°Ú½À´Ï±î?"
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0007, _Q_GUILDMASTER_VOIP,0,0,DELETE_MASSAGEBOX_TIME);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 		g_pD3dApp->m_VOIPState.bCaller = TRUE;
 		g_pD3dApp->m_VOIPState.nVOIPState = _VOIP_TRY_REGISTER;
 
-		// 2008-10-14 by bhsohn VOIP°³¼±
+		// 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->m_VOIPState.nConnectCount = 50;
 	}
 	else if (g_pGameMain->GetVoiceType() == VOICE_NONE &&
@@ -7674,22 +7539,22 @@ void CINFGameMainChat::SendVoiceGuild()
 	}
 	else if(g_pGameMain->m_pCommunity->GetGuild()->IsGuildMember() == FALSE)
 	{
-		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"±³½ÅÀ» ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."
+		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0008, COLOR_VOIP);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 	} 
 	else
 	{
-		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0009, COLOR_VOIP);//"ÀÌ¹Ì ÅëÈ­ÁßÀÔ´Ï´Ù."
+		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_VOIP_0009, COLOR_VOIP);//"ï¿½Ì¹ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 	}
 	//bSendChat = TRUE;
 }
 
 BOOL CINFGameMainChat::EndVoiceGuild()
 {
-	if(g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState())//¿©´ÜÅëÈ­ÁßÀÎ°æ¿ì
+	if(g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState())//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ï¿½Î°ï¿½ï¿½
 	{
-		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
-		g_pGameMain->m_pCommunity->GetGuild()->ReleaseVOIPGuildInfo();	// IM¼­¹ö¿¡¼­ ¿À´Â Á¤º¸´Â ÃÊ±âÈ­ ¾ÈÇÔ
-		// end 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		g_pGameMain->m_pCommunity->GetGuild()->ReleaseVOIPGuildInfo();	// IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+		// end 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		COPYDATASTRUCT	copyData;
 		memset(&copyData, 0x00, sizeof(COPYDATASTRUCT));
@@ -7705,7 +7570,7 @@ BOOL CINFGameMainChat::EndVoiceGuild()
 		g_pGameMain->m_pCommunity->GetGuild()->SetNtoNCallState(FALSE);
 		UpdateVoiceChatType(VOICE_NONE);
 
-		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 		return TRUE;
@@ -7714,13 +7579,13 @@ BOOL CINFGameMainChat::EndVoiceGuild()
 }
 BOOL CINFGameMainChat::EndVoiceParty()
 {
-	if(g_pShuttleChild->m_pClientParty->GetNtoNCallState())//Æí´ëÅëÈ­ÁßÀÎ°æ¿ì
+	if(g_pShuttleChild->m_pClientParty->GetNtoNCallState())//ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ï¿½Î°ï¿½ï¿½
 	{
-		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//g_pShuttleChild->m_pClientParty->InitMyShuttlemVoipType();
-		//g_pGameMain->ReleaseVOIPMode();	// ¸¶ÀÌÅ© °­Á¦·Î Á¾·á
-		g_pShuttleChild->m_pClientParty->ReleaseVOIPAllUserInfo();	// IM¼­¹ö¿¡¼­ ¿À´Â Á¤º¸´Â ÃÊ±âÈ­ ¾ÈÇÔ
-		// end 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+		//g_pGameMain->ReleaseVOIPMode();	// ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		g_pShuttleChild->m_pClientParty->ReleaseVOIPAllUserInfo();	// IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+		// end 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		COPYDATASTRUCT	copyData;
 		memset(&copyData, 0x00, sizeof(COPYDATASTRUCT));
@@ -7749,7 +7614,7 @@ BOOL CINFGameMainChat::IsChatingMode()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+/// \author		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-10-20 ~ 2008-10-20
 /// \warning	
 ///
@@ -7772,12 +7637,12 @@ BOOL CINFGameMainChat::PopupVOIPError(BYTE byRqVoiceType)
 	{
 	case VOICE_ONE:
 		{
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0011, _Q_VOIP_USING);//"1:1 À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0011, _Q_VOIP_USING);//"1:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 		}
 		break;
 	case VOICE_GUILD:
 		{
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0013, _Q_VOIP_USING);//"¿©´Ü À½¼ºÅëÈ­¸¦ ÇÏ°í ÀÖ½À´Ï´Ù"
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_VOIP_0013, _Q_VOIP_USING);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½"
 		}
 		break;
 	case VOICE_PARTY:
@@ -7797,7 +7662,7 @@ BOOL CINFGameMainChat::PopupVOIPError(BYTE byRqVoiceType)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+/// \author		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-10-20 ~ 2008-10-20
 /// \warning	
 ///
@@ -7819,7 +7684,7 @@ void CINFGameMainChat::UpdateVoiceVolumScroll()
 }
 
 
-// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 stcuctRateRect CINFGameMainChat::GetChatWndRect(void)
 {
 	stcuctRateRect	stRateRect;
@@ -7830,13 +7695,13 @@ stcuctRateRect CINFGameMainChat::GetChatWndRect(void)
 	
 	return stRateRect;	
 }
-// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-// 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+// 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn		: CINFGameMainChat::BuildCulledString
-/// \brief	: °¢ ¶óÀÎº°·Î Àß·ÁÁø ¹®ÀÚ¿­À» »ý¼º
+/// \brief	: ï¿½ï¿½ ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ß·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author	: ckPark
 /// \date	: 29:12:2008   20:55
 /// \warning: 
@@ -7845,16 +7710,16 @@ stcuctRateRect CINFGameMainChat::GetChatWndRect(void)
 ///////////////////////////////////////////////////////////////////////////////
 void	CINFGameMainChat::BuildCulledString( void )
 {
-	// ÀÏ´Ü ¸®½ºÆ® ÃÊ±âÈ­
+	// ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 	m_listCulledString.clear();
 
-	// ÃÖ´ë ·»´õ¸µ ¶óÀÎ¼ö °è»ê
+	// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½
 	int nMaxRenderLineCounts	= ( m_nChatBoxHeight - CHATBOX_IMAGE_GAB_HEITHT_TOP )
 								  / CHAT_FONT_LINE_HEIGHT;
 
-	// ÇöÀç ÅÇ ¾ò¾î¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ChatTab_t *pCurChatTab = GetChatTabMode();
-	// ÅÇ¿¡ ÀúÀåµÈ ¹®ÀÚ¿­ÀÌ ¾øÀ» °æ¿ì ¸®ÅÏ
+	// ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(0 >= pCurChatTab->m_nStoredLineCounts)
 		return;
 	
@@ -7867,30 +7732,30 @@ void	CINFGameMainChat::BuildCulledString( void )
 		CD3DHanFont* pFont = *it;
 		
 		
-		// °¢ ÇÑÁÙÀ» Â©¶ó¼­ º¤ÅÍ·Î ³ª´²¼­ ÀúÀåÇÑ´Ù
+		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Â©ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 		vector<string> vecChatMessage;
 		STRING_CULL(pCurChatTab->GetChatLine(nRenderIndex), CHAT_STRING_LENGTH, &vecChatMessage, pFont);
 		m_listCulledString.push_back( vecChatMessage );
 		
 		nRenderedLineCounts += vecChatMessage.size();
 		
-		// ÀúÀåÇÑµµ³ª ÃÖ´ë ·»´õ¸µ °¹¼ö ³Ñ¾î°¡¸é ·çÇÁ Å»Ãâ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 		if(nRenderIndex == pCurChatTab->m_nStoreEndIndex
 		   || nMaxRenderLineCounts <= nRenderedLineCounts)
 			break;
 		
-		// ¿øÇüÅ¥ ÀÎµ¦½º ¼³Á¤
+		// ï¿½ï¿½ï¿½ï¿½Å¥ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(--nRenderIndex < 0)
 			nRenderIndex = CHAT_BUFFER_NUMBER - 1;
 		++it;			
 	}
 }
-// end 2008. 12. 29 by ckPark Ã¤ÆÃÃ¢ ÃÖÀûÈ­
+// end 2008. 12. 29 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½È­
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -7919,7 +7784,7 @@ int CINFGameMainChat::OnKeyUpFunc(WPARAM wParam, LPARAM lParam)
 			int strlenComp = g_input.GetComp(text, sizeof(text));
 			if(strlenComp > 0)
 			{
-				// ¾ÐÃàÁßÀÌ³Ù ¸®ÅÏ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½
 				return INF_MSGPROC_NORMAL;
 			}
 			m_bControlCursel = FALSE;
@@ -7933,7 +7798,7 @@ int CINFGameMainChat::OnKeyUpFunc(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -7953,7 +7818,7 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 		{
 			USHORT nRace = g_pD3dApp->m_pShuttleChild->GetMyShuttleInfo().Race;
 
-// 2012-11-21 by mspark, °ü¸®ÀÚ º¹»ç, ºÙ¿©³Ö±â Çã¿ë
+// 2012-11-21 by mspark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ù¿ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½
 #ifdef C_ADMINISTRATOR_COPYPASTE_PERMISSION
 			if(COMPARE_RACE(nRace,RACE_OPERATION) || COMPARE_RACE(nRace,RACE_GAMEMASTER))
 			{
@@ -7961,12 +7826,12 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 				return INF_MSGPROC_BREAK;
 			}
 #else
-			// 2010. 05. 25 by jskim ºÙ¿©³Ö±â, º¹»ç, Àß¶ó³»±â ÀÏ¹Ý°èÁ¤ Çã¿ë
+			// 2010. 05. 25 by jskim ï¿½Ù¿ï¿½ï¿½Ö±ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ß¶ó³»±ï¿½ ï¿½Ï¹Ý°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 // 			if(COMPARE_RACE(nRace,RACE_OPERATION) || COMPARE_RACE(nRace,RACE_GAMEMASTER))
 // 			{
-			//end 2010. 05. 25 by jskim ºÙ¿©³Ö±â, º¹»ç, Àß¶ó³»±â ÀÏ¹Ý°èÁ¤ Çã¿ë
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			// °ü¸®ÀÚ¸¸ Ctrl±â´É Å°ÀÚ
+			//end 2010. 05. 25 by jskim ï¿½Ù¿ï¿½ï¿½Ö±ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ß¶ó³»±ï¿½ ï¿½Ï¹Ý°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ctrlï¿½ï¿½ï¿½ Å°ï¿½ï¿½
 				m_bControlCursel = TRUE;
 			//DBGOUT("m_bControlCursel = TRUE; \n");
 				return INF_MSGPROC_BREAK;			
@@ -7974,17 +7839,17 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 			//if(COMPARE_RACE(nRace,RACE_OPERATION) || COMPARE_RACE(nRace,RACE_GAMEMASTER))
  			//if(COMPARE_RACE(nRace,RACE_OPERATION))
  			//{
-				// °ü¸®ÀÚ¸¸ Ctrl±â´É Å°ÀÚ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ctrlï¿½ï¿½ï¿½ Å°ï¿½ï¿½
 				m_bControlCursel = TRUE;
 				//DBGOUT("m_bControlCursel = TRUE; \n");
  				//return INF_MSGPROC_BREAK;			
  			//}
-			// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			
 			return INF_MSGPROC_BREAK;
 #endif
-// end 2012-11-21 by mspark, °ü¸®ÀÚ º¹»ç, ºÙ¿©³Ö±â Çã¿ë
+// end 2012-11-21 by mspark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ù¿ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½
 		}
 		break;
 #endif
@@ -8006,7 +7871,7 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 	int strlenComp = g_input.GetComp(text, sizeof(text));
 	if(strlenComp > 0)
 	{
-		// ¾ÐÃàÁßÀÌ³Ù ¸®ÅÏ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return INF_MSGPROC_NORMAL;
 	}
 // 	if(VK_LSHIFT == lParam)
@@ -8024,12 +7889,12 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 		{
 			if(!m_bShiftClick)
 			{
-				// ½¬ÇÁÆ®°¡ Å¬¸¯ ¾ÈµÇ¾îÀÖ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ï¿½Ö´ï¿½.
 				m_bCaretCursel = FALSE;
 			}
 			else 
 			{
-				// ½¬ÇÁÆ®°¡ Å¬¸¯ µÇ¾îÀÖ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö´ï¿½.
 				m_bCaretCursel = TRUE;
 			}
 			return OnKeyDownArrow(wParam, lParam);
@@ -8038,20 +7903,20 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 	case VK_BACK:
 	case VK_DELETE:	
 		{
-			// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+			// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 			// 			if(!m_bShiftClick)
 			// 			{
-			// 				// ½¬ÇÁÆ®°¡ Å¬¸¯ ¾ÈµÇ¾îÀÖ´Ù.
+			// 				// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ï¿½Ö´ï¿½.
 			// 				m_bCaretCursel = FALSE;
 			// 			}
-			// 			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// 			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			// 			else 
 			// 			{
-			// 				// ½¬ÇÁÆ®°¡ Å¬¸¯ µÇ¾îÀÖ´Ù.
+			// 				// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö´ï¿½.
 			// 				m_bCaretCursel = TRUE;
 			// 			}
-			// 			// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+			// 			// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 			return OnKeyDownFunc(wParam, lParam);
 		}
 		break;	
@@ -8066,13 +7931,13 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 				if(strlen(chCurselSting) > 0)
 				{
 					SetClipBoard(chCurselSting);
-					// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+					// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_ptSelCurselPos.x = GetStringBuffLen(m_strPreBackupMessage);
-					// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+					// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
-				// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				m_bCaretCursel = FALSE;
-				//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				return INF_MSGPROC_BREAK;
 			}
 		}
@@ -8084,22 +7949,22 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 			{
 				m_bCaretCursel = TRUE;
 
-				// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-				// Ã¤ÆÃ¸ðµå¸¦ Àç¿ÜÇÑ ºí·° ÁöÁ¤
+				// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// Ã¤ï¿½Ã¸ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				m_ptCurselPos.x = m_ptCurselPos.y = 0;
 // 				m_ptSelCurselPos.x = GetStringBuffLen(m_strBkInputMessage);
 // 				
-// 				memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);		// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.
-// 				memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.	
+// 				memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);		// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+// 				memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.	
 // 				
 // 				strncpy(m_strNextBackupMessage, m_strBkInputMessage, (SIZE_MAX_CHAT_MESSAGE));
 // 				
 // 				g_pD3dApp->CleanText();
 // 				
-// 				// °»½Å ¹öÆÛ ÃÊ±âÈ­
+// 				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 // 				SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
 // 				
-// 				// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+// 				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 				
 
@@ -8112,26 +7977,26 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 					m_ptSelCurselPos.x = m_ptSelCurselPos.y = 0;
 				}
 				m_ptCurselPos.x = GetStringBuffLen(m_strBkInputMessage);
-				// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+				// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-				memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);		// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.
-				memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.	
+				memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);		// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+				memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.	
 
-				// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+				// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				strncpy(m_strPreBackupMessage, m_strBkInputMessage, (SIZE_MAX_CHAT_MESSAGE));
-				// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+				// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 				g_pD3dApp->CleanText();
 
-				// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
-				//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­				
+				//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­				
 				return INF_MSGPROC_BREAK;
 			}
 		}
 		break;
-		// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-		// Àß¶ó³»±â ±â´É ±¸Çö
+		// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ß¶ó³»±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case 'X':
 	case 'x':
 		{
@@ -8146,7 +8011,7 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 					
 					if(m_bCaretCursel==TRUE)
 					{
-					// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+					// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 // 						if(m_ptSelCurselPos.x != -1)
 // 						{
 // 							int  chLenTmp=0;
@@ -8155,7 +8020,7 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 // 						}
 						BlockCleanChat(m_ptCurselPos.x,m_ptSelCurselPos.x);
 						m_bCaretCursel = FALSE;
-					//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+					//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 					}
 						
 					
@@ -8165,54 +8030,54 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 			}
 		}
 		break;
-		// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+		// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case 'v':
 	case 'V':
 		{
 			int nIMELen	 = GetStringBuffLen(g_pD3dApp->m_inputkey.m_full_str);
 			
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			// ºí·° ÁöÁ¤ »óÅÂ¿¡¼­ ´Ù¸¥ ¹®ÀÚµµ ÀÔ·ÂµÇµµ·Ï ¼öÁ¤
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ô·ÂµÇµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 			if(m_bCaretCursel)
 // 			{
 // 				return INF_MSGPROC_NORMAL;
 // 			}
 			if(m_bControlCursel)
 			{	
-				// ºí·°ÁöÁ¤ »èÁ¦
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_bCaretCursel==TRUE)
 				{
-					// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+					// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 // 					if(m_ptSelCurselPos.x != -1)
 // 					{
 // 						int  chLenTmp=0;
 // 						chLenTmp = m_ptCurselPos.x-m_ptSelCurselPos.x;						
 // 						BlockCleanChat(chLenTmp);	
 						BlockCleanChat(m_ptCurselPos.x, m_ptSelCurselPos.x);
-						//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+						//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				}			
-		  	     	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È		
+		  	     	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		
 				if(nIMELen	>0)
 				{
 					//return INF_MSGPROC_NORMAL;
-					g_pD3dApp->CleanText(); // IME¹öÆÛ ÃÊ±âÈ­
+					g_pD3dApp->CleanText(); // IMEï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 				}
-				// Ä¿¼­°¡ ¾øÀ»¶§¸¸ ¼öÁ¤°¡´É
+				// Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				char chCurselSting[SIZE_MAX_CHAT_MESSAGE];
 				ZERO_MEMORY(chCurselSting);
 				
-				// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-				// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-				// ¼±ÅÃµÈ Ä¿¼­ ÃÊ±âÈ­ 
+				// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+				// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// ï¿½ï¿½ï¿½Ãµï¿½ Ä¿ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
 				//m_ptSelCurselPos.x = -1;
-				// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-				//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				PasteFromClipBoard(chCurselSting, SIZE_MAX_CHAT_MESSAGE-1);					
 				if(strlen(chCurselSting) <= 0)
 				{
 					return INF_MSGPROC_NORMAL;
 				}
-				// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				int nStartPos = GetStringBuffPos(m_strBkInputMessage, m_ptCurselPos.x);
 								
 				if(-1 == nStartPos)
@@ -8227,10 +8092,10 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 				{
 					strncpy(m_strPreBackupMessage, m_strBkInputMessage, nStartPos);
 				}
-				// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 // 				else
 // 				{
-// 					// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 					// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 					//m_strPreBackupMessage[0] = NULL;
 // 					if(ChatModeChack(m_strInputMessage[0]))
 // 					{	
@@ -8240,7 +8105,7 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 // 					{
 // 						strncpy(m_strPreBackupMessage, m_strBkInputMessage, nStartPos);
 // 					}
-// 					// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 					// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				}
 // 
 // 				if((strlen(m_strPreBackupMessage)+strlen(chCurselSting)) < SIZE_MAX_CHAT_MESSAGE )
@@ -8250,14 +8115,14 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 // 				
 // 				strcpy(m_strNextBackupMessage, &m_strBkInputMessage[nStartPos]);
 // 				
-// 				// °»½Å ¹öÆÛ ÃÊ±âÈ­
+// 				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 // 				SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);
 // 				
-// 				// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 				// ¼±ÅÃµÈ Ä¿¼­ À§Ä¡ ¹Þ¾Æ¿À±â
+// 				// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 				// ï¿½ï¿½ï¿½Ãµï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 // 				m_ptCurselPos.x = GetStringBuffLen(m_strPreBackupMessage);
-// 				// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 				// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+// 				// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 // 				if(ChatModeChack(m_strInputMessage[0]) != ChatModeChack(m_strPreBackupMessage[0]))
 // 				{	
@@ -8313,7 +8178,7 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 						}
 					}
 				}
-				//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				return INF_MSGPROC_BREAK;
 			}
 			
@@ -8326,8 +8191,8 @@ int CINFGameMainChat::OnKeyDownCursel(WPARAM wParam, LPARAM lParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		È­»ìÇ¥ Å¬¸¯
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \brief		È­ï¿½ï¿½Ç¥ Å¬ï¿½ï¿½
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -8344,7 +8209,7 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 // 				&& (m_ptSelCurselPos.x == m_ptCurselPos.x) 
 // 				&& (m_ptSelCurselPos.y == m_ptCurselPos.y))
 // 			{
-// 				// Ã³À½ Ä¿¼­ ÁöÁ¤
+// 				// Ã³ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				m_ptSelCurselPos.x++;
 // 
 // 				int nStrLen = GetStringBuffLen(m_strBkInputMessage)+1;
@@ -8354,8 +8219,8 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 // 				}			
 // 				
 // 			}
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			// Ã¤ÆÃ ¸ðµå ¹®ÀÚ·Î ÀÌµ¿ ¸øÇÏ°Ô ÇÑ´Ù
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½
 			if(ChatModeChack(m_strBkInputMessage[0]) && m_ptCurselPos.x < 2)
 			{
 				m_ptCurselPos.x = 1;
@@ -8364,13 +8229,13 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 			{
 				m_ptCurselPos.x --;			
 			}
-			// Ä¿¼­ À§Ä¡ Àû¿ë(WM_CHARÇÔ¼ö·Î ÀÌµ¿ÇÔ)			
+			// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½(WM_CHARï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½)			
 // 			int nIMELen	 = GetStringBuffLen(g_pD3dApp->m_inputkey.m_full_str);
 // 			if(nIMELen > 0)
 // 			{
 // 				m_ptCurselPos.x += nIMELen;
 // 			}
-			// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_ptCurselPos.x < 0)
 			{
 				m_ptCurselPos.x = 0;
@@ -8380,7 +8245,7 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 	case VK_RIGHT:
 		{
 			int nStrLen = GetStringBuffLen(m_strBkInputMessage);
-// 			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 			if(m_ptCurselPos.x <= nStrLen - 1 )
 // 			{
 // 				if(2 != nStrPos ||
@@ -8391,7 +8256,7 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 						m_ptCurselPos.x++;		
 // 				}
 // 			}
-			// Ä¿¼­°¡ ¸¶Áö¸· À§Ä¡¸¦ ³Ñ¾úÀ» °æ¿ì ÀÚ½ÅÀÇ Ä¿¼­ À§Ä¡¸¦ ¾÷µ¥ÀÌÆ® ÇÑ´Ù.			
+			// Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ñ´ï¿½.			
 		//	int nStrPos = GetStringBuffPos(m_strBkInputMessage, nStrLen - 1);
 			
 		//	char nChar[SIZE_MAX_CHAT_MESSAGE];
@@ -8423,7 +8288,7 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 // 					m_ptCurselPos.x += nIMELen;
 // 				}
 // 			}
-			// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_ptCurselPos.x > nStrLen)
 			{
 				m_ptCurselPos.x = nStrLen;
@@ -8432,8 +8297,8 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 		break;	
 	case VK_HOME:		
 		{
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			// Ã¤ÆÃ ¸ðµå ¹®ÀÚ·Î Ä¿¼­¸¦ ÀÌµ¿ ¸øÇÏ°Ô ÇÑ´Ù.
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.
 			if(ChatModeChack(m_strBkInputMessage[0]))
 			{
 				m_ptCurselPos.x = GetStringBuffPos(m_strBkInputMessage,1);	
@@ -8442,16 +8307,16 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 			{
 				m_ptCurselPos.x = 0;		
 			}
-			// Ã¤ÆÃ ¸ðµå ¹®ÀÚ·Î Ä¿¼­¸¦ ÀÌµ¿ ¸øÇÏ°Ô ÇÑ´Ù.
-			// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.
+			// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		break;
 	case VK_END:		
 		{
 			int nStrLen = GetStringBuffLen(m_strBkInputMessage);
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//m_ptCurselPos.x = nStrLen;
-  			// Ä¿¼­¸¦ ¸Ç³¡À¸·Î ÀÌµ¿½ÃÅ³ ¶§ ¸¶Áö¸· ¹®ÀÚÀÇ °ªÀÌ ¾²·¹±â°ªÀÌ µé¾îÀÖÀ¸¸é Ä¿¼­¸¦ ±× ÀüÀ¸·Î ÀÌµ¿½ÃÅ²´Ù.
+  			// Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â°ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 			
 // 			int nStrCusPos = GetStringBuffPos(m_strBkInputMessage, m_ptCurselPos.x);
 // 
@@ -8490,7 +8355,7 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 // 				m_ptCurselPos.x = nStrLen;
 // 			}			
  		}
-		// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+		// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		break;
 	default:
 		{
@@ -8508,8 +8373,8 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 	{
 		return INF_MSGPROC_NORMAL;		
 	}
-	memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);		// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.
-	memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.	
+	memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);		// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+	memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.	
 
 	if(nFindPos > 0)
 	{
@@ -8517,10 +8382,10 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 	}
 	strcpy(m_strNextBackupMessage, &m_strBkInputMessage[nFindPos]);
 
-	g_pD3dApp->CleanText(); // IME¹öÆÛ ÃÊ±âÈ­
+	g_pD3dApp->CleanText(); // IMEï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 
 
-	// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 	
 	return INF_MSGPROC_BREAK;
@@ -8528,8 +8393,8 @@ int CINFGameMainChat::OnKeyDownArrow(WPARAM wParam, LPARAM lParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Back, delÅ° ÀÔ·Â
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \brief		Back, delÅ° ï¿½Ô·ï¿½
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -8542,8 +8407,8 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 	{
 	case VK_BACK:
 		{
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			// ºí·°´ÜÀ§ »èÁ¦ ±¸Çö
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			// 			if((0 == strlen(g_pD3dApp->m_inputkey.m_full_str))
 			// 				&& (strlen(m_strPreBackupMessage) > 0))
 			// 			{
@@ -8561,12 +8426,12 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 			// 						}
 			// 						strncpy(m_strPreBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
 			// 						
-			// 						// °»½Å ¹öÆÛ ÃÊ±âÈ­
+			// 						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 			// 						SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);
 			// 						
 			// 						m_ptCurselPos.x = GetStringBuffLen(m_strPreBackupMessage);
 			// 
-			// 						// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+			// 						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 			int  chLenTmp=0;
 			char chTmp[SIZE_MAX_CHAT_MESSAGE];
@@ -8574,20 +8439,20 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 			
 			if(0 == strlen(g_pD3dApp->m_inputkey.m_full_str))
 			{  
-				// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 // 				if(m_ptSelCurselPos.x != -1)
-// 				{   // ºí·° ÀÛ¾÷ 
+// 				{   // ï¿½ï¿½ ï¿½Û¾ï¿½ 
 // 					chLenTmp = m_ptCurselPos.x-m_ptSelCurselPos.x;
 // 					BlockCleanChat(chLenTmp);
 // 				}
 				if(m_bCaretCursel == TRUE)
-				{   // ºí·° ÀÛ¾÷ 					
+				{   // ï¿½ï¿½ ï¿½Û¾ï¿½ 					
 					BlockCleanChat(m_ptCurselPos.x, m_ptSelCurselPos.x);
 				}
-				//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+				//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 				else
 				{
-					// ºí·°ÀÌ ¾øÀ»¶§ ÀÛ¾÷
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 					int nStrLen = GetStringBuffLen(m_strPreBackupMessage)-1;
  					if(nStrLen >= 0)
  					{
@@ -8601,12 +8466,12 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
  								strncpy(chTmp, m_strPreBackupMessage, nFindBackPos);
  							}
 	 						strncpy(m_strPreBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
- 							// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+ 							// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 //  							SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);
 //   							m_ptCurselPos.x = GetStringBuffLen(m_strPreBackupMessage);
 //   							strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
-							// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-							//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+							// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+							//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 						}
 						return INF_MSGPROC_BREAK;
 						
@@ -8618,14 +8483,14 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 		break;
 	case VK_DELETE:
 		{
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-			// ºí·°´ÜÀ§ »èÁ¦ ±¸Çö
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 			int nStringLen = GetStringBuffLen(m_strBkInputMessage);	
-// 			if((m_ptCurselPos.x != nStringLen)			// ¸¶Áö¸· À§Ä¡³Ä?
+// 			if((m_ptCurselPos.x != nStringLen)			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½?
 // 				&& (0 == strlen(g_pD3dApp->m_inputkey.m_full_str))
 // 				&& (strlen(m_strNextBackupMessage) > 0))
 // 			{
-// 				int nFindNevtPos = GetStringBuffPos(m_strNextBackupMessage, 1);	// Ã¹¹øÂ° ±ÛÀÚÀÇ ¹öÆÛ¸¦ °¡Á®¿Â´Ù			
+// 				int nFindNevtPos = GetStringBuffPos(m_strNextBackupMessage, 1);	// Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½			
 // 				if(nFindNevtPos >= 0)
 // 				{
 // 					char chTmp[SIZE_MAX_CHAT_MESSAGE];
@@ -8634,10 +8499,10 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 // 					strcpy(chTmp, &m_strNextBackupMessage[nFindNevtPos]);
 // 					strncpy(m_strNextBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
 // 					
-// 					// °»½Å ¹öÆÛ ÃÊ±âÈ­
+// 					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 // 					SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
 // 					
-// 					// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+// 					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 					strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 
 				if(0 != strlen(g_pD3dApp->m_inputkey.m_full_str))
@@ -8653,7 +8518,7 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 				ZERO_MEMORY(chTmp);
 				if(0 == strlen(g_pD3dApp->m_inputkey.m_full_str))
 				{
-					// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+					// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 // 					if(m_ptSelCurselPos.x != -1 )
 // 					{
 // 						chLenTmp = m_ptCurselPos.x-m_ptSelCurselPos.x;
@@ -8662,24 +8527,24 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 					if(m_bCaretCursel == TRUE)
 					{
 						BlockCleanChat(m_ptCurselPos.x, m_ptSelCurselPos.x);
-						// °»½Å ¹öÆÛ ÃÊ±âÈ­
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 						SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
-						// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 						strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);												
 					}
-					//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+					//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 					else
 					{
-						int nFindNevtPos = GetStringBuffPos(m_strNextBackupMessage, 1);	// Ã¹¹øÂ° ±ÛÀÚÀÇ ¹öÆÛ¸¦ °¡Á®¿Â´Ù			
+						int nFindNevtPos = GetStringBuffPos(m_strNextBackupMessage, 1);	// Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½			
 						if(nFindNevtPos >= 0)
 						{
 							strcpy(chTmp, &m_strNextBackupMessage[nFindNevtPos]);
 							strncpy(m_strNextBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
-							// °»½Å ¹öÆÛ ÃÊ±âÈ­
+							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 							SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
-							// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 		 					strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);						
-							// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+							// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						}
 					return INF_MSGPROC_BREAK;
 					}								
@@ -8691,26 +8556,26 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 	case VK_SHIFT:
 		{
 			USHORT nRace = g_pD3dApp->m_pShuttleChild->GetMyShuttleInfo().Race;
-// 2010. 05. 25 by jskim ºÙ¿©³Ö±â, º¹»ç, Àß¶ó³»±â ÀÏ¹Ý°èÁ¤ Çã¿ë
+// 2010. 05. 25 by jskim ï¿½Ù¿ï¿½ï¿½Ö±ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ß¶ó³»±ï¿½ ï¿½Ï¹Ý°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 // 			if(COMPARE_RACE(nRace,RACE_OPERATION) || COMPARE_RACE(nRace,RACE_GAMEMASTER))
 // 			{
-//end 2010. 05. 25 by jskim ºÙ¿©³Ö±â, º¹»ç, Àß¶ó³»±â ÀÏ¹Ý°èÁ¤ Çã¿ë
-			// °ü¸®ÀÚ¸¸ ½¬ÇÁÆ® ±â´É Å°ÀÚ
-			m_ptSelCurselPos = m_ptCurselPos;	// Ä¿¼­ À§Ä¡			
+//end 2010. 05. 25 by jskim ï¿½Ù¿ï¿½ï¿½Ö±ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ß¶ó³»±ï¿½ ï¿½Ï¹Ý°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ Å°ï¿½ï¿½
+			m_ptSelCurselPos = m_ptCurselPos;	// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡			
 			m_bShiftClick = TRUE;						
 			
 			return INF_MSGPROC_BREAK;
 //			}			
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È 
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 // 			if(COMPARE_RACE(nRace,RACE_OPERATION) || COMPARE_RACE(nRace,RACE_GAMEMASTER))
 //			{
-			// °ü¸®ÀÚ¸¸ ½¬ÇÁÆ® ±â´É Å°ÀÚ
-//				m_ptSelCurselPos = m_ptCurselPos;	// Ä¿¼­ À§Ä¡			
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ Å°ï¿½ï¿½
+//				m_ptSelCurselPos = m_ptCurselPos;	// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡			
 //				m_bShiftClick = TRUE;						
 //				
 //				return INF_MSGPROC_BREAK;
 //			}
-			// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È 
+			// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 			//DBGOUT("m_bCaretCursel = TRUE;m_ptSelCurselPos[%d][%d] \n", m_ptSelCurselPos.x, m_ptSelCurselPos.y);
  		}
  		break;	
@@ -8722,7 +8587,7 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -8731,18 +8596,18 @@ int CINFGameMainChat::OnKeyDownFunc(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////
 void CINFGameMainChat::InitChatMsgBuff()
 {	
-	memset(m_strBkInputMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.
-	memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.
-	memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEÃÊ±âÈ­ Àü¿¡ °ªÀ» °¡Áö°í ÀÖ´Â´Ù.	
-	m_ptCurselPos.x = m_ptCurselPos.y = 0;					// ½ÇÁ¦ ¹öÇÁ À§Ä¡	
-	// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-	//m_ptSelCurselPos.x = m_ptSelCurselPos.y = 0;			// Ä¿¼­ À§Ä¡
-	// m_ptSelCurselPos À§Ä¡¸¦ ¼±ÅÃ ¾ÈµÇÀÖ´Â »óÅÂ·Î ¼³Á¤ 
-	// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-	//m_ptSelCurselPos.x = m_ptSelCurselPos.y = -1;			// Ä¿¼­ À§Ä¡
-	m_ptSelCurselPos.x = m_ptSelCurselPos.y = 0;			// Ä¿¼­ À§Ä¡
-	//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	memset(m_strBkInputMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+	memset(m_strPreBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+	memset(m_strNextBackupMessage, 0x00, SIZE_MAX_CHAT_MESSAGE);	// IMEï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.	
+	m_ptCurselPos.x = m_ptCurselPos.y = 0;					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡	
+	// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//m_ptSelCurselPos.x = m_ptSelCurselPos.y = 0;			// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡
+	// m_ptSelCurselPos ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+	//m_ptSelCurselPos.x = m_ptSelCurselPos.y = -1;			// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡
+	m_ptSelCurselPos.x = m_ptSelCurselPos.y = 0;			// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡
+	//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_bShiftClick = FALSE;
 	m_bCaretCursel = FALSE;
 	m_bControlCursel = FALSE;
@@ -8752,7 +8617,7 @@ void CINFGameMainChat::InitChatMsgBuff()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -8765,12 +8630,12 @@ void CINFGameMainChat::SetChatMsgBuff(char* i_pImeChat)
 	int nStringLen = GetStringBuffLen(m_strBkInputMessage);
 	if(m_ptCurselPos.x == nStringLen)
 	{
-		// ÇöÀç ¸¶Áö¸· À§Ä¡´Ù
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½
 		bLastPos = TRUE;
 	}
-// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 // 	{
-// 		// ¾Õ¿¡ ¹öÇÁ¸¦ ¸ÕÀú ¾²ÀÚ
+// 		// ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		strncpy(m_strBkInputMessage, m_strPreBackupMessage, (SIZE_MAX_CHAT_MESSAGE-1));
 // 		
 // 		int nTmp = 0;
@@ -8783,23 +8648,23 @@ void CINFGameMainChat::SetChatMsgBuff(char* i_pImeChat)
 // 				nTmp = (SIZE_MAX_CHAT_MESSAGE-1)- strlen(m_strBkInputMessage);								
 // 				if(nTmp > 0)
 // 				{								
-// 					// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 					// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 					//strncat(m_strBkInputMessage, i_pImeChat, nTmp);
-// 					// ¹®ÀÚ¿­ ¸¶Áö¸·¿¡ ¾²·¹±â °ª ¾Èµé¾î°¡°Ô ¼öÁ¤ 
+// 					// ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èµï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 // 					strncat(m_strBkInputMessage, i_pImeChat, strlen(i_pImeChat));
 // 					if(m_bShiftClick = NULL)
 // 					{
 // 						m_bShiftClick = FALSE;
 // 					}
-// 					// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 					// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				}									
 // 			}
 // 			else
 // 			{
-// 				// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 				// Ã¤ÆÃ ¸ðµå ¹®ÀÚ·Î ÀÌµ¿ ¸øÇÏ°Ô ÇÑ´Ù.
+// 				// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 				// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.
 // 				//strcat(m_strBkInputMessage, i_pImeChat);
-// 				if(ChatModeChack(i_pImeChat[0]) &&		// Ã¤ÆÃ ¸ðµå¿¡ µû¶ó
+// 				if(ChatModeChack(i_pImeChat[0]) &&		// Ã¤ï¿½ï¿½ ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½
 // 				    m_strBkInputMessage[0] == i_pImeChat[0] &&
 // 					m_ptCurselPos.x > 0)	
 // 				{
@@ -8807,7 +8672,7 @@ void CINFGameMainChat::SetChatMsgBuff(char* i_pImeChat)
 // 					strcpy(i_pImeChat,&i_pImeChat[chtmp]);
 // 				}
 // 				strcat(m_strBkInputMessage, i_pImeChat);
-// 				// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 				// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 			}
 // 				
 // 		}
@@ -8821,14 +8686,14 @@ void CINFGameMainChat::SetChatMsgBuff(char* i_pImeChat)
 // 				if(nTmp > 0)
 // 				{	
 // 					//strncat(m_strBkInputMessage, m_strNextBackupMessage, nTmp);
-// 					// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// 					// ¹®ÀÚ¿­ ¸¶Áö¸·¿¡ ¾²·¹±â °ª ¾Èµé¾î°¡°Ô ¼öÁ¤ 
+// 					// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 					// ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èµï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 // 					strncat(m_strBkInputMessage, m_strNextBackupMessage, strlen(m_strNextBackupMessage));
 // 					if(m_bShiftClick = NULL)
 // 					{
 // 						m_bShiftClick = FALSE;
 // 					}
-// 					// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// 					// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				}									
 // 			}
 // 			else
@@ -8878,33 +8743,33 @@ void CINFGameMainChat::SetChatMsgBuff(char* i_pImeChat)
 				if(strlen(m_strBkInputMessage) + strlen(chrtmp) < SIZE_MAX_CHAT_MESSAGE)
 				{
 					strcat(m_strBkInputMessage, chrtmp);
-					// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­ - Ãß°¡
+					// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ - ï¿½ß°ï¿½
 					strcpy(m_strNextBackupMessage, chrtmp);
-					//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­ - Ãß°¡ 
+					//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ - ï¿½ß°ï¿½ 
 
 					break;
 				}
 			}
 		}
 	}
-	//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 	if(bLastPos)
 	{
-		// ¸¶Áö¸·¿¡ µ¤ºÙÀÌ´Â ½ÄÀÌ³Ä?
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½Ì³ï¿½?
 		m_ptCurselPos.x = GetStringBuffLen(m_strBkInputMessage);		
 	}
-	// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 	else
 	{
 		m_ptCurselPos.x = GetStringBuffLen(m_strBkInputMessage) - GetStringBuffLen(m_strNextBackupMessage); 
 	}
-	//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -8916,26 +8781,26 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 	
 	int nCurPosX = 0;
 	int nCurPosY = 0;
-	// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	char chatCurselBuff[256];
 	memset(chatCurselBuff,0x00,256);
-	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	strncpy(chatCurselBuff, m_strPreBackupMessage, SIZE_MAX_CHAT_MESSAGE);
 	
-	// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 	//if((strlen(chatCurselBuff)+strlen(g_pD3dApp->m_inputkey.m_full_str)) < (SIZE_MAX_CHAT_MESSAGE+2))
 	if((strlen(chatCurselBuff)+strlen(g_pD3dApp->m_inputkey.m_full_str)) < (SIZE_MAX_CHAT_MESSAGE))
 	{
 		//strcat(chatCurselBuff, g_pD3dApp->m_inputkey.m_full_str);
-		//chatCurselBuff¹®ÀÚ¿­¿¡ Ã¤ÆÃ¸ðµå°¡ Æ÷ÇÔµÇ¾îÀÖÀ»¶§ Clean
+		//chatCurselBuffï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¸ï¿½å°¡ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Clean
 // 		if(ChatModeChack(chatCurselBuff[0]) &&	
 // 			g_pD3dApp->m_inputkey.m_full_str[0] == chatCurselBuff[0])
 // 		{
 // 			g_pD3dApp->CleanText();  
 // 		}		
 		strcat(chatCurselBuff, g_pD3dApp->m_inputkey.m_full_str);
-		// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+		// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	else
 	{
@@ -8953,7 +8818,7 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 			}
 		}		
 	}
-	//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 	int nCurslePos = strlen(chatCurselBuff);
 
 	chatCurselBuff[nCurslePos] = '_';
@@ -8964,7 +8829,7 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 	{
 		strcat(chatCurselBuff, m_strNextBackupMessage);
 	}
-	// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+	// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 	else
 	{
 		int nFindLen = GetStringBuffLen(m_strNextBackupMessage);
@@ -8981,11 +8846,11 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 			}
 		}
 	}	
-// 	// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È	
+// 	// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 // 	int pos = GetStringBuffPos(chatCurselBuff, GetStringBuffLen(chatCurselBuff - 1));	 
 // 	int pos1 = chatCurselBuff[pos] < 0;
-// 	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-	//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+// 	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 	
 	BOOL bOnePageOver = FALSE;
  	RECT rcRender;
@@ -8995,7 +8860,7 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 	rcRender.right = m_ptSelCurselPos.x;
 	rcRender.bottom = m_ptSelCurselPos.y;
 	
-	// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	char chCurselTmp[256];
 	ZERO_MEMORY(chCurselTmp);		
 
@@ -9012,22 +8877,22 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 		}
 	}
 
-	// °¡Àå ¸¶Áö¸· ÁÙÀÇ Á¤º¸°¡ ¾Æ´Ï´Ù.		
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.		
 	int nIMELen	 = GetStringBuffLen(chatCurselBuff);
 	int nCurPos	= GetStringBuffPos(chatCurselBuff, (nCurselPosX));
 	strcpy(chCurselTmp, chatCurselBuff);
-	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 	SIZE szTmp = m_pFontInput->GetStringSize(chCurselTmp);
 	if(szTmp.cx > CHAT_INPUT_FONT_LENGTH)
 	{
-		// ÀÌ¹ÌÁö Å©±â Ã¼Å©
+		// ï¿½Ì¹ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ Ã¼Å©
 		int nFindPrePos = nCurselPosX;
 		if(nFindPrePos < 0 )
 		{
 			nFindPrePos = 0;
 		}
-		nCurPos	= GetStringBuffPos(chatCurselBuff, nFindPrePos);	// 1±ÛÀÚ Àü±îÁö º¹»çÇÏÀÚ			
+		nCurPos	= GetStringBuffPos(chatCurselBuff, nFindPrePos);	// 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½			
 		if(nCurPos >= 0)
 		{
 			//strcpy(chCurselTmp, &chatCurselBuff[nCurPos]);
@@ -9035,10 +8900,10 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 			STRING_CULL(chCurselTmp, CHAT_INPUT_FONT_LENGTH, &vecChatMessage, m_pFontInput);
 			
 			if(!vecChatMessage.empty())
-			// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+			// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//{
 			//	strncpy(chatCurselBuff, (char*)vecChatMessage[0].c_str(), 256);
-			//	bOnePageOver = TRUE;	// ÇÑÆäÀÌÁö¸¦ ³Ñ°å´Ù.
+			//	bOnePageOver = TRUE;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½.
 			//}
 			//	if(bOnePageOver)
 			//	{
@@ -9055,7 +8920,7 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 			// 		}				
 			//	}
 			{
-				// ¹®ÀÚ ´ÙÀ½¿­ ºí·° ÁöÁ¤ Ãß°¡ 
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
 				// 2013-05-14 by bhsohn Buffer OverFlow Fix
 // 				int chlen[3];
 // 				char chtmp[3][SIZE_MAX_CHAT_MESSAGE];
@@ -9080,11 +8945,11 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 				}	
 				chlensum = chlen[0] + chlen[1];
 
-				// Ã¤ÆÃ µÎ¹øÂ° ¹®ÀÚ¿­
+				// Ã¤ï¿½ï¿½ ï¿½Î¹ï¿½Â° ï¿½ï¿½ï¿½Ú¿ï¿½
 				if(rcRender.left > chlen[0] && rcRender.left <= chlensum)
 				{
 					strncpy(chatCurselBuff, chtmp[1], 256);
-					// ¿À¸¥ÂÊ ºí·°ÁöÁ¤
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if(m_ptCurselPos.x > m_ptSelCurselPos.x)
 					{
 						rcRender.left = rcRender.left - chlen[0];
@@ -9096,14 +8961,14 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 					}
 					else
 					{
-						// ¿ÞÂÊ ºí·°ÁöÁ¤
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						rcRender.left = rcRender.left - chlen[0] + 1;
 						if(rcRender.right > chlensum)
 						{
-							// 2009. 12. 03 by jskim ºÒ·°¼³Á¤ ¹®Á¦ ¼öÁ¤
+							// 2009. 12. 03 by jskim ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							//.rcRender.right = 20;
 							rcRender.right = chlen[1];
-							//end 2009. 12. 03 by jskim ºÒ·°¼³Á¤ ¹®Á¦ ¼öÁ¤
+							//end 2009. 12. 03 by jskim ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						}
 						else
 						{
@@ -9111,13 +8976,13 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 						}
 					}
 				}
-				// Ã¤ÆÃ ¼¼¹øÂ° ¹®ÀÚ¿­
+				// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â° ï¿½ï¿½ï¿½Ú¿ï¿½
 				else if(rcRender.left > chlensum)
 				{
 					strncpy(chatCurselBuff, chtmp[2], 256);
 					if(m_ptCurselPos.x > m_ptSelCurselPos.x)
 					{
-						// ¿À¸¥ÂÊ ºí·°ÁöÁ¤
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						rcRender.left = rcRender.left - chlensum;
 						rcRender.right = rcRender.right - chlensum;
 						if(rcRender.right < 0)
@@ -9127,28 +8992,28 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 					}
 					else
 					{
-						// ¿ÞÂÊ ºí·°ÁöÁ¤
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						rcRender.left = rcRender.left - chlensum + 1;
 						rcRender.right = rcRender.right - chlensum + 1;
 					}						
 				}
 				else 
 				{
-					// Ã¤ÆÃ Ã¹¹øÂ° ¹®ÀÚ¿­
+					// Ã¤ï¿½ï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½Ú¿ï¿½
 					strncpy(chatCurselBuff, chtmp[0], 256);
 					if(m_ptCurselPos.x < m_ptSelCurselPos.x)
 					{
-						//¿ÞÂÊ ºí·°ÁöÁ¤
+						//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						if(rcRender.right > chlen[0])
 						{
-							// 2009. 12. 03 by jskim ºÒ·°¼³Á¤ ¹®Á¦ ¼öÁ¤
+							// 2009. 12. 03 by jskim ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							//rcRender.right = 20;
 							rcRender.right = chlen[0];
-							//end 2009. 12. 03 by jskim ºÒ·°¼³Á¤ ¹®Á¦ ¼öÁ¤
+							//end 2009. 12. 03 by jskim ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						}
 						else
 						{
-							//¿À¸¥ÂÊ ºí·°ÁöÁ¤
+							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							rcRender.right = m_ptSelCurselPos.x + 1;
 						}
 						rcRender.left = m_ptCurselPos.x + 1;
@@ -9165,23 +9030,23 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 			rcRender.left = m_ptCurselPos.x + 1;
 		}
 	}
-	// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+	// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pFontInput->SetTextureWidth(CHAT_INPUT_FONT_LENGTH);			
 	if(m_bCaretCursel)
-		// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+		// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 		
-	{	//ºí·° ÀÖ´Â ÅØ½ºÆ® 
+	{	//ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ø½ï¿½Æ® 
 // 		if(m_ptCurselPos.x  < m_ptSelCurselPos.x )
 // 		{
 // 			rcRender.left++;
 // 			rcRender.right++;
 // 		}
-		// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+		// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		NormalizeRect(&rcRender); 
 		m_pFontInput->SetReLoadString(TRUE);
 		m_pFontInput->DrawText(CHAT_FONT_START_X+nShowTemp,
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							FONT_INPUT_Y,GUI_FONT_COLOR_Y,										  
 #else															
 							CHAT_FONT_START_Y + FONT_INPUT_Y,GUI_FONT_COLOR_Y,
@@ -9191,11 +9056,11 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 							&rcRender);
 	}
 	else
-		// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-	{   //ºí·° ¾ø´Â ÅØ½ºÆ®						//ÁÖ¼® 
-		// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+		// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	{   //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®						//ï¿½Ö¼ï¿½ 
+		// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pFontInput->DrawText(CHAT_FONT_START_X+nShowTemp,
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							FONT_INPUT_Y,GUI_FONT_COLOR_Y,										  
 #else 
 							CHAT_FONT_START_Y + FONT_INPUT_Y,GUI_FONT_COLOR_Y,
@@ -9210,7 +9075,7 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -9219,8 +9084,8 @@ void CINFGameMainChat::RenderCursel(int nShowTemp)
 ///////////////////////////////////////////////////////////////////////////////
 void CINFGameMainChat::SetClipBoard(char* i_pStr)
 {
-// 	Å¬¸³º¸µå ¿­°í -> ¸Þ¸ð¸®»ý¼ºÇØ¼­ °Å±â´Ù µ¥ÀÌÅ¸ º¹»çÁÖÇØ°í ->  Å¬¸³º¸µå ´Ý°í, ¸Þ¸ð¸®ÇØÁ¦		
-// 	Å¬¸³º¸µå´Â ¶ô,¾ð¶ôÀ» ÇØÁÖ¾î¾ß ÇÕ´Ï´Ù..ÇªÈý~¸®¼Ò½º¸¦ °øÀ¯ÇÏ±â ¶§¹®ÀÌÁÒ.
+// 	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -> ï¿½Þ¸ð¸®»ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Å±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½ ->  Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½, ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½		
+// 	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ ï¿½Õ´Ï´ï¿½..Çªï¿½ï¿½~ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if( OpenClipboard(NULL) )		
 	{		
 		if( EmptyClipboard() )			
@@ -9246,7 +9111,7 @@ void CINFGameMainChat::SetClipBoard(char* i_pStr)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -9276,8 +9141,8 @@ void CINFGameMainChat::PasteFromClipBoard(char* o_pStrTxt, int nSize)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÇöÀç ¼±ÅÃÇÑ Ä¿¼­ÀÇ ¹öÆÛ
-/// \author		// 2009-03-18 by bhsohn Ã¤ÆÃÃ¢ Ä¿¼­ ÀÌµ¿ ½Ã½ºÅÛ Ãß°¡
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2009-03-18 by bhsohn Ã¤ï¿½ï¿½Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2009-03-18 ~ 2009-03-18
 /// \warning	
 ///
@@ -9327,9 +9192,9 @@ void CINFGameMainChat::GetCurselString(char* o_pStrTxt)
 
 }
 
-// 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
-// 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
-// ºí·°ÁöÁ¤ »èÁ¦
+// 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+// 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // void CINFGameMainChat::BlockCleanChat(int chLen)
 // {
 // 	char chTmp[SIZE_MAX_CHAT_MESSAGE];
@@ -9337,7 +9202,7 @@ void CINFGameMainChat::GetCurselString(char* o_pStrTxt)
 // 	int nFindNevtPos;
 // 	int nStringLen = GetStringBuffLen(m_strBkInputMessage);	
 // 	if(chLen < 0)
-// 	{	// ¿ÞÂÊ ºí·°ÁöÁ¤ »óÅÂ
+// 	{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		nFindNevtPos= GetStringBuffPos(m_strNextBackupMessage, abs(chLen));	
 // 		
 // 		strcpy(chTmp, &m_strNextBackupMessage[nFindNevtPos]);
@@ -9346,11 +9211,11 @@ void CINFGameMainChat::GetCurselString(char* o_pStrTxt)
 // 
 // 		SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
 // 		
-// 		// ¸¶Áö¸· ¹öÆÛ¿¡ ÀúÀå
+// 		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
 // 	}
 // 	else if(chLen > 0)
-// 	{	// ¿À¸¥ÂÊ ºí·°ÁöÁ¤ »óÅÂ
+// 	{	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		int nFindLen = GetStringBuffLen(m_strPreBackupMessage)-abs(m_ptCurselPos.x-m_ptSelCurselPos.x);
 // 		nFindNevtPos = GetStringBuffPos(m_strPreBackupMessage,nFindLen);
 // 			
@@ -9379,13 +9244,13 @@ void CINFGameMainChat::BlockCleanChat(int LeftBlockPos,int RightBlockPos)
 	int nStringLen = GetStringBuffLen(m_strBkInputMessage);	
 	int BlockType = IS_BLOCK_TYPE(LeftBlockPos, RightBlockPos);
 	if(BlockType == LEFT_BLOCK)
-	{	// ¿ÞÂÊ ºí·°ÁöÁ¤ »óÅÂ
+	{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		nFindNevtPos = GetStringBuffPos(m_strNextBackupMessage, RightBlockPos - LeftBlockPos );	
 		strcpy(chTmp, &m_strNextBackupMessage[nFindNevtPos]);
 		strncpy(m_strNextBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
 	}
 	else if(BlockType == RIGHT_BLOCK)
-	{	// ¿À¸¥ÂÊ ºí·°ÁöÁ¤ »óÅÂ
+	{	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int nFindLen = GetStringBuffLen(m_strPreBackupMessage)- abs( RightBlockPos - LeftBlockPos );
 			nFindNevtPos = GetStringBuffPos(m_strPreBackupMessage,nFindLen);
 			strncpy(chTmp, m_strPreBackupMessage,nFindNevtPos);
@@ -9396,12 +9261,12 @@ void CINFGameMainChat::BlockCleanChat(int LeftBlockPos,int RightBlockPos)
 	m_bShiftClick=FALSE;
 	m_bCaretCursel=FALSE;
 }	
-//end 2010. 02. 23 by jskim Ã¤ÆÃ¹ö±× ¼öÁ¤ ¹× ÃÖÀûÈ­
+//end 2010. 02. 23 by jskim Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
 
-// Ã¤ÆÃ¸ðµå Ã¼Å© 
+// Ã¤ï¿½Ã¸ï¿½ï¿½ Ã¼Å© 
 bool CINFGameMainChat::ChatModeChack(char i_Chr)
 {
-	// 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+	// 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 	if(i_Chr=='~' ||
 // 		i_Chr=='%' ||
 // 		i_Chr=='@' ||
@@ -9415,17 +9280,20 @@ bool CINFGameMainChat::ChatModeChack(char i_Chr)
 		|| i_Chr == CHAT_GUILD
 		|| i_Chr == CHAT_PARTY
 		|| i_Chr == CHAT_WAR
+#ifdef _RAT_CHAT_SYSTEM
+		|| i_Chr == _RAT_CHAT_ALL_INFLUENCE
+#endif
 		|| i_Chr == CHAT_MAP
 		|| i_Chr == CHAT_SELL_ALL
 		|| i_Chr == CHAT_INFLUENCE_ALL
-		|| i_Chr == CHAT_CHATROOM )	// 2012-12-14 by jhseol, Ã¤ÆÃ·ëÀÌ &¸¦ ±â¾ïÇÏÁö ¸øÇØ ¸Å¹ø &¸¦ ÃÄÁà¾ß ÇÏ´Â ¹®Á¦ ¼öÁ¤ - CHAT_CHATROOM Ãß°¡
-	// end 2010. 04. 09 by ckPark Å¬¶óÀÌ¾ðÆ® ·ÎÄÃ¶óÀÌÁî ÆÄÀÏ Ãß°¡
+		|| i_Chr == CHAT_CHATROOM )	// 2012-12-14 by jhseol, Ã¤ï¿½Ã·ï¿½ï¿½ï¿½ &ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ &ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - CHAT_CHATROOM ï¿½ß°ï¿½
+	// end 2010. 04. 09 by ckPark Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	{
 		return TRUE;
 	}
 	return FALSE;
 }
-// end 2009. 07. 30 by jsKim Ã¤ÆÃÃ¢ ¹ö±× ¼öÁ¤ ¹× ±â´É º¸¾È
+// end 2009. 07. 30 by jsKim Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 void CINFGameMainChat :: GetStrPara ( char *o_szStrBuff , char *i_szString , int iParamNum /*= 0*/ )

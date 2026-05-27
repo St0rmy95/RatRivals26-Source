@@ -4,13 +4,13 @@
 
 #include "stdafx.h"
 #include "INFGameMainUnitInfoBar.h"
-#include "INFGameMainMiniMap.h" 			// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+#include "INFGameMainMiniMap.h" 			// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #include "AtumApplication.h"
 #include "INFImage.h"
 #include "GameDataLast.h"
 #include "ShuttleChild.h"
 #include "CharacterChild.h"				// 2005-07-21 by ispark
-#include "ClientParty.h"				// 2012-10-17 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+#include "ClientParty.h"				// 2012-10-17 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #include "SceneData.h"
 #include "D3DHanFont.h"
 #include "Background.h"
@@ -22,12 +22,12 @@
 #include "INFWindow.h"
 #include "INFWeaponInfo.h"
 #include "INFGameMainChat.h"
-#include "INFGroupManager.h"		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-#include "INFGroupImage.h"		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-#include "INFGameMainWisperChat.h"	// 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
+#include "INFGroupManager.h"		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#include "INFGroupImage.h"		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#include "INFGameMainWisperChat.h"	// 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-	#define GAMEMAIN_GAGE_EXP_LENGTH					219//110// ¹ÌÁ¤
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	#define GAMEMAIN_GAGE_EXP_LENGTH					219//110// ï¿½ï¿½ï¿½ï¿½
 
 	#define GAMEMAIN_BACK_GAGE_UP_SIZE_X				179
 	#define GAMEMAIN_BACK_GAGE_UP_SIZE_Y				48
@@ -37,8 +37,8 @@
 	#define GAMEMAIN_BACK_MINIMAP_START_X				(g_pD3dApp->GetBackBufferDesc().Width - GAMEMAIN_BACK_MINIMAP_SIZE_X)
 	#define GAMEMAIN_BACK_MINIMAP_START_Y				0
 
-	#define GAMEMAIN_BACK_UP_SIZE_Y						22	// È­¸é »ó´Ü
-	//#define GAMEMAIN_BACK_DOWN_SIZE_Y					39	// È­¸é ÇÏ´Ü
+	#define GAMEMAIN_BACK_UP_SIZE_Y						22	// È­ï¿½ï¿½ ï¿½ï¿½ï¿½
+	//#define GAMEMAIN_BACK_DOWN_SIZE_Y					39	// È­ï¿½ï¿½ ï¿½Ï´ï¿½
 	#define GAMEMAIN_BACK_DOWN_START_Y					(g_pD3dApp->GetBackBufferDesc().Height - GAMEMAIN_BACK_DOWN_SIZE_Y)
 
 	#define GAMEMAIN_EXP_GAGE_START_X					((g_pD3dApp->GetBackBufferDesc().Width - 219)/2)
@@ -48,13 +48,13 @@
 	#define GAMEMAIN_UNIT_POS_START_Y					5
 
 	//#define GAMEMAIN_BACK_GAGE_EXP_START_X				((g_pD3dApp->GetBackBufferDesc().Width - 234)/2)
-	#define GAMEMAIN_BACK_GAGE_EXP_START_Y				(g_pD3dApp->GetBackBufferDesc().Height - m_pImgMainExpBack->GetImgSize().y)		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	#define GAMEMAIN_BACK_GAGE_EXP_START_Y				(g_pD3dApp->GetBackBufferDesc().Height - m_pImgMainExpBack->GetImgSize().y)		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	#define GAMEMAIN_STRING_FUEL_START_X				163*HIDPI_COEFF
 
 	#define GAMEMAIN_STRING_EXP_START_X					g_pD3dApp->GetBackBufferDesc().Width / 2
 
-	// ½ºÆ®¸µ À§Ä¡ Á¤ÀÇ
+	// ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	#define GAMEMAIN_NEW_STRING_HP_START_X				17*HIDPI_COEFF
 	#define GAMEMAIN_NEW_STRING_HP_START_Y				80*HIDPI_COEFF
 	#define GAMEMAIN_GAGE_HP_UP_START_X					28*HIDPI_COEFF
@@ -70,7 +70,7 @@
 	#define GAMEMAIN_NEW_STRING_MAX_SP_START_Y			70*HIDPI_COEFF
 
 
-	// ¸ÞÀÎ °ÔÀÌÁö °ü·Ã Á¤ÀÇ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /* Unused
 	#define GAMEMAIN_GAGE_HP_START_X					15
 	#define GAMEMAIN_GAGE_HP_START_Y					29
@@ -89,19 +89,19 @@
 	#define GAMEMAIN_VOICECHAT_H						26
 
 
-	// SPEED ½ºÆ®¸µ °ü·Ã Á¤ÀÇ
+	// SPEED ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	#define SPEED_STRING_START_X						80*HIDPI_COEFF
 	#define SPEED_STRING_START_Y						105*HIDPI_COEFF
 	#define SPEED_STRING_WIDTH							19
 	#define SPEED_STRING_HEIGHT							17
 
-	// ¸ÊÀÌ¸§ °ü·Ã Á¤ÀÇ
+	// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	#define GAME_MAP_NAME_RENDER_X						(g_pD3dApp->GetBackBufferDesc().Width-30)
 	#define GAME_MAP_NAME_RENDER_Y						4
 	#define GAME_MAP_NAME_TEXT_COLOR					RGB(200,200,200)
 	#define GAME_UNIT_POS_COLOR							RGB(200,200,200)
 
-	// ·¹ÀÌ´õ À§Ä¡ Á¤ÀÇ
+	// ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	#define RADER_CENTER_POS_X							(g_pD3dApp->GetBackBufferDesc().Width-75)	
 	#define RADER_CENTER_POS_Y							82 + 16
 	#define RADER_RADIUS								64
@@ -109,8 +109,8 @@
 	#define GAME_EVENT_BASICPOS_X						242
 	#define GAME_EVENT_BASICPOS_Y						32
 
-	// 2006-03-07 by ispark, ¾ð¾î¿¡ µû¶ó À§Ä¡ ¼öÁ¤
-	#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ÅÂ±¹ ¹öÀü Ãß°¡
+	// 2006-03-07 by ispark, ï¿½ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+	#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		#define GAMEMAIN_STRING_FUEL_START_Y				72*HIDPI_COEFF//
 		#define GAMEMAIN_STRING_EXP_START_Y					g_pD3dApp->GetBackBufferDesc().Height - 14*HIDPI_COEFF//11)
 		#define GAMEMAIN_NEW_STRING_MAX_HP_START_X			25*HIDPI_COEFF//21
@@ -127,16 +127,16 @@
 	#endif
 
 
-	#define INFOMAIN_GIFT_ICON_X				75		// 2012-08-14 by mspark, ±âÇÁÆ® ¾ÆÀÌÄÜ À§Ä¡ ¼öÁ¤ - ±âÁ¸ 70¿¡¼­ 75·Î ¼öÁ¤
+	#define INFOMAIN_GIFT_ICON_X				75		// 2012-08-14 by mspark, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ 70ï¿½ï¿½ï¿½ï¿½ 75ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	#define INFOMAIN_GIFT_CITY_ICON_Y			130
-	#define INFOMAIN_GIFT_FIELD_ICON_Y			176		// 2012-08-14 by mspark, ±âÇÁÆ® ¾ÆÀÌÄÜ À§Ä¡ ¼öÁ¤ - ±âÁ¸ 89¿¡¼­ 176À¸·Î ¼öÁ¤
+	#define INFOMAIN_GIFT_FIELD_ICON_Y			176		// 2012-08-14 by mspark, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ 89ï¿½ï¿½ï¿½ï¿½ 176ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2008-03-25 by dgwoo ¸ð¼±Àü ÁøÇà ¹öÆ°.
+	// 2008-03-25 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°.
 	#define MOTHERSHIP_BUTTON_X					(nBoldPosX+nBalonWidth)
 	#define MOTHERSHIP_BUTTON_Y					(nBoldPosY)
 															 
 #else
-#define GAMEMAIN_GAGE_EXP_LENGTH					219//110// ¹ÌÁ¤
+#define GAMEMAIN_GAGE_EXP_LENGTH					219//110// ï¿½ï¿½ï¿½ï¿½
 
 #define GAMEMAIN_BACK_GAGE_UP_SIZE_X				179
 #define GAMEMAIN_BACK_GAGE_UP_SIZE_Y				48
@@ -146,8 +146,8 @@
 #define GAMEMAIN_BACK_MINIMAP_START_X				(g_pD3dApp->GetBackBufferDesc().Width - GAMEMAIN_BACK_MINIMAP_SIZE_X)
 #define GAMEMAIN_BACK_MINIMAP_START_Y				0
 
-#define GAMEMAIN_BACK_UP_SIZE_Y						22	// È­¸é »ó´Ü
-#define GAMEMAIN_BACK_DOWN_SIZE_Y					39	// È­¸é ÇÏ´Ü
+#define GAMEMAIN_BACK_UP_SIZE_Y						22	// È­ï¿½ï¿½ ï¿½ï¿½ï¿½
+#define GAMEMAIN_BACK_DOWN_SIZE_Y					39	// È­ï¿½ï¿½ ï¿½Ï´ï¿½
 #define GAMEMAIN_BACK_DOWN_START_Y					(g_pD3dApp->GetBackBufferDesc().Height - GAMEMAIN_BACK_DOWN_SIZE_Y)
 
 #define GAMEMAIN_EXP_GAGE_START_X					((g_pD3dApp->GetBackBufferDesc().Width - 219)/2)
@@ -163,7 +163,7 @@
 
 #define GAMEMAIN_STRING_EXP_START_X					((g_pD3dApp->GetBackBufferDesc().Width)/2 - 35)
 
-// ½ºÆ®¸µ À§Ä¡ Á¤ÀÇ
+// ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 #define GAMEMAIN_NEW_STRING_HP_START_X				17
 #define GAMEMAIN_NEW_STRING_HP_START_Y				80
 #define GAMEMAIN_GAGE_HP_UP_START_X					21
@@ -179,7 +179,7 @@
 #define GAMEMAIN_NEW_STRING_MAX_SP_START_Y			62
 
 
-// ¸ÞÀÎ °ÔÀÌÁö °ü·Ã Á¤ÀÇ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #define GAMEMAIN_GAGE_HP_START_X					15
 #define GAMEMAIN_GAGE_HP_START_Y					29
@@ -197,19 +197,19 @@
 #define GAMEMAIN_VOICECHAT_H						26
 
 
-// SPEED ½ºÆ®¸µ °ü·Ã Á¤ÀÇ
+// SPEED ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define SPEED_STRING_START_X						80	
 #define SPEED_STRING_START_Y						90
 #define SPEED_STRING_WIDTH							19
 #define SPEED_STRING_HEIGHT							17
 
-// ¸ÊÀÌ¸§ °ü·Ã Á¤ÀÇ
+// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define GAME_MAP_NAME_RENDER_X						(g_pD3dApp->GetBackBufferDesc().Width-30)
 #define GAME_MAP_NAME_RENDER_Y						4
 #define GAME_MAP_NAME_TEXT_COLOR					RGB(200,200,200)
 #define GAME_UNIT_POS_COLOR							RGB(200,200,200)
 
-// ·¹ÀÌ´õ À§Ä¡ Á¤ÀÇ
+// ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 #define RADER_CENTER_POS_X							(g_pD3dApp->GetBackBufferDesc().Width-75)	
 #define RADER_CENTER_POS_Y							82 + 16
 #define RADER_RADIUS								64
@@ -217,8 +217,8 @@
 #define GAME_EVENT_BASICPOS_X						192
 #define GAME_EVENT_BASICPOS_Y						32
 
-// 2006-03-07 by ispark, ¾ð¾î¿¡ µû¶ó À§Ä¡ ¼öÁ¤
-#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ÅÂ±¹ ¹öÀü Ãß°¡
+// 2006-03-07 by ispark, ï¿½ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+#if defined(LANGUAGE_ENGLISH) || defined(LANGUAGE_VIETNAM)|| defined(LANGUAGE_THAI)// 2008-04-30 by bhsohn ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #define GAMEMAIN_STRING_FUEL_START_Y				3//5
 #define GAMEMAIN_STRING_EXP_START_Y					(GAMEMAIN_BACK_DOWN_START_Y - 13)//11)
 #define GAMEMAIN_NEW_STRING_MAX_HP_START_X			25//21
@@ -239,12 +239,12 @@
 #define INFOMAIN_GIFT_CITY_ICON_Y			130
 #define INFOMAIN_GIFT_FIELD_ICON_Y			89
 
-// 2008-03-25 by dgwoo ¸ð¼±Àü ÁøÇà ¹öÆ°.
+// 2008-03-25 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°.
 #define MOTHERSHIP_BUTTON_X					(nBoldPosX+nBalonWidth)
 #define MOTHERSHIP_BUTTON_Y					(nBoldPosY)
 #endif
 
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	#define RESTCOUNT_STRING_WIDTH				24
 	#define RESTCOUNT_STRING_HEIGHT				22
 	
@@ -268,7 +268,7 @@
 	#define BONUS_EXP_RATE_TEXT_POS_Y			88
 	#define BONUS_EXP_RATE_TEXT_LINE_HEIGHT		22
 
-	#define RESTKILLCOUNT_BASE_POS_X			87			// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó - ±âÁ¸ 77¿¡¼­ 87·Î º¯°æ	
+	#define RESTKILLCOUNT_BASE_POS_X			87			// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ 77ï¿½ï¿½ï¿½ï¿½ 87ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	#define RESTKILLCOUNT_BASE_POS_Y			333	
 	#define RESTKILLCOUNT_BASE_HEIGHT_SIZE		10	
 	#define RESTKILLCOUNT_MOVE_HAPPYHOUR		34
@@ -303,9 +303,9 @@
 	#define BONUS_EXP_RATE_POPUP_RECT_TOP		78
 	#define BONUS_EXP_RATE_POPUP_RECT_RIGHT		130
 	#define BONUS_EXP_RATE_POPUP_RECT_BOTTOM	22	
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+	// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	#define RESTKILLCOUNT_BUTTON_BASE_POS_X			15
 	#define RESTKILLCOUNT_BUTTON_BASE_POS_Y			333	
 	#define RESTKILLCOUNT_BUTTON_BASE_HEIGHT_SIZE	10
@@ -316,7 +316,7 @@
 	#define	RESTCOUNT_IMAGE_POS_LIMIT			145
 	#define	KILLCOUNT_IMAGE_POS_LIMIT			130
 	#define	RESTKILLCOUNT_IMAGE_MOVE_VALUE		10
-	// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+	// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -333,7 +333,7 @@ CINFGameMainUnitInfoBar::CINFGameMainUnitInfoBar(CAtumNode* pParent)
 	m_v2MousePt.y = g_pD3dApp->GetBackBufferDesc().Height/2;
 
 
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ// 	
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½// 	
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL] = NULL;
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL] = NULL;
 
@@ -353,7 +353,7 @@ CINFGameMainUnitInfoBar::CINFGameMainUnitInfoBar(CAtumNode* pParent)
 	m_pImgMainGageBack = NULL;
 	m_pImgMainExpBack = NULL;
 	m_pImgMainExpBar = NULL;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgMainExpBar1 = NULL;
 #endif
 	m_pImgMainSpeedNum = NULL;
@@ -361,18 +361,18 @@ CINFGameMainUnitInfoBar::CINFGameMainUnitInfoBar(CAtumNode* pParent)
 	m_pImgMainWarning = NULL;
 	m_pImgGeneralPremiumCard = NULL;
 
-	// 2009. 03. 16 by ckPark ¸â¹ö½± ÅøÆÁ Ãß°¡
+	// 2009. 03. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	m_bPremiumToolTip = FALSE;
 
-	// end 2009. 03. 16 by ckPark ¸â¹ö½± ÅøÆÁ Ãß°¡
+	// end 2009. 03. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	m_pImgSuperPremiumCard = NULL;
 	m_pImgHappyHourEvent = NULL;
 	m_pImgPCHappyHourEvent = NULL;
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	m_pImgPCHomePremiumEvent = NULL;
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	m_pImgVoiceChatIcon = NULL;
 	int i;
 	for(i = 0; i < GAMEMAIN_EVENT_RECOVERY_MAX; i++)
@@ -395,48 +395,48 @@ CINFGameMainUnitInfoBar::CINFGameMainUnitInfoBar(CAtumNode* pParent)
 	m_pFontCurrentEvent = NULL;
 	m_pFontEventHappyHour = NULL;
 	m_pFontEventRecovery = NULL;
-	m_pFontDecaToolTip = NULL;							// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+	m_pFontDecaToolTip = NULL;							// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	m_bRenderEvent = FALSE;
 	m_nHappyHourX = 0;
 	m_nHappyHourY = 0;
 	m_bRenderEventRecovery = FALSE;
 	
-	// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+	// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//m_BHappyHourEvent = 0x00;
 	m_byHappyHourInfluence = 0x00;
 	m_bPcBangHappyHour = FALSE;
-	// end 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+	// end 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	m_bMemberPCBang = FALSE;	
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	m_pMemberPremiumEvent = FALSE;
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 
-	// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
-	memset(&m_HappyEventInfo, 0x00, sizeof(EVENT_INFO));				//¼¼·Â ÁøÇü
-	memset(&m_HappyEventAllInfluInfo, 0x00, sizeof(EVENT_INFO));		// ÀüÃ¼ ÁøÇü
-	memset(&m_PCHappyEventInfo, 0x00, sizeof(EVENT_INFO));				// pc¹æ 
+	// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	memset(&m_HappyEventInfo, 0x00, sizeof(EVENT_INFO));				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	memset(&m_HappyEventAllInfluInfo, 0x00, sizeof(EVENT_INFO));		// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+	memset(&m_PCHappyEventInfo, 0x00, sizeof(EVENT_INFO));				// pcï¿½ï¿½ 
 	m_bHappyHourAllInfluence = FALSE;
 
 	m_vecGiftMsg.clear();
 	m_fGiftTime = 0.0f;
 
-	// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+	// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 	m_bMotherHappyHour = FALSE;
 	memset(&m_MotherShipEventInfo, 0x00, sizeof(EVENT_INFO));
 
 	m_bItemHappyHour = FALSE;
 	memset(&m_ItemEventInfo, 0x00, sizeof(EVENT_INFO));
-	// end 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+	// end 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+	// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgVoiceSPKIcon = NULL;
 	
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pGageBarInfo = NULL;
 #endif
 	
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_pImgBonusExpRate = NULL;
 	m_pImgRestCount = NULL;
 	m_pImgKillCount = NULL;
@@ -459,9 +459,9 @@ CINFGameMainUnitInfoBar::CINFGameMainUnitInfoBar(CAtumNode* pParent)
 	m_bCompleteKillCount = false;
 	m_nCompleteKillCountBlank = 0;
 	m_nCompleteKillCountAlpha = 0;
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	m_pImgRestCountOnBtn = NULL;
 	m_pImgRestCountOffBtn = NULL;
@@ -486,18 +486,18 @@ CINFGameMainUnitInfoBar::CINFGameMainUnitInfoBar(CAtumNode* pParent)
 	m_fPlusRestCountPosX = 0;
 	m_fPlusKillCountPosX = 0;
 
-	// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+	// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	m_bRestCountToolTip = FALSE;
 	m_bKillCountToolTip = FALSE;
-	// end 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+	// end 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 CINFGameMainUnitInfoBar::~CINFGameMainUnitInfoBar()
 {
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE(m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]);
 	SAFE_DELETE(m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]);
 
@@ -521,7 +521,7 @@ CINFGameMainUnitInfoBar::~CINFGameMainUnitInfoBar()
 	SAFE_DELETE(m_pImgMainGageBack);
 	SAFE_DELETE(m_pImgMainExpBack);
 	SAFE_DELETE(m_pImgMainExpBar);
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE(m_pImgMainExpBar1);
 #endif
 	SAFE_DELETE(m_pImgMainSpeedNum);
@@ -531,9 +531,9 @@ CINFGameMainUnitInfoBar::~CINFGameMainUnitInfoBar()
 	SAFE_DELETE(m_pImgSuperPremiumCard);
 	SAFE_DELETE(m_pImgHappyHourEvent);
 	SAFE_DELETE(m_pImgPCHappyHourEvent);
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	SAFE_DELETE(m_pImgPCHomePremiumEvent);
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	SAFE_DELETE(m_pImgVoiceChatIcon);
 	for(i = 0; i < GAMEMAIN_EVENT_RECOVERY_MAX; i++)
 	{
@@ -566,14 +566,14 @@ CINFGameMainUnitInfoBar::~CINFGameMainUnitInfoBar()
 	SAFE_DELETE(m_pFontCurrentEvent);
 	SAFE_DELETE(m_pFontEventHappyHour);
 	SAFE_DELETE(m_pFontEventRecovery);
-	SAFE_DELETE(m_pFontDecaToolTip);						// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+	SAFE_DELETE(m_pFontDecaToolTip);						// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	m_vecGiftMsg.clear();
 					  
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE( m_pGageBarInfo );																  
 #endif
 
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE(m_pImgBonusExpRate);
 	SAFE_DELETE(m_pImgRestCount);
 	SAFE_DELETE(m_pImgKillCount);
@@ -581,16 +581,16 @@ CINFGameMainUnitInfoBar::~CINFGameMainUnitInfoBar()
 	SAFE_DELETE(m_pImgKillEff);
 	SAFE_DELETE(m_pGroupImgRestCountBack);
 	SAFE_DELETE(m_pGroupImgKillCountBack);
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	SAFE_DELETE(m_pImgRestCountOnBtn);
 	SAFE_DELETE(m_pImgRestCountOffBtn);
 	SAFE_DELETE(m_pImgKillCountOnBtn);
 	SAFE_DELETE(m_pImgKillCountOffBtn);
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 void CINFGameMainUnitInfoBar::UpdateAllGage()
@@ -610,8 +610,8 @@ void CINFGameMainUnitInfoBar::SetHP(float fCurrent, float fMax)
 {
 	if(fMax< fCurrent)
 		fCurrent = fMax;
-	wsprintf(m_szGageInfo[GAMEMAIN_NEW_STRING_HP], STRMSG_C_INTERFACE_0022);//"¿¡³ÊÁö"
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	wsprintf(m_szGageInfo[GAMEMAIN_NEW_STRING_HP], STRMSG_C_INTERFACE_0022);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	wsprintf(m_szGageInfo[GAMEMAIN_GAGE_HP_UP], "%4d/", (int)fCurrent);
 	wsprintf(m_szGageInfo[GAMEMAIN_NEW_STRING_MAX_HP], "%d", (int)fMax);
 #else
@@ -625,8 +625,8 @@ void CINFGameMainUnitInfoBar::SetDP(float fCurrent, float fMax)
 {
 	if(fMax< fCurrent)
 		fCurrent = fMax;
-	wsprintf(m_szGageInfo[GAMEMAIN_NEW_STRING_DP], STRMSG_C_INTERFACE_0023);//"½¯µå"
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	wsprintf(m_szGageInfo[GAMEMAIN_NEW_STRING_DP], STRMSG_C_INTERFACE_0023);//"ï¿½ï¿½ï¿½ï¿½"
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	wsprintf(m_szGageInfo[GAMEMAIN_GAGE_DP_UP], "%d/", (int)fCurrent);
 	wsprintf(m_szGageInfo[GAMEMAIN_NEW_STRING_MAX_DP], "%d", (int)fMax);
 #else
@@ -694,14 +694,14 @@ void CINFGameMainUnitInfoBar::SetSpeed(float fCurrent, float fMin, float fMax)
 {
 	if(fMin > 0)
 	{
-		fMin = 0;// ÃÖ¼Ò °ªÀº 0À¸·Î ÇÑ´Ù.À½¼öÀÎ °æ¿ì¸¦ ´ëºñÇØ¼­ ÀÌ °ªÀ» »ç¿ëÇÑ´Ù.
+		fMin = 0;// ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¦ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	}
 	m_fGageRate[GAMEMAIN_GAGE_SPEED_UP] = (fCurrent-fMin)/(fMax-fMin);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::SetHappyHourEvent(BOOL bStart)
-/// \brief		ÀÌº¥Æ® °ü·Ã ¾ÆÀÌÄÜµéÀÇ À§Ä¡¸¦ ¼ÂÆÃÇØÁÖ´Â ÇÔ¼ö.
+/// \brief		ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½.
 /// \author		dgwoo
 /// \date		2007-01-25 ~ 2007-01-25
 /// \warning	
@@ -711,7 +711,7 @@ void CINFGameMainUnitInfoBar::SetSpeed(float fCurrent, float fMin, float fMax)
 ///////////////////////////////////////////////////////////////////////////////
 void CINFGameMainUnitInfoBar::SetHappyHourEventIconPos()
 {
-	// ÇØÇÇ¾Æ¿ö ÀÌº¥Æ®.
+	// ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ®.
 	if(g_pD3dApp->GetTestServerFlag() == FALSE)
 	{
 		m_nHappyHourX = g_pD3dApp->GetBackBufferDesc().Width - GAME_EVENT_BASICPOS_X;
@@ -720,15 +720,15 @@ void CINFGameMainUnitInfoBar::SetHappyHourEventIconPos()
 	{
 		m_nHappyHourX = g_pD3dApp->GetBackBufferDesc().Width - 120;
 	}
-	// PC¹æ °¡¸ÍÁ¡.
+	// PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	m_nPCHappyHourX = g_pD3dApp->GetBackBufferDesc().Width - 64;
 }
 
 HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 {
 	ASSERT_ASSERT(m_pGameData);
-	// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ	  
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	  
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DataHeader *pDataHeader;
 // 	DataHeader *pDataHeader = m_pGameData->Find("mnupbkpx");
 // 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL] = new CINFImage;
@@ -762,18 +762,18 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 	int i=0;
 	for(i=0;i<GAMEMAIN_GAGE_LINE_NUMBER;i++)
 	{
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pFontGageInfo[i] = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 7 * HIDPI_COEFF, D3DFONT_ZENABLE, TRUE, 256 * HIDPI_COEFF, 32 * HIDPI_COEFF);
 #else
 		m_pFontGageInfo[i] = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 8, D3DFONT_ZENABLE, TRUE, 256, 32);
 #endif
 		m_pFontGageInfo[i]->InitDeviceObjects(g_pD3dDev) ;
 	}	
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-	// 2014-11-15 by shchoi ÁÂÇ¥ ÆùÆ® Å×µÎ¸® Ãß°¡
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2014-11-15 by shchoi ï¿½ï¿½Ç¥ ï¿½ï¿½Æ® ï¿½×µÎ¸ï¿½ ï¿½ß°ï¿½
 	//m_pFontUnitPosInfo = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 7, D3DFONT_ZENABLE, FALSE, 256, 32);
 	m_pFontUnitPosInfo = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 7 * HIDPI_COEFF, D3DFONT_ZENABLE, TRUE, 256 * HIDPI_COEFF, 32 * HIDPI_COEFF);
-	// end 2014-11-15 by shchoi ÁÂÇ¥ ÆùÆ® Å×µÎ¸® Ãß°¡
+	// end 2014-11-15 by shchoi ï¿½ï¿½Ç¥ ï¿½ï¿½Æ® ï¿½×µÎ¸ï¿½ ï¿½ß°ï¿½
 #else																										
 	m_pFontUnitPosInfo = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()), 8, D3DFONT_ZENABLE, FALSE, 256, 32);
 #endif
@@ -804,7 +804,7 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 	m_pImgMainExpBar = new CINFImageEx;
 	m_pImgMainExpBar->InitDeviceObjects( pDataHeader );
 													 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	pDataHeader = m_pGameData->Find("expbar1");
 	m_pImgMainExpBar1 = new CINFImageEx;
 	m_pImgMainExpBar1->InitDeviceObjects( pDataHeader );										  
@@ -838,11 +838,11 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 	m_pImgPCHappyHourEvent = new CINFImageEx;
 	m_pImgPCHappyHourEvent->InitDeviceObjects( pDataHeader );
 	
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	pDataHeader = m_pGameData->Find("home_pre");
 	m_pImgPCHomePremiumEvent = new CINFImageEx;
 	m_pImgPCHomePremiumEvent->InitDeviceObjects( pDataHeader );
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 
 	pDataHeader = m_pGameData->Find("spkicon");
 	m_pImgVoiceSPKIcon = new CINFImageEx;
@@ -850,7 +850,7 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 
 	if(m_pImgVoiceChatIcon == NULL)
 	{
-		// 2008-10-20 by bhsohn VOIP ¹ö±× ¼öÁ¤
+		// 2008-10-20 by bhsohn VOIP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		m_pImgVoiceChatIcon = new CINFImageBtn;
 //		m_pImgVoiceChatIcon->InitDeviceObjects("voiceicon");
 		pDataHeader = m_pGameData->Find("voiceicon");
@@ -922,7 +922,7 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 		m_pImgGiftIcon[i]->InitDeviceObjects( pDataHeader );	
 	}
 	
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	if(m_pImgBonusExpRate == NULL)
 	{
@@ -969,9 +969,9 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 		m_pGroupImgKillCountBack->InitDeviceObjects( g_pD3dApp->m_pImageList );
 	}
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	char szUpBtn[30] = {'\0', }, szDownBtn[30] = {'\0', }, szSelBtn[30] = {'\0', }, szDisBtn[30] = {'\0', };
 	wsprintf(szUpBtn, "kill_on3");
@@ -1008,7 +1008,7 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 		m_pImgKillCountOffBtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn,"STRTOOLTIP23");
 	}
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	
 	m_pFontMapName = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9 * HIDPI_COEFF, D3DFONT_ZENABLE,  TRUE,512 * HIDPI_COEFF,32 * HIDPI_COEFF);
@@ -1023,7 +1023,7 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 	m_pFontEventRecovery = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9 * HIDPI_COEFF, D3DFONT_ZENABLE,  TRUE,512 * HIDPI_COEFF,32 * HIDPI_COEFF);
 	m_pFontEventRecovery->InitDeviceObjects(g_pD3dDev);
 
-	m_pFontDecaToolTip = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9 * HIDPI_COEFF, D3DFONT_ZENABLE,  TRUE,1024 * HIDPI_COEFF,32 * HIDPI_COEFF);				// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+	m_pFontDecaToolTip = new CD3DHanFont(_T(g_pD3dApp->GetFontStyle()),9 * HIDPI_COEFF, D3DFONT_ZENABLE,  TRUE,1024 * HIDPI_COEFF,32 * HIDPI_COEFF);				// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	m_pFontDecaToolTip->InitDeviceObjects(g_pD3dDev);
 
 	return S_OK;
@@ -1033,7 +1033,7 @@ HRESULT CINFGameMainUnitInfoBar::RestoreDeviceObjects()
 {
 	if(!m_bRestored)
 	{
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->RestoreDeviceObjects();
 		m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->RestoreDeviceObjects();
 		m_pImgBackMinimap->RestoreDeviceObjects();
@@ -1055,7 +1055,7 @@ HRESULT CINFGameMainUnitInfoBar::RestoreDeviceObjects()
 		m_pImgMainGageBack->RestoreDeviceObjects();
 		m_pImgMainExpBack->RestoreDeviceObjects();
 		m_pImgMainExpBar->RestoreDeviceObjects();
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainExpBar1->RestoreDeviceObjects(); 
 #endif
 		m_pImgMainSpeedNum->RestoreDeviceObjects();
@@ -1065,9 +1065,9 @@ HRESULT CINFGameMainUnitInfoBar::RestoreDeviceObjects()
 		m_pImgSuperPremiumCard->RestoreDeviceObjects();
 		m_pImgHappyHourEvent->RestoreDeviceObjects();
 		m_pImgPCHappyHourEvent->RestoreDeviceObjects();
-		// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+		// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 		m_pImgPCHomePremiumEvent->RestoreDeviceObjects();
-		//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+		//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 		m_pImgVoiceChatIcon->RestoreDeviceObjects();
 		m_pImgVoiceSPKIcon->RestoreDeviceObjects();
 		//m_pImgVoiceChatIcon->SetBtnPosition(GAMEMAIN_VOICECHAT_X,GAMEMAIN_VOICECHAT_Y);
@@ -1113,10 +1113,10 @@ HRESULT CINFGameMainUnitInfoBar::RestoreDeviceObjects()
 		if(m_pFontEventRecovery)
 			m_pFontEventRecovery->RestoreDeviceObjects();		
 		if(m_pFontDecaToolTip)							
-			m_pFontDecaToolTip->RestoreDeviceObjects();						// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+			m_pFontDecaToolTip->RestoreDeviceObjects();						// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 			
 
-		// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+		// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 		if(m_pImgBonusExpRate)
 			m_pImgBonusExpRate->RestoreDeviceObjects();
@@ -1133,9 +1133,9 @@ HRESULT CINFGameMainUnitInfoBar::RestoreDeviceObjects()
 		if(m_pGroupImgKillCountBack)
 			m_pGroupImgKillCountBack->RestoreDeviceObjects();	
 #endif //S_BONUSEXPSYSTEM_RENEWAL
-		// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+		// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 		if(m_pImgRestCountOnBtn)
 		{
@@ -1154,7 +1154,7 @@ HRESULT CINFGameMainUnitInfoBar::RestoreDeviceObjects()
 			m_pImgKillCountOffBtn->RestoreDeviceObjects();
 		}
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 		m_bRestored = TRUE;
@@ -1166,7 +1166,7 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 {
 	if(m_bRestored)
 	{
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->InvalidateDeviceObjects();
 		m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->InvalidateDeviceObjects();
 		m_pImgBackMinimap->InvalidateDeviceObjects();
@@ -1187,7 +1187,7 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 		m_pImgMainGageBack->InvalidateDeviceObjects();
 		m_pImgMainExpBack->InvalidateDeviceObjects();
 		m_pImgMainExpBar->InvalidateDeviceObjects();
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainExpBar1->InvalidateDeviceObjects();
 #endif
 		m_pImgMainSpeedNum->InvalidateDeviceObjects();
@@ -1197,9 +1197,9 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 		m_pImgSuperPremiumCard->InvalidateDeviceObjects();
 		m_pImgHappyHourEvent->InvalidateDeviceObjects();
 		m_pImgPCHappyHourEvent->InvalidateDeviceObjects();
-		// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+		// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 		m_pImgPCHomePremiumEvent->InvalidateDeviceObjects();
-		//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+		//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 		m_pImgVoiceChatIcon->InvalidateDeviceObjects();
 		m_pImgVoiceSPKIcon->InvalidateDeviceObjects();
 		for(i = 0; i < GAMEMAIN_EVENT_RECOVERY_MAX; i++)
@@ -1244,14 +1244,14 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 		if(m_pFontEventRecovery)
 			m_pFontEventRecovery->InvalidateDeviceObjects();		
 		if(m_pFontDecaToolTip)
-			m_pFontDecaToolTip->InvalidateDeviceObjects();				// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+			m_pFontDecaToolTip->InvalidateDeviceObjects();				// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_pGageBarInfo)
 			m_pGageBarInfo->InvalidateDeviceObjects();											  
 #endif
 
-		// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+		// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 		if(m_pImgBonusExpRate)
 			m_pImgBonusExpRate->InvalidateDeviceObjects();
@@ -1269,9 +1269,9 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 		if(m_pGroupImgKillCountBack)
 			m_pGroupImgKillCountBack->InvalidateDeviceObjects();
 #endif //S_BONUSEXPSYSTEM_RENEWAL
-		// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+		// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 		if(m_pImgRestCountOnBtn)
 		{
@@ -1290,7 +1290,7 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 			m_pImgKillCountOffBtn->InvalidateDeviceObjects();
 		}
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		m_bRestored = FALSE;
 	}
@@ -1299,14 +1299,14 @@ HRESULT CINFGameMainUnitInfoBar::InvalidateDeviceObjects()
 
 HRESULT CINFGameMainUnitInfoBar::DeleteDeviceObjects()
 {
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->DeleteDeviceObjects();
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->DeleteDeviceObjects();
 	m_pImgBackMinimap->DeleteDeviceObjects();
 #endif
 	m_pFontUnitPosInfo->DeleteDeviceObjects();
 
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE(m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]);
 	SAFE_DELETE(m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]);
 	SAFE_DELETE(m_pImgBackMinimap);
@@ -1335,7 +1335,7 @@ HRESULT CINFGameMainUnitInfoBar::DeleteDeviceObjects()
 	SAFE_DELETE(m_pImgMainExpBack);
 	m_pImgMainExpBar->DeleteDeviceObjects();
 	SAFE_DELETE(m_pImgMainExpBar);
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgMainExpBar1->DeleteDeviceObjects();
 	SAFE_DELETE(m_pImgMainExpBar1);																  
 #endif
@@ -1395,7 +1395,7 @@ HRESULT CINFGameMainUnitInfoBar::DeleteDeviceObjects()
 	}
 	if(m_pFontDecaToolTip)
 	{
-		m_pFontDecaToolTip->DeleteDeviceObjects();						// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+		m_pFontDecaToolTip->DeleteDeviceObjects();						// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 		SAFE_DELETE(m_pFontDecaToolTip);
 	}
 	for(i = 0; i < GAMEMAIN_EVENT_RECOVERY_MAX; i++)
@@ -1414,12 +1414,12 @@ HRESULT CINFGameMainUnitInfoBar::DeleteDeviceObjects()
 			SAFE_DELETE(m_pImgGiftIcon[i]);
 		}
 	}	
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pGageBarInfo->DeleteDeviceObjects();
 	SAFE_DELETE(m_pGageBarInfo);																  
 #endif
 	
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	if(m_pImgRestCount)
 	{
@@ -1453,9 +1453,9 @@ HRESULT CINFGameMainUnitInfoBar::DeleteDeviceObjects()
 		SAFE_DELETE(m_pGroupImgKillCountBack);
 	}
 #endif //S_BONUSEXPSYSTEM_RENEWAL
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	if(m_pImgRestCountOnBtn)
 	{
@@ -1478,39 +1478,39 @@ HRESULT CINFGameMainUnitInfoBar::DeleteDeviceObjects()
 		SAFE_DELETE(m_pImgKillCountOffBtn);
 	}
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 	return S_OK;
 }
 
 
-void CINFGameMainUnitInfoBar::Render()//RenderCityUpInfo() ¿¡¼­ °°Àº ÄÚµå »ç¿ë : ¼öÁ¤½Ã ÁÖÀÇÇÒ°Í
+void CINFGameMainUnitInfoBar::Render()//RenderCityUpInfo() ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
 {
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// 	// down window - ¾Æ·¡ ±î¸¸ÁÙ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 	// down window - ï¿½Æ·ï¿½ ï¿½î¸¸ï¿½ï¿½
 // 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->Move(0, GAMEMAIN_BACK_DOWN_START_Y);
 // 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width, GAMEMAIN_BACK_DOWN_SIZE_Y);
 // 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->Render();
 // 	
-// 	// »óÁ¡¿¡¼± ±âÅ¸ Á¤º¸ ·»´õ¸µÀ» ¾ÈÇÑ´Ù
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½
 // 	if(g_pD3dApp->m_dwGameState == _SHOP)
 // 		return;
 // 
-// 	// up window - À§¿¡ ±î¸¸ÁÙ
+// 	// up window - ï¿½ï¿½ï¿½ï¿½ ï¿½î¸¸ï¿½ï¿½
 // 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Move(GAMEMAIN_BACK_GAGE_UP_SIZE_X, 0);
 // 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width-GAMEMAIN_BACK_GAGE_UP_SIZE_X-GAMEMAIN_BACK_MINIMAP_SIZE_X,GAMEMAIN_BACK_UP_SIZE_Y);
 // 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Render();
 // 	
 // 	 
-// 	// ¸ÞÀÎ ¹è°æ
+// 	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	POINT BGPos = m_pGageBarInfo->GetFindControlTargetofMinPos("MainGB");
  	m_pImgMainGageBack->Move(BGPos.x * HIDPI_COEFF + GAMEMAIN_POS_X,BGPos.y * HIDPI_COEFF + GAMEMAIN_POS_Y);
 	m_pImgMainGageBack->SetScale(HIDPI_COEFF, HIDPI_COEFF);
  	m_pImgMainGageBack->Render();
 // 
-// 	// °æÇèÄ¡ ¹è°æ
+// 	// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
  	m_pImgMainExpBack->Move( 0 , GAMEMAIN_BACK_GAGE_EXP_START_Y );
 	m_pImgMainExpBack->SetScale( g_pD3dApp->GetBackBufferDesc().Width, 1 );
  	m_pImgMainExpBack->Render();
@@ -1541,38 +1541,38 @@ void CINFGameMainUnitInfoBar::Render()//RenderCityUpInfo() ¿¡¼­ °°Àº ÄÚµå »ç¿ë :
  	}
  
  	nStartX -= 110;
- 	RenderCurrentEvent(nStartX, nStartY);		//µµ½Ã Á¡·ÉÀüÀÌ³ª PKÁö¿ª ·»´õ¸µ.
-	// 2013-03-26 by bhsohn ¸â¹ö½± Á¤º¸°¡ Ä³½Ã¼¥ ¹öÆ°°ú ÇØÇÇ¾Æ¿ö ·Î°í µÚ¿¡ ÀÖÀ½
-//	RenderPremiumCard(FALSE);					// ÀÏ¹Ý
-	// END 2013-03-26 by bhsohn ¸â¹ö½± Á¤º¸°¡ Ä³½Ã¼¥ ¹öÆ°°ú ÇØÇÇ¾Æ¿ö ·Î°í µÚ¿¡ ÀÖÀ½
+ 	RenderCurrentEvent(nStartX, nStartY);		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ PKï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	// 2013-03-26 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½Ã¼ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Î°ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+//	RenderPremiumCard(FALSE);					// ï¿½Ï¹ï¿½
+	// END 2013-03-26 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½Ã¼ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Î°ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	RenderHappyHourEvent(FALSE);
-	RenderEventRecovery();						// 2006-04-24 by ispark, ÀÌº¥Æ® È¸º¹À²
-	// 2013-03-21 by bhsohn ÇØÇÇ¾Æ¿ö ½ºÆ®¸µ ÅøÆÁ ¼ø¼­ ¹®Á¦ Ã³¸®
-//	RenderStringBar();							// 2006-06-08 by ispark, ÀÌº¥Æ® ¼³¸í
-	// END 2013-03-21 by bhsohn ÇØÇÇ¾Æ¿ö ½ºÆ®¸µ ÅøÆÁ ¼ø¼­ ¹®Á¦ Ã³¸®
+	RenderEventRecovery();						// 2006-04-24 by ispark, ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½
+	// 2013-03-21 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+//	RenderStringBar();							// 2006-06-08 by ispark, ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	// END 2013-03-21 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	RenderGiftIcon(FALSE);
-	// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ					
+	// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 #else
-	// down window - ¾Æ·¡ ±î¸¸ÁÙ
+	// down window - ï¿½Æ·ï¿½ ï¿½î¸¸ï¿½ï¿½
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->Move(0, GAMEMAIN_BACK_DOWN_START_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width, GAMEMAIN_BACK_DOWN_SIZE_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->Render();
 	
-	// »óÁ¡¿¡¼± ±âÅ¸ Á¤º¸ ·»´õ¸µÀ» ¾ÈÇÑ´Ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½
 	if(g_pD3dApp->m_dwGameState == _SHOP)
 		return;
 
-	// up window - À§¿¡ ±î¸¸ÁÙ
+	// up window - ï¿½ï¿½ï¿½ï¿½ ï¿½î¸¸ï¿½ï¿½
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Move(GAMEMAIN_BACK_GAGE_UP_SIZE_X, 0);
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width-GAMEMAIN_BACK_GAGE_UP_SIZE_X-GAMEMAIN_BACK_MINIMAP_SIZE_X,GAMEMAIN_BACK_UP_SIZE_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Render();
 	
 	
-	// ¸ÞÀÎ ¹è°æ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	m_pImgMainGageBack->Move(0,0);
 	m_pImgMainGageBack->Render();
 
-	// °æÇèÄ¡ ¹è°æ
+	// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 	m_pImgMainExpBack->Move(GAMEMAIN_BACK_GAGE_EXP_START_X,GAMEMAIN_BACK_GAGE_EXP_START_Y);
 	m_pImgMainExpBack->Render();
 
@@ -1602,18 +1602,18 @@ void CINFGameMainUnitInfoBar::Render()//RenderCityUpInfo() ¿¡¼­ °°Àº ÄÚµå »ç¿ë :
 	}
 
 	nStartX -= 110;
-	RenderCurrentEvent(nStartX, nStartY);		//µµ½Ã Á¡·ÉÀüÀÌ³ª PKÁö¿ª ·»´õ¸µ.
+	RenderCurrentEvent(nStartX, nStartY);		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ PKï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 
-	RenderPremiumCard(FALSE);					// ÀÏ¹Ý
+	RenderPremiumCard(FALSE);					// ï¿½Ï¹ï¿½
 	RenderHappyHourEvent(FALSE);
-	RenderEventRecovery();						// 2006-04-24 by ispark, ÀÌº¥Æ® È¸º¹À²
-	RenderStringBar();							// 2006-06-08 by ispark, ÀÌº¥Æ® ¼³¸í
+	RenderEventRecovery();						// 2006-04-24 by ispark, ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½
+	RenderStringBar();							// 2006-06-08 by ispark, ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	RenderGiftIcon(FALSE);
 #endif
-	// 2006-04-25 by ispark, ÇØÇÇ ¾Æ¿ì¾î ½ºÆ®¸µÀ» ÇÔ¼ö ¾ÈÀ¸·Î ¿Å°å´Ù.	
+	// 2006-04-25 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½.	
 
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 
 	if(g_pGameMain && g_pGameMain->m_pMiniMap && 
@@ -1628,13 +1628,13 @@ void CINFGameMainUnitInfoBar::Render()//RenderCityUpInfo() ¿¡¼­ °°Àº ÄÚµå »ç¿ë :
 
 	RenderBonusExpRate();
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 void CINFGameMainUnitInfoBar::RenderGiftIcon(BOOL i_bCity)
 {
 	if(m_vecGiftMsg.size())
 	{	
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //		if(i_bCity)
 //			m_nGiftY = g_pD3dApp->GetBackBufferDesc().Height - INFOMAIN_GIFT_CITY_ICON_Y;
 //		else
@@ -1644,7 +1644,7 @@ void CINFGameMainUnitInfoBar::RenderGiftIcon(BOOL i_bCity)
 		m_ptGift = m_pImgGiftIcon[0]->GetImgSize();
 		m_nGiftY -= m_ptGift.y;
 		m_nGiftX = g_pD3dApp->GetBackBufferDesc().Width - INFOMAIN_GIFT_ICON_X;
-		// ±ôºýÀÓ Ã³¸®.(0.7ÃÊ¿¡ ÇÑ¹ø¾¿)
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½.(0.7ï¿½Ê¿ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½)
 		m_fGiftTime += g_pD3dApp->GetElapsedTime();
 		float ftime = m_fGiftTime * 10;
 		ftime = (int)ftime % 14;
@@ -1663,15 +1663,15 @@ void CINFGameMainUnitInfoBar::RenderGiftIcon(BOOL i_bCity)
 }
 void CINFGameMainUnitInfoBar::HideRender()
 {
-	// up window - À§¿¡ ±î¸¸ÁÙ
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// up window - ï¿½ï¿½ï¿½ï¿½ ï¿½î¸¸ï¿½ï¿½
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Move(GAMEMAIN_BACK_GAGE_UP_SIZE_X, 0);
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width-GAMEMAIN_BACK_GAGE_UP_SIZE_X-GAMEMAIN_BACK_MINIMAP_SIZE_X,GAMEMAIN_BACK_UP_SIZE_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Render();
 #endif
 	
 	// 2004-12-08 by jschoi 
-	// ¸ÞÀÎ ¹è°æ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	m_pImgMainGageBack->Move(0,0);
 	m_pImgMainGageBack->Render();
 
@@ -1680,7 +1680,7 @@ void CINFGameMainUnitInfoBar::HideRender()
 	RenderSpeed();
 
 	// minimap back
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgBackMinimap->Move(GAMEMAIN_BACK_MINIMAP_START_X, GAMEMAIN_BACK_MINIMAP_START_Y);
 	m_pImgBackMinimap->Render();
 #endif
@@ -1710,23 +1710,23 @@ void CINFGameMainUnitInfoBar::HideRender()
 void CINFGameMainUnitInfoBar::RenderCityUpInfo()
 {
 	// up window
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Move(GAMEMAIN_BACK_GAGE_UP_SIZE_X, 0);
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width - GAMEMAIN_BACK_GAGE_UP_SIZE_X,GAMEMAIN_BACK_UP_SIZE_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_UP_PIXEL]->Render();
-	// down window - ¾Æ·¡ ±î¸¸ÁÙ
+	// down window - ï¿½Æ·ï¿½ ï¿½î¸¸ï¿½ï¿½
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->Move(0, GAMEMAIN_BACK_DOWN_START_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->SetScale(g_pD3dApp->GetBackBufferDesc().Width, GAMEMAIN_BACK_DOWN_SIZE_Y);
 	m_pImgBackPixel[GAMEMAIN_BACK_DOWN_PIXEL]->Render();
 #endif
 	
 	// 2004-12-08 by jschoi 
-	// ¸ÞÀÎ ¹è°æ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	m_pImgMainGageBack->Move(0,0);
 	m_pImgMainGageBack->Render();
 
-	// °æÇèÄ¡ ¹è°æ
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pImgMainExpBack->Move( 0, GAMEMAIN_BACK_GAGE_EXP_START_Y);
 #else 
 	m_pImgMainExpBack->Move(GAMEMAIN_BACK_GAGE_EXP_START_X,GAMEMAIN_BACK_GAGE_EXP_START_Y);
@@ -1744,19 +1744,8 @@ void CINFGameMainUnitInfoBar::RenderCityUpInfo()
 	UINT nStartX = g_pD3dApp->GetBackBufferDesc().Width;
 	UINT nStartY = 4;
 
-//	if(RenderCurrentEvent())
-//	{
-//		nStartX = g_pD3dApp->GetBackBufferDesc().Width - 160;
-//	}
-//	else
-//	{
-//		nStartX = g_pD3dApp->GetBackBufferDesc().Width - 30;
-//	}
-//
-//	nStartY = 4;
 
-
-	// ¸ÊÀÌ¸§ Ç¥½Ã
+	// ï¿½ï¿½ï¿½Ì¸ï¿½ Ç¥ï¿½ï¿½
 	MAP_INFO* mapname = g_pDatabase->GetMapInfo(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);
 	if(mapname)
 	{
@@ -1765,21 +1754,21 @@ void CINFGameMainUnitInfoBar::RenderCityUpInfo()
 	}
 
 	// 2005-02-18 by jschoi - Premium Card Render
-	RenderPremiumCard(TRUE);	// µµ½Ã
+	RenderPremiumCard(TRUE);	// ï¿½ï¿½ï¿½ï¿½
 	// Render HappyHour
 	RenderHappyHourEvent(TRUE);
 	// 2006-08-29 by dgwoo RenderTextEvent
 	RenderTextHappyHourEvent();
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	RenderBonusExpRate();
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \class		void CINFGameMainUnitInfoBar::RenderTextHappyHourEvent()
-/// \brief		ÇØÇÇ¾Æ¿ö ÀÌº¥Æ® °ü·Ã ÅØ½ºÆ®¸¦ Âï´Â´Ù.
+/// \brief		ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Â´ï¿½.
 ///
 /// \author		dgwoo
 /// \version	
@@ -1817,7 +1806,7 @@ void CINFGameMainUnitInfoBar::RenderTextHappyHourEvent()
 	}
 }
 
-// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CINFGameMainUnitInfoBar::RenderBonusExpRate()
 {
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
@@ -1839,13 +1828,13 @@ void CINFGameMainUnitInfoBar::RenderBonusExpRateText()
 	int nBonusExpY = g_pD3dApp->GetBackBufferDesc().Height - BONUS_EXP_RATE_TEXT_POS_Y;
 
 	char strExpRate[3][256];
-	// 2012-10-17 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-17 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	double fRate = 0.0f;
 	sprintf(strExpRate[0],STRMSG_C_121013_0001,(double)m_nPartyRate);
 	sprintf(strExpRate[1],STRMSG_C_121013_0002,(double)m_nGuildRate);
 	fRate = ((double)m_nFriendRate)/10.0;
 	sprintf(strExpRate[2],STRMSG_C_121013_0003,fRate);
-	// end 2012-10-17 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-17 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int nMaxLineLength = 0,i;
 	for(i = 0 ; i < 3 ; i++)
 	{
@@ -1853,20 +1842,20 @@ void CINFGameMainUnitInfoBar::RenderBonusExpRateText()
 		nMaxLineLength	= max(nMaxLineLength,temp);
 	}
 	
-	// 2014-12-30 by jwLee Bonus Exp ÅøÆÁ ´Ù º¸ÀÌµµ·Ï ¼öÁ¤
+	// 2014-12-30 by jwLee Bonus Exp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int nMoveBonusExpX = BONUS_EXP_RATE_TEXT_POS_X - (nMaxLineLength * 6.0f);
 	if (nMoveBonusExpX < 0)
 	{
 		nBonusExpX += nMoveBonusExpX;
 	}
-	// end 2014-12-30 by jwLee Bonus Exp ÅøÆÁ ´Ù º¸ÀÌµµ·Ï ¼öÁ¤
+	// end 2014-12-30 by jwLee Bonus Exp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	for(i = 0 ; i < 3 ; i++)
 	{
-		// 2014-12-30 by jwLee Bonus Exp ÅøÆÁ ´Ù º¸ÀÌµµ·Ï ¼öÁ¤
+		// 2014-12-30 by jwLee Bonus Exp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//g_pGameMain->RenderPopUpWindowImage(nBonusExpX, nBonusExpY-(BONUS_EXP_RATE_TEXT_LINE_HEIGHT * i), nMaxLineLength * 6.5f, 1);
 		g_pGameMain->RenderPopUpWindowImage(nBonusExpX, nBonusExpY-(BONUS_EXP_RATE_TEXT_LINE_HEIGHT * i), nMaxLineLength * 6.0f, 1);
-		// end 2014-12-30 by jwLee Bonus Exp ÅøÆÁ ´Ù º¸ÀÌµµ·Ï ¼öÁ¤
+		// end 2014-12-30 by jwLee Bonus Exp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pFontEventHappyHour->DrawText(nBonusExpX, nBonusExpY-(BONUS_EXP_RATE_TEXT_LINE_HEIGHT * i) - 2, GUI_FONT_COLOR_Y, strExpRate[i]);
 
 	}
@@ -1886,10 +1875,10 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 	nMapPosX = g_pD3dApp->GetBackBufferDesc().Width - RESTKILLCOUNT_BASE_POS_X;
 	nMapPosY = RESTKILLCOUNT_BASE_POS_Y;
 
-	// ÈÞ½Ä °æÇèÄ¡ Ä«¿îÆ®
+	// ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ Ä«ï¿½ï¿½Æ®
 	if(nRestCount != 0)
 	{
-		// ÀÚ¸®¼ö °è»ê
+		// ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		nMaxNum = GetMaxSize(nRestCount);
 		if(nMaxNum > RESTCOUNT_MAX_POSNUM)
 		{
@@ -1897,17 +1886,17 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 			nRestCount = RESTCOUNT_MAX_COUNT;
 		}
 
-		// ¹è°æ ·£´õ
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//nPosX = nMapPosX - RESTCOUNT_MAX_POSNUM*RESTCOUNT_STRING_WIDTH*RESTCOUNT_SCALE_DEFAULT + RESTCOUNT_BACK_POS_X;
-		nPosX = nMapPosX - RESTCOUNT_MAX_POSNUM*RESTCOUNT_STRING_WIDTH*RESTCOUNT_SCALE_DEFAULT + RESTCOUNT_BACK_POS_X + m_fPlusRestCountPosX;	// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		nPosX = nMapPosX - RESTCOUNT_MAX_POSNUM*RESTCOUNT_STRING_WIDTH*RESTCOUNT_SCALE_DEFAULT + RESTCOUNT_BACK_POS_X + m_fPlusRestCountPosX;	// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		nPosY = nMapPosY - RESTCOUNT_BACK_POS_Y;
 
 		m_pGroupImgRestCountBack->Move(nPosX,nPosY);
 		m_pGroupImgRestCountBack->Render();		
 
-		// ¼ýÀÚ ·£´õ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//nPosX = nMapPosX - nMaxNum*RESTCOUNT_STRING_WIDTH*RESTCOUNT_SCALE_DEFAULT + RESTCOUNT_TEXT_POS_X;
-		nPosX = nMapPosX - nMaxNum*RESTCOUNT_STRING_WIDTH*RESTCOUNT_SCALE_DEFAULT + RESTCOUNT_TEXT_POS_X + m_fPlusRestCountPosX;	// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		nPosX = nMapPosX - nMaxNum*RESTCOUNT_STRING_WIDTH*RESTCOUNT_SCALE_DEFAULT + RESTCOUNT_TEXT_POS_X + m_fPlusRestCountPosX;	// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		nPosY = nMapPosY + RESTCOUNT_TEXT_POS_Y;
 
 		while(nMaxNum > 0)
@@ -1921,7 +1910,7 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 			nMaxNum--;
 		}
 
-		// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_nRestCountPosX  = g_pD3dApp->GetBackBufferDesc().Width - RESTKILLCOUNT_BUTTON_BASE_POS_X;
 		m_nRestCountPosY  = nMapPosY - RESTCOUNT_BACK_POS_Y;
 		
@@ -1935,16 +1924,16 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 			m_pImgRestCountOnBtn->SetBtnPosition(m_nRestCountPosX,m_nRestCountPosY);
 			m_pImgRestCountOnBtn->Render();
 		}
-		// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		// Å³Ä«¿îÆ®¿ÍÀÇ °£°Ý Ã³¸®
+		// Å³Ä«ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		nMapPosY += RESTCOUNT_STRING_HEIGHT + RESTKILLCOUNT_BASE_HEIGHT_SIZE;
 	}	
 
-	// Å³ Ä«¿îÆ®
+	// Å³ Ä«ï¿½ï¿½Æ®
 	if(nKillCount != 0)
 	{
-		// ÀÚ¸®¼ö °è»ê
+		// ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		nMaxNum = GetMaxSize(nKillCount);
 		if(nMaxNum > KILLCOUNT_MAX_POSNUM)
 		{
@@ -1952,32 +1941,32 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 			nKillCount = KILLCOUNT_MAX_COUNT;
 		}
 		
-		// ¹è°æ ·£´õ À§Ä¡ °è»ê
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 		//nPosX = nMapPosX - RESTCOUNT_MAX_POSNUM*RESTCOUNT_STRING_WIDTH*KILLCOUNT_SCALE_DEFAULT + KILLCOUNT_BACK_POS_X;
-		nPosX = nMapPosX - RESTCOUNT_MAX_POSNUM*RESTCOUNT_STRING_WIDTH*KILLCOUNT_SCALE_DEFAULT + KILLCOUNT_BACK_POS_X + m_fPlusKillCountPosX;	// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		nPosX = nMapPosX - RESTCOUNT_MAX_POSNUM*RESTCOUNT_STRING_WIDTH*KILLCOUNT_SCALE_DEFAULT + KILLCOUNT_BACK_POS_X + m_fPlusKillCountPosX;	// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		nPosY = nMapPosY - KILLCOUNT_BACK_POS_Y;
 		
-		// 300 Ä«¿îÆ® ½ÃÀÇ ¼ýÀÚ ·£´õ Ã³¸®
+		// 300 Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		if(m_bCompleteKillCount && m_nCompleteKillCountBlank < KILLCOUNT2_EFF_MAX_BLENK_COUNT)
 		{
-			// ±ô¹ÚÀÓ ÀÌÆåÆ® ·£´õ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			m_pImgKillEff->Move(nPosX-KILLCOUNT2_EFF_POS_X,nPosY-KILLCOUNT2_EFF_POS_Y);
 			m_pImgKillEff->SetColor(D3DCOLOR_ARGB(m_nCompleteKillCountAlpha,255,255,255));
 			m_pImgKillEff->Render();		
 
-			if(m_nCompleteKillCountBlank == KILLCOUNT2_EFF_MAX_BLENK_COUNT-1) // Å³ Ä«¿îÆ®°¡ »ç¶óÁú¶§ °°ÀÌ »ç¶óÁö°Ô ÇÑ´Ù.
+			if(m_nCompleteKillCountBlank == KILLCOUNT2_EFF_MAX_BLENK_COUNT-1) // Å³ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			{
 				m_pGroupImgKillCountBack->SetColor(D3DCOLOR_ARGB(m_nCompleteKillCountAlpha,255,255,255));
 			}
-			// ¹è°æ ·£´õ
+			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pGroupImgKillCountBack->Move(nPosX,nPosY);
 			m_pGroupImgKillCountBack->Render();		
 
 
-			// ¼ýÀÚ ·£´õ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			nKillCount = KILLCOUNT_MAX_COUNT;
 			//nPosX = nMapPosX - nMaxNum*KILLCOUNT2_STRING_WIDTH + KILLCOUNT2_TEXT_POS_X;
-			nPosX = nMapPosX - nMaxNum*KILLCOUNT2_STRING_WIDTH + KILLCOUNT2_TEXT_POS_X + m_fPlusKillCountPosX;	// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+			nPosX = nMapPosX - nMaxNum*KILLCOUNT2_STRING_WIDTH + KILLCOUNT2_TEXT_POS_X + m_fPlusKillCountPosX;	// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			nPosY = nMapPosY - KILLCOUNT2_TEXT_POS_Y;
 
 			while(nMaxNum > 0)
@@ -1995,17 +1984,17 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 				nMaxNum--;
 			}
 		}
-		// 300 ¹Ì¸¸ÀÏ¶§ÀÇ ¼ýÀÚ ·£´õ Ã³¸®
+		// 300 ï¿½Ì¸ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
  		else if(!m_bCompleteKillCount)
  		{
-			// ¹è°æ ·£´õ
+			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pGroupImgKillCountBack->Move(nPosX,nPosY);
 			m_pGroupImgKillCountBack->SetColor(D3DCOLOR_ARGB(255,255,255,255));
 			m_pGroupImgKillCountBack->Render();		
 
-			// ¼ýÀÚ ·£´õ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//nPosX = nMapPosX - nMaxNum*RESTCOUNT_STRING_WIDTH*m_fKillCountScale + KILLCOUNT_TEXT_POS_X;
-			nPosX = nMapPosX - nMaxNum*RESTCOUNT_STRING_WIDTH*m_fKillCountScale + KILLCOUNT_TEXT_POS_X + m_fPlusKillCountPosX;	// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+			nPosX = nMapPosX - nMaxNum*RESTCOUNT_STRING_WIDTH*m_fKillCountScale + KILLCOUNT_TEXT_POS_X + m_fPlusKillCountPosX;	// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			nPosY = nMapPosY + KILLCOUNT_TEXT_POS_Y;
 			
 			while(nMaxNum > 0)
@@ -2020,7 +2009,7 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 			}
 		}
 
-		// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_nKillCountPosX  = g_pD3dApp->GetBackBufferDesc().Width - RESTKILLCOUNT_BUTTON_BASE_POS_X;
 		m_nKillCountPosY  = nMapPosY - RESTCOUNT_BACK_POS_Y;
 		
@@ -2034,20 +2023,20 @@ void CINFGameMainUnitInfoBar::RenderRestKillCount(BOOL bIsMinimap)
 			m_pImgKillCountOnBtn->SetBtnPosition(m_nKillCountPosX,m_nKillCountPosY);
 			m_pImgKillCountOnBtn->Render();
 		}
-		// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+		// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}	
 #endif //S_BONUSEXPSYSTEM_RENEWAL
 }
-// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 void CINFGameMainUnitInfoBar::RenderGageString(BOOL bShowAll)
 {
 	if(m_szGageInfo[GAMEMAIN_GAGE_HP_UP])
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{					
 
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		m_pFontGageInfo[GAMEMAIN_NEW_STRING_HP]->DrawText( GAMEMAIN_NEW_STRING_HP_START_X, 
 // 														GAMEMAIN_NEW_STRING_HP_START_Y,
 // 														GUI_FONT_COLOR,
@@ -2118,7 +2107,7 @@ void CINFGameMainUnitInfoBar::RenderGageString(BOOL bShowAll)
 														GUI_FONT_COLOR,
 														m_szGageInfo[GAMEMAIN_GAGE_EXP_UP],0L);
 	}
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ 
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 #else
 	{
 		m_pFontGageInfo[GAMEMAIN_NEW_STRING_HP]->DrawText( GAMEMAIN_NEW_STRING_HP_START_X, 
@@ -2194,10 +2183,10 @@ void CINFGameMainUnitInfoBar::Tick()
 		m_bWarning = !m_bWarning;
 		m_fWarningTime -= RENDER_TIME;
 	}	
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-	g_pGameMain->m_pWeaponInfo->Tick();		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ				  
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	g_pGameMain->m_pWeaponInfo->Tick();		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				  
 #endif
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	if(m_bChangeKillCount)
 	{
@@ -2212,7 +2201,7 @@ void CINFGameMainUnitInfoBar::Tick()
 	{
 		if(m_nCompleteKillCountBlank < KILLCOUNT2_EFF_MAX_BLENK_COUNT)
 		{
-			if((m_nCompleteKillCountBlank%2) == 0) // Â¦¼öÀÏ¶§ ¾ËÆÄ°ª »ó½Â
+			if((m_nCompleteKillCountBlank%2) == 0) // Â¦ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½ï¿½ï¿½
 			{
 				if(m_nCompleteKillCountAlpha > KILLCOUNT2_EFF_MAX_ALPHA - KILLCOUNT2_EFF_ALPHA_CREASE)
 				{
@@ -2224,7 +2213,7 @@ void CINFGameMainUnitInfoBar::Tick()
 					m_nCompleteKillCountAlpha += KILLCOUNT2_EFF_ALPHA_CREASE;
 				}
 			}
-			else								// È¦¼öÀÏ¶§ ¾ËÆÄ°ª ÇÏ¶ô
+			else								// È¦ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½Ï¶ï¿½
 			{
 				if(((int)m_nCompleteKillCountAlpha) < 0 + KILLCOUNT2_EFF_ALPHA_CREASE)
 				{
@@ -2237,7 +2226,7 @@ void CINFGameMainUnitInfoBar::Tick()
 				}
 			}
 		}
-		else	// 300 Å³ Ä«¿îÆ® Ç¥Çö ·ÎÁ÷ Á¾·á.
+		else	// 300 Å³ Ä«ï¿½ï¿½Æ® Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		{
 			m_fKillCountScale = KILLCOUNT_SCALE_DEFAULT;
 			m_bCompleteKillCount = false;
@@ -2249,9 +2238,9 @@ void CINFGameMainUnitInfoBar::Tick()
 	}
 
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 	if(m_bCheckRestCountBtnClick)
 	{
@@ -2263,7 +2252,7 @@ void CINFGameMainUnitInfoBar::Tick()
 		KillCountImageOnOff();
 	}
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -2289,7 +2278,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				return INF_MSGPROC_BREAK;
 			}
 
-			// 2014-01-28 by ymjoo VoIP ±â´É »èÁ¦
+			// 2014-01-28 by ymjoo VoIP ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifndef C_REMOVE_VOIP_YMJOO
 			if(g_pGameMain->GetVoiceType() != VOICE_NONE &&
 				pt.x > GAMEMAIN_VOICECHAT_X &&
@@ -2301,11 +2290,11 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				return INF_MSGPROC_BREAK;
 			}
 #endif
-			// END 2014-01-28 by ymjoo VoIP ±â´É »èÁ¦
+			// END 2014-01-28 by ymjoo VoIP ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
-			if(m_nRestCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+			if(m_nRestCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 			{
 				if(m_bCheckRestCountON)
 				{
@@ -2322,7 +2311,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					}
 				}
 			}
-			if(m_nKillCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+			if(m_nKillCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 			{
 				if(m_bCheckKillCountON)
 				{
@@ -2340,7 +2329,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 			}		
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		break;
 	case WM_MOUSEMOVE:
@@ -2354,7 +2343,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				pt.x < GAMEMAIN_VOICECHAT_X + GAMEMAIN_VOICECHAT_W &&
 				pt.y > GAMEMAIN_VOICECHAT_Y &&
 				pt.y < GAMEMAIN_VOICECHAT_Y + GAMEMAIN_VOICECHAT_H)
-			{// À½¼º¾ÆÀÌÄÜ Åø¹Ù Ç¥½Ã.
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½.
 				char szTemp[128];
 				memset(szTemp,0x00,128);
 				switch(g_pGameMain->GetVoiceType())
@@ -2388,7 +2377,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}
 
 
-			// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+			// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(m_BHappyHourEvent)
 			if(IsHappyHourEvent())
 			{
@@ -2403,13 +2392,13 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				{
 					x = g_pD3dApp->GetBackBufferDesc().Width -120;
 				}
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				y = g_pD3dApp->GetBackBufferDesc().Height - 74;
-				// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+				// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 				y -= RESTKILLCOUNT_MOVE_HAPPYHOUR;
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-				// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+				// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //				if(g_pD3dApp->m_bCharacter && !g_pGround->m_bBazaar)
 //					y -= GAME_EVENT_BASICPOS_Y;
 
@@ -2434,7 +2423,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 #endif
 			}
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 			//int x,y;
 			RECT BonusExpRateRect;
@@ -2444,32 +2433,32 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			BonusExpRateRect.bottom = BonusExpRateRect.top + BONUS_EXP_RATE_POPUP_RECT_BOTTOM;
 
 			if( BonusExpRateRect.left < pt.x  && pt.x < BonusExpRateRect.right && 
-				// 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
+				// 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//BonusExpRateRect.top < pt.y && pt.y < BonusExpRateRect.bottom)
-#if defined(C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT)	// 2015-04-07 by jwlee C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT ÄÜÅÙÃ÷ Ãß°¡
-				// 2015-05-13 by jwlee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ÇØÇÇ¾Æ¿ö, º¸³Ê½º EXP, Ä³½Ã¼¥ ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼³Á¤
+#if defined(C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT)	// 2015-04-07 by jwlee C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+				// 2015-05-13 by jwlee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½, ï¿½ï¿½ï¿½Ê½ï¿½ EXP, Ä³ï¿½Ã¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				BonusExpRateRect.top < pt.y && pt.y < BonusExpRateRect.bottom && !g_pGameMain->m_pChat->m_pSystemMsgW->GetInterface())
 				BonusExpRateRect.top < pt.y && pt.y < BonusExpRateRect.bottom && (!g_pGameMain->m_pChat->m_pSystemMsgW->GetInterface() || !g_pGameMain->m_pChat->m_pSystemMsgW->m_bShowChatBox))
-				// end 2015-05-13 by jwlee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ÇØÇÇ¾Æ¿ö, º¸³Ê½º EXP, Ä³½Ã¼¥ ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼³Á¤
+				// end 2015-05-13 by jwlee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½, ï¿½ï¿½ï¿½Ê½ï¿½ EXP, Ä³ï¿½Ã¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
 				BonusExpRateRect.top < pt.y && pt.y < BonusExpRateRect.bottom)
 #endif
-				// end 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
+				// end 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				m_bRenderBonusExpRateText = TRUE;
-				// 2012-10-17 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+				// 2012-10-17 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if(g_pShuttleChild && g_pShuttleChild->m_pClientParty)
 				{
 					m_nPartyRate = (CAtumSJ::GetPartyBonusExpWeight(g_pShuttleChild->m_pClientParty->GetInSameMapPartyMemberCount()+1)-1.0f) * 100.0f;
 				}
-				// end 2012-10-17 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+				// end 2012-10-17 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			else
 			{
 				m_bRenderBonusExpRateText = FALSE;
 			}
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			
 			if(TRUE == g_bEventRecovery)
@@ -2486,37 +2475,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					x = g_pD3dApp->GetBackBufferDesc().Width - 200;
 					y = g_pD3dApp->GetBackBufferDesc().Height - nAddY;
 				}			
-// end 2013-04-09 by ssjung Àç»ý°ú·Ã ÅøÆÁ ¹ß»ýÇÏ´Â À§Ä¡¸¦ °ü·Ã ±×¸²¿¡ ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ °¬À» ¶§ ¶ã ¼ö ÀÖµµ·Ï ¼öÁ¤
-
-#ifdef _RAT_FFA
-				m_bShowFFAInfo = FALSE;
-				m_bShowSPInfoBCU = FALSE;
-				if (pt.x >= STRATEGYPOINT_BCU_IMG_POS_X && pt.x <= my_posxBCU
-					&& pt.y >= STRATEGYPOINT_BCU_IMG_POS_Y && pt.y <= STRATEGYPOINT_BCU_IMG_POS_Y + 40)
-				{
-					m_nCurrentSPSelectBCUPosX = pt.x;
-					m_nCurrentSPSelectBCUPosY = pt.y;
-					m_bShowSPInfoBCU = TRUE;
-				}
-				m_bShowSPInfoANI = FALSE;
-				if (pt.x >= STRATEGYPOINT_ANI_IMG_POS_X && pt.x <= my_posxANI
-					&& pt.y >= STRATEGYPOINT_ANI_IMG_POS_Y && pt.y <= STRATEGYPOINT_ANI_IMG_POS_Y + 40)
-				{
-					m_nCurrentSPSelectANIPosX = pt.x;
-					m_nCurrentSPSelectANIPosY = pt.y;
-					m_bShowSPInfoANI = TRUE;
-				}
-				int nPosFFAX = g_pD3dApp->GetBackBufferDesc().Width - 75;
-				int nPosFFAY = g_pD3dApp->GetBackBufferDesc().Height / 2;
-				if (pt.x >= nPosFFAX && pt.x <= nPosFFAX + 45
-					&& pt.y >= nPosFFAY && pt.y <= nPosFFAY + 40)
-				{
-					m_nCurrentSPSelectBCUPosX = pt.x;
-					m_nCurrentSPSelectBCUPosY = pt.y;
-					m_bShowFFAInfo = TRUE;
-				}
-
-#endif
+// end 2013-04-09 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 				if(g_pD3dApp->m_bCharacter && !g_pGround->m_bBazaar)
@@ -2529,14 +2488,14 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 			}
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 			y = RESTKILLCOUNT_BASE_POS_Y - RESTCOUNT_BACK_POS_Y;
-			if(m_nRestCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+			if(m_nRestCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 			{
 				if(m_bCheckRestCountON)
 				{
-// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 #ifdef C_DECA_TOOLTIP
 					m_bRestCountToolTip = FALSE;
 					x = g_pD3dApp->GetBackBufferDesc().Width - (RESTCOUNT_IMAGE_POS_LIMIT + RESTKILLCOUNT_BUTTON_WIDTH);
@@ -2547,7 +2506,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						m_bRestCountToolTip = TRUE;
 					}
 #endif
-// end 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// end 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 					m_pImgRestCountOffBtn->OnMouseMove(pt);
 				}
 				else
@@ -2556,7 +2515,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 				y += RESTCOUNT_STRING_HEIGHT + RESTKILLCOUNT_BASE_HEIGHT_SIZE;
 			}
-// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 			if(m_nKillCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))
 			{
 				if(m_bCheckKillCountON)
@@ -2570,7 +2529,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							m_bKillCountToolTip = TRUE;
 						}
 #endif
-// end 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// end 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 					m_pImgKillCountOffBtn->OnMouseMove(pt);
 				}
 				else
@@ -2579,7 +2538,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}				
 			}			
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		break;
 		case WM_LBUTTONUP:
@@ -2589,9 +2548,9 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				pt.y = HIWORD(lParam);
 				CheckMouseReverse(&pt);
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
-				if(m_nRestCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+				if(m_nRestCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))		// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 				{
 					if(m_bCheckRestCountON)
 					{
@@ -2610,7 +2569,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 					}
 				}
-				if(m_nKillCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))			// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+				if(m_nKillCount != 0 && (g_pShuttleChild->m_bUnitStop || g_pD3dApp->m_bCharacter))			// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 				{
 					if(m_bCheckKillCountON)
 					{
@@ -2630,7 +2589,7 @@ int CINFGameMainUnitInfoBar::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					}
 				}				
 #endif
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		break;
 	}
@@ -2652,7 +2611,7 @@ int CINFGameMainUnitInfoBar::WndProcCity(UINT uMsg, WPARAM wParam, LPARAM lParam
 			m_v2MousePt.y = pt.y;
 			m_bRenderEvent = FALSE;
 			
-			// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+			// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(m_BHappyHourEvent)
 			if(IsHappyHourEvent())
 			{
@@ -2676,8 +2635,8 @@ int CINFGameMainUnitInfoBar::WndProcCity(UINT uMsg, WPARAM wParam, LPARAM lParam
 			}
 
 
-			// 2009. 03. 16 by ckPark ¸â¹ö½± ÅøÆÁ Ãß°¡
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+			// 2009. 03. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int	x	= g_pD3dApp->GetBackBufferDesc().Width - 104;
 			int	y	= g_pD3dApp->GetBackBufferDesc().Height - 52 - GAME_EVENT_BASICPOS_Y;
 #else
@@ -2699,22 +2658,22 @@ int CINFGameMainUnitInfoBar::WndProcCity(UINT uMsg, WPARAM wParam, LPARAM lParam
 			membership.right	= x + m_pImgGeneralPremiumCard->GetImgSize().x;
 			membership.bottom	= y + m_pImgGeneralPremiumCard->GetImgSize().y;
 
-			// 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
+			// 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  			//if(PtInRect(&membership, pt))
-#if defined(C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT)	// 2015-04-07 by jwlee C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT ÄÜÅÙÃ÷ Ãß°¡
-			// 2015-05-13 by jwlee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ÇØÇÇ¾Æ¿ö, º¸³Ê½º EXP, Ä³½Ã¼¥ ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼³Á¤
+#if defined(C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT)	// 2015-04-07 by jwlee C_SYSTEMMSG_BACK_INF_NO_MOUSE_EVENT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+			// 2015-05-13 by jwlee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½, ï¿½ï¿½ï¿½Ê½ï¿½ EXP, Ä³ï¿½Ã¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(PtInRect(&membership, pt) && !g_pGameMain->m_pChat->m_pSystemMsgW->GetInterface())
 			if(PtInRect(&membership, pt) && (!g_pGameMain->m_pChat->m_pSystemMsgW->GetInterface() || !g_pGameMain->m_pChat->m_pSystemMsgW->m_bShowChatBox))
-			// end 2015-05-13 by jwlee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ÇØÇÇ¾Æ¿ö, º¸³Ê½º EXP, Ä³½Ã¼¥ ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼³Á¤
+			// end 2015-05-13 by jwlee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½, ï¿½ï¿½ï¿½Ê½ï¿½ EXP, Ä³ï¿½Ã¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
 			if(PtInRect(&membership, pt))
 #endif
-			// end 2014-12-09 by jwLee ½Ã½ºÅÛ ¸Þ¼¼ÁöÃ¢ È°¼ºÈ­ »óÅÂ¿¡¼­ ¸¶¿ì½º ¿À¹ö½Ã µÚ¿¡ÀÖ´Â ÀÎÅÍÆäÀÌ½º ÀÌº¥Æ® ¹ß»ý ¾ÈÇÏµµ·Ï ¼öÁ¤
+			// end 2014-12-09 by jwLee ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½Ã¢ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				m_bPremiumToolTip = TRUE;
 			else
 				m_bPremiumToolTip = FALSE;
 
-			// end 2009. 03. 16 by ckPark ¸â¹ö½± ÅøÆÁ Ãß°¡
+			// end 2009. 03. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		}
 		break;
 	case WM_LBUTTONDOWN:
@@ -2732,18 +2691,18 @@ int CINFGameMainUnitInfoBar::WndProcCity(UINT uMsg, WPARAM wParam, LPARAM lParam
 void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 {
 	UINT i;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	POINT Pos = { 0, 0 };
 	if(m_fGageRate[GAMEMAIN_GAGE_HP_UP]>0)
 	{
 		i = m_fGageRate[GAMEMAIN_GAGE_HP_UP]*GAMEMAIN_GAGE_HP_MAX_GRADE;
 		if(i>=GAMEMAIN_GAGE_HP_MAX_GRADE){i--;}
 		
-		i = min(i, GAMEMAIN_GAGE_HP_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼·Â°ÔÀÌÁö ¸Þ¸ð¸® ¹ö±× ¼öÁ¤
+		i = min(i, GAMEMAIN_GAGE_HP_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		if(i > 0)
 		{
-			Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("ene00");		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+			Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("ene00");		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pImgMainGageHP[i]->Move( (GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 			m_pImgMainGageHP[i]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 			m_pImgMainGageHP[i]->Render();
@@ -2754,11 +2713,11 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 		i = m_fGageRate[GAMEMAIN_GAGE_DP_UP]*GAMEMAIN_GAGE_DP_MAX_GRADE;
 		if(i>=GAMEMAIN_GAGE_DP_MAX_GRADE){i--;}
 
-		i = min(i, GAMEMAIN_GAGE_DP_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼·Â°ÔÀÌÁö ¸Þ¸ð¸® ¹ö±× ¼öÁ¤
+		i = min(i, GAMEMAIN_GAGE_DP_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		if(i > 0)
 		{
-			Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("she00");		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+			Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("she00");		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pImgMainGageDP[i]->Move( (GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 			m_pImgMainGageDP[i]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 			m_pImgMainGageDP[i]->Render();
@@ -2769,11 +2728,11 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 		i = m_fGageRate[GAMEMAIN_GAGE_SP_UP]*GAMEMAIN_GAGE_SP_MAX_GRADE;
 		if(i>=GAMEMAIN_GAGE_SP_MAX_GRADE){i--;}
 
-		i = min(i, GAMEMAIN_GAGE_SP_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼·Â°ÔÀÌÁö ¸Þ¸ð¸® ¹ö±× ¼öÁ¤
+		i = min(i, GAMEMAIN_GAGE_SP_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		if(i > 0)
 		{
-			Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("skil00");		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+			Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("skil00");		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pImgMainGageSP[i]->Move((GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 			m_pImgMainGageSP[i]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 			m_pImgMainGageSP[i]->Render();
@@ -2784,9 +2743,9 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 		i = m_fGageRate[GAMEMAIN_GAGE_BURN_UP]*GAMEMAIN_GAGE_BOOSTER_MAX_GRADE;
 		if(i>=GAMEMAIN_GAGE_BOOSTER_MAX_GRADE){i--;}
 
-		i = min(i, GAMEMAIN_GAGE_BOOSTER_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼·Â°ÔÀÌÁö ¸Þ¸ð¸® ¹ö±× ¼öÁ¤
+		i = min(i, GAMEMAIN_GAGE_BOOSTER_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("Bost00");		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("Bost00");		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainGageBooster[i]->Move((GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 		m_pImgMainGageBooster[i]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 		m_pImgMainGageBooster[i]->Render();
@@ -2796,9 +2755,9 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 		i = m_fGageRate[GAMEMAIN_GAGE_EP_UP]*GAMEMAIN_GAGE_FUEL_MAX_GRADE;
 		if(i>=GAMEMAIN_GAGE_FUEL_MAX_GRADE){i--;}
 
-		i = min(i, GAMEMAIN_GAGE_FUEL_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼·Â°ÔÀÌÁö ¸Þ¸ð¸® ¹ö±× ¼öÁ¤
+		i = min(i, GAMEMAIN_GAGE_FUEL_MAX_GRADE-1); // 2013-06-17 by bhsohn Ã¼ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("fue00");		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("fue00");		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainGageFuel[i]->Move((GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 		m_pImgMainGageFuel[i]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 		m_pImgMainGageFuel[i]->Render();
@@ -2806,14 +2765,14 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 	if(m_fGageRate[GAMEMAIN_GAGE_EP_UP]>0.2f || !m_bWarning)
 	{
 
-		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("fuelG00");		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("fuelG00");		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainIconFuel[0]->Move((GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 		m_pImgMainIconFuel[0]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 		m_pImgMainIconFuel[0]->Render();
 	}
 	else
 	{
-		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("fuelG00"); 		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+		Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("fuelG00"); 		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainIconFuel[1]->Move((GAMEMAIN_POS_X + Pos.x) * HIDPI_COEFF, (GAMEMAIN_POS_Y + Pos.y) * HIDPI_COEFF);
 		m_pImgMainIconFuel[1]->SetScale(HIDPI_COEFF, HIDPI_COEFF);
 		m_pImgMainIconFuel[1]->Render();
@@ -2833,12 +2792,12 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 	}
 
 
-	// 2008-05-29 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º º¯°æ ±âÈ¹.
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// 2008-05-29 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¹.
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("firstweapon"); 		
-	g_pGameMain->m_pWeaponInfo->RenderLeftWeapon( Pos.x, Pos.y );  // 1Çü ¹«±â
+	g_pGameMain->m_pWeaponInfo->RenderLeftWeapon( Pos.x, Pos.y );  // 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	Pos = m_pGageBarInfo->GetFindControlTargetofMinPos("secondweapon"); 
-	g_pGameMain->m_pWeaponInfo->RenderRightWeapon( Pos.x, Pos.y ); // 2Çü ¹«±â
+	g_pGameMain->m_pWeaponInfo->RenderRightWeapon( Pos.x, Pos.y ); // 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	//--------------------------------------------------------------------------//
 	if(	bShowAll &&
@@ -2848,9 +2807,9 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 		m_pImgMainExpBar->SetRect(0,0, (float)( g_pD3dApp->GetBackBufferDesc().Width * m_fGageRate[GAMEMAIN_GAGE_EXP_UP] ), g_pD3dApp->GetBackBufferDesc().Height);
 
 		m_pImgMainExpBar->Render();
-// 2011-12-08 by jhahn EP4 Æ®¸®°Å »óÁ¡ UI º¯°æ
+// 2011-12-08 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainExpBar1->Move( (int)( g_pD3dApp->GetBackBufferDesc().Width * m_fGageRate[GAMEMAIN_GAGE_EXP_UP] ), GAMEMAIN_BACK_GAGE_EXP_START_Y );
-//end 2011-12-08 by jhahn EP4 Æ®¸®°Å »óÁ¡ UI º¯°æ
+//end 2011-12-08 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
 		m_pImgMainExpBar1->Render();
 	}
 	if(m_fGageRate[GAMEMAIN_GAGE_HP_UP]<0.35f && m_bWarning)
@@ -2934,7 +2893,7 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 	}
 
 
-	// 2008-05-29 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º º¯°æ ±âÈ¹.
+	// 2008-05-29 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¹.
 	g_pGameMain->m_pWeaponInfo->RenderLeftWeapon();
 	g_pGameMain->m_pWeaponInfo->RenderRightWeapon();
 
@@ -2957,21 +2916,21 @@ void CINFGameMainUnitInfoBar::RenderMainGage(BOOL bShowAll)
 	}
 #endif
 }
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CINFGameMainUnitInfoBar::RenderSpeed()
 {
-	// 2005-05-31 by jschoi - À¯´Ö »óÇÏ Áß·Â Àû¿ë
+	// 2005-05-31 by jschoi - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	int nSpeed = (int)g_pShuttleChild->m_fShuttleSpeed;
-	// 2005-12-12 by ispark, Ä³¸¯ÅÍ »óÅÂ¿¡¼­´Â ¹«Á¶°Ç... 0
+	// 2005-12-12 by ispark, Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½... 0
 	int nSpeed = 0;
 	if(g_pD3dApp->m_bCharacter && !g_pGround->m_bBazaar)
 		nSpeed = 0;
 	else
 	{
-		// 2010. 05. 17 by jskim A±â¾î Áö»ó ¼Óµµ 1 ÀûÀº ¹ö±× ¼öÁ¤
+		// 2010. 05. 17 by jskim Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//nSpeed = (int)(g_pShuttleChild->m_fShuttleSpeed - g_pShuttleChild->m_fTempGravity);
 		//nSpeed = (int)((g_pShuttleChild->m_fShuttleSpeed - g_pShuttleChild->m_fTempGravity) + 1);
-		//end. 05. 17 by jskim A±â¾î Áö»ó ¼Óµµ 1 ÀûÀº ¹ö±× ¼öÁ¤
+		//end. 05. 17 by jskim Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		nSpeed = (int)((g_pShuttleChild->m_fShuttleSpeed - g_pShuttleChild->m_fTempGravity));
 
 		if ( g_pShuttleChild->m_fShuttleSpeed > .0f )
@@ -3035,14 +2994,14 @@ int CINFGameMainUnitInfoBar::GetMaxSize(int nNum)
 int CINFGameMainUnitInfoBar::CutOffFirstNumber(int& nNum,int nMaxNum)
 {
 	int nResult = 0;
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(nMaxNum == 4)
 	{
 		nResult = nNum/1000;
 		nNum = nNum%1000;
 		return nResult;
 	}
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	else if(nMaxNum == 3)
 	{
 		nResult = nNum/100;
@@ -3107,18 +3066,38 @@ BOOL CINFGameMainUnitInfoBar::RenderCurrentEvent(UINT x, UINT y)
 		g_pShuttleChild->m_pPkNormalTimer && 
 		g_pShuttleChild->m_pPkNormalTimer->IsCityWar())
 	{
-		m_pFontCurrentEvent->DrawText(x, y, GUI_FONT_COLOR_YM, STRMSG_C_INTERFACE_0024);//"µµ½ÃÁ¡·ÉÀü ÁøÇàÁß"
-		return TRUE;	// µµ½ÃÁ¡·ÉÀü Áß
+		m_pFontCurrentEvent->DrawText(x, y, GUI_FONT_COLOR_YM, STRMSG_C_INTERFACE_0024);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+		return TRUE;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	}
 
-	if( g_pShuttleChild &&
+#ifdef _RAT_FFA
+	if (g_pShuttleChild && (IsPkEnableMap(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex) || MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType))
+	{
+		if (g_pShuttleChild &&
+			IsPkEnableMap(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex))
+		{
+			m_pFontCurrentEvent->DrawText(x + 20, y, RGB(255, 54, 0), STRMSG_C_INTERFACE_0025);
+		}
+
+		if (g_pShuttleChild &&
+			MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+		{
+			m_pFontCurrentEvent->DrawText(x + 20, y + 50, RGB(255, 0, 0), "All PVP Area");
+
+		}
+		return TRUE;
+
+	}
+#else
+	if (g_pShuttleChild &&
 		IsPkEnableMap(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex))
 	{
-		m_pFontCurrentEvent->DrawText(x+20, y, RGB(255,54,0), STRMSG_C_INTERFACE_0025);//"PK °¡´É Áö¿ª"
-		return TRUE;	// PK °¡´É ¸Ê
+		m_pFontCurrentEvent->DrawText(x + 20, y, RGB(255, 54, 0), STRMSG_C_INTERFACE_0025);//"PK ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
+		return TRUE;	// PK ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	}
+#endif
 
-	return FALSE;	// ¾Æ¹«·± ÀÌº¥Æ®°¡ ¾ø´Ù.
+	return FALSE;	// ï¿½Æ¹ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 }
 
 BOOL CINFGameMainUnitInfoBar::IsRenderMapName()
@@ -3135,7 +3114,7 @@ BOOL CINFGameMainUnitInfoBar::IsRenderMapName()
 void CINFGameMainUnitInfoBar::RenderPremiumCard(BOOL bIsCity)
 {
 	int x,y;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	x = g_pD3dApp->GetBackBufferDesc().Width - 104;
 #else
 	x = g_pD3dApp->GetBackBufferDesc().Width - 64;
@@ -3144,7 +3123,7 @@ void CINFGameMainUnitInfoBar::RenderPremiumCard(BOOL bIsCity)
 //	if(bIsCity)
 //		y = g_pD3dApp->GetBackBufferDesc().Height - 107;
 //	else
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		y = g_pD3dApp->GetBackBufferDesc().Height - 52 - GAME_EVENT_BASICPOS_Y;
 
 // 	if(g_pD3dApp->m_bCharacter && !g_pGround->m_bBazaar)
@@ -3162,13 +3141,13 @@ void CINFGameMainUnitInfoBar::RenderPremiumCard(BOOL bIsCity)
 	}
 #endif
 
-	// 2006-07-05 by ispark, ÇÁ¸®¹Ì¾ö °³³ä º¯°æ
+	// 2006-07-05 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pD3dApp->GetPrimiumCardInfo()->nCardItemNum1)
 	{
 		m_pImgGeneralPremiumCard->Move(x,y);
 		m_pImgGeneralPremiumCard->Render();
 
-		// 2009. 03. 16 by ckPark ¸â¹ö½± ÅøÆÁ Ãß°¡
+		// 2009. 03. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 		if(m_bPremiumToolTip)
 		{
@@ -3181,13 +3160,13 @@ void CINFGameMainUnitInfoBar::RenderPremiumCard(BOOL bIsCity)
 			int leftMin		= (endSec - curSec) % 86400 % 3600 / 60;
 
 			if(leftDay <= 0 && leftHour <= 0 && leftMin <= 100)
-				sprintf(szBuff, STRMSG_C_090316_0302, leftMin);			// "[¸â¹ö½Ê ÀÜ¿©½Ã°£] 00ºÐ ³²À½"
+				sprintf(szBuff, STRMSG_C_090316_0302, leftMin);			// "[ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¿ï¿½ï¿½Ã°ï¿½] 00ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
 			else
-				sprintf(szBuff, STRMSG_C_090316_0301, leftDay, leftHour);	// "[¸â¹ö½Ê ÀÜ¿©½Ã°£] 00ÀÏ 00½Ã°£ ³²À½"
+				sprintf(szBuff, STRMSG_C_090316_0301, leftDay, leftHour);	// "[ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¿ï¿½ï¿½Ã°ï¿½] 00ï¿½ï¿½ 00ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½"
 
 			POINT	drawPt;
 			SIZE	strSize = m_pFontEventRecovery->GetStringSize(szBuff);
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			drawPt.x	= g_pD3dApp->GetBackBufferDesc().Width - strSize.cx;
 #else
 			drawPt.x	= x - strSize.cx;
@@ -3198,49 +3177,49 @@ void CINFGameMainUnitInfoBar::RenderPremiumCard(BOOL bIsCity)
 			m_pFontEventRecovery->DrawText(drawPt.x, drawPt.y, GUI_FONT_COLOR_Y, szBuff);
 		}
 
-		// end 2009. 03. 16 by ckPark ¸â¹ö½± ÅøÆÁ Ãß°¡
+		// end 2009. 03. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	}
 
 }
 
 void CINFGameMainUnitInfoBar::RenderHappyHourEvent(BOOL bIsCity)
 {
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(IsHappyHourEvent())
 	{	
 		m_nHappyHourY = g_pD3dApp->GetBackBufferDesc().Height - 77;
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 		m_nHappyHourY -= RESTKILLCOUNT_MOVE_HAPPYHOUR;
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	
 		m_pImgHappyHourEvent->Move(m_nHappyHourX, m_nHappyHourY);
 		m_pImgHappyHourEvent->Render();
 	}
 	
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
  	if(m_pMemberPremiumEvent)
  	{
 		m_nPCHappyHourY = g_pD3dApp->GetBackBufferDesc().Height - 122;
 		m_pImgPCHomePremiumEvent->Move(m_nPCHappyHourX - 277,m_nPCHappyHourY + 41);
 		m_pImgPCHomePremiumEvent->Render();
 	}
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
  	else if(m_bMemberPCBang)
  	{
 		m_nPCHappyHourY = g_pD3dApp->GetBackBufferDesc().Height - 122;
 
-		m_pImgPCHappyHourEvent->Move(m_nPCHappyHourX - 277,m_nPCHappyHourY + 37);	// 2012-03-29 by mspark, °¡¸ÍPC¹æ ÀÌ¹ÌÁö À§Ä¡ ¼öÁ¤ - ±âÁ¸ 41¿¡¼­ 37·Î ¼öÁ¤
+		m_pImgPCHappyHourEvent->Move(m_nPCHappyHourX - 277,m_nPCHappyHourY + 37);	// 2012-03-29 by mspark, ï¿½ï¿½ï¿½ï¿½PCï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ 41ï¿½ï¿½ï¿½ï¿½ 37ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pImgPCHappyHourEvent->Render();		
 	}
 #else
-	// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+	// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//if(m_BHappyHourEvent)
 	if(IsHappyHourEvent())
 	{	
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //		if(bIsCity)
 //			m_nHappyHourY = g_pD3dApp->GetBackBufferDesc().Height - 99;
 //		else
@@ -3252,17 +3231,17 @@ void CINFGameMainUnitInfoBar::RenderHappyHourEvent(BOOL bIsCity)
 		m_pImgHappyHourEvent->Render();
 	}
 
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	if(m_pMemberPremiumEvent)
 	{
 		m_nPCHappyHourY = g_pD3dApp->GetBackBufferDesc().Height - 87;
 		m_pImgPCHomePremiumEvent->Move(m_nPCHappyHourX,m_nPCHappyHourY);
 		m_pImgPCHomePremiumEvent->Render();
 	}
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö UI ÀÛ¾÷
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ UI ï¿½Û¾ï¿½
 	else if(m_bMemberPCBang)
 	{
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //		if(bIsCity)
 //			m_nPCHappyHourY = g_pD3dApp->GetBackBufferDesc().Height - 107;
 //		else
@@ -3282,28 +3261,28 @@ void CINFGameMainUnitInfoBar::RenderEventRecovery()
 	if(TRUE == g_bEventRecovery)
 	{
 		int nCount = ((int)(g_fEventRecoveryRate * 100.0f) / 5.0f) - 1;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int nEventX = g_pD3dApp->GetBackBufferDesc().Width - 196 ;
-		int nEventY = g_pD3dApp->GetBackBufferDesc().Height - 102;	// 2012-08-14 by mspark, ÀÌº¥Æ® È¸º¹À² ÀÌ¹ÌÁö À§Ä¡ ¼öÁ¤ - ±âÁ¸ 94¿¡¼­ 102·Î ¼öÁ¤
+		int nEventY = g_pD3dApp->GetBackBufferDesc().Height - 102;	// 2012-08-14 by mspark, ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ 94ï¿½ï¿½ï¿½ï¿½ 102ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
 		int nEventX = g_pD3dApp->GetBackBufferDesc().Width - 105;
 		int nEventY = g_pD3dApp->GetBackBufferDesc().Height - 83;
 #endif
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef S_BONUSEXPSYSTEM_RENEWAL
 		nEventY -= RESTKILLCOUNT_MOVE_HAPPYHOUR;
 #endif // S_BONUSEXPSYSTEM_RENEWAL
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //		if(g_pD3dApp->m_bCharacter && !g_pGround->m_bBazaar)
 //			nEventY -= GAME_EVENT_BASICPOS_Y;
 
-		// 2009. 08. 21 by ckPark ÀÌº¥Æ® È¸º¹·ü ´Ü°è ¹ö±× ¼öÁ¤
+		// 2009. 08. 21 by ckPark ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if( nCount > GAMEMAIN_EVENT_RECOVERY_MAX - 1 )
 			nCount = GAMEMAIN_EVENT_RECOVERY_MAX - 1;
 		if( nCount < 0 )
 			nCount = 0;
-		// end 2009. 08. 21 by ckPark ÀÌº¥Æ® È¸º¹·ü ´Ü°è ¹ö±× ¼öÁ¤
+		// end 2009. 08. 21 by ckPark ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		if(m_pImgEventRecovery[nCount])
 		{
@@ -3315,7 +3294,7 @@ void CINFGameMainUnitInfoBar::RenderEventRecovery()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::RenderStringBar()
-/// \brief		ÀÌº¥Æ® ¼³¸í
+/// \brief		ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-06-08 ~ 2006-06-08
 /// \warning	
@@ -3325,14 +3304,14 @@ void CINFGameMainUnitInfoBar::RenderEventRecovery()
 ///////////////////////////////////////////////////////////////////////////////
 void CINFGameMainUnitInfoBar::RenderStringBar()
 {
-	// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+	// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//if(m_BHappyHourEvent)
 	if(IsHappyHourEvent())
 	{
-		// 2006-04-25 by ispark, ¸¶¿ì½º À§Ä¡ÀÏ¶§ º¸¿©ÁÖ´Â ½ºÆ®¸µ
+		// 2006-04-25 by ispark, ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¡ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
 		if(m_bRenderEvent == TRUE)
 		{
-			// 2006-04-24 by ispark, ¼öÁ¤
+			// 2006-04-24 by ispark, ï¿½ï¿½ï¿½ï¿½
 //			int Height = 0;
 			int nRenderX = 0;
 			int leng = 0;
@@ -3374,7 +3353,7 @@ void CINFGameMainUnitInfoBar::RenderStringBar()
 	{
 		int nEventX = g_pD3dApp->GetBackBufferDesc().Width - 88;
 		int nEventY = g_pD3dApp->GetBackBufferDesc().Height - 83;
-// 2008-05-19 by dgwoo ¸ÞÀÎ ÀÎÅÍÆäÀÌ½º À§Ä¡ º¯°æ.
+// 2008-05-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 //		if(g_pD3dApp->m_bCharacter && !g_pGround->m_bBazaar)
 //			nEventY -= GAME_EVENT_BASICPOS_Y;
 
@@ -3382,12 +3361,12 @@ void CINFGameMainUnitInfoBar::RenderStringBar()
 		{
 			char buf[128] = {0,};
 
-			// 2009. 08. 21 by ckPark ÀÌº¥Æ® È¸º¹·ü ´Ü°è ¹ö±× ¼öÁ¤
+			// 2009. 08. 21 by ckPark ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if( g_fEventRecoveryRate > 0.25f )
 				g_fEventRecoveryRate = 0.25f;
 			if( g_fEventRecoveryRate < 0.0f )
 				g_fEventRecoveryRate = 0.0f;
-			// end 2009. 08. 21 by ckPark ÀÌº¥Æ® È¸º¹·ü ´Ü°è ¹ö±× ¼öÁ¤			
+			// end 2009. 08. 21 by ckPark ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
 
 			sprintf(buf, STRMSG_C_060424_0002, (int)(g_fEventRecoveryRate * 100.0f));
 			int leng = m_pFontEventRecovery->GetStringSize(buf).cx + 10;
@@ -3400,7 +3379,7 @@ void CINFGameMainUnitInfoBar::RenderStringBar()
 		}
 	}
 
-// 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 #ifdef C_DECA_TOOLTIP
 	int nY = RESTKILLCOUNT_BASE_POS_Y - RESTCOUNT_BACK_POS_Y;
 	if(m_bRestCountToolTip)
@@ -3413,14 +3392,14 @@ void CINFGameMainUnitInfoBar::RenderStringBar()
 		DecaToolTipFunction(FALSE, nY);
 	}
 #endif
-// end 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// end 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CINFGameMainUnitInfoBar::IsHappyHourEvent()
 /// \brief		
-/// \author		// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-04 ~ 2007-07-04
 /// \warning	
 ///
@@ -3442,12 +3421,12 @@ BOOL CINFGameMainUnitInfoBar::IsHappyHourEvent()
 	{
 		return TRUE;
 	}	
-	// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+	// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 	else if(m_bMotherHappyHour || m_bItemHappyHour)
 	{
 		return TRUE;
 	}
-	// end 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+	// end 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 	
 	return FALSE;
 }
@@ -3455,7 +3434,7 @@ BOOL CINFGameMainUnitInfoBar::IsHappyHourEvent()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CINFGameMainUnitInfoBar::IsHappyHourEvent()
 /// \brief		
-/// \author		// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-04 ~ 2007-07-04
 /// \warning	
 ///
@@ -3470,7 +3449,7 @@ BOOL CINFGameMainUnitInfoBar::IsHappyHourPcBang()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::SetHappyHourInfluence(BYTE byInfluence)
 /// \brief		
-/// \author		// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-04 ~ 2007-07-04
 /// \warning	
 ///
@@ -3483,7 +3462,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfluence(BOOL bLevelup, BOOL bHappyHo
 
 	CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();
 	
-	// °¢ ¼¼·Âº° ÇØÇÇ ¾Æ¿ì¾î ÀÎÆ÷
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EVENT_INFO* pEventInfo = NULL;
 	BOOL bAllInfluence = FALSE;
 	if(byInfluence == INFLUENCE_TYPE_ALL_MASK)
@@ -3499,7 +3478,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfluence(BOOL bLevelup, BOOL bHappyHo
 	{
 		return;
 	}	
-	// º¯¼ö ÃÊ±âÈ­	
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­	
 	memset(pEventInfo, 0x00, sizeof(EVENT_INFO));
 
 	if(bHappyHour)
@@ -3513,7 +3492,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfluence(BOOL bLevelup, BOOL bHappyHo
 			m_byHappyHourInfluence = byInfluence;
 
 		}
-		// ÀüÃ¼ ¼¼·Â ÇØÇÇ ¾Æ¿ö ÀÎÆ÷
+		// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 		SetHappyHourInfo(bLevelup, pMsg, pEventInfo);
 	}
 	else
@@ -3528,14 +3507,14 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfluence(BOOL bLevelup, BOOL bHappyHo
 		}		
 	}
 
-	// ÇØÇÇ ¾Æ¿ì¾î ÅøÆÁ °»½Å 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	UpdateHappyHourTooltip();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::SetHappyHourInfo(BYTE byInfluence)
 /// \brief		
-/// \author		// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-04 ~ 2007-07-04
 /// \warning	
 ///
@@ -3550,9 +3529,9 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 	
 	if(pMsg->fEXPRate2 > 0.0f)
 	{		
-		if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+		if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0003,(pMsg->fEXPRate2)*100);//"¸ó½ºÅÍ °æÇèÄ¡ %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0003,(pMsg->fEXPRate2)*100);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);			
 		}
 		
@@ -3560,9 +3539,9 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 	}
 	if(pMsg->fDropRareRate2 > 0.0f)
 	{
-		if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+		if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0004,(pMsg->fDropRareRate2)*100);//"·¹¾î ¿É¼Ç ¾ÆÀÌÅÛ µå¶ø È®·ü %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0004,(pMsg->fDropRareRate2)*100);//"ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
@@ -3571,9 +3550,9 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 	}
 	if(pMsg->fEXPRepairRate2 > 0.0f )
 	{
-		if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+		if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0005,(pMsg->fEXPRepairRate2)*100);//"Á×¾úÀ» °æ¿ì ÆÐ³ÎÆ¼ %.0f%% °¨¼Ò"
+			sprintf(szNotice, STRMSG_C_EVENT_0005,(pMsg->fEXPRepairRate2)*100);//"ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
@@ -3581,9 +3560,9 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 	}
 	if(pMsg->fDropItemRate2 > 0.0f )
 	{
-		if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+		if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0006,(pMsg->fDropItemRate2)*100);//"¾ÆÀÌÅÛ µå·ÓÀ² %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0006,(pMsg->fDropItemRate2)*100);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
@@ -3592,9 +3571,9 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 	}
 	if(pMsg->fSPIRate2 > 0.0f )
 	{
-		if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+		if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0007,(pMsg->fSPIRate2)*100);//"½ºÇÇ·® %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0007,(pMsg->fSPIRate2)*100);//"ï¿½ï¿½ï¿½Ç·ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
@@ -3602,10 +3581,10 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 		
 	}
 	if(pMsg->fWarPointRate2 > 0.0f )
-	{// ÀüÀï Æ÷ÀÎÆ®.
-		if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+	{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®.
+		if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 		{
-			sprintf(szNotice, STRMSG_C_070626_0100,(pMsg->fWarPointRate2)*100);//"ÀüÀï Æ÷ÀÎÆ® %d%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_070626_0100,(pMsg->fWarPointRate2)*100);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® %d%% ï¿½ï¿½ï¿½ï¿½"
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
@@ -3613,7 +3592,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 		
 	}	
 
-	// 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó 
+	// 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 #ifdef SC_RENEWER_HAPPY_HOUR_BHSOHN_BCKIM
 	if(pMsg->fHPRecoveryRate > 0.0f)
 	{
@@ -3623,7 +3602,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
-		pEventInfo->fHPRecoveryRate		= pMsg->fHPRecoveryRate;				// HPÈ¸º¹À²
+		pEventInfo->fHPRecoveryRate		= pMsg->fHPRecoveryRate;				// HPÈ¸ï¿½ï¿½ï¿½ï¿½
 	}
 	if(pMsg->fSHDRecoveryRate > 0.0f)
 	{
@@ -3633,7 +3612,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
-		pEventInfo->fSHDRecoveryRate	= pMsg->fSHDRecoveryRate;				// ½¯µå È¸º¹À²
+		pEventInfo->fSHDRecoveryRate	= pMsg->fSHDRecoveryRate;				// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
 	}
 	if(pMsg->fSPRecoveryRate > 0.0f)
 	{
@@ -3643,7 +3622,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
-		pEventInfo->fSPRecoveryRate		= pMsg->fSPRecoveryRate;				// SP È¸º¹À²
+		pEventInfo->fSPRecoveryRate		= pMsg->fSPRecoveryRate;				// SP È¸ï¿½ï¿½ï¿½ï¿½
 	}
 	if(pMsg->fWeaponEnchantRate > 0.0f)
 	{
@@ -3652,7 +3631,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			sprintf(szNotice, STRMSG_C_130822_0004,(pMsg->fWeaponEnchantRate*100.0f));
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
-		pEventInfo->fWeaponEnchantRate	= pMsg->fWeaponEnchantRate;				// ¹«±â·ù ÀÎÃ¾Æ® ¼º°øÈ®·ü
+		pEventInfo->fWeaponEnchantRate	= pMsg->fWeaponEnchantRate;				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 	}
 	if(pMsg->fArmorEnchantRate > 0.0f)
 	{
@@ -3662,7 +3641,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
-		pEventInfo->fArmorEnchantRate	= pMsg->fArmorEnchantRate;				// ¾Æ¸Ó·ù ÀÎÃ¾Æ® ¼º°øÈ®·ü
+		pEventInfo->fArmorEnchantRate	= pMsg->fArmorEnchantRate;				// ï¿½Æ¸Ó·ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 	}
 	if(pMsg->fETCItemEnchantRate > 0.0f)
 	{
@@ -3671,7 +3650,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			sprintf(szNotice, STRMSG_C_130822_0006,(pMsg->fETCItemEnchantRate*100.0f));
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
-		pEventInfo->fETCItemEnchantRate	= pMsg->fETCItemEnchantRate;			// Etc ÀÎÃ¾Æ® ¼º°øÈ®·ü
+		pEventInfo->fETCItemEnchantRate	= pMsg->fETCItemEnchantRate;			// Etc ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 	}
 	if(pMsg->fSPIDiscountRate > 0.0f)
 	{
@@ -3680,7 +3659,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			sprintf(szNotice, STRMSG_C_130822_0007,(pMsg->fSPIDiscountRate*100.0f));
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
-		pEventInfo->fSPIDiscountRate	= pMsg->fSPIDiscountRate;				// SPI»óÁ¡ ¾ÆÀÌÅÛ ÇÒÀÎÀ²
+		pEventInfo->fSPIDiscountRate	= pMsg->fSPIDiscountRate;				// SPIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	if(pMsg->fWPDiscountRate > 0.0f)
 	{
@@ -3690,14 +3669,14 @@ void CINFGameMainUnitInfoBar::SetHappyHourInfo(BOOL bLevelup, MSG_FC_INFO_GET_HA
 			g_pGameMain->CreateChatChild(szNotice ,COLOR_SYSTEM);	
 		}
 		
-		pEventInfo->fWPDiscountRate		= pMsg->fWPDiscountRate;				// WP»óÁ¡ ¾ÆÀÌÅÛ ÇÒÀÎÀ²
+		pEventInfo->fWPDiscountRate		= pMsg->fWPDiscountRate;				// WPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}	
 #endif
-	// END 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó 
+	// END 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 
-	if(!bLevelup) // ·¹º§¾÷ÀÌ ¾Æ´Ò‹š¸¸ Ã¤ÆÃ¿¡ Ç¥½Ã // 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+	if(!bLevelup) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò‹ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¿ï¿½ Ç¥ï¿½ï¿½ // 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 	{
-		g_pGameMain->CreateChatChild(STRMSG_C_EVENT_0008 ,COLOR_SYSTEM);//"ÁÁÀº ½Ã°£ µÇ½Ã±â ¹Ù¶ø´Ï´Ù. ^^"	
+		g_pGameMain->CreateChatChild(STRMSG_C_EVENT_0008 ,COLOR_SYSTEM);//"ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ç½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½. ^^"	
 	}
 
 	
@@ -3709,49 +3688,49 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 	memset(szNotice, 0x00, 1024);
 	float fTmp = 0.0f;
 
-	// 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+	// 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	EVENT_INFO	struAllHappyHourInfo;
 	memset(&struAllHappyHourInfo, 0x00, sizeof(EVENT_INFO));
-	// END 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+	// END 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	{
-		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 		//fTmp = m_HappyEventInfo.fEXPRate+m_HappyEventAllInfluInfo.fEXPRate+m_PCHappyEventInfo.fEXPRate;
 		fTmp = m_HappyEventInfo.fEXPRate+m_HappyEventAllInfluInfo.fEXPRate+m_PCHappyEventInfo.fEXPRate
 				+m_MotherShipEventInfo.fEXPRate+m_ItemEventInfo.fEXPRate;
 
-		struAllHappyHourInfo.fEXPRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fEXPRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp > 0)
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0003,(fTmp)*100);//"¸ó½ºÅÍ °æÇèÄ¡ %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0003,(fTmp)*100);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			m_vecEventHappyHour.push_back(szNotice);
 		}
 	}
 	{
-		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 		//fTmp = m_HappyEventInfo.fDropRareRate +m_HappyEventAllInfluInfo.fDropRareRate+m_PCHappyEventInfo.fDropRareRate;
 		fTmp = m_HappyEventInfo.fDropRareRate +m_HappyEventAllInfluInfo.fDropRareRate+m_PCHappyEventInfo.fDropRareRate
 				+m_MotherShipEventInfo.fDropRareRate+m_ItemEventInfo.fDropRareRate;
 
-		struAllHappyHourInfo.fDropRareRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fDropRareRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(fTmp)
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0004,(fTmp)*100);//"·¹¾î ¿É¼Ç ¾ÆÀÌÅÛ µå¶ø È®·ü %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0004,(fTmp)*100);//"ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			m_vecEventHappyHour.push_back(szNotice);
 		}
 		
 	}
 
 	{
-		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 		//fTmp = m_HappyEventInfo.fEXPRepairRate +m_HappyEventAllInfluInfo.fEXPRepairRate+m_PCHappyEventInfo.fEXPRepairRate;
 		fTmp = m_HappyEventInfo.fEXPRepairRate +m_HappyEventAllInfluInfo.fEXPRepairRate+m_PCHappyEventInfo.fEXPRepairRate
 				+m_MotherShipEventInfo.fEXPRepairRate+m_ItemEventInfo.fEXPRepairRate;
 
-		struAllHappyHourInfo.fEXPRepairRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fEXPRepairRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		// ÆÐ³ÎÆ¼´Â 100%°¡ ³ÑÀ»¼ö ¾ø´Ù. 
+		// ï¿½Ð³ï¿½Æ¼ï¿½ï¿½ 100%ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
 		if(fTmp > 1.0f)
 		{
 			fTmp = 1.0f;
@@ -3759,64 +3738,64 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		
 		if(fTmp > 0)
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0005,(fTmp)*100);//"Á×¾úÀ» °æ¿ì ÆÐ³ÎÆ¼ %.0f%% °¨¼Ò"
+			sprintf(szNotice, STRMSG_C_EVENT_0005,(fTmp)*100);//"ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			m_vecEventHappyHour.push_back(szNotice);
 		}
 	}
 
 	{
-		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 		//fTmp = m_HappyEventInfo.fDropItemRate +m_HappyEventAllInfluInfo.fDropItemRate+m_PCHappyEventInfo.fDropItemRate;
 		fTmp = m_HappyEventInfo.fDropItemRate +m_HappyEventAllInfluInfo.fDropItemRate+m_PCHappyEventInfo.fDropItemRate
 				+m_MotherShipEventInfo.fDropItemRate+m_ItemEventInfo.fDropItemRate;
 
-		struAllHappyHourInfo.fDropItemRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fDropItemRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp>0)
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0006,(fTmp)*100);//"¾ÆÀÌÅÛ µå·ÓÀ² %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0006,(fTmp)*100);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			m_vecEventHappyHour.push_back(szNotice);
 		}
 	}
 
 	{
-		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 		//fTmp = m_HappyEventInfo.fSPIRate +m_HappyEventAllInfluInfo.fSPIRate+m_PCHappyEventInfo.fSPIRate;
 		fTmp = m_HappyEventInfo.fSPIRate +m_HappyEventAllInfluInfo.fSPIRate+m_PCHappyEventInfo.fSPIRate
 				+m_MotherShipEventInfo.fSPIRate+m_ItemEventInfo.fSPIRate;
 
-		struAllHappyHourInfo.fSPIRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fSPIRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp > 0)
 		{
-			sprintf(szNotice, STRMSG_C_EVENT_0007,(fTmp)*100);//"½ºÇÇ·® %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_EVENT_0007,(fTmp)*100);//"ï¿½ï¿½ï¿½Ç·ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			m_vecEventHappyHour.push_back(szNotice);
 		}
 	}
 
 	{
-		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 		//fTmp = m_HappyEventInfo.fWarPointRate +m_HappyEventAllInfluInfo.fWarPointRate+m_PCHappyEventInfo.fWarPointRate;
 		fTmp = m_HappyEventInfo.fWarPointRate +m_HappyEventAllInfluInfo.fWarPointRate+m_PCHappyEventInfo.fWarPointRate
 				+m_MotherShipEventInfo.fWarPointRate +m_ItemEventInfo.fWarPointRate;
 
-		struAllHappyHourInfo.fWarPointRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fWarPointRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
-			sprintf(szNotice, STRMSG_C_070626_0100,(fTmp)*100);//"½ºÇÇ·® %.0f%% Áõ°¡"
+			sprintf(szNotice, STRMSG_C_070626_0100,(fTmp)*100);//"ï¿½ï¿½ï¿½Ç·ï¿½ %.0f%% ï¿½ï¿½ï¿½ï¿½"
 			m_vecEventHappyHour.push_back(szNotice);
 		}
 	}
 	
-	// 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó 	
+	// 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 	
 #ifdef SC_RENEWER_HAPPY_HOUR_BHSOHN_BCKIM
 	{
-		// HPÈ¸º¹À²
+		// HPÈ¸ï¿½ï¿½ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fHPRecoveryRate +m_HappyEventAllInfluInfo.fHPRecoveryRate+m_PCHappyEventInfo.fHPRecoveryRate
 				+m_MotherShipEventInfo.fHPRecoveryRate +m_ItemEventInfo.fHPRecoveryRate;
 
-		struAllHappyHourInfo.fHPRecoveryRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fHPRecoveryRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3826,11 +3805,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		
 	}
 	{
-		// ½¯µå È¸º¹À²
+		// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fSHDRecoveryRate +m_HappyEventAllInfluInfo.fSHDRecoveryRate+m_PCHappyEventInfo.fSHDRecoveryRate
 				+m_MotherShipEventInfo.fSHDRecoveryRate +m_ItemEventInfo.fSHDRecoveryRate;		
 
-		struAllHappyHourInfo.fSHDRecoveryRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fSHDRecoveryRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3840,11 +3819,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 	}
 
 	{
-		// SP È¸º¹À²
+		// SP È¸ï¿½ï¿½ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fSPRecoveryRate +m_HappyEventAllInfluInfo.fSPRecoveryRate+m_PCHappyEventInfo.fSPRecoveryRate
 				+m_MotherShipEventInfo.fSPRecoveryRate +m_ItemEventInfo.fSPRecoveryRate;		
 
-		struAllHappyHourInfo.fSPRecoveryRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fSPRecoveryRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3853,11 +3832,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		}
 	}
 	{
-		// ¹«±â·ù ÀÎÃ¾Æ® ¼º°øÈ®·ü
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fWeaponEnchantRate +m_HappyEventAllInfluInfo.fWeaponEnchantRate+m_PCHappyEventInfo.fWeaponEnchantRate
 				+m_MotherShipEventInfo.fWeaponEnchantRate +m_ItemEventInfo.fWeaponEnchantRate;		
 
-		struAllHappyHourInfo.fWeaponEnchantRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fWeaponEnchantRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3866,11 +3845,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		}
 	}
 	{
-		// ¾Æ¸Ó·ù ÀÎÃ¾Æ® ¼º°øÈ®·ü
+		// ï¿½Æ¸Ó·ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fArmorEnchantRate +m_HappyEventAllInfluInfo.fArmorEnchantRate+m_PCHappyEventInfo.fArmorEnchantRate
 				+m_MotherShipEventInfo.fArmorEnchantRate +m_ItemEventInfo.fArmorEnchantRate;		
 
-		struAllHappyHourInfo.fArmorEnchantRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fArmorEnchantRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3879,11 +3858,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		}
 	}
 	{
-		// Etc ÀÎÃ¾Æ® ¼º°øÈ®·ü
+		// Etc ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fETCItemEnchantRate +m_HappyEventAllInfluInfo.fETCItemEnchantRate+m_PCHappyEventInfo.fETCItemEnchantRate
 				+m_MotherShipEventInfo.fETCItemEnchantRate +m_ItemEventInfo.fETCItemEnchantRate;		
 		
-		struAllHappyHourInfo.fETCItemEnchantRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fETCItemEnchantRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3892,11 +3871,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		}
 	}
 	{
-		// SPI»óÁ¡ ¾ÆÀÌÅÛ ÇÒÀÎÀ²
+		// SPIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fSPIDiscountRate +m_HappyEventAllInfluInfo.fSPIDiscountRate+m_PCHappyEventInfo.fSPIDiscountRate
 				+m_MotherShipEventInfo.fSPIDiscountRate +m_ItemEventInfo.fSPIDiscountRate;		
 
-		struAllHappyHourInfo.fSPIDiscountRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fSPIDiscountRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3905,11 +3884,11 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		}
 	}
 	{
-		// WP»óÁ¡ ¾ÆÀÌÅÛ ÇÒÀÎÀ²
+		// WPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		fTmp = m_HappyEventInfo.fWPDiscountRate +m_HappyEventAllInfluInfo.fWPDiscountRate+m_PCHappyEventInfo.fWPDiscountRate
 				+m_MotherShipEventInfo.fWPDiscountRate +m_ItemEventInfo.fWPDiscountRate;	
 		
-		struAllHappyHourInfo.fWPDiscountRate = fTmp; // 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó
+		struAllHappyHourInfo.fWPDiscountRate = fTmp; // 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		if(fTmp >0)
 		{
@@ -3922,14 +3901,14 @@ void CINFGameMainUnitInfoBar::UpdateHappyHourTooltip()
 		g_pGameMain->SetAllHappyHourInfo(&struAllHappyHourInfo);
 	}
 #endif
-	// END 2013-08-22 by bhsohn ÇØÇÇ¾Æ¿ö ¸®´º¾ó 
+	// END 2013-08-22 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::SetHappyHourPcBang(BOOL bPcBang)
 /// \brief		
-/// \author		// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-04 ~ 2007-07-04
 /// \warning	
 ///
@@ -3949,14 +3928,14 @@ void CINFGameMainUnitInfoBar::SetHappyHourPcBang(BOOL bLevelup, BOOL bPcBang, MS
 		SetHappyHourInfo(bLevelup, pMsg, &m_PCHappyEventInfo);
 	}	
 
-	// ÇØÇÇ ¾Æ¿ì¾î ÅøÆÁ °»½Å 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	UpdateHappyHourTooltip();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::SetHappyHourMotherShip(BOOL bPcBang)
-/// \brief		// ¸ð¼±Àü ÇØÇÇ ¾Æ¿ì¾î
-/// \author		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+/// \brief		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½
+/// \author		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-05-21 ~ 2008-05-21
 /// \warning	
 ///
@@ -3976,14 +3955,14 @@ void CINFGameMainUnitInfoBar::SetHappyHourMotherShip(BOOL bLevelup, BOOL bStart,
 		SetHappyHourInfo(bLevelup, pMsg, &m_MotherShipEventInfo);
 	}	
 
-	// ÇØÇÇ ¾Æ¿ì¾î ÅøÆÁ °»½Å 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	UpdateHappyHourTooltip();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::SetHappyHourItem(BOOL bPcBang)
-/// \brief		¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î
-/// \author		// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½
+/// \author		// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-05-21 ~ 2008-05-21
 /// \warning	
 ///
@@ -4003,7 +3982,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourItem(BOOL bLevelup, BOOL bStart, MSG_F
 		SetHappyHourInfo(bLevelup, pMsg, &m_ItemEventInfo);
 	}	
 
-	// ÇØÇÇ ¾Æ¿ì¾î ÅøÆÁ °»½Å 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	UpdateHappyHourTooltip();
 }
 
@@ -4011,7 +3990,7 @@ void CINFGameMainUnitInfoBar::SetHappyHourItem(BOOL bLevelup, BOOL bStart, MSG_F
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::InitHappyHourInfo()
 /// \brief		
-/// \author		// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-11-01 ~ 2007-11-01
 /// \warning	
 ///
@@ -4020,29 +3999,29 @@ void CINFGameMainUnitInfoBar::SetHappyHourItem(BOOL bLevelup, BOOL bStart, MSG_F
 ///////////////////////////////////////////////////////////////////////////////
 void CINFGameMainUnitInfoBar::InitHappyHourInfo()
 {
-	m_vecEventHappyHour.clear(); // ÅøÆÁ Á¤º¸ ÃÊ±âÈ­
+	m_vecEventHappyHour.clear(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 
-	memset(&m_HappyEventInfo, 0x00, sizeof(EVENT_INFO));				//¼¼·Â ÁøÇü
-	memset(&m_HappyEventAllInfluInfo, 0x00, sizeof(EVENT_INFO));		// ÀüÃ¼ ÁøÇü
-	memset(&m_PCHappyEventInfo, 0x00, sizeof(EVENT_INFO));				// pc¹æ 
+	memset(&m_HappyEventInfo, 0x00, sizeof(EVENT_INFO));				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	memset(&m_HappyEventAllInfluInfo, 0x00, sizeof(EVENT_INFO));		// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+	memset(&m_PCHappyEventInfo, 0x00, sizeof(EVENT_INFO));				// pcï¿½ï¿½ 
 	
 	m_bHappyHourAllInfluence = FALSE;
 	m_byHappyHourInfluence = 0x00;
 	m_bPcBangHappyHour = FALSE;
 
-	// 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+	// 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 	m_bMotherHappyHour = FALSE;
 	memset(&m_MotherShipEventInfo, 0x00, sizeof(EVENT_INFO));
 
 	m_bItemHappyHour = FALSE;
 	memset(&m_ItemEventInfo, 0x00, sizeof(EVENT_INFO));
-	// end 2008-05-21 by bhsohn ¸ð¼±Àü, ¾ÆÀÌÅÛ ÇØÇÇ ¾Æ¿ì¾î Ãß°¡
+	// end 2008-05-21 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½ß°ï¿½
 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::AddGiftMsg(UINT i_NotifyMsgUID,UINT i_CharacterUID,char * NotifyString)
-/// \brief		¼±¹° ¸Þ½ÃÁö¸¦ Ãß°¡ÇÑ´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
 /// \author		dgwoo
 /// \date		2007-11-28 ~ 2007-11-28
 /// \warning	
@@ -4063,7 +4042,7 @@ void CINFGameMainUnitInfoBar::AddGiftMsg(UINT i_nNotifyMsgUID,UINT i_nCharacterU
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CINFGameMainUnitInfoBar::CreateMsgBox()
-/// \brief		¸Þ½ÃÁö ¹Ú½º¸¦ ¶ç¿î´Ù.
+/// \brief		ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2007-11-28 ~ 2007-11-28
 /// \warning	
@@ -4092,7 +4071,7 @@ void CINFGameMainUnitInfoBar::DeleteGiftMsg()
 	}
 }
 
-// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CINFGameMainUnitInfoBar::SetRestCount(INT nRestCount)
 {
 	m_nRestCount = nRestCount;
@@ -4120,9 +4099,9 @@ void CINFGameMainUnitInfoBar::SetBonusExpRate(INT nPartyRate,INT nFriendRate,INT
 	m_nFriendRate = nFriendRate;
 	m_nGuildRate = nGuildRate;
 }
-// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CINFGameMainUnitInfoBar::RestCountImageOnOff()
 {
 	if(!m_bCheckRestCountON && m_fPlusRestCountPosX <= RESTCOUNT_IMAGE_POS_LIMIT)
@@ -4146,10 +4125,10 @@ void CINFGameMainUnitInfoBar::KillCountImageOnOff()
 		m_fPlusKillCountPosX = m_fPlusKillCountPosX - RESTKILLCOUNT_IMAGE_MOVE_VALUE;
 	}
 }
-// end 2012-11-16 by mspark, µ¥Ä«ÀÇ ±â¿î Ç¥½Ã ¸®´º¾ó
+// end 2012-11-16 by mspark, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-// 2013. 04. 04 by ssjung º¸³Ê½º EXP , ¸É¹ö½± ¿¡ ¸¶¿ì½º¸¦ °¡Á®´Ù ´òÀ» ¶§ ½Ã½ºÅÛ ¸Þ½ÃÁö¸¦ Ç¥½Ã ¾ÈÇÏ°Ô ¼öÁ¤
+// 2013. 04. 04 by ssjung ï¿½ï¿½ï¿½Ê½ï¿½ EXP , ï¿½É¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CINFGameMainUnitInfoBar::GetRenderBonusExpRateTextOnOff()
 {
 	return m_bRenderBonusExpRateText;
@@ -4158,20 +4137,20 @@ BOOL CINFGameMainUnitInfoBar::GetRenderPremiumToolTipTextOnOff()
 {
 	return m_bPremiumToolTip;
 }
-// 2013. 04. 04 by ssjung º¸³Ê½º EXP, ¸â¹ö½± ¿¡ ¸¶¿ì½º¸¦ °¡Á®´Ù ´òÀ» ¶§ ½Ã½ºÅÛ ¸Þ½ÃÁö¸¦ Ç¥½Ã ¾ÈÇÏ°Ô ¼öÁ¤
+// 2013. 04. 04 by ssjung ï¿½ï¿½ï¿½Ê½ï¿½ EXP, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2014-12-08 by shchoi ÇÑ±¹¾î µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã // 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
-void CINFGameMainUnitInfoBar::DecaToolTipFunction(BOOL nMode, int nY)	//TRUE¸é µ¥Ä«ÀÇ Ãàº¹ FALSE¸é µ¥Ä«ÀÇ ±â¿î 
+// 2014-12-08 by shchoi ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ // 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+void CINFGameMainUnitInfoBar::DecaToolTipFunction(BOOL nMode, int nY)	//TRUEï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹ FALSEï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 {
 #ifdef C_DECA_TOOLTIP
 	char buf[128] = {0,};
 	int nX = g_pD3dApp->GetBackBufferDesc().Width;
 	
 	if(nMode)
-		sprintf(buf,STRMSG_C_130627_0001);	//"\\gµ¥Ä«ÀÇ Ãàº¹\\g ¸ðµÎ »ç¿ëÇÒ ¶§±îÁö 35%%ÀÇ Ãß°¡ °æÇèÄ¡°¡ Áö±ÞµË´Ï´Ù. Ãàº¹Àº ·Î±×¾Æ¿ô »óÅÂ¿¡¼­ È¸º¹µË´Ï´Ù."
+		sprintf(buf,STRMSG_C_130627_0001);	//"\\gï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹\\g ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 35%%ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµË´Ï´ï¿½. ï¿½àº¹ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ë´Ï´ï¿½."
 
 	else
-		sprintf(buf,STRMSG_C_130627_0002);	//"\\eµ¥Ä«ÀÇ ±â¿î\\e ¸ó½ºÅÍ¸¦ 300¸¶¸® Ã³Ä¡ÇÒ °æ¿ì °æÇèÄ¡ 35%% Áõ°¡ ¾ÆÀÌÅÛÀ» È¹µæÇÒ ¼ö ÀÖ½À´Ï´Ù."
+		sprintf(buf,STRMSG_C_130627_0002);	//"\\eï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½\\e ï¿½ï¿½ï¿½Í¸ï¿½ 300ï¿½ï¿½ï¿½ï¿½ Ã³Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 35%% ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."
 
 	int leng = m_pFontDecaToolTip->GetStringSize(buf).cx + 10;
 	if(nX + leng > g_pD3dApp->GetBackBufferDesc().Width)
@@ -4182,4 +4161,4 @@ void CINFGameMainUnitInfoBar::DecaToolTipFunction(BOOL nMode, int nY)	//TRUE¸é µ
 	m_pFontDecaToolTip->DrawText(nX, nY-GAMEMAIN_EVENT_FONT_Y-13, GUI_FONT_COLOR_W, buf);
 #endif
 }
-// 2014-12-08 by shchoi ÇÑ±¹¾î µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã // end 2013-07-15 by ssjung Ä³³ª´Ù µ¥Ä«ÀÇ Ãàº¹, ±â¿î °ü·Ã ÅøÆÁ Ç¥½Ã
+// 2014-12-08 by shchoi ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ // end 2013-07-15 by ssjung Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½àº¹, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½

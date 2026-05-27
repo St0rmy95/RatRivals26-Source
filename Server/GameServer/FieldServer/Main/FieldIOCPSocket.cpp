@@ -4,6 +4,7 @@
 
 
 #include "stdafx.h"
+#include "Contents.h"
 #include "AtumSJ.h"						// 2011-11-15 by hskim, EP4 [트리거 시스템] - 버닝맵 경험치 추가
 #include "FieldIOCPSocket.h"
 #include "FieldIOCP.h"
@@ -31997,52 +31998,6 @@ Err_t CFieldIOCPSocket::CheckQuestStartByQuestIndex(int *o_pnErrParam1, MSG_FC_Q
 	{
 		return ERR_PROTOCOL_QUEST_COUPON_USE_ERROR;		// 2008-01-10 by cmkwon, 아이템 이벤트 시스템에 신 쿠폰 시스템 추가 - 수정됨
 
-// 2008-01-10 by cmkwon, 아이템 이벤트 시스템에 신 쿠폰 시스템 추가 - 삭제됨
-//		mt_auto_lock mtACou(&ms_pFieldIOCP->m_pCouponManager->m_mtlock);
-//		{
-//			SCOUPON tmCoupon;
-//			MEMSET_ZERO(&tmCoupon, sizeof(SCOUPON));
-//
-//			if(FALSE == ms_pFieldIOCP->m_pCouponManager->GetCouponByNumber(&tmCoupon, i_pQuestRequestStart->szCouponNumber))
-//			{				
-//				return ERR_PROTOCOL_QUEST_COUPON_INVALID_NUMBER;
-//			}
-//
-//			if(FALSE != tmCoupon.bUsedFlag)
-//			{
-//				return ERR_PROTOCOL_QUEST_COUPON_ALREADY_USED;
-//			}
-//			
-//			ATUM_DATE_TIME atimeCur(TRUE);
-//			if(tmCoupon.atimeExpireTime <= atimeCur)
-//			{
-//				return ERR_PROTOCOL_QUEST_COUPON_EXPIRED;
-//			}
-//
-//			if(FALSE == ms_pFieldIOCP->m_pCouponManager->UseCoupon(tmCoupon.nCouponUniqueNumber, m_character.AccountName))
-//			{
-//				return ERR_PROTOCOL_QUEST_COUPON_USE_ERROR;
-//			}
-//
-//			// 퀘스트 완료 조건 만족 시
-//			int nExpOfCompensation = 0;		// 2007-03-06 by cmkwon, 추가함
-//			// 2007-07-09 by dhjin, 퀘스트 완료시 보상 정보 추가하여 전송.
-//			INIT_MSG_WITH_BUFFER(MSG_FC_QUEST_REQUEST_SUCCESS_RESULT, T_FC_QUEST_REQUEST_SUCCESS_RESULT, pSuccessResult, pSuccessResultBuf);
-//			if (FALSE == ProcessQuestResult(&nExpOfCompensation, pQuestInfo, 0, pSuccessResult
-//											, (QUEST_PAY_ITEM_INFO*)(pSuccessResultBuf+MSG_SIZE(MSG_FC_QUEST_REQUEST_SUCCESS_RESULT))))
-//			{
-//				return ERR_PROTOCOL_QUEST_RESULT_PROCESS_FAILED;
-//			}
-//
-//			// send log
-//			CAtumLogSender::SendLogMessageQUESTCOMPLETION(this, pQuestInfo->QuestIndex);
-//
-//			pSuccessResult->QuestIndex			= pQuestInfo->QuestIndex;
-//			pSuccessResult->IsSuccessful		= TRUE;
-//			pSuccessResult->ExpOfCompensation	= nExpOfCompensation;	// 2007-03-06 by cmkwon
-//			SendAddData(pSuccessResultBuf, MSG_SIZE(MSG_FC_QUEST_REQUEST_SUCCESS_RESULT)+pSuccessResult->QuestPayInfoListCount*sizeof(QUEST_PAY_ITEM_INFO));
-//			return ERR_NO_ERROR;
-//		}
 	}
 
 	MapIndex_t	warpMapIndex = 0;
@@ -32136,20 +32091,6 @@ Err_t CFieldIOCPSocket::CheckQuestStartByQuestIndex(int *o_pnErrParam1, MSG_FC_Q
 				m_bQuestRequestWarp					= TRUE;							// 2006-10-16 by cmkwon
 				m_beforeMapChannIdxQuestRequestWarp	= m_character.MapChannelIndex;	// 2006-10-16 by cmkwon, 현재 MapChannelIndex
 
-// 2006-10-16 by cmkwon, 파티원의 워프 처리는 CFieldIOCPSocket::OnWarpDone()에서 처리함
-//				CFieldIOCPSocket *ArrayPartyMember[SIZE_MAX_PARTY_MEMBER];
-//				MEMSET_ZERO(ArrayPartyMember, sizeof(ArrayPartyMember[0]) * SIZE_MAX_PARTY_MEMBER);
-//				int nMemCount = pFParty->GetMembersInSameMap(ArrayPartyMember, m_pCurrentFieldMapChannel);
-//
-//				for(int i=0; i<nMemCount; i++)
-//				{
-//					if(ArrayPartyMember[i]
-//						&& ArrayPartyMember[i] != this
-//						&& ERR_NO_ERROR == ArrayPartyMember[i]->IsEnableWarp(pMapProject->GetMapInfluenceType(), pMapProject->IsConflictAreaMap(), pMapProject->m_nQuestIndexForWarp))
-//					{
-//						ArrayPartyMember[i]->WarpToQuestMap(warpMapIndex);
-//					}
-//				}
 			}
 		}
 
@@ -32167,57 +32108,6 @@ Err_t CFieldIOCPSocket::CheckQuestStartByQuestIndex(int *o_pnErrParam1, MSG_FC_Q
 		}
 	}
 
-// 2006-10-16 by cmkwon, 위와 같이 수정함
-//	if(i_bProcessPartyMembers
-//		&& pQuestInfo->IsPartyQuest()
-//		&& pFParty)
-//	{// 2006-03-27 by cmkwon, 파티 퀘스트 일 경우 가능한 파티원들도 퀘스트 시작 처리함
-//
-//		mt_auto_lock pmlock(&pFParty->m_ListPartyMember);
-//		CFieldIOCPSocket *ArrayPartyMember[SIZE_MAX_PARTY_MEMBER];
-//		MEMSET_ZERO(ArrayPartyMember, sizeof(ArrayPartyMember[0]) * SIZE_MAX_PARTY_MEMBER);
-//		int nMemCount = pFParty->GetAllMembers(ArrayPartyMember);
-//		pmlock.auto_unlock_cancel();
-//
-//		for(int i=0; i<nMemCount; i++)
-//		{
-//			if(ArrayPartyMember[i]
-//				&& ArrayPartyMember[i] != this)
-//			{
-//				int nErrP1		= ERR_NO_ERROR;
-//				ArrayPartyMember[i]->CheckQuestStartByQuestIndex(&nErrP1, i_pQuestRequestStart, FALSE);
-//			}
-//		}
-//	}
-//
-//	if(warpMapIndex)
-//	{
-//		CFieldMapProject *pMapProject = ms_pFieldIOCP->GetFieldMapProjectByMapIndex(warpMapIndex);
-//		if(pMapProject)
-//		{
-//			if(i_bProcessPartyMembers
-//				&& pQuestInfo->IsPartyWarp()
-//				&& pFParty)
-//			{// 파티원도 워프
-//				CFieldIOCPSocket *ArrayPartyMember[SIZE_MAX_PARTY_MEMBER];
-//				MEMSET_ZERO(ArrayPartyMember, sizeof(ArrayPartyMember[0]) * SIZE_MAX_PARTY_MEMBER);
-//				int nMemCount = pFParty->GetMembersInSameMap(ArrayPartyMember, m_pCurrentFieldMapChannel);
-//
-//				for(int i=0; i<nMemCount; i++)
-//				{
-//					if(ArrayPartyMember[i]
-//						&& ArrayPartyMember[i] != this
-//						&& ERR_NO_ERROR == ArrayPartyMember[i]->IsEnableWarp(pMapProject->GetMapInfluenceType(), pMapProject->IsConflictAreaMap(), pMapProject->m_nQuestIndexForWarp))
-//					{
-//						ArrayPartyMember[i]->WarpToQuestMap(warpMapIndex);
-//					}
-//				}
-//			}
-//			
-//			// 2006-01-20 by cmkwon, 파티원을 워프시키고 한 후에 자신이 워프
-//			WarpToQuestMap(warpMapIndex);
-//		}
-//	}
 	return ERR_NO_ERROR;
 }
 
@@ -32569,6 +32459,54 @@ ProcessResult CFieldIOCPSocket::Process_FC_QUEST_MOVE_QUEST_MAP(const char* pPac
 	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_QUEST_MOVE_QUEST_MAP,
 									MSG_FC_QUEST_MOVE_QUEST_MAP, pRMsg);
 
+#ifdef _RAT_FFA
+	if(FFA_MAP == pRMsg->QuestIndex0)
+	{
+		char szTemp[256];
+		sprintf(szTemp, "MapIndex = %i", pRMsg->QuestIndex0);
+		SendString128(STRING_128_ADMIN_CMD, szTemp);
+
+		CFieldMapProject *pTargetProject = ms_pFieldIOCP->GetFieldMapProjectByMapIndex(FFA_MAP);
+		if(NULL == pTargetProject)
+		{
+			SendErrorMessage(T_FC_QUEST_MOVE_QUEST_MAP, ERR_PROTOCOL_NO_SUCH_MAP_SERVED, FFA_MAP);
+			return RES_BREAK;
+		}
+
+		if(FALSE == ms_pFieldIOCP->IsMapWarpPossible(pTargetProject->m_nMapIndex))
+		{
+			SendString128(STRING_128_USER_NOTICE, STRMSG_121129_0001);
+			SendErrorMessage(T_FC_QUEST_MOVE_QUEST_MAP, ERR_PROTOCOL_REQ_WARP_REQUIREMENTS_NOT_MATCHED, pTargetProject->m_nMapIndex, 0);
+			return RES_BREAK;
+		}
+
+		Err_t errCode = IsEnableWarp(pTargetProject->GetMapInfluenceType(), pTargetProject->IsConflictAreaMap(), 0, FALSE, pTargetProject);
+		if(ERR_NO_ERROR != errCode)
+		{
+			if(ERR_REQ_WARP_COMPLETIONQUEST_NOT_MATCHED == errCode)
+			{
+				SendErrorMessage(T_FC_QUEST_MOVE_QUEST_MAP, ERR_PROTOCOL_REQ_WARP_REQUIREMENTS_NOT_MATCHED,
+					pTargetProject->m_nQuestIndexForWarp, pTargetProject->m_nMapIndex);
+			}
+			else
+			{
+				SendErrorMessage(T_FC_QUEST_MOVE_QUEST_MAP, errCode);
+			}
+			return RES_BREAK;
+		}
+
+		EventResult_t evRet = WarpToQuestMap(FFA_MAP);
+		if(EVENT_RESULT_CONTINUE != evRet)
+		{
+			g_pFieldGlobal->WriteSystemLogEX(TRUE, "[ERROR] CFieldIOCPSocket::Process_FC_QUEST_MOVE_QUEST_MAP# can't warp FFA map !! %s %d \r\n"
+				, GetCharacterString(GetCharacter(), string()), evRet);
+			return RES_BREAK;
+		}
+
+		return RES_RETURN_TRUE;
+	}
+#endif
+
 	// 퀘스트 기능 일시 정지 상태 확인
 	if (!ms_pFieldIOCP->m_ServicePauseManager.GetQuestServiceState())
 	{
@@ -32576,7 +32514,8 @@ ProcessResult CFieldIOCPSocket::Process_FC_QUEST_MOVE_QUEST_MAP(const char* pPac
 		return RES_BREAK;
 	}
 
-	mt_auto_lock mqLock(&m_mapQuest);							// lock m_mapQuest
+	mt_auto_lock mqLock(&m_mapQuest); // lock m_mapQuest
+
 	CFieldCharacterQuest *pFCharQuest = m_mapQuest.findNoLock_Ptr(pRMsg->QuestIndex0);
 	if (NULL == pFCharQuest)
 	{
@@ -32637,25 +32576,6 @@ ProcessResult CFieldIOCPSocket::Process_FC_QUEST_MOVE_QUEST_MAP(const char* pPac
 		m_bQuestRequestWarp					= TRUE;				// 2006-10-16 by cmkwon
 		m_beforeMapChannIdxQuestRequestWarp	= m_character.MapChannelIndex;	// 2006-10-16 by cmkwon, 현재 MapChannelIndex
 
-// 2006-10-16 by cmkwon, 파티원의 워프 처리는 CFieldIOCPSocket::OnWarpDone()에서 처리함
-//		CFieldMapProject *pMapProject = ms_pFieldIOCP->GetFieldMapProjectByMapIndex(pQuestInfo->StartMapIndex);
-//		if (pMapProject)
-//		{
-//			CFieldIOCPSocket *ArrayPartyMember[SIZE_MAX_PARTY_MEMBER];
-//			MEMSET_ZERO(ArrayPartyMember, sizeof(ArrayPartyMember[0]) * SIZE_MAX_PARTY_MEMBER);
-//			int nMemCount = pFParty->GetMembersInSameMap(ArrayPartyMember, m_pCurrentFieldMapChannel);
-//			for(int i=0; i<nMemCount; i++)
-//			{
-//				if(ArrayPartyMember[i]
-//					&& ArrayPartyMember[i] != this
-//					&& ArrayPartyMember[i]->m_character.MapChannelIndex.IsSameMapChannelIndex(this->GetCharacter()->MapChannelIndex)
-//					&& SIZE_CHARACTER_VISIBLE_SIDE > D3DXVec3Length(&(ArrayPartyMember[i]->GetCharacter()->PositionVector - this->GetCharacter()->PositionVector))
-//					&& ERR_NO_ERROR == ArrayPartyMember[i]->IsEnableWarp(pMapProject->GetMapInfluenceType(), pMapProject->IsConflictAreaMap(), pMapProject->m_nQuestIndexForWarp))
-//				{
-//					ArrayPartyMember[i]->WarpToQuestMap(pQuestInfo->StartMapIndex);
-//				}
-//			}
-//		}
 	}
 		
 	// 2006-01-20 by cmkwon, 파티원을 워프시키고 한 후에 자신이 워프
@@ -32667,7 +32587,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_QUEST_MOVE_QUEST_MAP(const char* pPac
 			, GetCharacterString(GetCharacter(), string()), evRet);
 		return RES_BREAK;
 	}
-	
+
 	return RES_RETURN_TRUE;	
 }
 

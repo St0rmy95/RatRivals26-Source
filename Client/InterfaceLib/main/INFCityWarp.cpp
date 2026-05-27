@@ -655,17 +655,6 @@ void CINFCityWarp::OnButtonClicked(int nButton)
 	{
 	case CITY_WARP_BUTTON_MOVE:
 		{
-//			if(m_nCurrentSelectWarpIndex != -1 && 
-//				m_nCurrentSelectWarpIndex + m_nCurrentWarpListScroll < m_vecWarpTargetInfo.size())
-//			{
-//				WARP_TARGET_MAP_INFO_4_EXCHANGE *pWarpInfo = m_vecWarpTargetInfo[m_nCurrentSelectWarpIndex + m_nCurrentWarpListScroll];
-//				if(pWarpInfo)
-//				{
-//					DBGOUT("워프 합시다(Map:%d,Target:%d,Name:%s).!!\n",
-//						pWarpInfo->MapIndex, pWarpInfo->TargetIndex, pWarpInfo->TargetName);
-//					SendFieldSocketRequestShopWarp(pWarpInfo->MapIndex, pWarpInfo->TargetIndex);
-//				}
-//			}
 			int nCurrentSelectRealIndex = m_pScroll->GetCurrentSelectDataIndex();
 			if( nCurrentSelectRealIndex >= 0 && 
 				nCurrentSelectRealIndex < m_vecWarpTargetInfo.size())
@@ -718,29 +707,8 @@ void CINFCityWarp::OnButtonClicked(int nButton)
 					m_nMapIndex = pWarpInfo->MapIndex;	
 					m_nTargetIndex = pWarpInfo->TargetIndex;	
 
-					// 2004-10-25 by jschoi
-					// 아래 모두 지우고 출격 가능한가 서버로 요청한다.
-					// 서버에서 확인을 받으면 아래 지운 부분을 동작하도록 한다.
-					// 서버에서 에러가 떨어지거나 출격 불가능한 이유가 오면 이유를 출력한다.
 						g_pShuttleChild->m_nEventType = EVENT_CITY_OUT_MOVE;
 					g_pFieldWinSocket->SendMsg(T_FC_CITY_CHECK_WARP_STATE, NULL, 0);
-
-//					SAFE_DELETE(g_pShuttleChild->m_pCinemaCamera);
-//					if (g_pShuttleChild->InitCinemaUnit(PATTERN_UNIT_CITY_OUT) == TRUE)
-//					{
-//						g_pD3dApp->m_pSound->PlayD3DSound( SOUND_TAKEINGOFF_IN_CITY, g_pShuttleChild->m_vPos );
-//						g_pShuttleChild->ChangeSingleBodyCondition(BODYCON_TAKEOFF_MASK);
-//						g_pShuttleChild->m_nEventType = EVENT_CITY_OUT_MOVE;
-//						g_pShuttleChild->ChangeUnitState( _TAKINGOFF );
-//						CAppEffectData * pEffect = new CAppEffectData(RC_EFF_LANDING_TAKEOFF,MAP_TYPE_CITY_UNIT_POS);
-//						pEffect->ChangeBodyCondition(BODYCON_LANDED_MASK);
-//						g_pD3dApp->m_pEffectList->AddChild(pEffect);
-//
-//					}
-//					else
-//					{
-//						SendFieldSocketRequestShopWarp();
-//					}
 				}
 			}
 		}

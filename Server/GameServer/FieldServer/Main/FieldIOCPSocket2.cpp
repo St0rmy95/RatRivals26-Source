@@ -20151,7 +20151,11 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 		&& i_pAttackUser->IsValidCharacter(FALSE)
 		&& this->GetCharacter()->InfluenceType != i_pAttackUser->GetCharacter()->InfluenceType
 		&& COMPARE_INFLUENCE(this->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI)
-		&& COMPARE_INFLUENCE(i_pAttackUser->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI) )
+		&& COMPARE_INFLUENCE(i_pAttackUser->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI)
+#ifdef _RAT_FFA
+		|| ((!g_pFieldGlobal->IsArenaServer() && MAP_INFLUENCE_PVP_ALL == m_pCurrentFieldMapChannel->m_pFieldMapProject->GetMapInfluenceType()))
+#endif
+		)
 	{
 		//////////////////////////////////////////////////////////////////////////
 		// 2008-03-11 by dhjin, 아레나 통합 - 아레나 서버에서는 명성치, 세력전, 킬마크 관련 처리를 하지 않는다.
@@ -29633,6 +29637,13 @@ void CFieldIOCPSocket::InfluenceWarBonus2Killer(CFieldIOCPSocket *i_pFISockDeade
 	if (MapIndex)
 	{
 		string MapName = CAtumSJ::GetMapName(MapIndex);
+
+#ifdef _RAT_FFA
+		if (MapIndex == FFA_MAP)
+		{
+			MapName == "FFA";
+		}
+#endif
 
 		BYTE PlayerInfluence = this->m_character.InfluenceType;
 		string PlayerName = this->m_character.CharacterName;

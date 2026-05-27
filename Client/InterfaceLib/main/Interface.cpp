@@ -31,12 +31,12 @@
 #include "INFGameMainFAQ.h"
 #include "INFUnitNameInfo.h"
 #include "INFAttackDirection.h"
-#include "INFBaseWarManager.h"			// 2014-05-07 by ymjoo ÀÎÅÍÆäÀÌ½º¸¦ ²¨µµ °ÅÁ¡Àü ½Ã°£ÀÌ Èå¸£µµ·Ï ¼öÁ¤
+#include "INFBaseWarManager.h"			// 2014-05-07 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½å¸£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 #include "JoyStickInput.h"	
 
-// 2008-03-19 by bhsohn Ep3¿É¼ÇÃ¢
+// 2008-03-19 by bhsohn Ep3ï¿½É¼ï¿½Ã¢
 //#include "INFSystem.h"
 #include "INFOptionSystem.h"
 
@@ -58,7 +58,7 @@
 #include "INFInven.h"									// 2006-07-27 by ispark
 #include "Skill.h"										// 2006-07-30 by ispark
 #include "SkillInfo.h"									// 2006-07-30 by ispark
-// 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
+// 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
 //#include "INFCharacterInfo.h"
 #include "INFCharacterInfoExtend.h"
 #include "EnemyData.h"									// 2006-08-02 by ispark
@@ -67,37 +67,37 @@
 #include "QuestData.h"									// 2006-09-07 by ispark
 #include "INFGameArena.h"
 
-// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 #include "INFInfinity.h"
-// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 #include "INFCityInfinityField.h"
-// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #include "INFOpMain.h"
-// 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
+// 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 #include "SetupConfig.h"
 #include "INFToolTip.h"
 #include "INFGameMainOutPost.h"
 #include "INFMotherShipManager.h"
 
-// 2008-04-22 by bhsohn ¸ð¼±/°ÅÁ¡Àü ÁøÇàÁßÀÎ Á¤º¸µµ Ç¥½Ã ÇÏ°Ô º¯°æ
+// 2008-04-22 by bhsohn ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 #include "INFCityLeader.h"
-#include "INFCityOutPost.h"		// 2008-10-16 by bhsohn ÀüÁø±âÁö ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢
+#include "INFCityOutPost.h"		// 2008-10-16 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 
-#include "WorldRankManager.h"	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+#include "WorldRankManager.h"	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+// 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #include "GameDataLast.h"
 
-#include "INFChangeCharactor.h" // 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
+#include "INFChangeCharactor.h" // 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-#include "Profiler.h"		// 2014-06-09 by ymjoo ÇÁ·ÎÆÄÀÏ·¯ ±¸Çö
+#include "Profiler.h"		// 2014-06-09 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#ifdef C_TERRAIN_EFFECT_DETAIL_ON_OFF_YMJOO		// 2014-07-04 by ymjoo ÁöÇü ÀÌÆåÆ® µðÅ×ÀÏ ¿É¼Ç º¯°æ (ON/OFF)
+#ifdef C_TERRAIN_EFFECT_DETAIL_ON_OFF_YMJOO		// 2014-07-04 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ON/OFF)
 #define OPTION_DEFAULT_HIGH_TERRAINEFFECTRENDER			TRUE
 #else
 #define OPTION_DEFAULT_HIGH_TERRAINEFFECTRENDER			9
@@ -109,7 +109,7 @@
 #define OPTION_DEFAULT_HIGH_CONTRAST					0
 #define OPTION_DEFAULT_HIGH_FILTER						0
 
-#ifdef C_TERRAIN_EFFECT_DETAIL_ON_OFF_YMJOO		// 2014-07-04 by ymjoo ÁöÇü ÀÌÆåÆ® µðÅ×ÀÏ ¿É¼Ç º¯°æ (ON/OFF)
+#ifdef C_TERRAIN_EFFECT_DETAIL_ON_OFF_YMJOO		// 2014-07-04 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ON/OFF)
 #define OPTION_DEFAULT_MIDDLE_TERRAINEFFECTRENDER		TRUE
 #else
 #define OPTION_DEFAULT_MIDDLE_TERRAINEFFECTRENDER		7
@@ -121,7 +121,7 @@
 #define OPTION_DEFAULT_MIDDLE_CONTRAST					0
 #define OPTION_DEFAULT_MIDDLE_FILTER					0
 
-#ifdef C_TERRAIN_EFFECT_DETAIL_ON_OFF_YMJOO		// 2014-07-04 by ymjoo ÁöÇü ÀÌÆåÆ® µðÅ×ÀÏ ¿É¼Ç º¯°æ (ON/OFF)
+#ifdef C_TERRAIN_EFFECT_DETAIL_ON_OFF_YMJOO		// 2014-07-04 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ON/OFF)
 #define OPTION_DEFAULT_LOW_TERRAINEFFECTRENDER			FALSE
 #else
 #define OPTION_DEFAULT_LOW_TERRAINEFFECTRENDER			0
@@ -135,54 +135,53 @@
 
 #define RENDER_MAPNAME_POS_Y							113
 
-// 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
+// 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 #define	SETUP_INFO_PATH									"setupinfo.ver"
 
 #define	SETUP_INFO_OPERATOR_INFO						"operator"
-// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #define	SETUP_INFO_SPEAKER_INFO							"speaker"
-// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
-#define	SETUP_INFO_OPETC_MANTOMAN_INFO					"mantoman"		// 1:1ÀüÅõ
-#define	SETUP_INFO_OPETC_PARTYWAR_INFO					"partywar"		// Æí´ëÀüÅõ
-#define	SETUP_INFO_OPETC_GUILDWAR_INFO					"guildwar"		// ¿©´ÜÀüÅõ
-#define	SETUP_INFO_OPETC_WHISPER_INFO					"whisper"		// ±Ó¼Ó¸»
-#define	SETUP_INFO_OPETC_PARTYINVI_INFO					"inparty"		// ÆÄÆ¼ÃÊ´ë
-#define	SETUP_INFO_OPETC_GUILDINVI_INFO					"inguild"		// ¿©´ÜÃÊ´ë
-#define	SETUP_INFO_OPETC_EXCHANGE_INFO					"exchange"		// ±³È¯
-#define	SETUP_INFO_OPETC_INTERPOS_INFO					"interpos"		// ÀÎÅÍÆäÀÌ½º À§Ä¡ÀúÀå
-#define	SETUP_INFO_OPETC_INTERPOS_X_INFO				"interx"		// ÀÎÅÍÆäÀÌ½º X
-#define	SETUP_INFO_OPETC_INTERPOS_Y_INFO				"intery"		// ÀÎÅÍÆäÀÌ½º Y
-#define	SETUP_INFO_OPETC_INTERPOS_W_INFO				"interw"		// ÀÎÅÍÆäÀÌ½º WIdth
-#define	SETUP_INFO_OPETC_INTERPOS_H_INFO				"interh"		// ÀÎÅÍÆäÀÌ½º Height
+// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+#define	SETUP_INFO_OPETC_MANTOMAN_INFO					"mantoman"		// 1:1ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_PARTYWAR_INFO					"partywar"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_GUILDWAR_INFO					"guildwar"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_WHISPER_INFO					"whisper"		// ï¿½Ó¼Ó¸ï¿½
+#define	SETUP_INFO_OPETC_PARTYINVI_INFO					"inparty"		// ï¿½ï¿½Æ¼ï¿½Ê´ï¿½
+#define	SETUP_INFO_OPETC_GUILDINVI_INFO					"inguild"		// ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
+#define	SETUP_INFO_OPETC_EXCHANGE_INFO					"exchange"		// ï¿½ï¿½È¯
+#define	SETUP_INFO_OPETC_INTERPOS_INFO					"interpos"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_INTERPOS_X_INFO				"interx"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ X
+#define	SETUP_INFO_OPETC_INTERPOS_Y_INFO				"intery"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Y
+#define	SETUP_INFO_OPETC_INTERPOS_W_INFO				"interw"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ WIdth
+#define	SETUP_INFO_OPETC_INTERPOS_H_INFO				"interh"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Height
 
-// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
-#define	SETUP_INFO_OPETC_CHATPOS_W_INFO					"chatw"			// Ã¤ÆÃÃ¢ W
-#define	SETUP_INFO_OPETC_CHATPOS_H_INFO					"chath"			// Ã¤ÆÃÃ¢ H
-// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_CHATPOS_W_INFO					"chatw"			// Ã¤ï¿½ï¿½Ã¢ W
+#define	SETUP_INFO_OPETC_CHATPOS_H_INFO					"chath"			// Ã¤ï¿½ï¿½Ã¢ H
+// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-#define	SETUP_INFO_OPETC_GAME_W_INFO					"gamew"		// ÀÎÅÍÆäÀÌ½º WIdth
-#define	SETUP_INFO_OPETC_GAME_H_INFO					"gameh"		// ÀÎÅÍÆäÀÌ½º Height
-#define	SETUP_INFO_OPETC_INTERHIDE_INFO					"interhide"		// ÀÎÅÍÆäÀÌ½º ¼û±â±â
-#define	SETUP_INFO_OPETC_SAME_ID_HIDE_INFO				"shide"			// °°Àº ¼¼·Â ¾ÆÀÌµð ¼û±â±â
-#define	SETUP_INFO_OPETC_ENEMY_ID_HIDE_INFO				"ehide"			// ´Ù¸¥ ¼¼·Â ¾ÆÀÌµð ¼û±â±â
-#define	SETUP_INFO_OPETC_MOUSE_LOCK_INFO				"mouselock"		// ¸¶¿ì½º °¡µÎ±â
-#define	SETUP_INFO_OPETC_FILTER_INFO					"filter"		// ºñ¼Ó¾î ÇÊÅÍ¸µ
-// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-#define	SETUP_INFO_JOYSTICK_USE							"juse"			// Á¶ÀÌ½ºÆ½ »ç¿ë
-#define	SETUP_INFO_JOYSTICK_SELECT						"jselect"		// Á¶ÀÌ½ºÆ½ ¼±ÅÃ
-#define	SETUP_INFO_JOYSTICK_FEED						"jfeed"			// Á¶ÀÌ½ºÆ½ Áøµ¿»ç¿ë
-#define	SETUP_INFO_JOYSTICK_SENSE						"jsense"		// Á¶ÀÌ½ºÆ½ °¨µµ
-#define	SETUP_INFO_JOYSTICK_KEYCONFIG					"jkey"			// Å° ¼³Á¤ °¡Áö°í ¿À±â
-// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+#define	SETUP_INFO_OPETC_GAME_W_INFO					"gamew"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ WIdth
+#define	SETUP_INFO_OPETC_GAME_H_INFO					"gameh"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Height
+#define	SETUP_INFO_OPETC_INTERHIDE_INFO					"interhide"		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_SAME_ID_HIDE_INFO				"shide"			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_ENEMY_ID_HIDE_INFO				"ehide"			// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_OPETC_MOUSE_LOCK_INFO				"mouselock"		// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Î±ï¿½
+#define	SETUP_INFO_OPETC_FILTER_INFO					"filter"		// ï¿½ï¿½Ó¾ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½
+// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+#define	SETUP_INFO_JOYSTICK_USE							"juse"			// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½
+#define	SETUP_INFO_JOYSTICK_SELECT						"jselect"		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_JOYSTICK_FEED						"jfeed"			// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_JOYSTICK_SENSE						"jsense"		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½
+#define	SETUP_INFO_JOYSTICK_KEYCONFIG					"jkey"			// Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
-// 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
-#define	SETUP_INFO_OPETC_HELP_FUC						"helpfuc"			// ¿É¼Ç°ª ÀúÀå
-// END 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+// 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+#define	SETUP_INFO_OPETC_HELP_FUC						"helpfuc"			// ï¿½É¼Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½
+// END 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-
 #ifdef _DEBUG
 #include "Background.h"
 
@@ -200,6 +199,7 @@ extern BOOL g_bToolTipView;
 CInterface::CInterface()
 {
 	FLOG( "CInterface()" );
+	
 	g_pInterface = this;
 	m_pTarget = NULL;
 //	m_pGageBox = NULL;
@@ -217,43 +217,43 @@ CInterface::CInterface()
 	m_pBazaarShop = NULL;
 	m_pGameArena = NULL;
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	m_pInfinity			= NULL;
 	m_pInfinityPopup	= NULL;
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 	m_vecGameWindowWnd.clear();
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_pINFOpMain = NULL;
 	m_pToolTip = NULL;
 
-	// 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
+	// 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 	m_pSetupConfig = new CSetupConfig;	
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	m_pJoySticConfig = new CSetupConfig;	
 
-	// 2007-11-28 by bhsohn ½ºÅ©¸° ¼¦ ¸ðµå Ãß°¡
+	// 2007-11-28 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_bScreenShotMode = FALSE;
 
-	// 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+	// 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int i = 0;
 	for(i = 0; i < CHAT_BUFFER_NUMBER; i++)
 	{		
 		m_chatBackup[i].pszChatString = NULL;		
 		m_chatBackup[i].dwColorType = 0;
-		// 2009-05-06 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã, Ã¤ÆÃ •ü¾÷ ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+		// 2009-05-06 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 		m_chatBackup[i].dwType = 0;
 
 	}
-	// end 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+	// end 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+	// 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_pDummyDataHeader = NULL;
-	// end 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+	// end 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	int nCnt = 0;
 	for(i=0; i< MAX_JOSTICK_OPTION;i++)
 	{
@@ -277,14 +277,14 @@ CInterface::CInterface()
 		}
 	}
 	
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
-	// 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(g_pSOptionCharacter)
 	{
 		g_pSOptionCharacter->sHelpDesk = TRUE;
 	}
-	// END 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// END 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 }
 
 CInterface::~CInterface()
@@ -306,25 +306,25 @@ CInterface::~CInterface()
 	SAFE_DELETE(m_pBazaarShop);
 	SAFE_DELETE(m_pGameArena);
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	SAFE_DELETE( m_pInfinity );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	SAFE_DELETE( m_pInfinityPopup );
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	SAFE_DELETE(m_pINFOpMain);	 
-	// 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
+	// 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 	SAFE_DELETE(m_pSetupConfig);	 
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	SAFE_DELETE(m_pJoySticConfig);	
 	SAFE_DELETE_ARRAY(m_pJoystickSetupKeyTable);
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
-	// 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+	// 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int i = 0;
 	for(i = 0; i < CHAT_BUFFER_NUMBER; i++)
 	{
@@ -335,16 +335,17 @@ CInterface::~CInterface()
 			m_chatBackup[i].pszChatString = NULL;
 		}
 	}
-	// end 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+	// end 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+	// 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	SAFE_DELETE(m_pDummyDataHeader);
-	// end 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+	// end 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 }
 
 HRESULT CInterface::InitDeviceObjects()
 {
 	FLOG( "CInterface::InitDeviceObjects()" );
+	
 	m_pMapLoad = new CINFMapLoad() ;
 
 	m_pFadeEffect = new CINFFadeEffect();
@@ -352,7 +353,7 @@ HRESULT CInterface::InitDeviceObjects()
 	
 	m_pMapNameImg = new CINFMapName() ;
 	m_pMapNameImg->InitDeviceObjects("mapname.tex") ;
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	char strPath[256]; 
 	m_pGameData = new CGameData;
 	g_pD3dApp->LoadPath( strPath, IDS_DIRECTORY_TEXTURE, "interface.tex");
@@ -366,10 +367,10 @@ HRESULT CInterface::InitDeviceObjects()
 //	m_pGameGlobalImage->InitDeviceObjects("imagezone.tex") ;
 //	g_pGImage = m_pGameGlobalImage;
 
-	// Ã¢¿î¼± ¼øÀ§ ÃÊ±âÈ­
+	// Ã¢ï¿½î¼± ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	InitWindowsFirstFormat();
 	
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	{
 		LoadJoystickInfo(g_pJoysticOp->chJoyKeyFile);
 	}
@@ -389,10 +390,10 @@ HRESULT CInterface::RestoreDeviceObjects()
 	// 2006-07-25 by ispark
 	if(m_pBazaarShop)
 		m_pBazaarShop->RestoreDeviceObjects();
-	// 2008. 12. 05 by ckPark ¸Þ¸ð¸® ´©¼ö ¼öÁ¤
+	// 2008. 12. 05 by ckPark ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	if(m_pGameArena)
 //		m_pGameArena->RestoreDeviceObjects();
-//	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+//	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //	if(m_pINFOpMain)
 //		m_pINFOpMain->RestoreDeviceObjects();	
 	return S_OK ;
@@ -418,17 +419,17 @@ HRESULT CInterface::InvalidateDeviceObjects()
 	if(m_pGameArena)
 		m_pGameArena->InvalidateDeviceObjects();
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity )
 		m_pInfinity->InvalidateDeviceObjects();
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup )
 		m_pInfinityPopup->InvalidateDeviceObjects();
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	if(m_pINFOpMain)
 		m_pINFOpMain->InvalidateDeviceObjects();
 	return S_OK ;
@@ -437,16 +438,16 @@ HRESULT CInterface::InvalidateDeviceObjects()
 HRESULT CInterface::DeleteDeviceObjects()
 {
 	FLOG( "CInterface::DeleteDeviceObjects()" );
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(g_pD3dApp->IsOptionEtc(OPTION_RADIO_INTERFACE_POS))
 	{
-		// ÀúÀå ¸ðµå¸é ¿É¼ÇÁ¤º¸ ÀúÀå
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pInterface->SaveOptionEtcInfo();		
 	}
-	// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 	DeleteSelectObjects();
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//DeleteGameObjects();
 	DeleteGameObjects(FALSE);
 
@@ -470,22 +471,22 @@ HRESULT CInterface::DeleteDeviceObjects()
 	if(m_pGameArena)
 		m_pGameArena->DeleteDeviceObjects();
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity )
 		m_pInfinity->DeleteDeviceObjects();
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup )
 		m_pInfinityPopup->DeleteDeviceObjects();
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	if(m_pINFOpMain)
 		m_pINFOpMain->DeleteDeviceObjects();
 
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SAFE_DELETE(m_pGameData);
 	SAFE_DELETE(m_pGameBigIconData);
 #endif
@@ -544,7 +545,7 @@ HRESULT CInterface::DeleteSoundScript()
 HRESULT CInterface::InitGameObjects()
 {
 	FLOG( "CInterface::InitGameObjects()" );
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_pGameMain = new CINFGameMain(this, m_pGameData);
 #else
 	m_pGameMain = new CINFGameMain(this) ;
@@ -562,7 +563,7 @@ HRESULT CInterface::InitGameObjects()
 	m_pGameGlobalImage->InitDeviceObjects() ;
 	g_pGImage = m_pGameGlobalImage;
 	
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 //	m_pGameArena = new CINFGameArena();
 //	m_pGameArena->SetGameData(m_pGameMain->m_pGameData);
 //	m_pGameArena->InitDeviceObjects();
@@ -572,28 +573,28 @@ HRESULT CInterface::InitGameObjects()
 	}
 	m_pGameArena->SetGameData(m_pGameMain->m_pGameData);
 	m_pGameArena->InitDeviceObjects();
-	// end 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// end 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity == NULL )
 	{
 		m_pInfinity = new CINFInfinity;
 	}
 	m_pInfinity->SetGameData( m_pGameMain->m_pGameData );
 	m_pInfinity->InitDeviceObjects();
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup == NULL )
 		m_pInfinityPopup = new CINFCityInfinityFieldPopUp;
 
 	m_pInfinityPopup->SetGameData( m_pGameMain->m_pGameData );
 	m_pInfinityPopup->InitDeviceObjects();
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡	
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½	
 	m_pINFOpMain = new CINFOpMain();
 	m_pINFOpMain->SetGameData(m_pGameMain->m_pGameData);
 	m_pINFOpMain->InitDeviceObjects();
@@ -602,12 +603,12 @@ HRESULT CInterface::InitGameObjects()
 	m_pToolTip->SetGameData(m_pGameMain->m_pGameData);
 	m_pToolTip->InitDeviceObjects();
 	
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	{
 		CWorldRankManager*	pWorldRankManager = g_pD3dApp->GetWorldRankManager();
 		pWorldRankManager->InitDeviceObjects_ServiceInfoImage();
 	}
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
 	return S_OK ;
 }
@@ -626,30 +627,30 @@ HRESULT CInterface::RestoreGameObjects()
 	if(m_pGameArena)
 		m_pGameArena->RestoreDeviceObjects();
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity )
 		m_pInfinity->RestoreDeviceObjects();
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup )
 		m_pInfinityPopup->RestoreDeviceObjects();
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡		
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½		
 	if(m_pINFOpMain)
 		m_pINFOpMain->RestoreDeviceObjects();
 	if(m_pToolTip)
 		m_pToolTip->RestoreDeviceObjects();
 
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	{
 		CWorldRankManager*	pWorldRankManager = g_pD3dApp->GetWorldRankManager();
 		pWorldRankManager->RestoreDeviceObjects_ServiceInfoImage();
 	}
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
 	return S_OK ;
 }
@@ -668,31 +669,31 @@ HRESULT CInterface::InvalidateGameObjects()
 	if(m_pGameArena)
 		m_pGameArena->InvalidateDeviceObjects();
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity )
 		m_pInfinity->InvalidateDeviceObjects();
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup )
 		m_pInfinityPopup->InvalidateDeviceObjects();
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	
 
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡		
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½		
 	if(m_pINFOpMain)
 		m_pINFOpMain->InvalidateDeviceObjects();
 	if(m_pToolTip)
 		m_pToolTip->InvalidateDeviceObjects();
 
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	{
 		CWorldRankManager*	pWorldRankManager = g_pD3dApp->GetWorldRankManager();
 		pWorldRankManager->InvalidateDeviceObjects_ServiceInfoImage();
 	}
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
 	return S_OK ;
 }
@@ -729,24 +730,24 @@ HRESULT CInterface::DeleteGameObjects(BOOL bArenaStart)
 		}
 	}
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity )
 	{
 		m_pInfinity->DeleteDeviceObjects();
 		SAFE_DELETE( m_pInfinity );
 	}
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup )
 	{
 		m_pInfinityPopup->DeleteDeviceObjects();
 		SAFE_DELETE( m_pInfinityPopup );
 	}
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡			
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½			
 	if(m_pINFOpMain)
 	{
 		m_pINFOpMain->DeleteDeviceObjects() ;
@@ -758,15 +759,15 @@ HRESULT CInterface::DeleteGameObjects(BOOL bArenaStart)
 		SAFE_DELETE(m_pToolTip);
 	}
 
-	// 2008-10-27 by bhsohn ¹«ÇÑÀ¸·Î º¸±Þ °¡´ÉÇÑ ¹ö±× ¼öÁ¤
+	// 2008-10-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	ReleaseBazaarShop();
 
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	{
 		CWorldRankManager*	pWorldRankManager = g_pD3dApp->GetWorldRankManager();
 		pWorldRankManager->DeleteDeviceObjects_ServiceInfoImage();
 	}
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
 	return S_OK ;
 }
@@ -988,13 +989,13 @@ void CInterface::Tick()
 		{
 			if(m_pMapLoad)
 			{	
-                // 2011-11-01 by jhahn EP4 Æ®¸®°Å ½Ã½ºÅÛ 
+                // 2011-11-01 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 
 				if (m_pInfinity)				
 					m_pInfinity->SetTimelimit();			
-                 //end 2011-11-01 by jhahn EP4 Æ®¸®°Å ½Ã½ºÅÛ 
+                 //end 2011-11-01 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 
 				m_pMapLoad->Tick();
 			}
-			// 2007-09-07 by dgwoo ½Ã°£À» ¸Ê·Îµå½Ã¿¡µµ Ã¼Å©ÇÏ±âÀ§ÇØ.
+			// 2007-09-07 by dgwoo ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê·Îµï¿½Ã¿ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½.
 			if(m_pGameMain && m_pGameMain->m_pOutPost)
 			{
 				m_pGameMain->m_pOutPost->Tick();
@@ -1006,7 +1007,7 @@ void CInterface::Tick()
 		{
 			if(m_pChannelList)
 				m_pChannelList->Tick();
-			// 2007-09-07 by dgwoo ½Ã°£À» ¸Ê·Îµå½Ã¿¡µµ Ã¼Å©ÇÏ±âÀ§ÇØ.
+			// 2007-09-07 by dgwoo ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê·Îµï¿½Ã¿ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½.
 			if(m_pGameMain && m_pGameMain->m_pOutPost)
 			{
 				m_pGameMain->m_pOutPost->Tick();
@@ -1017,7 +1018,7 @@ void CInterface::Tick()
 	case _GAME:
 		{
 			if(TRUE == m_pMapLoad->GetRenderMapNameImg())
-			{	// ¸ÊÀÌ¸§ »ç¶óÁö±â..
+			{	// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..
 				m_pMapLoad->m_dwAlpha = g_pGameMain->GetCurrentColor(m_pMapLoad->m_fMapNameViewTime, ALPHA_DELAY_WAVE, 8.0f,2.0f);
 				m_pMapLoad->m_fMapNameViewTime += g_pD3dApp->GetElapsedTime();
 				if(m_pMapLoad->m_fMapNameViewTime > 8.0f)
@@ -1027,56 +1028,56 @@ void CInterface::Tick()
 				}
 			}
 
-			// »óÁ¡¿¡¼­ »ç¿ëµÈ ¾ÆÀÌÅÛÀÌ ½ÇÁ¦ °ÔÀÓ»ó¿¡¼­µµ »ç¿ëµÇ°í ÀÖ´Â°¡?
-			// Gear colorÀû¿ë
-			// 2007-08-09 by dgwoo FieldSocketEventLeaveBuildingOk ¿©±â¼­ Ã³¸®.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó»ó¿¡¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½Ö´Â°ï¿½?
+			// Gear colorï¿½ï¿½ï¿½ï¿½
+			// 2007-08-09 by dgwoo FieldSocketEventLeaveBuildingOk ï¿½ï¿½ï¿½â¼­ Ã³ï¿½ï¿½.
 			//SetShopItemUseSerch();
 			
 			if( g_pD3dApp->m_dwGameState != _SHOP && m_pTarget)	
 				m_pTarget->Tick();
-			// µ¥¹ÌÁö ºä¾î
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if(g_pGameMain->m_pDamageView)
 				g_pGameMain->m_pDamageView->Tick();
 			if(m_pGameGlobalImage)
 				m_pGameGlobalImage->Tick();
-			// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+			// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //			if(g_pGameMain->m_pMissionInfo)
 //				g_pGameMain->m_pMissionInfo->Tick();
 			g_pGameMain->TickMissonMain();
 			
-			// 2007-08-14 by dgwoo Ä³½¬ »óÁ¡¿¡¼­ ¹Ì·¯ Ãß°¡
+			// 2007-08-14 by dgwoo Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ ï¿½ß°ï¿½
 			if( m_pCityBase )
 				m_pCityBase->Tick();
-			// 2007-09-19 by dgwoo °ÔÀÓÁß ÅøÆÁ Ãß°¡.
+			// 2007-09-19 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½.
 			if(m_pToolTip)
 				m_pToolTip->Tick();
-			// 2007-09-07 by dgwoo ÀüÁø±âÁöÀü Ãß°¡.
+			// 2007-09-07 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½.
 			if(m_pGameMain->m_pOutPost)
 			{
 				m_pGameMain->m_pOutPost->Tick();
 			}
-			// 2007-10-22 by dgwoo Á¾·á½Ã ½Ã°£ÀÌ ¾È°¡´Â ¹ö±×¹ß»ý ¿¹¹æ Â÷¿ø¿¡¼­ À§Ä¡ ¼öÁ¤.
+			// 2007-10-22 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¹ß»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 			if(m_pGameMain->m_pSystem)
 			{
 				m_pGameMain->m_pSystem->Tick();
 			}
 
-			// 2009. 01. 23 by ckPark ÀÎÅÍÆäÀÌ½º ²°À» ½Ã Æ÷Å»/½ºÅ³ »ç¿ëÁö¿¬ Ã¼Å©
+			// 2009. 01. 23 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å»/ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 			if(m_pGameMain)
 			{
 				m_pGameMain->TickItemDelay();
 				m_pGameMain->TickSkillDealy();
 			}			
-			// end 2009. 01. 23 by ckPark ÀÎÅÍÆäÀÌ½º ²°À» ½Ã Æ÷Å»/½ºÅ³ »ç¿ëÁö¿¬ Ã¼Å©
+			// end 2009. 01. 23 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å»/ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 
-			// 2010. 02. 11 by ckPark ¹ßµ¿·ù ÀåÂø¾ÆÀÌÅÛ
+			// 2010. 02. 11 by ckPark ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if( m_pGameMain )
 				m_pGameMain->TickInvokeWearItem();
-			// end 2010. 02. 11 by ckPark ¹ßµ¿·ù ÀåÂø¾ÆÀÌÅÛ
+			// end 2010. 02. 11 by ckPark ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 			if(m_bShowInterface)
 			{
-				// Á¤º¸Ã¢ÀÌ º¸ÀÏ¶§
+				// ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¶ï¿½
 				if( m_pGameMain )
 				{
 					m_pGameMain->Tick();
@@ -1084,36 +1085,36 @@ void CInterface::Tick()
 			}
 			else
 			{
-				// ÀÎÅÍÆäÀÌ½º Á¤º¸Ã¢ÀÌ º¸ÀÌÁö ¾ÊÀ»¶§.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				if( m_pGameMain )
 				{
-					// 2007-10-05 by bhsohn FÅ°·Î ¼û°Üµµ ½ºÇÇÄ¿ ½ºÆ®¸µ º¸ÀÌ°Ô º¯°æ					
+					// 2007-10-05 by bhsohn FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½					
 					m_pGameMain->TickSpeakerMsg();
-					// end 2007-10-05 by bhsohn FÅ°·Î ¼û°Üµµ ½ºÇÇÄ¿ ½ºÆ®¸µ º¸ÀÌ°Ô º¯°æ
+					// end 2007-10-05 by bhsohn FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 					
 					// 2005-07-18 by ispark
-					// Ã¢ÀÌ ¶ç¾îÁ³À»¶§ FÅ°¸¦ ´©¸£¸é À¯´ÖÀÌ Á¤ÁöÇØ ¹ö¸°´Ù. 
-					// ±×°ÍÀº m_pGameMain->Tick()À» µ¹Áö ¾Ê±â ¶§¹®ÀÌ´Ù.
-					// ¹Ø¿¡ ÇÑÁÙ ¼Ò½º°¡ À¯´ÖÀ» °­Á¦·Î Á¤Áö ½ÃÅ°Áö ¾Ê´Â´Ù.
+					// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
+					// ï¿½×°ï¿½ï¿½ï¿½ m_pGameMain->Tick()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+					// ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 					//g_pD3dApp->m_bFixUnitDirMode = FALSE;
 
-					// 2007-07-24 by dgwoo invenÈ°¼ºÈ­Áß FÅ°¸¦ ´©¸£¸é ¹«±â Á¤º¸Ã¢ÀÌ »ç¶÷Áö¸ç ºóÃ¢ÀÌ º¸ÀÓ.
+					// 2007-07-24 by dgwoo invenÈ°ï¿½ï¿½È­ï¿½ï¿½ FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					m_pGameMain->TickDrawWindowInfo();
 
 					// 2005-07-18 by ispark
-					// Ã¢ÀÌ ¼û°Ü ÀÖ¾îµÎ À¯´Ö »óÅÂ º¸¿©ÁÖ±â
+					// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 					m_pGameMain->m_pUnitState->Tick();
 					m_pGameMain->m_pQuickSlot->Tick();
 					m_pGameMain->m_pChat->Tick();
 					m_pGameMain->m_pMiniMap->Tick();
 					m_pGameMain->m_pUnitInfoBar->Tick();
 					m_pGameMain->m_pGameCountDown->Tick();
-					// 2005-08-08 by ispark MP3 °è¼Ó À¯ÁöÇÏ±â
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+					// 2005-08-08 by ispark MP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(m_pGameMain->m_pMp3Player && m_pGameMain->m_bMp3PlayFlag == TRUE)
 						m_pGameMain->m_pMp3Player->Tick();
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ														  
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½														  
 #endif
 					if(m_pGameMain->m_pInfGameMainFaq && m_pGameMain->m_bFAQProsFlag)
 						m_pGameMain->m_pInfGameMainFaq->Tick();
@@ -1124,26 +1125,26 @@ void CInterface::Tick()
 							m_pGameMain->m_pAttackDirection->tRemainTime[i].Set(0);
 					}
 
-					// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+					// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 					if( m_pGameMain->m_pInfWindow )
 						m_pGameMain->m_pInfWindow->Tick();
-					// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+					// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-					// 2014-05-07 by ymjoo ÀÎÅÍÆäÀÌ½º¸¦ ²¨µµ °ÅÁ¡Àü ½Ã°£ÀÌ Èå¸£µµ·Ï ¼öÁ¤
+					// 2014-05-07 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½å¸£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(m_pGameMain->m_pBaseWarManager)
 						m_pGameMain->m_pBaseWarManager->Tick();
-					// END 2014-05-07 by ymjoo ÀÎÅÍÆäÀÌ½º¸¦ ²¨µµ °ÅÁ¡Àü ½Ã°£ÀÌ Èå¸£µµ·Ï ¼öÁ¤
+					// END 2014-05-07 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½å¸£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-					// 2014-05-12 by ymjoo ÀÎÅÍÆäÀÌ½º¸¦ ²¨µµ ÇöÀç ½Ã°£ÀÌ °»½ÅµÇµµ·Ï ¼öÁ¤
+					// 2014-05-12 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÅµÇµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_pGameMain->UpdateServerTimeString();
-					// END 2014-05-12 by ymjoo ÀÎÅÍÆäÀÌ½º¸¦ ²¨µµ ÇöÀç ½Ã°£ÀÌ °»½ÅµÇµµ·Ï ¼öÁ¤
+					// END 2014-05-12 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÅµÇµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 			}
 
-			// 2006-07-30 by ispark, °³ÀÎ »óÁ¡
+			// 2006-07-30 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_pBazaarShop)
 			{
-				// Á¾·á Ã¼Å©
+				// ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 				if(m_pBazaarShop->GetbBazaarShopEnd())
 				{
 					ReadyCloseBazaarShop();
@@ -1158,13 +1159,13 @@ void CInterface::Tick()
 				m_pGameArena->Tick();
 
 
-			// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+			// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			if( m_pInfinity )
 				m_pInfinity->Tick();
-			// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+			// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-			// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+			// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			m_pINFOpMain->Tick(g_pD3dApp->m_dwGameState);
 		}
 		break;
@@ -1176,7 +1177,7 @@ void CInterface::Tick()
 //				m_pCityBase->Tick() ;
 //			if(m_pGameGlobalImage)
 //				m_pGameGlobalImage->Tick();
-//			// µ¥¹ÌÁö ºä¾î
+//			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			if(g_pGameMain->m_pDamageView)
 //				g_pGameMain->m_pDamageView->Tick();
 //
@@ -1187,7 +1188,7 @@ void CInterface::Tick()
 	case _CITY:
 		{
 			if(TRUE == m_pMapLoad->GetRenderMapNameImg())
-			{	// ¸ÊÀÌ¸§ »ç¶óÁö±â..
+			{	// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..
 				m_pMapLoad->m_dwAlpha = g_pGameMain->GetCurrentColor(m_pMapLoad->m_fMapNameViewTime, ALPHA_DELAY_WAVE, 8.0f,2.0f);
 				m_pMapLoad->m_fMapNameViewTime += g_pD3dApp->GetElapsedTime();
 				if(m_pMapLoad->m_fMapNameViewTime > 8.0f)
@@ -1201,18 +1202,18 @@ void CInterface::Tick()
 			if( m_pGameMain )
 				m_pGameMain->Tick() ;
 
-			// 2009. 01. 23 by ckPark ÀÎÅÍÆäÀÌ½º ²°À» ½Ã Æ÷Å»/½ºÅ³ »ç¿ëÁö¿¬ Ã¼Å©
+			// 2009. 01. 23 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å»/ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 			if(m_pGameMain)
 			{
 				m_pGameMain->TickItemDelay();					
 				m_pGameMain->TickSkillDealy();
 			}			
-			// end 2009. 01. 23 by ckPark ÀÎÅÍÆäÀÌ½º ²°À» ½Ã Æ÷Å»/½ºÅ³ »ç¿ëÁö¿¬ Ã¼Å©
+			// end 2009. 01. 23 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å»/ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 
-			// 2010. 02. 11 by ckPark ¹ßµ¿·ù ÀåÂø¾ÆÀÌÅÛ
+			// 2010. 02. 11 by ckPark ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if( m_pGameMain )
 				m_pGameMain->TickInvokeWearItem();
-			// end 2010. 02. 11 by ckPark ¹ßµ¿·ù ÀåÂø¾ÆÀÌÅÛ
+			// end 2010. 02. 11 by ckPark ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			if( m_pCityBase )
 				m_pCityBase->Tick() ;
@@ -1246,7 +1247,7 @@ void CInterface::Render()
 	case _CREATE:
 	case _OPTION:
 		{
-			g_pD3dDev->SetRenderState( D3DRS_LIGHTING, TRUE );  /// ±¤¿ø¼³Á¤À» ÄÒ  			
+			g_pD3dDev->SetRenderState( D3DRS_LIGHTING, TRUE );  /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  			
 			g_pD3dDev->SetRenderState( D3DRS_AMBIENT, FALSE ); 
 
 			g_pD3dDev->SetLight( 0, &m_light0 );
@@ -1287,10 +1288,10 @@ void CInterface::Render()
 
 				m_pTarget->RenderMouse(pt.x, pt.y, MOUSE_TYPE_0);
 
-				// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+				// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_pToolTip)
 					m_pToolTip->Render();
-				// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö
+				// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 		break;
@@ -1303,11 +1304,11 @@ void CInterface::Render()
 			{
 				break;
 			}
-			// 2007-11-28 by bhsohn ½ºÅ©¸° ¼¦ ¸ðµå Ãß°¡
-//#ifdef _SCREENSHOT // ½ºÅ©¸° ¼¦ ¸ðµå
+			// 2007-11-28 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+//#ifdef _SCREENSHOT // ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if(g_pInterface->IsScreenShotMode())
 			{
-				// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+				// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //				if(m_bShowInterface)
 //				{
 //					if( m_pGameMain )
@@ -1317,10 +1318,10 @@ void CInterface::Render()
 //					if( m_pTarget )
 //						m_pTarget->Render();
 //				}
-				// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®				
-				// ¿ì¼±¼øÀ§ ·»´õ¸µ ¼³Á¤
+				// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½				
+				// ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				RenderWndIntfaceHideMode();
-				// ¸¶¿ì½º ·£´õ¸µ
+				// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if(m_pTarget)
 				{					
 					POINT pt;
@@ -1330,11 +1331,11 @@ void CInterface::Render()
 					
 					m_pTarget->RenderMouse(pt.x, pt.y ,m_pTarget->m_nMouseType);
 				}
-				// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
-				// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+				// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				if( m_pInfinity )
 					m_pInfinity->RenderResult();
-				// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+				// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			}			
 //#else
 			else
@@ -1344,11 +1345,11 @@ void CInterface::Render()
 					m_pTarget->RenderAttackMeObject();
 					m_pTarget->RenderAttackMeMonster();
 					m_pTarget->RenderAttackMePKEnemy();
-					// 2006-11-09 by ispark, ¸ó½ºÅÍ°¡ ´Ù¸¥ »ó´ë Å¸°Ù Ç¥½Ã
+					// 2006-11-09 by ispark, ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ Ç¥ï¿½ï¿½
 					m_pTarget->RenderOtherTargetMonster();
 				}
 				
-				// µ¥¹ÌÁö ºä¾î
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				if(g_pGameMain->m_pDamageView)
 				{	
 					g_pGameMain->m_pDamageView->Render();
@@ -1359,10 +1360,10 @@ void CInterface::Render()
 				
 				
 
-				// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+				// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_bShowInterface && g_pTutorial->IsTutorialMode() == FALSE && !g_pShuttleChild->IsObserverMode())			
 				{	
-					// 2013. 04. 04 by ssjung º¸³Ê½º EXP ÅøÆÁ ¼ø¼­ ¹®Á¦ Ã³¸® m_pGameMain->Render();¸¦ ¸ÕÀú È£Ãâ ÇÔÀ¸·Î ÇØ°á 
+					// 2013. 04. 04 by ssjung ï¿½ï¿½ï¿½Ê½ï¿½ EXP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ m_pGameMain->Render();ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½ 
 					if(m_pGameMain)	
 						m_pGameMain->Render();
 
@@ -1370,29 +1371,29 @@ void CInterface::Render()
 					{
 						m_pGameMain->m_pUnitInfoBar->Render();	
 					}
-					// 2013. 04. 04 by ssjung º¸³Ê½º EXP ÅøÆÁ ¼ø¼­ ¹®Á¦ Ã³¸® m_pGameMain->Render();¸¦ ¸ÕÀú È£Ãâ ÇÔÀ¸·Î ÇØ°á 
+					// 2013. 04. 04 by ssjung ï¿½ï¿½ï¿½Ê½ï¿½ EXP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ m_pGameMain->Render();ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½ 
 
 					
-					// 2013-03-21 by bhsohn ÇØÇÇ¾Æ¿ö ½ºÆ®¸µ ÅøÆÁ ¼ø¼­ ¹®Á¦ Ã³¸®
+					// 2013-03-21 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					if(m_pGameMain && m_pGameMain->m_pUnitInfoBar)
 					{						
-						m_pGameMain->m_pUnitInfoBar->RenderPremiumCard(FALSE);	// 2013-03-26 by bhsohn ¸â¹ö½± Á¤º¸°¡ Ä³½Ã¼¥ ¹öÆ°°ú ÇØÇÇ¾Æ¿ö ·Î°í µÚ¿¡ ÀÖÀ½	
+						m_pGameMain->m_pUnitInfoBar->RenderPremiumCard(FALSE);	// 2013-03-26 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½Ã¼ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Î°ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½	
 						m_pGameMain->m_pUnitInfoBar->RenderStringBar();
 					}
-					// END 2013-03-21 by bhsohn ÇØÇÇ¾Æ¿ö ½ºÆ®¸µ ÅøÆÁ ¼ø¼­ ¹®Á¦ Ã³¸®
+					// END 2013-03-21 by bhsohn ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					
 				}
 				else
 				{
 					if( m_pGameMain )
 					{
-						// 2007-10-05 by bhsohn FÅ°·Î ¼û°Üµµ ½ºÇÇÄ¿ ½ºÆ®¸µ º¸ÀÌ°Ô º¯°æ					
+						// 2007-10-05 by bhsohn FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½					
 						m_pGameMain->RenderSpeakerMsg();
-						// end 2007-10-05 by bhsohn FÅ°·Î ¼û°Üµµ ½ºÇÇÄ¿ ½ºÆ®¸µ º¸ÀÌ°Ô º¯°æ		
+						// end 2007-10-05 by bhsohn FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½		
 
-						// 2012-03-16 by jhahn FÅ°·Î ¼û°Üµµ ½Ã°è°¡ º¸ÀÌ°Ô º¯°æ
+						// 2012-03-16 by jhahn FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½Ã°è°¡ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 						m_pGameMain->RenderSysTimer();
-						//end 2012-03-16 by jhahn FÅ°·Î ¼û°Üµµ ½Ã°è°¡ º¸ÀÌ°Ô º¯°æ
+						//end 2012-03-16 by jhahn FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½Ã°è°¡ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 						
 						if(m_pGameMain->m_pUnitState)
 						{
@@ -1423,13 +1424,13 @@ void CInterface::Render()
 							
 							m_pGameMain->RenderLeftRightWindow();
 						}
-						// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è					
+						// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 						if(g_pShuttleChild->IsObserverMode() && g_pD3dApp->m_dwGameState != _SHOP)
 						{
-							// °ÔÀÌÁö Ç¥½Ã
+							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 							m_pGameMain->Render_AltiMeter();
 						}
-						// end 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+						// end 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 				}
 				
@@ -1439,30 +1440,30 @@ void CInterface::Render()
 				}
 				
 				//////////////////////////////////////////////////////////////////////////
-				// ¿ì¼±¼øÀ§ ·»´õ¸µ ¼³Á¤
+				// ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				WindowsRender();
 				//
 				//////////////////////////////////////////////////////////////////////////	
-				// 2011-05-31 by jhahn ÀÎÇÇ´ÏÆ¼1Â÷ °á°úÃ¢ Ãâ·Â 
+				// 2011-05-31 by jhahn ï¿½ï¿½ï¿½Ç´ï¿½Æ¼1ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ 
 				if( m_pInfinity )
 					m_pInfinity->RenderResult();
-				// end 2011-05-31 by jhahn ÀÎÇÇ´ÏÆ¼1Â÷ °á°úÃ¢ Ãâ·Â 
+				// end 2011-05-31 by jhahn ï¿½ï¿½ï¿½Ç´ï¿½Æ¼1ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ 
 				
 				
 				if(m_pToolTip)
 					m_pToolTip->Render();
 
-				// 2014-06-09 by ymjoo ÇÁ·ÎÆÄÀÏ·¯ ±¸Çö
+				// 2014-06-09 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(g_pD3dApp->m_pProfiler)
 					g_pD3dApp->m_pProfiler->Render();
-				// END 2014-06-09 by ymjoo ÇÁ·ÎÆÄÀÏ·¯ ±¸Çö
+				// END 2014-06-09 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 //#endif
 		}
 		break;
 //	case _SHOP:
 //		{
-//			// ¾ÆÀÌµð, Ã¤ÆÃ
+//			// ï¿½ï¿½ï¿½Ìµï¿½, Ã¤ï¿½ï¿½
 //			if( m_pTarget )
 //					m_pTarget->RenderAttackMeMonster();
 //			if(g_pGameMain->m_pUnitNameInfo)
@@ -1477,40 +1478,40 @@ void CInterface::Render()
 //				m_pGameMain->Render() ;
 //			if( m_pGameMain->m_pInfSkill )
 //				m_pGameMain->m_pInfSkill->Render();			
-//			// µµ½Ã,°ÔÀÓ °øÅë
+//			// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(m_pGameMain->m_bShowHelp)
 //			{
 //				m_pGameMain->RenderHelp();				
 //			}
-//			// ¹Ì¼Ç ÀÎÆ÷
+//			// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(g_pGameMain->m_pMissionInfo)
 //			{
 //				g_pGameMain->m_pMissionInfo->Render();
 //			}
-//			// mp3 ÇÃ·¹ÀÌ¾î
+//			// mp3 ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
 //			if(g_pGameMain->m_pMp3Player && g_pGameMain->m_bMp3PlayFlag == TRUE)
 //			{
 //				g_pGameMain->m_pMp3Player->Render();
 //			}			
 //			if(m_pGameMain->m_pInfGameMainFaq && m_pGameMain->m_bFAQProsFlag)
 //				m_pGameMain->m_pInfGameMainFaq->Render();
-//			// ¾ÆÀÌÅÛ ÀÎÆ÷
+//			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(m_pGameMain->m_pItemInfo)
 //				m_pGameMain->m_pItemInfo->Render();
 //
 //			if(m_pGameMain->m_pInfWindow)
 //				m_pGameMain->m_pInfWindow->RenderMessaegBox();
-//			// ´ÜÃàÅ° °ü·Ã ·»´õ¸µ
+//			// ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //			if(m_pGameMain->m_bQSlotIconFlag == TRUE)
 //			{
 //				m_pGameMain->RenderQSlotIcon();
 //			}			
-//			// µ¥¹ÌÁö ºä¾î
+//			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			if(g_pGameMain->m_pDamageView)
 //			{	
 //				g_pGameMain->m_pDamageView->Render();
 //			}
-//			// ±Û·Î¹ú ÀÌ¹ÌÁö
+//			// ï¿½Û·Î¹ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 //			if(m_pGameGlobalImage)
 //				m_pGameGlobalImage->Render();
 //			if( m_pTarget )
@@ -1538,7 +1539,7 @@ void CInterface::Render()
 	case _CITY:
 		{
 			if(m_pMapLoad->GetRenderMapNameImg())
-			{	// ¸ÊÀÌ¸§ ·»´õ¸µ				
+			{	// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½				
 				CINFImage* pName = m_pMapNameImg->FindMapNameImage(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);	
 				if(pName)
 				{
@@ -1547,18 +1548,18 @@ void CInterface::Render()
 					pName->Render();
 				}
 
-				// PK°¡´É ¸ÊÀÎ°¡
+				// PKï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½
 				CINFImage* pName2 = NULL;
 				if(g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == TRUE)
 				{
 					pName2 = m_pMapNameImg->FindMapNameImage(5555);
 				}
 				else if(IsPkEnableMap(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex))
-				{	// PK °¡´É ¸Ê
+				{	// PK ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 					pName2 = m_pMapNameImg->FindMapNameImage(1111);	
 				}
 				else
-				{	// PK ºÒ°¡´É ¸Ê
+				{	// PK ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½
 					pName2 = m_pMapNameImg->FindMapNameImage(9999);	
 				}
 				if(pName2)
@@ -1583,14 +1584,14 @@ void CInterface::Render()
 				m_pGameMain->Render() ;
 			if( m_pGameMain->m_pInfSkill )
 				m_pGameMain->m_pInfSkill->Render();			
-			// µµ½Ã,°ÔÀÓ °øÅë
+			// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_pGameMain->m_bShowHelp)
 			{
 				m_pGameMain->RenderHelp();
 				
 			}
-			// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
-			// ¹Ì¼Ç ÀÎÆ÷
+			// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(g_pGameMain->m_pMissionInfo)
 //			{
 //				g_pGameMain->m_pMissionInfo->Render();
@@ -1598,34 +1599,34 @@ void CInterface::Render()
 			g_pGameMain->RenderMission();
 			
 
-			// mp3 ÇÃ·¹ÀÌ¾î
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+			// mp3 ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(g_pGameMain->m_pMp3Player && g_pGameMain->m_bMp3PlayFlag == TRUE)
 			{
 				g_pGameMain->m_pMp3Player->Render();
 			}			
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ														  
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½														  
 #endif
 			if(m_pGameMain->m_pInfGameMainFaq && m_pGameMain->m_bFAQProsFlag)
 					m_pGameMain->m_pInfGameMainFaq->Render();
 			if(m_pGameMain->m_pInfWindow)
 				m_pGameMain->m_pInfWindow->RenderMessaegBox();
-			// ´ÜÃàÅ° °ü·Ã ·»´õ¸µ
+			// ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(m_pGameMain->m_bQSlotIconFlag == TRUE)
 			{
 				m_pGameMain->RenderQSlotIcon();
 			}
-			// ¾ÆÀÌÅÛ ÀÎÆ÷
-			// 2009-02-03 by bhsohn ÀåÂø ¾ÆÀÌÅÛ ºñ±³ ÅøÆÁ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2009-02-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 			if(m_pGameMain->m_pItemInfo)
 // 				m_pGameMain->m_pItemInfo->Render();
 			if(m_pGameMain)
 			{
 				m_pGameMain->RenderItemInfo();
 			}
-			// end 2009-02-03 by bhsohn ÀåÂø ¾ÆÀÌÅÛ ºñ±³ ÅøÆÁ
-			// ±Û·Î¹ú ÀÌ¹ÌÁö
+			// end 2009-02-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½Û·Î¹ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 			if(m_pGameGlobalImage)
 				m_pGameGlobalImage->Render();
 			if( m_pTarget )
@@ -1665,11 +1666,11 @@ int CInterface::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	FLOG( "CInterface::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)" );
 	
 	// 2005-03-03 by jschoi
-	// 2007-12-17 by bhsohn ¾ÆÀÌÅÛ Á¤º¸°¡ ´Ù ¾È¿À¸é °ÔÀÓ ´ë±â»óÅÂ·Î
+	// 2007-12-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½
 	//if( uMsg != WM_MOUSEMOVE && g_pD3dApp->m_bRequestEnable == FALSE)
 	if( uMsg != WM_MOUSEMOVE && g_pD3dApp->IsLockMode() == FALSE)
 	{
-		return 0;	// ¼­¹öÀÇ ÀÀ´äÀ» ±â´Ù¸®´Â ÁßÀÌ¶ó¸é
+		return 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 	}
 	
 	// 2007.04.24 by bhsohn China IME Working
@@ -1733,12 +1734,12 @@ int CInterface::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case _GAME:
 		{
-			// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+			// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			if(	WndProcOperator(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 			{
 				return INF_MSGPROC_BREAK;
 			}			
-			// end 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+			// end 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 			if(	WindowsWndProc(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 					return INF_MSGPROC_BREAK;
@@ -1748,9 +1749,9 @@ int CInterface::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			if(	WindowsWndProc(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 					return INF_MSGPROC_BREAK;
-			// Ãâ°ÝÇÏ±â ¹× ¹Ì¼Ç¸ÊÀÌµ¿
-			// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
-			// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+			// ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ ï¿½Ì¼Ç¸ï¿½ï¿½Ìµï¿½
+			// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			//if(g_pGameMain->m_pMissionInfo && m_bShowInterface && 
 			//if(g_pGameMain->m_pMissionInfo && m_bShowInterface && !g_pShuttleChild->IsObserverMode() &&
 			if(m_bShowInterface && !g_pShuttleChild->IsObserverMode() &&
@@ -1761,16 +1762,16 @@ int CInterface::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case _CITY:
 		{
-			// ±Û·Î¹ú ÀÌ¹ÌÁö
+			// ï¿½Û·Î¹ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 			if(m_pGameGlobalImage->WndProc(uMsg, wParam, lParam)==INF_MSGPROC_BREAK)
 					return INF_MSGPROC_BREAK;
 			if(	m_pGameMain && m_pGameMain->WndProc(uMsg, wParam, lParam)==INF_MSGPROC_BREAK)
 					return INF_MSGPROC_BREAK;
 			if(	m_pCityBase && m_pCityBase->WndProc(uMsg, wParam, lParam)==INF_MSGPROC_BREAK)
 					return INF_MSGPROC_BREAK;
-			// Ãâ°ÝÇÏ±â ¹× ¹Ì¼Ç¸ÊÀÌµ¿
-			// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
-			// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+			// ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ ï¿½Ì¼Ç¸ï¿½ï¿½Ìµï¿½
+			// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			//if(g_pGameMain->m_pMissionInfo && m_bShowInterface && 
 			//if(g_pGameMain->m_pMissionInfo && m_bShowInterface && !g_pShuttleChild->IsObserverMode() &&
 			if(m_bShowInterface && !g_pShuttleChild->IsObserverMode() &&
@@ -2015,19 +2016,19 @@ void CInterface::InitOptionData()
 	g_pSOption->sMusicVolume = OPTION_DEFAULT_MUSICVOLUME;
 	g_pSOption->sGammaCtrl = OPTION_DEFAULT_GAMMA;
 	g_pSOption->sLowQuality	= OPTION_DEFAULT_LOWQUALITY;
-	g_pSOption->sMouseReversLeft = OPTION_DEFAULT_REVERSE_LEFT;			// ¸¶¿ì½º ÁÂ¿ì¹ÝÀü
-	g_pSOption->sMouseReversUp = OPTION_DEFAULT_REVERSE_UP;				// ¸¶¿ì½º »óÇÏ¹ÝÀü
-	g_pSOption->sAutoBalance = OPTION_DEFAULT_AUTO_BALACE;				// ÀÚµ¿ ¼öÆòÁ¶Á¤
-	g_pSOption->sMenuBalance = OPTION_DEFAULT_MENU_USE;					// ¸Þ´º»ç¿ë½Ã ÀÚµ¿ ¼öÆòÁ¶Á¤
-	// 2010. 10. 26 by jskim Æê ¿ÀÆÛ·¹ÀÌÅÍ ¿É¼Ç Ã³¸®
-	g_pSOption->sPetOPBalance = OPTION_DEFAULT_PET_OP;					// Æê ¿ÀÆÛ·¹ÀÌÅÍ Àû¿ë
-	// end 2010. 10. 26 Æê ¿ÀÆÛ·¹ÀÌÅÍ ¿É¼Ç Ã³¸®
-	g_pSOption->sMp3Player = OPTION_DEFAULT_MP3_USE;					// ¹ÂÁ÷ÇÃ·¹ÀÌ¾î
+	g_pSOption->sMouseReversLeft = OPTION_DEFAULT_REVERSE_LEFT;			// ï¿½ï¿½ï¿½ì½º ï¿½Â¿ï¿½ï¿½ï¿½ï¿½
+	g_pSOption->sMouseReversUp = OPTION_DEFAULT_REVERSE_UP;				// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½
+	g_pSOption->sAutoBalance = OPTION_DEFAULT_AUTO_BALACE;				// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	g_pSOption->sMenuBalance = OPTION_DEFAULT_MENU_USE;					// ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// 2010. 10. 26 by jskim ï¿½ï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Ã³ï¿½ï¿½
+	g_pSOption->sPetOPBalance = OPTION_DEFAULT_PET_OP;					// ï¿½ï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// end 2010. 10. 26 ï¿½ï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Ã³ï¿½ï¿½
+	g_pSOption->sMp3Player = OPTION_DEFAULT_MP3_USE;					// ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
 
 #ifdef _RAT_FOV
 	g_pSOption->sFOVangle = OPTION_DEFAULT_FOV;
 #endif
-	g_pSOption->sHandle = TRUE ;										// ¸¶¿ì½º Æ÷ÀÎÆ® º¸ÀÌ±â
+	g_pSOption->sHandle = TRUE ;										// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ì±ï¿½
 	switch(g_pD3dApp->m_bDegree)
 	{
 	case 2:// HIGH
@@ -2068,7 +2069,7 @@ void CInterface::InitOptionData()
 	g_pSOption->sPKMode = 0 ;
 	g_pSOption->InputType = 0 ;	
 
-	// Ã¤ÆÃ¿É¼Ç ÀúÀå
+	// Ã¤ï¿½Ã¿É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(int i = 0; i < 12 /*CHAT_MENULIST_NUMBER*/ ; i++)
 	{
 		g_pSOption->m_bChatCurrentSelect[i] = TRUE;
@@ -2078,35 +2079,35 @@ void CInterface::InitOptionData()
 void CInterface::InitCharacterData()
 {
 	FLOG( "CInterface::InitCharacterData()" );
-	// 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //	g_pSOptionCharacter->sHelpDesk = TRUE;
 	memset(g_pSOptionCharacter->UniqueNumber, 0x00, QSLOT_NUMBER*QSLOT_TAB_NUMBER*sizeof(UID64_t));
 	memset(g_pSOptionCharacter->ItemNum, 0x00, QSLOT_NUMBER*QSLOT_TAB_NUMBER*sizeof(int));
 }
 BOOL CInterface::LoadOptionFile()
 {
-	// 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
+	// 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 	{
 		char chMaxPath[MAX_PATH];
 		memset(chMaxPath, 0x00, MAX_PATH);
 		wsprintf(chMaxPath, SETUP_INFO_PATH);
 		if(FALSE == m_pSetupConfig->LoadSetupInfo(chMaxPath))
 		{
-			// ÃÊ±âÈ­
+			// ï¿½Ê±ï¿½È­
 			InitSetupInfo(chMaxPath);
 		}
 	}	
-	// end 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// end 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	LoadOptionEtcInfo(g_pSOptionEtc);
-	// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	LoadJoysticOptionInfo(g_pJoysticOp);
 	
-	g_pD3dApp->SetUseJoyStick(g_pJoysticOp->bUseJoystick);	// Á¶ÀÌ½ºÆ½ »ç¿ë¿©ºÎ ¼³Á¤
-	g_pD3dApp->SetUseJoyFeedBack(g_pJoysticOp->bUseFeedJoyStick); // Á¶ÀÌ½ºÆ½ Áøµ¿ »ç¿ëÀ¯¹«
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	g_pD3dApp->SetUseJoyStick(g_pJoysticOp->bUseJoystick);	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ë¿©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	g_pD3dApp->SetUseJoyFeedBack(g_pJoysticOp->bUseFeedJoyStick); // ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	
 	FLOG( "CInterface::LoadOptionFile()" );
 	FILE *	fp;
@@ -2131,7 +2132,7 @@ BOOL CInterface::LoadOptionFile()
 		return FALSE;
 	}
 	nResult = ftell(fp);
-	// 050202 ÃÊ±â°ª Àû¿ëÀ» À§ÇØ ¸®¼Â
+	// 050202 ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(nResult != sizeof(sOPTION_SYSTEM)/* - (QSLOT_NUMBER*QSLOT_TAB_NUMBER*(sizeof(int)+sizeof(UID64_t)))*/)
 	{
 		DBGOUT("CINFInterface::LoadOptionFile() Option File(%s) SIZE error, Set Default\n", strFileName);
@@ -2171,18 +2172,18 @@ BOOL CInterface::LoadOptionFile()
 
 	if(g_pSOption->sSoundVolume > 0) 
 		g_pSOption->sSoundVolume = 0;
-	if(g_pSOption->sMusicVolume > 100)				// 2006-03-15 by ispark, À½¾Ç º¼·ý°ª ÀúÀå ¼öÄ¡ º¯°æ
+	if(g_pSOption->sMusicVolume > 100)				// 2006-03-15 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		g_pSOption->sMusicVolume = 100;
 
 	if(g_pSOption->sSoundVolume < -10000)
 		g_pSOption->sSoundVolume = -10000;
-	if(g_pSOption->sMusicVolume < 0)				// 2006-03-15 by ispark, À½¾Ç º¼·ý°ª ÀúÀå ¼öÄ¡ º¯°æ
+	if(g_pSOption->sMusicVolume < 0)				// 2006-03-15 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		g_pSOption->sMusicVolume = 0;	
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-	// ¸¶¿ì½º ÁÂ¿ì ¹ÝÀü Ç×»ó ²ô±â·Î
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+	// ï¿½ï¿½ï¿½ì½º ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_pSOption->sMouseReversLeft = OPTION_DEFAULT_REVERSE_LEFT;
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	
 	g_pD3dApp->m_pCamera->SetCamType( g_pSOption->sEyePt );
 	g_pD3dApp->m_pShuttleChild->m_bAutoLockon = g_pSOption->sTarget;
@@ -2191,53 +2192,53 @@ BOOL CInterface::LoadOptionFile()
 	return TRUE;
 }
 
-// 2007-07-23 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡ÀÛ¾÷
+// 2007-07-23 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 void CInterface::InitSetupInfo(char* pPath)
 {
-	// ÆÄÀÏÀÌ ¾ø´Ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	char chBuff[512];
 	wsprintf(chBuff, "%d", TRUE);
 	m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPERATOR_INFO, chBuff);
 	m_pSetupConfig->AddSetupInfo(SETUP_INFO_SPEAKER_INFO, chBuff);
 	
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®	
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½	
 	sOPTION_ETC	stEtcOption;
 	memset(&stEtcOption, 0x00, sizeof(sOPTION_ETC));
 	g_pD3dApp->InitOptionEtcInfo(&stEtcOption);
 	{
-		// 1:1¹øÅõ
+		// 1:1ï¿½ï¿½ï¿½ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_MAN_TO_MAN]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_MANTOMAN_INFO, chBuff);
 
-		// Æí´ë ÀüÅõ
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_FORMATIONWAR]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_PARTYWAR_INFO, chBuff);
 
-		// ¿©´ÜÀüÅõ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_GUILD_WAR]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_GUILDWAR_INFO, chBuff);
 
-		//±Ó¼Ó¸»
+		//ï¿½Ó¼Ó¸ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_WHISPER]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_WHISPER_INFO, chBuff);
 
-		// Æí´ë ÃÊ´ë
+		// ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_FORMATION_INVITE]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_PARTYINVI_INFO, chBuff);
 
-		// ¿©´ÜÃÊ´ë
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_GUILD_INVITE]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_GUILDINVI_INFO, chBuff);
 
-		// ±³È¯
+		// ï¿½ï¿½È¯
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_EXCHANGE]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_EXCHANGE_INFO, chBuff);
 
-		//ÀÎÅÍÆäÀÌ½º À§Ä¡ÀúÀå
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_INTERFACE_POS]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_INTERPOS_INFO, chBuff);
 
-		//ÀÎÅÍÆäÀÌ½º À§Ä¡ÀúÀå °ª
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		sprintf(chBuff, "%.2f", stEtcOption.stRateRect.fRateX);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_INTERPOS_X_INFO, chBuff);		
 		sprintf(chBuff, "%.2f", stEtcOption.stRateRect.fRateY);
@@ -2249,14 +2250,14 @@ void CInterface::InitSetupInfo(char* pPath)
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_INTERPOS_H_INFO, chBuff);
 
 		
-		// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+		// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		sprintf(chBuff, "%.2f", stEtcOption.stChatRect.fRateWidth);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_CHATPOS_W_INFO, chBuff);
 		sprintf(chBuff, "%.2f", stEtcOption.stChatRect.fRateHeight);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_CHATPOS_H_INFO, chBuff);
 
-		// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+		// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		
 		sprintf(chBuff, "%.2f", stEtcOption.stRateRect.fGameWidth);
@@ -2264,71 +2265,71 @@ void CInterface::InitSetupInfo(char* pPath)
 		sprintf(chBuff, "%.2f", stEtcOption.stRateRect.fGameHeight);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_GAME_H_INFO, chBuff);		
 
-		// ÀÎÅÍÆäÀÌ½º ¸ðµÎ °¨Ãß±â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_INTERFACE_HIDE]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_INTERHIDE_INFO, chBuff);
 
-		// °°Àº ¼¼·Â ¾ÆÀÌµð
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_FRIEND_ID_HIDE]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_SAME_ID_HIDE_INFO, chBuff);
 
-		// ´Ù¸¥ ¼¼·Â ¾ÆÀÌµð
+		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_ENEMY_ID_HIDE]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_ENEMY_ID_HIDE_INFO, chBuff);
 
-		// ¸¶¿ì½º °¡µÎ±â
+		// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Î±ï¿½
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_MOUSE_LOCK]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_MOUSE_LOCK_INFO, chBuff);
 
-		// ºñ¼Ó¾î ÇÊÅÍ¸µ		
+		// ï¿½ï¿½Ó¾ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½		
 		wsprintf(chBuff, "%d", stEtcOption.bRadioInfo[OPTION_RADIO_CHAT_FILTER]);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_FILTER_INFO, chBuff);			
 	}	
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	{	
 
 		structJoyStickOptionInfo	stJoysticOp;
 		memset(&stJoysticOp, 0x00, sizeof(structJoyStickOptionInfo));
 		g_pD3dApp->InitJoyStickOptionInfo(&stJoysticOp);
-		// Á¶ÀÌ½ºÆ½ »ç¿ë		
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½		
 		{			
 			wsprintf(chBuff, "%d", stJoysticOp.bUseJoystick);
 			m_pSetupConfig->AddSetupInfo(SETUP_INFO_JOYSTICK_USE, chBuff);
 		}
 		
-		// Á¶ÀÌ½ºÆ½ ¼±ÅÃ		
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½		
 		{				
 			m_pSetupConfig->AddSetupInfo(SETUP_INFO_JOYSTICK_SELECT, stJoysticOp.chJoySelJoy);
 		}
 		
-		// Á¶ÀÌ½ºÆ½ Áøµ¿»ç¿ë		
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		
 		{			
 			wsprintf(chBuff, "%d", stJoysticOp.bUseFeedJoyStick);
 			m_pSetupConfig->AddSetupInfo(SETUP_INFO_JOYSTICK_FEED, chBuff);
 		}
 		
-		// Á¶ÀÌ½ºÆ½ °¨µµ		
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½		
 		{			
 			wsprintf(chBuff, "%d", stJoysticOp.nJoysticSense);
 			m_pSetupConfig->AddSetupInfo(SETUP_INFO_JOYSTICK_SENSE, chBuff);
 		}
 		
-		// Å° ¼³Á¤ °¡Áö°í ¿À±â		
+		// Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		
 		{				
 			m_pSetupConfig->AddSetupInfo(SETUP_INFO_JOYSTICK_KEYCONFIG, stJoysticOp.chJoyKeyFile);
 		}		
 	}
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-	// 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+	// 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	{
 		wsprintf(chBuff, "%d", g_pSOptionCharacter->sHelpDesk);
 		m_pSetupConfig->AddSetupInfo(SETUP_INFO_OPETC_HELP_FUC, chBuff);
 	}
-	// END 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// END 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 	m_pSetupConfig->SaveSetupInfo(pPath);
 }
-// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 int CInterface::GetSpeakerMode()
 {
 	char chBuf[512];		
@@ -2336,9 +2337,9 @@ int CInterface::GetSpeakerMode()
 	{
 		return atoi(chBuf);	
 	}
-	// ¾øÀ»¶§´Â ÀúÀå ½Ãµµ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
 	SetSpeakerMode(1);
-	// ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½
 	{
 		char chMaxPath[MAX_PATH];
 		memset(chMaxPath, 0x00, MAX_PATH);
@@ -2379,16 +2380,16 @@ void CInterface::SetOperatorMode(int nMode)
 	m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPERATOR_INFO, chBuf);
 }
 
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 BOOL CInterface::LoadCharacterFile(BOOL bArenaRestart)
 {
 	FLOG( "CInterface::LoadCharacterFile()" );
 	//*--------------------------------------------------------------------------*//
 	// 2006-09-05 by ispark, 
-	// Äü½½·Ô Á¤º¸ ¼­¹ö¿¡·Î ºÎÅÍ ¿äÃ»
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	if(!bArenaRestart)
 	{
-		// ¾Æ·¹³ª¼­¹ö·Î ÀÌµ¿½Ã¿¡´Â Äü½½·Ô Á¤º¸¸¦ ¿äÃ»¾ÈÇÔ.
+		// ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½.
 		g_pD3dApp->m_pFieldWinSocket->SendMsg(T_FC_STORE_REQUEST_QUICKSLOT, NULL, 0);
 	}
 	//*--------------------------------------------------------------------------*//
@@ -2399,19 +2400,19 @@ BOOL CInterface::LoadCharacterFile(BOOL bArenaRestart)
 		return FALSE;
 	}
 	
-	// 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+	// 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(bArenaRestart)
 	{
-		// ¾Æ·¹³ª »óÅÂ¿¡¼­´Â ´Ù½Ã ·ÎµåÇÒÇÊ¿ä°¡ ¾ø´Ù.
+		// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½Ê¿ä°¡ ï¿½ï¿½ï¿½ï¿½.
 		return TRUE;
 	}
 
-	// end 2008-02-27 by bhsohn ÅëÇÕ ¾Æ·¹³ª ¼öÁ¤
+	// end 2008-02-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	FILE *	fp;
 	char strFileName[32];
 	int nResult;
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//wsprintf(strFileName, "%u.env", g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterUniqueNumber);
 	CHARACTER* pMainInfo = g_pD3dApp->GetMFSMyShuttleInfo();
 	wsprintf(strFileName, "%u.env", pMainInfo->CharacterUniqueNumber);
@@ -2461,7 +2462,7 @@ BOOL CInterface::LoadCharacterFile(BOOL bArenaRestart)
 	return TRUE;
 }
 
-BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ßpart2 - ¾Æ·¹³ª Àü¿ë Äü½½·Ô ÆÄ¶ó¹ÌÅÍ Ãß°¡ ( 0 = ¸ÞÀÎ, 1 = ¾Æ·¹³ª )
+BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½part2 - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ( 0 = ï¿½ï¿½ï¿½ï¿½, 1 = ï¿½Æ·ï¿½ï¿½ï¿½ )
 {
 	FLOG( "CInterface::SaveCharacterFile()" );
 
@@ -2480,7 +2481,7 @@ BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ¾Æ·
 
 	//*--------------------------------------------------------------------------*//
 	// 2006-09-05 by ispark, 
-	// Äü½½·Ô Á¤º¸ ¼­¹ö¿¡ ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_FC_STORE_SAVE_QUICKSLOT sMsg;
 	for(int i = 0; i < QUICKTABCOUNT; i++)
 	{
@@ -2493,7 +2494,7 @@ BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ¾Æ·
 			{
 				nTabCount++;
 
-				// »èÁ¦µÈ »óÅÂ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_pGameMain->m_pQuickSlot->m_pQSlotInfo[i][j].pItem == NULL)
 				{
 					nDelTabCount++;
@@ -2521,10 +2522,10 @@ BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ¾Æ·
 			sMsg.POS[i].Delete = TRUE;
 		}
 	}
-	sMsg.SlotPurpose = SlotPurpose;		// 2012-06-21 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ßpart2 - ¾Æ·¹³ª Àü¿ë Äü½½·Ô
+	sMsg.SlotPurpose = SlotPurpose;		// 2012-06-21 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½part2 - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_pFieldWinSocket->SendMsg(T_FC_STORE_SAVE_QUICKSLOT, (char*)&sMsg, sizeof(sMsg));
 
-	// 2012-06-21 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ßpart2 - ¾Æ·¹³ª Àü¿ë Äü½½·Ô
+	// 2012-06-21 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½part2 - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if( SLOT_PURPOSE_ARENA == SlotPurpose )
 	{
 		g_pD3dApp->m_bCheckQuickSlotSave = FALSE;
@@ -2533,17 +2534,17 @@ BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ¾Æ·
 	{
 	g_pD3dApp->m_bCheckQuickSlotSave = TRUE;
 	}
-	// end 2012-06-21 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ßpart2 - ¾Æ·¹³ª Àü¿ë Äü½½·Ô
+	// end 2012-06-21 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½part2 - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//*--------------------------------------------------------------------------*//
 
-	// 2008-12-02 by bhsohn .env ÆÄÀÏ Á¦°Å
+	// 2008-12-02 by bhsohn .env ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	return TRUE;
-	// end 2008-12-02 by bhsohn .env ÆÄÀÏ Á¦°Å
-	// ±âÅ¸ ÀúÀå
+	// end 2008-12-02 by bhsohn .env ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½
 	FILE *	fp;
 	char	strFileName[32];
 	
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//wsprintf(strFileName, "%u.env", g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.CharacterUniqueNumber);
 	CHARACTER* pMainInfo = g_pD3dApp->GetMFSMyShuttleInfo();
 	wsprintf(strFileName, "%u.env", pMainInfo->CharacterUniqueNumber);	
@@ -2586,9 +2587,9 @@ BOOL CInterface::SaveCharacterFile(int SlotPurpose)	// 2012-06-21 by jhseol, ¾Æ·
 
 BOOL CInterface::SaveOptionFile()
 {
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	SaveOptionEtcInfo();		
-	// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®	
+	// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½	
 
 	FLOG( "CInterface::SaveOptionFile()");
 	FILE *	fp;
@@ -2605,7 +2606,7 @@ BOOL CInterface::SaveOptionFile()
 	{
 		DBGOUT("CINFInterface::SaveOptionFile() File write Error(%s)\n", strFileName);
 		fclose(fp);
-		fp = fopen(strFileName, "w+b");  // size=0 ÆÄÀÏ »ý¼º
+		fp = fopen(strFileName, "w+b");  // size=0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		fclose(fp);
 		return FALSE;
 	}
@@ -2616,7 +2617,7 @@ BOOL CInterface::SaveOptionFile()
 
 void CInterface::SetWindowOrder(int nWndIndex)
 {
-	// ÃÊ±â ¼³Á¤ Á¶°Ç
+	// ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pGameMain == NULL)
 		return;
 
@@ -2626,11 +2627,11 @@ void CInterface::SetWindowOrder(int nWndIndex)
 //		g_pGameMain->m_pInfWindow->ResetMessageString();
 	if(nWndIndex != WNDCommunityVOIP)
 		g_pGameMain->m_pCommunityVOIP->ClearWindowString();
-	// 2007-07-20 by dgwoo ÃÖÁ¶ FAQ¿¡ ÁøÀÔ½Ã ÇÑ¹øÀº Ã³¸®ÇØ¾ßÇÒ »çÇ×.
+	// 2007-07-20 by dgwoo ï¿½ï¿½ï¿½ï¿½ FAQï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(nWndIndex == WNDGameMainFaq)
 		g_pGameMain->m_pInfGameMainFaq->SetInit();
 
-	// Á¤¹æÇâ ¼ø¼­ ÀçÁöÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_vecGameWindowWndReverse.clear();
 	vector<GameWindowWnd>::iterator itWnd = m_vecGameWindowWnd.begin();
 	while(itWnd != m_vecGameWindowWnd.end())
@@ -2652,7 +2653,7 @@ void CInterface::SetWindowOrder(int nWndIndex)
 		itWnd++;
 	}
 
-	// ¿ª¹æÇâ ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	GameWindowWnd vecTemp;
 	vector<GameWindowWnd>::iterator itWndR = m_vecGameWindowWnd.begin();
 	while(itWndR != m_vecGameWindowWnd.end())
@@ -2682,19 +2683,19 @@ void CInterface::InitWindowsFirstFormat()
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ÀÌÇÏ ¿ì¼±¼øÀ§ Ã³¸® ¼³Á¤ 
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 // 2005.10.31 ydkim
 //////////////////////////////////////////////////////////////////////////
 int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	// 2005-10-12 by ispark Æ©Åä¸®¾ó ·¹½¼2´Â Çã¿ë BÅ°·Î Á¤Áö ¸Þ¼¼Áö ¶§¹®¿¡...
+	// 2005-10-12 by ispark Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½ï¿½ï¿½ BÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 	if(g_pTutorial->IsTutorialMode() == TRUE){
 		if(g_pTutorial->GetLesson() != L2){
 			return INF_MSGPROC_NORMAL;
 		}
 	}
 
-	// 2005-11-16 by ispark ¿ÞÂÊ ¹öÆ° Å¬¸¯½Ã »óÀ§¿¡¼­ Ã³¸®ÇØ¾ß ÇÏ´Â °Íµé
+	// 2005-11-16 by ispark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ï´ï¿½ ï¿½Íµï¿½
 	if(uMsg == WM_LBUTTONDOWN)
 	{
 		POINT pt;
@@ -2702,7 +2703,7 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		pt.y = HIWORD(lParam);
 		CheckMouseReverse(&pt);
 
-		// Ã¤ÆÃ ÀÌ¿Ü¿¡ Å¬¸¯½Ã ¹«È¿
+		// Ã¤ï¿½ï¿½ ï¿½Ì¿Ü¿ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿
 		if( !(pt.x > 25 && 
 			pt.x < 245 &&
 			pt.y < g_pD3dApp->GetBackBufferDesc().Height - 6 && 
@@ -2712,7 +2713,7 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 	}
 	
-	// ÇÊµå»ó¿¡¼­ Ä³½¬ »óÁ¡¿¡ µé¾î°¬À»¶§
+	// ï¿½Êµï¿½ó¿¡¼ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¬ï¿½ï¿½ï¿½ï¿½
 	BOOL bEnterCash = FALSE;
 //	if(m_pCityBase && m_pCityBase->GetCurrentBuildingNPC()){
 //		bEnterCash = TRUE;
@@ -2720,17 +2721,17 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 //		m_bShowInterface = TRUE;
 //	}
 //	else{
-	// Ä³½¬ »óÁ¡ÀÌ ¾Æ´Ò¶§
+	// Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò¶ï¿½
 		g_pGameMain->m_bEnterBuilingCashShop = FALSE;
 
-// 2012-06-01 by isshin À¯Àú ½ºÅ©¸°¼¦ ¸ðµå Áö¿ø
+// 2012-06-01 by isshin ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef C_USER_SCREENSHOTMODE_ISSHIN
 		if((uMsg == WM_KEYDOWN || uMsg == WM_KEYUP) && g_pD3dApp->m_dwGameState != _SHOP)
 #else
 		if(uMsg == WM_KEYDOWN && g_pD3dApp->m_dwGameState != _SHOP)
 #endif
 		{
-			// 2006-09-08 by dgwoo 1:1°Å·¡Áß¿£ FÅ°¸¦ ¸·´Â´Ù.
+			// 2006-09-08 by dgwoo 1:1ï¿½Å·ï¿½ï¿½ß¿ï¿½ FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 			if(g_pD3dApp->m_bChatMode == FALSE && g_pGameMain->m_bVOIPFlag == FALSE && !g_pGameMain->m_pTrade->m_bTrading)
 			{
 				switch(lParam)
@@ -2742,24 +2743,24 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // #else
 // 				case WM_KEYDOWN_LPARAM_F:
 // 					{
-// 						// 2007-11-28 by bhsohn ½ºÅ©¸° ¼¦ ¸ðµå Ãß°¡
+// 						// 2007-11-28 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 						CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();
-// 						// ¾ÆÀÌÅÛ °ü¸®ÀÚ, ¿î¿µÀÚ¸¸ ½ºÅ©¸°¼¦ ¸ðµå »ç¿ë
+// 						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½î¿µï¿½Ú¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 // 						if((COMPARE_RACE(myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 // 							&& GetAsyncKeyState(VK_CONTROL))
 // #endif					
-				// 2012-11-23 by mspark, ½ºÅ©¸°¼¦ CTRL+F µ¿½Ã¿¡ Å°´Ù¿î ½Ã µ¿ÀÛÇÏµµ·Ï ¼öÁ¤
+				// 2012-11-23 by mspark, ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ CTRL+F ï¿½ï¿½ï¿½Ã¿ï¿½ Å°ï¿½Ù¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				case WM_KEYDOWN_LPARAM_F:
 					{
-						if(g_pGameMain && TRUE == g_pGameMain->GetChatModeState())				   // 2013-11-14 by ssjung ºñÇà Áß Ã¤ÆÃ ÇÒ½Ã Á¶ÀÛÅ°°¡ ÀÛµ¿ÇÏ´Â ¹®Á¦ ¼öÁ¤
+						if(g_pGameMain && TRUE == g_pGameMain->GetChatModeState())				   // 2013-11-14 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							break;	
 
-						// 2014-04-23 by ssjung ÀÎÇÇ´ÏÆ¼ º¹±Í ½Ã ¸Þ½ÃÁö ¹Ú½º ¿¹¿Ü Ãß°¡
+						// 2014-04-23 by ssjung ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 						if(TRUE == ReturnToProgressInfinityCheck())
 						{
 							return INF_MSGPROC_BREAK;
 						}
-						// end 2014-04-23 by ssjung ÀÎÇÇ´ÏÆ¼ º¹±Í ½Ã ¸Þ½ÃÁö ¹Ú½º ¿¹¿Ü Ãß°¡
+						// end 2014-04-23 by ssjung ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 							
 						CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();
 
@@ -2773,7 +2774,7 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 						if(bScreenShotMode
 							&& (GetAsyncKeyState(VK_CONTROL) & 0x8000))
-				// end 2012-11-23 by mspark, ½ºÅ©¸°¼¦ CTRL+F µ¿½Ã¿¡ Å°´Ù¿î ½Ã µ¿ÀÛÇÏµµ·Ï ¼öÁ¤
+				// end 2012-11-23 by mspark, ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ CTRL+F ï¿½ï¿½ï¿½Ã¿ï¿½ Å°ï¿½Ù¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						{
 							BOOL bShotMode = IsScreenShotMode();
 							bShotMode ^= TRUE;
@@ -2781,16 +2782,16 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 							return INF_MSGPROC_BREAK;
 						}
-						// end 2007-11-28 by bhsohn ½ºÅ©¸° ¼¦ ¸ðµå Ãß°¡
+						// end 2007-11-28 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 						m_bShowInterface = !m_bShowInterface;
 						
-						// 2009. 12. 04 by jskim À¯´Ö »ç¸Á½Ã ÀÎÅÍÆäÀÌ½º¸¦ ¾ø¾Ö¸é ±ÍÈ¯ ¸Þ½ÃÁö ¹Ú½ºµµ ¾ø¾îÁö´Â ¹ö±× ¼öÁ¤
+						// 2009. 12. 04 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½È¯ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if(m_bShowInterface && g_pShuttleChild->m_dwState == _FALLEN)
 						{
 							g_pShuttleChild->SendDeadMsg();
 						}
-						//end 2009. 12. 04 by jskim À¯´Ö »ç¸Á½Ã ÀÎÅÍÆäÀÌ½º¸¦ ¾ø¾Ö¸é ±ÍÈ¯ ¸Þ½ÃÁö ¹Ú½ºµµ ¾ø¾îÁö´Â ¹ö±× ¼öÁ¤
+						//end 2009. 12. 04 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½È¯ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						
 						g_pGameMain->m_pChat->m_pSystemMsgW->SetInterface(m_bShowInterface);
 						g_pGameMain->m_pChat->SetWisperChatShowInterface(m_bShowInterface);
@@ -2801,40 +2802,40 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							g_pGameMain->LeftWindowShow(FALSE,g_pGameMain->m_nLeftWindowInfo);
 						}
 
-						// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+						// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 						if(m_pGameMain && m_pGameMain->m_pSystem)
 						{
 							m_pGameMain->m_pSystem->RefreshShowInterface(!GetShowInterface());
 						}
 						
-						// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+						// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 						
 						return INF_MSGPROC_BREAK;
 					}
 				case WM_KEYDOWN_LPARAM_R:
 					{
-						// 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
+						// 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
 						CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();
-						// ¾ÆÀÌÅÛ °ü¸®ÀÚ, ¿î¿µÀÚ¸¸ ½ºÅ©¸°¼¦ ¸ðµå »ç¿ë
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½î¿µï¿½Ú¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 						if((COMPARE_RACE(myShuttleInfo.Race,RACE_OPERATION))
 							&& GetAsyncKeyState(VK_CONTROL))
 						{
 							g_pD3dApp->SaveSinglePlayInfo();
 							return INF_MSGPROC_BREAK;
 						}
-						// end 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
+						// end 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
 					}
 					break;
 				case WM_KEYDOWN_LPARAM_Q:
 					{
-						// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+						// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if(g_pShuttleChild->IsObserverMode())
 						{
 							return INF_MSGPROC_NORMAL;
 						}
-						// end 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+						// end 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						
-						// 2006-12-01 by ispark, Á×Àº »óÅÂ°¡ ¾Æ´Ï¸é GetItem º¸³½´Ù.
+						// 2006-12-01 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï¸ï¿½ GetItem ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 						if(g_pShuttleChild->CheckUnitState() != BREAKDOWN)
 						{
 							g_pScene->SendItemGetItemAll();
@@ -2850,25 +2851,25 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}
 		}
 //	}
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity
 		&& m_pInfinity->WndProc( uMsg, wParam, lParam ) == INF_MSGPROC_BREAK )
 	{
 		return INF_MSGPROC_BREAK;
 	}
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup
 		&& m_pInfinityPopup->WndProc( uMsg, wParam, lParam ) == INF_MSGPROC_BREAK )
 	{
 		return INF_MSGPROC_BREAK;
 	}
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2008-04-08 by dgwoo ¸ð¼± ¿É¼ÇÃ¢À» ¶ç¾úÀ»°æ¿ì ´Ù¸¥ ÀÌº¥Æ®¸¦ ¸·´Â´Ù.
+	// 2008-04-08 by dgwoo ï¿½ï¿½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 	if(g_pGameMain->GetINFMotherShipManager() &&
 		g_pGameMain->GetINFMotherShipManager()->WndProcOption(uMsg,wParam,lParam) == INF_MSGPROC_BREAK)
 	{
@@ -2914,12 +2915,12 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				case WNDMissionInfo:
 					if(!bEnterCash && !m_bShowInterface && g_pTutorial->IsTutorialMode() == TRUE)
 						break;
-					// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+					// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(g_pShuttleChild->IsObserverMode())
 					{
 						break;
 					}
-					// end 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+					// end 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(WndProcMiss(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 						return INF_MSGPROC_BREAK;
 					break;
@@ -2950,22 +2951,22 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						return INF_MSGPROC_BREAK;						
 					break;
                  case WNDMp3Player:
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
- 					if( g_pGameMain->m_pMp3Player && g_pGameMain->m_bMp3PlayFlag == TRUE &&		// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-						// 2009. 12. 04 by jskim ¸¶¿ì½º Æ÷ÀÎÅÍ ¾Èº¸ÀÌ±â ¼±ÅÃ½Ã music player¸¦ »ç¿ëÇÒ ¼ö ¾ø°Ô µÇ´Â ¹ö±× ¼öÁ¤
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ 					if( g_pGameMain->m_pMp3Player && g_pGameMain->m_bMp3PlayFlag == TRUE &&		// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+						// 2009. 12. 04 by jskim ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½ music playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						//m_pTarget->GetShowTargetCodition() == FALSE &&
-						//end 2009. 12. 04 by jskim ¸¶¿ì½º Æ÷ÀÎÅÍ ¾Èº¸ÀÌ±â ¼±ÅÃ½Ã music player¸¦ »ç¿ëÇÒ ¼ö ¾ø°Ô µÇ´Â ¹ö±× ¼öÁ¤
+						//end 2009. 12. 04 by jskim ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½ music playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						m_bShowInterface == TRUE &&
-						!g_pShuttleChild->IsObserverMode())		// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+						!g_pShuttleChild->IsObserverMode())		// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					{
 						if(WndProcMp3P(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 							return INF_MSGPROC_BREAK;
 					}
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
 					break;			
-					// 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
+					// 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
 				 case WNDCommunityWnd:
 					 {						 
 						 if(g_pGameMain && g_pGameMain->WndProcCommunityWnd(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
@@ -2974,8 +2975,8 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }							 
 					 }
 					 break;
-					 // end end 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
-					 // 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+					 // end end 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
+					 // 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				 case WNDOpJoystick:
 					 {
 						 if(g_pGameMain && g_pGameMain->WndProcOpJoystickWnd(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
@@ -2984,20 +2985,20 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }							 
 					 }
 					 break;
-					 // end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-					 // 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+					 // end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+					 // 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 				 case WNDInvenWnd:
 					 {
 						 //if(g_pGameMain && g_pGameMain->WndProcInvenWnd(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
-						 // 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
+						 // 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
 						 if(g_pGameMain && !g_pGameMain->GetFirstAnniversaryEventIsShowWnd() && g_pGameMain->WndProcInvenWnd(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 						 {
 							 return INF_MSGPROC_BREAK;
 						 }
 					 }
 					 break;
-					 // end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
-					 // 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
+					 // end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
+					 // 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
 				 case WNDCharacterWnd:
 					 {
 						 if(m_pGameMain 
@@ -3008,8 +3009,8 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }						 
 					 }
 					 break;
-					 // end 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
-					 // 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+					 // end 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
+					 // 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 				 case WNDSysWnd:
 					 {
 						 if(WndProcSystemMsg(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
@@ -3035,7 +3036,7 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					 }
 					 break;
 
-				// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+				// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				 case WNDWarDecalre:
 					 {
 						 if(m_pGameMain && m_pGameMain->GetINFMotherShipManager() && m_pGameMain->GetINFMotherShipManager()->GetWarDeclareWindow()->WndProcWarDeclare(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
@@ -3044,9 +3045,9 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }
 					 }
 					 break;
-				// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-					 // 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
-				 case WNDWorldRank: // ¿ùµå ·©Å· Ã¢ 
+				// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+					 // 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
+				 case WNDWorldRank: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· Ã¢ 
 					 {
 						 if(m_pGameMain && m_pGameMain->WndProcWorldRank(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 						 {
@@ -3054,9 +3055,9 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }
 					 }
 					 break;
-					// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
-					 // 2013-02-20 by bhsohn ÀÎ°ÔÀÓ Á¶ÇÕÃ¢ Ã³¸®
-				 case WNDItemMix: // ¿ùµå ·©Å· Ã¢ 
+					// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
+					 // 2013-02-20 by bhsohn ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ Ã³ï¿½ï¿½
+				 case WNDItemMix: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· Ã¢ 
 					 {
 						 if(m_pGameMain && m_pGameMain->WndProcItemMixWnd(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
 						 {
@@ -3064,9 +3065,9 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }
 					 }
 					 break;
-					 // END 2013-02-20 by bhsohn ÀÎ°ÔÀÓ Á¶ÇÕÃ¢ Ã³¸®
-					 // end 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
-					// 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
+					 // END 2013-02-20 by bhsohn ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ Ã³ï¿½ï¿½
+					 // end 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+					// 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				 case WNDChangeCharacter:
 					 {
 						 if(g_pGameMain && g_pGameMain->m_pChangeCharactor 
@@ -3076,8 +3077,8 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }
 					 }
 					 break;
-					// END 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
-					 // 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
+					// END 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+					 // 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				 case WNDArmorCollection:
 					 {
 						 if(m_pGameMain && m_pGameMain->WndProcArmorCollectionWnd(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
@@ -3086,8 +3087,8 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						 }
 					 }
 					 break;
-					 // END 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
-// 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
+					 // END 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+// 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
 #ifdef C_FIRST_ANNIVERSARY_EVENT
 				 case WNDFirstAnniversaryEvent:
 					 {
@@ -3098,19 +3099,19 @@ int CInterface::WindowsWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					 }
 					 break;
 #endif
-// end 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
-// 2014-03-11 by ssjung&ymjoo ¿ùµå¸Ê ±¸Çö
+// end 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
+// 2014-03-11 by ssjung&ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				 case WNDWorldMap :
 					 {
 #ifdef C_WORLD_MAP_SSJUNG_YMJOO
 						 if(m_pGameMain && m_pGameMain->WndProcWorldMap(uMsg, wParam, lParam)==INF_MSGPROC_BREAK)
 						 {
-							return INF_MSGPROC_BREAK;				// ¿ùµå¸Ê Ã³¸®
+							return INF_MSGPROC_BREAK;				// ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 						 }
 #endif
 					 }
 					 break;		   
-// end 2014-03-11 by ssjung&ymjoo ¿ùµå¸Ê ±¸Çö
+// end 2014-03-11 by ssjung&ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 			}			
 			itWnd++;
@@ -3142,7 +3143,7 @@ int CInterface::WndProcInfW(UINT uMsg, WPARAM wParam, LPARAM lParam)
 }
 int CInterface::WndProcMiss(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+	// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//return g_pGameMain->m_pMissionInfo->WndProc(uMsg, wParam, lParam);
 	return g_pGameMain->WndProcMiss(uMsg, wParam, lParam);
 }
@@ -3171,7 +3172,7 @@ int CInterface::WndProcBaza(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	if ( m_pBazaarShop->GetbBazaarShopEnd() )
 		return INF_MSGPROC_NORMAL;
 
-	// 2006-08-29 by dgwoo ÃÖ¼ÒÈ­½Ã Inven ProcÀ¸·Î µé¾î°¡Áö ¾Êµµ·Ï. 
+	// 2006-08-29 by dgwoo ï¿½Ö¼ï¿½È­ï¿½ï¿½ Inven Procï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½. 
 	if((m_pBazaarShop->WndProc(uMsg, wParam, lParam) == INF_MSGPROC_BREAK))
 		return INF_MSGPROC_BREAK;
 
@@ -3182,132 +3183,132 @@ int CInterface::WndProcBaza(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return INF_MSGPROC_NORMAL;
 }
 
-// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 int CInterface::WndProcSystemMsg(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	return m_pGameMain->WndProcSystemMsg(uMsg, wParam, lParam);
 }
 //////////////////////////////////////////////////////////////////////////
-// ÀÌÇÏ ¿ì¼±¼øÀ§ ·»´õ¸µ ¼³Á¤ 
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 // 2005.10.31 ydkim
 //////////////////////////////////////////////////////////////////////////
 void CInterface::WindowsRender()
 {	
 	//////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////	
-	//»óÁ¡ °ü·Ã ·»´õ¸µ
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	if( m_pCityBase && m_pCityBase->GetCurrentBuildingNPC())
 //	{
 //		m_pCityBase->Render();	
 //	}
 	
-	// 2006-07-25 by ispark, °³ÀÎ»óÁ¡
+	// 2006-07-25 by ispark, ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½
 	if(m_pBazaarShop)
 		m_pBazaarShop->Render();
 	//////////////////////////////////////////////////////////////////////////
-	// ¸ÊÀÌ¸§ ·»´õ¸µ
+	// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	RenderProcMapName();
 
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if( m_pInfinity )
 		m_pInfinity->Render();
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	
-	// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
-	// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
-	// 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
+	// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
+	// 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 // 	if( g_pGameMain )
 // 		g_pGameMain->RenderInvenWnd();
-	// end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
-	//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	// end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
+	//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ¿ì¼±¼øÀ§
+	// ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½
 	RenderOrderWindows(0);
-	// 2006-04-17 by ispark, µµ¿ò¸», ÀÓ½Ã·Î ³ùÀ½
+	// 2006-04-17 by ispark, ï¿½ï¿½ï¿½ï¿½, ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_pGameMain->m_bShowHelp)
 		m_pGameMain->RenderHelp();
 	
 
-	// 2006-08-11 by ispark, ¹Ì¼ÇÅ¸°Ù ³»¿ë ·¹ÀÌ´õ ´ÙÀ½À¸·Î ÂïÀ½
+	// 2006-08-11 by ispark, ï¿½Ì¼ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//if(g_pGameMain->m_pMissionInfo &&
 	if(g_pTutorial->IsTutorialMode() == FALSE &&
 		g_pD3dApp->m_dwGameState != _SHOP &&
-        // 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - Äù½ºÆ® ½Ã½ºÅÛ		
+        // 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½		
 		!IS_MAP_INFLUENCE_ARENA(g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) &&
 		!IS_MAP_INFLUENCE_INFINITY(g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType))
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - Äù½ºÆ® ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½
 	{
-		// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+		// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//g_pGameMain->m_pMissionInfo->RenderMissionTarget();
 		g_pGameMain->RenderMissionINGInfo();
 	}
-	// 2006-08-01 by ispark ±Ó¸»
+	// 2006-08-01 by ispark ï¿½Ó¸ï¿½
 	//m_pGameMain->m_pChat->RenderWisperChat();
-	// ¾ÆÀÌÅÛ ÀÎÆ÷
-	// 2009-02-03 by bhsohn ÀåÂø ¾ÆÀÌÅÛ ºñ±³ ÅøÆÁ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2009-02-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	if(m_pGameMain->m_pItemInfo) 
 // 		m_pGameMain->m_pItemInfo->Render();
 	if(m_pGameMain) 
 	{
 		m_pGameMain->RenderItemInfo();
 	}
-	// end 2009-02-03 by bhsohn ÀåÂø ¾ÆÀÌÅÛ ºñ±³ ÅøÆÁ
+	// end 2009-02-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2007-05-08 by dgwoo ¾Æ·¹³ª °ü·Ã UI´Â °¡Àå À§¿¡ ±×¸°´Ù.
+	// 2007-05-08 by dgwoo ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 	if(m_pGameArena)
 		m_pGameArena->Render();
 
 		
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	if( m_pInfinityPopup )
 		m_pInfinityPopup->Render();
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-	// ÅøÆÁ °ü·Ã ·»´õ¸µ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_pGameMain->RenderToolTip();
 
-	// 2010. 04. 28 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý.
-	// ÅøÆÁ ·£´õ¸µ. (°³Çà Áö¿ø.)
+	// 2010. 04. 28 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.)
 	m_pGameMain->RenderToolTipEx();
-	// End. 2010. 04. 28 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý.
+	// End. 2010. 04. 28 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	// 2006-07-27 by ispark, ¼±ÅÃ ¾ÆÀÌÅÛ ·»´õ¸µ		
+	// 2006-07-27 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		
 	m_pGameMain->RenderSelectItem();
 
-	// 2007-07-30 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ ·£´õ¸µ ¼ø¼­ º¯°æ
+	// 2007-07-30 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	if(m_pINFOpMain)
 	{
-		// ¿ÀÆÛ·¹ÀÌÅÍ ·£´õ¸µ
+		// ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pINFOpMain->RenderOpHelper(g_pD3dApp->m_dwGameState);
 		m_pINFOpMain->RenderOpWnd();
 	}
-	// endn 2007-07-30 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ ·£´õ¸µ ¼ø¼­ º¯°æ
+	// endn 2007-07-30 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2008-04-04 by dgwoo ¸ð¼±Àü Á¤º¸ ¿É¼ÇÃ¢ Á© À§¿¡ ±×¸².
+	// 2008-04-04 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½Ã¢ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½.
 	if(m_pGameMain && m_pGameMain->GetINFMotherShipManager())
 	{
 		m_pGameMain->GetINFMotherShipManager()->RenderOption();
 	}
 
 
-	// Å¸°Ù °ü·Ã 
+	// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	if( m_pTarget )	
 		m_pTarget->Render();
 
-	// Æ©Åä¸®¾ó
+	// Æ©ï¿½ä¸®ï¿½ï¿½
 	// 2007-07-26 by dgwoo
 	if(g_pTutorial && g_pTutorial->IsTutorialMode() == TRUE)
 	{
 //		g_pTutorial->RenderETC();
 		g_pTutorial->Render();
 	}
-	// 2007-07-26 by dgwoo Æ©Åä¸®¾ó ¸ÞÀÎÈ­¸é¿¡¼­ Å¸°ÙÆÃ ÀÌ¹ÌÁö ¾Èº¸ÀÌ°Ô ¼öÁ¤.
+	// 2007-07-26 by dgwoo Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½é¿¡ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(m_pTarget)
 	{
-		// 2007-06-21 by dgwoo ¸¶¿ì½º Æ÷ÀÎÅÍ´Â º¸ÀÌ°Ô º¯°æ.
+		// 2007-06-21 by dgwoo ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		POINT pt;
 		GetCursorPos(&pt);
 		ScreenToClient(g_pD3dApp->GetHwnd(), &pt);
@@ -3317,7 +3318,7 @@ void CInterface::WindowsRender()
 	}
 
 
-	// ¼±ÅÃ ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ ·»´õ¸µ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_pGameMain->m_pSelectIcon)
 	{
         POINT ptCursor;
@@ -3334,7 +3335,7 @@ void CInterface::WindowsRender()
 void CInterface::RenderProcMapName()
 {
 	if(m_pMapLoad->GetRenderMapNameImg())
-	{	// ¸ÊÀÌ¸§ ·»´õ¸µ				
+	{	// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½				
 		CINFImageEx* pName = m_pMapNameImg->FindMapNameImage(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);	
 		if(pName)
 		{
@@ -3343,18 +3344,18 @@ void CInterface::RenderProcMapName()
 			pName->Render();
 		}
 		
-		// PK°¡´É ¸ÊÀÎ°¡
+		// PKï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½
 		CINFImageEx* pName2 = NULL;
 		if(g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == TRUE)
 		{
 			pName2 = m_pMapNameImg->FindMapNameImage(5555);
 		}
 		else if(IsPkEnableMap(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex))
-		{	// PK °¡´É ¸Ê
+		{	// PK ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			pName2 = m_pMapNameImg->FindMapNameImage(1111);	
 		}
 		else
-		{	// PK ºÒ°¡´É ¸Ê
+		{	// PK ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½
 			pName2 = m_pMapNameImg->FindMapNameImage(9999);	
 		}
 		if(pName2)
@@ -3379,43 +3380,43 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 				{
 				case WNDGameGlobalImage:
 					{
-						// ±Û·Î¹ú ÀÌ¹ÌÁö
+						// ï¿½Û·Î¹ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 						if(m_pGameGlobalImage)
 							m_pGameGlobalImage->Render();
 					}
 					break;
 				case WNDInfWindow:
 					{
-						// ½Ã½ºÅÛ ¸Þ¼¼Áö ¹Ú½º 
+						// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ 
 						if(m_pGameMain->m_pInfWindow)
 							m_pGameMain->m_pInfWindow->RenderMessaegBox();
 					}
 					break;
 				case WNDCityBase:
 					{
-						// 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
-						//»óÁ¡ °ü·Ã ·»´õ¸µ
+						// 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+						//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						if( m_pCityBase && m_pCityBase->GetCurrentBuildingNPC())
 						{
 							m_pCityBase->Render();	
 						}
-						// end 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+						// end 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					}
 					break;
 				case WNDGameMain:
-						// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+						// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //						if(m_pGameMain->m_pChat)
 //							m_pGameMain->m_pChat->RenderWisperChat();
 					break;
 				case WNDMissionInfo:
 					{
-						// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
-						// ¹Ì¼Ç ÀÎÆ÷
+						// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+						// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 						//if(g_pGameMain->m_pMissionInfo && 
 						if(g_pTutorial->IsTutorialMode() == FALSE &&
 							g_pD3dApp->m_dwGameState != _SHOP)
 						{
-							// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+							// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							//g_pGameMain->m_pMissionInfo->Render();
 							g_pGameMain->RenderMission();
 						}
@@ -3423,7 +3424,7 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					break;
 				case WNDMiniMap:
 					{
-						// ¹Ì´Ï¸Ê
+						// ï¿½Ì´Ï¸ï¿½
 						if(g_pD3dApp->m_dwGameState == _GAME || 
 							g_pD3dApp->m_dwGameState == _SHOP )
 						{
@@ -3434,25 +3435,25 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					break;
 				case WNDMp3Player:
 					{
-						// mp3 ÇÃ·¹ÀÌ¾î
-#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
- 						if(	g_pGameMain->m_pMp3Player && 			// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+						// mp3 ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
+#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ 						if(	g_pGameMain->m_pMp3Player && 			// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							g_pGameMain->m_bMp3PlayFlag == TRUE && 
 							m_bShowInterface && 
-							!g_pShuttleChild->IsObserverMode() &&	// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+							!g_pShuttleChild->IsObserverMode() &&	// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							g_pTutorial->IsTutorialMode() == FALSE)
 						{
 							g_pGameMain->m_pMp3Player->Render();
 						}
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
 					}
 					break;
 				case WNDRenderHelp:
 					{
 						// 2006-04-17 by ispark
-//						// µµ½Ã,°ÔÀÓ °øÅë
+//						// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //						if(m_pGameMain->m_bShowHelp)
 //							m_pGameMain->RenderHelp();
 					}
@@ -3465,7 +3466,7 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					break;
 				case WNDGameMainFaq:
 					{
-						// FAQ °ü·Ã
+						// FAQ ï¿½ï¿½ï¿½ï¿½
 						if(m_pGameMain->m_pInfGameMainFaq && m_pGameMain->m_bFAQProsFlag)
 							m_pGameMain->m_pInfGameMainFaq->Render();
 					}
@@ -3479,7 +3480,7 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					break;
 				case WNDQSlotIconFlag:
 					{
-						// ´ÜÃàÅ° °ü·Ã ·»´õ¸µ
+						// ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						if(m_pGameMain->m_bQSlotIconFlag == TRUE)
 							m_pGameMain->RenderQSlotIcon();
 					}
@@ -3496,7 +3497,7 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					break;
 				case WNDMainChatStartMenu:
 					{
-						// Ãß°¡ Ã¤ÆÃ ¸®½ºÆ®
+						// ï¿½ß°ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 						if(g_pGameMain->m_pChat->m_bMenuListUse)
 							g_pGameMain->m_pChat->ViewChatMenuList();
 					}
@@ -3509,15 +3510,15 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						g_pGameMain->RenderLeftRightWindow();
 					}
 					break;
-					// 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
+					// 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
 				case WNDCommunityWnd:
 					{						
-						// Ä¿¹Â´ÏÆ¼Ã¢ ·£´õ¸µ
+						// Ä¿ï¿½Â´ï¿½Æ¼Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						g_pGameMain->RenderCommunity();	
 					}
 					break;
-					// end 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+					// end 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				 case WNDOpJoystick:
 					 {
 						 if(g_pGameMain )
@@ -3526,19 +3527,19 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						 }							 
 					 }
 					 break;
-					 // end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
-// 					// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
-					 // 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
+					 // end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 					// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
+					 // 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				 case WNDInvenWnd:
 					 {
 						 g_pGameMain->RenderInvenWnd();
 					 }
 					 break;
-					 // END 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
-// 					 // end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
-// 					// 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
-//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+					 // END 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+// 					 // end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
+// 					// 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
+//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				 case WNDCharacterWnd:
 					 {
 						 if(g_pGameMain)
@@ -3547,12 +3548,12 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						 }						 
 					 }
 					 break;
-					 // end 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
-					// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+					 // end 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
+					// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 				 case WNDSysWnd:
 					 {
 
-						 // 2009. 12. 04 by jskim Æ©Åä¸®¾ó ½ÇÇà½Ã ½Ã½ºÅÛ ¸Þ½ÃÁö Ã¢ ´ÝÇôÁö°Ô ¼öÁ¤
+						 // 2009. 12. 04 by jskim Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						if(m_pGameMain->m_pChat)
 // 						{
 // 							m_pGameMain->m_pChat->RenderSystemMsg();
@@ -3564,7 +3565,7 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 // 						}
 						if(g_pD3dApp->m_pTutorial->IsTutorialMode() != TRUE)
 						{
-						// 2013. 04. 04 by ssjung ÇØÇÇ¾Æ¿Í¿ö º¸³Ê½º EXP ¿¡ ¸¶¿ì½º¸¦ °¡Á®´Ù ´òÀ» ¶§ ½Ã½ºÅÛ ¸Þ½ÃÁö¸¦ Ç¥½Ã ¾ÈÇÏ°Ô ¼öÁ¤ 
+						// 2013. 04. 04 by ssjung ï¿½ï¿½ï¿½Ç¾Æ¿Í¿ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ EXP ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 							if(m_pGameMain->m_pChat && !m_pGameMain->m_pUnitInfoBar->GetRenderBonusExpRateTextOnOff() &&
 								!m_pGameMain->m_pUnitInfoBar->m_bRenderEvent && !m_pGameMain->m_pUnitInfoBar->GetRenderPremiumToolTipTextOnOff()
 								&& !m_pGameMain->m_pUnitInfoBar->m_bRenderEventRecovery)
@@ -3577,7 +3578,7 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 								m_pGameMain->m_pChat->RenderWisperChat();
 							}
 						}
-						//end 2009. 12. 04 by jskim Æ©Åä¸®¾ó ½ÇÇà½Ã ½Ã½ºÅÛ ¸Þ½ÃÁö Ã¢ ´ÝÇôÁö°Ô ¼öÁ¤
+						//end 2009. 12. 04 by jskim Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					 }
 					 break;
 				 case WNDVoiceWnd:
@@ -3597,14 +3598,14 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					 }
 					 break;
 
-				// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+				// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				case WNDWarDecalre:
 					if(m_pGameMain && m_pGameMain->GetINFMotherShipManager())
 						m_pGameMain->GetINFMotherShipManager()->GetWarDeclareWindow()->Render();
 					break;
-				// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-					// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
-				case WNDWorldRank: // ¿ùµå ·©Å· Ã¢ 
+				// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+					// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
+				case WNDWorldRank: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· Ã¢ 
 					{
 						if(m_pGameMain)
 						{
@@ -3612,9 +3613,9 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						}
 					}
 					break;
-					// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
-					// 2013-02-20 by bhsohn ÀÎ°ÔÀÓ Á¶ÇÕÃ¢ Ã³¸®					
-				case WNDItemMix: // ÀÎ°ÔÀÓ Á¶ÇÕ½Ä
+					// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
+					// 2013-02-20 by bhsohn ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ Ã³ï¿½ï¿½					
+				case WNDItemMix: // ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ½ï¿½
 					{
 						if(m_pGameMain)
 						{
@@ -3622,9 +3623,9 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						}						
 					}
 					break;
-				// END 2013-02-20 by bhsohn ÀÎ°ÔÀÓ Á¶ÇÕÃ¢ Ã³¸®
-					// 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
-				case WNDArmorCollection: // ¾Æ¸Ó Á¶ÇÕ½Ä
+				// END 2013-02-20 by bhsohn ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ Ã³ï¿½ï¿½
+					// 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+				case WNDArmorCollection: // ï¿½Æ¸ï¿½ ï¿½ï¿½ï¿½Õ½ï¿½
 					{
 						if(m_pGameMain)
 						{
@@ -3632,8 +3633,8 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						}						
 					}
 					break;
-					// END 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
-					// 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
+					// END 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+					// 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				case WNDChangeCharacter:
 					{
 						if(g_pGameMain && g_pGameMain->m_pChangeCharactor )
@@ -3642,9 +3643,9 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 						}						
 					}
 					break;
-					// END 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
-					// end 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
-// 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
+					// END 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+					// end 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+// 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
 #ifdef C_FIRST_ANNIVERSARY_EVENT
 				case WNDFirstAnniversaryEvent:
 					{
@@ -3653,17 +3654,17 @@ void CInterface::RenderOrderWindows(int nRenderNum)
 					}
 					break;
 #endif
-// end 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
-// 2014-03-11 by ssjung&ymjoo ¿ùµå¸Ê ±¸Çö
+// end 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
+// 2014-03-11 by ssjung&ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				case WNDWorldMap :
 					{
 #ifdef C_WORLD_MAP_SSJUNG_YMJOO
 						if(g_pGameMain)
-							g_pGameMain->RenderWorldMap();				// ¿ùµå¸Ê Ã³¸®
+							g_pGameMain->RenderWorldMap();				// ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 #endif
 					}
 					break;		 
-// end 2014-03-11 by ssjung&ymjoo ¿ùµå¸Ê ±¸Çö
+// end 2014-03-11 by ssjung&ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 			}			
 			itWnd++;
@@ -3688,13 +3689,13 @@ int CInterface::GetWindowFirstOrder()
 
 void CInterface::SetShopItemUseSerch()
 {
-// 2007-08-09 by dgwoo »óÁ¡ÀÌ ´ÝÈú¶§¸¸ È£ÃâÇÏ´Â °É·Î ¾Æ·¡°¡ ÇÊ¿ä¾øÀ½.
+// 2007-08-09 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½É·ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½.
 //	 if(g_pD3dApp->m_dwGameState == _SHOP)
 //		 return;
 
 	//////////////////////////////////////////////////////////////////////////			
-	// »óÁ¡ ¾ÆÀÌÅÛ Âø¿ë°Ë»ç (º°·Î È¿À²ÀûÀÌÁø ¾ÊÀ¸³ª ¿Ïº®ÇÑ °Ë»ç¸¦ À§ÇØ »ç¿ë)
-	// ÃßÈÄ ¼öÁ¤ ¿ä¸Á
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ (ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïºï¿½ï¿½ï¿½ ï¿½Ë»ç¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	// ydkim.05.12.1
 	if(g_pGameMain->m_bUseShopItem == TRUE)
 	{
@@ -3706,7 +3707,7 @@ void CInterface::SetShopItemUseSerch()
 		{
 			if(g_pGameMain->m_nItemSourceNum[i] != 0)
 			{
-				// 2006-08-24 by ispark, À¯´ÏÅ© ³Ñ¹ö·Î º¯°æ
+				// 2006-08-24 by ispark, ï¿½ï¿½ï¿½ï¿½Å© ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				pTempItem = g_pStoreData->FindItemInInventoryByItemNum( g_pGameMain->m_nItemSourceNum[i] );
 				pTempItem = g_pStoreData->FindItemInInventoryByUniqueNumber( g_pGameMain->m_nItemSourceNum[i] );
 				if(pTempItem)
@@ -3738,7 +3739,7 @@ void CInterface::SetLeaveShopKind(int nLeaveBuildingIndex)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::OpenBazaarShop(ITEM* pSkillItem)
-/// \brief		°³ÀÎ »óÁ¡ ¿ÀÇÂ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-07-28 ~ 2006-07-28
 /// \warning	
@@ -3750,7 +3751,7 @@ void CInterface::OpenBazaarShop(ITEM* pSkillItem)
 {
 	int nBazaarShopType = 0;
 	//if(IS_BAZAAR_SELL_SKILL(pSkillItem))
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 // 	if(IS_EXIST_DES_PARAM((pSkillItem), DES_BAZAAR_SELL))
 // 	{
 // 		nBazaarShopType = 1;
@@ -3768,7 +3769,7 @@ void CInterface::OpenBazaarShop(ITEM* pSkillItem)
 	{
 		nBazaarShopType = 2;
 	}
-	// end 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// end 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 	g_pD3dApp->ChangeGameState(_SHOP);
 	m_pBazaarShop = new CINFCityBazaarOpen(this, m_pGameMain->m_pGameData, nBazaarShopType);
 	m_pBazaarShop->InitDeviceObjects();
@@ -3780,7 +3781,7 @@ void CInterface::OpenBazaarShop(ITEM* pSkillItem)
 	//g_pD3dApp->DxSetDialogBoxMode(TRUE);			
 #endif
 	
-	// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®dd
+	// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½dd
 	{
 		POINT ptItem, ptEq;
 		ptItem.x = ptItem.y = ptEq.x = ptEq.y = 0;
@@ -3792,13 +3793,13 @@ void CInterface::OpenBazaarShop(ITEM* pSkillItem)
 
 		m_pGameMain->m_pInven->ShowInven(&ptItem, &ptEq);	
 	}
-	// end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+	// end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::CloseBazaarShop()
-/// \brief		°³ÀÎ»óÁ¡ Å¬·ÎÁî
+/// \brief		ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-07-28 ~ 2006-07-28
 /// \warning	
@@ -3828,13 +3829,13 @@ void CInterface::CloseBazaarShop()
 #ifdef LANGUAGE_CHINA	
 	//g_pD3dApp->DxSetDialogBoxMode(FALSE);
 #endif
-	// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+	// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 	g_pGameMain->m_pInven->ShowInven(NULL, NULL);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::VisitBazaarShop()
-/// \brief		¹æ¹®ÀÚ 
+/// \brief		ï¿½æ¹®ï¿½ï¿½ 
 /// \author		ispark
 /// \date		2006-07-29 ~ 2006-07-29
 /// \warning	
@@ -3846,19 +3847,19 @@ void CInterface::VisitBazaarShop()
 {
 	if(m_pBazaarShop)
 	{
-		// ¹æ¹®ÀÚ ¾ÆÀÌÅÛ °»½Å
+		// ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_pBazaarShop->InitVisitData();
 	}
 	else
 	{
-		// ¹æ¹®ÀÚ »óÁ¡ ¿­±â
+		// ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->ChangeGameState(_SHOP);
 		m_pBazaarShop = new CINFCityBazaarVisit(this, m_pGameMain->m_pGameData, g_pCharacterChild->m_nSelBazaarType, g_pCharacterChild->m_ShopEnemyClientIndex);
 		m_pBazaarShop->InitDeviceObjects();
 		m_pBazaarShop->RestoreDeviceObjects();
 		g_pGameMain->InitShowWindow();
 	}
-	// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®dd
+	// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½dd
 	{
 		POINT ptItem, ptEq;
 		ptItem.x = ptItem.y = ptEq.x = ptEq.y = 0;
@@ -3870,12 +3871,12 @@ void CInterface::VisitBazaarShop()
 
 		m_pGameMain->m_pInven->ShowInven(&ptItem, &ptEq);	
 	}
-	// end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+	// end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::SetBazaarLogInfo(BYTE byLogState)
-/// \brief		·Î±× Á¤º¸ ÀÔ·Â
+/// \brief		ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 /// \author		ispark
 /// \date		2006-07-29 ~ 2006-07-29
 /// \warning	
@@ -3902,7 +3903,7 @@ void CInterface::ReadyCloseBazaarShop(BOOL bErr)
 	vector<CSkillInfo*>::iterator itSkillInfo = g_pShuttleChild->m_pSkill->m_vecUsingSkill.begin();
 	while(itSkillInfo != g_pShuttleChild->m_pSkill->m_vecUsingSkill.end())
 	{
-		// ½ºÅ³À» »ç¿ëÇÑ »óÁ¡ ¿ÀÇÂÇüÀÌ¸é ¼­¹ö¿¡°Ô ½ºÅ³ Ãë¼Ò¸¦ º¸³½´Ù.
+		// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		if(IS_BAZAAR_SKILL((*itSkillInfo)->ItemInfo))
 		{
 			m_pGameMain->m_pCharacterInfo->SendUseSkill((ITEM_BASE*)(*itSkillInfo));
@@ -3912,8 +3913,8 @@ void CInterface::ReadyCloseBazaarShop(BOOL bErr)
 		itSkillInfo++;
 	}
 
-	// À§ÂÊÀº »óÁ¡ ¿ÀÇÂÀÌ¸é ÀÌ ºÎºÐÀº »óÁ¡ ¹æ¹®ÀÚÀÌ´Ù.
-	// »ó´ë¹æÀÌ ¿¡·¯¿¡ ÀÇÇÑ °ÍÀÌ¶ó¸é ¸»Ç³¼± »èÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½ï¿½ï¿½Ì´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Ç³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(bErr == TRUE)
 	{
 		map<INT,CEnemyData *>::iterator itEnemy = g_pScene->m_mapEnemyList.find(g_pCharacterChild->m_ShopEnemyClientIndex);
@@ -3930,8 +3931,8 @@ void CInterface::ReadyCloseBazaarShop(BOOL bErr)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::CloseVisitShop()
-/// \brief		¹ÙÀÚ »óÁ¡ ´Ý±â
-/// \author		// 2007-11-01 by bhsohn »óÁ¡ ÀÌ¿ëÁß¿¡ ´ëÇÑ Ã³¸®
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½
+/// \author		// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-11-01 ~ 2007-11-01
 /// \warning	
 ///
@@ -3950,7 +3951,7 @@ void CInterface::CloseVisitShop()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::ErrBazaarItemList()
-/// \brief		¾ÆÀÌÅÛ ¸®½ºÆ® °»½Å ÁØºñ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½
 /// \author		ispark
 /// \date		2006-08-02 ~ 2006-08-02
 /// \warning	
@@ -3968,7 +3969,7 @@ void CInterface::ErrBazaarItemList()
 	}
 	else
 	{
-		// »ó´ëÆíÀÌ Á¸Àç ÇÏÁö ¾ÊÀ½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ReadyCloseBazaarShop();
 	}
 }
@@ -3986,54 +3987,54 @@ BOOL CInterface::SendBazaarRequestItemList(CEnemyData * pEnemy, BOOL bFlag)
 {
 	if(pEnemy->m_byBazaarType == 1)
 	{
-		// 2008-07-07 by bhsohn 2Â÷ ÆÐ½º¿öµå È°¼ºÈ­½Ã, ÀÎº¥ ¾È¿­¸®°Ô ÇÔ
+		// 2008-07-07 by bhsohn 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½, ï¿½Îºï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		if(g_pGameMain->IsUseSecondPassword() && bFlag)
 		{
-			// Lock»óÅÂ¿¡¼­ ¹ÙÀÚ »óÁ¡ ¾È¿­¸®°ÔÇÔ.
+			// Lockï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			char ErrorMsgMissionList[256];
 			wsprintf(ErrorMsgMissionList, STRMSG_C_070917_0213);
-			g_pD3dApp->m_pChat->CreateChatChild(ErrorMsgMissionList, COLOR_ERROR); //"\\yº¸¾È ½Ã½ºÅÛÀÌ È°¼ºÈ­ µÇ¾ú½À´Ï´Ù."
+			g_pD3dApp->m_pChat->CreateChatChild(ErrorMsgMissionList, COLOR_ERROR); //"\\yï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 			return TRUE;
 		}
-		// end 2008-07-07 by bhsohn 2Â÷ ÆÐ½º¿öµå È°¼ºÈ­½Ã, ÀÎº¥ ¾È¿­¸®°Ô ÇÔ
+		// end 2008-07-07 by bhsohn 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½, ï¿½Îºï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 		g_pCharacterChild->m_pSelBazaarShop = pEnemy;
 		if(bFlag)
 		{
-			// 2006-07-29 by ispark, °³ÀÎ»óÁ¡ ¸®½ºÆ® ¿äÃ»
+			// 2006-07-29 by ispark, ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 			MSG_FC_BAZAAR_SELL_REQUEST_ITEMLIST sMsg;
 			sMsg.clientIndex0 = pEnemy->m_infoCharacter.CharacterInfo.ClientIndex;
 			g_pFieldWinSocket->SendMsg(T_FC_BAZAAR_SELL_REQUEST_ITEMLIST, (char*)&sMsg, sizeof(sMsg));
 
 			g_pCharacterChild->m_nSelBazaarType = pEnemy->m_byBazaarType;
 			g_pCharacterChild->m_ShopEnemyClientIndex = pEnemy->m_infoCharacter.CharacterInfo.ClientIndex;
-			g_pD3dApp->m_bRequestEnable = FALSE;			// ÀÀ´ä ¸Þ¼¼Áö ±â´Ù¸²
+			g_pD3dApp->m_bRequestEnable = FALSE;			// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½
 			return TRUE;
 		}
 	}
 	if(pEnemy->m_byBazaarType == 2)
 	{
-		// 2008-07-07 by bhsohn 2Â÷ ÆÐ½º¿öµå È°¼ºÈ­½Ã, ÀÎº¥ ¾È¿­¸®°Ô ÇÔ
+		// 2008-07-07 by bhsohn 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½, ï¿½Îºï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		if(g_pGameMain->IsUseSecondPassword()&&bFlag)
 		{
-			// Lock»óÅÂ¿¡¼­ ¹ÙÀÚ »óÁ¡ ¾È¿­¸®°ÔÇÔ.
+			// Lockï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			char ErrorMsgMissionList[256];
 			wsprintf(ErrorMsgMissionList, STRMSG_C_070917_0213);
-			g_pD3dApp->m_pChat->CreateChatChild(ErrorMsgMissionList, COLOR_ERROR); //"\\yº¸¾È ½Ã½ºÅÛÀÌ È°¼ºÈ­ µÇ¾ú½À´Ï´Ù."
+			g_pD3dApp->m_pChat->CreateChatChild(ErrorMsgMissionList, COLOR_ERROR); //"\\yï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 			return TRUE;
 		}
-		// end 2008-07-07 by bhsohn 2Â÷ ÆÐ½º¿öµå È°¼ºÈ­½Ã, ÀÎº¥ ¾È¿­¸®°Ô ÇÔ
+		// end 2008-07-07 by bhsohn 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½, ï¿½Îºï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		g_pCharacterChild->m_pSelBazaarShop = pEnemy;
 		if(bFlag)
 		{
-			// 2006-07-29 by ispark, °³ÀÎ»óÁ¡ ¸®½ºÆ® ¿äÃ»
+			// 2006-07-29 by ispark, ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 			MSG_FC_BAZAAR_BUY_REQUEST_ITEMLIST sMsg;
 			sMsg.clientIndex0 = pEnemy->m_infoCharacter.CharacterInfo.ClientIndex;
 			g_pFieldWinSocket->SendMsg(T_FC_BAZAAR_BUY_REQUEST_ITEMLIST, (char*)&sMsg, sizeof(sMsg));
 
 			g_pCharacterChild->m_nSelBazaarType = pEnemy->m_byBazaarType;
 			g_pCharacterChild->m_ShopEnemyClientIndex = pEnemy->m_infoCharacter.CharacterInfo.ClientIndex;
-			g_pD3dApp->m_bRequestEnable = FALSE;			// ÀÀ´ä ¸Þ¼¼Áö ±â´Ù¸²
+			g_pD3dApp->m_bRequestEnable = FALSE;			// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½
 			return TRUE;
 		}
 	}
@@ -4043,7 +4044,7 @@ BOOL CInterface::SendBazaarRequestItemList(CEnemyData * pEnemy, BOOL bFlag)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::SetShutDownStart()
-/// \brief		°ÔÀÓ °­Á¦ Á¾·á ½ÃÀÛ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-08-04 ~ 2006-08-04
 /// \warning	
@@ -4057,7 +4058,7 @@ void CInterface::SetShutDownStart()
 	g_pD3dApp->m_fGameShutDownTime		= GAME_SHUTDOWN_TIME;
 
 	char msgShutDown[1024] = {0,};
-	wsprintf(msgShutDown, STRMSG_C_060804_0000, (int)g_pD3dApp->m_fGameShutDownTime);		// "%dÃÊ ÈÄ ¼­¹ö¿Í Á¢¼ÓÀ» Á¾·á ÇÕ´Ï´Ù."
+	wsprintf(msgShutDown, STRMSG_C_060804_0000, (int)g_pD3dApp->m_fGameShutDownTime);		// "%dï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½."
 	g_pD3dApp->m_pChat->CreateChatChild(msgShutDown, COLOR_CHAT_ALL);
 }
 
@@ -4081,24 +4082,24 @@ void CInterface::GameShutDownTick()
 
 	if(g_pD3dApp->m_fGameShutDownTime <= 0)
 	{
-		// Á¾·á Ã³¸®
-		// »óÁ¡
+		// ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½
 		if( m_pCityBase && m_pCityBase->GetCurrentBuildingNPC())	
 		{
 			m_pCityBase->CloseCurrentEnterBuilding();
 		}
-		// 1:1 °Å·¡
+		// 1:1 ï¿½Å·ï¿½
 		if(m_pGameMain && m_pGameMain->m_pTrade && m_pGameMain->m_nLeftWindowInfo == LEFT_WINDOW_TRANS)
 		{
 			m_pGameMain->m_pTrade->SendTradeCancel();
 		}
-		// °³ÀÎ »óÁ¡
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_pBazaarShop)
 		{
 			vector<CSkillInfo*>::iterator itSkillInfo = g_pShuttleChild->m_pSkill->m_vecUsingSkill.begin();
 			while(itSkillInfo != g_pShuttleChild->m_pSkill->m_vecUsingSkill.end())
 			{
-				// ½ºÅ³À» »ç¿ëÇÑ »óÁ¡ ¿ÀÇÂÇüÀÌ¸é Á¾·á Çã¶ôÀ» ÇÑ´Ù.
+				// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 				if(IS_BAZAAR_SKILL((*itSkillInfo)->ItemInfo))
 				{
 					(*itSkillInfo)->SetbApprovalEnd(TRUE);
@@ -4117,23 +4118,23 @@ void CInterface::GameShutDownTick()
 			g_pShuttleChild->m_nEventType = EVENT_GAME_END;
 			g_pShuttleChild->ChangeUnitState( _WARP );
 			g_pD3dApp->m_bGameShutDown = FALSE;			
-			// 2007-08-27 by bhsohn ¼­¹ö Á¾·á½Ã °ÔÀÓ Á¾·á
+			// 2007-08-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			g_pD3dApp->m_bClientQuit = TRUE;
-			// end 2007-08-27 by bhsohn ¼­¹ö Á¾·á½Ã °ÔÀÓ Á¾·á
+			// end 2007-08-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		return;
 	}
 
 	if(nTimeFirst - nTimeLast)
 	{
-		wsprintf(msgShutDown, STRMSG_C_INTERFACE_0037, nTimeLast);		// "°ÔÀÓÁ¾·á±îÁö \\r%dÃÊ\\r ³²¾Ò½À´Ï´Ù."
+		wsprintf(msgShutDown, STRMSG_C_INTERFACE_0037, nTimeLast);		// "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ \\r%dï¿½ï¿½\\r ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½."
 		g_pD3dApp->m_pChat->CreateChatChild(msgShutDown, COLOR_CHAT_ALL);
 	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CInterface::ScriptEndAct(BYTE byEndAct)
-/// \brief		½ºÅ×ÀÌÁö ÀÌÆåÆ® ³¡³ª°í ÇØ¾ßÇÏ´Â Çàµ¿
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½Ï´ï¿½ ï¿½àµ¿
 /// \author		ispark
 /// \date		2006-09-07 ~ 2006-09-07
 /// \warning	
@@ -4170,14 +4171,14 @@ void CInterface::ScriptEndAct(BYTE byEndAct)
 			}
 		}
 		break;
-		// 2007-10-01 by bhsohn Ã³À½ Æ©Åä¸®¾ó Á¾·á½Ã ÇÁ·Ñ·Î±× ¾È³ª¿À´Â Çö»ó Ã³¸®
+		// 2007-10-01 by bhsohn Ã³ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ·Î±ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	case TUTORIAL_CHART_END:
 		{
-			// ¸Þ´º ¹öÆ°À» ´­·¯ Æ©Åä¸®¾ó Á¾·á
+			// ï¿½Þ´ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			SendTutorialChartEnd();
 		}
 		break;
-		// end 2007-10-01 by bhsohn Ã³À½ Æ©Åä¸®¾ó Á¾·á½Ã ÇÁ·Ñ·Î±× ¾È³ª¿À´Â Çö»ó Ã³¸®
+		// end 2007-10-01 by bhsohn Ã³ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ·Î±ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	}
 }
 
@@ -4231,10 +4232,10 @@ BOOL CInterface::IsPermissionIME(HKL hkl)
 
 }
 
-// 2007-05-11 by bhsohn ¾Æ·¹³ª ¹ö±×¼öÁ¤
+// 2007-05-11 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 BOOL CInterface::IsArenaStart()
 {
-	// 2007-05-21 by bhsohn ¾Æ·¹³ª ¸Ê¿¡¼± ¹Ì¼ÇÃ¢ Å¬¸¯ ¾ÈµÇ°Ô º¯°æ	
+	// 2007-05-21 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½Ã¢ Å¬ï¿½ï¿½ ï¿½ÈµÇ°ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	MAP_INFO* pMapInfo = g_pD3dApp->GetMyShuttleMapInfo();
 	if(!IS_MAP_INFLUENCE_ARENA(pMapInfo->MapInfluenceType))
 	{
@@ -4245,7 +4246,7 @@ BOOL CInterface::IsArenaStart()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL IsBazarOpen();
 /// \brief		
-/// \author		// 2007-07-09 by bhsohn Ãâ°Ý°ú ¹ÙÀÚ»óÁ¡ µ¿½Ã »ç¿ë½Ã ¹®Á¦Á¡ Ã³¸®
+/// \author		// 2007-07-09 by bhsohn ï¿½ï¿½Ý°ï¿½ ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-07-09 ~ 2007-07-09
 /// \warning	
 ///
@@ -4258,7 +4259,7 @@ BOOL CInterface::IsBazarOpen()
 	
 }
 
-// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 DataHeader * CInterface::FindResource_LoadOp(char* szRcName)
 {
 	if(NULL == m_pINFOpMain)
@@ -4270,7 +4271,7 @@ DataHeader * CInterface::FindResource_LoadOp(char* szRcName)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL IsBazarOpen();
 /// \brief		
-/// \author		// 2007-09-12 by bhsohn 2Â÷ ¾ÏÈ£ ½Ã½ºÅÛ ±¸Çö
+/// \author		// 2007-09-12 by bhsohn 2ï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-09-12 ~ 2007-09-12
 /// \warning	
 ///
@@ -4286,7 +4287,7 @@ DataHeader * CInterface::FindResource_LoadSelect(char* szRcName)
 	return m_pSelect->FindResource(szRcName);
 }
 
-// ¿ÀÆä·¹ÀÌÅÍ ¸Þ½ÃÁö
+// ï¿½ï¿½ï¿½ä·¹ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 int CInterface::WndProcOperator(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	if(NULL == m_pINFOpMain)
@@ -4328,7 +4329,7 @@ void CInterface::CloseFirstUserExplain()
 
 
 
-// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 void CInterface::ShowOpWarDeclare(BYTE Influence, ATUM_DATE_TIME MSWarStartTime, BOOL GiveUp, BYTE SelectCount)
 {
 	if(NULL == m_pINFOpMain)
@@ -4338,7 +4339,7 @@ void CInterface::ShowOpWarDeclare(BYTE Influence, ATUM_DATE_TIME MSWarStartTime,
 
 	m_pINFOpMain->ShowOpWarDeclare(Influence, MSWarStartTime, GiveUp, SelectCount);
 }
-// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 
@@ -4352,10 +4353,10 @@ void CInterface::ShowOpMissionComplete(INT i_nExpOfCompensation, BYTE i_byBonusS
 
 }
 
-// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 void CInterface::AddInflWarMonster(char *pTxt, MapIndex_t	MapIndex, SHORT	MapInfluenceType, ATUM_DATE_TIME		CreateTime)
 {
-	// ¼¼·ÂÀü ¹ß¹ß
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½
 	if(NULL == m_pINFOpMain)
 	{
 		return ;
@@ -4366,7 +4367,7 @@ void CInterface::AddInflWarMonster(char *pTxt, MapIndex_t	MapIndex, SHORT	MapInf
 
 void CInterface::ShowOpBossMonsterSummon(BYTE byBelligerence, int nHour, int nMinute)
 {
-	// ¼¼·ÂÀü ¹ß¹ß
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½
 	if(NULL == m_pINFOpMain)
 	{
 		return ;
@@ -4400,7 +4401,7 @@ void CInterface::ShowOpWnd(BOOL bShow)
 	m_pINFOpMain->ShowOpWnd(bShow);
 }
 
-// ÇöÀç »óÁ¡ÀÌ ¶ì°í ÀÖ³Ä
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö³ï¿½
 BOOL CInterface::IsBuildingShow()
 {
 	GUI_BUILDINGNPC* pBuild = m_pCityBase->GetCurrentBuildingNPC();
@@ -4410,8 +4411,8 @@ BOOL CInterface::IsBuildingShow()
 	}
 	return TRUE;
 }
-// ¸Þ´º ¹öÆ°À» ´­·¯ Æ©Åä¸®¾ó Á¾·á
-// 2007-10-01 by bhsohn Ã³À½ Æ©Åä¸®¾ó Á¾·á½Ã ÇÁ·Ñ·Î±× ¾È³ª¿À´Â Çö»ó Ã³¸®
+// ï¿½Þ´ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2007-10-01 by bhsohn Ã³ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ·Î±ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 void CInterface::SendTutorialChartEnd()
 {
 	g_pFieldWinSocket->SendMsg(T_FC_TUTORIAL_END, NULL, 0);
@@ -4421,7 +4422,7 @@ void CInterface::SendTutorialChartEnd()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn   VOID CINFOpMain::ShowOpWndMultiTxt(char* pTxt)
 /// \brief  
-/// \author  // 2007-11-19 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ ¿©·¯ÁÙ ÅØ½ºÆ® Ã³¸®
+/// \author  // 2007-11-19 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® Ã³ï¿½ï¿½
 /// \date  2007-11-19 ~ 2007-11-19
 /// \warning 
 ///
@@ -4439,7 +4440,7 @@ VOID CInterface::ShowOpWndMultiTxt(vector<string> *pvecEditText)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2007-11-28 by bhsohn ½ºÅ©¸° ¼¦ ¸ðµå Ãß°¡
+/// \brief		// 2007-11-28 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \author  
 /// \date		2007-11-28 ~ 2007-11-28
 /// \warning 
@@ -4454,7 +4455,7 @@ BOOL CInterface::IsScreenShotMode()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2007-11-28 by bhsohn ½ºÅ©¸° ¼¦ ¸ðµå Ãß°¡
+/// \brief		// 2007-11-28 by bhsohn ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \author  
 /// \date		2007-11-28 ~ 2007-11-28
 /// \warning 
@@ -4469,7 +4470,7 @@ void CInterface::SetScreenShotMode(BOOL bScreenShotMode)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CInterface::SetGuildMark(UID32_t i_nGuildUID)
-/// \brief		¿©´Ü ¸¶Å©°¡ °»½ÅµÇ¾úÀ» °æ¿ì ¼ÂÆÃ.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ÅµÇ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2007-12-07 ~ 2007-12-07
 /// \warning	
@@ -4479,7 +4480,7 @@ void CInterface::SetScreenShotMode(BOOL bScreenShotMode)
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CInterface::SetGuildMark(UID32_t i_nGuildUID)
 {
-	// ¸¶À» ÀÎÅÍÆäÀÌ½º¿¡¼­ Ã³¸®µÇ´Â ÇÔ¼ö.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½.
 	if(m_pCityBase != NULL)
 	{
 		m_pCityBase->SetCityGuildMark(i_nGuildUID);
@@ -4489,8 +4490,8 @@ BOOL CInterface::SetGuildMark(UID32_t i_nGuildUID)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ·¹µÚ »óÅÂ Ã¼Å©
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2007-12-17 ~ 2007-12-17
 /// \warning	
 ///
@@ -4509,8 +4510,8 @@ BOOL CInterface::IsArenaReady()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ·¹µÚ »óÅÂ Ã¼Å©
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2007-12-17 ~ 2007-12-17
 /// \warning	
 ///
@@ -4528,8 +4529,8 @@ BOOL CInterface::IsArenaGameState(int nState)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
-/// \author		// 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-02-27 ~ 2008-02-27
 /// \warning	
 ///
@@ -4546,8 +4547,8 @@ void CInterface::BackupChatInfo()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
-/// \author		// 2008-02-27 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã Ã¤ÆÃÁ¤º¸ •ü¾÷
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-02-27 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-02-27 ~ 2008-02-27
 /// \warning	
 ///
@@ -4563,7 +4564,7 @@ void CInterface::RefreshChatInfo()
 		{
 			continue;
 		}
-		// 2009-05-06 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã, Ã¤ÆÃ •ü¾÷ ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+		// 2009-05-06 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 		//g_pD3dApp->m_pChat->CreateChatChild(m_chatBackup[nCnt].pszChatString, m_chatBackup[nCnt].dwColorType);
 		g_pD3dApp->m_pChat->CreateChatChild(m_chatBackup[nCnt].pszChatString, 
 													m_chatBackup[nCnt].dwColorType,
@@ -4573,7 +4574,7 @@ void CInterface::RefreshChatInfo()
 		m_chatBackup[nCnt].pszChatString = NULL;
 		m_chatBackup[nCnt].dwColorType = 0;
 
-		// 2009-05-06 by bhsohn ¾Æ·¹³ª ÀÌµ¿½Ã, Ã¤ÆÃ •ü¾÷ ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+		// 2009-05-06 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 		m_chatBackup[nCnt].dwType = 0;
 	}	
 
@@ -4581,8 +4582,8 @@ void CInterface::RefreshChatInfo()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL IsDoingStrategyWar()
-/// \brief		°ÅÁ¡Àü ÁßÀÌ³Ä?
-/// \author		// 2008-03-07 by bhsohn ¼¼·ÂÀü½Ã, ¾Æ·¹³ª ÀÌ¿ë ¸øÇÏ°Ô º¯°æ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì³ï¿½?
+/// \author		// 2008-03-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-03-07 ~ 2008-03-07
 /// \warning	
 ///
@@ -4601,8 +4602,8 @@ BOOL CInterface::IsDoingStrategyWar()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÇöÀç ÁøÇàÁßÀÎ ¸ð¼±Àü Á¤º¸ ¾÷µ¥ÀÌÆ®
-/// \author		// 2008-04-22 by bhsohn ¸ð¼±/°ÅÁ¡Àü ÁøÇàÁßÀÎ Á¤º¸µµ Ç¥½Ã ÇÏ°Ô º¯°æ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+/// \author		// 2008-04-22 by bhsohn ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-04-22 ~ 2008-04-22
 /// \warning	
 ///
@@ -4621,7 +4622,7 @@ void CInterface::UpdateShoptPlayingSPWarInfo()
 		return;
 	}
 	int nBuildingKind = pBuilding->buildingInfo.BuildingKind;
-	// 2008-10-16 by bhsohn ÀüÁø±âÁö ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢
+	// 2008-10-16 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 //	if(BUILDINGKIND_CITYLEADER_LEADER != nBuildingKind)
 //	{
 //		return;
@@ -4638,7 +4639,7 @@ void CInterface::UpdateShoptPlayingSPWarInfo()
 		return;
 	}
 	
-	// 2008-10-16 by bhsohn ÀüÁø±âÁö ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢
+	// 2008-10-16 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 	//CINFCityLeader * pCityLeader = ((CINFCityLeader*)it->second);
 	int nCnt =0;
 
@@ -4659,7 +4660,7 @@ void CInterface::UpdateShoptPlayingSPWarInfo()
 	{
 		m_pINFOpMain->GetStrategyWarInfo(nCnt, &MapIndex, &timeSummon, &MapInfluenceType);
 
-		// ¸ÊÀÌ¸§ 
+		// ï¿½ï¿½ï¿½Ì¸ï¿½ 
 		memset(buf, 0x00, 256);
 		char* pMapName = g_pGameMain->GetMapNameByIndex(MapIndex);	
 		if(pMapName)
@@ -4668,30 +4669,30 @@ void CInterface::UpdateShoptPlayingSPWarInfo()
 			
 		}
 
-		// °ø°Ý ¼¼·Â
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		AttInfluence = INFLUENCE_TYPE_VCN;
 		if(IS_MAP_INFLUENCE_VCN(MapInfluenceType))
 		{
-			// ¸Ê¼¼·Â°ú ¹Ý´ë°¡ °ø°Ý ¼¼·ÂÀÌ´Ù.
+			// ï¿½Ê¼ï¿½ï¿½Â°ï¿½ ï¿½Ý´ë°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 			AttInfluence = INFLUENCE_TYPE_ANI;
 		}
 		if(BUILDINGKIND_CITYLEADER_LEADER == nBuildingKind)
 		{
 			CINFCityLeader * pCityLeader = ((CINFCityLeader*)it->second);
-			pCityLeader->AddWarInfoPointWar(AttInfluence,	// °ø°Ý¼¼·Â
-						0,		// ½Â¸®¼¼·Â(0:ÁøÇàÁß)
-						buf,				// ¸ÊÀÌ¸§											
-						timeSummon,	// ½ÃÀÛ½Ã°£
-						timeSummonEnd);	//Á¾·á½Ã°£	
+			pCityLeader->AddWarInfoPointWar(AttInfluence,	// ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½
+						0,		// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½(0:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+						buf,				// ï¿½ï¿½ï¿½Ì¸ï¿½											
+						timeSummon,	// ï¿½ï¿½ï¿½Û½Ã°ï¿½
+						timeSummonEnd);	//ï¿½ï¿½ï¿½ï¿½Ã°ï¿½	
 		}
 		else if(BUILDINGKIND_CITYLEADER_OUTPOST == nBuildingKind)
 		{
 			CINFCityOutPost * pOutPost = ((CINFCityOutPost*)it->second);
-			pOutPost->AddWarInfoPointWar(AttInfluence,	// °ø°Ý¼¼·Â
-						0,		// ½Â¸®¼¼·Â(0:ÁøÇàÁß)
-						buf,				// ¸ÊÀÌ¸§											
-						timeSummon,	// ½ÃÀÛ½Ã°£
-						timeSummonEnd);	//Á¾·á½Ã°£	
+			pOutPost->AddWarInfoPointWar(AttInfluence,	// ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½
+						0,		// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½(0:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+						buf,				// ï¿½ï¿½ï¿½Ì¸ï¿½											
+						timeSummon,	// ï¿½ï¿½ï¿½Û½Ã°ï¿½
+						timeSummonEnd);	//ï¿½ï¿½ï¿½ï¿½Ã°ï¿½	
 
 		}
 	}
@@ -4700,7 +4701,7 @@ void CInterface::UpdateShoptPlayingSPWarInfo()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-04-22 by bhsohn ¸ð¼±/°ÅÁ¡Àü ÁøÇàÁßÀÎ Á¤º¸µµ Ç¥½Ã ÇÏ°Ô º¯°æ
+/// \author		// 2008-04-22 by bhsohn ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-04-22 ~ 2008-04-22
 /// \warning	
 ///
@@ -4713,7 +4714,7 @@ void CInterface::RefreshWarSPWarInfo()
 	if((NULL != pBuilding)
 		&&(BUILDINGKIND_CITYLEADER_LEADER == pBuilding->buildingInfo.BuildingKind))
 	{
-		// »óÁ¡ÀÌ ¶°ÀÖ°í °ÅÁ¡ÀÌ ºÎ¼ÅÁ³À¸¹Ç·Î ´Ù½Ã ¿äÃ»ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 		CMapCityShopIterator it = g_pInterface->m_pCityBase->m_mapCityShop.find(pBuilding->buildingInfo.BuildingKind);
 		CINFCityLeader * pCityOutPost = ((CINFCityLeader*)it->second);
 		if(pCityOutPost)
@@ -4727,7 +4728,7 @@ void CInterface::RefreshWarSPWarInfo()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-04-22 by bhsohn ¸ð¼±/°ÅÁ¡Àü ÁøÇàÁßÀÎ Á¤º¸µµ Ç¥½Ã ÇÏ°Ô º¯°æ
+/// \author		// 2008-04-22 by bhsohn ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-04-22 ~ 2008-04-22
 /// \warning	
 ///
@@ -4740,7 +4741,7 @@ void CInterface::RefreshWarMotherWarInfo()
 	if((NULL != pBuilding)
 		&&(BUILDINGKIND_CITYLEADER_LEADER == pBuilding->buildingInfo.BuildingKind))
 	{
-		// »óÁ¡ÀÌ ¶°ÀÖ°í °ÅÁ¡ÀÌ ºÎ¼ÅÁ³À¸¹Ç·Î ´Ù½Ã ¿äÃ»ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 		CMapCityShopIterator it = g_pInterface->m_pCityBase->m_mapCityShop.find(pBuilding->buildingInfo.BuildingKind);
 		CINFCityLeader * pCityOutPost = ((CINFCityLeader*)it->second);
 		if(pCityOutPost)
@@ -4754,7 +4755,7 @@ void CInterface::RefreshWarMotherWarInfo()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -4778,14 +4779,14 @@ int CInterface::GetEtcOptionInfo(int nIdx)
 		return atoi(chBuf);	
 	}
 	
-	// ¾øÀ»¶§´Â ÀúÀå ½Ãµµ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
 	sOPTION_ETC	stpEtcoption;
 	memset(&stpEtcoption, 0x00, sizeof(sOPTION_ETC));
 	g_pD3dApp->InitOptionEtcInfo(&stpEtcoption);
 
 	SetEtcOptionInfo(chSetupInfo, stpEtcoption.bRadioInfo[nIdx]);
 
-	// ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½
 	{
 		char chMaxPath[MAX_PATH];
 		memset(chMaxPath, 0x00, MAX_PATH);
@@ -4797,7 +4798,7 @@ int CInterface::GetEtcOptionInfo(int nIdx)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -4806,7 +4807,7 @@ int CInterface::GetEtcOptionInfo(int nIdx)
 ///////////////////////////////////////////////////////////////////////////////
 
 
-// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY, 
 // 										   float* fRateWidth, float* fRateHeight, 
 // 										   float* fGameWidth, float* fGameHeight)
@@ -4814,19 +4815,19 @@ void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY,
 										   float* fRateWidth, float* fRateHeight,
 										   float* fGameWidth, float* fGameHeight,
 										   float* fChatWidth, float* fChatHeight)
-// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 {	
 	char chBuf[512];			
 	memset(chBuf, 0x00 ,512);			
 
 	BOOL bDefault = FALSE;
-	// ¾øÀ»¶§´Â ÀúÀå ½Ãµµ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
 	sOPTION_ETC	stpEtcoption;
 	memset(&stpEtcoption, 0x00, sizeof(sOPTION_ETC));
 	g_pD3dApp->InitOptionEtcInfo(&stpEtcoption);
 
-	// X°ª
+	// Xï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_OPETC_INTERPOS_X_INFO, chBuf))
 	{
 		(*fRateX) = atof(chBuf);	
@@ -4840,7 +4841,7 @@ void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY,
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_INTERPOS_X_INFO, chBuf);
 	}
 
-	// Y°ª
+	// Yï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_OPETC_INTERPOS_Y_INFO, chBuf))
 	{
 		(*fRateY) = atof(chBuf);	
@@ -4883,7 +4884,7 @@ void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY,
 	}
 
 
-	// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	// Width
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_OPETC_CHATPOS_W_INFO, chBuf))
@@ -4913,7 +4914,7 @@ void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY,
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_CHATPOS_H_INFO, chBuf);
 	}
 
-	// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	// GameWidth
@@ -4945,7 +4946,7 @@ void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY,
 	}
 	
 		
-	// ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½
 	if(bDefault)
 	{
 		char chMaxPath[MAX_PATH];
@@ -4957,7 +4958,7 @@ void CInterface::GetEtcOptionInterPosValue(float* fRateX, float* fRateY,
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -4977,7 +4978,7 @@ void CInterface::SetEtcOptionInfo(char* pSetupInfo, int nMode)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -4988,67 +4989,67 @@ void CInterface::GetEtcOptionIdx_To_String(int nIdx, char* pDst)
 {
 	switch(nIdx)
 	{
-	case OPTION_RADIO_MAN_TO_MAN:	// 1:1ÀüÅõ
+	case OPTION_RADIO_MAN_TO_MAN:	// 1:1ï¿½ï¿½ï¿½ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_MANTOMAN_INFO);
 		}
 		break;
-	case OPTION_RADIO_FORMATIONWAR:	// Æí´ëÀüÅõ
+	case OPTION_RADIO_FORMATIONWAR:	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_PARTYWAR_INFO);
 		}
 		break;
-	case OPTION_RADIO_GUILD_WAR:	// ¿©´ÜÀüÅõ
+	case OPTION_RADIO_GUILD_WAR:	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_GUILDWAR_INFO);
 		}
 		break;
-	case OPTION_RADIO_WHISPER:		// ±Ó¼Ó¸»
+	case OPTION_RADIO_WHISPER:		// ï¿½Ó¼Ó¸ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_WHISPER_INFO);
 		}
 		break;
-	case OPTION_RADIO_FORMATION_INVITE:	// Æí´ëÃÊ´ë
+	case OPTION_RADIO_FORMATION_INVITE:	// ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_PARTYINVI_INFO);
 		}
 		break;
-	case OPTION_RADIO_GUILD_INVITE:		// ¿©´ÜÃÊ´ë
+	case OPTION_RADIO_GUILD_INVITE:		// ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_GUILDINVI_INFO);
 		}
 		break;
-	case OPTION_RADIO_EXCHANGE:			// ±³È¯
+	case OPTION_RADIO_EXCHANGE:			// ï¿½ï¿½È¯
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_EXCHANGE_INFO);
 		}
 		break;
-	case OPTION_RADIO_INTERFACE_POS:	// ÀÎÅÍÆäÀÌ½º À§Ä¡ ÀúÀå
+	case OPTION_RADIO_INTERFACE_POS:	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_INTERPOS_INFO);
 		}
 		break;
-	case OPTION_RADIO_INTERFACE_HIDE:	// ÀÎÅÍÆäÀÌ½º ¸ðµÎ °¨Ãß±â
+	case OPTION_RADIO_INTERFACE_HIDE:	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_INTERHIDE_INFO);
 		}
 		break;
-	case OPTION_RADIO_FRIEND_ID_HIDE:	// °°Àº ¼¼·Â ¾ÆÀÌµð °¨Ãß±â
+	case OPTION_RADIO_FRIEND_ID_HIDE:	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_SAME_ID_HIDE_INFO);
 		}
 		break;
-	case OPTION_RADIO_ENEMY_ID_HIDE:	// ´Ù¸¥ ¼¼·Â ¾ÆÀÌµð °¨Ãß±â
+	case OPTION_RADIO_ENEMY_ID_HIDE:	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_ENEMY_ID_HIDE_INFO);
 		}
 		break;
-	case OPTION_RADIO_MOUSE_LOCK:		// ¸¶¿ì½º °¡µÎ±â(À©µµ¿ì ¸ðµå½Ã)
+	case OPTION_RADIO_MOUSE_LOCK:		// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Î±ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_MOUSE_LOCK_INFO);
 		}
 		break;
-	case OPTION_RADIO_CHAT_FILTER:		// ¿åÆÞÅÍ
+	case OPTION_RADIO_CHAT_FILTER:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			wsprintf(pDst, SETUP_INFO_OPETC_FILTER_INFO);
 		}
@@ -5065,7 +5066,7 @@ void CInterface::GetEtcOptionIdx_To_String(int nIdx, char* pDst)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -5074,32 +5075,32 @@ void CInterface::GetEtcOptionIdx_To_String(int nIdx, char* pDst)
 ///////////////////////////////////////////////////////////////////////////////
 void CInterface::LoadOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 {
-	// 1:1¹øÅõ
+	// 1:1ï¿½ï¿½ï¿½ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_MAN_TO_MAN] = GetEtcOptionInfo(OPTION_RADIO_MAN_TO_MAN);	
 	
-	// Æí´ë ÀüÅõ
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_FORMATIONWAR] = GetEtcOptionInfo(OPTION_RADIO_FORMATIONWAR);		
 	
-	// ¿©´ÜÀüÅõ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_GUILD_WAR] = GetEtcOptionInfo(OPTION_RADIO_GUILD_WAR);			
 	
-	//±Ó¼Ó¸»
+	//ï¿½Ó¼Ó¸ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_WHISPER] = GetEtcOptionInfo(OPTION_RADIO_WHISPER);			
 	
-	// Æí´ë ÃÊ´ë
+	// ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_FORMATION_INVITE] = GetEtcOptionInfo(OPTION_RADIO_FORMATION_INVITE);				
 	
-	// ¿©´ÜÃÊ´ë
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_GUILD_INVITE] = GetEtcOptionInfo(OPTION_RADIO_GUILD_INVITE);					
 	
-	// ±³È¯
+	// ï¿½ï¿½È¯
 	pEtcOption->bRadioInfo[OPTION_RADIO_EXCHANGE] = GetEtcOptionInfo(OPTION_RADIO_EXCHANGE);						
 	
-	//ÀÎÅÍÆäÀÌ½º À§Ä¡ÀúÀå
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_INTERFACE_POS] = GetEtcOptionInfo(OPTION_RADIO_INTERFACE_POS);						
 
 
-	// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	GetEtcOptionInterPosValue(&pEtcOption->stRateRect.fRateX, &pEtcOption->stRateRect.fRateY, 
 // 								&pEtcOption->stRateRect.fRateWidth, &pEtcOption->stRateRect.fRateHeight,
 // 								&pEtcOption->stRateRect.fGameWidth, &pEtcOption->stRateRect.fGameHeight);
@@ -5107,22 +5108,22 @@ void CInterface::LoadOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 								&pEtcOption->stRateRect.fRateWidth, &pEtcOption->stRateRect.fRateHeight,
 								&pEtcOption->stRateRect.fGameWidth, &pEtcOption->stRateRect.fGameHeight,
 								&pEtcOption->stChatRect.fRateWidth, &pEtcOption->stChatRect.fRateHeight);
-	// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	
-	// ÀÎÅÍÆäÀÌ½º ¸ðµÎ °¨Ãß±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_INTERFACE_HIDE] = GetEtcOptionInfo(OPTION_RADIO_INTERFACE_HIDE);
 	
-	// °°Àº ¼¼·Â ¾ÆÀÌµð
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_FRIEND_ID_HIDE] = GetEtcOptionInfo(OPTION_RADIO_FRIEND_ID_HIDE);	
 	
-	// ´Ù¸¥ ¼¼·Â ¾ÆÀÌµð
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_ENEMY_ID_HIDE] = GetEtcOptionInfo(OPTION_RADIO_ENEMY_ID_HIDE);		
 	
-	// ¸¶¿ì½º °¡µÎ±â
+	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Î±ï¿½
 	pEtcOption->bRadioInfo[OPTION_RADIO_MOUSE_LOCK] = GetEtcOptionInfo(OPTION_RADIO_MOUSE_LOCK);			
 	
-	// ºñ¼Ó¾î ÇÊÅÍ¸µ		
+	// ï¿½ï¿½Ó¾ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½		
 	pEtcOption->bRadioInfo[OPTION_RADIO_CHAT_FILTER] = GetEtcOptionInfo(OPTION_RADIO_CHAT_FILTER);			
 	
 	
@@ -5131,7 +5132,7 @@ void CInterface::LoadOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -5144,47 +5145,47 @@ void CInterface::SetOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 	memset(chSetupInfo, 0x00, 256);
 	memset(chBuf, 0x00 ,512);		
 	
-	// 1:1ÀüÅõ
+	// 1:1ï¿½ï¿½ï¿½ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_MAN_TO_MAN, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_MAN_TO_MAN]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);	
 	
-	// Æí´ë ÀüÅõ
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_FORMATIONWAR, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_FORMATIONWAR]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);		
 	
-	// ¿©´ÜÀüÅõ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_GUILD_WAR, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_GUILD_WAR]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);			
 	
-	//±Ó¼Ó¸»
+	//ï¿½Ó¼Ó¸ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_WHISPER, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_WHISPER]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);				
 	
-	// Æí´ë ÃÊ´ë
+	// ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_FORMATION_INVITE, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_FORMATION_INVITE]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);					
 	
-	// ¿©´ÜÃÊ´ë
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_GUILD_INVITE, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_GUILD_INVITE]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);
 	
-	// ±³È¯
+	// ï¿½ï¿½È¯
 	GetEtcOptionIdx_To_String(OPTION_RADIO_EXCHANGE, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_EXCHANGE]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);	
 	
-	//ÀÎÅÍÆäÀÌ½º À§Ä¡ÀúÀå
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_INTERFACE_POS, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_INTERFACE_POS]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);	
 	
-	// ÀÎÅÍÆäÀÌ½º À§Ä¡ 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ä¡ 
 	sprintf(chBuf, "%.2f", pEtcOption->stRateRect.fRateX);
 	m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_INTERPOS_X_INFO, chBuf);		
 	sprintf(chBuf, "%.2f", pEtcOption->stRateRect.fRateY);
@@ -5196,14 +5197,14 @@ void CInterface::SetOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 	m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_INTERPOS_H_INFO, chBuf);
 
 	
-	// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	sprintf(chBuf, "%.2f", pEtcOption->stChatRect.fRateWidth);
 	m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_CHATPOS_W_INFO, chBuf);
 	sprintf(chBuf, "%.2f", pEtcOption->stChatRect.fRateHeight);
 	m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_CHATPOS_H_INFO, chBuf);
 
-	// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	sprintf(chBuf, "%.2f", pEtcOption->stRateRect.fGameWidth);
@@ -5211,27 +5212,27 @@ void CInterface::SetOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 	sprintf(chBuf, "%.2f", pEtcOption->stRateRect.fGameHeight);
 	m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_GAME_H_INFO, chBuf);			
 	
-	// ÀÎÅÍÆäÀÌ½º ¸ðµÎ °¨Ãß±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_INTERFACE_HIDE, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_INTERFACE_HIDE]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);			
 	
-	// °°Àº ¼¼·Â ¾ÆÀÌµð
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_FRIEND_ID_HIDE, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_FRIEND_ID_HIDE]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);				
 	
-	// ´Ù¸¥ ¼¼·Â ¾ÆÀÌµð
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_ENEMY_ID_HIDE, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_ENEMY_ID_HIDE]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);					
 	
-	// ¸¶¿ì½º °¡µÎ±â
+	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Î±ï¿½
 	GetEtcOptionIdx_To_String(OPTION_RADIO_MOUSE_LOCK, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_MOUSE_LOCK]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);					
 	
-	// ºñ¼Ó¾î ÇÊÅÍ¸µ		
+	// ï¿½ï¿½Ó¾ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½		
 	GetEtcOptionIdx_To_String(OPTION_RADIO_CHAT_FILTER, chSetupInfo);
 	wsprintf(chBuf, "%d", pEtcOption->bRadioInfo[OPTION_RADIO_CHAT_FILTER]);
 	m_pSetupConfig->SetSetupInfo(chSetupInfo, chBuf);			
@@ -5239,8 +5240,8 @@ void CInterface::SetOptionEtcInfo(sOPTION_ETC	*pEtcOption)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		option ETCÁ¤º¸ ÀúÀå
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \brief		option ETCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -5251,9 +5252,9 @@ void CInterface::SaveOptionEtcInfo()
 {
 	SetOptionEtcInfo(g_pSOptionEtc);	
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	SaveJoystickOptionInfo(g_pJoysticOp);
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
 	{
 		char chMaxPath[MAX_PATH];
@@ -5265,8 +5266,8 @@ void CInterface::SaveOptionEtcInfo()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		UIÁö¿ì±â¿¡¼­ ·£´õ¸µÇÒ °Íµé¸¸ ·£´õ¸µ
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \brief		UIï¿½ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Íµé¸¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -5286,43 +5287,43 @@ void CInterface::RenderWndIntfaceHideMode()
 				{
 //				case WNDGameGlobalImage:
 //					{
-//						// ±Û·Î¹ú ÀÌ¹ÌÁö
+//						// ï¿½Û·Î¹ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 //						if(m_pGameGlobalImage)
 //							m_pGameGlobalImage->Render();
 //					}
 //					break;
 				case WNDInfWindow:
 					{
-						// ½Ã½ºÅÛ ¸Þ¼¼Áö ¹Ú½º 
+						// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ 
 						if(m_pGameMain->m_pInfWindow)
 							m_pGameMain->m_pInfWindow->RenderMessaegBox();
 					}
 					break;
 				case WNDCityBase:
 					{
-						// 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
-						//»óÁ¡ °ü·Ã ·»´õ¸µ
+						// 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+						//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						if( m_pCityBase && m_pCityBase->GetCurrentBuildingNPC())
 						{
 							m_pCityBase->Render();	
 						}
-						// end 2008-07-14 by bhsohn EP3 °ü·Ã Ã³¸®
+						// end 2008-07-14 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					}
 					break;
 				case WNDGameMain:
-						// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+						// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //						if(m_pGameMain->m_pChat)
 //							m_pGameMain->m_pChat->RenderWisperChat();
 					break;
 //				case WNDMissionInfo:
 //					{
-//						// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
-//						// ¹Ì¼Ç ÀÎÆ÷
+//						// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//						// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //						//if(g_pGameMain->m_pMissionInfo && 
 //						if(g_pTutorial->IsTutorialMode() == FALSE &&
 //							g_pD3dApp->m_dwGameState != _SHOP)
 //						{
-//							// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+//							// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //							//g_pGameMain->m_pMissionInfo->Render();
 //							g_pGameMain->RenderMission();
 //						}
@@ -5330,7 +5331,7 @@ void CInterface::RenderWndIntfaceHideMode()
 //					break;
 //				case WNDMiniMap:
 //					{
-//						// ¹Ì´Ï¸Ê
+//						// ï¿½Ì´Ï¸ï¿½
 //						if(g_pD3dApp->m_dwGameState == _GAME || 
 //							g_pD3dApp->m_dwGameState == _SHOP )
 //						{
@@ -5341,11 +5342,11 @@ void CInterface::RenderWndIntfaceHideMode()
 //					break;
 //				case WNDMp3Player:
 //					{
-//						// mp3 ÇÃ·¹ÀÌ¾î
+//						// mp3 ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
 //						if(	g_pGameMain->m_pMp3Player && 
 //							g_pGameMain->m_bMp3PlayFlag == TRUE && 
 //							m_bShowInterface && 
-//							!g_pShuttleChild->IsObserverMode() &&	// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+//							!g_pShuttleChild->IsObserverMode() &&	// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //							g_pTutorial->IsTutorialMode() == FALSE)
 //						{
 //							g_pGameMain->m_pMp3Player->Render();
@@ -5355,23 +5356,23 @@ void CInterface::RenderWndIntfaceHideMode()
 				case WNDRenderHelp:
 					{
 						// 2006-04-17 by ispark
-//						// µµ½Ã,°ÔÀÓ °øÅë
+//						// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //						if(m_pGameMain->m_bShowHelp)
 //							m_pGameMain->RenderHelp();
 					}
 					break;
 				case WNDInfSkill:
 					{
-						// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+						// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
  						//if( m_pGameMain->m_pInfSkill )
 						if( m_pGameMain->m_pInfSkill && !g_pShuttleChild->IsShowCinema() )
  							m_pGameMain->m_pInfSkill->Render();
-						//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+						//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					break;
 				case WNDGameMainFaq:
 					{
-						// FAQ °ü·Ã
+						// FAQ ï¿½ï¿½ï¿½ï¿½
 						if(m_pGameMain->m_pInfGameMainFaq && m_pGameMain->m_bFAQProsFlag)
 							m_pGameMain->m_pInfGameMainFaq->Render();
 					}
@@ -5385,7 +5386,7 @@ void CInterface::RenderWndIntfaceHideMode()
 					break;
 				case WNDQSlotIconFlag:
 					{
-						// ´ÜÃàÅ° °ü·Ã ·»´õ¸µ
+						// ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						if(m_pGameMain->m_bQSlotIconFlag == TRUE)
 							m_pGameMain->RenderQSlotIcon();
 					}
@@ -5402,7 +5403,7 @@ void CInterface::RenderWndIntfaceHideMode()
 					break;
 				case WNDMainChatStartMenu:
 					{
-						// Ãß°¡ Ã¤ÆÃ ¸®½ºÆ®
+						// ï¿½ß°ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 						if(g_pGameMain->m_pChat->m_bMenuListUse)
 							g_pGameMain->m_pChat->ViewChatMenuList();
 					}
@@ -5415,15 +5416,15 @@ void CInterface::RenderWndIntfaceHideMode()
 						g_pGameMain->RenderLeftRightWindow();
 					}
 					break;
-					// 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
+					// 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
 				case WNDCommunityWnd:
 					{						
-						// Ä¿¹Â´ÏÆ¼Ã¢ ·£´õ¸µ
+						// Ä¿ï¿½Â´ï¿½Æ¼Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						g_pGameMain->RenderCommunity();	
 					}
 					break;
-					// end 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+					// end 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				 case WNDOpJoystick:
 					 {
 						 if(g_pGameMain )
@@ -5432,15 +5433,15 @@ void CInterface::RenderWndIntfaceHideMode()
 						 }							 
 					 }
 					 break;
-					 // end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-					// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+					 // end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+					// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 				 case WNDInvenWnd:
 					 {
 						 g_pGameMain->RenderInvenWnd();
 					 }
 					 break;
-					 // end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
-					// 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
+					 // end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
+					// 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
 				 case WNDCharacterWnd:
 					 {
 						 if(g_pGameMain)
@@ -5449,8 +5450,8 @@ void CInterface::RenderWndIntfaceHideMode()
 						 }						 
 					 }
 					 break;
-					 // end 2008-09-22 by bhsohn EP3 Ä³¸¯ÅÍ Ã¢
-				// 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
+					 // end 2008-09-22 by bhsohn EP3 Ä³ï¿½ï¿½ï¿½ï¿½ Ã¢
+				// 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 				 case WNDSysWnd:
 					 {
 						 if(m_pGameMain->m_pChat)
@@ -5481,14 +5482,14 @@ void CInterface::RenderWndIntfaceHideMode()
 					 }
 					 break;
 
-				// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+				// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				case WNDWarDecalre:
 					if(m_pGameMain && m_pGameMain->GetINFMotherShipManager())
 						m_pGameMain->GetINFMotherShipManager()->GetWarDeclareWindow()->Render();
 					break;
-				// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-					// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
-				case WNDWorldRank: // ¿ùµå ·©Å· Ã¢ 
+				// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+					// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
+				case WNDWorldRank: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· Ã¢ 
 					{
 						if(m_pGameMain)
 						{
@@ -5496,9 +5497,9 @@ void CInterface::RenderWndIntfaceHideMode()
 						}						
 					}
 					break;
-					// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
-				// 2013-02-20 by bhsohn ÀÎ°ÔÀÓ Á¶ÇÕÃ¢ Ã³¸®
-				case WNDItemMix: // ÀÎ°ÔÀÓ Á¶ÇÕÃ¢
+					// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
+				// 2013-02-20 by bhsohn ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ Ã³ï¿½ï¿½
+				case WNDItemMix: // ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 					{
 						if(m_pGameMain)
 						{
@@ -5506,9 +5507,9 @@ void CInterface::RenderWndIntfaceHideMode()
 						}						
 					}
 					break;
-				// END 2013-02-20 by bhsohn ÀÎ°ÔÀÓ Á¶ÇÕÃ¢ Ã³¸®
-					// 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
-				case WNDArmorCollection: // ¾Æ¸Ó Á¶ÇÕ½Ä
+				// END 2013-02-20 by bhsohn ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ Ã³ï¿½ï¿½
+					// 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+				case WNDArmorCollection: // ï¿½Æ¸ï¿½ ï¿½ï¿½ï¿½Õ½ï¿½
 					{
 						if(m_pGameMain)
 						{
@@ -5516,8 +5517,8 @@ void CInterface::RenderWndIntfaceHideMode()
 						}						
 					}
 					break;
-					// END 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
-					// 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
+					// END 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+					// 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				case WNDChangeCharacter:
 					{
 						if(g_pGameMain && g_pGameMain->m_pChangeCharactor )
@@ -5526,9 +5527,9 @@ void CInterface::RenderWndIntfaceHideMode()
 						}						
 					}
 					break;
-					// END 2013-04-05 by bhsohn ÄÉ¸¯ÅÍ º¯°æ Ã¢ À©µµ¿ì ¼ø¼­ Á¤·Ä Ã³¸®
-					 // end 2008-07-10 by bhsohn ½Ã½ºÅÛ Ã¢ ¿ì¼±¼øÀ§ Ãß°¡
-// 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
+					// END 2013-04-05 by bhsohn ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+					 // end 2008-07-10 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+// 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
 #ifdef C_FIRST_ANNIVERSARY_EVENT
 				case WNDFirstAnniversaryEvent:
 					{
@@ -5539,7 +5540,7 @@ void CInterface::RenderWndIntfaceHideMode()
 					}
 					break;
 #endif
-// end 2013-10-01 by ssjung 1ÁÖ³â ÀÌº¥Æ®
+// end 2013-10-01 by ssjung 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
 				}
 			}			
 			itWnd++;
@@ -5548,8 +5549,8 @@ void CInterface::RenderWndIntfaceHideMode()
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÀÎÅÍÆäÀÌ½º ¼û±â±â
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -5564,7 +5565,7 @@ BOOL CInterface::GetShowInterface()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-20 ~ 2008-06-20
 /// \warning	
 ///
@@ -5579,7 +5580,7 @@ void CInterface::SetShowInterface(BOOL bShowInterface)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+/// \author		// 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-10-15 ~ 2008-10-15
 /// \warning	
 ///
@@ -5590,7 +5591,7 @@ void CInterface::SetDummyDataHeader(DataHeader *pDataHeader)
 {
 	if(m_pDummyDataHeader)
 	{
-		// ÀÌ¹Ì ·ÎµåÇß´Ù.
+		// ï¿½Ì¹ï¿½ ï¿½Îµï¿½ï¿½ß´ï¿½.
 		return;
 	}
 	
@@ -5610,7 +5611,7 @@ void CInterface::SetDummyDataHeader(DataHeader *pDataHeader)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+/// \author		// 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-10-15 ~ 2008-10-15
 /// \warning	
 ///
@@ -5622,8 +5623,8 @@ DataHeader *CInterface::GetDummyDataHeader(char* i_pFileName)
 	CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();		
 	if(COMPARE_RACE(myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 	{
-		// °ü¸®ÀÚ¸¸ Âï´Â´Ù.
-		DBGOUT(".Tex File Error(%s)\n", i_pFileName);	//¸®¼Ò½º ÆÄÀÏ ¿¡·¯
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½Â´ï¿½.
+		DBGOUT(".Tex File Error(%s)\n", i_pFileName);	//ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		char ErrorMsgMissionList[256];
 		wsprintf(ErrorMsgMissionList, ".Tex File Error(%s)", i_pFileName);
 		if(g_pGameMain)
@@ -5638,7 +5639,7 @@ DataHeader *CInterface::GetDummyDataHeader(char* i_pFileName)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-10-27 by bhsohn ¹«ÇÑÀ¸·Î º¸±Þ °¡´ÉÇÑ ¹ö±× ¼öÁ¤
+/// \author		// 2008-10-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2008-10-27 ~ 2008-10-27
 /// \warning	
 ///
@@ -5663,8 +5664,8 @@ void CInterface::ReleaseBazaarShop()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÐ¾î¿È
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -5673,24 +5674,24 @@ void CInterface::ReleaseBazaarShop()
 ///////////////////////////////////////////////////////////////////////////////
 void CInterface::LoadJoystickInfo(char* pFilePath)
 {	
-	m_pJoySticConfig->ResetSetupInfo();	// Á¤º¸µé ÃÊ±âÈ­
+	m_pJoySticConfig->ResetSetupInfo();	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	if(m_pJoySticConfig->LoadSetupInfo(pFilePath))
 	{		
 		LoadFileJoysticInfo(m_pJoySticConfig, m_pJoystickSetupKeyTable);
 	}
 	else
 	{
-		// ÃÊ±âÈ­
+		// ï¿½Ê±ï¿½È­
 		InitJoystickInfo(pFilePath);
 	}
-	// ½ÇÁ¦ Àû¿ëÇÏ°Ô²û Àû¿ë
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½
 	RefreshJoystickOption();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÐ¾î¿È
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -5725,7 +5726,7 @@ void CInterface::LoadFileJoysticInfo(CSetupConfig*	i_pJoySticConfig, structJoyst
 			char chTmp[64];
 			memset(chTmp, 0x00, 64);
 			
-			o_pJoystickSetupKeyTable[nJoyIndex].nKeySetup = nJoyIndex;		// Å°ÀÎµ¦½º					
+			o_pJoystickSetupKeyTable[nJoyIndex].nKeySetup = nJoyIndex;		// Å°ï¿½Îµï¿½ï¿½ï¿½					
 			
 			for(nCnt = 0;nCnt < MAX_JOSTICK_OPTION_SLOT;nCnt++)
 			{
@@ -5733,7 +5734,7 @@ void CInterface::LoadFileJoysticInfo(CSetupConfig*	i_pJoySticConfig, structJoyst
 				nPos = GetCullingString(nPos, pJoysticConfig->chString, ',', chTmp);
 				if(strlen(chTmp) > 0)
 				{
-					o_pJoystickSetupKeyTable[nJoyIndex].nBehavior[nCnt]= atoi(chTmp);		// ½½·Ô°ªµé
+					o_pJoystickSetupKeyTable[nJoyIndex].nBehavior[nCnt]= atoi(chTmp);		// ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½
 				}
 				else
 				{
@@ -5747,8 +5748,8 @@ void CInterface::LoadFileJoysticInfo(CSetupConfig*	i_pJoySticConfig, structJoyst
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÐ¾î¿È
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -5800,8 +5801,8 @@ void CInterface::RefreshJoystickOption()
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÎµ¦½º
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -5819,7 +5820,7 @@ void CInterface::SetJoysticInfoBehavior(int i_nBehaviorIdx, int i_nJoyKeyIndex, 
 	{
 		if(-1 == m_struJoystickOption[i_nBehaviorIdx][nBehaviorPos].nKeyIdx)
 		{
-			// ¾Æ³¯·Î±× ´ÙÀÌ¾ó·Î±×´Â Àü¿¡ °ªÀÌ ÀÖÀ¸¸é ¾ÈµÈ´Ù.
+			// ï¿½Æ³ï¿½ï¿½Î±ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½Î±×´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ´ï¿½.
 			m_struJoystickOption[i_nBehaviorIdx][nBehaviorPos].nKeyIdx = i_nJoyKeyIndex;
 			m_struJoystickOption[i_nBehaviorIdx][nBehaviorPos].nKeyValue = i_nJoyKeyValue;					
 			return;
@@ -5829,8 +5830,8 @@ void CInterface::SetJoysticInfoBehavior(int i_nBehaviorIdx, int i_nJoyKeyIndex, 
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÎµ¦½º
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -5903,22 +5904,22 @@ int CInterface::GetJoysticInfoString_To_Idx(char* i_pTitle)
 	}
 	else if(!stricmp(i_pTitle,JOY_SETUP_OP_POW_LEFT))
 	{
-		//"½ÊÀÚ¹öÆ°-ÁÂ"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		nIdx = JOY_SETUP_POW_LEFT;
 	}
 	else if(!stricmp(i_pTitle,JOY_SETUP_OP_POW_RIGHT))
 	{
-		//"½ÊÀÚ¹öÆ°-¿ì"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		nIdx = JOY_SETUP_POW_RIGHT;
 	}
 	else if(!stricmp(i_pTitle,JOY_SETUP_OP_POW_UP))
 	{
-		//"½ÊÀÚ¹öÆ°-»ó"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		nIdx = JOY_SETUP_POW_UP;
 	}
 	else if(!stricmp(i_pTitle,JOY_SETUP_OP_POW_DOWN))
 	{
-		//"½ÊÀÚ¹öÆ°-ÇÏ"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		nIdx = JOY_SETUP_POW_DOWN;
 	}
 	else if(!stricmp(i_pTitle,JOY_SETUP_OP_BTN0))
@@ -6026,8 +6027,8 @@ int CInterface::GetJoysticInfoString_To_Idx(char* i_pTitle)
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÎµ¦½º
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -6112,25 +6113,25 @@ void CInterface::GetJoysticInfoIdx_To_String(int nIdx, char* o_pDst)
 		break;
 	case JOY_SETUP_POW_LEFT:
 		{
-			//"½ÊÀÚ¹öÆ°-ÁÂ"
+			//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 			wsprintf(o_pDst, JOY_SETUP_OP_POW_LEFT);
 		}
 		break;
 	case JOY_SETUP_POW_RIGHT:
 		{
-			//"½ÊÀÚ¹öÆ°-¿ì"
+			//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 			wsprintf(o_pDst, JOY_SETUP_OP_POW_RIGHT);
 		}
 		break;
 	case JOY_SETUP_POW_UP:
 		{
-			//"½ÊÀÚ¹öÆ°-»ó"
+			//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 			wsprintf(o_pDst, JOY_SETUP_OP_POW_UP);
 		}
 		break;
 	case JOY_SETUP_POW_DOWN:
 		{
-			//"½ÊÀÚ¹öÆ°-ÇÏ"
+			//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 			wsprintf(o_pDst, JOY_SETUP_OP_POW_DOWN);
 		}
 		break;
@@ -6265,8 +6266,8 @@ void CInterface::GetJoysticInfoIdx_To_String(int nIdx, char* o_pDst)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÐ¾î¿È
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -6275,7 +6276,7 @@ void CInterface::GetJoysticInfoIdx_To_String(int nIdx, char* o_pDst)
 ///////////////////////////////////////////////////////////////////////////////
 void CInterface::InitJoystickInfo(char* pFilePath)
 {
-	InitJoystickSetupInfo(m_pJoystickSetupKeyTable);	// Á¶ÀÌ½ºÆ½ Á¤º¸ ÃÊ±âÈ­
+	InitJoystickSetupInfo(m_pJoystickSetupKeyTable);	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	
 	char chKeyBuff[MAX_PATH], chBuff[MAX_PATH];
 	char chTmpBuff[MAX_PATH];
@@ -6299,19 +6300,19 @@ void CInterface::InitJoystickInfo(char* pFilePath)
 			if(m_pJoystickSetupKeyTable[nCnt].nBehavior[nBehavior] != -1)
 			{
 				wsprintf(chTmpBuff, "%d,", m_pJoystickSetupKeyTable[nCnt].nBehavior[nBehavior]);
-				strcat(chBuff, chTmpBuff);	// µÚ¿¡´Ù ºÙÀÌÀÚ
+				strcat(chBuff, chTmpBuff);	// ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		}			
 		m_pJoySticConfig->AddSetupInfo(chKeyBuff, chBuff);
 		
 	}	
-	m_pJoySticConfig->SaveSetupInfo(pFilePath); // ±âº»°ªÀúÀå
+	m_pJoySticConfig->SaveSetupInfo(pFilePath); // ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÐ¾î¿È
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -6342,8 +6343,8 @@ void CInterface::GetJoystickInfo(int i_nOptionIdx, int i_nSlotIdx, int*	o_nKeyId
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀÐ¾î¿È
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -6380,7 +6381,7 @@ int CInterface::GetCullingString(int nPos, char* i_pString, char i_chFind, char*
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -6395,7 +6396,7 @@ BOOL CInterface::GetJostickStats(int code)
 	}
 	else if(g_pGameMain && g_pGameMain->IsShowOpJoystick())
 	{
-		// Á¶ÀÌ½ºÆ½ ¿É¼ÇÃ¢ÀÌ ¶°ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 		return 0;
 	}
 
@@ -6414,11 +6415,11 @@ BOOL CInterface::GetJostickStats(int code)
 		{
 		case DIK_LSHIFT:
 			{
-				// Lock OnÇØÁ¦
+				// Lock Onï¿½ï¿½ï¿½ï¿½
 				int nKeyIdx = 0;
 				int nKeyValue = 0;
 				
-				// ºÎ½ºÅÍ
+				// ï¿½Î½ï¿½ï¿½ï¿½
 				GetJoystickInfo(JOSTICK_OPTION_TARGET_LOCKON, nBehaviorPos, &nKeyIdx, &nKeyValue);				
 				
 				if((-1 != nKeyIdx) && nKeyValue == pJoyStick->GetJoySitckInfo(nKeyIdx))
@@ -6432,7 +6433,7 @@ BOOL CInterface::GetJostickStats(int code)
 				int nKeyIdx = 0;
 				int nKeyValue = 0;
 				
-				// ºÎ½ºÅÍ
+				// ï¿½Î½ï¿½ï¿½ï¿½
 				GetJoystickInfo(JOSTICK_OPTION_BOSTER, nBehaviorPos, &nKeyIdx, &nKeyValue);
 				
 				
@@ -6444,7 +6445,7 @@ BOOL CInterface::GetJostickStats(int code)
 			break;
 		case DIK_C:
 			{
-				// Ãâ°Ý ¹öÆ°
+				// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 				int nKeyIdx = 0;
 				int nKeyValue = 0;
 				
@@ -6474,7 +6475,7 @@ BOOL CInterface::GetJostickStats(int code)
 				}
 				
 				if((-1 != nMinKeyIdx) && (-1 != nLMinKeyIdx) && (-1 != nRMinKeyIdx) 
-					&& pJoyStick->IsJoystickPOV(nMinKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nMinKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nLMinKeyIdx) 
 					&& pJoyStick->IsJoystickPOV(nRMinKeyIdx))
 				{				
@@ -6512,7 +6513,7 @@ BOOL CInterface::GetJostickStats(int code)
 				}
 				
 				if((-1 != nLKeyIdx) && (-1 != nLMinKeyIdx)  
-					&& pJoyStick->IsJoystickPOV(nLKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nLKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nLMinKeyIdx))
 				{
 					if(nLKeyValue > nLMinKeyValue)
@@ -6530,15 +6531,15 @@ BOOL CInterface::GetJostickStats(int code)
 						}
 					}
 				}
-				// 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
-				// ¾Õ¿¡ ¹æÇâ
+				// 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
+				// ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 				int nGoKeyIdx, nGoKeyValue;
 				nGoKeyIdx = nGoKeyValue = 0;				
 
 				GetJoystickInfo(JOSTICK_OPTION_UNIT_GO, nBehaviorPos, &nGoKeyIdx, &nGoKeyValue);
 				
 				if((-1 != nPow) && (-1 != nLKeyIdx) && (-1 != nGoKeyIdx)  
-					&& pJoyStick->IsJoystickPOV(nLKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nLKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nGoKeyIdx))
 				{
 					if(0 == nGoKeyValue)
@@ -6561,7 +6562,7 @@ BOOL CInterface::GetJostickStats(int code)
 					}
 				}
 				
-				// end 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
+				// end 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
 				
 			}
 			break;
@@ -6581,7 +6582,7 @@ BOOL CInterface::GetJostickStats(int code)
 					bKeyDown = TRUE;					
 				}
 				if((-1 != nRKeyIdx) && (-1 != nRMinKeyIdx)  
-					&& pJoyStick->IsJoystickPOV(nRKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nRKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nRMinKeyIdx))
 				{
 					if(nRKeyValue > nRMinKeyValue)
@@ -6599,15 +6600,15 @@ BOOL CInterface::GetJostickStats(int code)
 						}
 					}
 				}
-				// 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
-				// ¾Õ¿¡ ¹æÇâ
+				// 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
+				// ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 				int nGoKeyIdx, nGoKeyValue;
 				nGoKeyIdx = nGoKeyValue = 0;				
 				
 				GetJoystickInfo(JOSTICK_OPTION_UNIT_GO, nBehaviorPos, &nGoKeyIdx, &nGoKeyValue);
 				
 				if((-1 != nPow)&& (-1 != nRKeyIdx) && (-1 != nGoKeyIdx)  
-					&& pJoyStick->IsJoystickPOV(nRKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nRKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nGoKeyIdx))
 				{					
 					if(nRKeyValue > nGoKeyValue)
@@ -6625,7 +6626,7 @@ BOOL CInterface::GetJostickStats(int code)
 						}
 					}
 				}				
-				// end 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
+				// end 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
 				
 			}
 			break;
@@ -6641,8 +6642,8 @@ BOOL CInterface::GetJostickStats(int code)
 				{
 					bKeyDown = TRUE;					
 				}
-				// 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
-				// ¾Õ¿¡ ¹æÇâ
+				// 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
+				// ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 				int nLMinKeyIdx, nLMinKeyValue;
 				int nRMinKeyIdx, nRMinKeyValue;
 				
@@ -6652,13 +6653,13 @@ BOOL CInterface::GetJostickStats(int code)
 
 				if((-1 != nPow)
 					&& (-1 != nKeyIdx) && (-1 != nLMinKeyIdx) && (-1 != nRMinKeyIdx) 
-					&& pJoyStick->IsJoystickPOV(nKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nLMinKeyIdx) 
 					&& pJoyStick->IsJoystickPOV(nRMinKeyIdx))
 				{				
 					if(0 == nKeyValue)
 					{
-						// ±âº»À§°ªÀº 0ÀÌ´Ù.
+						// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì´ï¿½.
 						if(nLMinKeyValue < nPow)
 						{
 							bKeyDown = TRUE;
@@ -6688,7 +6689,7 @@ BOOL CInterface::GetJostickStats(int code)
 					}
 					
 				}
-				// end 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
+				// end 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
 			}
 			break;
 		case DIK_1:
@@ -6862,7 +6863,7 @@ BOOL CInterface::GetJostickStats(int code)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -6877,7 +6878,7 @@ BOOL CInterface::IsChangeJoySitckInfo(int code)
 	}
 	else if(g_pGameMain && g_pGameMain->IsShowOpJoystick())
 	{
-		// Á¶ÀÌ½ºÆ½ ¿É¼ÇÃ¢ÀÌ ¶°ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 		return 0;
 	}
 
@@ -6910,11 +6911,11 @@ BOOL CInterface::IsChangeJoySitckInfo(int code)
 				
 				if(!bChangeKey
 					&& (-1 != nLKeyIdx) && (-1 != nLMinKeyIdx)  
-					&& pJoyStick->IsJoystickPOV(nLKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nLKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nLMinKeyIdx))
 				{
 					BOOL bKeyDown = FALSE;
-					int nPow = pJoyStick->GetJoySitckInfo(nLKeyIdx);	// Å°°ª
+					int nPow = pJoyStick->GetJoySitckInfo(nLKeyIdx);	// Å°ï¿½ï¿½
 					
 					if(nLKeyValue > nLMinKeyValue)
 					{
@@ -6954,11 +6955,11 @@ BOOL CInterface::IsChangeJoySitckInfo(int code)
 					bChangeKey = pJoyStick->IsChangeJoySitckInfo(nRKeyIdx) ;
 				}			
 				if((-1 != nRKeyIdx) && (-1 != nRMinKeyIdx)  
-					&& pJoyStick->IsJoystickPOV(nRKeyIdx)		// ¹æÇâÅ°ÀÎÁö Ã¼Å©
+					&& pJoyStick->IsJoystickPOV(nRKeyIdx)		// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 					&& pJoyStick->IsJoystickPOV(nRMinKeyIdx))
 				{
 					BOOL bKeyDown = FALSE;
-					int nPow = pJoyStick->GetJoySitckInfo(nRKeyIdx);	// Å°°ª
+					int nPow = pJoyStick->GetJoySitckInfo(nRKeyIdx);	// Å°ï¿½ï¿½
 					
 					if(nRKeyValue > nRMinKeyValue)
 					{
@@ -6984,11 +6985,11 @@ BOOL CInterface::IsChangeJoySitckInfo(int code)
 			break;
 		case DIK_LSHIFT:
 			{
-				// Lock OnÇØÁ¦
+				// Lock Onï¿½ï¿½ï¿½ï¿½
 				int nKeyIdx = 0;
 				int nKeyValue = 0;
 				
-				// ºÎ½ºÅÍ
+				// ï¿½Î½ï¿½ï¿½ï¿½
 				GetJoystickInfo(JOSTICK_OPTION_TARGET_LOCKON, nBehaviorPos, &nKeyIdx, &nKeyValue);
 				
 				if(nKeyIdx != -1)
@@ -7010,7 +7011,7 @@ BOOL CInterface::IsChangeJoySitckInfo(int code)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -7031,107 +7032,107 @@ void CInterface::InitJoystickSetupInfo(structJoystickSetupKeyTable		*o_pJoystick
 		}
 	}
 
-	//////////////////////////////////  ¸¶¿ì½º ¹æÇâÅ¸ //////////////////////////////////  
+	//////////////////////////////////  ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½Å¸ //////////////////////////////////  
 	{
 		//"RX Axis(-)"
 		o_pJoystickSetupKeyTable[JOY_SETUP_RXAXIS_MINUS].nKeySetup = JOY_SETUP_RXAXIS_MINUS;	
-		o_pJoystickSetupKeyTable[JOY_SETUP_RXAXIS_MINUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_LEFT;		// Çàµ¿º° ½½·Ô
+		o_pJoystickSetupKeyTable[JOY_SETUP_RXAXIS_MINUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_LEFT;		// ï¿½àµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	}
 	{
 		//"RX Axis(+)"
 		o_pJoystickSetupKeyTable[JOY_SETUP_RXAXIS_PLUS].nKeySetup = JOY_SETUP_RXAXIS_PLUS;	
-		o_pJoystickSetupKeyTable[JOY_SETUP_RXAXIS_PLUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_RIGHT;		// Çàµ¿º° ½½·Ô
+		o_pJoystickSetupKeyTable[JOY_SETUP_RXAXIS_PLUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_RIGHT;		// ï¿½àµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	}
 	{
 		//"RY Axis(-)"
 		o_pJoystickSetupKeyTable[JOY_SETUP_RYAXIS_MINUS].nKeySetup = JOY_SETUP_RYAXIS_MINUS;	
-		o_pJoystickSetupKeyTable[JOY_SETUP_RYAXIS_MINUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_UP;		// Çàµ¿º° ½½·Ô
+		o_pJoystickSetupKeyTable[JOY_SETUP_RYAXIS_MINUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_UP;		// ï¿½àµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	}
 	{
 		//"RY Axis(+)"
 		o_pJoystickSetupKeyTable[JOY_SETUP_RYAXIS_PLUS].nKeySetup = JOY_SETUP_RYAXIS_PLUS;	
-		o_pJoystickSetupKeyTable[JOY_SETUP_RYAXIS_PLUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_DOWN;		// Çàµ¿º° ½½·Ô
+		o_pJoystickSetupKeyTable[JOY_SETUP_RYAXIS_PLUS].nBehavior[0] = JOSTICK_OPTION_MOUSE_DOWN;		// ï¿½àµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	}
 
-	//////////////////////////////////  ¹æÇâ  //////////////////////////////////  
+	//////////////////////////////////  ï¿½ï¿½ï¿½ï¿½  //////////////////////////////////  
 	{
-		//"½ÊÀÚ¹öÆ°-ÁÂ"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_LEFT].nKeySetup = JOY_SETUP_POW_LEFT;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_LEFT].nBehavior[0] = JOSTICK_OPTION_UNIT_LEFT;		
 
 	}
 	{
-		//"½ÊÀÚ¹öÆ°-¿ì"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_RIGHT].nKeySetup = JOY_SETUP_POW_RIGHT;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_RIGHT].nBehavior[0] = JOSTICK_OPTION_UNIT_RIGHT;		
 
 	}
 	{
-		//"½ÊÀÚ¹öÆ°-»ó"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_UP].nKeySetup = JOY_SETUP_POW_UP;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_UP].nBehavior[0] = JOSTICK_OPTION_UNIT_GO;		
 
 	}
 	{
-		//"½ÊÀÚ¹öÆ°-ÇÏ"
+		//"ï¿½ï¿½ï¿½Ú¹ï¿½Æ°-ï¿½ï¿½"
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_DOWN].nKeySetup = JOY_SETUP_POW_DOWN;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_POW_DOWN].nBehavior[0] = JOSTICK_OPTION_UNIT_MIN_SPEED;
 	}
 
-	////////////////////////////////// ±âÅ¸ ½ºÅ³//////////////////////////////////  
+	////////////////////////////////// ï¿½ï¿½Å¸ ï¿½ï¿½Å³//////////////////////////////////  
 	{
-		// Å¸ÄÏ ¶ô¿Â
+		// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN4].nKeySetup = JOY_SETUP_BTN4;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN4].nBehavior[0] = JOSTICK_OPTION_TARGET_LOCKON;
 	}
 	{
-		// ºÎ½ºÅÍ
+		// ï¿½Î½ï¿½ï¿½ï¿½
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN5].nKeySetup = JOY_SETUP_BTN5;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN5].nBehavior[0] = JOSTICK_OPTION_BOSTER;
 	}
 	{
-		// 1Çü¹«±â
+		// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN10].nKeySetup = JOY_SETUP_BTN10;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN10].nBehavior[0] = JOSTICK_OPTION_WEAPON_1;
 	}
 	{
-		// 2Çü¹«±â
+		// 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN11].nKeySetup = JOY_SETUP_BTN11;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN11].nBehavior[0] = JOSTICK_OPTION_WEAPON_2;
 	}
 
 	{
-		// •üºä
+		// ï¿½ï¿½ï¿½ï¿½
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN7].nKeySetup = JOY_SETUP_BTN7;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN7].nBehavior[0] = JOSTICK_OPTION_BACKVIEW;
 	}
 	{
-		// À¯´ÖÁ¤Áö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN6].nKeySetup = JOY_SETUP_BTN6;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN6].nBehavior[0] = JOSTICK_OPTION_UNITSTOP;
 	}
-	////////////////////////////////// ±âÅ¸ ½ºÅ³//////////////////////////////////  
+	////////////////////////////////// ï¿½ï¿½Å¸ ï¿½ï¿½Å³//////////////////////////////////  
 	{
-		// ½½·Ô 1
+		// ï¿½ï¿½ï¿½ï¿½ 1
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN0].nKeySetup = JOY_SETUP_BTN0;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN0].nBehavior[0] = JOSTICK_OPTION_SLOT_0;
 	}
 	{
-		// ½½·Ô 2
+		// ï¿½ï¿½ï¿½ï¿½ 2
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN1].nKeySetup = JOY_SETUP_BTN1;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN1].nBehavior[0] = JOSTICK_OPTION_SLOT_1;
 	}
 	{
-		// ½½·Ô 3
+		// ï¿½ï¿½ï¿½ï¿½ 3
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN2].nKeySetup = JOY_SETUP_BTN2;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN2].nBehavior[0] = JOSTICK_OPTION_SLOT_2;
 	}
 	{
-		// ½½·Ô 4
+		// ï¿½ï¿½ï¿½ï¿½ 4
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN3].nKeySetup = JOY_SETUP_BTN3;	
 		o_pJoystickSetupKeyTable[JOY_SETUP_BTN3].nBehavior[0] = JOSTICK_OPTION_SLOT_3;
 	}
@@ -7141,7 +7142,7 @@ void CInterface::InitJoystickSetupInfo(structJoystickSetupKeyTable		*o_pJoystick
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -7156,14 +7157,14 @@ BOOL CInterface::OnJoystickKeyDown(int i_nCode)
 	}
 	else if(g_pGameMain && g_pGameMain->IsShowOpJoystick())
 	{
-		// Á¶ÀÌ½ºÆ½ ¿É¼ÇÃ¢ÀÌ ¶°ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 		return 0;
 	}
 
 	CJoyStickInput *pJoyStick = g_pD3dApp->GetJoystickControl();
 	if(!pJoyStick)
 	{
-		// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		return FALSE;
 	}
 
@@ -7203,7 +7204,7 @@ BOOL CInterface::OnJoystickKeyDown(int i_nCode)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -7219,7 +7220,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 	memset(pJoysticOp, 0x00, sizeof(structJoyStickOptionInfo));
 	g_pD3dApp->InitJoyStickOptionInfo(pJoysticOp);	
 	
-	// Á¶ÀÌ½ºÆ½ »ç¿ë
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_JOYSTICK_USE, chBuf))
 	{
 		if(atoi(chBuf))
@@ -7239,7 +7240,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_USE, chBuf);
 	}
 
-	// Á¶ÀÌ½ºÆ½ ¼±ÅÃ
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_JOYSTICK_SELECT, chBuf))
 	{
 		strncpy(pJoysticOp->chJoySelJoy, chBuf, MAX_PATH-1);
@@ -7250,7 +7251,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_SELECT, pJoysticOp->chJoySelJoy);
 	}
 
-	// Á¶ÀÌ½ºÆ½ Áøµ¿»ç¿ë
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_JOYSTICK_FEED, chBuf))
 	{
 		if(atoi(chBuf))
@@ -7269,7 +7270,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_FEED, chBuf);
 	}
 
-	// Á¶ÀÌ½ºÆ½ °¨µµ
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_JOYSTICK_SENSE, chBuf))
 	{
 		pJoysticOp->nJoysticSense = atoi(chBuf);				
@@ -7281,7 +7282,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_SENSE, chBuf);
 	}
 
-	// Å° ¼³Á¤ °¡Áö°í ¿À±â
+	// Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_JOYSTICK_KEYCONFIG, chBuf))
 	{
 		strncpy(pJoysticOp->chJoyKeyFile, chBuf, MAX_PATH-1);		
@@ -7292,8 +7293,8 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_KEYCONFIG, pJoysticOp->chJoyKeyFile);
 	}
 
-	// 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
-	// Å° ¼³Á¤ °¡Áö°í ¿À±â
+	// 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	// Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_pSetupConfig->GetSetupInfo(SETUP_INFO_OPETC_HELP_FUC, chBuf))
 	{
 		g_pSOptionCharacter->sHelpDesk = atoi(chBuf);				
@@ -7304,7 +7305,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 		wsprintf(chBuf, "%d", g_pSOptionCharacter->sHelpDesk);
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_HELP_FUC, chBuf);
 	}
-	// END 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// END 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 
 	if(bSaveSetup)
@@ -7319,7 +7320,7 @@ void CInterface::LoadJoysticOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -7331,46 +7332,46 @@ void CInterface::SaveJoystickOptionInfo(structJoyStickOptionInfo* pJoysticOp)
 	char chBuf[512];			
 	memset(chBuf, 0x00 ,512);			
 
-	// Á¶ÀÌ½ºÆ½ »ç¿ë	
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½	
 	{		
 		wsprintf(chBuf, "%d", pJoysticOp->bUseJoystick);
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_USE, chBuf);
 	}
 
-	// Á¶ÀÌ½ºÆ½ ¼±ÅÃ	
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½	
 	{			
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_SELECT, pJoysticOp->chJoySelJoy);
 	}
 
-	// Á¶ÀÌ½ºÆ½ Áøµ¿»ç¿ë	
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
 	{		
 		wsprintf(chBuf, "%d", pJoysticOp->bUseFeedJoyStick);
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_FEED, chBuf);
 	}
 
-	// Á¶ÀÌ½ºÆ½ °¨µµ	
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½	
 	{		
 		wsprintf(chBuf, "%d", pJoysticOp->nJoysticSense);
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_SENSE, chBuf);
 	}
 
-	// Å° ¼³Á¤ °¡Áö°í ¿À±â	
+	// Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	{				
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_JOYSTICK_KEYCONFIG, pJoysticOp->chJoyKeyFile);
 	}
 
-	// 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®	
+	// 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½	
 	{		
 		wsprintf(chBuf, "%d", g_pSOptionCharacter->sHelpDesk );
 		m_pSetupConfig->SetSetupInfo(SETUP_INFO_OPETC_HELP_FUC, chBuf);
 	}
-	// END 2013-04-05 by bhsohn Help¿É¼Ç ÀúÀå ¾ÈµÇ´Â Çö»ó Ã³¸®
+	// END 2013-04-05 by bhsohn Helpï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -7388,8 +7389,8 @@ structJoystickSetupKeyTable	 *CInterface::GetJoystickSetupKeyTable(int nKeyIndex
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½ Á¤º¸ ÀúÀå
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -7408,22 +7409,22 @@ void CInterface::SaveJoysticSetupInfo(char* pJoyKeyFile, structJoyStickOptionInf
 		memset(buf, 0x00, 256);
 		if(pstruJoyStickOptionInfo->bUseJoystick)
 		{
-			wsprintf(buf, STRMSG_C_081120_0202);//"Á¶ÀÌ½ºÆ½À» »ç¿ëÇÕ´Ï´Ù."
+			wsprintf(buf, STRMSG_C_081120_0202);//"ï¿½ï¿½ï¿½Ì½ï¿½Æ½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."
 		}
 		else
 		{
-			wsprintf(buf, STRMSG_C_081120_0203);//"Á¶ÀÌ½ºÆ½À» »ç¿ëÀ» Á¾·áÇÕ´Ï´Ù."
+			wsprintf(buf, STRMSG_C_081120_0203);//"ï¿½ï¿½ï¿½Ì½ï¿½Æ½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."
 		}
 		
 		g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);	
 		
-		// 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
+		// 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
 		if(pstruJoyStickOptionInfo->bUseJoystick)
 		{
-			wsprintf(buf, STRMSG_C_081223_0201);//"\\yÄÁÆ®·Ñ·¯°¡ ¼³Á¤µÈ »óÅÂ¿¡¼­ ¸¶¿ì½º¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â ±â¾î°¡ Á¤Áö»óÅÂ°¡ µÇ¾î¾ß ÇÕ´Ï´Ù."
+			wsprintf(buf, STRMSG_C_081223_0201);//"\\yï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½Õ´Ï´ï¿½."
 			g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);	
 		}
-		// end 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
+		// end 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
 		
 	}
 	CJoyStickInput *pJoyStick = g_pD3dApp->GetJoystickControl();
@@ -7431,21 +7432,21 @@ void CInterface::SaveJoysticSetupInfo(char* pJoyKeyFile, structJoyStickOptionInf
 	{		
 		if(0 != stricmp(pJoyStick->GetSelJoystickCtrlDevice(), pstruJoyStickOptionInfo->chJoySelJoy))
 		{
-			// ÀåÄ¡ º¯°æ µÇ¾ú´Ù.
+			// ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½.
 			g_pD3dApp->InitJoyStickDevice(TRUE, TRUE, pstruJoyStickOptionInfo->chJoySelJoy);
 		}
 	}	
 	else
 	{
-		// ÀåÄ¡°¡ ¾ø´Ù
+		// ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->InitJoyStickDevice(TRUE, TRUE, pstruJoyStickOptionInfo->chJoySelJoy);
 	}
 
 	memcpy(g_pJoysticOp, pstruJoyStickOptionInfo, sizeof(structJoyStickOptionInfo));
 	
 	
-	g_pD3dApp->SetUseJoyStick(g_pJoysticOp->bUseJoystick);// Á¶ÀÌ½ºÆ½ »ç¿ë
-	g_pD3dApp->SetUseJoyFeedBack(g_pJoysticOp->bUseFeedJoyStick); // Á¶ÀÌ½ºÆ½ Áøµ¿ »ç¿ëÀ¯¹«
+	g_pD3dApp->SetUseJoyStick(g_pJoysticOp->bUseJoystick);// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½
+	g_pD3dApp->SetUseJoyFeedBack(g_pJoysticOp->bUseFeedJoyStick); // ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	int nCnt = 0;
 	int nBehavior = 0;
@@ -7468,27 +7469,27 @@ void CInterface::SaveJoysticSetupInfo(char* pJoyKeyFile, structJoyStickOptionInf
 			if(i_pJoystickSetupKeyTable[nCnt].nBehavior[nBehavior] != -1)
 			{
 				wsprintf(chTmpBuff, "%d,", i_pJoystickSetupKeyTable[nCnt].nBehavior[nBehavior]);
-				strcat(chBuff, chTmpBuff);	// µÚ¿¡´Ù ºÙÀÌÀÚ
+				strcat(chBuff, chTmpBuff);	// ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		}			
 		m_pJoySticConfig->SetSetupInfo(chKeyBuff, chBuff);
 	}
 
-	m_pJoySticConfig->SaveSetupInfo(pJoyKeyFile); // ¼Â¾÷°ªÀúÀå
+	m_pJoySticConfig->SaveSetupInfo(pJoyKeyFile); // ï¿½Â¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	LoadFileJoysticInfo(m_pJoySticConfig, m_pJoystickSetupKeyTable);		// ¼Â¾÷ ±¸Á¶Ã¼¿¡¼­ ´Ù½Ã ·Îµå
-	RefreshJoystickOption();	// ½ÇÁ¦ Àû¿ëÇÏ°Ô²û Àû¿ë
+	LoadFileJoysticInfo(m_pJoySticConfig, m_pJoystickSetupKeyTable);		// ï¿½Â¾ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Îµï¿½
+	RefreshJoystickOption();	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ¼Â¾÷Á¤º¸ ÀúÀå
+	// ï¿½Â¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SaveOptionEtcInfo();	
 }
 
 
 
-// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê Å¸ÀÔ String°ª ¸®ÅÏ.
+// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ Stringï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 /**********************************************************
 **
-**	Æê½Ã½ºÅÛ - Æê Å¸ÀÔ String°ª ¸®ÅÏ.
+**	ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ Stringï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 **
 **	Create Info :	2010-06-15 by shcho&hslee
 **
@@ -7498,14 +7499,14 @@ char *CInterface :: GetString_PetType ( const INT a_nPetType )
 
 	switch ( a_nPetType )
 	{
-		case PARTNER_TYPE_NORMAL :	return STRMSG_C_100709_0100; //"±âº»Çü"
-//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-// 		case PARTNER_TYPE_DEF :		return STRMSG_C_100608_0404; //"¹æ¾îÇü"
-// 		case PARTNER_TYPE_ATT :		return STRMSG_C_100608_0405; //"°ø°ÝÇü"
-// 		case PARTNER_TYPE_BUFF :	return STRMSG_C_100608_0406; //"¹öÇÁÇü"
-// 		case PARTNER_TYPE_STORE :	return STRMSG_C_100608_0407; //"°³ÀÎ»óÁ¡"
- 		case PARTNER_TYPE_GROWTH :	return STRMSG_C_110902_0001; //"¼ºÀåÇü"		//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-//end 2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+		case PARTNER_TYPE_NORMAL :	return STRMSG_C_100709_0100; //"ï¿½âº»ï¿½ï¿½"
+//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+// 		case PARTNER_TYPE_DEF :		return STRMSG_C_100608_0404; //"ï¿½ï¿½ï¿½ï¿½ï¿½"
+// 		case PARTNER_TYPE_ATT :		return STRMSG_C_100608_0405; //"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+// 		case PARTNER_TYPE_BUFF :	return STRMSG_C_100608_0406; //"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+// 		case PARTNER_TYPE_STORE :	return STRMSG_C_100608_0407; //"ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½"
+ 		case PARTNER_TYPE_GROWTH :	return STRMSG_C_110902_0001; //"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"		//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+//end 2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 		default :
 			break;
@@ -7516,11 +7517,11 @@ char *CInterface :: GetString_PetType ( const INT a_nPetType )
 }
 
 
-// 2010. 05. 12 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ UI Ãß°¡ ¼öÁ¤. (ÀÎ°ÔÀÓ °ÅÁ¡ ¹æ¾î ´Ü°è Ç¥½Ã.)
+// 2010. 05. 12 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ UI ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ Ç¥ï¿½ï¿½.)
 
 /**********************************************************
 **
-**	Æ½ ÀÌº¥Æ® °è»ê.
+**	Æ½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½.
 **
 **	Create Info :	2010. 05. 12.	by hsLee.
 **
@@ -7549,10 +7550,10 @@ BOOL IsElapsedTime ( DWORD dwTime , DWORD *p_dwElapsedTime )
 	return FALSE;
 
 }
-// End 2010. 05. 12 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ UI Ãß°¡ ¼öÁ¤. (ÀÎ°ÔÀÓ °ÅÁ¡ ¹æ¾î ´Ü°è Ç¥½Ã.)
+// End 2010. 05. 12 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ UI ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ Ç¥ï¿½ï¿½.)
 
 
-// 2010. 05. 17 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ UI Ãß°¡ ¼öÁ¤. ´Ü°è Ç¥½Ã ¹ö±× ¼öÁ¤.
+// 2010. 05. 17 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ UI ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ü°ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 BOOL GetStrPara ( char *pStrBuff , INT iNum , char pKey , char *pGetPara )
 {
 
@@ -7595,7 +7596,7 @@ BOOL GetStrPara ( char *pStrBuff , INT iNum , char pKey , char *pGetPara )
 	return TRUE;
 
 }
-// End 2010. 05. 17 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ UI Ãß°¡ ¼öÁ¤. ´Ü°è Ç¥½Ã ¹ö±× ¼öÁ¤.
+// End 2010. 05. 17 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ UI ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ü°ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 void CInterface::ResetMapNameList()
 {
@@ -7607,7 +7608,7 @@ void CInterface::ResetMapNameList()
 	m_pMapNameImg->RestoreDeviceObjects();
 
 }
-// 2013-06-26 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç Ãß°¡ °³¹ß
+// 2013-06-26 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CInterface::GetSetupInfo(char* i_pTitle, char* o_pTxt)
 {
 	if(!m_pSetupConfig)
@@ -7627,7 +7628,7 @@ void CInterface::SetSetupInfo(char* i_pTitle, char* o_pTxt)
 		return ;
 	}
 	m_pSetupConfig->SetSetupInfo(i_pTitle, o_pTxt);
-	// ÆÄÀÏ¿¡ ¹Ù·Î ÀúÀå
+	// ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
 		char chMaxPath[MAX_PATH];
 		memset(chMaxPath, 0x00, MAX_PATH);
@@ -7636,7 +7637,7 @@ void CInterface::SetSetupInfo(char* i_pTitle, char* o_pTxt)
 	}
 }
 
-// 2013-08-23 by ssjung °ÅÁ¡Àü ¸®´º¾ó
+// 2013-08-23 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CInterface::NGCBaseWarOp(char* pTxt, float fSummonLiveTime)
 {
 	m_pINFOpMain->NGCBaseWarOp(pTxt, fSummonLiveTime);
@@ -7645,9 +7646,9 @@ void CInterface::NGCBaseWar10MinPopUp(MapIndex_t MapIndex)
 {
 	m_pINFOpMain->PopupNGCBaseWarLiveTime10Minute(MapIndex);
 }									 
-// end 2013-08-23 by ssjung °ÅÁ¡Àü ¸®´º¾ó
+// end 2013-08-23 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2014-04-23 by ssjung ÀÎÇÇ´ÏÆ¼ º¹±Í ½Ã ¸Þ½ÃÁö ¹Ú½º ¿¹¿Ü Ãß°¡
+// 2014-04-23 by ssjung ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 BOOL CInterface::ReturnToProgressInfinityCheck()
 {
 	vector<CINFMessageBox*>::iterator it = g_pGameMain->m_pInfWindow->m_vecMessageBox.begin();
@@ -7660,4 +7661,4 @@ BOOL CInterface::ReturnToProgressInfinityCheck()
 	}
 	return FALSE;
 }
-// end 2014-04-23 by ssjung ÀÎÇÇ´ÏÆ¼ º¹±Í ½Ã ¸Þ½ÃÁö ¹Ú½º ¿¹¿Ü Ãß°¡
+// end 2014-04-23 by ssjung ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½

@@ -9,10 +9,10 @@
 
 #include "IMSocketManager.h"
 
-// 2008-07-11 by bhsohn °úµµÇÑ Ã¤ÆÃ½Ã, Ã¤ÆÃ±ÝÁö ½Ã½ºÅÛ Ãß°¡
-#define MIN_CHATCAP_SECOND	5		// Ã¤ÆÃ°£ ÃÖ¼Ò °£°Ý
-#define MIN_CHATCAP_COUNT	5		// ÃÖ´ë Ã¤ÆÃ Çã¿ë ¼ö
-#define FORBID_CHAT_TIME	60		// Ã¤ÆÃ ±ÝÁö ½Ã°£(1ºÐ=60ÃÊ)
+// 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã½ï¿½, Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+#define MIN_CHATCAP_SECOND	5		// Ã¤ï¿½Ã°ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define MIN_CHATCAP_COUNT	5		// ï¿½Ö´ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
+#define FORBID_CHAT_TIME	60		// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½(1ï¿½ï¿½=60ï¿½ï¿½)
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -27,7 +27,7 @@ CIMSocketManager::CIMSocketManager(HWND hwnd)
 	
 	m_hwnd = hwnd;
 
-	// 2008-07-11 by bhsohn °úµµÇÑ Ã¤ÆÃ½Ã, Ã¤ÆÃ±ÝÁö ½Ã½ºÅÛ Ãß°¡
+	// 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã½ï¿½, Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_timeLastSendChat = GetServerDateTime();
 	m_timeLastSendChat.Year = 0;
 	m_timeLastSendChat.Month = 0;
@@ -36,7 +36,7 @@ CIMSocketManager::CIMSocketManager(HWND hwnd)
 	m_timeLastSendChat.Minute = 0;
 	m_timeLastSendChat.Second = 0;
 	
-	m_timeForbidSendChat = GetServerDateTime();	// ±ÝÁöµÇ´Â ½Ã°£	
+	m_timeForbidSendChat = GetServerDateTime();	// ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ã°ï¿½	
 	m_timeForbidSendChat.Year = 0;
 	m_timeForbidSendChat.Month = 0;
 	m_timeForbidSendChat.Day = 0;
@@ -61,8 +61,8 @@ CIMSocketManager::~CIMSocketManager()
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¸ÞÀÎ IM ¼­¹ö¿Í ¿¬°á
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ï¿½ IM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -76,8 +76,8 @@ BOOL CIMSocketManager::Connect(LPCSTR strPeerIP, int nPort)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¸ÞÀÎ IM ¼­¹ö¿Í ¿¬°áÁ¾·á
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ï¿½ IM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -95,8 +95,8 @@ BOOL CIMSocketManager::CloseSocket()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		IM¼­¹öÂÊ¿¡ ÆÐÅ¶À» ½ð´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		IMï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -121,8 +121,8 @@ BOOL CIMSocketManager::Write(LPCSTR pPacket, int nLength, BOOL bArenaSend)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		IM¼­¹öÂÊ¿¡ ÆÐÅ¶À» ½ð´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		IMï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -147,8 +147,8 @@ BOOL CIMSocketManager::Write(BYTE *pPacket, int nLength)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		IM¼­¹öÂÊ¿¡ ÆÐÅ¶À» ½ð´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		IMï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -161,35 +161,35 @@ BOOL CIMSocketManager::SendMsg( int nType, char *pPacket, int nSize )
 	BOOL bArenaSend = FALSE;
 	switch(nType)
 	{
-	case T_IC_CONNECT_ALIVE:	// Å¬¶óÀÌ¾ðÆ®°¡ »ì¾ÆÀÖÀ½À» ¾Ë·ÁÁÜ
+	case T_IC_CONNECT_ALIVE:	// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½ï¿½
 		{
 			bArenaSend = TRUE;
 			bBothSend = TRUE;
 		}
 		break;
-	case T_IC_PARTY_LEAVE_FROM_M_TO_A:					// Main¼­¹ö¿¡¼­ Arena¼­¹ö·Î ¿Ã‹š ³¯¸²
-	case T_IC_PARTY_REQUEST_PARTYINFO_FROM_A_TO_M:		// Arena¼­¹ö¿¡¼­ Main¼­¹ö·Î ¿Ã‹š ³¯¸²	
+	case T_IC_PARTY_LEAVE_FROM_M_TO_A:					// Mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Arenaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã‹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_PARTY_REQUEST_PARTYINFO_FROM_A_TO_M:		// Arenaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã‹ï¿½ ï¿½ï¿½ï¿½ï¿½	
 		{
 			bArenaSend = FALSE;
 		}
 		break;
 	case T_IC_PARTY_LEAVE_FROM_A_TO_M:
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	case T_IC_PARTY_GET_AUTO_PARTY_INFO:
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
 			bArenaSend = TRUE;
 		}
 		break;
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	/// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : ÆÄÆ¼°ü·Ã ÆÐÅ¶µµ ¾Æ·¹³ª¼­¹ö·Î Àü¼ÛÀÌ °¡´ÉÇÏ°Ô ¼öÁ¤
+	/// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case T_IC_PARTY_RECOMMENDATION_MEMBER:
 	case T_IC_PARTY_CHANGE_INFO:
 	case T_IC_PARTY_LIST_INFO:
 	case T_IC_PARTY_JOIN_FREE:
 		{
 #ifdef SC_ARENA_EX_1ST_JHSEOL_MSPARK
-			// 2013-05-21 by bhsohn ¾Æ·¹³ª ÆÐÅ¶ °ü·Ã Ã³¸®
+			// 2013-05-21 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 // 			bArenaSend = TRUE;
 // 			bBothSend = TRUE;						
 			if(g_pD3dApp && g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
@@ -199,7 +199,7 @@ BOOL CIMSocketManager::SendMsg( int nType, char *pPacket, int nSize )
 #endif
 		}
 		break;
-	/// end 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : ÆÄÆ¼°ü·Ã ÆÐÅ¶µµ ¾Æ·¹³ª¼­¹ö·Î Àü¼ÛÀÌ °¡´ÉÇÏ°Ô ¼öÁ¤
+	/// end 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	}	
 
@@ -226,8 +226,8 @@ BOOL CIMSocketManager::SendMsg( int nType, char *pPacket, int nSize )
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		IM¼­¹öÂÊ¿¡ ÆÐÅ¶À» ½ð´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		IMï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -252,8 +252,8 @@ BOOL CIMSocketManager::WriteMessageType(MessageType_t msgType)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		IM¼­¹öÂÊ¿¡ Ã¤ÆÃ ¸Þ½ÃÁö¸¦ »Ñ¸°´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		IMï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ Ã¤ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -266,20 +266,23 @@ void CIMSocketManager::SendChat(int nType, char* strCharacter, char* strChat)
 	BOOL bNoSend = FALSE;
 	switch(nType)
 	{
-	case T_IC_CHAT_ALL:		// °øÁö»çÇ×
-	case T_IC_CHAT_GUILD:	// ±æµåÃ¤ÆÃ	
-	case T_IC_CHAT_MAP:		// ¸ÊÃ¤ÆÃ
-	case T_IC_CHAT_SELL_ALL:	// ÀüÃ¼ Ã¤ÆÃ($)
-	case T_IC_CHAT_CASH_ALL:	// À¯·á ¸Ê Ã¤ÆÃ(&)
-	case T_IC_CHAT_PTOP:		// ±Ó¼Ó¸» Ã¤ÆÃ 
+	case T_IC_CHAT_ALL:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHAT_GUILD:	// ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½	
+	case T_IC_CHAT_MAP:		// ï¿½ï¿½Ã¤ï¿½ï¿½
+	case T_IC_CHAT_SELL_ALL:	// ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½($)
+	case T_IC_CHAT_CASH_ALL:	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½(&)
+	case T_IC_CHAT_PTOP:		// ï¿½Ó¼Ó¸ï¿½ Ã¤ï¿½ï¿½ 
 	case T_IC_CHAT_WAR:
+#ifdef _RAT_CHAT_SYSTEM
+	case T_IC_CHAT_INFLUENCE_ALL_RAT:
+#endif
 	case T_IC_CHAT_CHATROOM:
-	case T_IC_CHAT_INFLUENCE_ALL:	// ÁöµµÀÚ Ã¤ÆÃ
+	case T_IC_CHAT_INFLUENCE_ALL:	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 		{
 
 		}
 		break;			
-	case T_IC_CHAT_PARTY:	// Æí´ëÃ¤ÆÃ	
+	case T_IC_CHAT_PARTY:	// ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½	
 		{
 			if((IsArenaLoadSuccess())
 				&& (IsIMArenaServerConnected()))
@@ -288,7 +291,7 @@ void CIMSocketManager::SendChat(int nType, char* strCharacter, char* strChat)
 			}
 		}
 		break;
-	case T_IC_CHAT_REGION:	// Áö¿ª Ã¤ÆÃ	
+	case T_IC_CHAT_REGION:	// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½	
 		{
 			BOOL bAdmin = 
 				COMPARE_RACE(g_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER);
@@ -306,15 +309,15 @@ void CIMSocketManager::SendChat(int nType, char* strCharacter, char* strChat)
 			else if(bAdmin && IsOnlySendArenaCmd(strChat))
 			{			
 				bNoSend = TRUE;
-				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0205,COLOR_ERROR);//"¸ÕÀú ¾Æ·¹³ª ¼­¹ö¿Í ¿¬°áÇØÁÖ¼¼¿ä"
+				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080225_0205,COLOR_ERROR);//"ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½"
 			}
 		}
 		break;
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	case T_IC_CHAT_INFINITY:
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
-	case T_IC_CHAT_ARENA:	// ¾Æ·¹³ª Ã¤ÆÃ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	case T_IC_CHAT_ARENA:	// ï¿½Æ·ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 		{
 			if(IsIMArenaServerConnected())
 			{
@@ -333,14 +336,14 @@ void CIMSocketManager::SendChat(int nType, char* strCharacter, char* strChat)
 		return;
 	}
 	
-	// 2008-07-11 by bhsohn °úµµÇÑ Ã¤ÆÃ½Ã, Ã¤ÆÃ±ÝÁö ½Ã½ºÅÛ Ãß°¡
+	// 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã½ï¿½, Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	if(!IsPossibleSendChat())
 	{
-		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080711_0200,COLOR_ERROR);//"\\yÀá½Ãµ¿¾È Ã¤ÆÃÀ» ÀÌ¿ëÇÏ½Ç ¼ö ¾ø½À´Ï´Ù."
+		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_080711_0200,COLOR_ERROR);//"\\yï¿½ï¿½Ãµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		return;
 	}
 
-	// end 2008-07-11 by bhsohn °úµµÇÑ Ã¤ÆÃ½Ã, Ã¤ÆÃ±ÝÁö ½Ã½ºÅÛ Ãß°¡
+	// end 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã½ï¿½, Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	if(bSendArenaServer)
 	{
@@ -354,8 +357,8 @@ void CIMSocketManager::SendChat(int nType, char* strCharacter, char* strChat)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¸ÞÀÎIM¼­¹ö¿Í ¿¬°áÀÌ µÇ¾îÀÖ³Ä?
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ï¿½IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö³ï¿½?
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -370,8 +373,8 @@ BOOL CIMSocketManager::IsConnected()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¸ÞÀÎIM¼­¹ö¿Í ¿¬°á¿¡ ÇÊ¿äÇÑ ÀÌº¥Æ® Ã³¸®
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ï¿½IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½á¿¡ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -386,8 +389,8 @@ LONG CIMSocketManager::OnAsyncEvent(LONG lParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¸ÞÀÎIM¼­¹ö¿ÍÀÇ ÆÐÅ¶À» ÀÐ´Â´Ù. 
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ï¿½IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½Ð´Â´ï¿½. 
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -412,8 +415,8 @@ int CIMSocketManager::Read(LPSTR *pPacket, int &nLength, int nSocketNotifyType)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		±æµå Á¤º¸¸¦ ÀÐ´Â´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´Â´ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -434,8 +437,8 @@ void CIMSocketManager::OnRecvdGetGuildOK(MSG_IC_CHAT_GET_GUILD_OK* pMsg, int nSo
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¹Ù²ï ±æµå Á¤º¸¸¦ ÀÐ´Â´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Ù²ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´Â´ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -456,8 +459,8 @@ void CIMSocketManager::OnRecvdChangeGuild(MSG_IC_CHAT_CHANGE_GUILD* pMsg, int nS
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¹Ù²ï ÆÄÆ¼Á¤º¸¸¦ °»½ÅÇÑ´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Ù²ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -477,8 +480,8 @@ void CIMSocketManager::OnRecvdChangeParty(MSG_IC_CHAT_CHANGE_PARTY* pMsg, int nS
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¸ÞÀÎ¼­¹ö¿¡ ÄÉ¸¯ÅÍ Á¤º¸ °»½Å
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -492,8 +495,8 @@ void CIMSocketManager::SetChaterInfo(CHARACTER* pInfo)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ¼­¹ö¿¡ Á¢¼Ó ½Ãµµ
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -518,8 +521,8 @@ BOOL CIMSocketManager::ConnectArena(LPCSTR strPeerIP, int nPort, BOOL* bAlReadyC
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ¼­¹ö¿¡ Á¢¼Ó¿¡ ÇÊ¿äÇÑ ÀÌº¥Æ® Ã³¸®
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -538,8 +541,8 @@ LONG CIMSocketManager::OnArenaAsyncEvent(LONG lParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª IM¼­¹ö¿¡ Á¢¼ÓÀ» ²÷´Â´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -559,8 +562,8 @@ BOOL CIMSocketManager::CloseArenaIMSocket()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÀûÇÕÇÑ ¼ÒÄÏÀ» ¾ò¾î¿Â´Ù.
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -578,8 +581,8 @@ CIMSocket* CIMSocketManager::GetIMWinSocket(UINT nSocketNotifyType)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ¼ÒÄÏÀ» ¸®ÅÏ
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -593,8 +596,8 @@ CIMSocket* CIMSocketManager::GetArenaIMSocket()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª IM¼­¹ö¿Í ¿¬°áµÇ¾ú´ÂÁö ¿©ºÎ ÆÇ´Ü
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -612,8 +615,8 @@ BOOL CIMSocketManager::IsIMArenaServerConnected()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª »óÅÂÀÎÁö ÆÇ´Ü
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -632,8 +635,8 @@ BOOL CIMSocketManager::IsArenaLoadSuccess()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª ÄÉ¸¯ÅÍ »óÅÂ Á¤º¸ °»½Å
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
 ///
@@ -647,8 +650,8 @@ void CIMSocketManager::SetArenaChaterInfo(CHARACTER* pInfo)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¾Æ·¹³ª IM¼­¹ö¿¡¸¸ º¸³»´Â Ä¿¸ÇµåÀÎÁö ÆÇ´Ü
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \brief		ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2008-03-10 ~ 2008-03-10
 /// \warning	
 ///
@@ -659,7 +662,7 @@ BOOL CIMSocketManager::IsOnlySendArenaCmd(char* pChat)
 {
 	if(0 == COMPARE_RACE(g_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))
 	{
-		// °ü¸®ÀÚ°¡ ¾Æ´Ï¸é º¸³»¸é ¾ÈµÈ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ´ï¿½.
 		return FALSE;
 	}
 
@@ -690,7 +693,7 @@ BOOL CIMSocketManager::IsOnlySendArenaCmd(char* pChat)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-07-11 by bhsohn °úµµÇÑ Ã¤ÆÃ½Ã, Ã¤ÆÃ±ÝÁö ½Ã½ºÅÛ Ãß°¡
+/// \author		// 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã½ï¿½, Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-07-11 ~ 2008-07-11
 /// \warning	
 ///
@@ -700,7 +703,7 @@ BOOL CIMSocketManager::IsOnlySendArenaCmd(char* pChat)
 BOOL CIMSocketManager::IsPossibleSendChat()
 {
 	CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();		
-	// ÁöµµÀÚ ¹× ºÎÁöµµÀÚ È¤Àº °ü¸®ÀÚ´Â Ã¤ÆÃ ±ÝÁö¿¡¼­ Á¦¿ÜµÈ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÜµÈ´ï¿½.
 	if(COMPARE_RACE(myShuttleInfo.Race, RACE_INFLUENCE_LEADER)
 		||COMPARE_RACE(myShuttleInfo.Race, RACE_INFLUENCE_SUBLEADER_1)
 		||COMPARE_RACE(myShuttleInfo.Race, RACE_INFLUENCE_SUBLEADER_2)
@@ -715,7 +718,7 @@ BOOL CIMSocketManager::IsPossibleSendChat()
 	{
 		if(currenttime < m_timeForbidSendChat)
 		{
-			// ±ÝÁö ½Ã°£ÀÌ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½Ì´ï¿½.
 			return FALSE;
 		}
 	}
@@ -734,7 +737,7 @@ BOOL CIMSocketManager::IsPossibleSendChat()
 		if(m_nMinChatCount >= MIN_CHATCAP_COUNT)
 		{
 			m_timeForbidSendChat = currenttime;
-			m_timeForbidSendChat.AddDateTime(0,0,0,0,0, FORBID_CHAT_TIME);	// 1ºÐµ¿¾È Ã¤ÆÃ ±ÝÁö
+			m_timeForbidSendChat.AddDateTime(0,0,0,0,0, FORBID_CHAT_TIME);	// 1ï¿½Ðµï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			return FALSE;
 		}
 	}

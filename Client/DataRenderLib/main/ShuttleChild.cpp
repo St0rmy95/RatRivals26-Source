@@ -10,7 +10,7 @@
 //#include "TraceData.h"
 // remodeling, 2004-04-28 by dhkwon
 #include "StoreData.h"	// Itemtable, enchant, store
-#include "QuestData.h"	// Quest, CharacterQuest °ü¸®
+#include "QuestData.h"	// Quest, CharacterQuest ï¿½ï¿½ï¿½ï¿½
 
 #include "EnemyData.h"
 #include "INFQuest.h"
@@ -19,7 +19,7 @@
 #include "Background.h"
 #include "SceneData.h"
 #include "KeyBoardInput.h"
-#include "JoyStickInput.h"					// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+#include "JoyStickInput.h"					// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 #include "FieldWinSocket.h"
 #include "INFGameMain.h"
 #include "Camera.h"
@@ -37,7 +37,7 @@
 #include "INFWeaponInfo.h"
 //#include "INFNotice.h"
 //#include "TraceRender.h"
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 //#include "IMSocket.h"
 #include "IMSocketManager.h"
 
@@ -52,7 +52,7 @@
 #include "Cinema.h"
 #include "INFCityBase.h"
 #include "INFCityWarp.h"
-// 2008-03-19 by bhsohn Ep3¿É¼ÇÃ¢
+// 2008-03-19 by bhsohn Ep3ï¿½É¼ï¿½Ã¢
 //#include "INFSystem.h"
 #include "INFOptionSystem.h"
 
@@ -82,18 +82,18 @@
 #include "EffectRender.h"
 #include "INFGameArena.h"
 #include "INFOpMain.h"
-#include "INFMissionMain.h" // 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+#include "INFMissionMain.h" // 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-// 2009-02-25 by bhsohn Á¶ÀÌ½ºÆ½ ÀÌ¿ë, ¸Þ´ºÃ¢ ¶ì¿ì¸é A±â¾î´Â ¸¶¿ì½º·Î Á¶Àý
+// 2009-02-25 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Ì¿ï¿½, ï¿½Þ´ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #include "INFCharacterInfoExtend.h"
 #include "INFInvenExtend.h"
-// end 2009-02-25 by bhsohn Á¶ÀÌ½ºÆ½ ÀÌ¿ë, ¸Þ´ºÃ¢ ¶ì¿ì¸é A±â¾î´Â ¸¶¿ì½º·Î Á¶Àý
+// end 2009-02-25 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Ì¿ï¿½, ï¿½Þ´ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#include "INFInfinity.h"		// 2010. 07. 27 by hsLee ÀÎÇÇ´ÏÆ¼ 2Â÷ °ÅÁ¡ ¹æ¾î ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ Ã³¸®.
+#include "INFInfinity.h"		// 2010. 07. 27 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ Ã³ï¿½ï¿½.
 
-#include "PetManager.h"	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
-#include "TimeMgr.h" // 2011-08-12 by hsson Æí´ë ´ë¿­¿¡ Ãß°¡/Å»Åð ½Ã µô·¹ÀÌ¸¦ »ðÀÔ (Æí´ë µ¿±âÈ­ ¹ö±×¸¦ ÁÙÀÓ)
-#define SELECT_MENU_ITEM_SHIFT(x)		(WEAPON_BODYCON_LOADING << (x*10))//10 = ±â¾î°¡ Áõ°¡ÇÏ¸é¼­ bodyconditionÀÌ Áõ°¡ÇÏ´Â °ª
+#include "PetManager.h"	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+#include "TimeMgr.h" // 2011-08-12 by hsson ï¿½ï¿½ï¿½ ï¿½ë¿­ï¿½ï¿½ ï¿½ß°ï¿½/Å»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½)
+#define SELECT_MENU_ITEM_SHIFT(x)		(WEAPON_BODYCON_LOADING << (x*10))//10 = ï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸é¼­ bodyconditionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
 
 
 //////////////////////////////////////////////////////////////////////
@@ -105,17 +105,17 @@
 #define TUTORIAL_MISSION_4			4
 #define TUTORIAL_MISSION_11			11
 
-// 2008-07-07 by dgwoo GetAmorGearHeight() º¯°æ.
+// 2008-07-07 by dgwoo GetAmorGearHeight() ï¿½ï¿½ï¿½ï¿½.
 //#define SHUTTLE_HEIGHT				7.087f
 
-#define OVERHEAT_REPAIR_TIME		10.0f	// 10ÃÊ
-#define UNIT_STOP_DELAY				2.0f	// 2ÃÊ			// 2005-09-26 by ispark
+#define OVERHEAT_REPAIR_TIME		10.0f	// 10ï¿½ï¿½
+#define UNIT_STOP_DELAY				2.0f	// 2ï¿½ï¿½			// 2005-09-26 by ispark
 
 #define AIR_SIDERATE_MAX			0.7f
 #define AIR_UPDOWNRATE_MAX			0.5f
 
 //////////////////////////////////////////////////////////////////////
-// Âø·ú½Ã ÀÌµ¿°ü·Ã Á¤ÀÇ¹® 
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½ 
 // ydkim
 // 2004.6.7
 //////////////////////////////////////////////////////////////////////
@@ -139,7 +139,7 @@
 #define REFLEXION_TILE_MIN_SIZE		1
 
 ///////////////////////////////////////////////////////////////////////
-///		½ºÅ³ °ü·Ã Á¤ÀÇ¹®
+///		ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½
 ///		jschoi
 ///		2006.06.26
 ///////////////////////////////////////////////////////////////////////
@@ -147,7 +147,7 @@
 #define TARGET_ON		1
 #define TARGET_OFF		2
 
-// Âø·úÀå ÆÐÅÏ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define AIR_PORT_LANDING_PATTERN_NONE	0
 #define AIR_PORT_LANDING_PATTERN_START	1
 #define AIR_PORT_LANDING_PATTERN_END	2
@@ -156,53 +156,53 @@
 
 #define AIR_PORT_MIN_SPEED				150.0f
 
-// Æí´ë ´ëÇü½Ã ÀÌµ¿ ¹üÀ§
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 #define FORMATION_UPDOWN_RANGE			0.1f		
 #define FORMATION_SIDE_RANGE			0.1f		
 #define FORMATION_MOVE_RATE				20
 
-// 2007-04-02 by bhsohn MoveÆÐÅ¶À¸·Î Àû±â »óÅÂ Ã¼Å©
+// 2007-04-02 by bhsohn Moveï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 #define	UNIT_CHG_STATE_TIME				0.5f
 
-// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define	UNIT_SEARCHEYE_CHG_STATE_TIME	0.01f
 
-// 2007-04-13 by bhsohn A±â¾î Æ÷´ë¹®Á¦
-#define		AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN			0.266f			// ÃÖ´ë 15µµ*DegToRad
-#define		AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN			2.0943f 		// ÃÖ¼Ò 120µµ*DegToRad
+// 2007-04-13 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½
+#define		AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN			0.266f			// ï¿½Ö´ï¿½ 15ï¿½ï¿½*DegToRad
+#define		AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN			2.0943f 		// ï¿½Ö¼ï¿½ 120ï¿½ï¿½*DegToRad
 #define		AGEAR_SIEGEMODE_MIN_CAP						0.001f 			
 
-// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
-#define		AGEAR_LANDING_SPEED							45.0f			// Âø·ú ¼Óµµ
-#define		AGEAR_RASING_SPEED							60.0f			// ÀÌ·ú ¼Óµµ
-#define		AGEAR_RASING_TIME							0.4f			// ÀÌ·ú ½Ã°£
+// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define		AGEAR_LANDING_SPEED							45.0f			// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+#define		AGEAR_RASING_SPEED							60.0f			// ï¿½Ì·ï¿½ ï¿½Óµï¿½
+#define		AGEAR_RASING_TIME							0.4f			// ï¿½Ì·ï¿½ ï¿½Ã°ï¿½
 
-// 2007-12-05 by bhsohn º®¿¡ ¶Õ°í µé¾î°¡´Â Çö»ó Ã³¸®
-// ÃÖ´ë °¢µµ 10µµ
+// 2007-12-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½
 #define		MAX_LADING_DO							10.0f			
 
-// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 #define		JOYSTIC_STEP_MAX_VALUE					(1000.0f)
 
-// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define		ATTACK_POSSIBLE_DISTANCE				(20.0f)
-// end 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+// end 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
-#define		SEND_MOVE_VEL_CHECK_TIME				(1000)	// 1ÃÊ¿¡ ÇÑ¹ø¾¿ º¸³½´Ù.
-// end 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+// 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
+#define		SEND_MOVE_VEL_CHECK_TIME				(1000)	// 1ï¿½Ê¿ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// end 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 
-// 2009-03-30 by bhsohn Â÷Â¡¼¦ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+// 2009-03-30 by bhsohn ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define		BGEAR_CHAGINGSHOT_SHOT_CAP_TIME			(1.2f)	
-// end 2009-03-30 by bhsohn Â÷Â¡¼¦ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+// end 2009-03-30 by bhsohn ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+// 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #define		FALLING_TIME	5000
-// end 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+// end 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define		MAX_PETUSETITEM_CAP		300
-// END 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+// END 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef _DEBUG
 void TempDataRenderLib() {}
@@ -222,13 +222,13 @@ CShuttleChild::CShuttleChild()
 	D3DXVec3Normalize(&m_vVel,&m_vVel);
     D3DXVec3Cross(&m_vSideVel,&m_vUp,&m_vVel);          
 	//m_dwState = _NORMAL;
-	m_fSideRate = 0.0f;									// ÁÂ¿ì È¸Àü ¼Óµµ Á¶Àý
+	m_fSideRate = 0.0f;									// ï¿½Â¿ï¿½ È¸ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_fSideCheckRate = 0.0f;
 	m_fCurrentTime = 0.0f;
 	memset(&m_myShuttleInfo,0x00,sizeof(CHARACTER));
 	
-	// 2007-05-15 by bhsohn ±â¾î ½ºÅÈ °ü·Ã Ã³¸®
-	memset(&m_myShuttleFullStatInfo,0x00,sizeof(GEAR_STAT));	// ÀüÃ¼ ½ºÅÈÁ¤º¸ 	
+	// 2007-05-15 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	memset(&m_myShuttleFullStatInfo,0x00,sizeof(GEAR_STAT));	// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 	
 
 	m_fAxisRate = 0.0f;
 	m_nUDState = 0;
@@ -385,19 +385,19 @@ CShuttleChild::CShuttleChild()
 	m_pStoreData = NULL;
 	m_fKeyboardInputTimer = 0;
 
-	m_fFrameLerp          = 0;							// ÀÌµ¿ ¾Ö´Ï¸ÞÀÌ¼Ç ·¯ÇÁ
-	m_fAniFlag            = 0;							// ÀÌµ¿ ¾Ö´Ï¸ÞÀÌ¼Ç ÇÃ·¹±×
-	m_bAniKeyBlock        = FALSE;						// ¾Ö´Ï¸ÞÀÌ¼ÇÁß Å°ºí·°°ª
-	m_bAgearPortflag	  = FALSE;						// A ±â¾î Âø·úÀå ÇÃ·¹±×
-	m_bReflexionKeyBlock  = FALSE;						// º®¿¡ºÎµðÄ¥¶§ Å°ºí·° °ª 
+	m_fFrameLerp          = 0;							// ï¿½Ìµï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	m_fAniFlag            = 0;							// ï¿½Ìµï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
+	m_bAniKeyBlock        = FALSE;						// ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½
+	m_bAgearPortflag	  = FALSE;						// A ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
+	m_bReflexionKeyBlock  = FALSE;						// ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ä¥ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ 
 	m_bLandingOldCamtypeFPS		 = FALSE;
 
 	m_fAnimationMoveTimer		 = ANIMATION_UNIT_TIMING;
 	m_fSinMove = 0;
 	m_dwLastAttackTick			= 0;		
-	m_bIsCameraPattern = FALSE;				// 2004.06.28 jschoi Ä«¸Þ¶óÆÐÅÏ »ç¿ëÁßÀÎ°¡?
-	m_pCinemaUnitPattern = NULL;			// 2004.06.17 jschoi À¯´Ö(½ºÅ³,¿¬Ãâ) ÆÐÅÏ
-	m_pCinemaCamera = NULL;					// 2005.06.17 jschoi ½ºÅ³ Ä«¸Þ¶ó
+	m_bIsCameraPattern = FALSE;				// 2004.06.28 jschoi Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
+	m_pCinemaUnitPattern = NULL;			// 2004.06.17 jschoi ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Å³,ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
+	m_pCinemaCamera = NULL;					// 2005.06.17 jschoi ï¿½ï¿½Å³ Ä«ï¿½Þ¶ï¿½
 	m_nEventType = EVENT_WARP_IN;
 	m_pCurrentObjEvent = NULL;
 	m_pCurrentObjEventOld = NULL;
@@ -411,12 +411,12 @@ CShuttleChild::CShuttleChild()
 	m_pGuildWarInfo = NULL;
 	m_fWarpOutDistance = 0;
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ÀåÂøÇ° ÃÖ´ë °³¼ö°ª º¯°æ.
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Ç° ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	//memset(	&m_wearItemParamFactor, 0x00, sizeof(WEAR_ITEM_PARAM_FACTOR)*WEAR_ITEM_NUMBER );
 	memset(	&m_wearItemParamFactor, 0x00, sizeof(WEAR_ITEM_PARAM_FACTOR)*WEAR_ITEM_NUMBER );
 	memset(	&m_wearPreRareItemParamFactor, 0x00, sizeof(WEAR_ITEM_PARAM_FACTOR)*MAX_EQUIP_POS );
 	memset(	&m_wearSufRareItemParamFactor, 0x00, sizeof(WEAR_ITEM_PARAM_FACTOR)*MAX_EQUIP_POS );
-	// End 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ÀåÂøÇ° ÃÖ´ë °³¼ö°ª º¯°æ.
+	// End 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Ç° ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	
 	m_nOldMapIndex = 0;
 	
@@ -431,10 +431,10 @@ CShuttleChild::CShuttleChild()
 	m_fCurrentAngle = 0;
 	m_fCurrentSideRate = 0;
 
-	m_bMouseMoveLock = FALSE;				// ±âº»ÀûÀ¸·Î ¸·À½	// 2005-07-05 by ispark
+	m_bMouseMoveLock = FALSE;				// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	// 2005-07-05 by ispark
 
 	// 2005-07-05 by ispark
-	// ·Ñ¸µ ½Ã½ºÅÛ ÃÊ±âÈ­
+	// ï¿½Ñ¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	InitRolling();
 
 	m_nEventTypeAirPort = AIR_PORT_LANDING_PATTERN_NONE;
@@ -447,14 +447,14 @@ CShuttleChild::CShuttleChild()
 	m_pRadarItemInfo = NULL;			// 2005-08-16 by ispark
 	m_bLandingField = FALSE;
 	m_bSkipPattern = FALSE;
-	m_bAttack = TRUE;					//°ø°ÝÀÌ °¡´ÉÇÑ ¸ðµå·Î ¼¼ÆÃ.
+	m_bAttack = TRUE;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	InitUnitStop();
 	m_fRotationX = SHUTTLE_ROTATION_DEFAULT_X;
 	m_fRotationY = 0.0f;
 	m_fRotationZ = SHUTTLE_ROTATION_DEFAULT_Z;
 	m_fRotationA = 0.0f;	
 	
-	// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+	// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 	//D3DXMatrixIdentity(&m_pMatInven);
 	//m_bInvenRender = FALSE;
 
@@ -470,18 +470,18 @@ CShuttleChild::CShuttleChild()
 
 	m_bObserve = FALSE;
 	m_bOperation = FALSE;
-	// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+	// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 //	for(i = 0; i < 4; i++)
 //	{
 //		D3DXMatrixIdentity(&m_pMatInvenWeaponSetPosition[i]);
 //		D3DXMatrixIdentity(&m_pMatInvenWeaponOrgPosition[i]);
 //	}
-	// end 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+	// end 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 
 	m_nArmorColorIndex = 0;
 	m_nInvenArmorColorIndex = 0;
 
-	// 2007-11-09 by dgwoo ¹«±â ¸Þ½¬¸¦ ¹è¿­¿¡¼­ º¤ÅÍ·Î º¯°æ.
+	// 2007-11-09 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	m_vectInvenWeaponMesh.clear();
 	for(i = 0 ; i < OBSERVE_MAX_QUICK ; i++)
 	{
@@ -490,7 +490,7 @@ CShuttleChild::CShuttleChild()
 
 	m_byFormationFlightType = 0;
 
-	// 2007-04-17 by bhsohn °¡±î¿î °Å¸®¿¡¼­ÀÇ ½ÃÁî¸ðµå½Ã µ¥ÀÌÁö ¾Èµé¾î°¡´Â Çö»ó Ã³¸®
+	// 2007-04-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	m_bAGearFollowEnemy = FALSE;
 
 	m_fUnitX = m_fUnitY = m_fUnitZ = m_fScaling = 0;
@@ -498,53 +498,53 @@ CShuttleChild::CShuttleChild()
 	m_bOldMousePosWindowArea = TRUE;	
 	m_fAmorHeight = 7.087f;
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	m_bSetCursorPos = FALSE;
 	m_nJoyStickRolling = 0;	
 
-	// 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+	// 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 	m_dwCheckTimeSendMoveVel = 0;
-	// end 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+	// end 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 
-	// 2009-03-30 by bhsohn Â÷Â¡¼¦ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+	// 2009-03-30 by bhsohn ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_fDelCapChagingSkill = 0.0f;
-	// end 2009-03-30 by bhsohn Â÷Â¡¼¦ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+	// end 2009-03-30 by bhsohn ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+	// 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_bDeadMessageEnable	= TRUE;
 
 	m_dwDeadTime	= 0;
-	// end 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
-	// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+	// end 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SetShowCinema ( FALSE );
-	//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+	//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	
-	// 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ½ºÅµ±ÝÁö
+	// 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
 	m_InfiState		= TRUE;
-	//end 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ½ºÅµ±ÝÁö
+	//end 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
 
-// 2012-09-20 by jhahn ÀÎºñÁöºí¿¡¼­ ÆÄÆ®³Ê ¾ÆÀÌÅÛ »ç¿ë°¡´É
-	HpCharge = FALSE;				 //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-	ShieldCharge = FALSE;			 //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-	SpCharge = FALSE;				 //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-//end 2012-09-20 by jhahn ÀÎºñÁöºí¿¡¼­ ÆÄÆ®³Ê ¾ÆÀÌÅÛ »ç¿ë°¡´É
+// 2012-09-20 by jhahn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
+	HpCharge = FALSE;				 //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	ShieldCharge = FALSE;			 //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	SpCharge = FALSE;				 //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+//end 2012-09-20 by jhahn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_dwPetUseItemTime_Spell	= 0;
 	m_dwPetUseItemTime_Hp		= 0;
 	m_dwPetUseItemTime_Dp		= 0;
 	m_dwPetUseItemTime_Sp		= 0;
-	// END 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// END 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+	// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 	m_fReverserIgnoreTime = 0.0f;
-	// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+	// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 
-	m_bLendSoundPlay = FALSE;				// 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
-	m_bShowInterface = FALSE;				// 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+	m_bLendSoundPlay = FALSE;				// 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	m_bShowInterface = FALSE;				// 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	m_bToggleKeyS = FALSE;					// 2014-09-04 by ymjoo SÅ° Åä±Û
+	m_bToggleKeyS = FALSE;					// 2014-09-04 by ymjoo SÅ° ï¿½ï¿½ï¿½
 }
 
 CShuttleChild::~CShuttleChild()
@@ -553,23 +553,23 @@ CShuttleChild::~CShuttleChild()
 
 	SAFE_DELETE(m_pGameData);
 
-	if(m_pCharacterInfo)//Ãß°¡
+	if(m_pCharacterInfo)//ï¿½ß°ï¿½
 	{
 		m_pCharacterInfo->InvalidateDeviceObjects();
 		m_pCharacterInfo->DeleteDeviceObjects();
 		SAFE_DELETE(m_pCharacterInfo);
 	}
 
-	SAFE_DELETE( m_pCinemaUnitPattern );			// 2004.06.17 jschoi ½ºÅ³ ÆÐÅÏ
-	SAFE_DELETE( m_pCinemaCamera );			// 2004.06.17 jschoi ½ºÅ³ Ä«¸Þ¶ó
+	SAFE_DELETE( m_pCinemaUnitPattern );			// 2004.06.17 jschoi ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	SAFE_DELETE( m_pCinemaCamera );			// 2004.06.17 jschoi ï¿½ï¿½Å³ Ä«ï¿½Þ¶ï¿½
 
 	SAFE_DELETE( m_pPrimaryWeapon );
 	SAFE_DELETE( m_pSecondaryWeapon );
 
-	SAFE_DELETE(m_pStoreData);	// m_pPrimaryWeapon, m_pSecondaryWeapon µÚ¿¡ Áö¿ö¾ß ÇÑ´Ù.
+	SAFE_DELETE(m_pStoreData);	// m_pPrimaryWeapon, m_pSecondaryWeapon ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 
-	SAFE_DELETE(m_pSkill);		// 2004-07-23 jschoi ½ºÅ³
-	SAFE_DELETE(m_pClientParty);	// 2004-08-19 jschoi ÆÄÆ¼
+	SAFE_DELETE(m_pSkill);		// 2004-07-23 jschoi ï¿½ï¿½Å³
+	SAFE_DELETE(m_pClientParty);	// 2004-08-19 jschoi ï¿½ï¿½Æ¼
 
 	SAFE_DELETE(m_pGuildWarInfo);
 //	InvalidateShadow();
@@ -579,7 +579,7 @@ CShuttleChild::~CShuttleChild()
 	g_pShuttleChild = NULL;
 	m_bTargetChange = FALSE;
 
-	// 2007-11-09 by dgwoo ¹«±â ¸Þ½¬¸¦ ¹è¿­¿¡¼­ º¤ÅÍ·Î º¯°æ.
+	// 2007-11-09 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	m_vectInvenWeaponMesh.clear();
 }
 
@@ -595,7 +595,7 @@ HRESULT CShuttleChild::InitDeviceObjects()
 	if(m_pIDChat && !m_pIDChat->m_pChild)
 	{
 		CChatMoveData * pData = new CChatMoveData(m_pIDChat,m_myShuttleInfo.CharacterName,COLOR_CHARACTER_ID00,9,256,32);
-		pData->InitDeviceObjects(); // Restore´Â CShuttleChild::RestoreDeviceObjects()¿¡¼­ ÇÑ´Ù.
+		pData->InitDeviceObjects(); // Restoreï¿½ï¿½ CShuttleChild::RestoreDeviceObjects()ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		pData = (CChatMoveData *)m_pIDChat->AddChild(pData);
 	}
 
@@ -611,25 +611,25 @@ HRESULT CShuttleChild::InitDeviceObjects()
 	DataHeader	* pDataHeader = NULL;
 	pDataHeader = FindResource("inven");
 //	m_pImgBack->InitDeviceObjects(pDataHeader->m_pData,pDataHeader->m_DataSize) ;
-	// 2014-05-20 by ymjoo ÅØ½ºÃ³ ·Îµù ÀÍ¼Á¼Ç ¿¹¿Ü Ã³¸®
+	// 2014-05-20 by ymjoo ï¿½Ø½ï¿½Ã³ ï¿½Îµï¿½ ï¿½Í¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(pDataHeader)
 	{
 		D3DXCreateTextureFromFileInMemory( g_pD3dDev, pDataHeader->m_pData, pDataHeader->m_DataSize,
 											 &m_pTexturesBackInven );
 	}
-	// END 2014-05-20 by ymjoo ÅØ½ºÃ³ ·Îµù ÀÍ¼Á¼Ç ¿¹¿Ü Ã³¸®
+	// END 2014-05-20 by ymjoo ï¿½Ø½ï¿½Ã³ ï¿½Îµï¿½ ï¿½Í¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 //	D3DUtil_CreateTexture( g_pD3dDev, pDataHeader->m_pData, &m_pTexturesBackInven );
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	m_pPetManager	= new CPetManager;
-	//end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	//end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	// 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
+	// 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	if(g_pDatabase)
 	{
 		g_pDatabase->InitArmorCollectionInfo();
 	}
-	// END 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
+	// END 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 	return S_OK;
 }
@@ -715,7 +715,7 @@ HRESULT CShuttleChild::DeleteDeviceObjects()
 		m_pMoveChat->DeleteDeviceObjects();
 		SAFE_DELETE(m_pMoveChat);
 	}
-	if(m_pCharacterInfo)//Ãß°¡
+	if(m_pCharacterInfo)//ï¿½ß°ï¿½
 	{
 		m_pCharacterInfo->InvalidateDeviceObjects();
 		m_pCharacterInfo->DeleteDeviceObjects();
@@ -724,7 +724,7 @@ HRESULT CShuttleChild::DeleteDeviceObjects()
 
 	SAFE_DELETE(m_pSkill);
 	SAFE_DELETE(m_pClientParty);
-	// »èÁ¦Àü ¹Ì¸® ÀÌÆåÆ® Æ÷ÀÎÆ® Ã¼Å©
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©
 //	if(m_pWeapon1_1)
 //	{
 //		m_pWeapon1_1->m_bUsing = FALSE;
@@ -766,13 +766,13 @@ HRESULT CShuttleChild::DeleteDeviceObjects()
 		m_pWeapon2_2 = NULL;
 	}
 
-	// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+	// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	if( m_pRobotAGearWeapon_1 )
 	{
 		m_pRobotAGearWeapon_1->m_bUsing		= FALSE;
 		m_pRobotAGearWeapon_1				= NULL;
 	}
-	// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+	// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 	if(m_pEngine)
 	{
@@ -799,7 +799,7 @@ HRESULT CShuttleChild::DeleteDeviceObjects()
 		m_pAccessories->m_bUsing = FALSE;
 		m_pAccessories = NULL;
 	}
-	// 2010-06-08 by dgwoo, Æê½Ã½ºÅÛ Ãß°¡. 
+	// 2010-06-08 by dgwoo, ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½. 
 	if(m_pPartner)
 	{
 		m_pPartner->m_bUsing = FALSE;
@@ -822,7 +822,7 @@ HRESULT CShuttleChild::DeleteDeviceObjects()
 		m_pDummyPartner1->m_bUsing = FALSE;
 		m_pDummyPartner1 = NULL;
 	}
-	// 2010-06-08 by dgwoo, Æê½Ã½ºÅÛ Ãß°¡. 
+	// 2010-06-08 by dgwoo, ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½. 
 	if(m_pWingIn)
 	{
 		m_pWingIn->m_bUsing = FALSE;
@@ -830,20 +830,20 @@ HRESULT CShuttleChild::DeleteDeviceObjects()
 	}	
 	SAFE_RELEASE( m_pTexturesBackInven );
 
-	// 2007-11-09 by dgwoo ¹«±â ¸Þ½¬¸¦ ¹è¿­¿¡¼­ º¤ÅÍ·Î º¯°æ.
+	// 2007-11-09 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	m_vectInvenWeaponMesh.clear();
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(m_pPetManager)
 		SAFE_DELETE(m_pPetManager);
-	//end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	//end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	return S_OK;
 }
 
 
 void CShuttleChild::UnitInfoBarSmoothRepair(float fElapsedTime)
 {
-	// HP - È¸º¹½Ã ¼­¼­È÷ ºÎµå·´°Ô È¸º¹
+	// HP - È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå·´ï¿½ï¿½ È¸ï¿½ï¿½
 	if(m_fNextHP > m_myShuttleInfo.CurrentHP)
 	{
 		m_myShuttleInfo.CurrentHP += m_fNextHPRate*fElapsedTime;
@@ -854,7 +854,7 @@ void CShuttleChild::UnitInfoBarSmoothRepair(float fElapsedTime)
 			g_pGameMain->m_pUnitInfoBar->SetHP(m_myShuttleInfo.CurrentHP, (float)m_myShuttleInfo.HP);
 		}
 	}
-	// EP - È¸º¹½Ã ¼­¼­È÷ ºÎµå·´°Ô È¸º¹
+	// EP - È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå·´ï¿½ï¿½ È¸ï¿½ï¿½
 	if(m_fNextEP > m_myShuttleInfo.CurrentEP)
 	{
 		m_myShuttleInfo.CurrentEP += m_fNextEPRate*fElapsedTime;
@@ -865,9 +865,9 @@ void CShuttleChild::UnitInfoBarSmoothRepair(float fElapsedTime)
 			g_pGameMain->m_pUnitInfoBar->SetEP(m_myShuttleInfo.CurrentEP, (float)m_myShuttleInfo.EP);
 		}
 	}
-	// SP - È¸º¹½Ã ¼­¼­È÷ ºÎµå·´°Ô È¸º¹
+	// SP - È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå·´ï¿½ï¿½ È¸ï¿½ï¿½
 	if(m_fNextSP > m_myShuttleInfo.CurrentSP)
-	{// SPÀÇ °æ¿ì SHORT ÇüÀÌ±â ¶§¹®¿¡ ¾Æ·¡ÀÇ ÄÚµå Ãß°¡
+	{// SPï¿½ï¿½ ï¿½ï¿½ï¿½ SHORT ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½
 		float fTempSP = m_myShuttleInfo.CurrentSP;
 		fTempSP += m_fNextSPRate*fElapsedTime;
 		m_myShuttleInfo.CurrentSP = (SHORT)fTempSP;
@@ -881,7 +881,7 @@ void CShuttleChild::UnitInfoBarSmoothRepair(float fElapsedTime)
 			g_pGameMain->m_pUnitInfoBar->SetSP((float)m_myShuttleInfo.CurrentSP, (float) m_myShuttleInfo.SP);
 		}
 	}
-	// HP - È¸º¹½Ã ¼­¼­È÷ ºÎµå·´°Ô È¸º¹
+	// HP - È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå·´ï¿½ï¿½ È¸ï¿½ï¿½
 	if(m_fNextDP > m_myShuttleInfo.CurrentDP)
 	{
 		m_myShuttleInfo.CurrentDP += m_fNextDPRate*fElapsedTime;
@@ -896,16 +896,16 @@ void CShuttleChild::UnitInfoBarSmoothRepair(float fElapsedTime)
 
 void CShuttleChild::TurnOnWall(float fElapsedTime)
 {
-	// 2005-02-02 by jschoi - ¿ìÁÖ¸ÊÀº ÀÌ ÇÔ¼ö Àû¿ë ¾ÈµÊ.
-	// 2007-01-04 by bhsohn ¹«ºê ½ºÅ³·Î ¸Ê Å¸ÀÏ¿¡ ºÎµúÇûÀ» ‹š¿¡ ´ëÇÑ ¹ö±×Ã³¸®
+	// 2005-02-02 by jschoi - ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½.
+	// 2007-01-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½Ï¿ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	//if(IS_SPACE_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex) == TRUE)
-	// ¿ìÁÖ¸Ê ÆÇ´ÜÀº ÀÌÁ¦ Å¸ÀÏ¸ÊÀÌ ÀÖ°í ¾ø³Ä·Î ÆÇ´ÜÇÑ´Ù.
+	// ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½Ä·ï¿½ ï¿½Ç´ï¿½ï¿½Ñ´ï¿½.
 	if(FALSE == IsTileMapTickEnable(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex))
 	{
 		return;
 	}
-	// Å¸ÀÏ Á¤º¸ Ã£±â 
-	D3DXVECTOR3 Vp = D3DXVECTOR3(0,1,0);				// À¯´ÖÀÇ ¾ÕµÞ¸éÀ» Ã£±âÀ§ÇÑ ÇÔ¼ö 
+	// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ 
+	D3DXVECTOR3 Vp = D3DXVECTOR3(0,1,0);				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ 
 	float ads = D3DXVec3Dot(&Vp, &m_vUp);	
 
 	int nmyXCheck = (int)(m_vPos.x / TILE_SIZE);
@@ -916,7 +916,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 	
 //	if(m_fShuttleSpeed > 0)
 	// 2005-08-01 by ispark
-	// ¸Ê º®¿¡ Ãæµ¹½Ã ¸¶¿ì½º°¡ ÀÌ»óÇÑ Çàµ¿ ¹ö±× ¼öÁ¤ Ãæµ¹ÈÄ ¶³¾îÁ³À» ¶§ else ¼Ò½º ºÎºÐ »ç¿ë ¾ÈÇÔ
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ else ï¿½Ò½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_dwState == _FALLEN || m_dwState == _FALLING)
 	{
 		m_bReflexionKeyBlock = FALSE;
@@ -926,24 +926,24 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 		if(m_nCurrentPatternNumber == 0)
 		{
 			if( nmyXCheck <= REFLEXION_TILE_MIN_SIZE+10 )
-			{ // Å¸ÀÏ³¡ °æ°í ¸Þ¼¼Áö
+			{ // Å¸ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 				g_pGImage->SetImageInfo(OUT_ZONE);
 			}
 			else if( nmyYCheck <= REFLEXION_TILE_MIN_SIZE+10 )
-			{ // Å¸ÀÏ³¡ °æ°í ¸Þ¼¼Áö
+			{ // Å¸ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 				g_pGImage->SetImageInfo(OUT_ZONE);
 			}
 			else if( nmyXCheck >= max_x-10 )
-			{ // Å¸ÀÏ³¡ °æ°í ¸Þ¼¼Áö
+			{ // Å¸ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 				g_pGImage->SetImageInfo(OUT_ZONE);
 			}
 			else if( nmyYCheck >= max_y-10 )
-			{ // Å¸ÀÏ³¡ °æ°í ¸Þ¼¼Áö
+			{ // Å¸ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 				g_pGImage->SetImageInfo(OUT_ZONE);
 			}
 		}
 
-		if( nmyXCheck <= REFLEXION_TILE_MIN_SIZE )// XÃàÅ¸ÀÏÀÌ 1 º¸´Ù ÀÛÀ» °æ¿ì  
+		if( nmyXCheck <= REFLEXION_TILE_MIN_SIZE )// Xï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  
 		{
 			D3DXVECTOR3 BottomVec = D3DXVECTOR3(0,0,-1);
 			float reS = D3DXVec3Dot(&m_vVel, &BottomVec);
@@ -960,11 +960,11 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
 						if(ads > 0 )
-							m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+							m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 						else 
 							m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 
-//						m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;			// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//						m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;			// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 						
 						nX = pt2.x - pt.x;
 						nX += g_pD3dApp->GetBackBufferDesc().Width/2 + 100*g_pD3dApp->GetBackBufferDesc().Width/800;
@@ -972,7 +972,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				else
 				{
 					if(ads > 0) 
-						m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 					else 
 						m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 						
@@ -986,10 +986,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
 					
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 						nX = pt2.x - pt.x;
 						nX += g_pD3dApp->GetBackBufferDesc().Width/2 - 100*g_pD3dApp->GetBackBufferDesc().Width/800;
@@ -997,21 +997,21 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
 					nX = pt2.x - pt.x;
 					nX += g_pD3dApp->GetBackBufferDesc().Width/2 - 100*g_pD3dApp->GetBackBufferDesc().Width/800;
 				}
 			}
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			m_bSetCursorPos = TRUE;
 
 			SetCursorPos(nX,pt2.y);		
 			SetUnitMovingAnimation(fElapsedTime);
 //			m_bReflexionKeyBlock = TRUE;								// 2006-09-27 by ispark
 		}
-		else if( nmyYCheck <= REFLEXION_TILE_MIN_SIZE )// ZÃàÅ¸ÀÏÀÌ 1 º¸´Ù ÀÛÀ» °æ¿ì  
+		else if( nmyYCheck <= REFLEXION_TILE_MIN_SIZE )// Zï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  
 		{
 			D3DXVECTOR3 BottomVec = D3DXVECTOR3(1,0,0);
 			float reS = D3DXVec3Dot(&m_vVel, &BottomVec);
@@ -1027,10 +1027,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 			{
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 
 						nX = pt2.x - pt.x;
@@ -1038,7 +1038,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 						else m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 
 					nX = pt2.x - pt.x;
@@ -1049,10 +1049,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 			{
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 
 						nX = pt2.x - pt.x;
@@ -1061,21 +1061,21 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
 					nX = pt2.x - pt.x;
 					nX += g_pD3dApp->GetBackBufferDesc().Width/2 - 100*g_pD3dApp->GetBackBufferDesc().Width/800;
 				}
 			}		
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			m_bSetCursorPos = TRUE;
 
 			SetCursorPos(nX,pt2.y);		
 			SetUnitMovingAnimation(fElapsedTime);
 //			m_bReflexionKeyBlock = TRUE;							// 2006-09-27 by ispark	
 		}
-		else if( nmyXCheck >= max_x )// XÃàÅ¸ÀÏÀ» 255 ³Ñ±æ°æ¿ì 
+		else if( nmyXCheck >= max_x )// Xï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ 255 ï¿½Ñ±ï¿½ï¿½ï¿½ 
 		{
 			D3DXVECTOR3 BottomVec = D3DXVECTOR3(0,0,1);
 			float reS = D3DXVec3Dot(&m_vVel, &BottomVec);
@@ -1092,10 +1092,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 //				DBGOUT("Dot(%f)\n",reS);
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 						
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 					
 						nX = pt2.x - pt.x;
@@ -1103,7 +1103,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 ) m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 ) m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 						else m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 
 					nX = pt2.x - pt.x;
@@ -1114,10 +1114,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 			{
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 					
 						nX = pt2.x - pt.x;
@@ -1125,14 +1125,14 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
 					nX = pt2.x - pt.x;
 					nX += g_pD3dApp->GetBackBufferDesc().Width/2 - 100*g_pD3dApp->GetBackBufferDesc().Width/800;
 				}
 			}
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			m_bSetCursorPos = TRUE;
 
 			SetCursorPos(nX,pt2.y);		
@@ -1140,7 +1140,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 //			m_bReflexionKeyBlock = TRUE;								// 2006-09-27 by ispark
 //			DBGOUT("Dot(%f)\n",reS);
 		}
-		else if( nmyYCheck >= max_y )// ZÃàÅ¸ÀÏÀ» 255 ³Ñ±æ°æ¿ì 
+		else if( nmyYCheck >= max_y )// Zï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ 255 ï¿½Ñ±ï¿½ï¿½ï¿½ 
 		{
 			D3DXVECTOR3 BottomVec = D3DXVECTOR3(-1,0,0);
 			float reS = D3DXVec3Dot(&m_vVel, &BottomVec);
@@ -1156,10 +1156,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 			{
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 	
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 					
 						nX = pt2.x - pt.x;
@@ -1167,7 +1167,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 						else m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;
 
 					nX = pt2.x - pt.x;
@@ -1178,10 +1178,10 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 			{
 				if(IS_DT(m_myShuttleInfo.UnitKind) || IS_OT(m_myShuttleInfo.UnitKind))
 				{
-						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+						if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
-//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ¾²Áö ¾Ê¾Æ¼­ Áö¿ò
+//					if(m_fShuttleSpeed < 0) m_fShuttleSpeed = -20;				// 2005-07-11 by ispark	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					else m_fShuttleSpeed = SHUTTLE_CONNER_MOVE_SPEED;
 					
 						nX = pt2.x - pt.x;
@@ -1189,7 +1189,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 				}
 				else
 				{
-					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ¼ÅÆ²ÀÇ ¾ÕµÞ¸éÀ» ±¸ºÐÇØ¼­ ¸®ÇÃ·º¼Ç ¹æÇâ¼³Á¤ 
+					if(ads > 0 )m_fAniFlag = ANI_REFLEXION_LEFT_FLAG;	// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ÕµÞ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼³ï¿½ï¿½ 
 							else m_fAniFlag = ANI_REFLEXION_RIGHT_FLAG;
 							
 					nX = pt2.x - pt.x;
@@ -1198,7 +1198,7 @@ void CShuttleChild::TurnOnWall(float fElapsedTime)
 			}
 			if(m_fAniFlag)
 			{ 
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				m_bSetCursorPos = TRUE;
 
 				SetCursorPos(nX,pt2.y);		
@@ -1228,18 +1228,18 @@ void CShuttleChild::TickCity(float fElapsedTime)
 			{
 				bResult = m_pCinemaUnitPattern->SkillTick();
 				UnitPoint=m_pCinemaUnitPattern->GetCurrentCinemaPoint();
-				m_vPos = UnitPoint.vPosition;				// À§Ä¡
-				m_vVel = UnitPoint.vDirection;				// ¹æÇâ
+				m_vPos = UnitPoint.vPosition;				// ï¿½ï¿½Ä¡
+				m_vVel = UnitPoint.vDirection;				// ï¿½ï¿½ï¿½ï¿½
 				m_vUp = UnitPoint.vUpVector;
 				m_vTargetPosition = UnitPoint.vTarget;			
 				int nPatternType = m_pCinemaUnitPattern->GetHeader().nPatternType;
 				switch(nPatternType)
 				{
-				case TARGET_ON:	// Å¸ÄÏ ¹æÇâÀÌ ÀÖ´Â ÆÐÅÏ
+				case TARGET_ON:	// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_vVel = m_vTargetPosition - m_vPos;
 					D3DXVec3Normalize(&m_vVel,&m_vVel);	
 					break;
-				case TARGET_OFF: // Å¸ÄÏ ¹æÇâÀÌ ¾ø´Â ÆÐÅÏ
+				case TARGET_OFF: // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					break;
 				}
 
@@ -1253,13 +1253,13 @@ void CShuttleChild::TickCity(float fElapsedTime)
 				ChangeUnitState(_LANDED);
 				SendPacket(T_FC_MOVE_LANDING_DONE);
 				DBGOUT("T_FC_MOVE_LANDING_DONE\n");
-				// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+				// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				if(IS_DT(m_myShuttleInfo.UnitKind))
 				{
-					// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+					// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 					InitUnitStop();
 				}
-				// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+				// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			}
 		}
 		break;
@@ -1275,18 +1275,18 @@ void CShuttleChild::TickCity(float fElapsedTime)
 			{
 				bResult = m_pCinemaUnitPattern->SkillTick();
 				UnitPoint=m_pCinemaUnitPattern->GetCurrentCinemaPoint();
-				m_vPos = UnitPoint.vPosition;				// À§Ä¡
-				m_vVel = UnitPoint.vDirection;				// ¹æÇâ
+				m_vPos = UnitPoint.vPosition;				// ï¿½ï¿½Ä¡
+				m_vVel = UnitPoint.vDirection;				// ï¿½ï¿½ï¿½ï¿½
 				m_vUp = UnitPoint.vUpVector;
 				m_vTargetPosition = UnitPoint.vTarget;			
 				int nPatternType = m_pCinemaUnitPattern->GetHeader().nPatternType;
 				switch(nPatternType)
 				{
-				case TARGET_ON:	// Å¸ÄÏ ¹æÇâÀÌ ÀÖ´Â ÆÐÅÏ
+				case TARGET_ON:	// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_vVel = m_vTargetPosition - m_vPos;
 					D3DXVec3Normalize(&m_vVel,&m_vVel);	
 					break;
-				case TARGET_OFF: // Å¸ÄÏ ¹æÇâÀÌ ¾ø´Â ÆÐÅÏ
+				case TARGET_OFF: // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					break;
 				}
 
@@ -1326,7 +1326,7 @@ void CShuttleChild::TickCity(float fElapsedTime)
 	CheckMouseReverse(&m_pt);
 
 
-//	const int nKeyMove = 1; // Å°º¸µå °¨µµ
+//	const int nKeyMove = 1; // Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_LEFT))
 //	{
 //		g_pCamera->SetCameraRotate(nKeyMove,0);
@@ -1364,16 +1364,16 @@ void CShuttleChild::MoveLandingStation(float fElapsedTime)
 		return;
 
 	int			nXCheck, nYCheck;
-	if(m_bKeyBlock)		return;		// Âø·úÁßÀÌ¸é Å°ºí·°
+	if(m_bKeyBlock)		return;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ Å°ï¿½ï¿½
 	
-	m_fKeyboardInputTimer -= fElapsedTime;         // Å°ÀÔ·Â Å¸ÀÌ¸Ó 
+	m_fKeyboardInputTimer -= fElapsedTime;         // Å°ï¿½Ô·ï¿½ Å¸ï¿½Ì¸ï¿½ 
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-//	if( (g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S)		  // Å°ÀÔ·Â½Ã¿¡¸¸ °è»ê (ÇÊ¿ä¾ø´Â µô·¹ÀÌ »èÁ¦)     
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+//	if( (g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S)		  // Å°ï¿½Ô·Â½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)     
 //			|| g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W)
 //			|| g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_A)
 //			|| g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_D)) 
-	if( (g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S)		  // Å°ÀÔ·Â½Ã¿¡¸¸ °è»ê (ÇÊ¿ä¾ø´Â µô·¹ÀÌ »èÁ¦)     
+	if( (g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S)		  // Å°ï¿½Ô·Â½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)     
 			|| g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_W)
 			|| g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_A)
 			|| g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_D)) 
@@ -1382,24 +1382,24 @@ void CShuttleChild::MoveLandingStation(float fElapsedTime)
 	{	
 		nXCheck = (int)(m_vPos.x / TILE_SIZE);
 		nYCheck = (int)(m_vPos.z / TILE_SIZE);
-		m_bMoveGroundType = g_pGround->m_pTileInfo[nXCheck*g_pGround->m_projectInfo.sXSize + nYCheck].bEnableLand;			// Å¸ÀÏÁ¤º¸°¡ Âø·úÀåÀÏ¶§¸¸ ½ÇÇà 				
+		m_bMoveGroundType = g_pGround->m_pTileInfo[nXCheck*g_pGround->m_projectInfo.sXSize + nYCheck].bEnableLand;			// Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 				
 
 		if(m_bMoveGroundType == 1)
 		{				
 			if(m_fKeyboardInputTimer < 0)
 			{
 				m_fKeyboardInputTimer = KEYBOARD_INPUT_TIMER;
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				//if(!g_pD3dApp->m_bChatMode && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S) && !m_bAniKeyBlock)
 				if(!g_pD3dApp->m_bChatMode && g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) && !m_bAniKeyBlock)
-				{   // µÚ·Î ÀÌµ¿
-					//m_vPos.x = (int(m_vPos.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ÀÚ½ÅÀÇ Áß½ÉÁ¡ À§Ä¡ °è»ê
+				{   // ï¿½Ú·ï¿½ ï¿½Ìµï¿½
+					//m_vPos.x = (int(m_vPos.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 					//m_vPos.z = (int(m_vPos.z/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;
 					
 					D3DXVECTOR3 temp;
 
 					temp = m_vPos - m_vVel * TILE_SIZE;
-					temp.x = (int(temp.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ÀÚ½ÅÀÇ Áß½ÉÁ¡ À§Ä¡ °è»ê
+					temp.x = (int(temp.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 					temp.z = (int(temp.z/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;
 					
 					D3DXVec3Normalize(&m_vVel, &(m_vPos - temp));
@@ -1430,15 +1430,15 @@ void CShuttleChild::MoveLandingStation(float fElapsedTime)
 					//	m_vMyOldPos = m_vPos;
 					//}
 				}
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				//else if(!g_pD3dApp->m_bChatMode && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W) && !m_bAniKeyBlock)
 				else if(!g_pD3dApp->m_bChatMode && g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_W) && !m_bAniKeyBlock)
-				{   // ¾ÕÀ¸·Î ÀÌµ¿
+				{   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 					
 					D3DXVECTOR3 temp;
 
 					temp = m_vPos + m_vVel * TILE_SIZE;
-					temp.x = (int(temp.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ÀÚ½ÅÀÇ Áß½ÉÁ¡ À§Ä¡ °è»ê
+					temp.x = (int(temp.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 					temp.z = (int(temp.z/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;
 					
 					D3DXVec3Normalize(&m_vVel, &(temp - m_vPos));
@@ -1454,7 +1454,7 @@ void CShuttleChild::MoveLandingStation(float fElapsedTime)
 					m_bMoveGroundType = g_pGround->m_pTileInfo[nXCheck*g_pGround->m_projectInfo.sXSize + nYCheck].bEnableLand;
 					
 					BOOL Een = ScanEnemyFrontBAckAndSpace();
-					if(m_bMoveGroundType == 1 && !Een) // °íÃÄ¾ßÇÒºÎºÐ A±â¾î °ü·Ã ÀÌµ¿ 
+					if(m_bMoveGroundType == 1 && !Een) // ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ÒºÎºï¿½ Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ 
 					{
 						m_fAniFlag = ANI_UPDOWN_FLAG;
 						m_vMyOldPos = m_vPos;									
@@ -1470,19 +1470,19 @@ void CShuttleChild::MoveLandingStation(float fElapsedTime)
 					//}
 					
 				}
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				//else if(!g_pD3dApp->m_bChatMode && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_A) && !m_bAniKeyBlock)
 				else if(!g_pD3dApp->m_bChatMode && g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_A) && !m_bAniKeyBlock)
-				{   // ÁÂ·Î È¸Àü	
+				{   // ï¿½Â·ï¿½ È¸ï¿½ï¿½	
 					m_bAniKeyBlock = TRUE;
 					m_fAniFlag = ANI_LEFT_FLAG;	
 					SetTargetVectorforLandedMove();
 					
 				}
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				//else if(!g_pD3dApp->m_bChatMode && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_D) && !m_bAniKeyBlock)
 				else if(!g_pD3dApp->m_bChatMode && g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_D) && !m_bAniKeyBlock)
-				{   // ¿ì·Î ÀÌµ¿
+				{   // ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 					m_bAniKeyBlock = TRUE;
 					m_fAniFlag = ANI_RIGHT_FLAG;	
 					SetTargetVectorforLandedMove();
@@ -1499,12 +1499,12 @@ void CShuttleChild::TickBurn(float fElapsedTime)
 {
 	ASSERT_ASSERT(m_fBURN>0.0f);
 	
-	// 2006-07-05 by ispark, ÇÁ¸®¹Ì¾ö °³³ä º¯°æ
-	// 2006-07-06 by ispark, ¹«ÇÑ ºÎ½ºÅÍ »èÁ¦
+	// 2006-07-05 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2006-07-06 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	if(	m_myShuttleInfo.CurrentEP > 0 && 
 //		g_pD3dApp->GetPrimiumCardInfo()->nCardItemNum1 )
 //	{
-//		// 2005-03-28 by jschoi - ¿¬·á°¡ ÀÖ´Â ½´ÆÛ ÇÁ¸®¹Ì¾ö »ç¿ëÀÚ´Â ¹«ÇÑ ºÎ½ºÅÍ
+//		// 2005-03-28 by jschoi - ï¿½ï¿½ï¿½á°¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½
 //		m_fCurrentBURN = m_fBURN;
 //		if(g_pGameMain->m_pUnitInfoBar)
 //		{
@@ -1520,7 +1520,7 @@ void CShuttleChild::TickBurn(float fElapsedTime)
 	{
 		if(m_fCurrentBURN > 0.0f)
 		{
-// 2013-01-31 by mspark, °ÔÀÓÆ÷Áö ºÎ½ºÅÍ »ç¿ë Áß Ãß¶ô ½Ã ºÎ½ºÅÍ°¡ ¼ÒºñµÇ´Â ¹®Á¦ ¼öÁ¤
+// 2013-01-31 by mspark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¶ï¿½ ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Í°ï¿½ ï¿½Òºï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef C_FALL_OF_BOOSTER_USE_STOP_MSPARK
 			if(m_dwState != _FALLING)
 			{
@@ -1529,14 +1529,14 @@ void CShuttleChild::TickBurn(float fElapsedTime)
 #else
 			m_fCurrentBURN -= fElapsedTime;
 #endif
-// end 2013-01-31 by mspark, °ÔÀÓÆ÷Áö ºÎ½ºÅÍ »ç¿ë Áß Ãß¶ô ½Ã ºÎ½ºÅÍ°¡ ¼ÒºñµÇ´Â ¹®Á¦ ¼öÁ¤
+// end 2013-01-31 by mspark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¶ï¿½ ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Í°ï¿½ ï¿½Òºï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			if(g_pGameMain->m_pUnitInfoBar)
 			{
 				g_pGameMain->m_pUnitInfoBar->SetBURN(m_fCurrentBURN, m_fBURN); 
 			}
 		}
-		if(m_fCurrentBURN <= 0.0f) 	// 2012-06-29 by jhahn ¹«ÇÑ ºÎÆ®ÅÍ ¿À·ù ¼öÁ¤
+		if(m_fCurrentBURN <= 0.0f) 	// 2012-06-29 by jhahn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			m_fCurrentBURN = 0.0f;
 			m_bReChargeBURN = FALSE;
@@ -1571,7 +1571,7 @@ void CShuttleChild::TickBurn(float fElapsedTime)
 	}
 
 	// 2005-07-11 by ispark	
-	// Áß·Â °è»êÀ» ¾ÈÇßÀ½. ±×·¡¼­ ¸Ê °æ°è¼±¿¡¼­ ºÎ½ºÅÍ ¹ö±×°¡ ÀÖ¾úÀ½
+	// ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½è¼±ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×°ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½
 //	if( m_bUseBooster == FALSE && m_fShuttleSpeed <= m_fShuttleSpeedMax)
 //	if( m_bUseBooster == FALSE && m_fShuttleSpeed <= m_fRealShuttleSpeedMax)
 	if( m_bUseBooster == FALSE && m_fShuttleSpeed - m_fTempGravity <= m_fRealShuttleSpeedMax)
@@ -1602,7 +1602,7 @@ void CShuttleChild::TickWeapon(float fElapsedTime)
 //		m_PrimaryAttack.fCheckAttackTime -= fElapsedTime;
 
 		// 2005-08-02 by ispark
-		// Âø·ú¶§³ª ÀÌ·ú¶§´Â ¹ß½Î¸¦ ¸·À½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if( IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster))
 		if( IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster) && m_bWarpLink == FALSE)
 		{
@@ -1627,7 +1627,7 @@ void CShuttleChild::TickWeapon(float fElapsedTime)
 //		}
 
 		// 2005-08-02 by ispark
-		// Âø·ú¶§³ª ÀÌ·ú¶§´Â ¹ß½Î¸¦ ¸·À½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if( IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster) )
 		if( IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster) && m_bWarpLink == FALSE)
 		{
@@ -1638,7 +1638,7 @@ void CShuttleChild::TickWeapon(float fElapsedTime)
 			m_pSecondaryWeapon->Tick( fElapsedTime, FALSE );
 		}
 	}
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if( m_pPetManager &&
 		m_pPetManager->GetWeaponItemInfo() ) 
 	{
@@ -1651,7 +1651,7 @@ void CShuttleChild::TickWeapon(float fElapsedTime)
 			m_pPetManager->GetWeaponItemInfo()->Tick( fElapsedTime, FALSE );
 		}
 	}
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 }
 
@@ -1661,10 +1661,10 @@ void CShuttleChild::Tick(float fElapsedTime)
 {
 	FLOG( "CShuttleChild::Tick(float fElapsedTime)" );
 
-	// 2007-05-28 by bhsohn ¿¡¾î ½ÃÁî ¹«Á¶°Ç µ¥¹ÌÁö µé¾î°¡´Â ¹ö±× ¼öÁ¤
+	// 2007-05-28 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_bAGearFollowEnemy = FALSE;
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	m_bSetCursorPos = FALSE;
 
 #ifdef _RAT_AG_SIEGE
@@ -1680,7 +1680,7 @@ void CShuttleChild::Tick(float fElapsedTime)
 	}
 #endif
 
-	// 2007-03-29 by dgwoo ¿ÉÀú¹ö ¸ðµåÀÏ¶§ ´ÜÃàÅ°°ª¿¡ µû¶ó À¯Àú¸¦ º¯°æ.
+	// 2007-03-29 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(m_bObserve)
 	{
 		TickObserve(fElapsedTime);
@@ -1695,13 +1695,13 @@ void CShuttleChild::Tick(float fElapsedTime)
 	{
 		SetGroundTargetPos();
 	}
-	// 2006-12-01 by ispark, °øÁß Æø°Ý
+	// 2006-12-01 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	else if(m_pSecondaryWeapon && m_pSecondaryWeapon->GetAttackMode() == ATT_TYPE_AIR_BOMBING_SEC)
 	{
 		SetAirGroundTargetPos();
 	}
 
-	// ÆÄÆ¼ Tick
+	// ï¿½ï¿½Æ¼ Tick
 	if(m_pClientParty->IsParty())
 	{
 		m_pClientParty->Tick(fElapsedTime);
@@ -1712,8 +1712,8 @@ void CShuttleChild::Tick(float fElapsedTime)
 		return; // initializing
 	}
 
-	// 2012-12-21 by bhsohn º£Æ®³² °ÔÀÓ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
-	// 2012-11-07 by bhsohn º£Æ®³² ÆÐÅ¶ Ã³¸®
+	// 2012-12-21 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
+	// 2012-11-07 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å¶ Ã³ï¿½ï¿½
 #ifdef C_CLIENT_LIVE_TIME
 	if(g_pD3dApp->m_bClientQuit || g_pD3dApp->GetClientLogOff())
 	{
@@ -1724,12 +1724,12 @@ void CShuttleChild::Tick(float fElapsedTime)
 		return;
 	}
 #endif
-	// END 2012-11-07 by bhsohn º£Æ®³² ÆÐÅ¶ Ã³¸®
+	// END 2012-11-07 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å¶ Ã³ï¿½ï¿½
 
 	// 2005-02-15 by jschoi - Pk Delay Timer
 	m_pPkNormalTimer->Tick(fElapsedTime);
 
-	// ¿ÉÀú¹ö ¸ðµå½Ã¿¡´Â ÀÚµ¿À¸·Î ¿Ã¶ó°¡´Â°É ¸·´Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ó°¡´Â°ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 	if(!IsObserverMode())
 	{
 		UnitInfoBarSmoothRepair(fElapsedTime);
@@ -1737,7 +1737,7 @@ void CShuttleChild::Tick(float fElapsedTime)
 	CheckDamageBodyCondition();
 	UsedItemTick(fElapsedTime);
 	m_pSkill->Tick(fElapsedTime);
-	// Å¬¶óÀÌ¾ðÆ® Å¸ÀÌ¸Ó °è»ê
+	// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½
 	m_timeProcess.Tick(fElapsedTime);
 
 	if(g_pScene->m_byMapType == MAP_TYPE_CITY)
@@ -1747,7 +1747,7 @@ void CShuttleChild::Tick(float fElapsedTime)
 	else
 	{
 		TurnOnWall(fElapsedTime);
-		if(m_dwState == _LANDED && !IS_DT(m_myShuttleInfo.UnitKind) && m_bLandedMove)		// Âø·úÁß¿¡´Â »ç¿ë ±ÝÁö							
+		if(m_dwState == _LANDED && !IS_DT(m_myShuttleInfo.UnitKind) && m_bLandedMove)		// ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½							
 		{
 			MoveLandingStation(fElapsedTime);
 		}
@@ -1778,14 +1778,14 @@ void CShuttleChild::Tick(float fElapsedTime)
 		HandleInput(fElapsedTime);
 		CheckMouseDir();
 
-		// ÀÌº¥Æ®¸¦ Ã¼Å©ÇÏ¿© Àû¿ëÇÑ´Ù.
+		// ï¿½Ìºï¿½Æ®ï¿½ï¿½ Ã¼Å©ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if(m_dwState == _NORMAL || m_bSkillAirMove)
 		{
 			CheckEventType();
 			CheckEventTypeObject();
 		}
 
-		// Âø·úÀå¿¡¼­ ´Ù¸¥Àå¼Ò·Î ÅÚ·¹Æ÷Æ®½Ã..
+		// ï¿½ï¿½ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½Ò·ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½Æ®ï¿½ï¿½..
 		if(m_nEventIndex != 0)
 		{
 			int nSpeed = (int)(m_fShuttleSpeed - m_fTempGravity);
@@ -1798,18 +1798,18 @@ void CShuttleChild::Tick(float fElapsedTime)
 				m_bSkipPattern = FALSE;
 				if(pObj)
 				{
-					// À§Ä¡ ÀÌµ¿
+					// ï¿½ï¿½Ä¡ ï¿½Ìµï¿½
 					g_pD3dApp->StartFadeEffect(TRUE,3,D3DCOLOR_ARGB(0,0,0,0));
-					// ·»´ý À§Ä¡ ÁöÁ¤
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 //					m_vPos = pObj->m_vPos;//CAtumSJ::GetRandomXZVec3(&pObj->m_vPos, SIZE_CITY_POSITION_RANDOM_XZ_RADIUS);
 					m_vPos = CAtumSJ::GetRandomXZVec3(&pObj->m_vPos, SIZE_CITY_POSITION_RANDOM_XZ_RADIUS);
 					g_pCharacterChild->m_vPos = m_vPos;
-					// 2010. 01. 25 by jskim ¿öÇÁ ÀÌµ¿½Ã ¸Ê ÄÃ¸µ Àß¸øÇÏ´Â ¹ö±× ¼öÁ¤ 
+					// 2010. 01. 25 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ß¸ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 					g_pD3dApp->SetCamPosInit();					
-					//end 2010. 01. 25 by jskim ¿öÇÁ ÀÌµ¿½Ã ¸Ê ÄÃ¸µ Àß¸øÇÏ´Â ¹ö±× ¼öÁ¤ 
+					//end 2010. 01. 25 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ß¸ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 					DBGOUT("GetRandomXZVec3 %d, %d, %d\n", (int)m_vPos.x, (int)m_vPos.y, (int)m_vPos.z);
 
-					// ¸Þ¼¼Áö Ã³¸®
+					// ï¿½Þ¼ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE,
 						T_FC_CHARACTER_CHANGE_CHARACTER_MODE, pSMode, SendBuf);
 					pSMode->CharacterMode0 = TRUE;
@@ -1817,20 +1817,20 @@ void CShuttleChild::Tick(float fElapsedTime)
 					pSMode->TargetAVec3 = m_vVel*1000.0f;
 					g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE));
 					// 2005-11-03 by ispark
-					// Æí´ë ºñÇà ÁßÀÌ¾úµû¸é ÇØÃ¼
+					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 					if(	m_pClientParty &&
 						m_pClientParty->IsFormationFlightMove())
 					{
 						SendPacket(T_IC_PARTY_CANCEL_FLIGHT_POSITION);
 						m_pClientParty->FormationFlightClear();
-						g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PARTY_0001,COLOR_SYSTEM);//"Æí´ëºñÇà¿¡¼­ ¹þ¾î³µ½À´Ï´Ù."
+						g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PARTY_0001,COLOR_SYSTEM);//"ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½."
 					}
 					// 2005-07-28 by ispark
-					// Ä³¸¯ÅÍ ÃÊ±â ¹Ùµð ÄÁµð¼Ç º¸³¿. ±× ÀÌÈÄ´Â º¸³»Áö ¾Ê´Â´Ù. Client°¡ ½º½º·Î ¹ÙµðÄÁµð¼ÇÀ» ÆÇ´ÜÇÑ´Ù.
+					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½Ùµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ ï¿½ï¿½ï¿½Ä´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½. Clientï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ñ´ï¿½.
 					SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, BODYCON_SET_OR_CLEAR_MASK);
-					// Ä³¸¯ÅÍ ¸ðµå º¯È¯
+					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 					g_pD3dApp->m_bCharacter = TRUE;
-					// 2007-02-22 by dgwoo ¸Ê¼ÂÆÃ.
+					// 2007-02-22 by dgwoo ï¿½Ê¼ï¿½ï¿½ï¿½.
 					g_pInterface->m_pGameMain->InitWarp();
 					m_bLandingField = FALSE;
 					m_pTarget = NULL;
@@ -1853,19 +1853,19 @@ void CShuttleChild::Tick(float fElapsedTime)
 			}
 			else
 			{
-				// 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
+				// 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_bLendSoundPlay)
 				{
 					g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
 					m_bLendSoundPlay = FALSE;
 				}
-				// end 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
+				// end 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				Move_Air(fElapsedTime);
 			}
 		}
 
-		// 2006-01-18 by ispark, Dead Áß°£ Á¤°Ë, 
-		// ¸¸¾à¿¡ ¼­¹ö·ÎºÎÅÍ 4ÃÊµ¿¾È ¸Þ¼¼Áö¸¦ ¹ÞÁö ¸øÇÏ¸é °­Á¦·Î _FALLINGÀ» ÇÑ´Ù.
+		// 2006-01-18 by ispark, Dead ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½, 
+		// ï¿½ï¿½ï¿½à¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ 4ï¿½Êµï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ _FALLINGï¿½ï¿½ ï¿½Ñ´ï¿½.
 		if(m_fCheckDead >= 1.0f)
 		{
 			m_fCheckDead += fElapsedTime;
@@ -1885,11 +1885,11 @@ void CShuttleChild::Tick(float fElapsedTime)
 
 		// Burn
 		TickBurn(fElapsedTime);
-		// 2006-11-27 by dgwoo °ø°ÝÀÌ °¡´ÉÇÒ¶§¸¸ WeaponÇÔ¼ö·Î µé¾î°£´Ù.
+		// 2006-11-27 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ Weaponï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½.
 		if(m_bAttack)
 			TickWeapon(fElapsedTime);              
 		
-		PetUseItme();	  // 2012-09-20 by jhahn ÀÎºñÁöºí¿¡¼­ ÆÄÆ®³Ê ¾ÆÀÌÅÛ »ç¿ë°¡´É
+		PetUseItme();	  // 2012-09-20 by jhahn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 		
 		CheckTarget();
 
@@ -1898,12 +1898,12 @@ void CShuttleChild::Tick(float fElapsedTime)
 		SetEffectPos(fElapsedTime);
 
 		CheckGroundEffect();
-		CheckOnObject();			// ¿ÀºêÁ§Æ® À§ÀÎÁö Ã¼Å©ÇÏ´Â ÇÔ¼ö
-//		m_bOnObject = FALSE;		// ¿ÀºêÁ§Æ® À§ÀÎÁö º¯¼ö¸¦ ÃÊ±âÈ­ -> ÀÌº¯¼ö´Â ¿ÀºêÁ§Æ®ÀÇ Tick¿¡¼­ °áÁ¤µÈ´Ù.
+		CheckOnObject();			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+//		m_bOnObject = FALSE;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ -> ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Tickï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 		CheckAniTime();
 		m_pMoveChat->Tick();
 		m_pIDChat->Tick();
-		// 1~2ÇüÀÇ ¹ß»ç½Ã ¶ô¿Â ÀÌÆåÆ®¸¦ À§ÇÑ º¯¼ö ÃÊ±âÈ­
+		// 1~2ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 //		m_bPrimaryAttackFire = FALSE;
 //		m_bSecondaryAttackFire = FALSE;
 
@@ -1913,15 +1913,15 @@ void CShuttleChild::Tick(float fElapsedTime)
 //		}
 //		m_nCurrentMineCont = 0;
 
-		// 2006-12-04 by ispark, Ã¼ÇÁ »çÃâ
+		// 2006-12-04 by ispark, Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ChaffDataTick();
 	}
 
-	// 2007-04-05 by dgwoo Move Air ¾Æ·¡·Î À§Ä¡ º¯°æ.
+	// 2007-04-05 by dgwoo Move Air ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 	if(m_pSkillEffect)
 	{
 		m_pSkillEffect->Tick(fElapsedTime);
-		// 2009-03-30 by bhsohn Â÷Â¡¼¦ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+		// 2009-03-30 by bhsohn ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		CCharacterInfo*  pCharacterInfo = m_pSkillEffect->FindSkillEffect(BGEAR_STATE_CHARINGSHOT);
 		if(m_pSkill && pCharacterInfo)
 		{				
@@ -1930,7 +1930,7 @@ void CShuttleChild::Tick(float fElapsedTime)
 				m_fDelCapChagingSkill += g_pD3dApp->GetCheckElapsedTime();
 				if(m_fDelCapChagingSkill > BGEAR_CHAGINGSHOT_SHOT_CAP_TIME)
 				{					
-					// Â÷Â¡ ½ºÅ³ Á¦°Å
+					// ï¿½ï¿½Â¡ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 					m_pSkillEffect->DeleteChargingStateSkillEffect();
 					m_fDelCapChagingSkill = 0.0f;
 				}									
@@ -1940,11 +1940,11 @@ void CShuttleChild::Tick(float fElapsedTime)
 				m_fDelCapChagingSkill = 0.0f;
 			}
 		}
-		// end 2009-03-30 by bhsohn Â÷Â¡¼¦ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+		// end 2009-03-30 by bhsohn ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	SetUnitState();
 
-	// 2005-12-29 by ispark, Ã¼Å© ÀåÂø ¾ÆÀÌÅÛ
+	// 2005-12-29 by ispark, Ã¼Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CheckWearItem(fElapsedTime);
 
 	// 2005-03-08 by jschoi
@@ -1959,7 +1959,7 @@ void CShuttleChild::Tick(float fElapsedTime)
 		m_bWarpGateZone = FALSE;
 	}
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	if(g_pD3dApp->IsUseJoyStick())
 	{		
 		if(!m_bSetCursorPos)
@@ -1969,23 +1969,23 @@ void CShuttleChild::Tick(float fElapsedTime)
 		CheckJoystickKeyDown();
 	}
 	
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
 	
-	// 2009. 02. 18 by ckPark ½ÃÁî ¸ðµå ÇØÁ¦½Ã ºÎ½ºÅÍ ÀÌÆåÆ® ¹ö±×
+	// 2009. 02. 18 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	if( IS_DT(m_myShuttleInfo.UnitKind)
 		&& ( GetCurrentBodyCondition() & BODYCON_SIEGE_OFF_MASK ) )
 	{
 		if(GetCurrentAnimationTime() >= GetCurrentBodyConditionEndAnimationTime())
 			ChangeSingleBodyCondition(BODYCON_LANDED_MASK);
 	}
-	// end 2009. 02. 18 by ckPark ½ÃÁî ¸ðµå ÇØÁ¦½Ã ºÎ½ºÅÍ ÀÌÆåÆ® ¹ö±×
-	// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+	// end 2009. 02. 18 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	TickCheckGearAttackStat();	
-	// end 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+	// end 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
-	if(!m_bIsAir && GetMoving())	// 2013-12-13 by ssjung M±â¾î ¸®¹ö½º ½ºÅ³À» ¾²¸é MSGBOX°¡ »ç¶óÁö´Â ¹ö±× ¼öÁ¤
+// 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	if(!m_bIsAir && GetMoving())	// 2013-12-13 by ssjung Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ MSGBOXï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
 		if(!m_bShowInterface)
 		{
@@ -1995,12 +1995,12 @@ void CShuttleChild::Tick(float fElapsedTime)
 	}
 	else
 		m_bShowInterface = FALSE;
-// end 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+// end 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::GetAttackClientArea()
-/// \brief		¸¶¿ì½º°¡ °ø°ÝÇÒ¼ö ÀÖ´Â Å¬¶óÀÌ¾ðÆ® ¿µ¿ª¿¡ ÀÖ´Â°¡¸¦ Ã¼Å©.
+/// \brief		ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½ï¿½ï¿½ Ã¼Å©.
 /// \author		dgwoo
 /// \date		2008-01-14 ~ 2008-01-14
 /// \warning	
@@ -2014,9 +2014,9 @@ BOOL CShuttleChild::TickChangeClientArea()
 	//ScreenToClient()
 	m_bNowMousePosWindowArea =  IsMousePosClientArea();
 	if(!m_bNowMousePosWindowArea)
-	{// ¸¶¿ì½º°¡ Å¬¶óÀÌ¾ðÆ® ¿µ¿ªÀ» ¹þ¾î³µÀ»°æ¿ì.
+	{// ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½ï¿½ï¿½.
 		bMousePosArea = FALSE;
-		// 2008-03-13 by dgwoo  ¹«±âÀÇ ¼ÂÆÃÀ» ÃÊ±âÈ­.
+		// 2008-03-13 by dgwoo  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 		m_bLButtonState = FALSE;
 		m_bRButtonState = FALSE;
 	}
@@ -2024,7 +2024,7 @@ BOOL CShuttleChild::TickChangeClientArea()
 	{
 		//DBGOUT("m_bNowMouseArea = %d, m_bOldMouseArea = %d",m_bNowMousePosWindowArea,m_bOldMousePosWindowArea);
 		m_bOldMousePosWindowArea = m_bNowMousePosWindowArea;
-		// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+		// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//if(GetKeyState(VK_LBUTTON) & 0x8000)
 		if((GetKeyState(VK_LBUTTON) & 0x8000) && IsPossibleAttackStat()) 
 		{
@@ -2034,7 +2034,7 @@ BOOL CShuttleChild::TickChangeClientArea()
 		{
 			m_bLButtonState = FALSE;
 		}
-		// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½							
+		// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½							
 		//if(GetKeyState(VK_RBUTTON) & 0x8000)
 		if((GetKeyState(VK_RBUTTON) & 0x8000) && IsPossibleAttackStat())
 		{
@@ -2051,7 +2051,7 @@ BOOL CShuttleChild::TickChangeClientArea()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::SetUnitState()
-/// \brief		È­¸é »ó´Ü¿¡ À¯´ÖÀÇ »óÅÂ Ç¥½Ã
+/// \brief		È­ï¿½ï¿½ ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 /// \author		dhkwon
 /// \date		2004-06-01 ~ 2004-06-01
 /// \warning	
@@ -2086,7 +2086,7 @@ void CShuttleChild::SetUnitState()
 		g_pGameMain->m_pUnitState->OffState(INF_UW_FULLITEM2_MASK);
 		g_pGameMain->m_pUnitState->OffState(INF_UW_FULLITEM3_MASK);
 	}
-	if(!m_bReChargeBURN) // ºÎ½ºÅÍ °ú¿­
+	if(!m_bReChargeBURN) // ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
 		g_pGameMain->m_pUnitState->InsertState(INF_UW_OVERHEAT_MASK);
 	}
@@ -2094,7 +2094,7 @@ void CShuttleChild::SetUnitState()
 	{
 		g_pGameMain->m_pUnitState->OffState(INF_UW_OVERHEAT_MASK);
 	}
-	if(m_nBooster == BOOSTER_TYPE_AIRBREAK) // °øÁß ºÎ¾ç
+	if(m_nBooster == BOOSTER_TYPE_AIRBREAK) // ï¿½ï¿½ï¿½ï¿½ ï¿½Î¾ï¿½
 	{
 		g_pGameMain->m_pUnitState->SetState(INF_US_STOP_MASK);
 	}
@@ -2102,7 +2102,7 @@ void CShuttleChild::SetUnitState()
 	{
 		g_pGameMain->m_pUnitState->OffState(INF_US_STOP_MASK);
 	}
-	if(m_bMouseLock && m_bUnitStop == FALSE)							// 2005-08-08 by ispark À¯´ÖÁ¤Áö½Ã ¸¶¿ì½º¸¦ ¸·´Â´Ù. ±×·¯³ª STATE°¡ UNIT ROCK »óÅÂ°¡ ¾Æ´Ï´Ù.
+	if(m_bMouseLock && m_bUnitStop == FALSE)							// 2005-08-08 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½. ï¿½×·ï¿½ï¿½ï¿½ STATEï¿½ï¿½ UNIT ROCK ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï´ï¿½.
 	{
 //		g_pGameMain->m_pUnitState->OffState(INF_US_STOP_MASK);
 //		g_pGameMain->m_pUnitState->SetState(INF_US_LOCK_MASK);
@@ -2111,7 +2111,7 @@ void CShuttleChild::SetUnitState()
 	{
 		g_pGameMain->m_pUnitState->OffState(INF_US_LOCK_MASK);
 	}
-	if( m_dwState == _TAKINGOFF )	// ÀÌ·ú
+	if( m_dwState == _TAKINGOFF )	// ï¿½Ì·ï¿½
 	{
 		g_pGameMain->m_pUnitState->SetState(INF_US_TAKEOFF_MASK);
 	}
@@ -2119,21 +2119,21 @@ void CShuttleChild::SetUnitState()
 	{
 		g_pGameMain->m_pUnitState->OffState(INF_US_TAKEOFF_MASK);
 	}
-	if( m_dwState == _LANDED )	// Âø·ú
+	if( m_dwState == _LANDED )	// ï¿½ï¿½ï¿½ï¿½
 	{
-		// 2009. 08. 19 by jsKim ·£µù Áß ¸Þ´º »ý¼ºÇÒ °æ¿ì Ä¿¼­°¡ º¯ÇÏÁö ¾Ê´Â ¹ö±×
-		// 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
+		// 2009. 08. 19 by jsKim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//g_INFCnt = 0;
 		g_pD3dApp->SetINFCnt(0);
-		// end 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
-		// end 2009. 08. 19 by jsKim ·£µù Áß ¸Þ´º »ý¼ºÇÒ °æ¿ì Ä¿¼­°¡ º¯ÇÏÁö ¾Ê´Â ¹ö±×
+		// end 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// end 2009. 08. 19 by jsKim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pGameMain->m_pUnitState->SetState(INF_US_LAND_MASK);		
 	}
 	else
 	{
 		g_pGameMain->m_pUnitState->OffState(INF_US_LAND_MASK);
 	}
-	if( m_pClientParty->IsFormationFlightMove() ) // Æí´ëºñ
+	if( m_pClientParty->IsFormationFlightMove() ) // ï¿½ï¿½ï¿½ï¿½
 	{
 		g_pGameMain->m_pUnitState->SetState(INF_US_FORM_MASK);
 	}
@@ -2142,7 +2142,7 @@ void CShuttleChild::SetUnitState()
 		g_pGameMain->m_pUnitState->OffState(INF_US_FORM_MASK);
 	}
 	// 2005-07-11 by ispark
-	// ÀÌµ¿ °¡´ÉÇÑ ÃÖ´ë ³ôÀÌ ÀÚµ¿ ¼ÂÆÃ
+	// ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_vPos.y > g_pScene->m_nMaxAtitudeHeight + g_pGround->m_projectInfo.fWaterHeight - 100)
 	{
 		g_pGameMain->m_pUnitState->InsertState(INF_UW_TOOHIGH_MASK);
@@ -2155,7 +2155,7 @@ void CShuttleChild::SetUnitState()
 void CShuttleChild::CheckMapRegion()
 {
 	FLOG( "CShuttleChild::CheckMapRegion()" );
-	// ¸ÊÀ» ¹þ¾î³ª¸é ¸ø³ª°¡°Ô ¼ÂÆÃ Ã¼Å©
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	if(g_pScene->m_byMapType == MAP_TYPE_TUTORIAL)
 	{
 		if(m_vPos.x < 2660.0f)
@@ -2166,7 +2166,7 @@ void CShuttleChild::CheckMapRegion()
 			m_vPos.z = 67.0f;
 		if(m_vPos.z > 967)
 			m_vPos.z = 967;
-		// ¹ö±× ¹ß»ýÀ¸·Î ¹«ÇÑ ³ôÀÌ·Î ¿Ã¶ó°¬´Ù¸é ³»¸°´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Ã¶ó°¬´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		if(m_vPos.y < 0.0f)// || m_vPos.y < -1000.0f)
 			m_vPos.y = 0.0f;
 		if(m_vPos.y > 400.0f)// || m_vPos.y < -1000.0f)
@@ -2182,19 +2182,19 @@ void CShuttleChild::CheckMapRegion()
 			m_vPos.z = 40.0f;
 		if(m_vPos.z > (g_pGround->m_projectInfo.sYSize-1)*TILE_SIZE)
 			m_vPos.z = (g_pGround->m_projectInfo.sYSize-1)*TILE_SIZE;
-		// ¹ö±× ¹ß»ýÀ¸·Î ¹«ÇÑ ³ôÀÌ·Î ¿Ã¶ó°¬´Ù¸é ³»¸°´Ù. ¼ÅÆ²ÀÇ ÃÖ´ë ³ôÀÌ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Ã¶ó°¬´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if(m_vPos.y > g_pGround->m_projectInfo.fHeightMax + WEATHER_SUNNY_FOG_END)// || m_vPos.y < -1000.0f)
 //			m_vPos.y = g_pGround->m_projectInfo.fHeightMax + WEATHER_SUNNY_FOG_END;
 
 
 		// 2005-02-02 by jschoi
-		// ¿ìÁÖ¸ÊÀÇ »óÇÏ ÀÌµ¿ °¡´É ¹Ý°æÀ» È®Àå
-		// ALTITUDE_SAPCE_ALTITUDE °ª ¸¸Å­ À§,¾Æ·¡·Î È®Àå
-		// 2006-04-12 by ispark, DB¿¡¼­ ¸Ê ³ôÀÌ¸¦ ¼ÂÆÃ ÇÏ¹Ç·Î ¿ìÁÖ¸ÊÀÌ¶ó°í ÇØ¼­ º°µµ·Î ³ôÀÏ ÀÌÀ¯°¡ ¾ø´Ù.
+		// ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+		// ALTITUDE_SAPCE_ALTITUDE ï¿½ï¿½ ï¿½ï¿½Å­ ï¿½ï¿½,ï¿½Æ·ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+		// 2006-04-12 by ispark, DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 //		if(IS_SPACE_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex) == TRUE)
-//		{// ¿ìÁÖ¸ÊÀÌ¶ó¸é
+//		{// ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ì¶ï¿½ï¿½
 //			// 2005-07-11 by ispark
-//			// ÀÌµ¿ °¡´ÉÇÑ ÃÖ´ë ³ôÀÌ ÀÚµ¿ ¼ÂÆÃ
+//			// ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(m_vPos.y > g_pScene->m_nMaxAtitudeHeight + ALTITUDE_SAPCE_ALTITUDE + g_pGround->m_projectInfo.fWaterHeight)
 //			{
 //				m_vPos.y = g_pScene->m_nMaxAtitudeHeight + ALTITUDE_SAPCE_ALTITUDE + g_pGround->m_projectInfo.fWaterHeight;
@@ -2205,16 +2205,16 @@ void CShuttleChild::CheckMapRegion()
 ////			}
 //		}
 //		else
-//		{// ¿ìÁÖ¸ÊÀÌ ¾Æ´Ï¶ó¸é
+//		{// ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½
 			// 2005-07-11 by ispark
-			// ÀÌµ¿ °¡´ÉÇÑ ÃÖ´ë ³ôÀÌ ÀÚµ¿ ¼ÂÆÃ
+			// ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_vPos.y > g_pScene->m_nMaxAtitudeHeight + g_pGround->m_projectInfo.fWaterHeight)
 			{
 				m_vPos.y = g_pScene->m_nMaxAtitudeHeight + g_pGround->m_projectInfo.fWaterHeight;
 			}
 //		}
 
-		// 2005-12-12 by ispark, ÁöÇüÀ» ±×¸®Áö ¾Ê´Â ¸ÊÀÌ¶ó¸é ³ôÀÌ 0 ÀÌÇÏ·Î °¡Áö ¸øÇÏ°Ô ÇÑ´Ù.
+		// 2005-12-12 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.
 		if(!IsTileMapRenderEnable(m_myShuttleInfo.MapChannelIndex.MapIndex))
 		{
 			if(m_vPos.y <= 0)
@@ -2225,7 +2225,7 @@ void CShuttleChild::CheckMapRegion()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::CheckBazaarInfo(MSG_FC_BAZAAR_INFO_OK* pMsg)
-/// \brief		°³ÀÎ»óÁ¡ Á¤º¸
+/// \brief		ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-07-28 ~ 2006-07-28
 /// \warning	
@@ -2272,12 +2272,12 @@ void CShuttleChild::CheckBazaarInfo(MSG_FC_BAZAAR_INFO_OK* pMsg)
 void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 {
 	FLOG( "CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)" );
-	// 2013-03-06 by bhsohn º¹±Í À¯Àú ½Ã½ºÅÛ
+	// 2013-03-06 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 //  	if(m_myShuttleInfo.ClientIndex == pMsg->CharacterInfo.ClientIndex)
 // 		return;
 	if(m_myShuttleInfo.ClientIndex == pMsg->CharacterInfo.ClientIndex)
 	{
-		// º¹±Í À¯Àú Á¤º¸´Â °»½ÅÇØÁÖÀÚ		
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		
 //		g_pShuttleChild->SetRtnGameUser(pMsg->CharacterInfo.UsingReturnItem);
 		return;
 	}	
@@ -2300,7 +2300,7 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 		}
 		if(pEnemy)
 		{
-			// 2006-07-05 by ispark »ó´ë ¼¼·Â ¸àÆ® »èÁ¦
+			// 2006-07-05 by ispark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			if(!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, pMsg->CharacterInfo.InfluenceType))
 			{
 				memset(pMsg->CharacterInfo.szCharacterMent, 0x00, sizeof(pMsg->CharacterInfo.szCharacterMent));
@@ -2319,17 +2319,17 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 			// 2005-07-28 by ispark
 			D3DXVec3Normalize(&pEnemy->m_vVel, &A2DX(pMsg->CharacterInfo.TargetVector));
 			pEnemy->m_infoCharacter.CharacterRenderInfo = pMsg->CharacterRenderInfo;
-			// 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			// 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			pEnemy->SetMonsterTransformer(pMsg->CharacterRenderInfo.RI_MonsterUnitKind_ForTransformer);
-			//end 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			//end 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			if(!pEnemy->m_pCharacterInfo)
 			{
-				// 2005-11-24 by ispark, ItemNum -> SourceIndexÀ¸·Î º¯°æ
+				// 2005-11-24 by ispark, ItemNum -> SourceIndexï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-				// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//ITEM * pItem = g_pDatabase->GetServerItemInfo(pEnemy->m_infoCharacter.CharacterRenderInfo.RI_Center);
-				// ¿ÜÇü¾ÆÀÌÅÛ¹øÈ£°¡ ¾ø´Ù¸é ¿ø·¡ ¾ÆÀÌÅÛ ¹øÈ£¸¦ »ç¿ëÇÑ´Ù
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 				int nItemNum = 0;
 				if( pEnemy->m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum )
 					nItemNum = pEnemy->m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum;
@@ -2337,20 +2337,20 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 					nItemNum = pEnemy->m_infoCharacter.CharacterRenderInfo.RI_Center;
 
 				ITEM * pItem = g_pDatabase->GetServerItemInfo( nItemNum );
-				// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-				// 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å ½ºÅ³
+				// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 				BOOL bMonTras = FALSE;
 				if(pEnemy->GetMonsterTransformer())
 				{
-					// 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å ½ºÅ³
+					// 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 					pEnemy->ChangeUnitCharacterInfo(nItemNum, pEnemy->m_infoCharacter.CharacterInfo.UnitKind, pMsg->CharacterInfo.BodyCondition, FALSE);
 					pEnemy->SetMonsterTransPrimarySidePos(pEnemy->m_PrimaryAttack.vSidePos);
 					pEnemy->SetMonsterTransSecondarySidePos(pEnemy->m_SecondaryAttack.vSidePos);
 				}
-				//end 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å ½ºÅ³
+				//end 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 				if(pItem)
 				{
-					// 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å ½ºÅ³
+					// 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 					if(pEnemy->GetMonsterTransformer())
 					{
 						bMonTras = TRUE;						
@@ -2364,26 +2364,26 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 						pEnemy->ChangeUnitCharacterInfo(pItem->SourceIndex, 
 						pEnemy->m_infoCharacter.CharacterInfo.UnitKind, pMsg->CharacterInfo.BodyCondition, FALSE , bMonTras);
 					}
-					//end 10. 03. 18 by jskim ¸ó½ºÅÍº¯½Å ½ºÅ³
+					//end 10. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 				}
 				else
 				{
-					// µðÆúÆ®
+					// ï¿½ï¿½ï¿½ï¿½Æ®
 					ChangeUnitCharacterInfo(0, 
 						pEnemy->m_infoCharacter.CharacterInfo.UnitKind, pMsg->CharacterInfo.BodyCondition, FALSE);
 				}
 				
 				// 2005-07-28 by ispark
-				// Ä³¸¯ÅÍ ·»´õ¸µ ¹øÈ£ ÀÔ·Â
+				// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ô·ï¿½
 				pEnemy->SetPilotNumber(pEnemy->m_infoCharacter.CharacterInfo.PilotFace);
 			}
 			pEnemy->ChangeUnitBodyCondition(pMsg->CharacterInfo.BodyCondition);
-			// ¾ÆÀÌÅÛ ·»´õ¸µÀ» À§ÇÑ Á¤º¸ ÀúÀå
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			memcpy(&pEnemy->m_infoCharacter.CharacterRenderInfo,&pMsg->CharacterRenderInfo,sizeof(CHARACTER_RENDER_INFO));
 		}
 		else
 		{
-			// 2006-07-05 by ispark »ó´ë ¼¼·Â ¸àÆ® »èÁ¦
+			// 2006-07-05 by ispark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
  			if(!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, pMsg->CharacterInfo.InfluenceType))
 			{
 				memset(pMsg->CharacterInfo.szCharacterMent, 0x00, sizeof(pMsg->CharacterInfo.szCharacterMent));
@@ -2409,9 +2409,21 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 //			pEnemy->m_infoCharacter.CharacterRenderInfo = pMsg->CharacterRenderInfo;
 			pEnemy->Init();
 			strcpy(((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString,pEnemy->m_infoCharacter.CharacterInfo.CharacterName);
+#ifdef _RAT_FFA
+			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+			{
+				strcpy(((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString, "FFA Enemy");
+			}
+			else
+			{
+				strcpy(((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString,pEnemy->m_infoCharacter.CharacterInfo.CharacterName);
+			}
+#else
+			strcpy(((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString,pEnemy->m_infoCharacter.CharacterInfo.CharacterName);
+#endif
 			
-			// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
-			// ¾Æ·¹³ª ¸Ê¿¡¼­´Â '\'µÚ´Â ¼­¹öÀÌ¸§ÀÌ¹Ç·Î ºü¸± ÇÊ¿ä°¡¾ø´Ù.
+			// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
+			// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ '\'ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ä°¡ï¿½ï¿½ï¿½ï¿½.
 			g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), ((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString);
 			
 			g_pScene->m_mapEnemyList[pEnemy->m_infoCharacter.CharacterInfo.ClientIndex] = pEnemy;
@@ -2431,7 +2443,7 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 			}
 			pEnemy->m_nPartyID = m_pClientParty->GetPartyInfo().PartyID;
 			pPartyEnemtInfo->m_pEnemyData = pEnemy;
-			// ÆÄÆ¼ Á¤º¸ ¿äÃ»;
+			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»;
 			MSG_FC_PARTY_GET_MEMBER sMsg;
 			sMsg.CharacterUniqueNumber = pMsg->CharacterInfo.CharacterUniqueNumber;
 			g_pFieldWinSocket->SendMsg(T_FC_PARTY_GET_MEMBER, (char*)&sMsg, sizeof(sMsg));
@@ -2458,7 +2470,7 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_MONSTER_INFO_OK* pMsg)
 //	DBGOUT("MONSTER[%d] RENDER_INFO_OK Distance[%d]\n",pMsg->ClientIndex,
 //			(int)g_pD3dApp->Distance3DTo2D(m_vPos, A2DX(pMsg->PositionVector)));
 	g_pScene->InsertToBlockData(pMonster);
-	// ¹ÙµðÄÁµð¼Ç Á¤¸®(new¿¡¼­ ´Ù Ã³¸®µÊ)
+	// ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(newï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½)
 /*	pMonster->ChangeBodyConditionFromServer(pMsg->BodyCondition);
 	if(pMonster->m_pCharacterInfo)
 	{
@@ -2485,7 +2497,7 @@ void CShuttleChild::CheckMove(MSG_FC_MOVE_OK* pMsg)
 		{
 		
 			CMapEnemyIterator itEnemy = g_pScene->m_mapEnemyList.find(pMsg->ClientIndex);
-			// 2005-12-30 by ispark, Enemy°¡ ¸®½ºÆ®¿¡ ¾øÀ» ¶§ Á¤º¸ ¿äÃ»
+			// 2005-12-30 by ispark, Enemyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 			if(itEnemy != g_pScene->m_mapEnemyList.end())
 			{
 				if(m_pClientParty->FormationFlightFindMemberByClientIndex(pMsg->ClientIndex) == NULL)
@@ -2493,21 +2505,21 @@ void CShuttleChild::CheckMove(MSG_FC_MOVE_OK* pMsg)
 					itEnemy->second->SetPosition(pMsg);
 				}
 				
-				// 2007-04-02 by bhsohn MoveÆÐÅ¶À¸·Î Àû±â »óÅÂ Ã¼Å©
-				// ÇöÀç Àû±â »óÅÂ¿Í ¿ì¸®ÀÇ »óÅÂ°¡ º¯°æ½Ã °­Á¦·Î Àû±â ¼ÂÆÃ
+				// 2007-04-02 by bhsohn Moveï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				UpdateEnemyState(itEnemy->second, pMsg);
-				// end 2007-04-02 by bhsohn MoveÆÐÅ¶À¸·Î Àû±â »óÅÂ Ã¼Å©
+				// end 2007-04-02 by bhsohn Moveï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 			}
 			else
 			{
-				// 2005-12-30 by ispark, ÀÚÁÖ ¿äÃ» ÇÒ °¡¸Á¼ºÀÌ ÀÖÀ½ 
+				// 2005-12-30 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 //				if(!m_bGetOtherInfo)
 				{
  					m_bGetOtherInfo = TRUE;
 					m_fGetOtherInfoCheckTime = 0.5f;
 					m_nGetOtherIndex = pMsg->ClientIndex;
 
-					// 2006-06-15 by ispark, ÀÏÁ¤½Ã°£¿¡ ÆÐÅ¶À» º¸³»´Â °ÍÀ¸·Î º¯°æ
+					// 2006-06-15 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					MSG_FC_CHARACTER_GET_OTHER_INFO sMsg; 
 //					memset(&sMsg,0x00,sizeof(sMsg));
 //					char buffer[SIZE_MAX_PACKET];
@@ -2537,14 +2549,14 @@ void CShuttleChild::CheckMove(MSG_FC_MOVE_OK* pMsg)
 			}
 			else
 			{
-				// ¸®½ºÆ®¿¡ ¾øÀ¸¸é Å¬¶óÀÌ¾ðÆ® Á¤º¸ ¿äÃ»
+				// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 				if(!m_bGetOtherInfo)
 				{
 					m_bGetOtherInfo = TRUE;
 					m_fGetOtherInfoCheckTime = 0.5f;
 					m_nGetOtherIndex = pMsg->ClientIndex;
 
-					// 2006-06-15 by ispark, ÀÏÁ¤½Ã°£¿¡ ÆÐÅ¶À» º¸³»´Â °ÍÀ¸·Î º¯°æ
+					// 2006-06-15 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					MSG_FC_CHARACTER_GET_OTHER_INFO sMsg;
 //					memset(&sMsg,0x00,sizeof(sMsg));
 //					char buffer[SIZE_MAX_PACKET];
@@ -2563,8 +2575,8 @@ void CShuttleChild::CheckMove(MSG_FC_MOVE_OK* pMsg)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Àû±âÀÇ »óÅÂ¸¦ °»½ÅÇØÁØ´Ù. 
-/// \author		// 2007-04-02 by bhsohn MoveÆÐÅ¶À¸·Î Àû±â »óÅÂ Ã¼Å©
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½. 
+/// \author		// 2007-04-02 by bhsohn Moveï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 /// \date		2007-04-02 ~ 2007-04-02
 /// \warning	
 ///
@@ -2575,16 +2587,16 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 {
 	if(g_pShuttleChild->m_myShuttleInfo.ClientIndex == pMsg->ClientIndex)
 	{
-		// ÀÚ±â ÀÚ½ÅÀÌ´Ù. 
+		// ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½Ì´ï¿½. 
 		return;
 	}
-	// Àû±â°¡ ¾Æ´Ï´Ù. 
+	// ï¿½ï¿½ï¿½â°¡ ï¿½Æ´Ï´ï¿½. 
 	if (!IS_CHARACTER_CLIENT_INDEX(pMsg->ClientIndex))
 	{
 		return;
 	}
 	
-	// Enemy skill ¹ßµ¿½Ã
+	// Enemy skill ï¿½ßµï¿½ï¿½ï¿½
 	CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( pMsg->ClientIndex );
 	if(NULL == pUnit)
 	{
@@ -2595,26 +2607,26 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	INT ItemNum = 0;
 	bool bTmp = false;
 
-	// ½ºÅ³ ·¡º§ 1 ·Î °­Á¦ ¼ÂÆÃ
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	INT nSkillUid[UNIT_STATE_MAX] = 
 	{
-		BGEAR_SKILL_BASENUM_INVISIBLE + 1,		// ÀÎºñÁöºí
-		BGEAR_STATE_CHARINGSHOT + 1,			// Â÷Â¡¼¦
-		AGEAR_STATE_HYPERSHOT + 1,				// ÇÏÀÌÆÛ¼¦
-		AGEAR_STATE_BARRIER	+ 1,				// ¹è¸®¾î	// 2013-01-30 by mspark, A±â¾î ¹è¸®¾î ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
-		MGEAR_STATE_INVINCIBLE + 1				// ¹«Àû		// 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+		BGEAR_SKILL_BASENUM_INVISIBLE + 1,		// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
+		BGEAR_STATE_CHARINGSHOT + 1,			// ï¿½ï¿½Â¡ï¿½ï¿½
+		AGEAR_STATE_HYPERSHOT + 1,				// ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½
+		AGEAR_STATE_BARRIER	+ 1,				// ï¿½è¸®ï¿½ï¿½	// 2013-01-30 by mspark, Aï¿½ï¿½ï¿½ ï¿½è¸®ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		MGEAR_STATE_INVINCIBLE + 1				// ï¿½ï¿½ï¿½ï¿½		// 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	};
 	
-	// ÀÎºñÁöºí
+	// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
 	bTmp = pUnit->IsUnitState(UNIT_STATE_INVISIBLE);
 	if(pMsg->moveBitFlag.Invisible0 != bTmp)
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_INVISIBLE, fElaspedTime); // ½Ã°£ Ãß°¡
+		pUnit->AddSkillChgTime(UNIT_STATE_INVISIBLE, fElaspedTime); // ï¿½Ã°ï¿½ ï¿½ß°ï¿½
 		fSkillTime = pUnit->GetSkillChgTime(UNIT_STATE_INVISIBLE);
 
 		if(fSkillTime > UNIT_CHG_STATE_TIME)
 		{
-			pUnit->AddSkillChgTime(UNIT_STATE_INVISIBLE, -1);	// º¯¼ö ÃÊ±âÈ­ 
+			pUnit->AddSkillChgTime(UNIT_STATE_INVISIBLE, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
 			bTmp ^= TRUE;	//==(bTmp = !bTmp)
 			pUnit->SetUnitSkillState(UNIT_STATE_INVISIBLE, bTmp);
 			if(bTmp)
@@ -2631,10 +2643,10 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_INVISIBLE, -1);	// º¯¼ö ÃÊ±âÈ­ 
+		pUnit->AddSkillChgTime(UNIT_STATE_INVISIBLE, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
 	}
 	
-	// Â÷Â¡¼¦	
+	// ï¿½ï¿½Â¡ï¿½ï¿½	
 	bTmp = pUnit->IsUnitState(UNIT_STATE_CHARINGSHOT);
 	if(pMsg->moveBitFlag.ChargingSkill != bTmp)
 	{
@@ -2643,7 +2655,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 		
 		if(fSkillTime > UNIT_CHG_STATE_TIME)
 		{
-			pUnit->AddSkillChgTime(UNIT_STATE_CHARINGSHOT, -1);	// º¯¼ö ÃÊ±âÈ­ 			
+			pUnit->AddSkillChgTime(UNIT_STATE_CHARINGSHOT, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 			
 			bTmp ^= TRUE;
 			pUnit->SetUnitSkillState(UNIT_STATE_CHARINGSHOT, bTmp);
 			if(bTmp)
@@ -2659,10 +2671,10 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}		
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_CHARINGSHOT, -1);	// º¯¼ö ÃÊ±âÈ­ 			
+		pUnit->AddSkillChgTime(UNIT_STATE_CHARINGSHOT, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 			
 	}
 	
-	// ÇÏÀÌÆÛ¼¦
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½
 	bTmp = pUnit->IsUnitState(UNIT_STATE_HYPERSHOT);
 	if(pMsg->moveBitFlag.HyperShot != bTmp)
 	{
@@ -2671,7 +2683,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 		
 		if(fSkillTime > UNIT_CHG_STATE_TIME)
 		{
-			pUnit->AddSkillChgTime(UNIT_STATE_HYPERSHOT, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+			pUnit->AddSkillChgTime(UNIT_STATE_HYPERSHOT, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 			bTmp ^= TRUE;
 			pUnit->SetUnitSkillState(UNIT_STATE_HYPERSHOT, bTmp);
 			if(bTmp)
@@ -2687,10 +2699,10 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_HYPERSHOT, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+		pUnit->AddSkillChgTime(UNIT_STATE_HYPERSHOT, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 	}
 	
-	// 2013-01-30 by mspark, A±â¾î ¹è¸®¾î ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+	// 2013-01-30 by mspark, Aï¿½ï¿½ï¿½ ï¿½è¸®ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool bTemp = pUnit->IsUnitState(UNIT_STATE_BARRIER);
 	if(pMsg->moveBitFlag.bUsingBarialSkill != bTemp)
 	{
@@ -2699,7 +2711,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 		
 		if(fSkillTime > UNIT_SEARCHEYE_CHG_STATE_TIME)
 		{
-			pUnit->AddSkillChgTime(UNIT_STATE_BARRIER, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+			pUnit->AddSkillChgTime(UNIT_STATE_BARRIER, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 			bTemp ^= TRUE;
 			pUnit->SetUnitSkillState(UNIT_STATE_BARRIER, bTemp);
 			if(bTemp)
@@ -2715,11 +2727,11 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_BARRIER, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+		pUnit->AddSkillChgTime(UNIT_STATE_BARRIER, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 	}
-	// end 2013-01-30 by mspark, A±â¾î ¹è¸®¾î ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+	// end 2013-01-30 by mspark, Aï¿½ï¿½ï¿½ ï¿½è¸®ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+	// 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool bTemp2 = pUnit->IsUnitState(UNIT_STATE_INVINCIBLE);
 	if(pMsg->moveBitFlag.bUsingInvicibleSkill != bTemp2)
 	{
@@ -2728,7 +2740,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 		
 		if(fSkillTime > UNIT_SEARCHEYE_CHG_STATE_TIME)
 		{
-			pUnit->AddSkillChgTime(UNIT_STATE_INVINCIBLE, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+			pUnit->AddSkillChgTime(UNIT_STATE_INVINCIBLE, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 			bTemp2 ^= TRUE;
 			pUnit->SetUnitSkillState(UNIT_STATE_INVINCIBLE, bTemp2);
 			if(bTemp2)
@@ -2744,11 +2756,11 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_INVINCIBLE, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+		pUnit->AddSkillChgTime(UNIT_STATE_INVINCIBLE, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 	}
-	// end 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+	// end 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef SC_SEARCHEYE_SHUTTLE_POSITION_JHSEOL_MSPARK
 	bool byTmp = pUnit->IsUnitState(UNIT_STATE_SEARCHEYE);
 	if(pMsg->moveBitFlag.bSearchEye_1 != byTmp)
@@ -2758,7 +2770,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 		
 		if(fSkillTime > UNIT_SEARCHEYE_CHG_STATE_TIME)
 		{
-			pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+			pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 			byTmp ^= TRUE;
 			pUnit->SetUnitSkillState(UNIT_STATE_SEARCHEYE, byTmp);
 
@@ -2774,7 +2786,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+		pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 	}
 
 	bool byTmp2 = pUnit->IsUnitState(UNIT_STATE_SEARCHEYE2);
@@ -2785,7 +2797,7 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 				
 		if(fSkillTime > UNIT_SEARCHEYE_CHG_STATE_TIME)
 		{			
-			pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE2, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+			pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE2, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 			byTmp2 ^= TRUE;
 			pUnit->SetUnitSkillState(UNIT_STATE_SEARCHEYE2, byTmp2);
 			
@@ -2801,10 +2813,10 @@ void CShuttleChild::UpdateEnemyState(CEnemyData *pEnemyData, MSG_FC_MOVE_OK* pMs
 	}
 	else
 	{
-		pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE2, -1);	// º¯¼ö ÃÊ±âÈ­ 	
+		pUnit->AddSkillChgTime(UNIT_STATE_SEARCHEYE2, -1);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 	
 	}
 #endif
-// end 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+// end 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 }	
 
@@ -2830,15 +2842,15 @@ void CShuttleChild::SetEmenyState(CUnitData* pUnit, INT ItemNum)
 	{
 		if(pUnit->m_pSkillEffect->FindSkillEffect(ItemNum))
 		{ 
-			// ÀÌ¹Ì »ý¼ºµÈ ½ºÅ³ÀÌ ÀÖ´Ù¸é..
+			// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½..
 			pUnit->m_pSkillEffect->ChangeBodyCondition(ItemNum, BODYCON_USE_SKILL_MASK);
 		}
 		else
-		{ // »ý¼ºµÈ ½ºÅ³ÀÌ ¾ø´Ù¸é »ý¼ºÇÑ´Ù.
+		{ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			
-			// ¼ø°£ÀÌÆåÆ® - ³ªÁß¿¡ ¹Ù²ÙÀÚ..
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® - ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½..
 			// 2005-08-23 by ispark
-			// 2013-03-13 by bhsohn ½ºÅ³ ¹øÈ£ ±¸Á¶ ¼öÁ¤
+			// 2013-03-13 by bhsohn ï¿½ï¿½Å³ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			CAppEffectData* pEff = new CAppEffectData(pUnit,SKILL_BASE_NUM(pItem->SourceIndex),D3DXVECTOR3(0,0,0));
 			CAppEffectData* pEff = new CAppEffectData(pUnit,SKILL_BASE_SOURCEINDEX(pItem->SourceIndex),D3DXVECTOR3(0,0,0));
 			if(pEff->m_bUsing)
@@ -2946,7 +2958,7 @@ void CShuttleChild::HandleInput(float fElapsedTime)
 	}
 #endif // _DEBUG_endif
 
-	// 2009-04-23 by bhsohn ¿¡µðÆ®Ã¢ Ä¿¼­ ÀÌµ¿
+	// 2009-04-23 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ®Ã¢ Ä¿ï¿½ï¿½ ï¿½Ìµï¿½
 	//if(m_dwState != _LANDING && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_DELETE))
 	if(m_dwState != _LANDING && !g_pD3dApp->m_bChatMode && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_DELETE))
 	{
@@ -2958,9 +2970,9 @@ void CShuttleChild::HandleInput(float fElapsedTime)
 				if(fDeletekeyTime <= 0.0f)
 				{
 					fDeletekeyTime = 1.0f;
-					// 2009-04-07 by bhsohn ¿¡¾î ½ÃÁî½Ã, ½ÃÁ¡ ¾È¹Ù²î°Ô ÇÔ										
+					// 2009-04-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½È¹Ù²ï¿½ï¿½ ï¿½ï¿½										
 					//if(m_bIsAir == TRUE)
-					if((m_bIsAir == TRUE) && (_SIEGE != m_bAttackMode) && m_InfiState)	//2011-07-20 by jhahn	ÀÎÇÇ3Â÷ ½Ã³×¸¶ Áß  ½ÃÁ¡º¯°æ ±ÝÁö
+					if((m_bIsAir == TRUE) && (_SIEGE != m_bAttackMode) && m_InfiState)	//2011-07-20 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					{				
 						g_pD3dApp->m_pCamera->ChangeCamType();
 						g_pInterface->SaveOptionFile();
@@ -2973,35 +2985,35 @@ void CShuttleChild::HandleInput(float fElapsedTime)
 void CShuttleChild::Render()
 {
 	FLOG( "CShuttleChild::Render()" );
-	// 2007-03-26 by dgwoo ¿ÉÀú¹ö ¸ðµå½Ã ±â¾î¸¦ ±×¸®Áö ¾Ê´Â´Ù.
+	// 2007-03-26 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î¸¦ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 	if(IsOperAndObser())
 	{
 		return;
 	}
 
-	// 2007-03-07 by bhsohn ½ÃÁî ¸ðµå ¹ö±× ¼öÁ¤	
+	// 2007-03-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	BOOL bCameraStatus = (g_pCamera->GetCamType() == CAMERA_TYPE_NORMAL) && m_bAttackMode != _SIEGE;
 	if(FALSE == bCameraStatus)
 	{
 		BOOL bCamContorl = g_pCamera->m_bIsCamControl || m_bTurnCamera;
-		// Ä«¸Þ¶ó ¸ðµåÀÎÁö ÆÇ´Ü. 
+		// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½. 
 		if( bCamContorl && _SIEGE == m_bAttackMode )
 		{
-			// ½ÃÁî¸é¼­ Ä«¸Þ¶ó Á¦¾î¸ðµå 
+			// ï¿½ï¿½ï¿½ï¿½é¼­ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 			bCameraStatus = TRUE;
 		}
 	}	
 //	if( (g_pCamera->GetCamType() == CAMERA_TYPE_NORMAL && 
 //		m_bAttackMode != 2 ) ||
 //		m_bIsCameraPattern == TRUE ||
-//		g_pD3dApp->m_dwGameState == _CITY)// 1ÀÎÄªÀÎ °æ¿ì, ½ÃÁî¸ðµåÀÎ °æ¿ì ·»´õ¸µ ¾ÈÇÔ, µµ½Ã¿¡¼­´Â ¹«Á¶°Ç ·»´õ¸µ ÇÔ
+//		g_pD3dApp->m_dwGameState == _CITY)// 1ï¿½ï¿½Äªï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	if( bCameraStatus
 		|| m_bIsCameraPattern == TRUE 
-		|| 	g_pD3dApp->m_dwGameState == _CITY)// 1ÀÎÄªÀÎ °æ¿ì, ½ÃÁî¸ðµåÀÎ °æ¿ì ·»´õ¸µ ¾ÈÇÔ, µµ½Ã¿¡¼­´Â ¹«Á¶°Ç ·»´õ¸µ ÇÔ
+		|| 	g_pD3dApp->m_dwGameState == _CITY)// 1ï¿½ï¿½Äªï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	{
 		((CUnitRender*)m_pRender)->Render(this, m_nArmorColorIndex);
 		
-		// ÀÎº¥Åä¸® ·»´õ¸µ
+		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //		m_bInvenRender = FALSE;
 //		if(g_pGameMain->m_pInfWindow->m_nLeftWindowInfo == 1 && m_bRenderInven == TRUE)
 //		{
@@ -3013,7 +3025,7 @@ void CShuttleChild::Render()
 }
 
 
-// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 void CShuttleChild::RenderMirror(POINT *pMirrorPos/*=NULL*/)
 {	
 	g_pGameMain->RenderMirror(pMirrorPos);		
@@ -3284,7 +3296,7 @@ void CShuttleChild::CheckShadowPos()
 	if(m_bOnObject && g_pScene->m_pObjectRender &&
 		(D3DXVec3Length(&(m_vShadowPos4-m_vShadowPos2)) > m_fObjectSize*6 ||
 		D3DXVec3Length(&(m_vShadowPos1-m_vShadowPos3)) > m_fObjectSize*6))
-	{// ±×¸²ÀÚ°¡ ¿ÀÇÁÁ§Æ®¿¡ °ÉÃÄ ´Ã¾îÁö¸é ÁöÇü°ú ¹°À» ±âÁØÀ¸·Î ±×¸²ÀÚ À§Ä¡¸¦ ¼¼ÆÃÇÑ´Ù.
+	{// ï¿½×¸ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		m_vShadowPos1 = vTempShadowPos[0];
 		m_vShadowPos2 = vTempShadowPos[1];
 		m_vShadowPos3 = vTempShadowPos[2];
@@ -3302,7 +3314,7 @@ void CShuttleChild::CheckShadowPos()
 FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 {
 	FLOG( "CShuttleChild::CheckMap(D3DXVECTOR3 vPos)" );
-	// 2007-04-19 by bhsohn Ãæµ¹ Ã³¸® ¹®Á¦
+	// 2007-04-19 by bhsohn ï¿½æµ¹ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//if(IsTileMapRenderEnable(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex) == FALSE)
 	if(IsTileMapTickEnable(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex) == FALSE)
 	{
@@ -3320,7 +3332,7 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 	dir = D3DXVECTOR3(0,-1,0);
 	m_bIsWater = CheckIsWater(vPos);
 	// 2005-09-14 by ispark
-	// ¸¸¾à¿¡ ¿Ü°ûÀÌ¶ó¸é ¾ÈÂÊ ÁöÇüÀ¸·Î °Ë»ç
+	// ï¿½ï¿½ï¿½à¿¡ ï¿½Ü°ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if((i < 0 || i > g_pGround->m_projectInfo.sXSize) || (j < 0 || j > g_pGround->m_projectInfo.sYSize))
 	{
 		if(i < 0)
@@ -3351,13 +3363,13 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 			g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos,
 			&fDist))//, &fBary1, &fBary2 ))
 		{
-			// ¼¼Á¡Áß ÃÖ°í ³ôÀºÁ¡À» ÀúÀåÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			fMaxPoint = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y;
-			// ÁöÇüÀÇ ³ë¸Öº¤ÅÍ¸¦ ±¸ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Öºï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 			D3DXVec3Cross(&m_vNormal,&(g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos
 				-g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+j].pos),
 				&(g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos
@@ -3388,14 +3400,14 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 				if(vPos.y <= v.y + 1.0f)
 					m_bCollMap = TRUE;
 
-				// 2013-11-21 by ymjoo °æ»ç°¡ ±ÞÇÑ ÁöÇü¿¡¼­ º®À» ¶Õ´Â Çö»ó ÇØ°á
+				// 2013-11-21 by ymjoo ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 #ifdef C_CHECK_COLL_MAP
 				D3DXVECTOR3 edge1 = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos 
 					- g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j].pos;
 				D3DXVECTOR3 edge2 = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos
 					- g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j].pos;
 
-				// v0, v1, v2ÀÇ ¹ý¼± º¤ÅÍ
+				// v0, v1, v2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				D3DXVECTOR3 normalVec;
 				D3DXVec3Cross( &normalVec, &edge1, &edge2 );
 				D3DXVec3Normalize( &normalVec, &normalVec );
@@ -3403,13 +3415,13 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 				D3DXVECTOR3 tVec;
 				tVec = vPos - g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j].pos;
 				
-				// (v0, v1, v2)¿Í orig(vPos)ÀÇ °Å¸®
+				// (v0, v1, v2)ï¿½ï¿½ orig(vPos)ï¿½ï¿½ ï¿½Å¸ï¿½
 				FLOAT fDet = D3DXVec3Dot( &tVec, &normalVec );
 				
 				if( fDet * fDet <= 4.0f )
 					m_bCollMap = TRUE;
 #endif
-				// END 2013-11-21 by ymjoo °æ»ç°¡ ±ÞÇÑ ÁöÇü¿¡¼­ º®À» ¶Õ´Â Çö»ó ÇØ°á
+				// END 2013-11-21 by ymjoo ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 
 				return v.y;
 			}
@@ -3419,13 +3431,13 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 			g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos,
 			&fDist))//, &fBary1, &fBary2 ))
 		{
-			// ¼¼Á¡Áß ÃÖ°í ³ôÀºÁ¡À» ÀúÀåÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			fMaxPoint = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y;
-			// ÁöÇüÀÇ ³ë¸Öº¤ÅÍ¸¦ ±¸ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Öºï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 			D3DXVec3Cross(&m_vNormal,&(g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos
 				-g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos),
 				&(g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos
@@ -3456,14 +3468,14 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 				if(vPos.y <= v.y + 1.0f)
 					m_bCollMap = TRUE;
 
-				// 2013-11-21 by ymjoo °æ»ç°¡ ±ÞÇÑ ÁöÇü¿¡¼­ º®À» ¶Õ´Â Çö»ó ÇØ°á
+				// 2013-11-21 by ymjoo ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 #ifdef C_CHECK_COLL_MAP
 				D3DXVECTOR3 edge1 = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos 
 					- g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos;
 				D3DXVECTOR3 edge2 = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos
 					- g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos;
 				
-				// v0, v1, v2ÀÇ ¹ý¼± º¤ÅÍ
+				// v0, v1, v2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				D3DXVECTOR3 normalVec;
 				D3DXVec3Cross( &normalVec, &edge1, &edge2 );
 				D3DXVec3Normalize( &normalVec, &normalVec );
@@ -3471,13 +3483,13 @@ FLOAT CShuttleChild::CheckMap(D3DXVECTOR3 vPos)
 				D3DXVECTOR3 tVec;
 				tVec = vPos - g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos;
 				
-				// (v0, v1, v2)¿Í orig(vPos)ÀÇ °Å¸®
+				// (v0, v1, v2)ï¿½ï¿½ orig(vPos)ï¿½ï¿½ ï¿½Å¸ï¿½
 				FLOAT fDet = D3DXVec3Dot( &tVec, &normalVec );
 				
 				if( fDet * fDet <= 4.0f )
 					m_bCollMap = TRUE;
 #endif
-				// END 2013-11-21 by ymjoo °æ»ç°¡ ±ÞÇÑ ÁöÇü¿¡¼­ º®À» ¶Õ´Â Çö»ó ÇØ°á
+				// END 2013-11-21 by ymjoo ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 				
 				return v.y;
 			}
@@ -3540,19 +3552,19 @@ BOOL CShuttleChild::CheckMapIsColl(D3DXVECTOR3 vPos, D3DXVECTOR3 vVel)
 			g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos,
 			&fDist))//, &fBary1, &fBary2 ))
 		{
-			// ¼¼Á¡Áß ÃÖ°í ³ôÀºÁ¡À» ÀúÀåÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			fMaxPoint = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y;
-			// ÁöÇüÀÇ ³ë¸Öº¤ÅÍ¸¦ ±¸ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Öºï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 			D3DXVec3Cross(&m_vNormal,&(g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos
 				-g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+j].pos),
 				&(g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos
 				-g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos));
 			D3DXVec3Normalize(&m_vNormal,&m_vNormal);
-			if(m_vNormal.y > 0.5f) // °æ»ç Ã¼Å©ÇÏ¿© »ó½Â ÇÒ°ÍÀÎÁö ÇÏÁö ¾ÊÀ»°ÍÀÎÁö? TRUE:»ó½Â FALSE:»ó½Â¾ÈÇÔ
+			if(m_vNormal.y > 0.5f) // ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? TRUE:ï¿½ï¿½ï¿½ FALSE:ï¿½ï¿½Â¾ï¿½ï¿½ï¿½
 				return TRUE;
 			else
 				return FALSE;
@@ -3562,13 +3574,13 @@ BOOL CShuttleChild::CheckMapIsColl(D3DXVECTOR3 vPos, D3DXVECTOR3 vVel)
 			g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos,
 			&fDist))//, &fBary1, &fBary2 ))
 		{
-			// ¼¼Á¡Áß ÃÖ°í ³ôÀºÁ¡À» ÀúÀåÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			fMaxPoint = g_pGround->m_pTileVertexArray[i*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos.y;
 			if(fMaxPoint < g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y)
 				fMaxPoint = g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos.y;
-			// ÁöÇüÀÇ ³ë¸Öº¤ÅÍ¸¦ ±¸ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Öºï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 			D3DXVec3Cross(&m_vNormal,&(g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j+1)].pos
 				-g_pGround->m_pTileVertexArray[(i)*(g_pGround->m_projectInfo.sYSize+1)+j+1].pos),
 				&(g_pGround->m_pTileVertexArray[(i+1)*(g_pGround->m_projectInfo.sYSize+1)+(j)].pos
@@ -3594,21 +3606,21 @@ void CShuttleChild::SetMoveType(D3DXVECTOR3 vPos,float fHeight)
 			m_bCheckMove = 2;
 		else if(vPos.y > 0.7f) // 30-45
 			m_bCheckMove = 1;
-		else // 45µµ ÀÌ»ó
+		else // 45ï¿½ï¿½ ï¿½Ì»ï¿½
 			m_bCheckMove = 0;
 	}
 	else
 	{
 		if(vPos.y > 0.866f)
-			m_bCheckMove = 3; // 30µµ ¹Ì¸¸
+			m_bCheckMove = 3; // 30ï¿½ï¿½ ï¿½Ì¸ï¿½
 		else if(vPos.y > 0.7f) //30-45
 			m_bCheckMove = 2;
 		else if(vPos.y > 0.5f) // 45-60
 			m_bCheckMove = 1;
-		else // 60µµ ÀÌ»ó
+		else // 60ï¿½ï¿½ ï¿½Ì»ï¿½
 		{
 			if(fHeight - m_vPos.y < 20.0f)
-				m_bCheckMove = 1;	// °æ»ç°¡ ±ÞÇØµµ ÀÛÀº ¾ð´öÀÌ¶ó¸é ³Ñ¾î°¡ÀÚ
+				m_bCheckMove = 1;	// ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½
 			else
 				m_bCheckMove = 0;
 		}
@@ -3628,10 +3640,10 @@ BOOL CShuttleChild::CheckIsWater(D3DXVECTOR3 vPos)
 {
 	FLOG( "CShuttleChild::CheckIsWater(D3DXVECTOR3 vPos)" );
 
-	// 2005-02-11 by jschoi ¹° ¿ÀºêÁ§Æ® ¸ÕÀú °Ë»ç
+	// 2005-02-11 by jschoi ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	D3DXMATRIX mat;
 	D3DXVECTOR3 vSide(0,0,1),vUp(0,1,0);
-	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos - m_vUp),&vSide);		// ¾Æ·¡
+	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos - m_vUp),&vSide);		// ï¿½Æ·ï¿½
 		
 	if(	g_pScene &&
 		g_pScene->m_pObjectRender)
@@ -3675,35 +3687,35 @@ void CShuttleChild::UpdateEngine(CItemInfo* pItemInfo)
 	sprintf(szTemp, "%f, %f, %f", pITEM->AbilityMin, pITEM->AbilityMax);
 	g_pD3dApp->m_pChat->CreateChatChild(szTemp, COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
 
-	// 2008-09-26 by bhsohn ½Å±Ô ÀÎÃ¾Æ® Ã³¸®
-	// ÃÖ¼Ò ¼Óµµ
+	// 2008-09-26 by bhsohn ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ® Ã³ï¿½ï¿½
+	// ï¿½Ö¼ï¿½ ï¿½Óµï¿½
 	{		
 		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_MIN_SPEED_UP);
 		m_fShuttleSpeedMin += fTime;
 
 	}
-	// ÃÖ´ë ¼Óµµ
+	// ï¿½Ö´ï¿½ ï¿½Óµï¿½
 	{		
 		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_MAX_SPEED_UP);
 		m_fShuttleSpeedMax += fTime;		
 	}
 
-	// Áö»ó ¼Óµµ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 	{		
 		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_GROUND_SPEED_UP);
 		m_fShuttleGroundSpeedMax += fTime;		
 	}
 
-	// ºÎ½ºÅÍ ¼Óµµ
+	// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 	{		
 		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_BOOSTER_SPEED_UP);
 		m_fShuttleSpeedBoosterOn += fTime;		
 	}
-	// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+	// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 	float fTimeUp = GetEnchantDesParam(pItemInfo, DES_ENGINE_BOOSTER_TIME_UP);
 	m_fBURN += fTimeUp;
 
-	// 2008-03-19 by bhsohn FLOATÇü ÀçÁ¤·Ä ÇÏ¿© »ç¿ë
+	// 2008-03-19 by bhsohn FLOATï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
 	m_fBURN = FloatRangeDecimal(m_fBURN, 2);
 
 //	m_fMouseRate = pITEM->RangeAngle;
@@ -3715,7 +3727,7 @@ void CShuttleChild::UpdateEngine(CItemInfo* pItemInfo)
 	}
 	else
 	{
-		// ÃÊ±âÈ­		
+		// ï¿½Ê±ï¿½È­		
 		m_paramFactor.pfm_ENGINE_ANGLE_UP = m_paramFactor.pfm_ENGINE_BOOSTERANGLE_UP = 0.0f;
 	}
 
@@ -3773,37 +3785,37 @@ void CShuttleChild::ChangeEngine(CItemInfo* pItemInfo, int nCurrentBURN)
  	m_bySpeedPenalty = pITEM->SpeedPenalty;
  	m_fBURN = (float)pITEM->Time/1000.0f;
  
- 	// 2008-09-26 by bhsohn ½Å±Ô ÀÎÃ¾Æ® Ã³¸®
- 	// ÃÖ¼Ò ¼Óµµ
+ 	// 2008-09-26 by bhsohn ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ® Ã³ï¿½ï¿½
+ 	// ï¿½Ö¼ï¿½ ï¿½Óµï¿½
  	{		
  		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_MIN_SPEED_UP);
  		m_fShuttleSpeedMin += fTime; 
  	}
- 	// ÃÖ´ë ¼Óµµ
+ 	// ï¿½Ö´ï¿½ ï¿½Óµï¿½
  	{		
  		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_MAX_SPEED_UP);
  		m_fShuttleSpeedMax += fTime;		
  	}
  
- 	// Áö»ó ¼Óµµ
+ 	// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
  	{		
  		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_GROUND_SPEED_UP);
  		m_fShuttleGroundSpeedMax += fTime;		
  	}
  
- 	// ºÎ½ºÅÍ ¼Óµµ
+ 	// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
  	{		
 		float fTime = GetEnchantDesParam(pItemInfo, DES_ENGINE_BOOSTER_SPEED_UP);
  		m_fShuttleSpeedBoosterOn += fTime;		
  	}
- 	// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+ 	// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
  	float fTimeUp = GetEnchantDesParam(pItemInfo, DES_ENGINE_BOOSTER_TIME_UP);
  	m_fBURN += fTimeUp;
  	
- 	// 2008-03-19 by bhsohn FLOATÇü ÀçÁ¤·Ä ÇÏ¿© »ç¿ë
+ 	// 2008-03-19 by bhsohn FLOATï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
  	m_fBURN = FloatRangeDecimal(m_fBURN, 2);
 
-	// 2010. 04. 27 by jskim º¸±Þ »óÁ¡¿¡¼­ ÀÌ·ú½Ã ºÎ½ºÅÍ 0µÇ´Â ¹ö±× ¼öÁ¤
+	// 2010. 04. 27 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ 0ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for(int i = POS_PROW; i <= POS_PET; i++)
 	{
 		CItemInfo* pAllItem = g_pStoreData->FindItemInInventoryByWindowPos( i ); 
@@ -3811,8 +3823,8 @@ void CShuttleChild::ChangeEngine(CItemInfo* pItemInfo, int nCurrentBURN)
 		if(!pAllItem || i == POS_REAR )
 			continue;
 		
-		// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
-		//// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+		// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 		//m_fBURN += GetEnchantDesParam(pAllItem, DES_ENGINE_BOOSTER_TIME_UP) + pAllItem->GetRealItemInfo()->GetParameterValue(DES_ENGINE_BOOSTER_TIME_UP);
 		float tempBURN = 0.0f;
 		if(pAllItem && i == POS_CENTER)
@@ -3837,31 +3849,31 @@ void CShuttleChild::ChangeEngine(CItemInfo* pItemInfo, int nCurrentBURN)
 				}
 			}
 		}	
-		// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 		m_fBURN += GetEnchantDesParam(pAllItem, DES_ENGINE_BOOSTER_TIME_UP) + pAllItem->GetRealItemInfo()->GetParameterValue(DES_ENGINE_BOOSTER_TIME_UP) + tempBURN;
-		//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+		//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_fBURN = FloatRangeDecimal(m_fBURN, 2);
 	}
 	
-	// »ç¿ë·ù ¾ÆÀÌÅÛ ±â´É °¡Á®¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vector<ItemFontInfo*> ItemInfo = g_pGameMain->m_pInfSkill->GetItemFontInfo();
 	vector<ItemFontInfo*>::iterator it = ItemInfo.begin();
 	while(it != ItemInfo.end())
 	{
-		// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 		if((*it)->pItemInfo)
 		{
 			m_fBURN += (*it)->pItemInfo->GetParameterValue(DES_ENGINE_BOOSTER_TIME_UP);
-			// FLOATÇü ÀçÁ¤·Ä ÇÏ¿© »ç¿ë
+			// FLOATï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
 			m_fBURN = FloatRangeDecimal(m_fBURN, 2);
 		}
 		it++;
  	}
-	//end 2010. 04. 27 by jskim º¸±Þ »óÁ¡¿¡¼­ ÀÌ·ú½Ã ºÎ½ºÅÍ 0µÇ´Â ¹ö±× ¼öÁ¤
+	//end 2010. 04. 27 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ 0ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  
  	//DbgOut("#1 m_fCurrentBURN[%.2f] nCurrentBURN[%d] m_fBURN[%.2f] \n", m_fCurrentBURN, nCurrentBURN, m_fBURN);
- 	if((m_fCurrentBURN == 0) ||							// 2005-12-10 by ispark, ÇöÀç ºÎ½ºÅÍ °ÔÀÌÁö°¡ 0ÀÌ¶ó¸é ¼ÂÆÃ. ÀÚÁÖ ¸®¼Â µÇ´Â °æ¿ì ¶§¹®¿¡ ÀÌ·¸°Ô ÇÔ
- 		(m_fCurrentBURN > m_fBURN))						// 2005-12-15 by ispark, ÇöÀç ºÎ½ºÅÍ °ÔÀÌÁö°¡ ¼ÂÆÃµÇ´Â ¿£Áø ºÎ½ºÅÍ ÃÖ´ëº¸´Ù Å©¸é ´Ù½Ã ¸®¼Â
+ 	if((m_fCurrentBURN == 0) ||							// 2005-12-10 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½
+ 		(m_fCurrentBURN > m_fBURN))						// 2005-12-15 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´ëº¸ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
  	{
  		m_fCurrentBURN = nCurrentBURN;
  	}
@@ -3874,11 +3886,11 @@ void CShuttleChild::ChangeEngine(CItemInfo* pItemInfo, int nCurrentBURN)
  	}
  	else
  	{
- 		// ÃÊ±âÈ­		
+ 		// ï¿½Ê±ï¿½È­		
  		m_paramFactor.pfm_ENGINE_ANGLE_UP = m_paramFactor.pfm_ENGINE_BOOSTERANGLE_UP = 0.0f;
  	}
   	m_fMouseRate = CAtumSJ::GetEngineRangeAngle(pITEM, &m_paramFactor);
-//end 2010. 04. 15 by jskim ºÎ½ºÅÍ ÃÖ¼Ò ¼Óµµ, ÃÖ°í ¼Óµµ 2¹è µÇ´Â ¹ö±× ¼öÁ¤
+//end 2010. 04. 15 by jskim ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½Óµï¿½, ï¿½Ö°ï¿½ ï¿½Óµï¿½ 2ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	ASSERT_ASSERT(m_fBURN>0.0f);
 
@@ -3919,9 +3931,9 @@ void CShuttleChild::InitEffect()
 //	{
 		CItemInfo* pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_CENTER );
 		// 2005-07-20 by ispark
-		// Ä³¸¯ÅÍ ·»´õ¸µ ¹øÈ£¸¦ ÀÔ·ÂÇÑ´Ù. ¿©±â¿¡ ÀÌÆåÆ® Æ÷ÇÔ
+		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//ChangeUnitCharacterInfo((pItem?pItem->ItemInfo->SourceIndex:0), m_myShuttleInfo.UnitKind, GetCurrentBodyCondition(), FALSE);
 
 		int nDefenseNum = 0;
@@ -3941,7 +3953,7 @@ void CShuttleChild::InitEffect()
 					nDefenseNum = pItem->ItemInfo->SourceIndex;
 			}
 		}
-		// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+		// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 		//ChangeUnitCharacterInfo( nDefenseNum, m_myShuttleInfo.UnitKind, GetCurrentBodyCondition(), FALSE );
 		BOOL bMonTras = FALSE;
 
@@ -3960,8 +3972,8 @@ void CShuttleChild::InitEffect()
 				nDefenseNum = pTempIn->SourceIndex;
 		}
 		ChangeUnitCharacterInfo( nDefenseNum, m_myShuttleInfo.UnitKind, GetCurrentBodyCondition(), FALSE, bMonTras );
-		//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	}
 }
 
@@ -4009,7 +4021,7 @@ void CShuttleChild::CheckGroundEffect()
 		// 2005-02-11 by jschoi
 		D3DXMATRIX mat;
 		D3DXVECTOR3 vSide(0,0,1),vUp(0,1,0);
-		D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos - m_vUp),&vSide);		// ¾Æ·¡
+		D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos - m_vUp),&vSide);		// ï¿½Æ·ï¿½
 		if(	m_bIsWater &&
 			g_pScene &&
 			g_pScene->m_pObjectRender)
@@ -4033,7 +4045,7 @@ void CShuttleChild::CheckGroundEffect()
 				if(m_bIsWater)
 				{
 					if(v.y > g_pGround->m_projectInfo.fWaterHeight)
-					{//¶¥
+					{//ï¿½ï¿½
 						if(m_vPos.y <= v.y + fCheckHeight)
 						{
 							fHeight = v.y + 1.0f;
@@ -4041,7 +4053,7 @@ void CShuttleChild::CheckGroundEffect()
 						}
 					}
 					else
-					{//¹°
+					{//ï¿½ï¿½
 						if(	m_vPos.y <= g_pGround->m_projectInfo.fWaterHeight + fCheckHeight )
 						{
 							fHeight = g_pGround->m_projectInfo.fWaterHeight + 1.0f;
@@ -4050,7 +4062,7 @@ void CShuttleChild::CheckGroundEffect()
 					}
 				}
 				else
-				{//¶¥
+				{//ï¿½ï¿½
 					if(m_vPos.y <= v.y + fCheckHeight)
 					{
 						fHeight = v.y + 1.0f;
@@ -4067,7 +4079,7 @@ void CShuttleChild::CheckGroundEffect()
 				if(m_bIsWater)
 				{
 					if(v.y > g_pGround->m_projectInfo.fWaterHeight)
-					{//¶¥
+					{//ï¿½ï¿½
 						if(m_vPos.y <= v.y + fCheckHeight)
 						{
 							fHeight = v.y + 1.0f;
@@ -4075,7 +4087,7 @@ void CShuttleChild::CheckGroundEffect()
 						}
 					}
 					else
-					{//¹°						
+					{//ï¿½ï¿½						
 						if(m_vPos.y <= g_pGround->m_projectInfo.fWaterHeight + fCheckHeight)
 						{
 							fHeight = g_pGround->m_projectInfo.fWaterHeight + 1.0f;
@@ -4084,7 +4096,7 @@ void CShuttleChild::CheckGroundEffect()
 					}
 				}
 				else
-				{//¶¥
+				{//ï¿½ï¿½
 					if(m_vPos.y <= v.y + fCheckHeight)
 					{
 						fHeight = v.y + 1.0f;
@@ -4093,15 +4105,15 @@ void CShuttleChild::CheckGroundEffect()
 				}
 			}
 		}
-		// 2008-12-04 by bhsohn ÃÖ¼ÒÈ­ ¸ðµå½Ã, ¹° ·£´õ¸µ Ã³¸®
+		// 2008-12-04 by bhsohn ï¿½Ö¼ï¿½È­ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //		BYTE bEffectGround = m_bEffectGround;
 //		if(g_pSOption->sLowQuality)
 //		{
-//			// ÀÌ ºÎºÐÀ» ¼öÁ¤ÇÏ¸é ÃÖ¼Ò 7ÇÁ·¹ÀÓ ÀÌ»ó º¸Àå~~~
-//			// ²À, ¼öÁ¤ÇÏÀÚ~~~~!
+//			// ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ö¼ï¿½ 7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½~~~
+//			// ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~~~~!
 //			m_bEffectGround = 0;
 //		}
-		// end 2008-12-04 by bhsohn ÃÖ¼ÒÈ­ ¸ðµå½Ã, ¹° ·£´õ¸µ Ã³¸®
+		// end 2008-12-04 by bhsohn ï¿½Ö¼ï¿½È­ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		if( IsTileMapRenderEnable(m_myShuttleInfo.MapChannelIndex.MapIndex) == TRUE &&
 			bOldEffectGround != m_bEffectGround)
 		{
@@ -4153,7 +4165,7 @@ void CShuttleChild::CheckGroundEffect()
 }
 
 //void CShuttleChild::AutoControlHeight()
-//{// ÀÚµ¿ °íµµ Á¶Àý - Enemy,Monster °Ë»ö
+//{// ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - Enemy,Monster ï¿½Ë»ï¿½
 //	FLOG( "CShuttleChild::AutoControlHeight()" );
 //	float fDist;
 //	if(m_pTarget && 
@@ -4162,7 +4174,7 @@ void CShuttleChild::CheckGroundEffect()
 //	{
 //		fDist = m_pTarget->m_vPos.y - m_vPos.y;
 //		if(fDist > 10.0f)
-//			fDist = 10.0f; // ÀÌµ¿ ¼Óµµ Á¦ÇÑ
+//			fDist = 10.0f; // ï¿½Ìµï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 //		m_vPos.y += fDist*g_pD3dApp->GetElapsedTime();
 //	}
 //}
@@ -4172,7 +4184,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	FLOG( "CShuttleChild::WndProc()" );
 	float fElapsedTime = g_pD3dApp->GetElapsedTime();
 
-	if(!g_pD3dApp->m_bChatMode && FALSE == GetChatModeState())// && m_bMoveInputType == 0)		// 2013-11-14 by ssjung ºñÇà Áß Ã¤ÆÃ ÇÒ½Ã Á¶ÀÛÅ°°¡ ÀÛµ¿ÇÏ´Â ¹®Á¦ ¼öÁ¤
+	if(!g_pD3dApp->m_bChatMode && FALSE == GetChatModeState())// && m_bMoveInputType == 0)		// 2013-11-14 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{	
 		switch(uMsg)
 		{
@@ -4184,7 +4196,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					m_bLeftButtonState = TRUE;
 					
 					ActiveKeyDownADouble();
-					// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+					// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					break;
 				case VK_UP:
 					m_bUpButtonState = TRUE;
@@ -4193,7 +4205,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					m_bRightButtonState = TRUE;
 
 					ActiveKeyDownDDouble();
-					// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+					// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					break;
 				case VK_DOWN:
 					m_bDownButtonState = TRUE;
@@ -4232,13 +4244,13 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				{
 				case WM_KEYDOWN_LPARAM_E:
 					{
-						// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½					
+						// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 						//m_bRButtonState = TRUE;
 						if(IsPossibleAttackStat())
 						{
 							m_bRButtonState = TRUE;
 						}						
-						// end 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½					
+						// end 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 						
 					}
 					break;
@@ -4256,9 +4268,9 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						if(CheckUnitState() == BREAKDOWN)
 							break;
 					
-						if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind)			//A±â¾î°¡ ¶¥¿¡ ÀÖÀ»¶§
-							|| g_pD3dApp->m_dwGameState == _SHOP						//»óÁ¡¿¡ ÀÖÀ»¶§
-							|| m_bAttackMode == _SIEGE)									//½ÃÁî ¸ðµåÀÏ¶§ 
+						if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind)			//Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+							|| g_pD3dApp->m_dwGameState == _SHOP						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+							|| m_bAttackMode == _SIEGE)									//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ 
 							break;
 						// 2005-10-06 by ispark
 						if((g_pTutorial->IsTutorialMode() == FALSE || 
@@ -4267,35 +4279,35 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 							m_bLandedMove == FALSE &&
 							m_bSkillMoveIsUse == FALSE)
 						{
-							if(m_bUnitStop == FALSE)	// Á¤Áö½Ã ¸Þ¼¼Áö¸¦ ¹°¾îº»´Ù.
+							if(m_bUnitStop == FALSE)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½îº»ï¿½ï¿½.
 							{
-								g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_050809_0001, //"¸ó½ºÅÍÀÇ °ø°ÝÀ» ¹ÞÀ» ¼ö ÀÖ½À´Ï´Ù. Á¤Áö ÇÏ½Ã°Ú½À´Ï±î?"
+								g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_050809_0001, //"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 								_Q_UNIT_STOP);
 							}
-							else if(m_bSkillGoMove)	// Ãâ¹ß ÇÒ ¶§
+							else if(m_bSkillGoMove)	// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
 							{
-								// 2008-07-03 by bhsohn EP3 ¹ö±× ¸®Æ÷Æ® ¼öÁ¤
+								// 2008-07-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 								if(g_pGameMain->m_pCommunity->IsShowCommunityWindow())
 								{
-									// Ãâ¹ß½Ã °­Á¦·Î Ã¢´ÝÀ½
+									// ï¿½ï¿½ß½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½
 									g_pGameMain->m_pCommunity->ShowCommunityWindow(FALSE);
 								}
 								if(g_pGameMain->m_pSystem && g_pGameMain->m_pSystem->IsOptionShow())
 								{
 									g_pGameMain->PopupSystemOptinWnd();
 								}
-								// end 2008-07-03 by bhsohn EP3 ¹ö±× ¸®Æ÷Æ® ¼öÁ¤
+								// end 2008-07-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 								
 								m_bUnitStop = FALSE;
 								m_bPenaltyUnitStop = TRUE;
 								m_bMouseMoveLock = FALSE;
 								m_nBooster = BOOSTER_TYPE_MIN;
 								g_pInterface->m_pGameMain->InitShowWindow();
-								// 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ
+								// 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-								SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, ShuttleChangeBodyCondition());		// 2013-06-25 by ssjung µ¥¹ÌÁö ÀÌÆåÆ®°¡ ¾È³ª¿À´Â Çö»ó ¼öÁ¤
+								SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, ShuttleChangeBodyCondition());		// 2013-06-25 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //								SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, BODYCON_SET_OR_CLEAR_MASK );
-								//end 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ	
+								//end 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 							}						
 						}
 					}
@@ -4303,12 +4315,12 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				case WM_KEYDOWN_LPARAM_A:
 					{
 						ActiveKeyDownADouble();
-						// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+						// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					break;
 				case WM_KEYDOWN_LPARAM_D:
 					{
-						// 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+						// 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						if((g_pTutorial->IsTutorialMode() == FALSE || 
 // 							(g_pTutorial->IsTutorialMode() == TRUE && g_pTutorial->GetLesson() >= L3)) &&
 // 							m_bIsAir == TRUE &&
@@ -4318,7 +4330,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // //							m_bKeyDownDPush = TRUE;
 // 							if(m_fDDoubleKeyTime < DOUBLEKEY_TIME 
 // 								&& m_bKeyDownDCheck == FALSE
-// 								// 2007-02-28 by dgwoo ºÎ½ºÅÍ »ç¿ë½Ã¿¡´Â ·Ñ¸µÀ» ÀúÀåÇÏÁö ¾Ê´Â´Ù.
+// 								// 2007-02-28 by dgwoo ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 // 								&& m_nBooster != BOOSTER_TYPE_MAX)
 // 							{
 // 								m_bKeyDownDDouble = TRUE;
@@ -4330,16 +4342,16 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 // 							}
 // 						}
 						ActiveKeyDownDDouble();
-						// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+						// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					break;
 				case WM_KEYDOWN_LPARAM_R:
 					{
-						// 2006-05-03 by ispark, ¹éºä
+						// 2006-05-03 by ispark, ï¿½ï¿½ï¿½
 						SetBackView(TRUE);
 					}
 					break;
-				// 2008-10-23 by bhsohn ÀÚ±â ÀÚ½ÅÇÑÅ× Èú ´ÜÃàÅ° Ãß°¡
+				// 2008-10-23 by bhsohn ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
 				case WM_KEYDOWN_LPARAM_FLOW:
 					{
 						if(	m_pSkill && m_pSkill->GetSkillTargetState() == TRUE )
@@ -4348,8 +4360,8 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						}
 					}
 					break;
-				// end 2008-10-23 by bhsohn ÀÚ±â ÀÚ½ÅÇÑÅ× Èú ´ÜÃàÅ° Ãß°¡
-					// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// end 2008-10-23 by bhsohn ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
+					// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				case WM_KEYDOWN_LPARAM_KEYPAD_PLUS:
 					{
 						if(!g_pD3dApp->IsUseJoyStick())
@@ -4364,7 +4376,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						else
 						{
 							char buf[256];
-							// 2008-12-23 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ¿äÃ» Ã³¸®
+							// 2008-12-23 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½
 							wsprintf(buf, STRMSG_C_081120_0200, g_pJoysticOp->nJoysticSense-MAX_JOYSTICK_DEFAULTSENSITY );
 							g_pD3dApp->m_pChat->CreateChatChild(buf, COLOR_SYSTEM);
 						}
@@ -4391,8 +4403,8 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						
 					}
 					break;
-					// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-					// 2014-09-04 by ymjoo SÅ° Åä±Û
+					// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+					// 2014-09-04 by ymjoo SÅ° ï¿½ï¿½ï¿½
 				case WM_KEYDOWN_LPARAM_W:
 					{
 						m_bToggleKeyS = FALSE;
@@ -4415,7 +4427,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						m_bToggleKeyS = FALSE;
 					}
 					break;
-					// END 2014-09-04 by ymjoo SÅ° Åä±Û
+					// END 2014-09-04 by ymjoo SÅ° ï¿½ï¿½ï¿½
 				}	
 			}
 			break;
@@ -4437,7 +4449,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						break;
 	//				case VK_END:
 	//					{
-	//						// 2006-05-03 by ispark, ¹éºä ¸¶¿ì½º ÈÙÅ¬¸¯°ú R¹öÆ°À¸·Î º¯°æ
+	//						// 2006-05-03 by ispark, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ Rï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//						// 2005-04-07 by jschoi - Tutorial
 	//						if(g_pTutorial->IsTutorialMode() == FALSE)
 	//						{
@@ -4476,7 +4488,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						break;
 					case WM_KEYUP_LPARAM_Z:
 						{
-							// 2008-10-14 by bhsohn VOIP°³¼±							
+							// 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½							
 	//						if( m_pClientParty->GetNtoNCallState() == TRUE ||
 	//							g_pGameMain->m_pCommunity->GetGuild()->GetNtoNCallState() == TRUE)
 	//						{
@@ -4488,12 +4500,12 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	//							copyData.cbData = 0;
 	//							::SendMessage(g_pD3dApp->m_VOIPState.m_hWndAtumVoIPClient, WM_COPYDATA, (WPARAM)g_pD3dApp->GetHwnd(), (LPARAM)&copyData);
 	//						}
-							// end 2008-10-14 by bhsohn VOIP°³¼±							
+							// end 2008-10-14 by bhsohn VOIPï¿½ï¿½ï¿½ï¿½							
 						}
 						break;
 					case WM_KEYUP_LPARAM_R:
 						{
-							// 2006-05-03 by ispark, ¹éºä
+							// 2006-05-03 by ispark, ï¿½ï¿½ï¿½
 							SetBackView(FALSE);
 						}
 						break;
@@ -4507,22 +4519,22 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 */		case WM_MBUTTONDOWN:
 			{
-				// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+				// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( IsShowCinema() )
 				{
 					break;
 				}
-				//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+				//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 				m_bMButtonState = TRUE;
 
-				// 2006-05-03 by ispark, ¹éºä
+				// 2006-05-03 by ispark, ï¿½ï¿½ï¿½
 				SetBackView(TRUE);
 			}
 			break;
 		case WM_MBUTTONUP:
 			{
 				m_bMButtonState = FALSE;
-				// 2006-05-03 by ispark, ¹éºä
+				// 2006-05-03 by ispark, ï¿½ï¿½ï¿½
 				SetBackView(FALSE);
 			}
 			break;
@@ -4553,28 +4565,28 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case WM_LBUTTONDOWN:
 			{
-				// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+				// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( IsShowCinema() )
 				{
 					break;
 				}
-				//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
-				//	³»°¡ Áö±Ý Å¸°Ù ½ºÅ³À» »ç¿ëÇÏ±â À§ÇØ Å¸°ÙÀ» Ã£´Â ÁßÀÌ¶ó¸é..
-				//	ÃÑ¾ËÀÌ ¹ß»çµÇÁö ¾Ê°í, ´ë½Å¿¡ ½ºÅ³ Å¬·¡½º¿¡ ÀÖ´Â Å¸°ÙÀ» Ã£´Â ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.
+				//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
+				//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½..
+				//	ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½, ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½Å³ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ñ´ï¿½.
 				if(	m_pSkill->GetSkillTargetState() == TRUE )
 				{
 					m_pSkill->FindTargetForSkill();
 				}
 				else
 				{
-					// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+					// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					//if(IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster))
 					if(IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster) && IsPossibleAttackStat())					
 					{
 						m_bLButtonState = TRUE;
 					}				
 				}
-				//Ã¹¹ß»ç°¡ ¾Èº¸ÀÌ´Â °æ¿ì°¡ »ý°Ü ÀÌ ÄÚµå¸¦ Ãß°¡
+				//Ã¹ï¿½ß»ç°¡ ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ì°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµå¸¦ ï¿½ß°ï¿½
 	//			m_pPrimaryAttackTarget = NULL;
 			}
 			break;
@@ -4584,7 +4596,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				m_PrimaryAttack.AttackData.TargetInfo.SetNullTarget();
 				m_bTargetChange = TRUE;
 #ifdef C_EPSODE4_UI_CHANGE_JSKIM
-				// 2011-11-01 by jhahn EP4 ÇÊµå¸Ê »óÁ¡ Å¬¸¯
+				// 2011-11-01 by jhahn EP4 ï¿½Êµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½
 				GUI_BUILDINGNPC* pCurrentBuildingNPC = g_pInterface->m_pCityBase->GetCurrentBuildingNPC();
 		
 				if(pCurrentBuildingNPC)
@@ -4646,25 +4658,25 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				
 
 				}
-				//end 2011-11-01 by jhahn EP4 ÇÊµå¸Ê »óÁ¡ Å¬¸¯
+				//end 2011-11-01 by jhahn EP4 ï¿½Êµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½
 #endif
 			}
 			break;
 		case WM_RBUTTONDOWN:
 			{
-				// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+				// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( IsShowCinema() )
 				{
 					break;
 				}
-				//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+				//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( m_dwState == _FALLEN || 
 					m_dwState == _EXPLODED || 
 					m_dwState == _LANDED || 
 //					m_nBooster == BOOSTER_TYPE_AIRBREAK || 
 //					m_bFormationFlight || 
 					m_bMouseLock)
-				{// Ä«¸Þ¶ó Á¶Àý ¸ðµå·Î ÀüÈ¯
+				{// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 					if(g_pCamera->GetCamType() == CAMERA_TYPE_NORMAL && m_bAttackMode != _SIEGE)
 					{
 						g_pCamera->m_bIsCamControl = TRUE;
@@ -4676,13 +4688,13 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						m_pOldMousePoint = pt;
 					}
 				}
-				// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½					
+				// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 				//m_bRButtonState = TRUE;
 				if(IsPossibleAttackStat())
 				{
 					m_bRButtonState = TRUE;
 				}
-				// end 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½					
+				// end 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 				
 //				if(IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster))
 //				{
@@ -4695,14 +4707,14 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			{
 				if(IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster) && m_myShuttleInfo.Level < 6)
 				{
-//					g_pGameMain->m_pNotice->SetNotice( "°ø°ÝÀº ¸¶¿ì½º ÁÂ/¿ì ¹öÆ°À» ´©¸£°í ÀÖÀ¸¸é ÀÚµ¿À¸·Î µË´Ï´Ù.");
+//					g_pGameMain->m_pNotice->SetNotice( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½/ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ï´ï¿½.");
 					g_pGameMain->SetNotice( 14 );
 				}
 			}
 			break;
 		case WM_RBUTTONUP:
 			{
-				// Ä«¸Þ¶ó ÀüÈ¯ ¸ðµå ÇØÁ¦
+				// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(g_pD3dApp->m_pCamera->m_bIsCamControl)
 				{
 					g_pD3dApp->m_pCamera->m_bIsCamControl = FALSE;
@@ -4717,7 +4729,7 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		}
 	}
-	// 2008-09-02 by dgwoo MouseMoveÀÌº¥Æ®´Â Ã¤ÆÃ ÀÔ·ÂÁß¿¡µµ ÀÌº¥Æ® Ã³¸®.
+	// 2008-09-02 by dgwoo MouseMoveï¿½Ìºï¿½Æ®ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½.
 	switch(uMsg)
 	{
 		case WM_MOUSEMOVE:
@@ -4732,9 +4744,9 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 					m_dwState == _LANDED || 
 					m_pClientParty->IsFormationFlightMove() || 
 					m_bMouseLock) &&
-					m_bPenaltyUnitStop == FALSE)				// Æä³ÎÆ¼ »óÅÂ°¡ ¾Æ´Ò¶§ ¿òÁ÷ÀÓ Çã¿ë					
+					m_bPenaltyUnitStop == FALSE)				// ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½					
 //					((IS_OT(m_myShuttleInfo.UnitKind) || IS_DT(m_myShuttleInfo.UnitKind)) && m_bMouseLock))					
-				{// Ä«¸Þ¶ó Á¶Àý ¸ðµå·Î ÀüÈ¯
+				{// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 					if(g_pCamera->GetCamType() == CAMERA_TYPE_NORMAL)
 					{
 						if( g_pCamera->GetCamType() == CAMERA_TYPE_NORMAL &&
@@ -4771,7 +4783,7 @@ void CShuttleChild::SetShuttleData(BYTE type)
 			m_fTransportTotal = 0.0f;
 			m_fTransportCurrent = 0.0f;
 
-			// 2007-07-27 by dgwoo ¼¼·Â ¼±ÅÃÀ» ÇÑ À¯ÀúÀÎ°¡?
+			// 2007-07-27 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 			if(FALSE == IS_NORMAL_INFLUENCE_TYPE(m_myShuttleInfo.InfluenceType))
 			{
 				g_pD3dApp->m_bInfregular = TRUE;
@@ -4781,8 +4793,8 @@ void CShuttleChild::SetShuttleData(BYTE type)
 				g_pD3dApp->m_bInfregular = FALSE;
 			}
 
-			// ¹æ¾î·Â Àû¿ë
-			// Âø¿ë ¾ÆÀÌÅÛ¿¡ µû¸¥ ¹æ¾î·Â
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int i; for(i=0;i<POS_INVALID_POSITION;i++)
 			{
 				CItemInfo* pItemInfo = m_pStoreData->FindItemInInventoryByWindowPos(i);
@@ -4805,25 +4817,25 @@ void CShuttleChild::SetShuttleData(BYTE type)
 //					{
 //						m_fDefenseForItem += item->AbilityMax;
 //					}
-//					// ÇöÀç ±âÃ¼¿¡ ½Ç·Á ÀÖ´Â ÃÑÁß·®->EnergyÀÇ °æ¿ì ¹«°Ô Àû¿ë °í·ÁÇØ¾ßÇÔ
+//					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ç·ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ß·ï¿½->Energyï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
 //					m_fTransportCurrent += item->Weight;
 //				}
 //				it++;
 //			}
-			// »ç¿ëÁßÀÎ(Àû¿ëÁß) ¸¶ÀÎµå ÄÁÆ®·Ñ¿¡ µû¸¥ ¹æ¾î·Â
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½Æ®ï¿½Ñ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-			// ±âÃ¼ÀÇ ´É·Â¿¡ µû¸¥ ¹æ¾î·Â
+			// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½É·Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fDefenseForShuttle = g_pAtumSJ->GetDefenseC(&m_myShuttleInfo, &m_paramFactor, TRUE);
-			// ÃÑ¹æ¾î·Â Àû¿ë
+			// ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fDefenseTotal = m_fDefenseForShuttle + m_fDefenseForItem + m_fDefenseForSkill;
 			
-			// Áß·® Àû¿ë
-			// ±âÃ¼ÀÇ ´É·Â¿¡ µû¸¥ ÃÑ°¡´ÉÁß·®
+			// ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½É·Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ß·ï¿½
 			m_fTransportTotal = g_pAtumSJ->GetTransport(&m_myShuttleInfo);
 		}
 		break;
 	case 1:
-		{// Âø¿ëÇÑ ¾ÆÀÌÅÛ¿¡ µû¸¥ ¹æ¾î·Â Àû¿ë
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fDefenseTotal -= m_fDefenseForItem;
 			m_fDefenseForItem = 0.0f;
 			int i; for(i=0;i<POS_INVALID_POSITION;i++)
@@ -4854,13 +4866,13 @@ void CShuttleChild::SetShuttleData(BYTE type)
 		}
 		break;
 	case 2:
-		{// »ç¿ëÁßÀÎ(Àû¿ëÁß) ¸¶ÀÎµå ÄÁÆ®·Ñ¿¡ µû¸¥ ¹æ¾î·Â Àû¿ë
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½Æ®ï¿½Ñ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fDefenseTotal -= m_fDefenseForSkill;
 			m_fDefenseTotal += m_fDefenseForSkill;
 		}
 		break;
 	case 3:
-		{// ±âÃ¼ ´É·Â¿¡ µû¸¥ ¹æ¾î·Â Àû¿ë
+		{// ï¿½ï¿½Ã¼ ï¿½É·Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fDefenseTotal -= m_fDefenseForShuttle;
 //			m_fDefenseForShuttle = g_pAtumSJ->GetMaxDefense(&m_myShuttleInfo);
 			m_fDefenseForShuttle = g_pAtumSJ->GetDefenseC(&m_myShuttleInfo, &m_paramFactor, TRUE);
@@ -4868,12 +4880,12 @@ void CShuttleChild::SetShuttleData(BYTE type)
 		}
 		break;
 	case 4:
-		{// ÃÑ°¡´ÉÁß·® Àû¿ë
+		{// ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fTransportTotal = g_pAtumSJ->GetTransport(&m_myShuttleInfo);
 		}
 		break;
 	case 5:
-		{// ÇöÀç ¼ÒÀ¯ÇÑ ¾ÆÀÌÅÛ ÃÑÁß·®
+		{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½
 			m_fTransportCurrent = 0.0f;
 			m_fTransportCurrent = m_pStoreData->GetTotalWeight();
 //			it = m_pStoreData->m_mapItemInInventory.begin();
@@ -4882,7 +4894,7 @@ void CShuttleChild::SetShuttleData(BYTE type)
 //				ITEM *item = g_pDatabase->GetServerItemInfo(it->second->ItemNum);
 //				if(item)
 //				{
-//					// ÇöÀç ±âÃ¼¿¡ ½Ç·Á ÀÖ´Â ÃÑÁß·®->EnergyÀÇ °æ¿ì ¹«°Ô Àû¿ë °í·ÁÇØ¾ßÇÔ
+//					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ç·ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ß·ï¿½->Energyï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
 //					m_fTransportCurrent += item->Weight;
 //				}
 //				it++;
@@ -4895,10 +4907,10 @@ void CShuttleChild::SetShuttleData(BYTE type)
 void CShuttleChild::CheckEventType()
 {
 	FLOG( "CShuttleChild::CheckEventType()" );
-	// ÀÌº¥Æ® Áö¿ª Ã¼Å© - Shop
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ Ã¼Å© - Shop
 //	if(m_bPKMode)
 //		return;
-	if(IsPkState(PK_PVP) || IsPkState(PK_FVF))	// 1:1°áÅõ°Å³ª Æí´ëÀüÀÎ °æ¿ì¿¡´Â ÀÌº¥Æ®¸¦ ¹ÞÁö ¾Ê´Â´Ù.
+	if(IsPkState(PK_PVP) || IsPkState(PK_FVF))	// 1:1ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		return;
 	int nCheckX = ((int)m_vPos.x)/TILE_SIZE;
 	int nCheckZ = ((int)m_vPos.z)/TILE_SIZE;
@@ -4908,7 +4920,7 @@ void CShuttleChild::CheckEventType()
 			g_pGround->m_pTileInfo[nCheckX*g_pGround->m_projectInfo.sYSize + nCheckZ].bEnableLand &&
 			m_fLandingDist < 180.0f)
 		{
-//			g_pGameMain->m_pNotice->SetNotice("ÇöÀç Âø·úÀå »ó°øÀÔ´Ï´Ù. Âø·úÅ°´Â 'C'Å°ÀÔ´Ï´Ù.");
+//			g_pGameMain->m_pNotice->SetNotice("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ 'C'Å°ï¿½Ô´Ï´ï¿½.");
 			g_pGameMain->SetNotice( 15 );
 		}
 	}
@@ -4946,7 +4958,7 @@ void CShuttleChild::CheckEventType()
 				}
 				else
 				{
-					// ¿öÇÁ¸¦ ¿äÃ»
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 					if(!m_pClientParty->IsFormationFlightMove())
 					{
 						MSG_FC_EVENT_REQUEST_WARP sMsg2;
@@ -4963,45 +4975,45 @@ void CShuttleChild::CheckEventType()
 			}
 			break;
 		case EVENT_TYPE_WARP_TARGET:
-			{// Å¬¶óÀÌ¾ðÆ® ÇöÀç »ç¿ë¾ÈÇÔ
+			{// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			break;
 		case EVENT_TYPE_ENTER_BUILDING:
-			{// »óÁ¡ Object
+			{// ï¿½ï¿½ï¿½ï¿½ Object
 				//SendPacket(T_FC_MOVE_LANDING_DONE);
 //				m_bEventReady = TRUE;
 			}
 			break;
 		case EVENT_TYPE_LANDING:
-			{// Âø·ú Object
+			{// ï¿½ï¿½ï¿½ï¿½ Object
 			}
 			break;
 		case EVENT_TYPE_RACING_CHECK_POTINT:
-			{// ·¹ÀÌ½Ì Ã¼Å© Æ÷ÀÎÆ®
+			{// ï¿½ï¿½ï¿½Ì½ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½Æ®
 			}
 			break;
 		case EVENT_TYPE_OBJECT_MONSTER:
-			{// ¿ÀºêÁ§Æ® ¸ó½ºÅÍ - ¾Æ¹«°Íµµ ¾ÈÇÔ.
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½.
 			}
 			break;
 		case EVENT_TYPE_PATTERN_POINT:
-			{// Ä³¸¯ÅÍ ¿öÇÁ½Ã ÆÐÅÏÀÇ ½ÃÀÛ/³¡
+			{// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½
 			}
 			break;
 		case EVENT_TYPE_LANDING_PATTERN_START:
-			{// ÆÐÅÏÅ¸ÀÔ »óÁ¡ Âø·ú ½ÃÀÛ 
+			{// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 			}
 			break;
 		case EVENT_TYPE_LANDING_PATTERN_END:
-			{// ÆÐÅÏÅ¸ÀÔ »óÁ¡ Âø·ú ³¡
+			{// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			}
 			break;
 		case EVENT_TYPE_TAKEOFF_PATTERN_START:
-			{// ÆÐÅÏÅ¸ÀÔ »óÁ¡ ÀÌ·ú ½ÃÀÛ
+			{// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 			break;
 		case EVENT_TYPE_TAKEOFF_PATTERN_END:
-			{// ÆÐÅÏÅ¸ÀÔ »óÁ¡ ÀÌ·ú ³¡
+			{// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ ï¿½ï¿½
 			}
 			break;
 		}
@@ -5062,17 +5074,17 @@ void CShuttleChild::SetWeaponData(BYTE bType,BOOL bReset)//,BOOL bWear)
 	byte bWeaponType = 0;
 	D3DXVECTOR3 vTempPos = D3DXVECTOR3(0,0,0);
 	InitInvenMesh();					// 2006-04-04 by ispark
-	if(bType == 0) // 1Çü
+	if(bType == 0) // 1ï¿½ï¿½
 	{
 		if(bReset)
 		{
 			DeleteWearItem( WEAR_ITEM_KIND_WEAPON_11 );
 			DeleteWearItem( WEAR_ITEM_KIND_WEAPON_12 );
 			
-			// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
-			// A±â¾î Æ÷´ëÀÌÆåÆ®µµ Áö¿î´Ù
+			// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+			// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 			DeleteRobotAGearWeapon();
-			// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 			if(g_pGameMain)
 			{
@@ -5080,21 +5092,21 @@ void CShuttleChild::SetWeaponData(BYTE bType,BOOL bReset)//,BOOL bWear)
 			}
 			if(m_pPrimaryWeapon == NULL)
 			{
-				// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//CreatePrimaryWeaponItem(NULL);
 				CreatePrimaryWeaponItem( NULL, NULL );
-				// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 			else
 			{
 
-				// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//CreatePrimaryWeaponItem(m_pPrimaryWeapon->GetRealItemInfo());
 
 				ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( m_pPrimaryWeapon->GetItemGeneral()->GetShapeItemNum() ) ;
 				CreatePrimaryWeaponItem( m_pPrimaryWeapon->GetRealItemInfo(), pShapeItem );
 
-				// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 				if(IS_PRIMARY_WEAPON_1(m_pPrimaryWeapon->GetRealItemInfo()->Kind))
 				{
@@ -5130,17 +5142,17 @@ void CShuttleChild::SetWeaponData(BYTE bType,BOOL bReset)//,BOOL bWear)
 						ResetPrimaryWeaponBodyCondition(WEAPON_BODYCON_RELOAD);
 					}
 				}
-				// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â ÀÌÆÑÆ® Ãß°¡
+				// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 				else
 				{
 					ResetPetWeaponBodyCondition(WEAPON_BODYCON_RELOAD);					
 				}
-				// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â ÀÌÆÑÆ® Ãß°¡
+				// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 
 			}
 		}
 	}
-	else if(bType == 1) // 2Çü
+	else if(bType == 1) // 2ï¿½ï¿½
 	{
 		if(bReset)
 		{
@@ -5152,19 +5164,19 @@ void CShuttleChild::SetWeaponData(BYTE bType,BOOL bReset)//,BOOL bWear)
 			}
 			if(m_pSecondaryWeapon == NULL)
 			{
-				// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//CreateSecondaryWeaponItem(NULL);
 				CreateSecondaryWeaponItem( NULL, NULL );
-				// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 			else
 			{
-				// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//CreateSecondaryWeaponItem(m_pSecondaryWeapon->GetRealItemInfo());
 				ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( m_pSecondaryWeapon->GetItemGeneral()->GetShapeItemNum() ) ;
 				
 				CreateSecondaryWeaponItem( m_pSecondaryWeapon->GetRealItemInfo(), pShapeItem );
-				// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+				// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 				if(m_pSecondaryWeapon->GetItemGeneral()->CurrentCount <= 0)
 				{
@@ -5284,8 +5296,8 @@ void CShuttleChild::SetShuttleFirstPosition(BOOL bMode)
 		}
 	}
 //	if(m_dwState == _NORMAL)
-//		m_vPos.y += m_fAmorHeight;// ÁöÇüº¸´Ù ¾à°£ ³ô°Ô ¶ç¿î´Ù
-//		m_vPos.y += 300.0f;// ÁöÇüº¸´Ù ¾à°£ ³ô°Ô ¶ç¿î´Ù
+//		m_vPos.y += m_fAmorHeight;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½à°£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//		m_vPos.y += 300.0f;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½à°£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 }
 
@@ -5321,10 +5333,10 @@ void CShuttleChild::InitShuttleData(BOOL bState)
     D3DXVec3Cross(&m_vSideVel,&m_vUp,&m_vVel);          
 	m_vWeaponVel = m_vVel;
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - A-Gear ½ÃÁî»óÅÂ
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - A-Gear ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_vPetLeftVel = m_vVel;
 	m_vPetRightVel = m_vVel;
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - A-Gear ½ÃÁî»óÅÂ
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - A-Gear ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_bIsCameraPattern = FALSE;
 	m_bMouseMoveLock = FALSE;
 	m_nMissileCount = 0;											// 2005-08-10 by ispark
@@ -5343,7 +5355,7 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 	m_fCurrentAngle = 0.0f;
 	
 	// 2005-08-02 by ispark
-	// ±âº» ºÎ½ºÅÍ´Â MINÀÌ´Ù.
+	// ï¿½âº» ï¿½Î½ï¿½ï¿½Í´ï¿½ MINï¿½Ì´ï¿½.
 	m_nBooster = BOOSTER_TYPE_MIN;
 	
 	if(g_pScene->m_byMapType == MAP_TYPE_TUTORIAL)
@@ -5359,7 +5371,7 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 	}
 	else
 	{
-// 2005-08-03 by ispark, ¿¹Àü 2001¹ø ¸Ê Ã³¸® »çÇ×
+// 2005-08-03 by ispark, ï¿½ï¿½ï¿½ï¿½ 2001ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if(m_nOldMapIndex == 1001 && m_myShuttleInfo.MapChannelIndex.MapIndex == 2001)
 //		{
 //			m_vVel.y = 0;
@@ -5386,9 +5398,9 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 //			m_vPos.y = 400.0f;
 //		}
 		// 2005-08-02 by ispark
-		// ºÎ½ºÅÍ¸¦ ²ô´Â ¿øÀÎÀÌ ¿©±â´Ù.
-		// ¿öÇÁ·Î µé¾î¿À´Â °Å¶ó¸é »ó°üÀÌ ¾ø´Ù. ¿öÇÁ¿¡¼­ ¼öÁ¤ÀÌ µÈ´Ù.
-		// ±×·¯³ª, ±×¿Ü´Â ¾È‰Â´Ù. 2001¹øÀ¸·Î µé¾î¿Ã¶§ ±×·¸´Ù.
+		// ï¿½Î½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½.
+		// ï¿½×·ï¿½ï¿½ï¿½, ï¿½×¿Ü´ï¿½ ï¿½È‰Â´ï¿½. 2001ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¶ï¿½ ï¿½×·ï¿½ï¿½ï¿½.
 //		if(IS_BT(m_myShuttleInfo.UnitKind) || IS_ST(m_myShuttleInfo.UnitKind))
 //		{
 //			m_nShuttleStopState = 3;
@@ -5397,7 +5409,7 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 //		else if(IS_DT(m_myShuttleInfo.UnitKind))
 		if(IS_DT(m_myShuttleInfo.UnitKind))
 		{
-			m_bIsAir = TRUE;//½ÃÀÛ½Ã °¡¶ó¾ÉÁö ¾Ê°Ô..// 2004-06-22 by dhkwon
+			m_bIsAir = TRUE;//ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½..// 2004-06-22 by dhkwon
 		}
 	}
 	m_vNextPos = m_vPos;
@@ -5410,14 +5422,14 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 	g_pD3dApp->SetCamPosInit();
 	g_pD3dApp->m_bFixUnitDirMode = FALSE;
 
-	// ÃÖÃÊ ½ÃÀÛ ÁöÁ¡ Ã¼Å©
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	int x = ((int)m_vPos.x)/TILE_SIZE;
 	int z = ((int)m_vPos.z)/TILE_SIZE;
 	// 2005-08-03 by ispark
 	m_ptOldPoint.x = x;
 	m_ptOldPoint.y = z;
 
-	// Âø·úÀü ½ÃÁ¡ÀÌ 1ÀÎÄªÀÌ¿´À¸¸é ´Ù½Ã 1ÀÎÄªÀ¸·Î º¯È¯ 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ 1ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ 
 	if(m_bLandingOldCamtypeFPS)
 	{
 		g_pD3dApp->m_pCamera->ChangeCamType();
@@ -5434,38 +5446,38 @@ void CShuttleChild::InitShuttleData(BOOL bState)
 	InitItemPoint();
 	InitRolling();
 
-	// Æí´ë´ëÇü ÃÊ±âÈ­
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	m_pClientParty->FormationFlightClear();
 	SetShuttleSpeed();
 	
 	m_byCityWarTeamType = CITYWAR_TEAM_TYPE_NORMAL;
 
 	// 2005-10-06 by ispark
-	// Æ©Åä¸®¾ó ¸ðµå¶ó¸é Ã¢ ÃÊ±âÈ­ ½ÇÇà ¾ÈÇÔ
+	// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pInterface->m_pGameMain)
 	{
 		g_pInterface->m_pGameMain->InitShowWindow();			// 2005-08-05 by ispark
 	}
 
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	{
 		//g_pInterface->m_bShowInterface = TRUE;						// 2005-08-30 by ispark
 		//BOOL bShowInter = !g_pD3dApp->IsOptionEtc(OPTION_RADIO_INTERFACE_HIDE);
 		//g_pInterface->SetShowInterface(bShowInter);		
 	}
-	// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(g_pInterface->m_pCityBase)
 	{
-		g_pInterface->m_pCityBase->CloseCurrentEnterBuilding();	// 2005-11-11 by ispark »ç¿ëÁßÀÌ´ø »óÁ¡ ´Ý±â
+		g_pInterface->m_pCityBase->CloseCurrentEnterBuilding();	// 2005-11-11 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½
 	}
 
-	// ÇÙ °Ë»ç¸¦ À§ÇÑ ÁÂÇ¥ ÃÊ±âÈ­
+	// ï¿½ï¿½ ï¿½Ë»ç¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½Ê±ï¿½È­
 	g_pD3dApp->m_vShuttleOldPos = m_vPos;
 
 	m_fCheckDead = 0.0f;
 	m_bKeyBlock = FALSE;
 
-	// 2006-11-14 by ispark, ¿ìÁÖ¸Ê¿¡¼­ Á×À¸¸é ¼öÆò À¯Áö°¡ »ç¶óÁö´Â ¹ö±× ¼öÁ¤
+	// 2006-11-14 by ispark, ï¿½ï¿½ï¿½Ö¸Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_bCollMap = FALSE;
 }
 
@@ -5473,7 +5485,7 @@ void CShuttleChild::CheckClientQuestList()
 {
 	FLOG( "CShuttleChild::CheckClientQuestList()" );
 	static float fMonsterMoveCheckTime = 0.2f;
-	static float fDegreeCheckTime = 0.0f; // Äù½ºÆ® ½ÃÀÛ½Ã ºÎÅÍ ¿Ï·á½Ã±îÁö Å¸ÀÓÀ» ´©ÀûÇÏ¿© Á¡¼ö¸¦ ±¸ÇÒ¶§ ¾´´Ù.
+	static float fDegreeCheckTime = 0.0f; // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ã±ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	float fElapsedTime = g_pD3dApp->GetElapsedTime();
 	int cont = 0;
 	if(fMonsterMoveCheckTime > 0.0f)
@@ -5495,14 +5507,14 @@ void CShuttleChild::CheckClientQuestList()
 		if(nState == QUEST_STATE_IN_PROGRESS)
 		{
 			if(itQuest->second->QuestIndex == TUTORIAL_MISSION_1)
-			{// ¼³¸íÀ» µè´Â Äù½ºÆ® - ÀÌµ¿¾È ¼ÅÆ²Àº ¿òÁ÷ÀÌÁö ¾Ê´Â´Ù.
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® - ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 				m_bOrderMove = TRUE;
 				return;
 			}
 			else if(itQuest->second->QuestIndex == TUTORIAL_MISSION_2)
 			{
 				if(m_bOrderMove)
-				{// °­Á¦ ÀÌµ¿ Ã¼Å©
+				{// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ Ã¼Å©
 					if(MoveOrder(m_bOrderMoveType))
 						m_bOrderMove = FALSE;
 				}
@@ -5514,7 +5526,7 @@ void CShuttleChild::CheckClientQuestList()
 				{
 					fDegreeCheckTime += fElapsedTime;
 				}
-				// 1´Ü°è ¸ó½ºÅÍ ¼ÒÈ¯
+				// 1ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 /*				m_nMonsterCount = 0;
 				CMapMonsterIterator itMon = g_pScene->m_mapMonsterList.begin();
 				while(itMon != g_pScene->m_mapMonsterList.end())
@@ -5527,7 +5539,7 @@ void CShuttleChild::CheckClientQuestList()
 				}
 				if(!m_nMonsterCount)
 */				if(g_pScene->m_mapMonsterList.empty())
-				{// bQuestDegree ´Ü°è ¸ó½ºÅÍ ¼ÒÈ¯
+				{// bQuestDegree ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 					if(m_bBeginnerQuestDegree < 6)
 					{
 						vector<MONSTERINFO *>::iterator itResMon = g_pGround->m_vecMonsterResList.begin();
@@ -5544,7 +5556,7 @@ void CShuttleChild::CheckClientQuestList()
 								info.PositionVector.x = pData->sStartx*40.0f + rand()%40;
 								info.PositionVector.y = pData->sResTime;
 								info.PositionVector.z = pData->sStartz*40.0f + rand()%40;
-								info.CurrentHP = 45;			// ¸ó½ºÅÍÀÇ CurrentHP´Â SHORT
+								info.CurrentHP = 45;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CurrentHPï¿½ï¿½ SHORT
 								CMonsterData * pMon = new CMonsterData(&info);
 								if(rand()%2 == 0)
 									pMon->m_nSideDir = 1;
@@ -5564,21 +5576,21 @@ void CShuttleChild::CheckClientQuestList()
 						if(cont)
 						{
 							char buf[256];
-							wsprintf(buf,STRMSG_C_MONSTER_0001,cont);//"%d±âÀÇ ºñÆ®°¡ ¼ÒÈ¯ µÇ¾ú½À´Ï´Ù"
+							wsprintf(buf,STRMSG_C_MONSTER_0001,cont);//"%dï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"
 							g_pD3dApp->m_pChat->CreateChatChild(buf, COLOR_SYSTEM);
 							if(m_bBeginnerQuestDegree == 1)
 							{
-//								g_pGameMain->SetNotice("¸ñÇ¥¹°ÀÇ Á¶ÁØÀº ¸¶¿ì½º¸¦ ¸ñÇ¥¹°¿¡ °¡Á®´Ù µÇ¸é µË´Ï´Ù.");
+//								g_pGameMain->SetNotice("ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ë´Ï´ï¿½.");
 							}
 							else if(m_bBeginnerQuestDegree == 2)
 							{
-//								g_pGameMain->SetNotice("±âÃ¼ È¸ÀüÀº ¸¶¿ì½º ÀÌµ¿À¸·Î °¡´ÉÇÏ¸ç °ø°ÝÀº ¸¶¿ì½º ¿ÞÂÊ ¹öÆ° ÀÔ´Ï´Ù.");
+//								g_pGameMain->SetNotice("ï¿½ï¿½Ã¼ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½Ô´Ï´ï¿½.");
 							}
 						}
 						m_bBeginnerQuestDegree++;
 					}
 					else
-					{// Äù½ºÆ® ¿Ï·á 
+					{// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ 
 						MSG_FC_QUEST_REQUEST_SUCCESS sMsg;
 						memset(&sMsg,0x00,sizeof(sMsg));
 						char buffer[SIZE_MAX_PACKET];
@@ -5604,9 +5616,9 @@ void CShuttleChild::CheckClientQuestList()
 						memcpy(buffer+SIZE_FIELD_TYPE_HEADER, &sMsg, sizeof(sMsg));
 						g_pD3dApp->m_pFieldWinSocket->Write(buffer, SIZE_FIELD_TYPE_HEADER + sizeof(sMsg));
 						char buf[256];
-						wsprintf(buf,STRMSG_C_MONSTER_0002);//"ºñÆ® ¼ÒÅÁ ¿Ï·á"
+						wsprintf(buf,STRMSG_C_MONSTER_0002);//"ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½"
 						g_pD3dApp->m_pChat->CreateChatChild(buf, COLOR_SKILL_USE);
-						m_bOrderMove = TRUE;	// °­Á¦ ÀÌµ¿¿¡ µé¾î°£´Ù.
+						m_bOrderMove = TRUE;	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½.
 						if(IS_DT(m_myShuttleInfo.UnitKind))
 						{
 //							m_vTargetPos = D3DXVECTOR3(2690,10,507);
@@ -5617,7 +5629,7 @@ void CShuttleChild::CheckClientQuestList()
 						m_vTargetVel = D3DXVECTOR3(1,0,0);
 						m_bOrderMoveType = 0;
 						itQuest->second->QuestState = QUEST_STATE_COMPLETED;
-//						g_pGameMain->SetNotice("Âø·úÀº ¼ýÀÚÆÇÀÇ 'C'Å°¸¦ ´©¸£¸é µË´Ï´Ù.");
+//						g_pGameMain->SetNotice("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 'C'Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ï´ï¿½.");
 					}
 				}
 				else
@@ -5645,11 +5657,11 @@ void CShuttleChild::CheckClientQuestList()
 			else if(itQuest->second->QuestIndex == TUTORIAL_MISSION_3)
 			{
 				if(m_bOrderMove)
-				{// °­Á¦ ÀÌµ¿ Ã¼Å©
+				{// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ Ã¼Å©
 					if(!MoveOrder(m_bOrderMoveType))
 						return;
 					m_bOrderMove = FALSE;
-//					g_pGameMain->SetNotice("Å°º¸µå 'W'´Â ¼Óµµ¸¦ ¿Ã¸®°í 'S'´Â ¼Óµµ¸¦ ³»¸³´Ï´Ù.");
+//					g_pGameMain->SetNotice("Å°ï¿½ï¿½ï¿½ï¿½ 'W'ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ 'S'ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 				}
 
 				if(m_bBeginnerQuestDegree <= 6)
@@ -5665,7 +5677,7 @@ void CShuttleChild::CheckClientQuestList()
 					fDegreeCheckTime += fElapsedTime;
 				}
 //				if(m_bBeginnerQuestDegree > 3)
-//				{// 2´Ü°è ¸ó½ºÅÍ ¼ÒÈ¯
+//				{// 2ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 /*					m_nMonsterCount = 0;
 					CMapMonsterIterator itMon = g_pScene->m_mapMonsterList.begin();
 					while(itMon != g_pScene->m_mapMonsterList.end())
@@ -5678,7 +5690,7 @@ void CShuttleChild::CheckClientQuestList()
 					}
 					if(!m_nMonsterCount)
 */					if(g_pScene->m_mapMonsterList.empty())
-					{// bQuestDegree ´Ü°è ¸ó½ºÅÍ ¼ÒÈ¯
+					{// bQuestDegree ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 						if(m_bBeginnerQuestDegree < 20)
 						{
 							vector<MONSTERINFO *>::iterator itResMon = g_pGround->m_vecMonsterResList.begin();
@@ -5698,7 +5710,7 @@ void CShuttleChild::CheckClientQuestList()
 									else
 										info.PositionVector.y = pData->sResTime;
 									info.PositionVector.z = pData->sStartz*40.0f + rand()%40;
-									info.CurrentHP = 45;			// ¸ó½ºÅÍÀÇ CurrentHP´Â SHORT
+									info.CurrentHP = 45;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CurrentHPï¿½ï¿½ SHORT
 									CMonsterData * pMon = new CMonsterData(&info);
 									if(rand()%2 == 0)
 										pMon->m_nSideDir = 1;
@@ -5718,17 +5730,17 @@ void CShuttleChild::CheckClientQuestList()
 							if(cont)
 							{
 								char buf[256];
-								wsprintf(buf,STRMSG_C_MONSTER_0001,cont);//"%d±âÀÇ ºñÆ®°¡ ¼ÒÈ¯ µÇ¾ú½À´Ï´Ù"
+								wsprintf(buf,STRMSG_C_MONSTER_0001,cont);//"%dï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"
 								g_pD3dApp->m_pChat->CreateChatChild(buf, COLOR_SYSTEM);
 								if(m_bBeginnerQuestDegree == 7)
 								{
-//									g_pGameMain->SetNotice("¾ÆÀÌÅÛ »ç¿ë ´ÜÃàÅ°´Â 1~8 ¹øÀÔ´Ï´Ù.");
+//									g_pGameMain->SetNotice("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ 1~8 ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 								}
 							}
 							m_bBeginnerQuestDegree++;
 						}
 						else
-						{// Äù½ºÆ® ¿Ï·á 
+						{// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ 
 							MSG_FC_QUEST_REQUEST_SUCCESS sMsg;
 							memset(&sMsg,0x00,sizeof(sMsg));
 							char buffer[SIZE_MAX_PACKET];
@@ -5754,7 +5766,7 @@ void CShuttleChild::CheckClientQuestList()
 							memcpy(buffer+SIZE_FIELD_TYPE_HEADER, &sMsg, sizeof(sMsg));
 							g_pD3dApp->m_pFieldWinSocket->Write(buffer, SIZE_FIELD_TYPE_HEADER + sizeof(sMsg));
 							char buf[256];
-							wsprintf(buf,STRMSG_C_MONSTER_0002);//"ºñÆ® ¼ÒÅÁ ¿Ï·á"
+							wsprintf(buf,STRMSG_C_MONSTER_0002);//"ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½"
 							g_pD3dApp->m_pChat->CreateChatChild(buf, COLOR_SKILL_USE);
 							itQuest->second->QuestState = QUEST_STATE_COMPLETED;
 						}
@@ -5763,15 +5775,15 @@ void CShuttleChild::CheckClientQuestList()
 					{
 						if(g_pScene->m_mapMonsterList.size() == 3 && m_bBeginnerQuestDegree == 7)
 						{
-//							g_pGameMain->SetNotice("Àü¹æ¿¡ ÀÖ´Â ¸ñÇ¥¹°¸¸ ¸¶¿ì½º¸¦ ÀÌ¿ëÇÏ¿© Á¶ÁØÀÌ °¡´ÉÇÕ´Ï´Ù.");
+//							g_pGameMain->SetNotice("ï¿½ï¿½ï¿½æ¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
 						}
 						if(g_pScene->m_mapMonsterList.size() == 1 && m_bBeginnerQuestDegree == 7)
 						{
-//							g_pGameMain->SetNotice("±âÃ¼ÀÇ Á¦ÀÚ¸®¿¡¼­ ÁÂ¿ì ÀÌµ¿Àº Å°º¸µå 'A' , 'D' ¹öÆ°ÀÔ´Ï´Ù.");
+//							g_pGameMain->SetNotice("ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¿ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ 'A' , 'D' ï¿½ï¿½Æ°ï¿½Ô´Ï´ï¿½.");
 						}
 						if(g_pScene->m_mapMonsterList.size() == 3 && m_bBeginnerQuestDegree == 8)
 						{
-//							g_pGameMain->SetNotice("¸ñÇ¥¹°À» º¯°æÇÏ°í ½ÍÀ»¶§´Â Tab ¹öÆ°À» ´©¸£½Ã±â ¹Ù¶ø´Ï´Ù.");
+//							g_pGameMain->SetNotice("ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Tab ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 						}
 						if(fMonsterMoveCheckTime <= 0.0f)
 						{
@@ -5833,7 +5845,7 @@ void CShuttleChild::SendFieldSocketRequestEventObjectWarpIn(CObjectChild * pObj)
 void CShuttleChild::CheckEventTypeObject()
 {
 	FLOG( "CShuttleChild::CheckEventTypeObject()" );
-	if(IsPkState(PK_PVP) || IsPkState(PK_FVF))	// 1:1°áÅõ°Å³ª Æí´ëÀüÀÎ °æ¿ì¿¡´Â ÀÌº¥Æ®¸¦ ¹ÞÁö ¾Ê´Â´Ù.
+	if(IsPkState(PK_PVP) || IsPkState(PK_FVF))	// 1:1ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		return;
 	if(g_pScene->m_pObjectRender)
 	{
@@ -5849,8 +5861,8 @@ void CShuttleChild::CheckEventTypeObject()
 		switch(m_pCurrentObjEvent->m_bEventType)
 		{
 		case EVENT_TYPE_WARP:
-			{// ¿öÇÁÁö¿ª(ÀÔ±¸)
-				if(m_nCurrentPatternNumber == PATTERN_UNIT_WARP_IN)	// ¿öÇÁÀÎ ÆÐÅÏ Áß¿¡¸¸ ¿öÇÁ°¡ °¡´ÉÇÏ´Ù.
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ô±ï¿½)
+				if(m_nCurrentPatternNumber == PATTERN_UNIT_WARP_IN)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 				{
 					DeletePattern();
 					m_nEventType = EVENT_WARP_IN;
@@ -5862,8 +5874,8 @@ void CShuttleChild::CheckEventTypeObject()
 						CAppEffectData *pData = new CAppEffectData(this,RC_EFF_OTHER_WARP,D3DXVECTOR3(0,0,0));
 						g_pD3dApp->m_pEffectList->AddChild(pData);
 					}
-					// 2007-10-04 by dgwoo ¿öÇÁ Åë°ú·Î ÀÎÇÑ ÇÁ·Ñ·Î±×°¡ ¾Æ´Ñ ¸ðµç ¹Ì¼ÇÀ» ¿Ï·áÇÏ¿´À»°æ¿ì 
-					// ÇÁ·Ñ·Î±×¸¦ º¸¿©ÁØ´Ù.
+					// 2007-10-04 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ·Î±×°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+					// ï¿½ï¿½ï¿½Ñ·Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 //					if(g_pTutorial->IsTutorialMode() == TRUE && g_pTutorial->GetLesson() == L10)
 //					{
 //						g_pTutorial->EndTutorial();
@@ -5876,7 +5888,7 @@ void CShuttleChild::CheckEventTypeObject()
 
 //					if( InitCinemaUnit(PATTERN_UNIT_WARP_IN) == FALSE ||
 //						InitCinemaCamera(PATTERN_CAMERA_WARP_IN) == FALSE )
-//					{// ÆÐÅÏ »ý¼º ½ÇÆÐ½Ã ±×³É º¸³½´Ù.
+//					{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 					SendFieldSocketRequestEventObjectWarpIn(m_pCurrentObjEvent);
 // 					}
 //					else
@@ -5892,7 +5904,7 @@ void CShuttleChild::CheckEventTypeObject()
 			}
 			break;
 		case EVENT_TYPE_ENTER_BUILDING:
-			{// »óÁ¡ Object
+			{// ï¿½ï¿½ï¿½ï¿½ Object
 				if(g_pD3dApp->m_dwGameState != _SHOP)
 				{
 					MSG_FC_EVENT_REQUEST_OBJECT_EVENT sMsg;
@@ -5913,31 +5925,31 @@ void CShuttleChild::CheckEventTypeObject()
 			}
 			break;
 		case EVENT_TYPE_WARP_TARGET:
-			{// Å¬¶óÀÌ¾ðÆ® ÇöÀç »ç¿ë¾ÈÇÔ
+			{// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			break;
 		case EVENT_TYPE_LANDING:
-			{// Âø·ú Object
+			{// ï¿½ï¿½ï¿½ï¿½ Object
 			}
 			break;
 		case EVENT_TYPE_RACING_CHECK_POTINT:
-			{// ·¹ÀÌ½Ì Ã¼Å© Æ÷ÀÎÆ®
+			{// ï¿½ï¿½ï¿½Ì½ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½Æ®
 			}
 			break;
 		case EVENT_TYPE_OBJECT_MONSTER:
-			{// ¿ÀºêÁ§Æ® ¸ó½ºÅÍ - ¾Æ¹«°Íµµ ¾ÈÇÔ
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 			break;
 		case 7:
-			{// ¹Ù²ð¿¹Á¤
+			{// ï¿½Ù²ï¿½ï¿½ï¿½
 			}
 			break;
 		case EVENT_TYPE_PATTERN_POINT:
-			{// Ä³¸¯ÅÍ ¿öÇÁ½Ã ÆÐÅÏÀÇ ½ÃÀÛ/³¡
+			{// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½
 				if(m_nEventTypeAirPort == AIR_PORT_TAKEOFF_PATTERN_START && 
-					m_bWarpLink == TRUE)// 2006-05-04 by ispark, ÀÌ·ú½Ã ¿öÇÁ¸¦ ¸¸³ª¸é ¿öÇÁÇÑ´Ù.
+					m_bWarpLink == TRUE)// 2006-05-04 by ispark, ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				{
-					// ÀÌ·úÃ³¸® ÇÑ´Ù.
+					// ï¿½Ì·ï¿½Ã³ï¿½ï¿½ ï¿½Ñ´ï¿½.
 					m_nEventTypeAirPort = AIR_PORT_TAKEOFF_PATTERN_END;
 					DeletePattern();
 					ChangeUnitState( _NORMAL );
@@ -5947,17 +5959,17 @@ void CShuttleChild::CheckEventTypeObject()
 					SendGoMissionMap();					
 					
 				}
-  				if(m_nCurrentPatternNumber == PATTERN_UNIT_WARP_OUT)	// ¿öÇÁ¾Æ¿ô ÆÐÅÏ ÁßÀÌ¸é ÆÐÅÏÀÌ Á¾·áµÈ´Ù.
+  				if(m_nCurrentPatternNumber == PATTERN_UNIT_WARP_OUT)	// ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 				{
 					DeletePattern();
 				}
-				else if(m_nCurrentPatternNumber == 0)						// ÇöÀç ÁøÇàÁßÀÎ ÆÐÅÏÀÌ ¾øÀ¸¸é ¿öÇÁÀÎ ÆÐÅÏÀ» »ý¼ºÇÑ´Ù.
+				else if(m_nCurrentPatternNumber == 0)						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				{
-					// 2007-04-05 by bhsohn ºòºÕ ¹ö±× Ã³¸®
+					// 2007-04-05 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					BOOL bWarpSuccess = (g_pTutorial->IsTutorialMode() == FALSE);
 					if(bWarpSuccess && m_pSkill)
 					{
-						// ºòºÕÀ» ¾²¸é¼­ Æ÷Å»À» ¾²Áö ¸øÇÏ°Ô º¯°æ
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½é¼­ ï¿½ï¿½Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if(SKILL_BASE_NUM(m_pSkill->GetPreSkillItemNum()) == BGEAR_SKILL_BASENUM_BIG_BOOM)
 						{							
 							bWarpSuccess = FALSE;
@@ -5970,20 +5982,20 @@ void CShuttleChild::CheckEventTypeObject()
 					{
 						if(g_pTutorial->IsTutorialMode() == TRUE && g_pTutorial->GetLesson() == L10)
 						{
-							// Æ©Åä¸®¾óÀ» ³¡³»°í¼­ ¿öÇÁ¸¦ ÇßÀ½. 
+							// Æ©ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
 							g_pTutorial->SetTutorialEd(TRUE);
 						}
 
-						// ÆÐÅÏ À§ÇÁ ¿ÀºêÁ§Æ®ÀÇ ¹æÇâ°ú ¼ÅÆ²ÀÇ ¹æÇâ »çÀÌÀÇ °¢À» ±¸ÇÑ´Ù.
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 						CObjectChild* pObj = g_pScene->FindEventObjectByIndex(m_pCurrentObjEvent->m_vPos, m_pCurrentObjEvent->m_nNextEventIndex);
 						if(pObj)
 						{
-							D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ÆÐÅÏ ¹æÇâ
+							D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							D3DXVec3Normalize(&vPatternVel,&vPatternVel);
 							float fAngle = ACOS(D3DXVec3Dot(&m_vVel,&vPatternVel));	
 							if( fAngle > 0 &&
 								fAngle < PI/2 &&
-								!m_pClientParty->IsFormationFlightMove())			// 2006-11-02 by ispark, Æí´ë ºñÇàÀÌ¸é ¿öÇÁ ¾ÈÅ½
+								!m_pClientParty->IsFormationFlightMove())			// 2006-11-02 by ispark, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å½
 							{
 								PatternWarpIn();
 							}
@@ -5994,18 +6006,18 @@ void CShuttleChild::CheckEventTypeObject()
 			break;
 		case EVENT_TYPE_LANDING_PATTERN_START:
 			{				
-				// ÀÌº¥Æ® ¿öÇÁ ÆÐÅÏ ½ºÅ¸Æ® ( Âø·ú½Ã )
+				// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ® ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ )
 				CObjectChild* pObj = g_pScene->FindObjectByIndex(m_pCurrentObjEvent->m_nNextEventIndex);
-				if(m_nCurrentPatternNumber == PATTERN_UNIT_AIRPORT_IN)	// ¿öÇÁ¾Æ¿ô ÆÐÅÏ ÁßÀÌ¸é ÆÐÅÏÀÌ Á¾·áµÈ´Ù.
+				if(m_nCurrentPatternNumber == PATTERN_UNIT_AIRPORT_IN)	// ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 				{
 				}
 				else if(pObj )
 				{
-					// ½ºÅµÀ» À§ÇÑ º¯¼ö
+					// ï¿½ï¿½Åµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(m_pCurrentObjEvent)
 						m_pCurrentObjEventOld = m_pCurrentObjEvent;
 
-					D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ÆÐÅÏ ¹æÇâ
+					D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					D3DXVec3Normalize(&vPatternVel,&vPatternVel);
 					float fAngle = ACOS(D3DXVec3Dot(&m_vVel,&vPatternVel));	
 					if( fAngle > 0 &&
@@ -6013,7 +6025,7 @@ void CShuttleChild::CheckEventTypeObject()
 					{
 						m_bWarpLink = TRUE;
 						m_nEventTypeAirPort = AIR_PORT_LANDING_PATTERN_START;
-						D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ÆÐÅÏ ¹æÇâ
+						D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						D3DXVec3Normalize(&vPatternVel,&vPatternVel);
 						float fAngle = ACOS(D3DXVec3Dot(&m_vVel,&vPatternVel));
 						m_fShuttleSpeed = AIR_PORT_MIN_SPEED;
@@ -6028,7 +6040,7 @@ void CShuttleChild::CheckEventTypeObject()
 						vUp.y = m_mMatrix._22;
 						vUp.z = m_mMatrix._23;
 						if(vVel == vUp)
-						{// ¸ÅÆ®¸¯½º°¡ ±úÁöÁö ¾Êµµ·Ï
+						{// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
 							m_mMatrix._21 += 0.001f;
 							m_mMatrix._22 -= 0.001f;
 							m_mMatrix._23 += 0.002f;
@@ -6075,23 +6087,23 @@ void CShuttleChild::CheckEventTypeObject()
 			break;
 		case EVENT_TYPE_TAKEOFF_PATTERN_START:
 			{
-				// ÀÌº¥Æ® ¿öÇÁ ÆÐÅÏ ½ºÅ¸Æ® ( ÀÌ·ú½Ã )
+				// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ® ( ï¿½Ì·ï¿½ï¿½ï¿½ )
 				if(m_bWarpLink == TRUE)
 				{
 					CObjectChild* pObj = g_pScene->FindObjectByIndex(m_pCurrentObjEvent->m_nNextEventIndex);
-					if(m_nCurrentPatternNumber == PATTERN_UNIT_AIRPORT_OUT)	// ¿öÇÁ¾Æ¿ô ÆÐÅÏ ÁßÀÌ¸é ÆÐÅÏÀÌ Á¾·áµÈ´Ù.
+					if(m_nCurrentPatternNumber == PATTERN_UNIT_AIRPORT_OUT)	// ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 					{
 					}
 					else if(pObj )
 					{
 						//					ChangeUnitState( _LANDING );
 						m_nEventTypeAirPort = AIR_PORT_TAKEOFF_PATTERN_START;
-						D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ÆÐÅÏ ¹æÇâ
+						D3DXVECTOR3 vPatternVel = pObj->m_vPos - m_pCurrentObjEvent->m_vPos; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						D3DXVec3Normalize(&vPatternVel,&vPatternVel);
 						float fAngle = ACOS(D3DXVec3Dot(&m_vVel,&vPatternVel));
 						m_fShuttleSpeed = m_fShuttleSpeedBoosterOn;
 						
-						// ¸Þ¼¼Áö Ã³¸®
+						// ï¿½Þ¼ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 						INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE,
 							T_FC_CHARACTER_CHANGE_CHARACTER_MODE, pSMode, SendBuf);
 						pSMode->CharacterMode0 = FALSE;
@@ -6100,14 +6112,14 @@ void CShuttleChild::CheckEventTypeObject()
 						g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE));
 						
 						// 2005-07-29 by ispark
-						// Ãâ¹ß ¹ÙµðÄÁµð¼Ç º¸³¿
+						// ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, BODYCON_FLY_MASK|BODYCON_SET_OR_CLEAR_MASK);
 						SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, BODYCON_BOOSTER1_MASK|BODYCON_SET_OR_CLEAR_MASK);
 						CheckBodyConditionToServer(m_myShuttleInfo.BodyCondition);
-						m_nBooster = BOOSTER_TYPE_MIN;		// -1:ÈÄÁøºÎ½ºÅÍ 0:ÁßÁö 1:±âº»ºÎ½ºÅÍ 2:°¡¼ÓºÎ½ºÅÍ
+						m_nBooster = BOOSTER_TYPE_MIN;		// -1:ï¿½ï¿½ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½âº»ï¿½Î½ï¿½ï¿½ï¿½ 2:ï¿½ï¿½ï¿½ÓºÎ½ï¿½ï¿½ï¿½
 						ChangeSingleBodyCondition(BODYCON_BOOSTER1_MASK);
 
-						 g_pD3dApp->SetCharacterChangeCurrentHPAndDamageBodyCondition(m_myShuttleInfo.CurrentHP);		// 2013-06-25 by ssjung µ¥¹ÌÁö ÀÌÆåÆ®°¡ ¾È³ª¿À´Â Çö»ó ¼öÁ¤
+						 g_pD3dApp->SetCharacterChangeCurrentHPAndDamageBodyCondition(m_myShuttleInfo.CurrentHP);		// 2013-06-25 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 						D3DXVECTOR3 vVel,vUp;
 						vVel = m_vPos - pObj->m_vPos;
@@ -6115,7 +6127,7 @@ void CShuttleChild::CheckEventTypeObject()
 						vUp.y = m_mMatrix._22;
 						vUp.z = m_mMatrix._23;
 						if(vVel == vUp)
-						{// ¸ÅÆ®¸¯½º°¡ ±úÁöÁö ¾Êµµ·Ï
+						{// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
 							m_mMatrix._21 += 0.001f;
 							m_mMatrix._22 -= 0.001f;
 							m_mMatrix._23 += 0.002f;
@@ -6125,7 +6137,7 @@ void CShuttleChild::CheckEventTypeObject()
 						m_mMatrix._33 = vVel.z;
 						
 						// 2005-08-01 by ispark
-						// ÁÂÇ¥ ¼³Á¤ ¿À·ù
+						// ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						m_mMatrix._41 = m_vPos.x;
 						m_mMatrix._42 = m_vPos.y;
 						m_mMatrix._43 = m_vPos.z;
@@ -6137,16 +6149,16 @@ void CShuttleChild::CheckEventTypeObject()
 							m_bSkillMoveIsUse = TRUE;
 							m_nCurrentPatternNumber = nPattNum ;
 
-							// 2007-06-13 by bhsohn ¾ÆÄ«µ¥¹Ì¸Ê ½Ã³×¸¶ Ãß°¡
-							//InitCinemaCamera(PATTERN_CAMERA_AIRPORT_OUT);			// 2005-08-01 by ispark ÀÓ½Ã·Î ¾²´Â ¹øÈ£
+							// 2007-06-13 by bhsohn ï¿½ï¿½Ä«ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ß°ï¿½
+							//InitCinemaCamera(PATTERN_CAMERA_AIRPORT_OUT);			// 2005-08-01 by ispark ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 							int nCameraType = PATTERN_CAMERA_AIRPORT_OUT;
-							// 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å 
+							// 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ 
 // 							if(IS_NORMAL_CITY_MAP_INDEX(g_pD3dApp->GetMyShuttleMapChannelIndex().MapIndex))
 // 							{
 // 								nCameraType = PATTERN_CAMERA_AIRPORT_NORMALCITY_OUT;
 // 							}
-							//end 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å 
-							InitCinemaCamera(nCameraType);			// 2005-08-01 by ispark ÀÓ½Ã·Î ¾²´Â ¹øÈ£
+							//end 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ 
+							InitCinemaCamera(nCameraType);			// 2005-08-01 by ispark ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 							
 							m_bKeyBlock = TRUE;
 						}
@@ -6155,15 +6167,15 @@ void CShuttleChild::CheckEventTypeObject()
 							m_bSkillMoveIsUse = TRUE;
 							m_nCurrentPatternNumber = PATTERN_UNIT_AIRPORT_OUT;
 
-							// 2007-06-13 by bhsohn ¾ÆÄ«µ¥¹Ì¸Ê ½Ã³×¸¶ Ãß°¡
+							// 2007-06-13 by bhsohn ï¿½ï¿½Ä«ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ß°ï¿½
 							//InitCinemaCamera(PATTERN_CAMERA_AIRPORT_OUT);			// 2005-08-01 by ispark
 							int nCameraType = PATTERN_CAMERA_AIRPORT_OUT;
-							// 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å 
+							// 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ 
 // 							if(IS_NORMAL_CITY_MAP_INDEX(g_pD3dApp->GetMyShuttleMapChannelIndex().MapIndex))
 // 							{
 // 								nCameraType = PATTERN_CAMERA_AIRPORT_NORMALCITY_OUT;
 // 							}
-							//end 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å 
+							//end 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ 
 							InitCinemaCamera(nCameraType);		
 
 							m_bKeyBlock = TRUE;
@@ -6233,13 +6245,13 @@ void CShuttleChild::InitItemPoint()
 	FLOG( "CShuttleChild::InitItemPoint()" );
 	ITEM_GENERAL* pItem;
 	DeleteItemPoint();
-	// 2006-07-21 by ispark, Ä³¸¯ÅÍ¿Í ±â¾î ÀÌÆåÆ® ÃÊ±âÈ­
+	// 2006-07-21 by ispark, Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 	/*--------------------------------------------------------------------------*/
-	// ±â¾î ÀÌÆåÆ®
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	if(g_pD3dApp->m_bCharacter == FALSE)
 	{
 		
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		CreatePrimaryWeaponItem(m_pPrimaryWeapon ? m_pPrimaryWeapon->GetRealItemInfo() : NULL);
 // 		CreateSecondaryWeaponItem(m_pSecondaryWeapon ? m_pSecondaryWeapon->GetRealItemInfo() : NULL);
 
@@ -6247,7 +6259,7 @@ void CShuttleChild::InitItemPoint()
 			CreatePrimaryWeaponItem( NULL, NULL );
 		else
 		{
-			// Ãß°¡ÀûÀÎ ¿ÜÇü¾ÆÀÌÅÛ
+			// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( m_pPrimaryWeapon->GetItemGeneral()->GetShapeItemNum() );
 			CreatePrimaryWeaponItem( m_pPrimaryWeapon->GetRealItemInfo(), pShapeItem  );
 		}
@@ -6256,15 +6268,15 @@ void CShuttleChild::InitItemPoint()
 			CreateSecondaryWeaponItem( NULL, NULL );
 		else
 		{
-			// Ãß°¡ÀûÀÎ ¿ÜÇü¾ÆÀÌÅÛ
+			// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( m_pSecondaryWeapon->GetItemGeneral()->GetShapeItemNum() );
 			
-			// 2009. 10. 21 by ckPark ¸Ê ÀÌµ¿½Ã 2Çü ¹«±âÀåÂø ¾È³ª¿À´Â Çö»ó
+			// 2009. 10. 21 by ckPark ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//CreatePrimaryWeaponItem( m_pSecondaryWeapon->GetRealItemInfo(), pShapeItem );
 			CreateSecondaryWeaponItem( m_pSecondaryWeapon->GetRealItemInfo(), pShapeItem );
-			// end 2009. 10. 21 by ckPark ¸Ê ÀÌµ¿½Ã 2Çü ¹«±âÀåÂø ¾È³ª¿À´Â Çö»ó
+			// end 2009. 10. 21 by ckPark ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_PROW );
 		if( pItem )
@@ -6278,12 +6290,12 @@ void CShuttleChild::InitItemPoint()
 		}
 	}
 	/*--------------------------------------------------------------------------*/
-	// Ä³¸¯ÅÍ ÀÌÆåÆ®
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	else if(g_pD3dApp->m_bCharacter == TRUE)
 	{
-		// 2007-12-17 by bhsohn ÀüÁø ±âÁö ¸Ê¿¡¼­ ¹«±â ¾È³ª¿À´Â Çö»óÃ³¸®
+		// 2007-12-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		if(m_pPrimaryWeapon)
 // 		{
 // 			CreatePrimaryWeaponItem(m_pPrimaryWeapon ? m_pPrimaryWeapon->GetRealItemInfo() : NULL);
@@ -6298,7 +6310,7 @@ void CShuttleChild::InitItemPoint()
 			CreatePrimaryWeaponItem( NULL, NULL );
 		else
 		{
-			// Ãß°¡ÀûÀÎ ¿ÜÇü¾ÆÀÌÅÛ
+			// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( m_pPrimaryWeapon->GetItemGeneral()->GetShapeItemNum() );
 			CreatePrimaryWeaponItem( m_pPrimaryWeapon->GetRealItemInfo(), pShapeItem );
 		}
@@ -6307,15 +6319,15 @@ void CShuttleChild::InitItemPoint()
 			CreateSecondaryWeaponItem( NULL, NULL );
 		else
 		{
-			// Ãß°¡ÀûÀÎ ¿ÜÇü¾ÆÀÌÅÛ
+			// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( m_pSecondaryWeapon->GetItemGeneral()->GetShapeItemNum() );
 
-			// 2009. 10. 21 by ckPark ¸Ê ÀÌµ¿½Ã 2Çü ¹«±âÀåÂø ¾È³ª¿À´Â Çö»ó
+			// 2009. 10. 21 by ckPark ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//CreatePrimaryWeaponItem( m_pSecondaryWeapon->GetRealItemInfo(), pShapeItem );
 			CreateSecondaryWeaponItem( m_pSecondaryWeapon->GetRealItemInfo(), pShapeItem );
-			// end 2009. 10. 21 by ckPark ¸Ê ÀÌµ¿½Ã 2Çü ¹«±âÀåÂø ¾È³ª¿À´Â Çö»ó
+			// end 2009. 10. 21 by ckPark ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_PROW );
 		if(pItem)
@@ -6328,12 +6340,12 @@ void CShuttleChild::InitItemPoint()
 		{
 			CreateWearItem( WEAR_ITEM_KIND_ENGINE, pItem->ItemInfo->SourceIndex );
 		}
-		// end 2007-12-17 by bhsohn ÀüÁø ±âÁö ¸Ê¿¡¼­ ¹«±â ¾È³ª¿À´Â Çö»óÃ³¸®
+		// end 2007-12-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	}
 
 	/*--------------------------------------------------------------------------*/
-	// ÀüÃ¼ ÀÌÆåÆ®
-	// 2006-07-21 by ispark, ÀÌÆåÆ® Ä³½¬ ¾ÆÀÌÅÛ
+	// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
+	// 2006-07-21 by ispark, ï¿½ï¿½ï¿½ï¿½Æ® Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_WINGIN );
 	if(pItem)
 	{
@@ -6350,13 +6362,13 @@ void CShuttleChild::InitItemPoint()
 	{
 		CreateWearItem( WEAR_ITEM_KIND_ACCESSORY_TIME_LIMIT, pItem->ItemInfo->SourceIndex, g_pD3dApp->m_bCharacter );
 	}
-	// 2010-06-08 by dgwoo, Æê½Ã½ºÅÛ Ãß°¡. 
+	// 2010-06-08 by dgwoo, ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½. 
 	pItem = m_pStoreData->FindItemInInventoryByWindowPos( POS_PET );
 	if(pItem)
 	{
 		CreateWearItem( WEAR_ITEM_KIND_PET, GetPetManager()->GetSourceIndex_PetCurrentData( pItem->UniqueNumber , g_pD3dApp->m_bCharacter == TRUE ? true : false ) , g_pD3dApp->m_bCharacter );
 	}										
-	// 2010-06-08 by dgwoo, Æê½Ã½ºÅÛ Ãß°¡. 
+	// 2010-06-08 by dgwoo, ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½. 
 
 
 	/*--------------------------------------------------------------------------*/
@@ -6396,18 +6408,18 @@ void CShuttleChild::InitItemPoint()
 			nDefenseNum = pTempIn->SourceIndex;
 	}
 	ChangeUnitCharacterInfo( nDefenseNum, m_myShuttleInfo.UnitKind, m_myShuttleInfo.BodyCondition, FALSE, bMonTras );
-	//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 /*
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::CheckPrimaryAttack(BOOL bReset, ITEM* pPrimary)
-/// \brief		Primary weaponÀÇ actionÀ» ¼öÇàÇÑ´Ù.
+/// \brief		Primary weaponï¿½ï¿½ actionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		dhkwon
 /// \date		2004-03-21 ~ 2004-03-21
-/// \warning	CUnitDataÀÇ PrimaryAttackActionÇÔ¼ö¸¦ ¿À¹ö¶óÀÌµù(virtual function)ÇÏ¿© Àç±¸¼º
-///				((CUnitData*)p)->PrimaryAttackActionÀ» ¼öÇàÇÏ´õ¶óµµ ÀÚ½ÄÀÇ °ÍÀÌ ¼öÇàµÊ
-///				ÀÌ ºÎºÐÀº CEnemyData,CShuttleChild°£¿¡ ¾à°£ÀÇ Â÷ÀÌ°¡ ÀÖ¾î µû·Î ±¸ÇöµÇ¾ú´Ù.
+/// \warning	CUnitDataï¿½ï¿½ PrimaryAttackActionï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½(virtual function)ï¿½Ï¿ï¿½ ï¿½ç±¸ï¿½ï¿½
+///				((CUnitData*)p)->PrimaryAttackActionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+///				ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ CEnemyData,CShuttleChildï¿½ï¿½ï¿½ï¿½ ï¿½à°£ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½.
 /// \param		
 /// \return		
 ///////////////////////////////////////////////////////////////////////////////
@@ -6419,7 +6431,7 @@ void CShuttleChild::CheckPrimaryAttack(BOOL bReset, ITEM* pPrimary)
 		ATTACK_AVAILABLE_STATE(m_pPrimaryAttackTarget->m_dwState) == FALSE))
 //		m_pPrimaryAttackTarget->m_dwState != _NORMAL))
 	{
-		m_pPrimaryAttackTarget = NULL;	// µ¥ÀÌÅ¸°¡ Áö¿öÁú °ÍÀÎÁö Ã¼Å©ÇÏ¿© Å¸°ÙÆ÷ÀÎÅÍ¸¦ NULL¼ÂÆÃ
+		m_pPrimaryAttackTarget = NULL;	// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï¿ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ NULLï¿½ï¿½ï¿½ï¿½
 	}
 
 	if( m_pPrimaryWeapon && m_pPrimaryWeapon->GetRealItemInfo() )
@@ -6429,38 +6441,38 @@ void CShuttleChild::CheckPrimaryAttack(BOOL bReset, ITEM* pPrimary)
 }
 */
 
-// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //void CShuttleChild::CheckAttack(ATTACK_DATA &attackData, BOOL bReset, ITEM* pWeaponITEM)
 void CShuttleChild::CheckAttack( ATTACK_DATA &attackData, BOOL bReset, ITEM* pWeaponITEM /* = NULL */, ITEM* pEffectItem /* = NULL */ )
-// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	if(IS_PRIMARY_ATT_TYPE(attackData.AttackData.AttackType))
 	{
 		if(m_pPrimaryWeapon)
 		{
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//CUnitData::CheckAttack( m_PrimaryAttack, bReset, m_pPrimaryWeapon->GetRealItemInfo() );
 
-			// Ãß°¡ÀûÀÎ ÀÌÆåÆ® ¾ÆÀÌÅÛ
+			// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM* pEffectItem = g_pDatabase->GetServerItemInfo(	m_pPrimaryWeapon->GetItemGeneral()->ColorCode );
 			CUnitData::CheckAttack( m_PrimaryAttack, bReset, m_pPrimaryWeapon->GetRealItemInfo(), pEffectItem );
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 	else if(IS_SECONDARY_ATT_TYPE(attackData.AttackData.AttackType))
 	{
 		if(m_pSecondaryWeapon)
 		{
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//CUnitData::CheckAttack( m_SecondaryAttack, bReset, m_pSecondaryWeapon->GetRealItemInfo() );
 
-			// Ãß°¡ÀûÀÎ ÀÌÆåÆ® ¾ÆÀÌÅÛ
+			// ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM* pEffectItem = g_pDatabase->GetServerItemInfo(	m_pSecondaryWeapon->GetItemGeneral()->ColorCode );
 			CUnitData::CheckAttack( m_SecondaryAttack, bReset, m_pSecondaryWeapon->GetRealItemInfo(), pEffectItem );
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 	}
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	else if(ATT_TYPE_PET_GENERAL == attackData.AttackData.AttackType)
 	{
 		if(GetPetManager()->GetWeaponItemInfo())
@@ -6468,12 +6480,12 @@ void CShuttleChild::CheckAttack( ATTACK_DATA &attackData, BOOL bReset, ITEM* pWe
 			CUnitData::CheckAttack( m_SecondaryAttack, bReset, m_pSecondaryWeapon->GetRealItemInfo() );
 		}
 	}
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::CreateSecondaryShieldDamage(D3DXVECTOR3 vCollPos)
-/// \brief		½¯µå µ¥¹ÌÁö°¡ ¼­¹ö¿¡¼­ ¿ÔÀ» °æ¿ì ÀÌÆåÆ® »ý¼º
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 /// \author		dhkwon
 /// \date		2004-05-18 ~ 2004-05-18
 /// \warning	
@@ -6509,7 +6521,7 @@ void CShuttleChild::SetShuttleFlight()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::Move_AirSiege(float fElapsedTime)
-/// \brief		¿¡¾î ½ÃÁî¸¸À» µû·Î Ã³¸®ÇÑ´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¸¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		dgwoo
 /// \date		2006-11-21 ~ 2006-11-21
 /// \warning	
@@ -6537,13 +6549,13 @@ void CShuttleChild::Move_AirSiege(float fElapsedTime)
 		m_vPos += 0.5f * (m_vNextPos - m_vPos) * fElapsedTime;
 	CheckCollForMap();
 	CheckCollForObject(fElapsedTime);
-	// 2007-03-14 by dgwoo ¿¡¾î ½ÃÁî½Ã ÆòÇàÀ» À¯ÁöÇÏÁö ¾Ê±â·Î º¯°æ.
+	// 2007-03-14 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	//SetShuttleFlightInit(fElapsedTime);
 	if(	(g_pSOption->sMenuBalance == TRUE ||
-		g_pGameMain->m_pSystem->m_bQuitGameMessage == TRUE)&&			// ¸Þ´º»ç¿ë½Ã À¯´ÖÁ¤Áö ¿É¼Ç Ã¼Å©
+		g_pGameMain->m_pSystem->m_bQuitGameMessage == TRUE)&&			// ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Ã¼Å©
 		(g_pD3dApp->m_bMessageBox == TRUE || 
 		g_pD3dApp->m_bFixUnitDirMode == TRUE) )
-	{// ÀÎÅÍÆäÀÌ½º Ã¢ÀÌ ¶°ÀÖ´Â °æ¿ì ±â¾î¸¦ ¼­¼­È÷ °¨¼ÓÇÑ´Ù.
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		m_nShuttleStopState = 4;
 	}
 	CheckBoosterAni();
@@ -6554,11 +6566,11 @@ void CShuttleChild::Move_AirSiege(float fElapsedTime)
 	m_bMoveGroundType = g_pGround->m_pTileInfo[nXCheck*g_pGround->m_projectInfo.sXSize+nYCheck].bMove;
 	if( m_dwState == _FALLEN || 
 		m_dwState == _EXPLODED || 
-//		g_pGameMain->IsShowing() ||				// 2006-11-07 by ispark, Ã¢ÀÌ ¶°µµ ¿òÁ÷ÀÌ°Ô ¼öÁ¤
+//		g_pGameMain->IsShowing() ||				// 2006-11-07 by ispark, Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_bOrderMove || 
 		m_bMouseLock || 
-		//g_pD3dApp->m_bChatMode ||				// 2008-09-02 by dgwoo Ã¤ÆÃÁß¿¡µµ ¸¶¿ì½º ÄÁÆ®·Ñ °¡´ÉÇÏ°Ô.
-		g_pD3dApp->m_bFixUnitDirMode == TRUE)	// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+		//g_pD3dApp->m_bChatMode ||				// 2008-09-02 by dgwoo Ã¤ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½.
+		g_pD3dApp->m_bFixUnitDirMode == TRUE)	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{
 		m_fLRVelRate = 0.0f;
 		m_fSideRate = 0.0f;
@@ -6567,11 +6579,11 @@ void CShuttleChild::Move_AirSiege(float fElapsedTime)
 	SetMatrix_Move_Ground(fElapsedTime);//	SetEffectPos_B_Gear(fElapsedTime);
 	SiegeTarget();
 
-	// 2010-12-21 by hsson Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+	// 2010-12-21 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	//HidePet(TRUE);
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
-	// end 2010-12-21 by hsson Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	// end 2010-12-21 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 }
 void CShuttleChild::ObserveUpdateGage(MSG_FC_CHARACTER_OBSERVER_INFO *pMsg)
@@ -6617,7 +6629,7 @@ void CShuttleChild::Observe_PosSeting()
 	m_stObserve.vObserveLook = m_stObserve.pEnemyData->m_vVel;
 	m_stObserve.vObservePos = m_stObserve.pEnemyData->m_vPos;
 	m_stObserve.vObserveSide = m_stObserve.pEnemyData->m_vSideVel;
-	// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå ¾÷º¤ÅÍ °íÁ¤
+	// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_stObserve.vObserveUp = D3DXVECTOR3(0.0f, 1.0f, 0.0f);			
 	m_stObserve.vObserveNextPos = m_stObserve.pEnemyData->m_vNextPos;
 }
@@ -6625,14 +6637,14 @@ void CShuttleChild::Observe_PosSeting()
 
 void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Gear(float fElapsedTime)
 {
-	// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+	// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 	D3DXVECTOR3 vAirUp = m_vUp;
 	D3DXVECTOR3 vAirVel = m_vVel;
-	// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+	// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 	char message[256];
 	CheckRollKeyDown(fElapsedTime);						// 2005-07-05 by ispark
 
-	// 2007-03-20 by dgwoo ¿ÉÀú¹ö
+	// 2007-03-20 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(IsOperAndObser() && IsObserverMode())
 	{
 		Observe_PosSeting();
@@ -6641,86 +6653,86 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 	//	if(m_bFormationFlight)
 	if(m_pClientParty->IsFormationFlightMove())
 	{
-//		DBGOUT("Æí´ë\n");
+//		DBGOUT("ï¿½ï¿½ï¿½\n");
 		m_pClientParty->SetMasterInfo();
 		m_pClientParty->FormationFlightMoveForShuttleChild();
 		m_pClientParty->FormationFlightMoveForEnemy();
 
 		// 2005-11-21 by ispark
-		//  Æí´ëºñÇà½Ã Å¸°ÙÀ» À§ÇÑ ºñÇà È¸Àü
+		//  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 		SetFormationMove(fElapsedTime);
 
 		if(D3DXVec3Length(&(m_vNextPos - m_vPos)) > 1000.0f ||
-			m_pClientParty->GetPartyInfo().bFormationFlyingType == FLIGHT_FORM_NONE) // ÀÚÀ¯ºñÇàÀº ÇØÁ¦
+			m_pClientParty->GetPartyInfo().bFormationFlyingType == FLIGHT_FORM_NONE) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			SendPacket(T_IC_PARTY_CANCEL_FLIGHT_POSITION);
 			m_pClientParty->FormationFlightClear();
 //			m_infoParty.bFormationFlyingPositionType = 0;
-//			m_bFormationFlight = FALSE; // Æí´ë ºñÇàÀ» ÄË½½ÇÏ°í º»ÀÎÀÇ ÀÇÁö´ë·Î ºñÇàÇÑ´Ù.
-			wsprintf(message,STRMSG_C_PARTY_0001);//"Æí´ëºñÇà¿¡¼­ ¹þ¾î³µ½À´Ï´Ù."
+//			m_bFormationFlight = FALSE; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+			wsprintf(message,STRMSG_C_PARTY_0001);//"ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½."
 			g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 
-			// ÇØÁ¦½Ã ¹æÇâ°ª ÃÊ±âÈ­
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°ª ï¿½Ê±ï¿½È­
 			m_fCurrentSideRate = 0.0f;
 			m_fCurrentAngle = 0.0f;
 		}
 	}
 	else if(m_bAttackMode == _SIEGE)
-	{// 2006-11-20 by dgwoo ½ÃÁî ¸ðµå·Î º¯°æ½Ã.
+	{// 2006-11-20 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-		// 2010-12-21 by hsson Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// 2010-12-21 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		HidePet(TRUE);
-		// end 2010-12-21 by hsson Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// end 2010-12-21 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 
 		Move_AirSiege(fElapsedTime);
 
-		// 2008-03-04 by bhsohn ½ÃÁî¸ðµåÈÄ °ÔÀÓÁ¾·á¸é ¸ØÃß´Â Çö»óÃ³¸®
+		// 2008-03-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 		if((m_dwState == _WARP)
 			&& (EVENT_GAME_END  == m_nEventType))
 		{
 			SetSelectCharacterItem();
 			g_pGameMain->m_pSystem->SendFieldSocketCharacterGameEnd();
 		}
-		// end 2008-03-04 by bhsohn ½ÃÁî¸ðµåÈÄ °ÔÀÓÁ¾·á¸é ¸ØÃß´Â Çö»óÃ³¸®
+		// end 2008-03-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 		return ;
 	}
 	else
 	{
-		// 2010-12-21 by hsson Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// 2010-12-21 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		HidePet(FALSE);
-		// end 2010-12-21 by hsson Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// end 2010-12-21 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 
-		// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®		
+		// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½		
 		D3DXVECTOR3			vOldUpTmp = m_vUp;
-		// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+		// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 
 		// 2005-08-10 by ispark
-		// À¯´ÖÁ¤Áö·Î ÀÎÇÏ¿© À§Ä¡¸¦ ¹Ù²Û´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ù²Û´ï¿½.
 		D3DXVec3Normalize(&m_vVel,&m_vVel);
 		D3DXVec3Normalize(&m_vUp,&m_vUp);
-		// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+		// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 		UpdateSafeUpVector(vOldUpTmp);		
-		// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+		// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 
 		D3DXVec3Cross(&m_vSideVel,&m_vUp,&m_vVel);
 
 		// 2005-07-05 by ispark
-		// ·Ñ¸µ ½Ã½ºÅÛ »ç¿ë½Ã ¸¶¿ì½º ¿òÁ÷ÀÓÀ» ¸·´Â´Ù.
-		// 2010. 12. 06. by jskim À©µµ¿ì ºñÈ°¼ºÈ­ ÀÏ¶§ ¸¶¿ì½º Ã³¸® ¾ÈÇÏ°Ô ÇÔ.
+		// ï¿½Ñ¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+		// 2010. 12. 06. by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ì½º Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½.
 		//if(!m_bMouseMoveLock)
 		if(!m_bMouseMoveLock && g_pD3dApp->m_bHasFocus)
-		// end 2010. 12. 06. by jskim À©µµ¿ì ºñÈ°¼ºÈ­ ÀÏ¶§ ¸¶¿ì½º Ã³¸® ¾ÈÇÏ°Ô ÇÔ.
+		// end 2010. 12. 06. by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ì½º Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½.
 		{
 			D3DXMATRIX  matTemp;
 			int nx,ny;
 			nx = g_pD3dApp->GetBackBufferDesc().Width/2;
 			ny = g_pD3dApp->GetBackBufferDesc().Height/2;
 
-			// 2005-11-28 by ispark, ¿£Áø ¾ÆÀÌÅÛ °¡Á®¿À±â
+			// 2005-11-28 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ITEM* pItemInfo = g_pStoreData->GetItemInfoFromItemGeneral(g_pStoreData->FindItemInInventoryByWindowPos( POS_REAR ));
 
-			// Æò¸é ¹æÁ¤½ÄÀ» ±¸ÇÑ´Ù.
-			// a*x + b*y + c*z + d = 0 << Æò¸é ¹æÁ¤½Ä
+			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+			// a*x + b*y + c*z + d = 0 << ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			float fTemp = -((m_vUp.x*m_vMouseDir.x + m_vUp.y*m_vMouseDir.y + m_vUp.z*m_vMouseDir.z)/(m_vUp.x*m_vUp.x + m_vUp.y*m_vUp.y + m_vUp.z*m_vUp.z));
 			D3DXVECTOR3 vNew;
 			vNew.x = m_vUp.x*fTemp + m_vMouseDir.x;
@@ -6736,14 +6748,14 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			if( abs(ny - m_pt.y) > 3*((float)g_pD3dApp->GetBackBufferDesc().Height/(float)600) && 
 				m_dwState == _NORMAL && 
 				m_nBooster != BOOSTER_TYPE_AIRBREAK && 
-//				!g_pGameMain->IsShowing() &&				// 2006-11-07 by ispark, Ã¢ÀÌ ¶°µµ ¿òÁ÷ÀÌ°Ô ¼öÁ¤
+//				!g_pGameMain->IsShowing() &&				// 2006-11-07 by ispark, Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 				!m_bMouseLock && !m_bOrderMove && 
-				//!g_pD3dApp->m_bChatMode &&				// 2008-09-02 by dgwoo Ã¤ÆÃÁß¿¡µµ ¸¶¿ì½º ÄÁÆ®·Ñ °¡´ÉÇÏ°Ô.
-				g_pD3dApp->m_bFixUnitDirMode == FALSE)		// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+				//!g_pD3dApp->m_bChatMode &&				// 2008-09-02 by dgwoo Ã¤ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½.
+				g_pD3dApp->m_bFixUnitDirMode == FALSE)		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			{
 				// 2005-09-06 by ispark
-				// ¼±È¸ÇÒ ¼ö ÀÖ´Â ÃÖ´ë ¼öÄ¡·Î Á¡Á¡ Áõ°¡
-				// 2005-11-28 by ispark, ÇÏÀÌÆÛ¹«ºù ½ºÅ³ Ãß°¡
+				// ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// 2005-11-28 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½
 				float fSpeedPenalty = 0.0f;
 				if(pItemInfo)
 				{
@@ -6769,14 +6781,14 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			if( abs(nx - m_pt.x) > 3*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800) && 
 				(m_dwState == _NORMAL || m_dwState == _LANDING) && 
 				!g_pD3dApp->m_pCamera->m_bIsCamControl && 
-//				!g_pGameMain->IsShowing() &&				// 2006-11-07 by ispark, Ã¢ÀÌ ¶°µµ ¿òÁ÷ÀÌ°Ô ¼öÁ¤ 
+//				!g_pGameMain->IsShowing() &&				// 2006-11-07 by ispark, Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 				!m_bMouseLock && !m_bOrderMove &&
-				//!g_pD3dApp->m_bChatMode  &&					// 2008-09-02 by dgwoo Ã¤ÆÃÁß¿¡µµ ¸¶¿ì½º ÄÁÆ®·Ñ °¡´ÉÇÏ°Ô.
-				 g_pD3dApp->m_bFixUnitDirMode == FALSE)		// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+				//!g_pD3dApp->m_bChatMode  &&					// 2008-09-02 by dgwoo Ã¤ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½.
+				 g_pD3dApp->m_bFixUnitDirMode == FALSE)		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			{
 				// 2005-09-06 by ispark
-				// ¼±È¸ÇÒ ¼ö ÀÖ´Â ÃÖ´ë ¼öÄ¡·Î Á¡Á¡ Áõ°¡
-				// 2005-11-28 by ispark, ÇÏÀÌÆÛ¹«ºù ½ºÅ³ Ãß°¡
+				// ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// 2005-11-28 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½
 				float fSpeedPenalty = 0.0f;
 				if(pItemInfo)
 				{
@@ -6794,19 +6806,19 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			}	
 			//
 			else if(!m_bIsSetFlighting && g_pSOption->sAutoBalance == FALSE)
-			{// ¼öÆò À¯ÁöÁßÀÌ ¾Æ´Ò¶§¸¸-ÁÂ¿ì È¸Àü ¹× ±â¿ïÀÓÀÌ¾øÀ»¶§ ¼öÆò ÀÚµ¿ À¯Áö µÇµµ·Ï ÇÏÀÚ(ÁÂ¿ì ¼öÆò¸¸)-¼­¼­È÷
+			{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò¶ï¿½ï¿½ï¿½-ï¿½Â¿ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½)-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				SetShuttleFlightInit(fElapsedTime, false);
  			}
 
 			
-			// 2005-02-23 by jschoi - ÀÚµ¿ ¼öÆò À¯Áö ¿É¼Ç Ãß°¡
-			if(g_pSOption->sAutoBalance == TRUE)		// ÀÚµ¿ ¼öÆò À¯Áö ¿É¼Ç Ã¼Å©
+			// 2005-02-23 by jschoi - ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ß°ï¿½
+			if(g_pSOption->sAutoBalance == TRUE)		// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Ã¼Å©
 			{
-				// 2005-01-27 by jschoi - ¼öÆò À¯Áö¸¦ À§ÇØ »õ·Î¿î ¾Ë°í¸®Áò Àû¿ë(B±â¾î, I±â¾î)
-// 2007-08-07 by dgwoo ÇØ»óµµ°¡ Å« PC¿¡¼± È¸Àü°¢ÀÌ ´õ Ä¿Áø´Ù.
-//				float fDistanceToCenter = D3DXVec2Length(&(D3DXVECTOR2(nx - m_pt.x,ny - m_pt.y)));	// ¸¶¿ì½º Æ÷ÀÎÅÍ¿Í Áß½É°úÀÇ °Å¸®
-//				float fDistanceToMaxView = D3DXVec2Length(&(D3DXVECTOR2(nx,ny)));					// È­¸é ³¡°ú Áß½É°úÀÇ °Å¸®
-//				float fAutoRecoveryShuttle = (1.0f - fDistanceToCenter/fDistanceToMaxView);			// ¼öÆò ÀÚµ¿ À¯Áö Á¤µµ Á¶Á¤
+				// 2005-01-27 by jschoi - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Bï¿½ï¿½ï¿½, Iï¿½ï¿½ï¿½)
+// 2007-08-07 by dgwoo ï¿½Ø»óµµ°ï¿½ Å« PCï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½.
+//				float fDistanceToCenter = D3DXVec2Length(&(D3DXVECTOR2(nx - m_pt.x,ny - m_pt.y)));	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ß½É°ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
+//				float fDistanceToMaxView = D3DXVec2Length(&(D3DXVECTOR2(nx,ny)));					// È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß½É°ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
+//				float fAutoRecoveryShuttle = (1.0f - fDistanceToCenter/fDistanceToMaxView);			// ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				SetShuttleFlightInit(fElapsedTime * fAutoRecoveryShuttle , false);
 				SetShuttleFlightInit(fElapsedTime, false);
 			}
@@ -6822,17 +6834,17 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			}
 			if(m_bIsSetFlighting)
 				m_fSideRate = fSideRateTemp;
-		}	// 2005-07-05 by ispark		// ¿©±â±îÁö ¸¶¿ì½º ¿òÁ÷ÀÓ ¸·±â
+		}	// 2005-07-05 by ispark		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®		
+		// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½		
 		D3DXVECTOR3			vOldUpVec = m_vUp;
-		// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+		// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 		D3DXVec3Cross(&m_vSideVel,&m_vUp,&m_vVel);
 		D3DXVec3Cross(&m_vUp,&m_vVel,&m_vSideVel);
 
-		// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+		// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 		CheckUpNVelVector(vAirVel, vOldUpVec);
-		// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+		// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 
 		if(m_pClientParty->IsFormationFlight())
 		{		
@@ -6853,60 +6865,60 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		int nSideMove = 0;	
 		
 		if(!g_pD3dApp->m_bChatMode && m_bReflexionKeyBlock == FALSE &&
-			g_pD3dApp->m_bFixUnitDirMode == FALSE &&					// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+			g_pD3dApp->m_bFixUnitDirMode == FALSE &&					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			m_bUnitStop == FALSE &&
-			(g_pTutorial->IsTutorialMode() == FALSE || g_pTutorial->GetLesson() >= L2) )	// Æ©Åä¸®¾ó ·¹½¼ 2ºÎÅÍ
+			(g_pTutorial->IsTutorialMode() == FALSE || g_pTutorial->GetLesson() >= L2) )	// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½
 		{
 			int nOldBoosterType = m_nBooster;
-			m_nBooster = BOOSTER_TYPE_MIN;		// -1:ÈÄÁøºÎ½ºÅÍ 0:ÁßÁö 1:±âº»ºÎ½ºÅÍ 2:°¡¼ÓºÎ½ºÅÍ
+			m_nBooster = BOOSTER_TYPE_MIN;		// -1:ï¿½ï¿½ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½âº»ï¿½Î½ï¿½ï¿½ï¿½ 2:ï¿½ï¿½ï¿½ÓºÎ½ï¿½ï¿½ï¿½
 			bool bFormationFlight = true;
-			if(g_pTutorial->IsTutorialMode() == FALSE || g_pTutorial->GetLesson() >= L3)	// Æ©Åä¸®¾ó ·¹½¼ 3ºÎÅÍ
+			if(g_pTutorial->IsTutorialMode() == FALSE || g_pTutorial->GetLesson() >= L3)	// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½
 			{
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-				// 2010. 03. 26 by jskim Ãâ°Ý Áß Å°º¸µå Å¬¸¯ ¸øÇÏµµ·Ï ¼öÁ¤
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+				// 2010. 03. 26 by jskim ï¿½ï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_D) || m_bKeyDownD || m_bRightButtonState)
 				//if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_D) || m_bKeyDownD || m_bRightButtonState)
 				if((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_D) || m_bKeyDownD || m_bRightButtonState) && !IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex))
-				//end 2010. 03. 26 by jskim Ãâ°Ý Áß Å°º¸µå Å¬¸¯ ¸øÇÏµµ·Ï ¼öÁ¤
-				{// ¿ì·Î ÀÌµ¿
+				//end 2010. 03. 26 by jskim ï¿½ï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				{// ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 					nSideMove++;
 					bFormationFlight = false;
 					g_pTutorial->m_Lesson3State.bRMove = TRUE;
 				}
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-				// 2010. 03. 26 by jskim Ãâ°Ý Áß Å°º¸µå Å¬¸¯ ¸øÇÏµµ·Ï ¼öÁ¤
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+				// 2010. 03. 26 by jskim ï¿½ï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_A) || m_bKeyDownA || m_bLeftButtonState)
 				if((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_A) || m_bKeyDownA || m_bLeftButtonState) && !IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex))
-				//end 2010. 03. 26 by jskim Ãâ°Ý Áß Å°º¸µå Å¬¸¯ ¸øÇÏµµ·Ï ¼öÁ¤
-				{// ÁÂ·Î ÀÌµ¿
+				//end 2010. 03. 26 by jskim ï¿½ï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				{// ï¿½Â·ï¿½ ï¿½Ìµï¿½
 					nSideMove--;
 					bFormationFlight = false;
 					g_pTutorial->m_Lesson3State.bLMove = TRUE;
 				}
 			}
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W) || m_bUpButtonState)
 			if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_W) || m_bUpButtonState)
 			{
 			}
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-			// 2010. 03. 26 by jskim Ãâ°Ý Áß Å°º¸µå Å¬¸¯ ¸øÇÏµµ·Ï ¼öÁ¤
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+			// 2010. 03. 26 by jskim ï¿½ï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S) || m_bDownButtonState)
-			// 2014-09-04 by ymjoo SÅ° Åä±Û
+			// 2014-09-04 by ymjoo SÅ° ï¿½ï¿½ï¿½
 			//if((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) || m_bDownButtonState) && !IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex))
 			if((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) || m_bToggleKeyS || m_bDownButtonState) && !IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex))
-			// END 2014-09-04 by ymjoo SÅ° Åä±Û
-			//end 2010. 03. 26 by jskim Ãâ°Ý Áß Å°º¸µå Å¬¸¯ ¸øÇÏµµ·Ï ¼öÁ¤
-			{// Àú¼Ó
-				m_nBooster = BOOSTER_TYPE_STOP;				// 2006-01-19 by ispark, Àú¼Ó ÀÌÆåÆ®
+			// END 2014-09-04 by ymjoo SÅ° ï¿½ï¿½ï¿½
+			//end 2010. 03. 26 by jskim ï¿½ï¿½ï¿½ ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			{// ï¿½ï¿½ï¿½ï¿½
+				m_nBooster = BOOSTER_TYPE_STOP;				// 2006-01-19 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 				bFormationFlight = false;
 			}
 			if(!g_pD3dApp->m_bChatMode && !m_bReflexionKeyBlock &&
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				//(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE)) &&
 				(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE)) &&
 				(!m_bKeyDownA && !m_bKeyDownD) &&
-				m_bPenaltyUnitStop == FALSE)				// 2005-08-09 by ispark À¯´ÖÁ¤Áö Æä³ÎÆ¼°¡ »ç¿ëÁßÀÌ ¾Æ´Ï¶ó¸é
+				m_bPenaltyUnitStop == FALSE)				// 2005-08-09 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½
 			{
 				// 2005-04-07 by jschoi
 				if(g_pTutorial->IsTutorialMode() == FALSE || g_pTutorial->GetLesson() >= L4)
@@ -6925,7 +6937,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				}
 			}
 //			if(m_bFormationFlight && !bFormationFlight)
-			// 2006-01-06 by ispark, ·Ñ¸µ »ç¿ë½Ã Æí´ë ÇØÁ¦
+			// 2006-01-06 by ispark, ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_bKeyDownA || m_bKeyDownD)
 			{
 //				if(m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER &&
@@ -6940,24 +6952,24 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				m_pClientParty->IsFormationFlightMove() &&
 				!bFormationFlight)
 			{
-				// 2011-08-12 by hsson Æí´ë ´ë¿­¿¡ Ãß°¡/Å»Åð ½Ã µô·¹ÀÌ¸¦ »ðÀÔ (Æí´ë µ¿±âÈ­ ¹ö±×¸¦ ÁÙÀÓ)
+				// 2011-08-12 by hsson ï¿½ï¿½ï¿½ ï¿½ë¿­ï¿½ï¿½ ï¿½ß°ï¿½/Å»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				if( g_cTimeMgr.CheckTime( 1, 200 ) )
 				{
 					SendPacket(T_IC_PARTY_CANCEL_FLIGHT_POSITION);
 					m_pClientParty->FormationFlightClear();
 					//				m_infoParty.bFormationFlyingPositionType = 0;
-					//				m_bFormationFlight = FALSE; // Æí´ë ºñÇàÀ» ÄË½½ÇÏ°í º»ÀÎÀÇ ÀÇÁö´ë·Î ºñÇàÇÑ´Ù.
-					wsprintf(message,STRMSG_C_PARTY_0001);//"Æí´ëºñÇà¿¡¼­ ¹þ¾î³µ½À´Ï´Ù."
+					//				m_bFormationFlight = FALSE; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+					wsprintf(message,STRMSG_C_PARTY_0001);//"ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½."
 					g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 					
-					// ÇØÁ¦½Ã ¹æÇâ°ª ÃÊ±âÈ­ 
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°ª ï¿½Ê±ï¿½È­ 
 					m_fCurrentSideRate = 0.0f;
 					m_fCurrentAngle = 0.0f;
 				}
-				// end 2011-08-12 by hsson Æí´ë ´ë¿­¿¡ Ãß°¡/Å»Åð ½Ã µô·¹ÀÌ¸¦ »ðÀÔ (Æí´ë µ¿±âÈ­ ¹ö±×¸¦ ÁÙÀÓ)
+				// end 2011-08-12 by hsson ï¿½ï¿½ï¿½ ï¿½ë¿­ï¿½ï¿½ ï¿½ß°ï¿½/Å»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½)
 			}
 
-			// 2014-07-29 by ymjoo ÄÝ ¿Àºê È÷¾î·Î ½ÂÀÎ ÈÄ ºòºÕ »ç¿ëÁßÀÌ¸é ¿òÁ÷ÀÌÁö ¸øÇÏ°Ô ¼öÁ¤
+			// 2014-07-29 by ymjoo ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(SKILL_BASE_NUM(g_pShuttleChild->m_pSkill->GetPreSkillItemNum()) == BGEAR_SKILL_BASENUM_BIG_BOOM)
 			{
 				g_pShuttleChild->m_bUnitStop			= TRUE;
@@ -6965,21 +6977,21 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				g_pShuttleChild->m_bMouseMoveLock		= TRUE;
 				g_pShuttleChild->m_bSkillGoMove			= FALSE;
 			}
-			// END 2014-07-29 by ymjoo ÄÝ ¿Àºê È÷¾î·Î ½ÂÀÎ ÈÄ ºòºÕ »ç¿ëÁßÀÌ¸é ¿òÁ÷ÀÌÁö ¸øÇÏ°Ô ¼öÁ¤
+			// END 2014-07-29 by ymjoo ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		else
-		{// Ã¤ÆÃ ¸ðµåÀÏ¶§ ¿¡¾î ºê·¹ÀÌÅ©°¡ ¾Æ´Ï¶ó¸é ºÎ½ºÅÍÀÇ »óÅÂ¸¦ ÀÏ¹Ý Å°¸¦ ¶¾ »óÅÂ·Î ¹Ù²Û´Ù
+		{// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¹ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ï¹ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ù²Û´ï¿½
 			// 2005-08-11 by ispark
-			// Á¤Áö Æä³ÎÆ¼ Ãâ¹ß½Ã STOPºÎ½ºÅÍ ¾²Áö ¾Ê°Ô
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ß½ï¿½ STOPï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
 			if(m_nBooster != BOOSTER_TYPE_AIRBREAK && m_bPenaltyUnitStop == FALSE)
 			{
 				m_nBooster = BOOSTER_TYPE_STOP;
 			}
 		}
 
-		// À¯´Ö Á¤Áö ½Ã½ºÅÛ Ã³¸®
-		// 2006-06-23 by ispark, Ä³½¬ »óÁ¡ ÀÌ¿ë½Ã »ç¿ë ±ÝÁö
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+		// 2006-06-23 by ispark, Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W) && 
 		if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_W) && 
 			!g_pD3dApp->m_bChatMode && 
@@ -6987,41 +6999,41 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			(!g_pTutorial->IsTutorialMode() ||
 			(g_pTutorial->IsTutorialMode() && g_pTutorial->GetChapterState() != TUTORIAL_STATE_READY && g_pTutorial->GetLesson() != L6)))
 		{
-			// WÅ°¸¦ ´©·¶À» ¶§ À¯´Ö Á¤Áö¸¦ Ç¬´Ù.
+			// WÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¬ï¿½ï¿½.
 			if(m_bUnitStop == TRUE && m_bSkillGoMove )
 			{
-				// 2008-07-03 by bhsohn EP3 ¹ö±× ¸®Æ÷Æ® ¼öÁ¤
+				// 2008-07-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 				if(g_pGameMain->m_pCommunity->IsShowCommunityWindow())
 				{
-					// Ãâ¹ß½Ã °­Á¦·Î Ã¢´ÝÀ½
+					// ï¿½ï¿½ß½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½
 					g_pGameMain->m_pCommunity->ShowCommunityWindow(FALSE);
 				}
 				if(g_pGameMain->m_pSystem && g_pGameMain->m_pSystem->IsOptionShow())
 				{
 					g_pGameMain->PopupSystemOptinWnd();
 				}
-				// end 2008-07-03 by bhsohn EP3 ¹ö±× ¸®Æ÷Æ® ¼öÁ¤
+				// end 2008-07-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
 				m_bUnitStop = FALSE;
 				m_bPenaltyUnitStop = TRUE;
 				m_bMouseMoveLock = FALSE;
 				m_nBooster = BOOSTER_TYPE_MIN;
-				// 2010. 07. 07 by jskim È¦µå ¸ÂÀ»½Ã Á¤Áö Ç®¶§ ¾ÈÇ®¸®´Â ¹ö±× ¼öÁ¤
+				// 2010. 07. 07 by jskim È¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( m_pSkill->IsExistDesParamSKill( DES_SKILL_MON_HOLD ) )
 				{
 					m_bMouseLock = FALSE;
 					g_pD3dApp->m_bFixUnitDirMode = FALSE;
 				}
-				//end 2010. 07. 07 by jskim È¦µå ¸ÂÀ»½Ã Á¤Áö Ç®¶§ ¾ÈÇ®¸®´Â ¹ö±× ¼öÁ¤
+				//end 2010. 07. 07 by jskim È¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				g_pInterface->m_pGameMain->InitShowWindow();			// 2005-08-05 by ispark
-				// 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ	
-				SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, ShuttleChangeBodyCondition());		// 2013-06-25 by ssjung µ¥¹ÌÁö ÀÌÆåÆ®°¡ ¾È³ª¿À´Â Çö»ó ¼öÁ¤
-				//end 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ	
+				// 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+				SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, ShuttleChangeBodyCondition());		// 2013-06-25 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				//end 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 			}
 		}
 		else if(m_bUnitStop == TRUE)
 		{
-			// À¯´Ö Á¤Áö½Ã ºÎ½ºÅÍ »óÅÂ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_nBooster = BOOSTER_TYPE_AIRBREAK;
 		}
 			
@@ -7040,14 +7052,14 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			!m_bOrderMove)
 		{
 //			CheckMoveRate(fElapsedTime,nSideMove,nFBMove);
-			// 2007-03-27 by dgwoo ¿ÉÀú¹ö ¸ðµå½Ã ¿òÁ÷ÀÓÀ» ¸·´Â´Ù.
+			// 2007-03-27 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 			if(!IsObserverMode())
 			{
 				CheckMoveRate(fElapsedTime,nSideMove);
 			}
 			if(m_myShuttleInfo.CurrentEP)
 				m_vPos += (m_vNextPos - m_vPos)*fElapsedTime;
-			else	// EP°¡ ¾øÀ»¶§-¼Óµµ¸¦ ¹ÝÀ¸·Î ÁÙÀÎ´Ù.
+			else	// EPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 				m_vPos += 0.5f*(m_vNextPos - m_vPos)*fElapsedTime;
 		}
 		if(g_pD3dApp->m_pCamera->m_bIsCamControl)
@@ -7063,50 +7075,50 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		}
 		else
 		{
-			m_fSideCheckRate = 2.0f;	// ±â¿ïÀÓ Á¶Àýº¯¼ö 1.0 À¸·Î ¼ÂÆÃ
+			m_fSideCheckRate = 2.0f;	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1.0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
-		CheckCollForMap();		// ¸Ê°úÀÇ Ãæµ¹ °Ë»ç
-		CheckCollForObject(fElapsedTime);	// ¿ÀºêÁ§Æ®¿Í Ãæµ¹ °Ë»ç b±â¾î
+		CheckCollForMap();		// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½
+		CheckCollForObject(fElapsedTime);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½ bï¿½ï¿½ï¿½
 		if( !g_pD3dApp->m_bChatMode && m_nBooster != BOOSTER_TYPE_MAX &&
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-			//((g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_C) &&	// 20s05-11-07 by ispark Ç¬´Ù
-			((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_C) &&	// 20s05-11-07 by ispark Ç¬´Ù
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+			//((g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_C) &&	// 20s05-11-07 by ispark Ç¬ï¿½ï¿½
+			((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_C) &&	// 20s05-11-07 by ispark Ç¬ï¿½ï¿½
 			(!m_bKeyDownA && !m_bKeyDownD)) ||
 //			((g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_C) &&
-//			IS_DT(m_myShuttleInfo.UnitKind))||		// 2005-08-03 by ispark A±â¾î ÀÌ¿Ü´Â C¹öÆ° »ç¿ë ±ÝÁö
+//			IS_DT(m_myShuttleInfo.UnitKind))||		// 2005-08-03 by ispark Aï¿½ï¿½ï¿½ ï¿½Ì¿Ü´ï¿½ Cï¿½ï¿½Æ° ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_NUMPAD0) || 
 			g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_BACKSLASH)) &&
 			g_pD3dApp->m_dwGameState != _SHOP &&
 			m_bSkillGoMove)
 		{
 			TryLandingState();
-			// 2007-07-26 by dgwoo C¹öÆ°Àº Âø·ú½Ã¿¡ »ç¿ë.
+			// 2007-07-26 by dgwoo Cï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½.
 			//InitUnitStop();
 		}
 
 		// 2005-11-16 by ispark	
-		// B¹öÆ° ÀÌ¿Ü´Â ¼öÆò À¯Áö »èÁ¦
-//		if(m_bMButtonState ||							// 2005-08-09 by ispark ¸¶¿ì½º M¹öÆ° »èÁ¦
+		// Bï¿½ï¿½Æ° ï¿½Ì¿Ü´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//		if(m_bMButtonState ||							// 2005-08-09 by ispark ï¿½ï¿½ï¿½ì½º Mï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 //		if( m_bIsSetFlighting || 
 //			g_pD3dApp->m_bChatMode || 
 //			m_nBooster == BOOSTER_TYPE_AIRBREAK ||
-//			g_pD3dApp->m_bFixUnitDirMode == TRUE)		// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+//			g_pD3dApp->m_bFixUnitDirMode == TRUE)		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		if(g_pD3dApp->m_bFixUnitDirMode == TRUE)
-		{// ÆòÇü ¸¶Ãß±â
+		{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 			SetShuttleFlightInit(fElapsedTime);
 		}
 
 		// 2005-02-01 by jschoi
 		if(	(g_pSOption->sMenuBalance == TRUE ||
-			g_pGameMain->m_pSystem->m_bQuitGameMessage == TRUE)&&			// ¸Þ´º»ç¿ë½Ã À¯´ÖÁ¤Áö ¿É¼Ç Ã¼Å©
+			g_pGameMain->m_pSystem->m_bQuitGameMessage == TRUE)&&			// ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Ã¼Å©
 			(g_pD3dApp->m_bMessageBox == TRUE || 
 			g_pD3dApp->m_bFixUnitDirMode == TRUE) )
-		{// ÀÎÅÍÆäÀÌ½º Ã¢ÀÌ ¶°ÀÖ´Â °æ¿ì ±â¾î¸¦ ¼­¼­È÷ °¨¼ÓÇÑ´Ù.
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			m_nShuttleStopState = 4;
 		}
 
 		// 2005-08-22 by ispark
-		// ºñÇàÁß ¿¬·á°¡ 0ÀÏ ¶§ Ãß¶ô
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½á°¡ 0ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¶ï¿½
 		if(0 >= m_myShuttleInfo.CurrentEP)
 		{
 			m_nBooster = BOOSTER_TYPE_AIRBREAK;
@@ -7114,34 +7126,34 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		}
 
 		
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		//CheckBoosterAni();
 
-		// ·Îº¿±â¾î ·Ñ¸µ¾Ö´Ï¸ÞÀÌ¼Ç½Ã ºÎ½ºÅÍ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ µ¤¾î¾²¹Ç·Î ·Ñ¸µ½Ã ºÎ½ºÅÍ ¾Ö´Ï¸ÞÀÌ¼Ç Ã¼Å©¸¦ ¾ÈÇÑ´Ù
+		// ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¾²ï¿½Ç·ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½
 		if( !( m_bKeyDownA || m_bKeyDownD ) )
 			CheckBoosterAni();
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	}
 	else if(m_dwState == _LANDING)
 	{
-		// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+		// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		BOOL bLandingDone = FALSE;
 
 		// 2005-11-11 by ispark
-		// ´ë°áÁß¿¡´Â Áö¿ìÁö ¾ÊÀ½
+		// ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_pOrderTarget &&
 			m_dwPkState != PK_PVP &&
 			m_dwPkState != PK_FVF && 
 			m_pOrderTarget->m_dwPartType != _ENEMY &&
-			!IS_DT(m_myShuttleInfo.UnitKind))				// 2006-05-19 by ispark, A±â¾î¶ó¸é Å¸°Ù »èÁ¦ Á¦¿Ü
+			!IS_DT(m_myShuttleInfo.UnitKind))				// 2006-05-19 by ispark, Aï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			m_pTarget = NULL;
 			m_pOrderTarget = NULL;
 		}
 		m_nBooster = BOOSTER_TYPE_STOP;
-		m_bMouseMoveLock = TRUE;							// 2005-08-05 by ispark Âø·ú½Ã ¿òÁ÷ÀÓ ¸·´Â´Ù.
+		m_bMouseMoveLock = TRUE;							// 2005-08-05 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 
-		// Âø·ú½Ã 1ÀÎÄªÀÌ¶ó¸é 3ÀÎÄªÀ¸·Î º¯°æ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½Ì¶ï¿½ï¿½ 3ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(g_pD3dApp->m_pCamera->GetCamType() == CAMERA_TYPE_FPS)
 		{
 			g_pD3dApp->m_pCamera->SetCamType(CAMERA_TYPE_NORMAL);
@@ -7159,7 +7171,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				m_bOrderMove = FALSE;
 			}
 			m_vMoveVel = m_vPos - vtempPos;
-			D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ±â¾î ÀÌµ¿ ¹æÇâ
+			D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		else
 		{
@@ -7167,15 +7179,15 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				m_fSideCheckRate -= 0.5f*fElapsedTime;
 			if(m_fSideCheckRate < 0.0f)
 				m_fSideCheckRate = 0.0f;
-			// ÆòÇü ¸¶Ãß±â
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 			SetShuttleFlightInit(fElapsedTime);
 			CheckMoveRate(fElapsedTime,0);
 			if(m_myShuttleInfo.CurrentEP)
 				m_vPos += (m_vNextPos - m_vPos)*fElapsedTime;
-			else	// EP°¡ ¾øÀ»¶§-¼Óµµ¸¦ ¹ÝÀ¸·Î ÁÙÀÎ´Ù.
+			else	// EPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 				m_vPos += 0.5f*(m_vNextPos - m_vPos)*fElapsedTime;
 
-			// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+			// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//m_vPos.y -= 15.0f*fElapsedTime;
 			if(IS_DT(m_myShuttleInfo.UnitKind))
 			{
@@ -7187,7 +7199,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			}
 
 			float fTempHeight = 100.0f;
-			// ¿ÀºêÁ§Æ® °Ë»ç
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë»ï¿½
 			if(m_bOnObject)
 			{
 				D3DXMATRIX matTemp;
@@ -7204,33 +7216,33 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				else
 					m_vPos.y += m_fAmorHeight - fTempHeight;
 
-				// 2011-02-25 by shcho&hsSon, A±â¾î ±âÃ¼¿Í Ä«¸Þ¶ó°¡ µÚÁýÈ÷´ø ¹®Á¦ ¼öÁ¤
-				// 2011-04-20 by hsson A±â¾î ÀÚµ¿¼öÆò À¯Áö ¿É¼ÇÀ» ²¯À» ¶§ Âø·ú½Ã °ø°Ý ¸ø ÇÏ´ø ¹ö±×
+				// 2011-02-25 by shcho&hsSon, Aï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// 2011-04-20 by hsson Aï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( 0 > m_vUp.y )
 				{
-					// À½¼ö¸é ±âÃ¼°¡ µÚÁýÇô ÀÖ´Â°ÍÀÌ´Ù. µÚÁýÇô ÀÖ´Â¸é yÃàÀ» ÃµÃµÈ÷ º¸Á¤ÇØ ÁØ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â¸ï¿½ yï¿½ï¿½ï¿½ï¿½ ÃµÃµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½.
 					m_vUp.y += 0.01f;
 				}
 				else
 				{
-					// ¾ç¼öÀÏ°æ¿ì Á¦´ë·Î ¼­ÀÖÀ¸¹Ç·Î ±¦Âú´Ù.
+					// ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 					SendPacket(T_FC_MOVE_LANDING_DONE);
 					DBGOUT("T_FC_MOVE_LANDING_DONE\n");
 					ChangeUnitState( _LANDED );
 				}
-				// end 2011-04-20 by hsson A±â¾î ÀÚµ¿¼öÆò À¯Áö ¿É¼ÇÀ» ²¯À» ¶§ Âø·ú½Ã °ø°Ý ¸ø ÇÏ´ø ¹ö±×
-				// end 2011-02-25 by shcho&hsSon, A±â¾î ±âÃ¼¿Í Ä«¸Þ¶ó°¡ µÚÁýÈ÷´ø ¹®Á¦ ¼öÁ¤
+				// end 2011-04-20 by hsson Aï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// end 2011-02-25 by shcho&hsSon, Aï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-				// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+				// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				bLandingDone = TRUE;
 
-				// Ä«¸Þ¶ó º¹±¸
+				// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 				m_bIsCameraPattern = FALSE;
 			}
-			// ¹°¼ÓÀÎÁö Ã¼Å©
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 			if(m_bIsWater && m_vPos.y < g_pGround->m_projectInfo.fWaterHeight)
 				m_bIsUnderWater = TRUE;
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//if(!m_bKeyBlock && !g_pD3dApp->m_bChatMode && !m_bReflexionKeyBlock && ( g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE)))
 			if(!m_bKeyBlock && !g_pD3dApp->m_bChatMode && !m_bReflexionKeyBlock && ( g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE)))
 			{
@@ -7250,13 +7262,13 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		}
 
 		// 2005-10-26 by ispark
-		CheckCollForObject(fElapsedTime);	// ¿ÀºêÁ§Æ®¿Í Ãæµ¹ °Ë»ç b±â¾î
+		CheckCollForObject(fElapsedTime);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½ bï¿½ï¿½ï¿½
 
-		// Âø·úÁß ´Ù½Ã ÀÌ·ú
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ì·ï¿½
 		if( !m_bKeyBlock && 
 			!g_pD3dApp->m_bChatMode &&
 			!m_bReflexionKeyBlock &&
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//(m_bUpButtonState || g_pD3dApp->m_pKeyBoard->GetAsyncKeyState( DIK_SPACE )))
 			(m_bUpButtonState || g_pD3dApp->GetAsyncKeyState_DIK_DIJ( DIK_SPACE )))
 		{
@@ -7265,7 +7277,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			{
 				if(m_fNumpad0keyTime <= 0.0f)
 				{
-					// Âø·úÀü ½ÃÁ¡ÀÌ 1ÀÎÄªÀÌ¿´À¸¸é ´Ù½Ã 1ÀÎÄªÀ¸·Î º¯È¯ 
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ 1ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ 
 					if(m_bLandingOldCamtypeFPS)
 					{
 						g_pD3dApp->m_pCamera->ChangeCamType();
@@ -7277,13 +7289,13 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 					g_pCamera->Init(m_vPos - 10.0f*m_vVel,m_vVel, 3.14f/13.0f, 60.0f);
 					m_fNumpad0keyTime = 2.0f;
 					ChangeUnitState(_TAKINGOFF);
-					// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+					// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					//m_fRasingCheckTime = 1.0f;
 					m_fRasingCheckTime = GetRasingCheckTime();
 				}
 			}
 		}
-		// _LANDING Ä«¸Þ¶ó ÆÐÅÏ Àû¿ë
+		// _LANDING Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_bIsCameraPattern == TRUE)
 		{
 			EVENT_POINT CameraPoint;
@@ -7294,27 +7306,27 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			vCameraVel = m_vPos - CameraPoint.vPosition;
 			vCameraUp = CameraPoint.vUpVector;
 			
-			// Ä«¸Þ¶óÀÇ À§Ä¡ ¼ÂÆÃ 2004.06.24 jschoi
+			// Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 2004.06.24 jschoi
 			g_pD3dApp->m_pCamera->Tick(vCameraPos,vCameraVel,vCameraUp);
 			
 		}
-		// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®		
+		// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½		
 		if(bLandingDone && IS_DT(m_myShuttleInfo.UnitKind))
 		{
-			// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+			// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 			InitUnitStop();
 		}		
-		// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+		// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	}
 	else if(m_dwState == _LANDED)
 	{
 		// 2005-11-11 by ispark
-		// ´ë°áÁß¿¡´Â Áö¿ìÁö ¾ÊÀ½
+		// ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_pOrderTarget &&
 			m_dwPkState != PK_PVP &&
 			m_dwPkState != PK_FVF && 
 			m_pOrderTarget->m_dwPartType != _ENEMY &&
-			!IS_DT(m_myShuttleInfo.UnitKind))				// 2006-05-19 by ispark, A±â¾î¶ó¸é Å¸°Ù »èÁ¦ Á¦¿Ü
+			!IS_DT(m_myShuttleInfo.UnitKind))				// 2006-05-19 by ispark, Aï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			m_pTarget = NULL;
 			m_pOrderTarget = NULL;
@@ -7334,7 +7346,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		CheckMoveRate(fElapsedTime,0);
 		if(m_myShuttleInfo.CurrentEP)
 			m_vPos += (m_vNextPos - m_vPos)*fElapsedTime;
-		else	// EP°¡ ¾øÀ»¶§-¼Óµµ¸¦ ¹ÝÀ¸·Î ÁÙÀÎ´Ù.
+		else	// EPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 			m_vPos += 0.5f*(m_vNextPos - m_vPos)*fElapsedTime;
 
 		float fTempHeight = 100.0f;
@@ -7366,21 +7378,21 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				else
 				{
 					float fRealObjectHeight = m_vPos.y - fTempHeight;
-					m_vPos.y -= fElapsedTime*50.0f;		// Âø·úµÈ »óÅÂ¿¡¼­ ¹Ù´ÚÀ¸·Î ¶³¾îÁö´Â ·®			
+					m_vPos.y -= fElapsedTime*50.0f;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½			
 					if( fRealObjectHeight + m_fAmorHeight > m_vPos.y )
 					{
-						m_vPos.y = fRealObjectHeight + m_fAmorHeight;			// ±â¾î°¡ ¶¥(¿ÀºêÁ§Æ®)¼ÓÀ¸·Î´Â µé¾î°¥ ¼ö ¾ø´Ù.
+						m_vPos.y = fRealObjectHeight + m_fAmorHeight;			// ï¿½ï¿½î°¡ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					}
 				}
 			}
 		}
 		
-		// ÁöÇü ¹× ¿ÀºêÁ§Æ®ÀÇ ³ôÀÌ¸¦±¸ÇÏ¿© ¼ÅÆ²ÀÇ ³ôÀÌ¸¦ Àû¿ëÇÑ´Ù.	
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.	
 		m_bFirstStart = FALSE;
-		// ¹°¼ÓÀÎÁö Ã¼Å©
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 		if(m_bIsWater && m_vPos.y < g_pGround->m_projectInfo.fWaterHeight)
 			m_bIsUnderWater = TRUE;
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//if(!m_bKeyBlock && !g_pD3dApp->m_bChatMode && !m_bReflexionKeyBlock && ( g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE)))
 		if(!m_bKeyBlock && !g_pD3dApp->m_bChatMode && !m_bReflexionKeyBlock && ( g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE)))
 		{
@@ -7397,17 +7409,17 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				}
 			}
 		}
-		// 2006-11-02 by dgwoo µµ½Ã ¸Ê¿¡¼± C¹öÆ°À» ¸·À½À¸·Î¼­ 
-		// ¹ö±×¼öÁ¤(Âø·ú½Ã C¹öÆ°À» ´©¸£°í ÀÖÀ»¸é º¸±ÞÃ¢ÀÌ ¾È¶á´Ù.)
+		// 2006-11-02 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ Cï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ 
+		// ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½È¶ï¿½ï¿½.)
 		if( !IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex) &&
 			!g_pD3dApp->m_bChatMode &&
 			!m_bReflexionKeyBlock &&
 			!m_bKeyBlock &&
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_C) || 
 			(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_C) || 
 			m_bUpButtonState || 
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//g_pD3dApp->m_pKeyBoard->GetAsyncKeyState( DIK_SPACE )))
 			g_pD3dApp->GetAsyncKeyState_DIK_DIJ( DIK_SPACE )))
 		{
@@ -7418,7 +7430,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			{
 				if(m_fNumpad0keyTime <= 0.0f)
 				{
-					// Âø·úÀü ½ÃÁ¡ÀÌ 1ÀÎÄªÀÌ¿´À¸¸é ´Ù½Ã 1ÀÎÄªÀ¸·Î º¯È¯ 
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ 1ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ 
 					if(m_bLandingOldCamtypeFPS)
 					{
 						g_pD3dApp->m_pCamera->ChangeCamType();
@@ -7430,7 +7442,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 					g_pCamera->Init(m_vPos - 10.0f*m_vVel,m_vVel, 3.14f/13.0f, 60.0f);
 					m_fNumpad0keyTime = 2.0f;
 					ChangeUnitState(_TAKINGOFF);					
-					// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+					// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					//m_fRasingCheckTime = 1.0f;
 					m_fRasingCheckTime = GetRasingCheckTime();
 
@@ -7440,9 +7452,9 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 
 		// 2005-10-26 by ispark
 		if(m_bLandedMove == FALSE)
-			CheckCollForObject(fElapsedTime);	// ¿ÀºêÁ§Æ®¿Í Ãæµ¹ °Ë»ç b±â¾î
+			CheckCollForObject(fElapsedTime);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½ bï¿½ï¿½ï¿½
 
-		// _LANDING Ä«¸Þ¶ó ÆÐÅÏ Àû¿ë
+		// _LANDING Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_bIsCameraPattern == TRUE)
 		{
 			EVENT_POINT CameraPoint;
@@ -7453,7 +7465,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			vCameraVel = m_vPos - CameraPoint.vPosition;
 			vCameraUp = CameraPoint.vUpVector;
 			
-			// Ä«¸Þ¶óÀÇ À§Ä¡ ¼ÂÆÃ 2004.06.24 jschoi
+			// Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 2004.06.24 jschoi
 			g_pD3dApp->m_pCamera->Tick(vCameraPos,vCameraVel,vCameraUp);
 			
 		}
@@ -7478,12 +7490,12 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		{
 			m_fRasingCheckTime = 0.0f;
 			ChangeUnitState( _NORMAL );
-			// 2007-07-26 by dgwoo ÀÌ·ú½Ã À§Ä¡¿¡ µµ´ÞÇÏ¸é ¾ÕÀ¸·Î ÀüÁø.
+			// 2007-07-26 by dgwoo ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			InitUnitStop();
 		}
 		D3DXVECTOR3 vtempPos = m_vPos;
 		
-		// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+		// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		m_vPos.y += 30.0f*fElapsedTime;				
 //		m_vPos += 30.0f*m_vVel*fElapsedTime;
 		if(IS_DT(m_myShuttleInfo.UnitKind))
@@ -7498,11 +7510,11 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		}
 
 		m_vMoveVel = m_vPos - vtempPos;
-		D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ±â¾î ÀÌµ¿ ¹æÇâ
+		D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 		//m_myShuttleInfo.BodyCondition = BODYCON_TAKEOFF_MASK;
-		// 2005-01-19 by jschoi - ÀÌ·ú ½Ã Ãæµ¹ Ã³¸®
-		CheckCollForMap();		// ¸Ê°úÀÇ Ãæµ¹ °Ë»ç
-		CheckCollForObject(fElapsedTime);	// ¿ÀºêÁ§Æ®¿Í Ãæµ¹ °Ë»ç b±â¾î
+		// 2005-01-19 by jschoi - ï¿½Ì·ï¿½ ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½
+		CheckCollForMap();		// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½
+		CheckCollForObject(fElapsedTime);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½ bï¿½ï¿½ï¿½
 	}
 	else if(m_dwState == _FALLING)
 	{
@@ -7511,7 +7523,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		{
 			SendPacket(T_IC_PARTY_CANCEL_FLIGHT_POSITION);
 			m_pClientParty->FormationFlightClear();
-			wsprintf(message,STRMSG_C_PARTY_0001);//"Æí´ëºñÇà¿¡¼­ ¹þ¾î³µ½À´Ï´Ù."
+			wsprintf(message,STRMSG_C_PARTY_0001);//"ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½."
 			g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 		}
 		EVENT_POINT UnitPoint, CameraPoint;
@@ -7519,14 +7531,14 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		{
 			m_pCinemaUnitPattern->SkillTick();
 			UnitPoint=m_pCinemaUnitPattern->GetCurrentCinemaPoint();
-			m_vPos = UnitPoint.vPosition;				// À§Ä¡
-			m_vVel = UnitPoint.vDirection;				// ¹æÇâ
+			m_vPos = UnitPoint.vPosition;				// ï¿½ï¿½Ä¡
+			m_vVel = UnitPoint.vDirection;				// ï¿½ï¿½ï¿½ï¿½
 			m_vUp = UnitPoint.vUpVector;
 			m_vTargetPosition = UnitPoint.vTarget;
 		}
 
 		// 2005-08-01 by ispark
-		// Ä«¸Þ¶ó ÆÐÅÏ »ç¿ë ¾ÈÇÔ
+		// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if(m_bIsCameraPattern == TRUE)
 //		{
 //			m_pCinemaCamera->SkillTick();
@@ -7536,15 +7548,15 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 //			vCameraVel = m_vPos - CameraPoint.vPosition;
 //			vCameraUp = CameraPoint.vUpVector;
 //			
-//			// Ä«¸Þ¶óÀÇ À§Ä¡ ¼ÂÆÃ 2004.06.24 jschoi
+//			// Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 2004.06.24 jschoi
 //			g_pCamera->Tick(vCameraPos,vCameraVel,vCameraUp);
 //			
 //		}
 		m_vMoveVel = m_vPos - vtempPos;
-		D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ±â¾î ÀÌµ¿ ¹æÇâ
+		D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 
-		// Ãß¶ô½Ã Ãæµ¹ Ã³¸®
+		// ï¿½ß¶ï¿½ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½
 		BOOL bResult = CheckCollMapObject();
 		if( m_vPos.y < CheckMap(m_vPos) + 2.0f || bResult )
 		{
@@ -7555,32 +7567,32 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			{
 				m_bDeadMessageEnable	= FALSE;
 
-				// ¿¬·á°¡ 0ÀÏ ¶§ Ãß¶ôÈÄ º¸¿©ÁÙ ¸Þ½ÃÁö ¹Ú½º¿Í ¸Þ½ÃÁö Ã³¸®
-				// Á×Àº»óÅÂ°¡ ¾Æ´Ñ °æ¿ì¸¸ FUELALLIN Ã³¸®
+				// ï¿½ï¿½ï¿½á°¡ 0ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ì¸¸ FUELALLIN Ã³ï¿½ï¿½
 				if( FALSE == COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_DEAD_MASK)
 					&& 0 >= m_myShuttleInfo.CurrentEP )
 				{
 					ChangeUnitState( _FUELALLIN );
-					// ¸Þ¼¼Áö Ã³¸®
+					// ï¿½Þ¼ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					g_pFieldWinSocket->WriteMessageType(T_FC_CHARACTER_FALLING_BY_FUEL_ALLIN);
 					g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050819_0100, COLOR_ERROR);
 				}
 				else
 				{
-					// Á×¾úÀ» ¶§ ºÎÈ° Ä«µå »ç¿ë
+					// ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È° Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½
 					CItemInfo* pItemInfo	= g_pStoreData->SerchRevivalUseItem();
 					MAP_INFO* pMapInfo		= g_pDatabase->GetMapInfo(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);
-					// 1:1°áÅõÇÏ´Ù°¡ Àû¿¡°Ô Á×Àº °æ¿ì
-					// ´Ù¸¥ ¼¼·Â¸ÊÀÌ¸é
-					// ºÎÈ° Ä«µå ¼öÁ¤, 1:1 °áÅõ´Â Á¦¿Ü
-					// ÀÌº¥Æ® ¸Ê¿¡¼­´Â Á¦¿Ü
-					// ¾Æ·¹³ª ¸Ê¿¡¼­ Á¦¿Ü.
+					// 1:1ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+					// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Ì¸ï¿½
+					// ï¿½ï¿½È° Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 1:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// ï¿½Ìºï¿½Æ® ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					if(g_pD3dApp->m_bDeadByP2PPK == FALSE && 
 						pItemInfo &&
 						IsRevivalUseItem())
 					{
 						char strRevivalMsg[512] = {0,};
-						// "%s¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î? È®·üÀº %.0fÀÔ´Ï´Ù."
+						// "%sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? È®ï¿½ï¿½ï¿½ï¿½ %.0fï¿½Ô´Ï´ï¿½."
 						sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ArrParameterValue[0]);
 						g_pGameMain->m_pInfWindow->AddMsgBox(strRevivalMsg, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);
 					}
@@ -7589,7 +7601,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 						if(pItemInfo && IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType))
 						{
 							char chMsg[512] = {0,};
-							// "ÀÌº¥Æ®¸Ê¿¡¼­´Â %s ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+							// "ï¿½Ìºï¿½Æ®ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 							wsprintf(chMsg, STRMSG_C_061117_0000, pItemInfo->ItemInfo->ItemName);
 							g_pD3dApp->m_pChat->CreateChatChild(chMsg, COLOR_ERROR);
 						}
@@ -7608,32 +7620,32 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			{
 				m_bDeadMessageEnable	= FALSE;
 
-				// ¿¬·á°¡ 0ÀÏ ¶§ Ãß¶ôÈÄ º¸¿©ÁÙ ¸Þ½ÃÁö ¹Ú½º¿Í ¸Þ½ÃÁö Ã³¸®
-				// Á×Àº»óÅÂ°¡ ¾Æ´Ñ °æ¿ì¸¸ FUELALLIN Ã³¸®
+				// ï¿½ï¿½ï¿½á°¡ 0ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ì¸¸ FUELALLIN Ã³ï¿½ï¿½
 				if( FALSE == COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_DEAD_MASK)
 					&& 0 >= m_myShuttleInfo.CurrentEP )
 				{
 					ChangeUnitState( _FUELALLIN );
-					// ¸Þ¼¼Áö Ã³¸®
+					// ï¿½Þ¼ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					g_pFieldWinSocket->WriteMessageType(T_FC_CHARACTER_FALLING_BY_FUEL_ALLIN);
 					g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_050819_0100, COLOR_ERROR);
 				}
 				else
 				{
-					// Á×¾úÀ» ¶§ ºÎÈ° Ä«µå »ç¿ë
+					// ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È° Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½
 					CItemInfo* pItemInfo	= g_pStoreData->SerchRevivalUseItem();
 					MAP_INFO* pMapInfo		= g_pDatabase->GetMapInfo(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);
-					// 1:1°áÅõÇÏ´Ù°¡ Àû¿¡°Ô Á×Àº °æ¿ì
-					// ´Ù¸¥ ¼¼·Â¸ÊÀÌ¸é
-					// ºÎÈ° Ä«µå ¼öÁ¤, 1:1 °áÅõ´Â Á¦¿Ü
-					// ÀÌº¥Æ® ¸Ê¿¡¼­´Â Á¦¿Ü
-					// ¾Æ·¹³ª ¸Ê¿¡¼­ Á¦¿Ü.
+					// 1:1ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+					// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Ì¸ï¿½
+					// ï¿½ï¿½È° Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 1:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// ï¿½Ìºï¿½Æ® ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					if(g_pD3dApp->m_bDeadByP2PPK == FALSE && 
 						pItemInfo &&
 						IsRevivalUseItem())
 					{
 						char strRevivalMsg[512] = {0,};
-						// "%s¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î? È®·üÀº %.0fÀÔ´Ï´Ù."
+						// "%sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? È®ï¿½ï¿½ï¿½ï¿½ %.0fï¿½Ô´Ï´ï¿½."
 						sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ArrParameterValue[0]);
 						g_pGameMain->m_pInfWindow->AddMsgBox(strRevivalMsg, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);
 					}
@@ -7642,7 +7654,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 						if(pItemInfo && IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType))
 						{
 							char chMsg[512] = {0,};
-							// "ÀÌº¥Æ®¸Ê¿¡¼­´Â %s ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+							// "ï¿½Ìºï¿½Æ®ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 							wsprintf(chMsg, STRMSG_C_061117_0000, pItemInfo->ItemInfo->ItemName);
 							g_pD3dApp->m_pChat->CreateChatChild(chMsg, COLOR_ERROR);
 						}
@@ -7653,10 +7665,10 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			}
 		}
 
-		// end 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+		// end 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 
-		// ¹°¼ÓÀÎÁö Ã¼Å©
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 		if(CheckIsWater(m_vPos) && m_vPos.y < g_pGround->m_projectInfo.fWaterHeight)
 			m_bIsUnderWater = TRUE;
 	}
@@ -7670,7 +7682,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition(BODYCON_DAMAGE1_MASK,TRUE);
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition(BODYCON_DAMAGE2_MASK,TRUE);
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition(BODYCON_DAMAGE3_MASK,TRUE);
-			ChangeSingleBodyCondition(BODYCON_DEAD_MASK);//BODYCON_DEAD_MASK°¡ ÀÖ´ÂÁö È®ÀÎ
+			ChangeSingleBodyCondition(BODYCON_DEAD_MASK);//BODYCON_DEAD_MASKï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 		}
 	}
 	else if(m_dwState==_EXPLODING)
@@ -7693,8 +7705,8 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		{
 			bResult = m_pCinemaUnitPattern->SkillTick();
 			UnitPoint=m_pCinemaUnitPattern->GetCurrentCinemaPoint();
-			m_vPos = UnitPoint.vPosition;				// À§Ä¡
-			m_vVel = UnitPoint.vDirection;				// ¹æÇâ
+			m_vPos = UnitPoint.vPosition;				// ï¿½ï¿½Ä¡
+			m_vVel = UnitPoint.vDirection;				// ï¿½ï¿½ï¿½ï¿½
 			m_vUp = UnitPoint.vUpVector;
 			m_vTargetPosition = UnitPoint.vTarget;			
 		}
@@ -7711,7 +7723,7 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 			
 		}
 //		m_fEventCheckTime = 2.0f;
-		if(bResult)	// Ä«¸Þ¶ó ÆÐÅÏÀÌ ³¡³ª´ø ¾Æ´Ï¸é À¯´Ö ÆÐÅÏÀÌ ³¡³ª¸é Á¾·áÇÑ´Ù.
+		if(bResult)	// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		{
 			switch(m_nEventType)
 			{
@@ -7743,21 +7755,21 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 				}
 				break;
 			}
-//			m_bEventReady = FALSE; WARP_OK¿¡¼­ ÇÑ´Ù.
+//			m_bEventReady = FALSE; WARP_OKï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			
 		}
 	}
 
 	CheckMapRegion();
-	// 2006-08-08 by ispark, ¿ìÁÖ¸ÊÀÌ¸é ÇÑ¹ø´õ Ãæµ¹ °Ë»çÇÑ´Ù.
-	// ¸Ê ³¡¿¡¼­ ¿ÀºêÁ§Æ®¸¦ ¶Õ¾î¹ö¸®´Â ¹ö±× ¼öÁ¤
+	// 2006-08-08 by ispark, ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ì¸ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½ï¿½Ñ´ï¿½.
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(!IsTileMapRenderEnable(m_myShuttleInfo.MapChannelIndex.MapIndex) && m_dwState == _NORMAL)
 	{		
 		m_vMoveVel = m_vPos - m_vOldPos;
 		CheckCollForObject(fElapsedTime);
 	}
 
-	// ¸ø°¡´Â Áö¿ªÃ¼Å©ÇÏ¿© »ª½ÃÅ²´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼Å©ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 	int nXCheck, nYCheck;
 	nXCheck = (int)(m_vPos.x / TILE_SIZE);
 	nYCheck = (int)(m_vPos.z / TILE_SIZE);
@@ -7767,21 +7779,21 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 		m_fShuttleSpeed *= -0.5f;
 		m_fLRVelRate *= 0.8f;
 
-		// ÃÖÃÊ Á¢¼Ó½Ã ÀÌµ¿ ºÒ°¡ Áö¿ªÀÎ°æ¿ì ¹ö±× »ý±è edited by dhkwon 2003.8.20
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½Ìµï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ edited by dhkwon 2003.8.20
 		if(m_vOldPos.x != -1 && m_vOldPos.y != -1 && m_vOldPos.z != -1)
 		{
 			m_vPos = m_vPos + 20.0f*(m_vPos-m_vOldPos)*fElapsedTime;
 		}
 	}
-	////////////////////////¿©±â±îÁö Å¬¶óÀÌ¾ðÆ® ÁÂÇ¥ ¼³Á¤(ÀÌµ¿)//////////////////////////////////////////////////////
+	////////////////////////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½(ï¿½Ìµï¿½)//////////////////////////////////////////////////////
 
 	if( m_dwState == _FALLEN || 
 		m_dwState == _EXPLODED || 
-//		g_pGameMain->IsShowing() ||				// 2006-11-07 by ispark, Ã¢ÀÌ ¶°µµ ¿òÁ÷ÀÌ°Ô ¼öÁ¤
+//		g_pGameMain->IsShowing() ||				// 2006-11-07 by ispark, Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_bOrderMove || 
 		m_bMouseLock || 
-		//g_pD3dApp->m_bChatMode ||				// 2008-09-02 by dgwoo Ã¤ÆÃÁß¿¡µµ ¸¶¿ì½º ÄÁÆ®·Ñ °¡´ÉÇÏ°Ô.
-		g_pD3dApp->m_bFixUnitDirMode == TRUE)	// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+		//g_pD3dApp->m_bChatMode ||				// 2008-09-02 by dgwoo Ã¤ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½.
+		g_pD3dApp->m_bFixUnitDirMode == TRUE)	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{
 		m_fLRVelRate = 0.0f;
 		m_fSideRate = 0.0f;
@@ -7793,8 +7805,8 @@ void CShuttleChild::Move_Air(float fElapsedTime)	//void CShuttleChild::Move_B_Ge
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		UpVector ±úÁö´Â ºÎºÐ ¹æÁö
-/// \author		// 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+/// \brief		UpVector ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 /// \date		2013-07-01 ~ 2013-07-01
 /// \warning	
 ///
@@ -7806,7 +7818,7 @@ void CShuttleChild::UpdateSafeUpVector(D3DXVECTOR3	vOldUpTmp)
 	D3DXVECTOR3			vZeroVel(0,0,0);
 	if(vZeroVel != m_vUp)
 	{
-		// ÇöÀç ¾ÈÀüÇÏ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 		return;
 	}
 	if(vOldUpTmp.x > 0)
@@ -7845,7 +7857,7 @@ void CShuttleChild::CheckUpNVelVector(D3DXVECTOR3	vAirVel, D3DXVECTOR3	vOldUpVec
 	
 	if(vZeroVel != vTmpUp)
 	{
-		// ÇöÀç ¾ÈÀüÇÏ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 		return;
 	}	
 	
@@ -7854,7 +7866,7 @@ void CShuttleChild::CheckUpNVelVector(D3DXVECTOR3	vAirVel, D3DXVECTOR3	vOldUpVec
 	m_vUp = vOldUpVec;
 	m_vVel = vAirVel;
 	
-	// ¾ÈÀüÇÏ°Ô 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ 
 	m_vVel.x +=0.1f;
 	m_vVel.y -=0.1f;
 	m_vVel.z +=0.1f;
@@ -7881,19 +7893,19 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 	
 
 	// 2005-07-06 by ispark
-	// ·Ñ¸µ ½Ã½ºÅÛÀ¸·Î ÀÎÇÏ¿© ±â¿ïÀÓ Á¦ÇÑÀ» Ç®±â À§ÇØ Á¶°ÇÀ» ºñ±³
+	// ï¿½Ñ¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	if(m_bKeyDownA || m_bKeyDownD)
 	{
 //		float fUpRate = m_fOldUpRate + (-2.0f*m_fSideRate*m_fSideCheckRate - m_fOldUpRate)*fElapsedTime;
 
 		float fUpRate = RollingSystem(fElapsedTime);		// 2005-07-05 by ispark
 
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-		// ·Îº¿¾Æ¸ÓÀÏ °æ¿ì ·Ñ¸µ È¸ÀüÀ» ÇÏÁö ¾Ê´Â´Ù
+		// ï¿½Îºï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
  		if( IsRobotArmor() )
  			fUpRate = 0.0f;
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 		D3DXMatrixRotationAxis(&matVirtualTemp, &m_vVel, fUpRate);
 		m_fOldUpRate = fUpRate;
@@ -7904,7 +7916,7 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 	{
 		float fUpRate = m_fOldUpRate + (-2.0f*m_fSideRate*m_fSideCheckRate - m_fOldUpRate)*fElapsedTime;
 
-		// 2005-05-26 by jschoi - ±âÃ¼ ÃÖ´ë ±â¿ïÀÓ Á¦ÇÑ
+		// 2005-05-26 by jschoi - ï¿½ï¿½Ã¼ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_dwState == _LANDED)
 		{
 			fUpRate = 0.0f;
@@ -7925,7 +7937,7 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 	{
 		float fUpRate = m_fOldUpRate + (-2.0f*(m_fLRVelRate*0.5f)*m_fSideCheckRate - m_fOldUpRate)*fElapsedTime;
 
-		// 2005-05-26 by jschoi - ±âÃ¼ ÃÖ´ë ±â¿ïÀÓ Á¦ÇÑ
+		// 2005-05-26 by jschoi - ï¿½ï¿½Ã¼ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_dwState == _LANDED)
 		{
 			fUpRate = 0.0f;
@@ -7961,20 +7973,20 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 	D3DXVECTOR3 vSecondaryRightPos = D3DXVECTOR3(-m_SecondaryAttack.vSidePos.x, m_SecondaryAttack.vSidePos.y, m_SecondaryAttack.vSidePos.z);
 	D3DXVec3TransformCoord(&m_vRWSecondaryPos, &vSecondaryRightPos, &m_mMatrix);
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	D3DXVec3TransformCoord(&m_vPetLeftPos, &m_PetAttack.vSidePos, &m_mMatrix);
 	D3DXVECTOR3 vPetRightPos = D3DXVECTOR3(-m_PetAttack.vSidePos.x,
 											m_PetAttack.vSidePos.y, 
 											m_PetAttack.vSidePos.z);
 	D3DXVec3TransformCoord(&m_vPetRightPos, &vPetRightPos, &m_mMatrix);
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
 	m_vWeaponVel.x = m_mMatrix._31;
 	m_vWeaponVel.y = m_mMatrix._32;
 	m_vWeaponVel.z = m_mMatrix._33;
 	D3DXVec3Normalize(&m_vWeaponVel,&-m_vWeaponVel);
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - A-Gear ½ÃÁî»óÅÂ
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - A-Gear ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_vPetLeftVel.x		= m_mMatrix._31; 
 	m_vPetLeftVel.y		= m_mMatrix._32;
 	m_vPetLeftVel.z		= m_mMatrix._33;
@@ -7985,12 +7997,12 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 
 	D3DXVec3Normalize(&m_vPetLeftVel,&-m_vPetLeftVel);
 	D3DXVec3Normalize(&m_vPetRightVel,&-m_vPetRightVel);
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - A-Gear ½ÃÁî»óÅÂ
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - A-Gear ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	if(IS_DT(m_myShuttleInfo.UnitKind))
 	{
 
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 ////	D3DXVec3TransformCoord(&m_vLWBackPos, &m_PrimaryAttack.vSideBackPos, &m_mMatrix);
 // 		D3DXVec3TransformCoord(&m_vLWBackPos, &m_PrimaryAttack.vSidePos, &m_mMatrix);
@@ -8004,12 +8016,12 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 // 		D3DXVec3TransformCoord(&vRWBackPos, &vPrimaryRightBackPos, &m_mMatrix);
 // 		m_vRWPos = vRWBackPos + fLen*m_vWeaponVel;
 
-		// ¹ß»ç À§Ä¡ÀÇ vSideBackPos¿¡¼­ °¡Á®¿À³ª
-		// yÃàÀº ¾Æ¸Ó À§Ä¡¿¡¼­ °¡Á®¿Â´Ù(vSidePos)
+		// ï¿½ß»ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ vSideBackPosï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// yï¿½ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½(vSidePos)
 		D3DXVECTOR3 vPrimaryLeftBackPos = m_PrimaryAttack.vSideBackPos;
 		vPrimaryLeftBackPos.y = m_PrimaryAttack.vSidePos.y;
 
-		// ¿ÞÂÊ ¹ß»ç À§Ä¡
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Ä¡
 		D3DXVec3TransformCoord( &m_vLWBackPos, &vPrimaryLeftBackPos, &m_mMatrix );
 		D3DXVECTOR3 vTempPrimary = vPrimaryLeftBackPos - m_PrimaryAttack.vSidePos;
 
@@ -8017,7 +8029,7 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 		D3DXVec3Normalize( &m_vWeaponVel,&m_vWeaponVel );
 		m_vLWPos = m_vLWBackPos + fLen * m_vWeaponVel;
 		
-		// ¿À¸¥ÂÊ ¹ß»ç À§Ä¡
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Ä¡
 		D3DXVECTOR3 vPrimaryRightBackPos = vPrimaryLeftBackPos;
 		vPrimaryRightBackPos.x = -vPrimaryRightBackPos.x;
 
@@ -8025,7 +8037,7 @@ void CShuttleChild::SetMatrix_Move_Air(float fElapsedTime) //void CShuttleChild:
 		D3DXVec3TransformCoord( &vRWBackPos, &vPrimaryRightBackPos, &m_mMatrix) ;
 		m_vRWPos = vRWBackPos + fLen * m_vWeaponVel;
 
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 		D3DXVec3TransformCoord(&m_vLWSecondaryPos, &m_SecondaryAttack.vSidePos, &m_mMatrix);
 		D3DXVECTOR3 vSecondaryRightPos = D3DXVECTOR3(-m_SecondaryAttack.vSidePos.x, m_SecondaryAttack.vSidePos.y, m_SecondaryAttack.vSidePos.z);
@@ -8039,27 +8051,27 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	{
 		ChangeUnitState( _NORMAL );
 		//m_dwState = _NORMAL;
-		// Ä«¸Þ¶ó º¹±¸
+		// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_bIsCameraPattern = FALSE;
 		m_bMouseMoveLock = FALSE;				// 2005-08-05 by ispark		
 
 		// 2005-08-19 by ispark
-		// A±â¾î ¿¬·á°¡ 0ÀÏ ¶§ 
+		// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½á°¡ 0ï¿½ï¿½ ï¿½ï¿½ 
 		if(0 >= m_myShuttleInfo.CurrentEP)
 		{
 			m_fShuttleSpeed = 0.0f;
-			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_050819_0101, _Q_AGEAR_FUEL_ALLIN);	//"¿¬·á°¡ ¼Ò¸ðµÇ¾î µµ½Ã·Î ¿öÇÁµË´Ï´Ù."
-			ChangeUnitState( _CLOSE );		// ´Ù¸¥Ã³¸® ¸øÇÏµµ·Ï ÇÑ´Ù.
+			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_050819_0101, _Q_AGEAR_FUEL_ALLIN);	//"ï¿½ï¿½ï¿½á°¡ ï¿½Ò¸ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½."
+			ChangeUnitState( _CLOSE );		// ï¿½Ù¸ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		}
 
 		// 2005-08-31 by ispark
-		// ·Ñ¸µÁßÀÌ¾ú´Ù¸é ·Ñ¸µ Ç¬´Ù.
+		// ï¿½Ñ¸ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½Ù¸ï¿½ ï¿½Ñ¸ï¿½ Ç¬ï¿½ï¿½.
 		if(m_bRollUsed)
 		{
 			m_bKeyDownA = m_bKeyDownD = FALSE;
 			m_bKeyDownACheck = m_bKeyDownDCheck = FALSE;
 			m_bRollUsed = FALSE;
-			m_fOldUpRate = 0.0f;			// ±â¿ïÀÎ Ã¤·Î ÀÌ·úÇØ¼­ ·Ñ¸µÀÌ¾ú´Ù¸é ±â¿ïÀÓÀ» ÃÊ±âÈ­ ½ÃÅ²´Ù.
+			m_fOldUpRate = 0.0f;			// ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½Ø¼ï¿½ ï¿½Ñ¸ï¿½ï¿½Ì¾ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å²ï¿½ï¿½.
 		}
 	}
 	else
@@ -8067,7 +8079,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		m_bIsAir = TRUE;		
 		
 		// 2005-08-19 by ispark
-		// A±â¾î ¿¬·á°¡ 0ÀÏ ¶§ 
+		// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½á°¡ 0ï¿½ï¿½ ï¿½ï¿½ 
 		if(0 >= m_myShuttleInfo.CurrentEP)
 		{
 			g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );	// 2005-08-19 by ispark
@@ -8092,8 +8104,8 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	//			nx, ny, nz );
 	
 	
-	/*		// Æò¸é ¹æÁ¤½ÄÀ» ±¸ÇÑ´Ù.
-	// a*x + b*y + c*z + d = 0 << Æò¸é ¹æÁ¤½Ä
+	/*		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	// a*x + b*y + c*z + d = 0 << ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	float fTemp = -((m_vUp.x*m_vMouseDir.x + m_vUp.y*m_vMouseDir.y + m_vUp.z*m_vMouseDir.z)/(m_vUp.x*m_vUp.x + m_vUp.y*m_vUp.y + m_vUp.z*m_vUp.z));
 	D3DXVECTOR3 vNew;
 	vNew.x = m_vUp.x*fTemp + m_vMouseDir.x;
@@ -8128,7 +8140,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	int nSideMove = 0;
 //	int nFBMove = 0;
 	if(	m_bLandingField == FALSE &&
-		g_pD3dApp->m_bFixUnitDirMode == FALSE &&		// À¯´Ö ÁøÇà ¹æÇâ °íÁ¤ ¸ðµå
+		g_pD3dApp->m_bFixUnitDirMode == FALSE &&		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		!g_pD3dApp->m_bChatMode && 
 		m_bReflexionKeyBlock == FALSE && 
 		m_bAttackMode != _SIEGE &&
@@ -8139,38 +8151,38 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		m_nBooster = BOOSTER_TYPE_MIN;
 		//			if( m_pItemSecondary && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_E) &&
 		//				m_fSecondaryWeaponRACheckTime >= ((float)m_pItemSecondary->ReAttacktime)/1000.0f)
-		//			{// 2Çü ¹«±â ¹ß»ç
+		//			{// 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
 		//				m_bSecondaryAttackOrder = TRUE;
 		//			}
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_D) || m_bRightButtonState)
 		if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_D) || m_bRightButtonState)
-		{// ¿ì·Î ÀÌµ¿->È¸ÀüÀ¸·Î º¯°æ
+		{// ï¿½ï¿½ï¿½ ï¿½Ìµï¿½->È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			D3DXMatrixRotationAxis(&matTemp, &m_vUp, 1.0f*fElapsedTime);
 			D3DXVec3TransformCoord(&m_vVel, &m_vVel, &matTemp);
 			//				nSideMove++;
 		}
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_A) || m_bLeftButtonState)
 		if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_A) || m_bLeftButtonState)
-		{// ÁÂ·Î ÀÌµ¿->È¸ÀüÀ¸·Î º¯°æ
+		{// ï¿½Â·ï¿½ ï¿½Ìµï¿½->È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			D3DXMatrixRotationAxis(&matTemp, &m_vUp, -1.0f*fElapsedTime);
 			D3DXVec3TransformCoord(&m_vVel, &m_vVel, &matTemp);
 			//				nSideMove--;
 		}
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W) || m_bUpButtonState)
 		if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_W) || m_bUpButtonState)
-		{// °¡¼Ó
+		{// ï¿½ï¿½ï¿½ï¿½
 			//if(m_fShuttleSpeed == 0)
-			// 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
+			// 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(0 == m_fShuttleSpeed || 0 == g_pShuttleChild->m_nShuttleBoosterState)
 			{
 				g_pD3dApp->m_pSound->PlayD3DSound( SOUND_GROUND_MOVING_A_GEAR, m_vPos, FALSE);
 				m_bLendSoundPlay = TRUE;
 			}
-			// end 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
-			// 2007-05-15 by bhsohn À§Àå ½ºÅ³ÈÄ ¿òÁ÷ÀÏ½Ã À§Àå ¾ÈÇ®¸®°Ô º¯°æ
+			// end 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2007-05-15 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(GetUnitAlphaState())
 //				m_pSkill->ReleseSkill(DES_SKILL_CAMOUFLAGE);
 			//if((g_pStoreData->GetTotalWeight() / CAtumSJ::GetTransport(&g_pShuttleChild->m_myShuttleInfo)) < 0.9f)
@@ -8182,19 +8194,19 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		{
 			CheckBoosterState(fElapsedTime,false,nOldBoosterType);
 		}
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S) || m_bDownButtonState && !m_bAniKeyBlock)
 		if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) || m_bDownButtonState && !m_bAniKeyBlock)
-		{// Àú¼Ó
+		{// ï¿½ï¿½ï¿½ï¿½
 // 			if(m_fShuttleSpeed == 0)
-			// 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
+			// 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(0 == m_fShuttleSpeed || 0 == g_pShuttleChild->m_nShuttleBoosterState)
 			{
 				g_pD3dApp->m_pSound->PlayD3DSound( SOUND_GROUND_MOVING_A_GEAR, m_vPos, FALSE);
 				m_bLendSoundPlay = TRUE;
 			}
-			// end 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
-			// 2007-05-15 by bhsohn À§Àå ½ºÅ³ÈÄ ¿òÁ÷ÀÏ½Ã À§Àå ¾ÈÇ®¸®°Ô º¯°æ
+			// end 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2007-05-15 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			if(GetUnitAlphaState())
 //				m_pSkill->ReleseSkill(DES_SKILL_CAMOUFLAGE);
 //			nFBMove--;
@@ -8206,25 +8218,25 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 //		}
 	}
 	else
-	{// Ã¤ÆÃ ¸ðµåÀÏ¶§ ¿¡¾î ºê·¹ÀÌÅ©°¡ ¾Æ´Ï¶ó¸é ºÎ½ºÅÍÀÇ »óÅÂ¸¦ ÀÏ¹Ý Å°¸¦ ¶¾ »óÅÂ·Î ¹Ù²Û´Ù
+	{// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¹ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ï¹ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ù²Û´ï¿½
 		if(m_nBooster != BOOSTER_TYPE_AIRBREAK)
 		{
 			m_nBooster = BOOSTER_TYPE_STOP;
 		}
 	}
 
-	// 2006-11-02 by dgwoo A±â¾î´Â ¿©±â¼­ Ã³¸®.
+	// 2006-11-02 by dgwoo Aï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ Ã³ï¿½ï¿½.
 	if(!IS_CITY_MAP_INDEX(m_myShuttleInfo.MapChannelIndex.MapIndex) &&
 		m_bLandingField == FALSE &&
 		!g_pD3dApp->m_bChatMode &&
 		!m_bReflexionKeyBlock && 
 		m_bAttackMode != _SIEGE &&
 		m_myShuttleInfo.CurrentEP > 0 &&
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//( g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_C) ||
 		( g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_C) ||
 		//			m_bUpButtonState || 
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 		//g_pD3dApp->m_pKeyBoard->GetAsyncKeyState( DIK_SPACE )))
 		g_pD3dApp->GetAsyncKeyState_DIK_DIJ( DIK_SPACE )))
 	{
@@ -8236,7 +8248,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		{
 			if(m_fNumpad0keyTime <= 0.0f)
 			{
-				// Âø·úÀü ½ÃÁ¡ÀÌ 1ÀÎÄªÀÌ¿´À¸¸é ´Ù½Ã 1ÀÎÄªÀ¸·Î º¯È¯ 
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ 1ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ 
 				if(m_bLandingOldCamtypeFPS)
 				{
 					g_pD3dApp->m_pCamera->ChangeCamType();
@@ -8248,20 +8260,20 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 				g_pCamera->Init(m_vPos - 10.0f*m_vVel,m_vVel, 3.14f/13.0f, 60.0f);
 				m_fNumpad0keyTime = 2.0f;
 				ChangeUnitState(_TAKINGOFF);				
-				// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+				// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//m_fRasingCheckTime = 1.0f;
 				m_fRasingCheckTime = GetRasingCheckTime();
 			}
 		}
 	}
-	// 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
+	// 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(0 == g_pShuttleChild->m_nShuttleBoosterState && TRUE == m_bLendSoundPlay)
 	{
 		g_pD3dApp->m_pSound->StopD3DSound( SOUND_GROUND_MOVING_A_GEAR );
 		m_bLendSoundPlay = FALSE;
 	}
-	// end 2013-08-07 A±â¾î°¡ Áö»ó¿¡¼­ µå¶óÀÌºù ÇÒ ¶§ ³ª´Â ¼Ò¸®°¡ ¾È²¨Áö´Â Çö»ó ¼öÁ¤
-// 2013-02-04 by mspark, A±â¾î º¸±Þ»óÁ¡¿¡ ·£µù ½Ã ÀÌµ¿ ¹öÆ°À» ´©¸¦°æ¿ì, º¸±Þ»óÁ¡ Ã¢ÀÌ ´ÝÈ÷µµ·Ï ÀÛ¾÷
+	// end 2013-08-07 Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2013-02-04 by mspark, Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Þ»ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 #ifdef C_AGEAR_REFINERYSHOP_CLOSE_MSPARK
 	if(g_pD3dApp->m_dwGameState == _SHOP)
 	{
@@ -8278,7 +8290,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		}
 	}	
 #endif
-// end 2013-02-04 by mspark, A±â¾î º¸±Þ»óÁ¡¿¡ ·£µù ½Ã ÀÌµ¿ ¹öÆ°À» ´©¸¦°æ¿ì, º¸±Þ»óÁ¡ Ã¢ÀÌ ´ÝÈ÷µµ·Ï ÀÛ¾÷
+// end 2013-02-04 by mspark, Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Þ»ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	if(g_pGameMain->m_pMission->m_bShow)
 	{
 		m_nBooster = BOOSTER_TYPE_STOP;
@@ -8288,7 +8300,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	//		CheckMoveRate(fElapsedTime,nSideMove,nFBMove);
 //	CheckMoveRate(fElapsedTime,0,nFBMove);
 	CheckMoveRate(fElapsedTime,0);
-	// Å¸ Ä³¸¯ Ã¼Å©
+	// Å¸ Ä³ï¿½ï¿½ Ã¼Å©
 	//		if(m_bSecondaryFireType == 1)
 	//			CheckEnemyType1(1);
 	//		else if(m_bSecondaryFireType == 2)
@@ -8366,18 +8378,18 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	}
 	
 	float fRate = 1.0f;
-	// A±â¾î Áö»ó ÀÌµ¿½Ã ÁöÇü¿¡ ´ëÇÑ ±â¾îÀÇ ³ô³·ÀÌ ¼¼ÆÃ
+	// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	float fHeight = 0.0f;
 	
 	float fObjHeight = -DEFAULT_COLLISION_DISTANCE;
 	
-	// ¸Ê ³ôÀÌ »êÃâ
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// 2004-11-04 by jschoi
 	if(m_bOnObject)
 	{
 		float fTempDistance;
 		D3DXMATRIX matTemp;
-		D3DXMatrixLookAtLH(&matTemp,&m_vPos,&(m_vPos - D3DXVECTOR3(0,1,0)),&D3DXVECTOR3(0,0,1));		// ¾Æ·¡
+		D3DXMatrixLookAtLH(&matTemp,&m_vPos,&(m_vPos - D3DXVECTOR3(0,1,0)),&D3DXVECTOR3(0,0,1));		// ï¿½Æ·ï¿½
 		fTempDistance = g_pScene->m_pObjectRender->CheckCollMesh(matTemp,m_vPos, FALSE).fDist;
 		if(fTempDistance != DEFAULT_COLLISION_DISTANCE)
 		{
@@ -8391,12 +8403,12 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		{
 			fHeight = CheckMap(m_vPos);
 		}
-		// 2013-12-04 by ymjoo A±â¾î°¡ Áö»ó¿¡¼­ µÚÁý¾îÁö´Â Çö»ó ¼öÁ¤
+		// 2013-12-04 by ymjoo Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if( 0 > m_vUp.y )
 		{
 			m_vUp.y *= -1;
 		}
-		// END 2013-12-04 by ymjoo A±â¾î°¡ Áö»ó¿¡¼­ µÚÁý¾îÁö´Â Çö»ó ¼öÁ¤
+		// END 2013-12-04 by ymjoo Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	else
 	{
@@ -8408,19 +8420,19 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		switch(m_bCheckMove)
 		{
 		case 0:
-			{// ¸ø°¡´Â Áö¿ª
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				D3DXVECTOR3 vTempvel;
 				vTempvel = m_vNormal;
 				vTempvel.y = 0.0f;
 				D3DXVec3Normalize(&vTempvel,&vTempvel);
-				// ¹æÇâ Æ²¾îÁü 
+				// ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ 
 				D3DXVec3Normalize(&m_vVel,&(20.0f*m_vVel+vTempvel-100.0f*m_vBasisUp*fElapsedTime));
 				D3DXVec3Normalize(&vTempvel,&(m_vVel+1.5f*vTempvel));
 				if(m_vPos.y < m_vNextPos.y || bCollCont)
 				{
-					if(m_fShuttleSpeed > 0.0f)	// ¾Õ¹æÇâÀ¸·Î ÀüÁøÇÏ¸ç ºÎµúÈú¶§
+					if(m_fShuttleSpeed > 0.0f)	// ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 						m_vNextPos = m_vPos + D3DXVec3Length(&(m_vPos - m_vNextPos))*vTempvel;
-					else	// µÚ·Î °¡¸ç ºÎµúÈú¶§
+					else	// ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 					{
 						m_fShuttleSpeed *= -0.8f;
 						m_vNextPos = m_vPos + 20.0f*D3DXVec3Length(&(m_vPos - m_vNextPos))*vTempvel;
@@ -8435,24 +8447,24 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 				break;
 			}
 		case 1:
-			{// 2Â÷°¨¼Ó
+			{// 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		case 2:
-			{// 1Â÷°¨¼Ó
+			{// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		case 3:
-			{// °¥¼öÀÖ´Â Áö¿ª
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 				fRate = 1.0f;
 				break;
 			}
 		}
 	}
-	// Æ÷Áö¼ÇÀ» Àû¿ë
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_myShuttleInfo.CurrentEP)
 		m_vPos += fRate*(m_vNextPos - m_vPos)*fElapsedTime;
 	else
 		m_vPos += 0.5f*fRate*(m_vNextPos - m_vPos)*fElapsedTime;
-	// ºñÇà³ôÀÌ »êÃâ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	// 2004-11-04 by jschoi
 	float fHeightDistance = m_vPos.y - fHeight - 10.0f;
@@ -8461,27 +8473,27 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	{
 		if(fHeightDistance > 10.0f)
 		{
-			fHeightDistance = 10.0f;		// ÃÖ´ë°ª
+			fHeightDistance = 10.0f;		// ï¿½Ö´ë°ª
 		}
-		m_vPos.y -= 5.0f*fHeightDistance*fElapsedTime;		// A±â¾î Áö»ó ÀÌµ¿½Ã ¶³¾îÁö´Â ³ôÀÌ
+		m_vPos.y -= 5.0f*fHeightDistance*fElapsedTime;		// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if( fHeight + m_fAmorHeight > m_vPos.y )
 		{
-			m_vPos.y = fHeight + m_fAmorHeight;			// ±â¾î°¡ ¶¥(¿ÀºêÁ§Æ®)¼ÓÀ¸·Î´Â µé¾î°¥ ¼ö ¾ø´Ù.
+			m_vPos.y = fHeight + m_fAmorHeight;			// ï¿½ï¿½î°¡ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		}
 	}
 	else if(fHeightDistance < -0.2f)
 	{
 		if(fHeightDistance < -10.0f)
 		{
-			fHeightDistance = -10.0f;		// ÃÖ´ë°ª
+			fHeightDistance = -10.0f;		// ï¿½Ö´ë°ª
 		}
-		m_vPos.y -= 10.0f*fHeightDistance*fElapsedTime;		// A±â¾î Áö»ó ÀÌµ¿½Ã ±â¾î ¿Ã¶ó°¡´Â ³ôÀÌ
+		m_vPos.y -= 10.0f*fHeightDistance*fElapsedTime;		// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã¶ó°¡´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
-	// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
-	// ¶¥¿¡ Âø·ú½Ã ¾Æ¸Ó¸¦ °¥¾Æ³¥ ½Ã ±â¾î°¡ ÆÄ ¹¯È÷´Â°ÍÀ» ¹æÁöÇÏ±â À§ÇØ ÇÑ¹ø ´õ Ã¼Å©
+	// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¸Ó¸ï¿½ ï¿½ï¿½ï¿½Æ³ï¿½ ï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ Ã¼Å©
 	if( fHeight + m_fAmorHeight > m_vPos.y )
-		m_vPos.y = fHeight + m_fAmorHeight;			// ±â¾î°¡ ¶¥(¿ÀºêÁ§Æ®)¼ÓÀ¸·Î´Â µé¾î°¥ ¼ö ¾ø´Ù.
+		m_vPos.y = fHeight + m_fAmorHeight;			// ï¿½ï¿½î°¡ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	
 	
 	FLOAT fDist;
@@ -8613,7 +8625,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		D3DXVec3Cross(&vNextUp,&(v3-v2),&(v1-v2));
 		D3DXVec3Normalize(&vNextUp,&vNextUp);
 	}
-	// 2008-01-09 by dgwoo UP vector°¡ 0,0,0ÀÌ¸é ¼öÆòÀ¯Áö!
+	// 2008-01-09 by dgwoo UP vectorï¿½ï¿½ 0,0,0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!
 	if(vNextUp == D3DXVECTOR3(0,0,0))
 	{
 		vNextUp = D3DXVECTOR3(0,1,0);
@@ -8630,13 +8642,13 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	
 	if(fTempHeight <= m_fAmorHeight && fHeight + m_fAmorHeight < m_vPos.y + m_fAmorHeight - fTempHeight)
 	{
-		// ¿ÀºêÁ§Æ®À§¿¡ ÀÖÀ»¶§
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		fHeight = m_vPos.y + m_fAmorHeight - fTempHeight;
 		m_vPos.y += m_fAmorHeight - fTempHeight;
 	}
-	else if((m_vPos.y - fHeight) > m_fAmorHeight+10.0f)//10.0f : A±â¾î À¯´Ö Â÷Ã¼ ³ôÀÌ
+	else if((m_vPos.y - fHeight) > m_fAmorHeight+10.0f)//10.0f : Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 	{
-		// °øÁß¿¡ ÀÖÀ»¶§
+		// ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		vNextUp = D3DXVECTOR3(0,1,0);
 		vNextVel.y = 0.0f;
 		D3DXVec3Normalize(&vNextVel,&vNextVel);
@@ -8647,10 +8659,10 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 	//			m_vUp.y *= -1.0f;
 	//		m_vVel += 1.0f*(vNextVel-m_vVel)*fElapsedTime;
 	
-	/// 2004.06.11 jschoi - Ãæµ¹Ã¼Å© Ãß°¡
-	CheckCollForObject(fElapsedTime);		// Âø·ú »óÅÂÀÇ Ãæµ¹ Ã¼Å© 
+	/// 2004.06.11 jschoi - ï¿½æµ¹Ã¼Å© ï¿½ß°ï¿½
+	CheckCollForObject(fElapsedTime);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ Ã¼Å© 
 	
-	// ¸ø°¡´Â Áö¿ªÃ¼Å©ÇÏ¿© »ª½ÃÅ²´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼Å©ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 	CheckMapRegion();
 	
 	
@@ -8664,18 +8676,18 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		m_fShuttleSpeed *= -0.5f;
 		m_fLRVelRate *= 0.8f;
 		
-		// ÃÖÃÊ Á¢¼Ó½Ã ÀÌµ¿ ºÒ°¡ Áö¿ªÀÎ°æ¿ì ¹ö±× »ý±è edited by dhkwon 2003.8.20
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½Ìµï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ edited by dhkwon 2003.8.20
 		if(m_vOldPos.x != -1 && m_vOldPos.y != -1 && m_vOldPos.z != -1)
 		{
 			m_vPos = m_vPos + 20.0f*(m_vPos-m_vOldPos)*fElapsedTime;
 		}
 	}
-	////////////////////////¿©±â±îÁö Å¬¶óÀÌ¾ðÆ® ÁÂÇ¥ ¼³Á¤(ÀÌµ¿)//////////////////////////////////////////////////////
+	////////////////////////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½(ï¿½Ìµï¿½)//////////////////////////////////////////////////////
 	
 	// 2005-04-01 by jschoi
 	SetMatrix_Move_Ground(fElapsedTime);	//	SetEffectPos_A_Gear(fElapsedTime);
 		
-	// ÀÌº¥Æ® Áö¿ª Ã¼Å© - Shop
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ Ã¼Å© - Shop
 	int nCheckX = ((int)m_vPos.x)/TILE_SIZE;
 	int nCheckZ = ((int)m_vPos.z)/TILE_SIZE;
 	if((g_pGround->m_pTileInfo[m_ptOldPoint.x*g_pGround->m_projectInfo.sYSize + m_ptOldPoint.y].bEventType 
@@ -8694,13 +8706,13 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 			SendPacket(T_FC_MOVE_LANDING_DONE);
 			DBGOUT("T_FC_MOVE_LANDING_DONE\n");
 
-			// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®								
+			// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½								
 			if(IS_DT(m_myShuttleInfo.UnitKind))
 			{
-				// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+				// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 				InitUnitStop();
 			}				
-			// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+			// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 			//				m_bEventReady = TRUE;			
 		}
@@ -8710,7 +8722,7 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_LANDED_MASK) 
 			&& m_fDTEventCheckTime <= 0.0f && m_vPos.y <= fHeight + m_fAmorHeight)
 		{
-			// °­Á¦·Î Move¸¦ Àü¼ÛÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Moveï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			//				SendPacket(T_FC_MOVE);
 			//				g_pD3dApp->SendMovePacket(FALSE);
 			g_pD3dApp->m_vClientOldPos = m_vPos;
@@ -8723,13 +8735,13 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 			
 			ChangeSingleBodyCondition(BODYCON_LANDED_MASK);
 			
-			// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®								
+			// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½								
 			if(IS_DT(m_myShuttleInfo.UnitKind))
 			{
-				// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+				// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 				InitUnitStop();
 			}
-			// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+			// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		}
 	}
 	else
@@ -8738,38 +8750,38 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 		m_fDTEventCheckTime -= fElapsedTime;
 	}
 	
-	// 2007-04-17 by bhsohn °¡±î¿î °Å¸®¿¡¼­ÀÇ ½ÃÁî¸ðµå½Ã µ¥ÀÌÁö ¾Èµé¾î°¡´Â Çö»ó Ã³¸®
+	// 2007-04-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	m_bAGearFollowEnemy = FALSE;
 
-	// ½ÃÁî¸ðµå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_bAttackMode == _SIEGE)
 	{
 		SiegeTarget();
-		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		HidePet(TRUE);
-		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	}
-	// ÀÏ¹Ý¸ðµå
+	// ï¿½Ï¹Ý¸ï¿½ï¿½
 	else
 	{
-		// 2006-01-03 by ispark, ÀÏ¹Ý A±â¾î ¹«ºê ±×¶ó¿îµå »óÅÂ (Å¸°ÙÀÌ ÀÖ´ø, ¾ø´ø)
+		// 2006-01-03 by ispark, ï¿½Ï¹ï¿½ Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½, ï¿½ï¿½ï¿½ï¿½)
 		m_vWeaponVel = m_vMouseDir;
-		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		m_vPetLeftVel	= m_vMouseDir;
 		m_vPetRightVel	= m_vMouseDir;
 		HidePet(FALSE);
-		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ½ÃÁî ¸ðµå½Ã Æê ¼û±â±â 
+		// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	}			
 
 //	m_pAutoTargetOldMousePos = pt;
 	
-	// À¯´Ö ¶ô»óÅÂÀÏ¶§ Æ÷ÀÌµ¿ ¾øÀ½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_bMouseLock == TRUE) m_vWeaponVel = m_vVel;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::SiegeTarget(float fElapsedTime)
-/// \brief		½ÃÁî ¸ðµå½Ã Å¸°ÙÀ» ÀâÀº »óÅÂ·Î °è¼Ó ¶§¸± ¼ö ÀÖµµ·Ï.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2006-11-16 ~ 2006-11-16
 /// \warning	
@@ -8779,14 +8791,14 @@ void CShuttleChild::Move_Ground(float fElapsedTime)		//void CShuttleChild::Move_
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::SiegeTarget()
 {
-	POINT pt;							// ÇöÀç ¸¶¿ì½º Æ÷ÀÎÅÍ
-	POINT pt2;							// ¸ó½ºÅÍÀÇ 2DÀ§Ä¡.
+	POINT pt;							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	POINT pt2;							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2Dï¿½ï¿½Ä¡.
 	BOOL  pointmoveflag = FALSE;
 	GetCursorPos(&pt);
-	// OrderÅ¸°ÙÀÌ ÀÖÀ» ¶§
+	// OrderÅ¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	if(m_pOrderTarget)
 	{
-		// Å¸°ÙÀ» µû¶ó°¡±â
+		// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°¡±ï¿½
 		//--------------------------------------------------------------------------//
 		// 2006-11-03 by dgwoo
 #ifdef _RAT_AG_SIEGE
@@ -8798,18 +8810,18 @@ void CShuttleChild::SiegeTarget()
 		pointmoveflag = TRUE;
 #endif
 
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 // 		pt2.x = m_pOrderTarget->m_nObjScreenX;
 // 		pt2.y = m_pOrderTarget->m_nObjScreenY;
 		D3DXVECTOR3 temp;
-		// 2011. 09. 28 by jskim ³Í Å¸°Ù ½Ã½ºÅÛ ¹ö±× ¼öÁ¤( ÄÉ½ºÆÃ ¹®Á¦ )
+		// 2011. 09. 28 by jskim ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½É½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 		//if( ((CMonsterData*)m_pOrderTarget)->m_vecvmultiData.size() )
 		if( m_pOrderTarget &&
 			m_pOrderTarget->m_dwPartType == _MONSTER &&
 			((CMonsterData*)m_pOrderTarget)->m_vecvmultiData.size() )
-		// end 2011. 09. 28 by jskim ³Í Å¸°Ù ½Ã½ºÅÛ ¹ö±× ¼öÁ¤( ÄÉ½ºÆÃ ¹®Á¦ )
+		// end 2011. 09. 28 by jskim ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½É½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 		{
-			// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			temp = ((CMonsterData*)m_pOrderTarget)->GetMultiPos( ((CMonsterData*)m_pOrderTarget)->m_nMultiIndex );
 			int tempX, tempY, tempW;
 
@@ -8823,7 +8835,7 @@ void CShuttleChild::SiegeTarget()
 			pt2.x = m_pOrderTarget->m_nObjScreenX;
 			pt2.y = m_pOrderTarget->m_nObjScreenY;
 		}
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 		ClientToScreen(g_pD3dApp->GetHwnd(), &pt2);
@@ -8835,53 +8847,53 @@ void CShuttleChild::SiegeTarget()
 			pt2.x - SIGEMODE_MOUSE_FITPOINT > pt.x)
 		{
 			pointmoveflag = FALSE;
-			// 2011. 09. 28 by jskim ³Í Å¸°Ù ½Ã½ºÅÛ ¹ö±× ¼öÁ¤( ÄÉ½ºÆÃ ¹®Á¦ )
-			//// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 09. 28 by jskim ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½É½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
+			//// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			//((CMonsterData*)m_pOrderTarget)->m_bSiegeMode = FALSE;
-			//// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			//// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			if( m_pOrderTarget && m_pOrderTarget->m_dwPartType == _MONSTER )
 			{
 			((CMonsterData*)m_pOrderTarget)->m_bSiegeMode = FALSE;
 			}			
-			// end 2011. 09. 28 by jskim ³Í Å¸°Ù ½Ã½ºÅÛ ¹ö±× ¼öÁ¤( ÄÉ½ºÆÃ ¹®Á¦ )
+			// end 2011. 09. 28 by jskim ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½É½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 		}
 		if(pt2.y + SIGEMODE_MOUSE_FITPOINT < pt.y ||
 			pt2.y - SIGEMODE_MOUSE_FITPOINT > pt.y)
 		{
 			pointmoveflag = FALSE;
-			// 2011. 09. 28 by jskim ³Í Å¸°Ù ½Ã½ºÅÛ ¹ö±× ¼öÁ¤( ÄÉ½ºÆÃ ¹®Á¦ )
-			//// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 09. 28 by jskim ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½É½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
+			//// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			//((CMonsterData*)m_pOrderTarget)->m_bSiegeMode = FALSE;
-			//// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			//// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			if( m_pOrderTarget && m_pOrderTarget->m_dwPartType == _MONSTER )
 			{
 			((CMonsterData*)m_pOrderTarget)->m_bSiegeMode = FALSE;
 			}			
-			// end 2011. 09. 28 by jskim ³Í Å¸°Ù ½Ã½ºÅÛ ¹ö±× ¼öÁ¤( ÄÉ½ºÆÃ ¹®Á¦ )
+			// end 2011. 09. 28 by jskim ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½É½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 		}
 		pt2 = pt;
 
 		ScreenToClient(g_pD3dApp->GetHwnd(), &pt);
 		//CheckMouseReverse(&pt);
 		//--------------------------------------------------------------------------//
-		// Å¬¶óÀÌ¾ðÆ®¿Í ½ºÅ©¸° ÁÂÇ¥ÀÇ Â÷¸¦ ±¸ÇÑ´Ù.
+		// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 		int nX = pt2.x - pt.x;
 		int nY = pt2.y - pt.y;
 		
-		// ±× Â÷¸¸Å­ Å¬¶óÀÌ¾ðÆ®ÀÇ Áß½ÉÁÂÇ¥¸¦ nX,nY¿¡ ³Ö¾îÁØ´Ù.
+		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å­ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ nX,nYï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ø´ï¿½.
 		nX += g_pD3dApp->GetBackBufferDesc().Width/2 + g_pD3dApp->GetBackBufferDesc().Width/800;
 		nY += g_pD3dApp->GetBackBufferDesc().Height/2 + g_pD3dApp->GetBackBufferDesc().Height/600;	
 		if(pointmoveflag) 
 		{
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			m_bSetCursorPos = TRUE;
 
 			SetCursorPos(nX,nY);
-			// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			//D3DXVec3Normalize(&m_vWeaponVel,&(m_pOrderTarget->m_vPos - m_vPos));
  			D3DXVec3Normalize(&m_vWeaponVel,&(temp - m_vPos));
 
-			// Æ÷ÀÇ ÀÏÁ¤°¢µµ ¾Æ·¡·Î ³»·Á°¡Áö ¾Ê´Â´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			float dot2 = D3DXVec3Dot(&m_vUp, &m_vWeaponVel);
 			if(dot2 < -0.3f && (m_pt.y > (g_pD3dApp->m_d3dsdBackBuffer.Height / 2)))
 			{
@@ -8896,7 +8908,7 @@ void CShuttleChild::SiegeTarget()
 				dRadian = ACOS(-0.37);
 				D3DXMatrixRotationAxis(&matRot , &vVelS , dRadian);
 				D3DXVec3Normalize(&vtempWeaponVel, &vtempWeaponVel);
-				D3DXVec3TransformCoord(&vtempWeaponVel , &vtempWeaponVel , &matRot); // view * rot·Î »õ·Î¿î dst vector¸¦ ±¸ÇÑ´Ù.
+				D3DXVec3TransformCoord(&vtempWeaponVel , &vtempWeaponVel , &matRot); // view * rotï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ dst vectorï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 				m_vWeaponVel = vtempWeaponVel;
 				D3DXVec3Normalize(&m_vWeaponVel, &m_vWeaponVel);
 			}		
@@ -8926,8 +8938,8 @@ void CShuttleChild::SiegeTarget()
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		A±â¾î °øÁß½ÃÁö ±â´É ¾÷±×·¹ÀÌµå
-/// \author		// 2008-12-16 by bhsohn A±â¾î °øÁß½ÃÁö ±â´É ¾÷±×·¹ÀÌµå
+/// \brief		Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
+/// \author		// 2008-12-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
 /// \date		2008-12-16 ~ 2008-12-16
 /// \warning	
 ///
@@ -8939,10 +8951,10 @@ void CShuttleChild::GetSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR3* 
 	D3DXVECTOR3	vTmpWeaponVel = (*o_vWeaponVel);
 	D3DXVECTOR3	vTmpWeaponUp = (*o_vWeaponUp);
 	
-	D3DXVECTOR3 Av, Uv;					// Æ÷ÀÌµ¿ ¼Óµµ°ü·Ã 
+	D3DXVECTOR3 Av, Uv;					// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ 
 	D3DXMATRIX matV;
 	
-	D3DXVECTOR3 v, MouseD;				// À§Ä¡°ü·Ã ¸¶¿ì½º °ü·Ã 
+	D3DXVECTOR3 v, MouseD;				// ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ 
 	D3DXMATRIX matProj,matView,matTemp;;
 	
 #ifdef _RAT_AG_SIEGE
@@ -8952,18 +8964,18 @@ void CShuttleChild::GetSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR3* 
 #endif
 	D3DXVec3Lerp(&Av, &vTmpWeaponVel, &m_vMouseDir, fAnimationShotMove);
 	
-	// 2007-04-13 by bhsohn A±â¾î Æ÷´ë¹®Á¦
+	// 2007-04-13 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½
 	D3DXVec3Normalize(&Av, &Av);
-	// °¢(¶óµð¾È)À» ±¸ÇÑ´Ù. 		
+	// ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½. 		
 	float fAngleRadian = GetRadianVectorBetweenVector(vTmpWeaponUp, vTmpWeaponVel);
 	if(fAngleRadian < AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN)		
 	{		
-		// Æ÷ÀÇ ÀÏÁ¤°¢µµ À§·Î ¿Ã¶ó °¡Áö ¾Ê´Â´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		vTmpWeaponVel = GetRadianVector(vTmpWeaponVel, vTmpWeaponUp, AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN+AGEAR_SIEGEMODE_MIN_CAP);			
 	}
 	else if(fAngleRadian > AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN)	
 	{
-		// Æ÷ÀÇ ÀÏÁ¤°¢µµ ¾Æ·¡·Î ³»·Á°¡Áö ¾Ê´Â´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		vTmpWeaponVel = GetRadianVector(vTmpWeaponVel, vTmpWeaponUp, AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN-AGEAR_SIEGEMODE_MIN_CAP);
 	}
 	else
@@ -8971,12 +8983,12 @@ void CShuttleChild::GetSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR3* 
 		float fAngleAv = GetRadianVectorBetweenVector(Av, vTmpWeaponUp);
 		if(fAngleAv < AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN)		
 		{
-			// Æ÷ÀÇ ÀÏÁ¤°¢µµ À§·Î ¿Ã¶ó °¡Áö ¾Ê´Â´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			Av = GetRadianVector(Av, vTmpWeaponUp, AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN);				
 		}
 		else if(fAngleAv > AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN)	
 		{
-			// Æ÷ÀÇ ÀÏÁ¤°¢µµ ¾Æ·¡·Î ³»·Á°¡Áö ¾Ê´Â´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			Av = GetRadianVector(Av, vTmpWeaponUp, AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN);
 		}			
 		vTmpWeaponVel = Av;
@@ -8988,8 +9000,8 @@ void CShuttleChild::GetSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR3* 
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		A±â¾î °øÁß½ÃÁö ±â´É ¾÷±×·¹ÀÌµå
-/// \author		// 2008-12-16 by bhsohn A±â¾î °øÁß½ÃÁö ±â´É ¾÷±×·¹ÀÌµå
+/// \brief		Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
+/// \author		// 2008-12-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
 /// \date		2008-12-16 ~ 2008-12-16
 /// \warning	
 ///
@@ -9009,29 +9021,29 @@ void CShuttleChild::GetAirSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR
 	float fAnimationShotMove = A_GEAR_SIGEMODE_MOVETIMING;
 #endif
 	
-	D3DXVECTOR3 Av, Uv;					// Æ÷ÀÌµ¿ ¼Óµµ°ü·Ã 
+	D3DXVECTOR3 Av, Uv;					// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ 
 	D3DXMATRIX matV;
 	
-	D3DXVECTOR3 v, MouseD;				// À§Ä¡°ü·Ã ¸¶¿ì½º °ü·Ã 
+	D3DXVECTOR3 v, MouseD;				// ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ 
 	D3DXMATRIX matProj,matView,matTemp;;
 	
 	
 	D3DXVec3Lerp(&Av, &vTmpWeaponVel, &m_vMouseDir, fAnimationShotMove);				
 	
-	// 2007-04-13 by bhsohn A±â¾î Æ÷´ë¹®Á¦
+	// 2007-04-13 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½
 	D3DXVec3Normalize(&Av, &Av);
-	// °¢(¶óµð¾È)À» ±¸ÇÑ´Ù. 		
+	// ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½. 		
 	float fAngleRadian = GetRadianVectorBetweenVector(vTmpWeaponUp, vTmpWeaponVel);
 	if(fAngleRadian < AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN)		
 	{	
-		// Æ÷ÀÇ ÀÏÁ¤°¢µµ À§·Î ¿Ã¶ó °¡Áö ¾Ê´Â´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		//vTmpWeaponVel = GetRadianVector(vTmpWeaponVel, vTmpWeaponUp, AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN+AGEAR_SIEGEMODE_MIN_CAP);			
 		bRefreshUpVector= TRUE;
 		bRefreshVelVector = TRUE;
 	}
 	else if(fAngleRadian > AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN)	
 	{
-		// Æ÷ÀÇ ÀÏÁ¤°¢µµ ¾Æ·¡·Î ³»·Á°¡Áö ¾Ê´Â´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		//vTmpWeaponVel = GetRadianVector(vTmpWeaponVel, vTmpWeaponUp, AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN-AGEAR_SIEGEMODE_MIN_CAP);
 		bRefreshUpVector= TRUE;
 	}
@@ -9040,14 +9052,14 @@ void CShuttleChild::GetAirSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR
 		float fAngleAv = GetRadianVectorBetweenVector(Av, vTmpWeaponUp);
 		if(fAngleAv < AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN)		
 		{
-			// Æ÷ÀÇ ÀÏÁ¤°¢µµ À§·Î ¿Ã¶ó °¡Áö ¾Ê´Â´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			//Av = GetRadianVector(Av, vTmpWeaponUp, AGEAR_SIEGEMODE_MAX_ANGLE_RADIAN);				
 			bRefreshUpVector= TRUE;
 			bRefreshVelVector = TRUE;
 		}
 		else if(fAngleAv > AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN)	
 		{
-			// Æ÷ÀÇ ÀÏÁ¤°¢µµ ¾Æ·¡·Î ³»·Á°¡Áö ¾Ê´Â´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			//Av = GetRadianVector(Av, vTmpWeaponUp, AGEAR_SIEGEMODE_MIN_ANGLE_RADIAN);
 			bRefreshUpVector= TRUE;
 		}			
@@ -9055,7 +9067,7 @@ void CShuttleChild::GetAirSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR
 	}	
 	if(bRefreshUpVector)
 	{
-		// °­Á¦·Î ±âÃ¼ ¾÷º¤ÅÍ¸¦ º¯°æ½ÃÅ²´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 		D3DXVECTOR3 vUpTmp;
 		D3DXVec3Lerp(&vUpTmp, &vTmpWeaponUp, &m_vMouseDir, fAnimationShotMove);
 		D3DXVec3Normalize(&vUpTmp, &vUpTmp);
@@ -9086,7 +9098,7 @@ void CShuttleChild::SetMatrix_Move_Ground(float fElapsedTime) // void CShuttleCh
 //void CShuttleChild::Move_I_Gear(float fElapsedTime)
 //{
 //	FLOG( "CShuttleChild::Move_I_Gear(float fElapsedTime)" );
-//	// B-Gear ¿Í I-Gear ´Â ±¸µ¿¹æ½ÄÀÌ °°À½
+//	// B-Gear ï¿½ï¿½ I-Gear ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	Move_B_Gear(fElapsedTime);
 //}
 
@@ -9263,12 +9275,12 @@ void CShuttleChild::SendPacket(int nType,UINT64 n)
 			MSG_IC_PARTY_CANCEL_FLIGHT_POSITION sMsg;
 			memset(&sMsg,0x00,sizeof(sMsg));
 			int nType = T_IC_PARTY_CANCEL_FLIGHT_POSITION;
-			// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+			// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 			//sMsg.CharacterUniqueNumber = m_myShuttleInfo.CharacterUniqueNumber;
 			sMsg.CharacterUniqueNumber = GetCharacterUniqueNumber();
 			memcpy(buffer, &nType, SIZE_FIELD_TYPE_HEADER);
 			memcpy(buffer+SIZE_FIELD_TYPE_HEADER, &sMsg, sizeof(sMsg));
-			// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+			// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 			g_pD3dApp->m_pIMSocket->Write(buffer, SIZE_FIELD_TYPE_HEADER + sizeof(sMsg));
 		}
 		break;
@@ -9373,7 +9385,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 	FLOG( "CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove, int nFBMove)" );
 	if(nSideMove)
 	{
-		// ShipÀÇ ÁÂÇ¥ º¯È­...ÀÌµ¿[ÁÂ,¿ì]
+		// Shipï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½È­...ï¿½Ìµï¿½[ï¿½ï¿½,ï¿½ï¿½]
 		m_fLRVelRate += 10.0f*nSideMove*fElapsedTime;
 		if(m_fLRVelRate < -1.0f)
 			m_fLRVelRate = -1.0f;
@@ -9395,16 +9407,16 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 				m_fLRVelRate = 0.0f;
 		}
 	}
-//	m_vNextPos = m_vPos + 0.5f*m_fLRVelRate*m_vSideVel*m_fShuttleSpeedMax; //  ÁÂ¿ì ÀÌµ¿Àº ¿£ÁøÀÇ ÃÖ´ë ¼º´É¿¡ ¿µÇâÀ» ¹ÞÀÚ
-	m_vNextPos = m_vPos + 0.5f*m_fLRVelRate*m_vSideVel*m_fRealShuttleSpeedMax; //  ÁÂ¿ì ÀÌµ¿Àº ¿£ÁøÀÇ ÃÖ´ë ¼º´É¿¡ ¿µÇâÀ» ¹ÞÀÚ
-	// shipÀÇ ¿òÁ÷ÀÓ[¾Õ,µÚ] Å°°¡ ¾È´­·¯Á³À»¶§
+//	m_vNextPos = m_vPos + 0.5f*m_fLRVelRate*m_vSideVel*m_fShuttleSpeedMax; //  ï¿½Â¿ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	m_vNextPos = m_vPos + 0.5f*m_fLRVelRate*m_vSideVel*m_fRealShuttleSpeedMax; //  ï¿½Â¿ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// shipï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½,ï¿½ï¿½] Å°ï¿½ï¿½ ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_dwState == _NORMAL)
 	{
-		// 2005-06-03 by jschoi - ºñÇà ½Ã½ºÅÛ º¯°æ
+		// 2005-06-03 by jschoi - ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				
 		if(IS_DT(m_myShuttleInfo.UnitKind) && !m_bIsAir )
 		{// Move_Ground 
-			// 2006-09-22 by ispark Æ©Åä¸®¾ó¸¸ ¿¬°ü¼º ÀÖÀ½
+			// 2006-09-22 by ispark Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(g_pTutorial && g_pTutorial->IsTutorialMode() && g_pTutorial->GetLesson() == L0)
 			{
 				return;
@@ -9412,7 +9424,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 
 			if(m_bAttackMode != _SIEGE && m_bUnitStop == FALSE)
 			{
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				//if((g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W)
 //				|| g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_UP))&& 
 //					!g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S) && 
@@ -9420,12 +9432,12 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 					|| g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_UP))&& 
 					!g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) && 
 					m_bLandingField == FALSE 
-					&&	g_pD3dApp->m_bChatMode == FALSE)			// 2008-11-04 by dgwoo Âø·ú½Ã Ã¤ÆÃÁßÀÌ ¾Æ´Ï¿©¸¸ Á¶Á¾ÀÌ °¡´É.
+					&&	g_pD3dApp->m_bChatMode == FALSE)			// 2008-11-04 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				{
-					// 2005-09-28 by ispark ¿£Áø ¼Óµµ 0À¸·Î ÀÎÇÑ m_fRealShuttleSpeedMin -> m_fShuttleGroundSpeedÀ¸·Î º¯°æ
+					// 2005-09-28 by ispark ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ m_fRealShuttleSpeedMin -> m_fShuttleGroundSpeedï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_fShuttleSpeed += (m_fShuttleGroundSpeed - m_fShuttleSpeed)*fElapsedTime;
 				}
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 //				else if((g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_S) 
 //                          || g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_DOWN)) &&
 //						 !g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W) && 
@@ -9433,7 +9445,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
                           || g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_DOWN)) &&
 						 !g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_W) && 
 						 m_bLandingField == FALSE
-						 && g_pD3dApp->m_bChatMode == FALSE)			// 2008-11-04 by dgwoo Âø·ú½Ã Ã¤ÆÃÁßÀÌ ¾Æ´Ï¿©¸¸ Á¶Á¾ÀÌ °¡´É.
+						 && g_pD3dApp->m_bChatMode == FALSE)			// 2008-11-04 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				{
 					if(m_fShuttleSpeed > 0)
 					{
@@ -9459,7 +9471,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 					else
 						m_fShuttleSpeed -= fAddSpeed;
 
-					// ±âÁØ°ª ÀÓÀÇ Ã³¸®. ¼Ò¼ýÁ¡ 2ÀÚ¸®ÀÌÇÏ 0ÀÏ °æ¿ì Á¡°¨Ã³¸®¿¡¼­ ¹Ù·Î 0À¸·Î ¼ÂÆÃ. 2010. 08. 24 by hsLee.
+					// ï¿½ï¿½ï¿½Ø°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½. ï¿½Ò¼ï¿½ï¿½ï¿½ 2ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 2010. 08. 24 by hsLee.
 					if ( (int)(m_fShuttleSpeed * 100.0f) == 0 )
 						m_fShuttleSpeed = .0f;
 					
@@ -9482,16 +9494,16 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 		else
 		{// Move_Air
 
-			// 2005-05-31 by jschoi - À¯´ÖÀÌ »óÇÏ ÀÌµ¿ ½Ã ¼Óµµ Â÷ÀÌ¸¦ µÎ°í ÇÏ°­ ½Ã ºü¸¥ ¼Óµµ·Î ÀÌµ¿
-			float GRAVITY = 98.0f;		// Â¦Åü Áß·Â °¡¼Óµµ 
+			// 2005-05-31 by jschoi - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Î°ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+			float GRAVITY = 98.0f;		// Â¦ï¿½ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½ï¿½Óµï¿½ 
 			float fTempAngle = ACOS(D3DXVec3Dot(&m_vVel,&D3DXVECTOR3(0,1,0)))/PI;
 			float fTempGravity;
 			if(fTempAngle > 0 && fTempAngle < 0.5f)
-			{// »ó½Â Áß 
+			{// ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 				fTempGravity = GRAVITY*(0.5f - fTempAngle)*2.0f;
 			}
 			else if(fTempAngle > 0.5f && fTempAngle < 1.0f)
-			{// ÇÏ°­ Áß 
+			{// ï¿½Ï°ï¿½ ï¿½ï¿½ 
 				fTempGravity = -GRAVITY*(fTempAngle - 0.5f)*2.0f;
 			}
 			else
@@ -9524,8 +9536,8 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 				m_fTempGravity = m_fShuttleSpeed - m_fRealShuttleSpeedMin;
 			}
 
-			// 2005-06-03 by jschoi - SÅ° ±â´É ÀçÁ¤ÀÇ
-			const float AIR_BREAK = 4.0f;	// Default 1.0f - ÀÌ °ªÀÌ Å©¸é Å¬¼ö·Ï ºê·¹ÀÌÅ©°¡ ºü¸£°Ô Àû¿ëµÈ´Ù.
+			// 2005-06-03 by jschoi - SÅ° ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			const float AIR_BREAK = 4.0f;	// Default 1.0f - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¹ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 			if(m_bAttackMode == _SIEGE)
 			{
 				m_fShuttleSpeed = 0;
@@ -9537,20 +9549,20 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 			}
 
 			else if((((g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_S) || m_bToggleKeyS) &&
-				!g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE))|| // ½ºÆäÀÌ½º¹Ù ¾È ´­·¶À» ¶§
+				!g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE))|| // ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 				m_bOrderMove || 
-				//				g_pD3dApp->m_bChatMode ||				// 2005-11-16 by ispark Ã¤ÆÃ½Ã ¿¡¾îºê·¹ÀÌÅ© »èÁ¦
+				//				g_pD3dApp->m_bChatMode ||				// 2005-11-16 by ispark Ã¤ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½ê·¹ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½
 				g_pD3dApp->m_bFixUnitDirMode) &&
 				m_bUnitStop == FALSE &&
-				m_bPenaltyUnitStop == FALSE)								// 2005-08-08 by ispark À¯´ÖÁ¤Áö½Ã »ç¿ë ¾ÈÇÔ
-			// END 2014-09-04 by ymjoo SÅ° Åä±Û
+				m_bPenaltyUnitStop == FALSE)								// 2005-08-08 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// END 2014-09-04 by ymjoo SÅ° ï¿½ï¿½ï¿½
 			{
 
 				float fAddSpeed = (m_fShuttleSpeed - m_fRealShuttleSpeedMin)*fElapsedTime*AIR_BREAK;
 
 				if ( fabs(fAddSpeed) >= 0.005f )
 				m_fShuttleSpeed -= fAddSpeed;
-				// end 2015-05-13 by jwlee ¸®¹ö½º¿£Áø »ç¿ë½Ã ¼Óµµ ²÷±è Çö»ó ¼öÁ¤
+				// end 2015-05-13 by jwlee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 				if(m_fReverserIgnoreTime <= 0)
 				{
@@ -9568,47 +9580,47 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 						m_fShuttleSpeed = fRealShuttleSpeedMin;
 					}
 				}				
-				// END 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+				// END 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 			}
 			else if(m_bKeyDownA || m_bKeyDownD)
 			{
 				// 2005-07-07 by ispark
-				// ·ÑÀ× ½Ã½ºÅÛ »ç¿ë½Ã ¼Óµµ º¯È­
-				// ¼­¼­È÷ ¿ø·¡ ¼ÓµµÀÇ 2/3À¸·Î ÁÙ¾îµç´Ù. (ÁÂ,¿ì °Å¸®¿¡ µû¶ó ÁÙ¾îµé°Ô ÇÏ¿´À½)
-				float fLegth = D3DXVec3Length(&(m_vRollOldPos - m_vPos));	// Àü ÁÂÇ¥¿Í ºñ±³ÇÏ¿© ¾î´ÀÁ¤µµ Áö³µ´ÂÁö °è»ê
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½È­
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ 2/3ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½. (ï¿½ï¿½,ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½)
+				float fLegth = D3DXVec3Length(&(m_vRollOldPos - m_vPos));	// ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
 				if(fLegth)
 				{
-					if(80 > D3DXVec3Length(&(m_vRollStart - m_vPos)))		// Ã³À½ ½ÃÀÛÈÄ ÁÂ, ¿ì ÀÌµ¿ °Å¸®¿Í °è»ê
+					if(80 > D3DXVec3Length(&(m_vRollStart - m_vPos)))		// Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					{
-						// ¼Óµµ¸¦ °Å¸®¿¡ µû¶ó ¼­¼­È÷ ÁÙ¾î ÁÜ
+						// ï¿½Óµï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ ï¿½ï¿½
 						m_fShuttleSpeed -= (80.0f / m_fRollDownSpeed) * (80.0f / fLegth);
 						
 						m_vRollOldPos = m_vPos;
 					}
 					else
 					{
-						// °Å¸® ÃÊ°ú½Ã ¿ø·¡ ¼ÓµµÀÇ 2/3À¸·Î ÁÙ¾îµé°Ô ÇÔ
+						// ï¿½Å¸ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ 2/3ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½ï¿½
 						m_fShuttleSpeed = m_fRollDownSpeed;
 					}
 				}
 
-				// °è´ÜµÈ ¼Óµµ°¡ ÃÖÀúº¸´Ù ÀÛ´Ù¸é ÀÛÀº ¼Óµµ·Î ¼öÁ¤
+				// ï¿½ï¿½Üµï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if(m_fShuttleSpeed < m_fRealShuttleSpeedMin)
 				{
 					m_fShuttleSpeed = m_fRealShuttleSpeedMin;
 				}
 			}
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//else if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE)
 			else if(g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE)
 				&& m_fShuttleSpeed < m_fRealShuttleSpeedBoosterOn
 				&& m_nBooster == BOOSTER_TYPE_MAX
-				&& m_bPenaltyUnitStop == FALSE)					// 2005-07-11 by ispark // ºÎ½ºÅÍ »ç¿ëÁßÀÌ¶ó¸é °è»êÇÏ¶ó
+				&& m_bPenaltyUnitStop == FALSE)					// 2005-07-11 by ispark // ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
 			{
 				m_fShuttleSpeed += (m_fRealShuttleSpeedBoosterOn - m_fShuttleSpeed)*fElapsedTime;
 			}
-			else if(m_bUnitStop == TRUE)							// 2005-08-08 by ispark À¯´ÖÁ¤Áö Ãß°¡
+			else if(m_bUnitStop == TRUE)							// 2005-08-08 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			{
 				m_fShuttleSpeed = 0;
 				m_fTempGravity = 0.0f;
@@ -9617,7 +9629,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 					m_fShuttleSpeed = 0.0f;
 				}
 			}
-			else if(m_bPenaltyUnitStop == TRUE)						// 2005-08-12 by ispark Á¤ÁöÈÄ Ãß¹ß½Ã Æä³ÎÆ¼ Àû¿ë
+			else if(m_bPenaltyUnitStop == TRUE)						// 2005-08-12 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ß½ï¿½ ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 			{
 				float fPenaltySpeedMax;
 				if((g_pStoreData->GetTotalWeight() / CAtumSJ::GetTransport(&g_pShuttleChild->m_myShuttleInfo)) > 0.9f)
@@ -9628,16 +9640,16 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 				{
 					fPenaltySpeedMax = m_fRealShuttleSpeedMax;
 				}
-				// 2013-03-25 by bhsohn È¦µå ½ºÅ³ ¹ö±× Ã³¸®
+				// 2013-03-25 by bhsohn È¦ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				if( m_pSkill && m_pSkill->IsExistDesParamSKill( DES_SKILL_MON_HOLD ) )
 				{
-					// È¦µå½ºÅ³ °É¸®¸é ¹Ù·Î ÀÌµ¿ ÅÏ°¡´ÉÇÏ°Ô
+					// È¦ï¿½å½ºÅ³ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½Ìµï¿½ ï¿½Ï°ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
 					fPenaltySpeedMax = 0.0f;
 				}
-				// END 2013-03-25 by bhsohn È¦µå ½ºÅ³ ¹ö±× Ã³¸®
+				// END 2013-03-25 by bhsohn È¦ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 				m_fShuttleSpeed += fElapsedTime * (fPenaltySpeedMax / UNIT_STOP_DELAY);
-				// 2013-03-25 by bhsohn È¦µå ½ºÅ³ ¹ö±× Ã³¸®
+				// 2013-03-25 by bhsohn È¦ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //				if(m_fShuttleSpeed > fPenaltySpeedMax)
 				if(m_fShuttleSpeed >= fPenaltySpeedMax)
 				{
@@ -9646,7 +9658,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 					m_fShuttleSpeed = fPenaltySpeedMax;
 					m_fCurrentSideRate = 0.0f;
 
-					// 2005-10-12 by ispark	Æ©Åä¸®¾ó
+					// 2005-10-12 by ispark	Æ©ï¿½ä¸®ï¿½ï¿½
 					if(g_pTutorial->IsTutorialMode() == TRUE && g_pTutorial->GetLesson() >= L2)
 					{
 						g_pTutorial->m_Lesson2State.nBKey = 2;
@@ -9692,7 +9704,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 
 		if(m_fShuttleSpeed > 1.0f)
 		{
-			m_fShuttleSpeed -= 30.0f*fElapsedTime;			// 2005-10-26 by ispark ¼Óµµ°¡ ºü¸¥ °ü°è·Î »¡¸® ÁÙÀÓ
+			m_fShuttleSpeed -= 30.0f*fElapsedTime;			// 2005-10-26 by ispark ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_fShuttleSpeed < 0.0f)
 			{
 				m_fShuttleSpeed = 0.0f;
@@ -9711,7 +9723,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 			m_fShuttleSpeed = 0.0f;
 		}
 
-		if(m_bMoveGroundType != 1) // Ãß°¡ ÄÚµå ydkim
+		if(m_bMoveGroundType != 1) // ï¿½ß°ï¿½ ï¿½Úµï¿½ ydkim
 		{
 			m_fShuttleSpeed = 0.0f;
 		}
@@ -9742,7 +9754,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 		
 		if(m_fShuttleSpeed > 1.0f)
 		{
-			m_fShuttleSpeed -= 80.0f*fElapsedTime;			// 2005-10-26 by ispark ¼Óµµ°¡ ºü¸¥ °ü°è·Î »¡¸® ÁÙÀÓ
+			m_fShuttleSpeed -= 80.0f*fElapsedTime;			// 2005-10-26 by ispark ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_fShuttleSpeed < 0.0f)
 			{
 				m_bLandedMove = TRUE;
@@ -9764,7 +9776,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 			m_fShuttleSpeed = 0.0f;
 		}
 
-		if(m_bMoveGroundType != 1) // Ãß°¡ ÄÚµå ydkim TEST
+		if(m_bMoveGroundType != 1) // ï¿½ß°ï¿½ ï¿½Úµï¿½ ydkim TEST
 		{
 			m_fShuttleSpeed = 0.0f;
 		}
@@ -9787,16 +9799,16 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 
 	if(m_dwState == _NORMAL)
 	{
-		// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+		// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 		//m_vNextPos += m_vVel*(m_fShuttleSpeed - m_fTempGravity);
-		// È¦µå ½ºÅ³ °É¸®¸é Áß·Â °è»êÇÏÁö ¾Ê´Â´Ù
+		// È¦ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
 		if( !m_pSkill->IsExistDesParamSKill( DES_SKILL_MON_HOLD ) )
 			m_vNextPos += m_vVel*(m_fShuttleSpeed - m_fTempGravity);
 		else
 			m_vNextPos += m_vVel*m_fShuttleSpeed;
 
-		// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+		// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	}
 	else
 	{
@@ -9804,7 +9816,7 @@ void CShuttleChild::CheckMoveRate(float fElapsedTime,int nSideMove)
 	}
 
 	m_vMoveVel = m_vNextPos - m_vPos;
-	D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ±â¾î ÀÌµ¿ ¹æÇâ
+	D3DXVec3Normalize(&m_vMoveVel, &m_vMoveVel);			// 2006-07-13 by ispark, ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 #define SHUTTLE_MAP_COLL_RATE			5.0f
@@ -9819,20 +9831,20 @@ void CShuttleChild::CheckCollForMap()
 		return;
 #endif
 	// 2005-02-02 by jschoi
-	// ¿ìÁÖ¸ÊÀº ÁöÇü°ú Ãæµ¹°Ë»ç¸¦ ÇÏÁö ¾Ê´Â´Ù.
-	// 2005-12-12 by ispark, ÁöÇüÀ» ±×¸®Áö ¾Ê´Â´Ù¸é Ãæµ¹°Ë»ç¸¦ ¾ÈÇÑ´Ù. (µ¿±¼, ¿ìÁÖ¸Ê)
-	// 2007-06-18 by bhsohn ¾ËÆ®ÅÜ °ü·Ã ¹ö±× Ã³¸®
+	// ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ë»ç¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+	// 2005-12-12 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ê´Â´Ù¸ï¿½ ï¿½æµ¹ï¿½Ë»ç¸¦ ï¿½ï¿½ï¿½Ñ´ï¿½. (ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ö¸ï¿½)
+	// 2007-06-18 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	//if(!IsTileMapRenderEnable(m_myShuttleInfo.MapChannelIndex.MapIndex))
 	if(!IsTileMapTickEnable(m_myShuttleInfo.MapChannelIndex.MapIndex))
 	{
-		// 2007-01-04 by bhsohn ¹«ºê ½ºÅ³·Î ¸Ê Å¸ÀÏ¿¡ ºÎµúÇûÀ» ‹š¿¡ ´ëÇÑ ¹ö±×Ã³¸®
+		// 2007-01-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½Ï¿ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 		m_bCollMap = FALSE;
 
 		return;
 	}
 
 	float fElapsedTime = g_pD3dApp->GetElapsedTime();
-	// ¸Ê°úÀÇ Ãæµ¹ °Ë»ç-¼ÅÆ²ÀÇ Áß¿ä 4ºÎºÐÀÇ Ãæµ¹ °Ë»ç¸¦ ÇÏÀÚ ¾Õ µÚ ÁÂ ¿ì(4 ±ÍÅüÀÌ ÁÂÇ¥¸¦ ¸ÂÃß´Â ÀÛ¾÷µµ ÇØÁà¾ßÇÒ °ÍÀÌ´Ù)
+	// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½-ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ß¿ï¿½ 4ï¿½Îºï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ç¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½(4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½)
 	D3DXMATRIX	m;
 
 	D3DXVECTOR3 vSide, vVel;
@@ -9859,7 +9871,7 @@ void CShuttleChild::CheckCollForMap()
 	m_bCollMap = FALSE;
 	fMapHeightTemp = CheckMap(vFront);
 	if(m_bCollMap)
-	{// ¾ÕºÎºÐ Ãæµ¹ - ÁÂÇ¥ ÀÌµ¿ÈÄ À§ÂÊÀ¸·Î ¹æÇâÀÌ Æ²¸²
+	{// ï¿½ÕºÎºï¿½ ï¿½æµ¹ - ï¿½ï¿½Ç¥ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½
 		vParticlePos = vFront;
 		if(g_pD3dApp->m_pEffectList && !g_pScene->FindEffect(RC_EFF_COLL_01))
 		{
@@ -9871,9 +9883,9 @@ void CShuttleChild::CheckCollForMap()
 		m_vPos += (m_fShuttleSpeed / 2.0f)*m_vNormal*fElapsedTime;
 		D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
 //		m_fShuttleSpeed = m_fRealShuttleSpeedMin>30 ? m_fRealShuttleSpeedMin : 30;
-		if(m_vUp.y >= 0.0f)// ¹Ù·Î ºñÇàÇÒ¶§
+		if(m_vUp.y >= 0.0f)// ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
 		{
-			// 2005-12-01 by ispark, ÀúºñÇà¿¡¼­´Â Ãæµ¹½Ã ¹æÇâÀüÈ¯ÀÌ ¾àÇØ¼­ °­ÇØ°Ô ÇÔ
+			// 2005-12-01 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ø°ï¿½ ï¿½ï¿½
 //			if(m_fShuttleSpeed < 80.0f)
 //			{
 //				D3DXMatrixRotationAxis(&m,&vSide,-5.0f*fElapsedTime);
@@ -9882,10 +9894,10 @@ void CShuttleChild::CheckCollForMap()
 //			{
 //				D3DXMatrixRotationAxis(&m,&vSide,-0.05f*m_fShuttleSpeed*fElapsedTime);
 //			}
-			// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+			// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 			GetCollReflect(&m_vVel, &m_vVel, &m_vNormal);
 		}
-		else// °Å²Ù·Î ºñÇàÇÒ¶§
+		else// ï¿½Å²Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
 		{
 //			if(m_fShuttleSpeed < 80.0f)
 //			{
@@ -9895,12 +9907,12 @@ void CShuttleChild::CheckCollForMap()
 //			{
 //				D3DXMatrixRotationAxis(&m,&vSide,0.05f*m_fShuttleSpeed*fElapsedTime);
 //			}
-			// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+			// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 			GetCollReflect(&m_vVel, &m_vVel, &m_vNormal, FALSE);
 		}
 //		D3DXVec3TransformCoord(&m_vVel,&m_vVel,&m);
 //		D3DXVec3TransformCoord(&m_vUp,&m_vUp,&m);
-		// ¸¶¿ì½º ÁÂÇ¥ À§·Î ÀÌµ¿ - 50¸¸Å­
+		// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ - 50ï¿½ï¿½Å­
 //		POINT pt,pt2;
 //		GetCursorPos(&pt);
 //		pt2 = pt;
@@ -9915,7 +9927,7 @@ void CShuttleChild::CheckCollForMap()
 	m_bCollMap = FALSE;
 	fMapHeightTemp = CheckMap(vBack);
 	if(m_bCollMap)
-	{// µÚºÎºÐ Ãæµ¹
+	{// ï¿½ÚºÎºï¿½ ï¿½æµ¹
 		vParticlePos = vBack;
 		if(g_pD3dApp->m_pEffectList && !g_pScene->FindEffect(RC_EFF_COLL_01))
 		{
@@ -9924,14 +9936,14 @@ void CShuttleChild::CheckCollForMap()
 		}
 //		m_fShuttleSpeed = m_fRealShuttleSpeedMin>30 ? m_fRealShuttleSpeedMin : 30;
 		m_vPos += SHUTTLE_MAP_COLL_RATE*m_vNormal*fElapsedTime;
-		// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+		// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		GetCollReflect(&m_vVel, &m_vVel, &m_vNormal);
 		bIsColl = TRUE;
 	}
 	m_bCollMap = FALSE;
 	fMapHeightTemp = CheckMap(vLeft);
 	if(m_bCollMap)
-	{// ÁÂÃø ºÎºÐ Ãæµ¹
+	{// ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½æµ¹
 		vParticlePos = vLeft;
 		if(g_pD3dApp->m_pEffectList && !g_pScene->FindEffect(RC_EFF_COLL_01))
 		{
@@ -9940,18 +9952,18 @@ void CShuttleChild::CheckCollForMap()
 		}
 		m_vPos += SHUTTLE_MAP_COLL_RATE*m_vNormal*fElapsedTime;
 		
-		// 2013-11-25 by ymjoo ¼ÅÆ² ÁÂ¿ìÃø ³¯°³ Ãæµ¹½Ã Á» ´õ °ú°ÝÇÏ°Ô ¹Ð·Á³ªµµ·Ï °³¼±
+		// 2013-11-25 by ymjoo ï¿½ï¿½Æ² ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef C_SHUTTLE_WING_COLL_ADD_REFLECT
 		m_vPos += (vRight - vLeft) * 1.0f;
 #endif
-		// END 2013-11-25 by ymjoo ¼ÅÆ² ÁÂ¿ìÃø ³¯°³ Ãæµ¹½Ã Á» ´õ °ú°ÝÇÏ°Ô ¹Ð·Á³ªµµ·Ï °³¼±
+		// END 2013-11-25 by ymjoo ï¿½ï¿½Æ² ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 //		m_fShuttleSpeed = m_fRealShuttleSpeedMin>30 ? m_fRealShuttleSpeedMin : 30;
 //		D3DXMatrixRotationAxis(&m,&m_vUp,0.05f*m_fShuttleSpeed*fElapsedTime);
 //		D3DXVec3TransformCoord(&m_vVel,&m_vVel,&m);
-		// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+		// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		GetCollReflect(&m_vVel, &m_vVel, &m_vNormal);
-		//¸¶¿ì½º ÁÂÇ¥ ¿ì·Î ÀÌµ¿ - 50¸¸Å­
+		//ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ - 50ï¿½ï¿½Å­
 //		POINT pt,pt2;
 //		GetCursorPos(&pt);
 //		pt2 = pt;
@@ -9966,7 +9978,7 @@ void CShuttleChild::CheckCollForMap()
 	m_bCollMap = FALSE;
 	fMapHeightTemp = CheckMap(vRight);
 	if(m_bCollMap)
-	{// ¿ìÃø ºÎºÐ Ãæµ¹
+	{// ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½æµ¹
 		vParticlePos = vRight;
 		if(g_pD3dApp->m_pEffectList && !g_pScene->FindEffect(RC_EFF_COLL_01))
 		{
@@ -9975,23 +9987,23 @@ void CShuttleChild::CheckCollForMap()
 		}
 		m_vPos += SHUTTLE_MAP_COLL_RATE*m_vNormal*fElapsedTime;
 		
-		// 2013-11-25 by ymjoo ¼ÅÆ² ÁÂ¿ìÃø ³¯°³ Ãæµ¹½Ã Á» ´õ °ú°ÝÇÏ°Ô ¹Ð·Á³ªµµ·Ï °³¼±
+		// 2013-11-25 by ymjoo ï¿½ï¿½Æ² ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef C_SHUTTLE_WING_COLL_ADD_REFLECT
 		m_vPos += (vLeft - vRight) * 1.0f;
 #endif
-		// END 2013-11-25 by ymjoo ¼ÅÆ² ÁÂ¿ìÃø ³¯°³ Ãæµ¹½Ã Á» ´õ °ú°ÝÇÏ°Ô ¹Ð·Á³ªµµ·Ï °³¼±
+		// END 2013-11-25 by ymjoo ï¿½ï¿½Æ² ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 //		m_fShuttleSpeed = m_fRealShuttleSpeedMin>30 ? m_fRealShuttleSpeedMin : 30;
 //		D3DXMatrixRotationAxis(&m,&m_vUp,-0.05f*m_fShuttleSpeed*fElapsedTime);
 //		D3DXVec3TransformCoord(&m_vVel,&m_vVel,&m);
-		// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+		// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		GetCollReflect(&m_vVel, &m_vVel, &m_vNormal);
 		bIsColl = TRUE;
 	}
 	m_bCollMap = FALSE;
 	fMapHeightTemp = CheckMap(m_vPos - m_fAmorHeight*m_vUp);
 	if(m_bCollMap)
-	{// ¾Æ·¡ºÎºÐ Ãæµ¹
+	{// ï¿½Æ·ï¿½ï¿½Îºï¿½ ï¿½æµ¹
 		vParticlePos = m_vPos - m_fAmorHeight*m_vUp;
 		if(g_pD3dApp->m_pEffectList && !g_pScene->FindEffect(RC_EFF_COLL_01))
 		{
@@ -10004,9 +10016,9 @@ void CShuttleChild::CheckCollForMap()
 //		D3DXMatrixRotationAxis(&m,&vSide,-0.05f*m_fShuttleSpeed*fElapsedTime);
 //		D3DXVec3TransformCoord(&m_vVel,&m_vVel,&m);
 //		D3DXVec3TransformCoord(&m_vUp,&m_vUp,&m);
-		// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+		// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		GetCollReflect(&m_vVel, &m_vVel, &m_vNormal);
-		//¸¶¿ì½º ÁÂÇ¥ À§·Î ÀÌµ¿ - 50¸¸Å­
+		//ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ - 50ï¿½ï¿½Å­
 //		POINT pt,pt2;
 //		GetCursorPos(&pt);
 //		pt2 = pt;
@@ -10021,7 +10033,7 @@ void CShuttleChild::CheckCollForMap()
 	m_bCollMap = FALSE;
 	fMapHeightTemp = CheckMap(m_vPos + m_fAmorHeight*m_vUp);
 	if(m_bCollMap)
-	{// À§ºÎºÐ Ãæµ¹
+	{// ï¿½ï¿½ï¿½Îºï¿½ ï¿½æµ¹
 		vParticlePos = m_vPos + m_fAmorHeight*m_vUp;
 		if(g_pD3dApp->m_pEffectList && !g_pScene->FindEffect(RC_EFF_COLL_01))
 		{
@@ -10034,9 +10046,9 @@ void CShuttleChild::CheckCollForMap()
 //		D3DXMatrixRotationAxis(&m,&vSide,0.05f*m_fShuttleSpeed*fElapsedTime);
 //		D3DXVec3TransformCoord(&m_vVel,&m_vVel,&m);
 //		D3DXVec3TransformCoord(&m_vUp,&m_vUp,&m);
-		// 2006-05-09 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+		// 2006-05-09 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		GetCollReflect(&m_vVel, &m_vVel, &m_vNormal);
-		//¸¶¿ì½º ÁÂÇ¥ ¾Æ·¡·Î ÀÌµ¿ - 50¸¸Å­
+		//ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ç¥ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ - 50ï¿½ï¿½Å­
 //		POINT pt,pt2;
 //		GetCursorPos(&pt);
 //		pt2 = pt;
@@ -10049,33 +10061,33 @@ void CShuttleChild::CheckCollForMap()
 		bIsColl = TRUE;
 	}
 
-	// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+	// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	//if(bIsColl)
 	
-	// ·Îº¿±â¾î Æò»ó½Ã¿Í ÀÌ·ú½Ã ³ôÀÌ Â÷ÀÌ°¡ ¸¹ÀÌ³ª ±¼°îÀÖ´Â ÁöÇü¿¡¼­ ÀÌ·ú½Ã
-	// Ãæµ¹ Ã³¸®·Î ÀÎÇØ ¿¡³ÊÁö°¡ ±ïÀÌ¹Ç·Î A±â¾î ÀÌ·úÁßÀÏ½Ã Ãæµ¹ÆÐÅ¶ º¸³»Áö ¾ÊÀ½
+	// ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½
+	// ï¿½æµ¹ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ Aï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½æµ¹ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( bIsColl
 		&& !( IS_DT( m_myShuttleInfo.UnitKind ) && ( GetCurrentBodyCondition() & BODYCON_TAKEOFF_MASK ) ) )
-	// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+	// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 	{
-		// ÁöÇü°ú Ãæµ¹½Ã
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½
 		m_fShuttleSpeed = m_fRealShuttleSpeedMin>60 ? m_fRealShuttleSpeedMin : 60;
 		g_pCamera->ChangeCamCollType();
 		if(m_fCollSendDamageCheckTime < 0.0f)
 		{
 			if(m_myShuttleInfo.CurrentHP > 0.0f && m_myShuttleInfo.Level > 5 && m_fShuttleSpeed != 0)
 			{
-				// °ü¸®ÀÚ, ¿î¿µÀÚ, µ¥¸ð°èÁ¤ µ¥¹ÌÁö ¾øÀ½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½î¿µï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				if(!COMPARE_RACE(m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER|RACE_DEMO))
 				{
 					SendPacket(T_FC_CHARACTER_APPLY_COLLISION_DAMAGE, COLLISION_TYPE_LAND);
 					m_fCollSendDamageCheckTime = 0.5f;
 
-					// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-					// ÁöÇüÃæµ¹
+					// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+					// ï¿½ï¿½ï¿½ï¿½ï¿½æµ¹
 					g_pD3dApp->SetJoyStickFeedback(TRUE, JOY_FEED_COLLISION_DAMAGE);
-					// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+					// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				}
 			}
 		}
@@ -10086,7 +10098,7 @@ void CShuttleChild::CheckCollForMap()
 			m_pClientParty->FormationFlightClear();
 //			m_infoParty.bFormationFlyingPositionType = 0;
 //			m_bFormationFlight = FALSE;
-			g_pD3dApp->m_pChat->CreateChatChild(STRERR_C_PARTY_0001,COLOR_SYSTEM);//"Ãæµ¹ÀÌ ¹ß»ýÇÏ¿© Æí´ëºñÇà¿¡¼­ ¹þ¾î³µ½À´Ï´Ù."
+			g_pD3dApp->m_pChat->CreateChatChild(STRERR_C_PARTY_0001,COLOR_SYSTEM);//"ï¿½æµ¹ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½."
 		}
 
 	}
@@ -10101,7 +10113,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 	if (g_pD3dApp->m_bNoclip == TRUE)
 		return;
 #endif
-	// 2007-03-21 by dgwoo ¿ÉÀú¹ö ¸ðµå½Ã Ãæµ¹Ã³¸®´Â ÇÏÁö ¾Ê´Â´Ù.
+	// 2007-03-21 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 	if(IsObserverMode())
 		return;
 	//*--------------------------------------------------------------------------*//
@@ -10110,15 +10122,15 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 		return;
 	//*--------------------------------------------------------------------------*//
 
-	// 2007-01-04 by bhsohn ±âÃ¼ ÂøÁö ÈÄ ¸ó½ºÅÍ¿Í Ãæµ¹ Ã³¸® ¾ÈµÇ´Â ¹®Á¦ Ã³¸®
+	// 2007-01-04 by bhsohn ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //	if(m_bOrderMoveType)
 //	{
 //		return;
 //	}
-	// end 2007-01-04 by bhsohn ±âÃ¼ ÂøÁö ÈÄ ¸ó½ºÅÍ¿Í Ãæµ¹ Ã³¸® ¾ÈµÇ´Â ¹®Á¦ Ã³¸®
+	// end 2007-01-04 by bhsohn ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	
 	m_vCollCenter = D3DXVECTOR3(0,0,0);
-	// ¿ÀºêÁ§Æ® ¹× ¸ó½ºÅÍ, Å¸Ä³¸¯ÅÍ ¿ÍÀÇ Ãæµ¹ °ËÃâ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
 	
 	COLLISION_RESULT collResult;
 	
@@ -10127,18 +10139,18 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 	
 	D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
 	
-	D3DXMatrixLookAtLH(&matArray[COLL_FRONT],&m_vPos,&(m_vPos + m_vVel),&m_vUp);	// ¾Õ
-	D3DXMatrixLookAtLH(&matArray[COLL_BACK],&m_vPos,&(m_vPos - m_vVel),&m_vUp);	// µÚ
-	D3DXMatrixLookAtLH(&matArray[COLL_LEFT],&m_vPos,&(m_vPos - vSide),&m_vUp);		// ÁÂ
-	D3DXMatrixLookAtLH(&matArray[COLL_RIGHT],&m_vPos,&(m_vPos + vSide),&m_vUp);		// ¿ì
-	D3DXMatrixLookAtLH(&matArray[COLL_UP],&m_vPos,&(m_vPos + m_vUp),&vSide);		// À§
-	D3DXMatrixLookAtLH(&matArray[COLL_DOWN],&m_vPos,&(m_vPos - m_vUp),&vSide);		// ¾Æ·¡
+	D3DXMatrixLookAtLH(&matArray[COLL_FRONT],&m_vPos,&(m_vPos + m_vVel),&m_vUp);	// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_BACK],&m_vPos,&(m_vPos - m_vVel),&m_vUp);	// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_LEFT],&m_vPos,&(m_vPos - vSide),&m_vUp);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_RIGHT],&m_vPos,&(m_vPos + vSide),&m_vUp);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_UP],&m_vPos,&(m_vPos + m_vUp),&vSide);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_DOWN],&m_vPos,&(m_vPos - m_vUp),&vSide);		// ï¿½Æ·ï¿½
 	
 	float fFrontMove = m_fShuttleSpeed*fElapsedTime;
 //	float fSideMove = m_fLRVelRate*m_fRealShuttleSpeedMax*fElapsedTime;
-	float size[6] = { 10+fFrontMove,10-fFrontMove,10,10,5,5 };	// À¯´Ö Å©±â	¾Õ,µÚ,ÁÂ,¿ì,À§,¾Æ·¡
+	float size[6] = { 10+fFrontMove,10-fFrontMove,10,10,5,5 };	// ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½	ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½Æ·ï¿½
 	
-	// ¿ÀºêÁ§Æ®¿Í Ãæµ¹ Ã³¸® 2004.06.18 jschoi
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½ 2004.06.18 jschoi
 	
 	if(	/*m_bCollObjectCheck && */
 		g_pScene &&
@@ -10147,37 +10159,37 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 	{
 		collResult = g_pScene->m_pObjectRender->CheckCollMesh(matArray,size);
 		
-		// 2006-06-29 by ispark Ãæµ¹ ¹ö±× ¼öÁ¤
+		// 2006-06-29 by ispark ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		vVel = collResult.vNormalVector;
 //		D3DXVECTOR3 vIVel = -1.0f * m_vVel;
 		D3DXVECTOR3 vIVel = -1.0f * m_vMoveVel;
 		D3DXVECTOR3 vNewVel;
 		float fDot1 = D3DXVec3Dot(&vIVel,&vVel);
 //		if(collResult.nCollType != COLL_NONE)
-//			DBGOUT("¹æÇâ %f %f %f(dot = %f)%f %f %f\n", m_vMoveVel.x, m_vMoveVel.y, m_vMoveVel.z, fDot1, vVel.x, vVel.y, vVel.z);
-//		DBGOUT("°Å¸® %f(Type = %d)\n", collResult.fDist, collResult.nCollType);
+//			DBGOUT("ï¿½ï¿½ï¿½ï¿½ %f %f %f(dot = %f)%f %f %f\n", m_vMoveVel.x, m_vMoveVel.y, m_vMoveVel.z, fDot1, vVel.x, vVel.y, vVel.z);
+//		DBGOUT("ï¿½Å¸ï¿½ %f(Type = %d)\n", collResult.fDist, collResult.nCollType);
 
-		if((collResult.nCollType != COLL_NONE) && fDot1 > 0) // Ãæµ¹ÀÌ ÀÖ´Ù¸é..
+		if((collResult.nCollType != COLL_NONE) && fDot1 > 0) // ï¿½æµ¹ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½..
 		{
 			if(m_myShuttleInfo.Level > 5 && m_fCollSendDamageCheckTime < 0.0f && m_fShuttleSpeed != 0)
 			{
-				// °ü¸®ÀÚ, ¿î¿µÀÚ, µ¥¸ð°èÁ¤ µ¥¹ÌÁö ¾øÀ½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½î¿µï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				if(!COMPARE_RACE(m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER|RACE_DEMO))
 				{
 					SendPacket(T_FC_CHARACTER_APPLY_COLLISION_DAMAGE, COLLISION_TYPE_BUILDING);
 					m_fCollSendDamageCheckTime = 1.0f;
-					// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-					// ÁöÇüÃæµ¹
+					// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+					// ï¿½ï¿½ï¿½ï¿½ï¿½æµ¹
 					g_pD3dApp->SetJoyStickFeedback(TRUE, JOY_FEED_COLLISION_DAMAGE);
-					// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+					// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 				}
 			}
 			m_fCheckCollTime = 0.0f;
 
-			m_fReverserIgnoreTime = 0.5f; // 2013-06-27 by bhsohn M±â¾î[¸®¹ö½º¿£Áø] Ãæµ¹Ã¼Å© ¾ÈµÇ´Â ºÎºÐ Ã³¸®
+			m_fReverserIgnoreTime = 0.5f; // 2013-06-27 by bhsohn Mï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] ï¿½æµ¹Ã¼Å© ï¿½ÈµÇ´ï¿½ ï¿½Îºï¿½ Ã³ï¿½ï¿½
 
-			// 2006-07-13 by ispark, ºñÇà½Ã¿¡´Â ÃÖÀú ¼Óµµ·Î º¯°æÇÏÁö¸¸, ¶¥¿¡¼­ ´Ù´Ò°æ¿ì 20 ¼Óµµ·ÎÇÑ´Ù.
-			// ¶¥¿¡¼­´Â ¼Óµµ°¡ ¸Å¿ì Å©Áö ¾Ê±â ¶§¹®ÀÌ´Ù.
+			// 2006-07-13 by ispark, ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù´Ò°ï¿½ï¿½ 20 ï¿½Óµï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Å¿ï¿½ Å©ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 			if(m_bIsAir == TRUE)
 			{
 				m_fShuttleSpeed = m_fRealShuttleSpeedMin>60 ? m_fRealShuttleSpeedMin : 60;
@@ -10189,11 +10201,11 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 
 			g_pCamera->ChangeCamCollType();
 			g_pCamera->SetSmoothMove();
-//			DBGOUT("Ãæµ¹--------------> %f %f %f\n", vVel.x, vVel.y, vVel.z);
+//			DBGOUT("ï¿½æµ¹--------------> %f %f %f\n", vVel.x, vVel.y, vVel.z);
 			m_vPos = m_vOldPos + 0.5f*m_fShuttleSpeed*vVel*fElapsedTime;
 //			float fAngleDegree = ACOS(D3DXVec3Dot(&m_vVel,&vVel))/PI;
 //			D3DXVec3Normalize(&m_vVel,&(m_vVel + fAngleDegree*vVel));
-			// 2006-08-08 by ispark, ¸Ê ³¡¿¡¼­ Ãæµ¹
+			// 2006-08-08 by ispark, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹
 			if(m_vPos.y > g_pScene->m_nMaxAtitudeHeight + g_pGround->m_projectInfo.fWaterHeight)
 			{
 				vNewVel.x = g_pGround->m_projectInfo.sXSize*TILE_SIZE/2.0f+rand()%100;
@@ -10202,7 +10214,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 			}
 			else
 			{
-				// 2006-05-06 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+				// 2006-05-06 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 				vNewVel = (2 * fDot1) * vVel + m_vVel;
 			}
 
@@ -10213,7 +10225,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 			
 			if(collResult.nCollType == COLL_WHOLE)
 			{
-				// ÀÌ°÷À¸·Î µé¾î¿Â´Ù¸é ³ªÁß¿¡ ¹º°¡ Ã³¸®ÇØ ÁÖÀÚ.
+				// ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´Ù¸ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				DBGOUT("Whole Collision \n");
 			}
 			if(g_pD3dApp->m_pEffectList)
@@ -10233,7 +10245,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 				g_pD3dApp->m_pChat->CreateChatChild(STRERR_C_PARTY_0001,COLOR_SYSTEM);
 			}
 
-			// 2005-11-17 by ispark Æä³ÎÆ¼ »óÈ² Á¾·á
+			// 2005-11-17 by ispark ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½
 			if(m_bPenaltyUnitStop == TRUE)
 			{
 				InitUnitStop();
@@ -10242,7 +10254,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 	}
 	
 	
-	// ¸Ê°úÀÇ Ãæµ¹ÀÌ ¾øÀ»¶§¸¸ ¸ó½ºÅÍ ¼ÅÆ²°úÀÇ Ãæµ¹ °Ë»ç¸¦ ÇÑ´Ù.
+	// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ç¸¦ ï¿½Ñ´ï¿½.
 	if(collResult.nCollType == COLL_NONE && !m_bCollMap)
 	{
 		if(collResult.nCollType == COLL_NONE && m_bCollMonsterCheck)
@@ -10250,22 +10262,22 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 			float fColledMonsterSize = 0;
 			ClientIndex_t monsterIndex = 0;
 			collResult = g_pScene->m_pMonsterRender->CheckCollMesh(matArray,size,&fColledMonsterSize, &monsterIndex);
-			//2011-06-01 by jhahn	Ãæµ¹Ã³¸® ½Ã°£Ã¼Å© º¯°æ
-			//if(collResult.nCollType != COLL_NONE && m_fCollSendDamageCheckTime < 0.0f) // Ãæµ¹ÀÌ ÀÖ´Ù¸é..	
-			if(collResult.nCollType != COLL_NONE) // Ãæµ¹ÀÌ ÀÖ´Ù¸é..
-			// end 2011-06-01 by jhahn	Ãæµ¹Ã³¸® ½Ã°£Ã¼Å© º¯°æ
+			//2011-06-01 by jhahn	ï¿½æµ¹Ã³ï¿½ï¿½ ï¿½Ã°ï¿½Ã¼Å© ï¿½ï¿½ï¿½ï¿½
+			//if(collResult.nCollType != COLL_NONE && m_fCollSendDamageCheckTime < 0.0f) // ï¿½æµ¹ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½..	
+			if(collResult.nCollType != COLL_NONE) // ï¿½æµ¹ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½..
+			// end 2011-06-01 by jhahn	ï¿½æµ¹Ã³ï¿½ï¿½ ï¿½Ã°ï¿½Ã¼Å© ï¿½ï¿½ï¿½ï¿½
 			{
 				char buffer[512];
 				INIT_MSG(MSG_FC_CHARACTER_APPLY_COLLISION_DAMAGE, T_FC_CHARACTER_APPLY_COLLISION_DAMAGE, pSColl, buffer);
 				pSColl->CollisionType	= COLLISION_TYPE_MONSTER;
-				pSColl->SpeedOfCollision = m_fShuttleSpeed - m_fTempGravity;			// 2005-07-11 by ispark	// Ãæµ¹Ã³¸®
+				pSColl->SpeedOfCollision = m_fShuttleSpeed - m_fTempGravity;			// 2005-07-11 by ispark	// ï¿½æµ¹Ã³ï¿½ï¿½
 				pSColl->UnitIndex		= monsterIndex;
 				g_pD3dApp->m_pFieldWinSocket->Write(buffer, MSG_SIZE(MSG_FC_CHARACTER_APPLY_COLLISION_DAMAGE));
 
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-				// ÁöÇüÃæµ¹
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½æµ¹
 				g_pD3dApp->SetJoyStickFeedback(TRUE, JOY_FEED_COLLISION_DAMAGE);
-				// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
 				// 2004-11-24 by ydkim
 				//SendPacket(T_FC_CHARACTER_APPLY_COLLISION_DAMAGE, COLLISION_TYPE_MONSTER);
@@ -10278,7 +10290,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 				g_pCamera->ChangeCamCollType();
 				g_pCamera->SetSmoothMove();
 				vVel = collResult.vNormalVector;
-				// 2004-10-22 by jschoi Ãæµ¹ ½Ã È¸Àü °ª ¼³Á¤
+				// 2004-10-22 by jschoi ï¿½æµ¹ ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				fColledMonsterSize = fColledMonsterSize/100;
 				if(fColledMonsterSize < 0.2f)
 				{	
@@ -10294,8 +10306,8 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 				D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
 				D3DXVec3Cross(&m_vUp,&m_vVel,&vSide);
 				
-// 2013-10-28 by ssjung A±â¾î Áö»ó¿¡¼­ ¸ó½ºÅÍ¿Í ºÎµúÄ¡¸é µÚÁý¾îÁö´Â Çö»ó ¼öÁ¤
-				if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind))			//A±â¾î°¡ ¶¥¿¡ ÀÖÀ»¶§
+// 2013-10-28 by ssjung Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½Îµï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind))			//Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				{
 					if(m_vUp.y < 0)
 					{
@@ -10305,13 +10317,13 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 						D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
 					}
 				}
-// end 2013-10-28 by ssjung A±â¾î Áö»ó¿¡¼­ ¸ó½ºÅÍ¿Í ºÎµúÄ¡¸é µÚÁý¾îÁö´Â Çö»ó ¼öÁ¤
+// end 2013-10-28 by ssjung Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½Îµï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 				vParticlePos = m_vPos;
 				
 				if(collResult.nCollType == COLL_WHOLE)
 				{
-					// ÀÌ°÷À¸·Î µé¾î¿Â´Ù¸é ³ªÁß¿¡ ¹º°¡ Ã³¸®ÇØ ÁÖÀÚ.
+					// ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´Ù¸ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					DBGOUT("Whole Collision \n");
 				}
 				if(g_pD3dApp->m_pEffectList)
@@ -10321,14 +10333,14 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 				}
 				SetCursorInit();
 
-				// 2005-11-17 by ispark Æä³ÎÆ¼ »óÈ² Á¾·á
+				// 2005-11-17 by ispark ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½
 				if(m_bPenaltyUnitStop == TRUE)
 				{
 					InitUnitStop();
 				}
 			}
 		}
-		// ¼ÅÆ² Ãæµ¹ ÇöÀç »ç¿ë ¾ÈÇÔ
+		// ï¿½ï¿½Æ² ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//	else if(nCollType == COLL_NONE && m_bCollShuttleCheck)
 		//	{
 		//		nCollType = g_pD3dApp->m_pShuttleRender->CheckCollMesh(matArray,size);
@@ -10338,7 +10350,7 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVECTOR3 vNewPos D3DXVECTOR3 vOldPos)
-/// \brief		¿ÀºêÁ§Æ® °Å¸®·Î ÆÇ´Ü
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 /// \author		ispark
 /// \date		2006-11-08 ~ 2006-11-08
 /// \warning	
@@ -10349,13 +10361,13 @@ void CShuttleChild::CheckCollForObject(float fElapsedTime)
 BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVECTOR3 vNewPos, D3DXVECTOR3 vOldPos)
 {
 	FLOG( "CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVECTOR3 vNewPos, D3DXVECTOR3 vOldPos)" );
-	// 2008-10-16 by bhsohn A±â¾î Ãæµ¹ ¹ö±× ¼öÁ¤
+	// 2008-10-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if((m_dwState == _LANDING) && (IS_DT(m_myShuttleInfo.UnitKind))	)
 	{
-		// A±â¾î Âø·úÁß¿¡´Â °Å¸®¿¡ µû¸¥ ·£µù Ã¼Å©¾ÈÇÔ.
+		// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½.
 		return FALSE;
 	}
-	// end 2008-10-16 by bhsohn A±â¾î Ãæµ¹ ¹ö±× ¼öÁ¤
+	// end 2008-10-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 		
 	COLLISION_RESULT collResult;
@@ -10363,13 +10375,13 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 	D3DXMATRIX	matColl;
 	D3DXVECTOR3 vSide,vVel,vParticlePos;
 
-	D3DXVECTOR3 vDistVel	= vNewPos - vOldPos;										// ¹æÇâ
-	float		fDist		= D3DXVec3Length(&vDistVel);								// °Å¸®
+	D3DXVECTOR3 vDistVel	= vNewPos - vOldPos;										// ï¿½ï¿½ï¿½ï¿½
+	float		fDist		= D3DXVec3Length(&vDistVel);								// ï¿½Å¸ï¿½
 	
 	D3DXVec3Normalize(&vDistVel, &vDistVel);
-	D3DXMatrixLookAtLH(&matColl,&vOldPos,&(vOldPos + vDistVel),&m_vUp);					// ¾Õ
+	D3DXMatrixLookAtLH(&matColl,&vOldPos,&(vOldPos + vDistVel),&m_vUp);					// ï¿½ï¿½
 
-	// Ãæµ¹ °Ë»ç
+	// ï¿½æµ¹ ï¿½Ë»ï¿½
 	if(	/*m_bCollObjectCheck && */
 		g_pScene &&
 		g_pScene->m_byMapType != MAP_TYPE_TUTORIAL &&
@@ -10381,24 +10393,24 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 		D3DXVECTOR3 vNewVel;
 		D3DXVECTOR3 vTempDistVel = -1.0f * vDistVel;
 		float fDot1 = D3DXVec3Dot(&vTempDistVel,&vVel);
-//		DBGOUT("Àü %f %f %f, Çö %f %f %f\n", vOldPos.x, vOldPos.y, vOldPos.z, vNewPos, vNewPos.x, vNewPos.y, vNewPos.z);
+//		DBGOUT("ï¿½ï¿½ %f %f %f, ï¿½ï¿½ %f %f %f\n", vOldPos.x, vOldPos.y, vOldPos.z, vNewPos, vNewPos.x, vNewPos.y, vNewPos.z);
 
-		// °Å¸® ºñ±³, ¿ÀºêÁ§Æ® ³ë¸Ö ¹æÇâ°ú °ü°è ¾ø´Ù.
-		// ³»°¡ ¿òÁ÷ÀÎ °Å¸® »çÀÌ¿¡ ¿ÀºêÁ§Æ®°¡ ÀÖ´Ù¸é Ãæµ¹ Ã³¸®
-		// 2007-06-12 by bhsohn A±â¾î ¸¶À»¿¡ Âø·ú½Ã µ¥¹ÌÁö µé¾î°¡´Â Çö»ó Ã³¸®
+		// ï¿½Å¸ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½
+		// 2007-06-12 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		//if(collResult.fDist < fDist)
 		if(collResult.fDist < fDist && (FALSE == g_pD3dApp->IsMyShuttleCharacter()))
 		{
-//			DBGOUT("¿øº» °Å¸® = %f, Ãæµ¹ °Å¸® = %f\n", fDist, collResult.fDist);
+//			DBGOUT("ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ = %f, ï¿½æµ¹ ï¿½Å¸ï¿½ = %f\n", fDist, collResult.fDist);
 			if(m_myShuttleInfo.Level > 5 && m_fCollSendDamageCheckTime < 0.0f && m_fShuttleSpeed != 0)
 			{
 				SendPacket(T_FC_CHARACTER_APPLY_COLLISION_DAMAGE, COLLISION_TYPE_BUILDING);
 				m_fCollSendDamageCheckTime = 1.0f;
 				
-				// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-				// ÁöÇüÃæµ¹
+				// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½æµ¹
 				g_pD3dApp->SetJoyStickFeedback(TRUE, JOY_FEED_COLLISION_DAMAGE);
-				// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+				// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			}
 			m_fCheckCollTime = 0.0f;
 
@@ -10413,9 +10425,9 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 
 			g_pCamera->ChangeCamCollType();
 			g_pCamera->SetSmoothMove();
-//			DBGOUT("Ãæµ¹--------------> %f %f %f\n", vVel.x, vVel.y, vVel.z);
+//			DBGOUT("ï¿½æµ¹--------------> %f %f %f\n", vVel.x, vVel.y, vVel.z);
 			m_vPos = m_vOldPos + 0.5f*m_fShuttleSpeed*vVel*fElapsedTime;
-			// 2006-08-08 by ispark, ¸Ê ³¡¿¡¼­ Ãæµ¹
+			// 2006-08-08 by ispark, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹
 			if(m_vPos.y > g_pScene->m_nMaxAtitudeHeight + g_pGround->m_projectInfo.fWaterHeight)
 			{
 				vNewVel.x = g_pGround->m_projectInfo.sXSize*TILE_SIZE/2.0f+rand()%100;
@@ -10424,7 +10436,7 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 			}
 			else
 			{
-				// 2006-05-06 by ispark, Ãæµ¹ ¹Ý»ç ÄÚµå º¯°æ
+				// 2006-05-06 by ispark, ï¿½æµ¹ ï¿½Ý»ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 				vNewVel = (2 * fDot1) * vVel + m_vVel;
 			}
 
@@ -10435,7 +10447,7 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 			
 			if(collResult.nCollType == COLL_WHOLE)
 			{
-				// ÀÌ°÷À¸·Î µé¾î¿Â´Ù¸é ³ªÁß¿¡ ¹º°¡ Ã³¸®ÇØ ÁÖÀÚ.
+				// ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´Ù¸ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				DBGOUT("Whole Collision \n");
 			}
 			if(g_pD3dApp->m_pEffectList)
@@ -10452,7 +10464,7 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 				g_pD3dApp->m_pChat->CreateChatChild(STRERR_C_PARTY_0001,COLOR_SYSTEM);
 			}
 
-			// 2005-11-17 by ispark Æä³ÎÆ¼ »óÈ² Á¾·á
+			// 2005-11-17 by ispark ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½
 			if(m_bPenaltyUnitStop == TRUE)
 			{
 				InitUnitStop();
@@ -10465,16 +10477,16 @@ BOOL CShuttleChild::CheckCollForObjectFrontByDistance(float fElapsedTime, D3DXVE
 	return FALSE;
 }
 
-void CShuttleChild::SetShuttleFlightInit(float fElapsedTime,bool bType)							// ¼ÅÆ²ÀÇ ÆòÇü¸¶Ãß±â
+void CShuttleChild::SetShuttleFlightInit(float fElapsedTime,bool bType)							// ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß±ï¿½
 {
 	FLOG( "CShuttleChild::SetShuttleFlightInit(float fElapsedTime,bool bType)" );
 	D3DXVECTOR3 vVel,v,v2;
 	D3DXMATRIX m;
-	// Ãæµ¹ ÀÖÀ»½Ã¿¡ À¯´Ö°íÁ¤¾øÀ½
-	// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+	// ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//if(m_bCollMap)
 	if(m_bCollMap || IsShowCinema() )
-	//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+	//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return;
 
 	float fAngle1, fAngle2,fAngleRate;
@@ -10484,7 +10496,7 @@ void CShuttleChild::SetShuttleFlightInit(float fElapsedTime,bool bType)							//
 		vVel = m_vVel;
 		vVel.y = 0.0f;
 		if(vVel.x == 0.0f && vVel.z == 0.0f)
-		{// ¿¡·¯
+		{// ï¿½ï¿½ï¿½ï¿½
 			vVel.x = 1.0f;
 		}
 		D3DXVec3Normalize(&vVel,&vVel);
@@ -10580,7 +10592,7 @@ void CShuttleChild::SetShuttleFlightInit(float fElapsedTime,bool bType)							//
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::ChangeUnitStateDead()
-/// \brief		Á×¾úÀ» ¶§ µüÇÑ¹ø Ã³¸®
+/// \brief		ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ¹ï¿½ Ã³ï¿½ï¿½
 /// \author		dhkwon
 /// \date		2004-06-30 ~ 2004-06-30
 /// \warning	
@@ -10590,45 +10602,45 @@ void CShuttleChild::SetShuttleFlightInit(float fElapsedTime,bool bType)							//
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::ChangeUnitStateDead()
 {
-	// 2014-02-20 by ymjoo ¸®Á¨ ÈÄ ¿òÁ÷ÀÌÁö ¾Ê´Â ¹ö±× ¼öÁ¤
+	// 2014-02-20 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_bOrderMove = FALSE;
 	g_pD3dApp->m_bFixUnitDirMode = FALSE;
-	// END 2014-02-20 by ymjoo ¸®Á¨ ÈÄ ¿òÁ÷ÀÌÁö ¾Ê´Â ¹ö±× ¼öÁ¤
+	// END 2014-02-20 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¿ÀÆÛ·¹ÀÌÅÍ ±¸Çö
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( g_pStoreData->FindItemInInventoryByWindowPos( POS_PET ) )
 	{
 		g_pInterface->m_pINFOpMain->GetOpInfo()->SetOperatorAction(1,4);
 	}
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¿ÀÆÛ·¹ÀÌÅÍ ±¸Çö
-	// 2009. 09. 24 by jskim ÇÊµå Ã¢°í Ä³½¬ ¾ÆÀÌÅÛ
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2009. 09. 24 by jskim ï¿½Êµï¿½ Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_pInterface->m_pCityBase->CloseCurrentEnterBuilding();
-	//end 2009. 09. 24 by jskim ÇÊµå Ã¢°í Ä³½¬ ¾ÆÀÌÅÛ
+	//end 2009. 09. 24 by jskim ï¿½Êµï¿½ Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// 2007-04-05 by bhsohn ºòºÕ ¹ö±× Ã³¸®
-	// Á×¾úÀ»½Ã °ú°Å ½ºÅ³ÃÊ±âÈ­
+	// 2007-04-05 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	// ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½Ê±ï¿½È­
 	m_pSkill->InitPreSkillItemNum();
 
-	// 2008-11-04 by bhsohn Á×¾úÀ»½Ã, Å¸ÄÏÇü ½ºÅ³ ÇØÁ¦
-	m_pSkill->SetSkillTargetState(FALSE);		// ½ºÅ³ ¸¶¿ì½º Æ÷ÀÎÅÍ ÇØÁ¦
+	// 2008-11-04 by bhsohn ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½, Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	m_pSkill->SetSkillTargetState(FALSE);		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2009-02-19 by bhsohn °Å·¡Áß À¯´Ö Á×¾úÀ»¶§¿¡ ´ëÇÑ Ã³¸®
+	// 2009-02-19 by bhsohn ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(g_pGameMain->m_pTrade)
 	{
 		if(g_pGameMain->m_pTrade->m_bTrading)
 		{
-			// °Å·¡ÁßÀÌ¸é Ãë¼Ò¸¦ º¸³½´Ù.
+			// ï¿½Å·ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			g_pGameMain->m_pTrade->CancelTrade();
 			if(g_pD3dApp->m_pChat)
 			{
-				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_TRADE_0015,COLOR_TRADE);//"°Å·¡°¡ Ãë¼Ò µÇ¾ú½À´Ï´Ù."
+				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_TRADE_0015,COLOR_TRADE);//"ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 			}
 		}
 	}
-	// end 2009-02-19 by bhsohn °Å·¡Áß À¯´Ö Á×¾úÀ»¶§¿¡ ´ëÇÑ Ã³¸®
+	// end 2009-02-19 by bhsohn ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	// 2007-10-16 by bhsohn °Å·¡ »ó¿¡ Á×¾úÀ»½Ã, Å° ¾È¸Ô´Â ¹®Á¦Ã³¸®
-	// °Å·¡ÁßÀÌ¶ó¸é °Å·¡µµ Ç¬´Ù.
+	// 2007-10-16 by bhsohn ï¿½Å·ï¿½ ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½, Å° ï¿½È¸Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+	// ï¿½Å·ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ Ç¬ï¿½ï¿½.
 	g_pGameMain->SetTradeInfo(FALSE);
 
 	m_fShuttleSpeed = 0;
@@ -10639,54 +10651,54 @@ void CShuttleChild::ChangeUnitStateDead()
 	m_mMatrix._22 = 1;
 	m_mMatrix._23 = 0;
 	// 2005-08-01 by ispark
-	// Ä«¸Þ¶ó ÆÐÅÏ »ç¿ë ¾ÈÇÔ
+	// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_bIsCameraPattern = FALSE;
-	// Permanent¸¦ Á¦¿ÜÇÑ »ç¿ëÁßÀÎ ¸ðµç ½ºÅ³ ÇØÁ¦
-	// 2008-12-29 by bhsohn »ç¸Á ½Ã ¹öÇÁ ½ºÅ³ À¯Áö ½Ã½ºÅÛ
+	// Permanentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	// 2008-12-29 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	//m_pSkill->ReleaseAllUsingSkillWithOutPermanent();
 	m_pSkill->ReleaseStatDEAD_AllUsingSkillWithOutPermanent();
 
 
-	// 2008. 12. 16 by ckPark ¾ÆÀÌÅÛ »ç¿ë Áö¿¬
-	// Á×¾úÀ» ½Ã µô·¹ÀÌ ¾ÆÀÌÅÛ ÃÊ±âÈ­
+	// 2008. 12. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	g_pGameMain->ReleaseDelayItem();
-	// end 2008. 12. 16 by ckPark ¾ÆÀÌÅÛ »ç¿ë Áö¿¬
+	// end 2008. 12. 16 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-	// 2008. 12. 23 by ckPark ½ºÅ³ »ç¿ë Áö¿¬ »ç¿ë Áö¿¬
-	// Á×¾úÀ» ½Ã µô·¹ÀÌ ½ºÅ³ ÃÊ±âÈ­
+	// 2008. 12. 23 by ckPark ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Ê±ï¿½È­
 	g_pGameMain->ReleaseDelaySkill();
-	// end 2008. 12. 23 by ckPark ½ºÅ³ »ç¿ë Áö¿¬ »ç¿ë Áö¿¬
+	// end 2008. 12. 23 by ckPark ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	// 2005-08-22 by ispark
-	// ¿¬·á°¡ 0ÀÌ¾ú´Ù¸é FALLENÀ¸·Î. FALLING Ã³¸®´Â ÀÌ¹Ì ÇßÀ½
+	// ï¿½ï¿½ï¿½á°¡ 0ï¿½Ì¾ï¿½ï¿½Ù¸ï¿½ FALLENï¿½ï¿½ï¿½ï¿½. FALLING Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( InitCinemaUnit(PATTERN_UNIT_FALLING, TRUE) == FALSE || m_dwState == _FUELALLIN)
  	{
-		// 2005-03-28 by jschoi - Á×¾úÀ» ¶§ ºÎÈ° Ä«µå »ç¿ë
+		// 2005-03-28 by jschoi - ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È° Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½
 		CItemInfo* pItemInfo = g_pStoreData->SerchRevivalUseItem();
 		MAP_INFO* pMapInfo = g_pDatabase->GetMapInfo(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);
 // 2005-12-05 by ispark
-//		if(g_pD3dApp->m_bDeadByP2PPK == TRUE)// 1:1°áÅõÇÏ´Ù°¡ Àû¿¡°Ô Á×Àº °æ¿ì
-		// 2006-01-02 by ispark, ´Ù¸¥ ¼¼·Â¸ÊÀÎÁö ÆÇ´Ü 
-		// 2006-04-10 by ispark, ºÎÈ° Ä«µå ¼öÁ¤, 1:1 °áÅõ´Â Á¦¿Ü
-		// 2006-11-17 by ispark, ÀÌº¥Æ® ¸Ê¿¡¼­´Â Á¦¿Ü
+//		if(g_pD3dApp->m_bDeadByP2PPK == TRUE)// 1:1ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		// 2006-01-02 by ispark, ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ 
+		// 2006-04-10 by ispark, ï¿½ï¿½È° Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 1:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2006-11-17 by ispark, ï¿½Ìºï¿½Æ® ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(g_pD3dApp->m_bDeadByP2PPK == FALSE && 
 			pItemInfo &&
 			IsRevivalUseItem())
 		{
 			char strRevivalMsg[512] = {0,};
-			// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
-			//sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ParameterValue1);	// "%s¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î? È®·üÀº %.0fÀÔ´Ï´Ù."
-			sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ArrParameterValue[0]);	// "%s¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î? È®·üÀº %.0fÀÔ´Ï´Ù."
+			// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
+			//sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ParameterValue1);	// "%sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? È®ï¿½ï¿½ï¿½ï¿½ %.0fï¿½Ô´Ï´ï¿½."
+			sprintf(strRevivalMsg, STRMSG_C_060410_0003, pItemInfo->ItemInfo->ItemName, pItemInfo->ItemInfo->ArrParameterValue[0]);	// "%sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? È®ï¿½ï¿½ï¿½ï¿½ %.0fï¿½Ô´Ï´ï¿½."
 			g_pGameMain->m_pInfWindow->AddMsgBox(strRevivalMsg, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);
 		}
 		else
 		{
-			// 2006-11-17 by ispark, ºÎÈ° Ä«µå°¡ ÀÖÁö¸¸ ÀÌº¥Æ® ¸ÊÀÌ¶ó¸é
+			// 2006-11-17 by ispark, ï¿½ï¿½È° Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 			if(pItemInfo && IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType))
 			{
-				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_061117_0000, COLOR_ERROR);// "ÀÌº¥Æ®¸Ê¿¡¼­´Â %s ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+				g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_061117_0000, COLOR_ERROR);// "ï¿½Ìºï¿½Æ®ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 			}
 
 			SendDeadMsg();
@@ -10694,15 +10706,15 @@ void CShuttleChild::ChangeUnitStateDead()
 
 //		else if(pItemInfo = g_pStoreData->FindItemInInventoryByItemNum(ITEM_NUM_CASH_CASH_NORMAL_RESTORE))
 //		{
-//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0004, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);//"ÀÏ¹Ý ºÎÈ° Ä«µå¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î?"
+//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0004, _Q_USE_NORMAL_RESTORE,0,0,0,pItemInfo->UniqueNumber);//"ï¿½Ï¹ï¿½ ï¿½ï¿½È° Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 //		}
 //		else if(pItemInfo = g_pStoreData->FindItemInInventoryByItemNum(ITEM_NUM_CASH_CASH_SUPER_RESTORE))
 //		{
-//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0005, _Q_USE_SUPER_RESTORE,0,0,0,pItemInfo->UniqueNumber);//"½´ÆÛ ºÎÈ° Ä«µå¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î?"
+//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0005, _Q_USE_SUPER_RESTORE,0,0,0,pItemInfo->UniqueNumber);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È° Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 //		}
 //		else
-//		{// ºÎÈ° Ä«µå°¡ ¾ø´Ù¸é
-//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0003, _Q_DEAD_RETURN);//"°Ý³³°í·Î ÀÌµ¿ÇÕ´Ï´Ù."
+//		{// ï¿½ï¿½È° Ä«ï¿½å°¡ ï¿½ï¿½ï¿½Ù¸ï¿½
+//			g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0003, _Q_DEAD_RETURN);//"ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Õ´Ï´ï¿½."
 //		}
 
 		ChangeUnitState( _FALLEN );
@@ -10712,26 +10724,26 @@ void CShuttleChild::ChangeUnitStateDead()
 	}
 	else
 	{
-		m_bSkillMoveIsUse = FALSE;			// 2006-01-10 by ispark, ½ºÅ³ ¹«ºê¸¦ ¾²Áö ¾Ê´Â´Ù.(_FALLING¿¡ ÀÖÀ½)
-		RemoveEnemyTarget();				// 2006-01-13 by ispark, Àû Å¸°Ù »èÁ¦
+		m_bSkillMoveIsUse = FALSE;			// 2006-01-10 by ispark, ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ê¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.(_FALLINGï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+		RemoveEnemyTarget();				// 2006-01-13 by ispark, ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ChangeUnitState( _FALLING );
-		g_pGameMain->InitShowWindow();		// 2006-08-07 by ispark, Ã¢ ÃÊ±âÈ­
+		g_pGameMain->InitShowWindow();		// 2006-08-07 by ispark, Ã¢ ï¿½Ê±ï¿½È­
 
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-		// °ÝÃß Áøµ¿
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->SetJoyStickFeedback(TRUE, JOY_FEED_SHUTTLE_EXPLODED);
-		// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+		// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	}
 
-	// 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+	// 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	if( m_bDeadMessageEnable )
 		m_dwDeadTime = timeGetTime();
-	// end 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+	// end 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 }
 
 void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 {
-	//Ä³¸¯ÅÍ°¡ Á×Àº °æ¿ì
+	//Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	if(	COMPARE_BODYCON_BIT(hyBodyCondition,BODYCON_DEAD_MASK) )
 	{
   		if( !COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_EXPLOSION_MASK) )
@@ -10748,7 +10760,7 @@ void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //			m_vNextPos = m_vPos - 70.0f*m_vVel + 100.0f*m_vUp;
 			/////////////////////////////////////////////////////////////////
 			m_fCurrentTime = 186.0f;
-			// ÀÌÄ³¸¯À» Å¸°ÙÀ¸·Î ¼ÂÆÃÇÏ°í ÀÖ´Â °ÍµéÀ» Å¸°ÙÃÊ±âÈ­ ½ÃÅ²´Ù.
+			// ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½Íµï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ê±ï¿½È­ ï¿½ï¿½Å²ï¿½ï¿½.
 //			CMapEnemyIterator itEnemy = g_pScene->m_mapEnemyList.begin();
 //			while(itEnemy != g_pScene->m_mapEnemyList.end())
 //			{
@@ -10767,7 +10779,7 @@ void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //				itMonster->second->m_nMonsterTypeSecondary = MONSTERDATA_MONSTERLIST;
 //				itMonster++;
 //			}
-			// 2006-01-18 by ispark, Áö±Ý ³»»óÅÂ °Ë»ç, Æø¹ßÀÌ ¸Â´ÂÁö...
+			// 2006-01-18 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ï¿½ï¿½...
 			if(!UNIT_STATE_DEAD(m_dwState))
 			{
 				if(m_fCheckDead == 0.0f)
@@ -10780,26 +10792,26 @@ void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 	}
 	else
 	{
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		
-		// ·Ñ¸µ½Ã ºÎ½ºÅÍ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ µ¤¾î¾º¿öÁö¹Ç·Î ¸·´Â´Ù(Ã¼ÀÎ·Ñ¸µ½Ã³ª ·Ñ¸µ½Ã ·º¹®Á¦)
+		// ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¾ºï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½Â´ï¿½(Ã¼ï¿½Î·Ñ¸ï¿½ï¿½Ã³ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		if( COMPARE_BODYCON_BIT(hyBodyCondition, BODYCON_BOOSTER1_MASK | BODYCON_BOOSTER2_MASK | BODYCON_BOOSTER3_MASK | BODYCON_BOOSTER4_MASK | BODYCON_BOOSTER5_MASK) )
 		{
 			if( IsRobotArmor() && (m_bKeyDownA || m_bKeyDownD) )
 				return;
 		}
 
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		
-		// ºÎ½ºÅÍ°¡ ÄÑÁø °æ¿ì
+		// ï¿½Î½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		if(	COMPARE_BODYCON_BIT(hyBodyCondition,BODYCON_BOOSTER3_MASK) )
 		{
 			if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))
 			{
-				// 2008-01-16 by bhsohn A±â¾î ¿öÇÁ ½ÇÆÐ½Ã À§Àå,±×¶ó¿îµå ¿¢¼¿ Ãë¼Ò ½ÃÅ´
+				// 2008-01-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å´
 				//m_bIsAir = TRUE;
 				SetShuttleAirMode(TRUE);
-				// end 2008-01-16 by bhsohn A±â¾î ¿öÇÁ ½ÇÆÐ½Ã À§Àå,±×¶ó¿îµå ¿¢¼¿ Ãë¼Ò ½ÃÅ´
+				// end 2008-01-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å´
 
 				if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_LANDED_MASK))
 				{
@@ -10810,14 +10822,14 @@ void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 				{
 					m_nBooster = BOOSTER_TYPE_MAX;
 					ChangeSingleBodyCondition(BODYCON_BOOSTER3_MASK);
-					// mouse rate Á¶Àý
+					// mouse rate ï¿½ï¿½ï¿½ï¿½
 					ITEM* pItemInfo = g_pStoreData->GetItemInfoFromItemGeneral(g_pStoreData->FindItemInInventoryByWindowPos( POS_REAR ));
 					if(pItemInfo)
 					{
 //						m_fMouseRate = pItemInfo->BoosterAngle;
 						m_fMouseRate = CAtumSJ::GetEngineBoosterRangeAngle(pItemInfo, &m_paramFactor);
 					}
-					// ½ºÅ©¸° ÀÌÆåÆ®
+					// ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 					if(g_pD3dApp->m_pEffectList)
 					{
 						CAppEffectData* pEffect = g_pScene->FindEffect( RC_EFF_BOOSTER );
@@ -10844,7 +10856,7 @@ void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 			}
 			return;
 		}
-		// ºÎ½ºÅÍ°¡ ²¨Áø °æ¿ì
+		// ï¿½Î½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		else if( COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK) && 
 			!COMPARE_BODYCON_BIT(hyBodyCondition,BODYCON_BOOSTER3_MASK))
 		{
@@ -10863,8 +10875,8 @@ void CShuttleChild::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::CheckBodyConditionToServer(BodyCond_t hyBodyCondition)
-/// \brief		¹ÙµðÄÁµð¼ÇÀ» ºÐ·ùÈÄ ÇÏ³ª¾¿¼­¹ö·Î º¸³½´Ù.
-///				ÇÊ¿ä½Ã¿¡´Â ÇÏ³ª¾¿ Ãß°¡ ¹Ù¶÷
+/// \brief		ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+///				ï¿½Ê¿ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ù¶ï¿½
 /// \author		ispark
 /// \date		2005-07-28 ~ 2005-07-28
 /// \warning	
@@ -10905,7 +10917,7 @@ void CShuttleChild::CheckBodyConditionToServer(BodyCond_t hyBodyCondition)
 
 
 
-// À¯´ÖÀÇ ¹ÙµðÄÁµð¼ÇÀÌ À¯ÁöµÉ¶§, ¾Ö´Ï¸ÞÀÌ¼Ç ½Ã°£À» °¡Á®¿È
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½, ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define BODYCON_CLIENT_KEEPING_ANIMATION_MASK		(BODYCON_BOOSTER_EX_STATE_CLEAR_MASK | BODYCON_LANDING_MASK | BODYCON_LANDED_MASK | BODYCON_TAKEOFF_MASK)
 void CShuttleChild::CheckAniTime()
 {
@@ -10920,7 +10932,7 @@ void CShuttleChild::CheckAniTime()
 /// \brief		MSG_FC_CHARACTER_CHANGE_BODYCONDITION
 /// \author		dhkwon
 /// \date		2004-03-28 ~ 2004-03-28
-/// \warning	APP¿¡µµ °°Àº ±â´ÉÀ» ÇÏ´Â ÇÔ¼ö°¡ ÀÖ´Ù.Âü°íÇÒ°Í.
+/// \warning	APPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½.
 ///
 /// \param		
 /// \return		
@@ -10939,32 +10951,32 @@ void CShuttleChild::CheckBoosterAni()
 	FLOG( "CShuttleChild::CheckBoosterAni()" );
 	switch(m_nBooster)
 	{
-	case BOOSTER_TYPE_AIRBREAK:// ¿ªÃßÁø ºÎ½ºÅÍ
+	case BOOSTER_TYPE_AIRBREAK:// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½
 		{
-			if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER5_MASK))//¿ªÃßÁø
+			if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER5_MASK))//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, 
 						BODYCON_BOOSTER5_MASK | BODYCON_SET_OR_CLEAR_MASK);
-				//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER5_MASK);//¿ªÃßÁø
+				//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER5_MASK);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				ChangeSingleBodyCondition(BODYCON_BOOSTER5_MASK);
 			}
 //			m_fAttackDelayCheckTime = 1.0f;
 		}
 		break;
-	case BOOSTER_TYPE_STOP://ÁßÁö
+	case BOOSTER_TYPE_STOP://ï¿½ï¿½ï¿½ï¿½
 		{
-			if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))//°í¼Ó ºÎ½ºÅÍ
+			if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))//ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½
 			{
-				//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER4_MASK);//°í¼ÓÀ» ²ø¶§ 
+				//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER4_MASK);//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 				SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, 
 						BODYCON_BOOSTER4_MASK | BODYCON_SET_OR_CLEAR_MASK);
 				ChangeSingleBodyCondition(BODYCON_BOOSTER4_MASK);
-				// 2006-12-11 by dgwoo SÅ° ´©¸¥ »óÅÂ¿Í µ¿½Ã¿¡ ºÎ½ºÅÍ»ç¿ë½Ã ÀÛµ¿¾ÈµÊ
+				// 2006-12-11 by dgwoo SÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Î½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Èµï¿½
  				//m_bUseBooster = FALSE;
 			}
 			else
 			{
-				if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER4_MASK))//°í¼ÓÀ» ²ø¶§
+				if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER4_MASK))//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					if(m_pCharacterInfo)
 					{
@@ -10975,7 +10987,7 @@ void CShuttleChild::CheckBoosterAni()
 							{
 								SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, 
 										BODYCON_BOOSTER1_MASK | BODYCON_SET_OR_CLEAR_MASK);
-								//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER1_MASK);//Å°¸¦ ¾È´©¸£°í ºñÇà(Æò±Õ¼Óµµ ÀÌÇÏ, ¼ÓµµÁõ°¡Å° ¾È´©¸¦¶§)
+								//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER1_MASK);//Å°ï¿½ï¿½ ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Õ¼Óµï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½)
 								ChangeSingleBodyCondition(BODYCON_BOOSTER1_MASK);
 							}
 						}
@@ -10983,7 +10995,7 @@ void CShuttleChild::CheckBoosterAni()
 				}
 				else
 				{
-					if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER1_MASK))//Å°¸¦ ¾È´©¸£°í ºñÇà(Æò±Õ¼Óµµ ÀÌÇÏ, ¼ÓµµÁõ°¡Å° ¾È´©¸¦¶§)
+					if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER1_MASK))//Å°ï¿½ï¿½ ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Õ¼Óµï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½)
 					{
 //						DBGOUT("CheckBoosterAni(%016I64X) SendFieldSocketChangeBodyCondition(BOOSTER_TYPE_STOP)\n",GetCurrentBodyCondition());
 						SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, 
@@ -10996,16 +11008,16 @@ void CShuttleChild::CheckBoosterAni()
 			}
 		}
 		break;
-	case BOOSTER_TYPE_MIN://±âº»ºÎ½ºÅÍ 
+	case BOOSTER_TYPE_MIN://ï¿½âº»ï¿½Î½ï¿½ï¿½ï¿½ 
 		{
-			if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))//°í¼Ó ºÎ½ºÅÍ
+			if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))//ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½
 			{
-				//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER4_MASK);//°í¼ÓÀ» ²ø¶§
+				//SET_BODYCON_BIT(m_myShuttleInfo.BodyCondition,BODYCON_BOOSTER4_MASK);//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				ChangeSingleBodyCondition(BODYCON_BOOSTER4_MASK);
 			}
 			else
 			{
-				if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER4_MASK))//°í¼ÓÀ» ²ø¶§
+				if(COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER4_MASK))//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					if(m_pCharacterInfo)
 					{
@@ -11024,7 +11036,7 @@ void CShuttleChild::CheckBoosterAni()
 				}
 				else
 				{
-					if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER2_MASK))// ÀüÁøÅ° ´©¸£´Â »óÅÂ(Æò±Õ¼Óµµ ÀÌ»ó, ¼ÓµµÁõ°¡Å° ´©¸¦¶§)
+					if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER2_MASK))// ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Õ¼Óµï¿½ ï¿½Ì»ï¿½, ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 					{
 						SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, 
 								BODYCON_BOOSTER2_MASK | BODYCON_SET_OR_CLEAR_MASK);
@@ -11035,15 +11047,15 @@ void CShuttleChild::CheckBoosterAni()
 			}
 		}
 		break;
-	case BOOSTER_TYPE_MAX://°¡¼ÓºÎ½ºÅÍ
+	case BOOSTER_TYPE_MAX://ï¿½ï¿½ï¿½ÓºÎ½ï¿½ï¿½ï¿½
 		{
-			if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))//°í¼Ó ºÎ½ºÅÍ
+			if(!COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK))//ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½
 			{
 				m_nBooster = BOOSTER_TYPE_MIN;
 				if(m_fChangeBodyForBoosterCheckTime < 0.0f)
 				{
 					m_fChangeBodyForBoosterCheckTime = 0.2f;
-					// ¼­¹ö Àü¼ÛÈÄ OK ¸¦ ¹Þ¾Æ¾ßÁö¸¸ ºÎ½ºÅÍ »óÅÂ°¡ ÄÑÁö°Ô µÈ´Ù. ÇöÀç´Â ºÎ½ºÅÍ »ç¿ëÀüÀÌ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OK ï¿½ï¿½ ï¿½Þ¾Æ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 					SendFieldSocketChangeBodyCondition(m_myShuttleInfo.ClientIndex, 
 							BODYCON_BOOSTER3_MASK | BODYCON_SET_OR_CLEAR_MASK);
 				}
@@ -11083,15 +11095,15 @@ void CShuttleChild::CheckMouseDir()
 	if(m_bTurnCamera)
 		m_vMouseDir *= -1.0f;
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¸¶¿ì½º À§Ä¡
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¡
 	m_vMousePos = D3DXVECTOR3(matTemp._41, matTemp._42, matTemp._43);
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¸¶¿ì½º À§Ä¡
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¡
 	// 2005-09-05 by ispark
-	// ¸¶¿ì½º ¹æÇâ
+	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½
 	int iCenterX = g_pD3dApp->GetBackBufferDesc().Width / 2;
 	int iCenterY = g_pD3dApp->GetBackBufferDesc().Height / 2;
 	
-	// 2010. 03. 18 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(¸ó½ºÅÍ ½ºÅ³ Ãß°¡)
+	// 2010. 03. 18 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½)
 
 // 	m_ptDir.x = m_pt.x - iCenterX;
 // 	m_ptDir.y = m_pt.y - iCenterY;
@@ -11106,13 +11118,13 @@ void CShuttleChild::CheckMouseDir()
 		m_ptDir.y = -(m_pt.y - iCenterY);
 	}
 
-	// end 2010. 03. 18 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(¸ó½ºÅÍ ½ºÅ³ Ãß°¡)
+	// end 2010. 03. 18 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½)
 }
 
 void CShuttleChild::CheckTarget()
 {
 	// 2005-08-16 by ispark
-	// ·¹ÀÌ´õ ¹ÌÀåÂø½Ã Å¸°Ù °Ë»ç ¾ÈÇÑ´Ù.
+	// ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(m_pRadarItemInfo == NULL || IsObserverMode())
 	{
 		return;
@@ -11134,7 +11146,7 @@ void CShuttleChild::CheckTarget()
 
 void CShuttleChild::OldCheckTarget()
 {
-	// 2005-03-24 by jschoi - ±âÁ¸ÀÇ Å¸°ÙÆÃ ¹æ½Ä
+	// 2005-03-24 by jschoi - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	FLOG( "CShuttleChild::CheckTarget()" );
 	if(m_pSkill->GetSkillTargetState() == TRUE)
 	{
@@ -11166,32 +11178,32 @@ void CShuttleChild::OldCheckTarget()
 
 		m_pTarget = NULL;
 
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//vector<INT>::iterator it = m_pPrimaryWeapon->m_vecTargetIndex.begin();
 		//while(it != m_pPrimaryWeapon->m_vecTargetIndex.end())
 		vector<TARGET_DATA>::iterator it = m_pPrimaryWeapon->m_vecTargetIndexData.begin();
 		while(it != m_pPrimaryWeapon->m_vecTargetIndexData.end())
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
-			// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			//CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( (*it) );
 			CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( (*it).nTargetIndex );
-			// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			ASSERT_ASSERT(pUnit);
 			if(pUnit)
 			{
 				v2 = D3DXVECTOR2(pUnit->m_nObjScreenX,pUnit->m_nObjScreenY);
-				if(IS_DT(m_myShuttleInfo.UnitKind))	// A±â¾îÀÎ °æ¿ì
+				if(IS_DT(m_myShuttleInfo.UnitKind))	// Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				{
 					if( D3DXVec2Length(&(v1 - v2)) < SHUTTLE_TARGET_MOUSE_CIRCLE_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800) )
 					{
 						m_pTarget = pUnit;
 //						if(m_bLButtonState)
-//						{// °ø°ÝÁß(Å¬¸¯µÊ)
+//						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 //							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_4);
 //						}
 //						else
-//						{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+//						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 //							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_2);
 //						}
 //						break;
@@ -11199,28 +11211,28 @@ void CShuttleChild::OldCheckTarget()
 					else
 					{
 //						if(m_bLButtonState)
-//						{// °ø°ÝÁß(Å¬¸¯µÊ)
+//						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 //							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_5);
 //						}
 //						else
-//						{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+//						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 //							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 //						}
 //						break;
 					}
 				}
-				else if(D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ È­¸Á ¾È¿¡ ÀÖ´Â °æ¿ì
+				else if(D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ È­ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 				{
 					fLength = D3DXVec2Length(&(v1-v2));
 					if( fLength < SHUTTLE_TARGET_MOUSE_CIRCLE_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))
 					{
 						m_pTarget = pUnit;
 						if(m_bLButtonState)
-						{// °ø°ÝÁß(Å¬¸¯µÊ)
+						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_4);
 						}
 						else
-						{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_2);
 						}
 						break;
@@ -11228,11 +11240,11 @@ void CShuttleChild::OldCheckTarget()
 					else
 					{
 						if(m_bLButtonState)
-						{// °ø°ÝÁß(Å¬¸¯µÊ)
+						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_5);
 						}
 						else
-						{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 							g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 						}
 						break;
@@ -11251,20 +11263,20 @@ void CShuttleChild::OldCheckTarget()
 			}
 			it++;
 		} 
-        // 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+        // 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//if(it == m_pPrimaryWeapon->m_vecTargetIndex.end())
 		if(it == m_pPrimaryWeapon->m_vecTargetIndexData.end())
-        // end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+        // end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
-			if( IS_DT(m_myShuttleInfo.UnitKind) ||	// A±â¾îÀÎ °æ¿ì
-				D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ È­¸Á ¾È¿¡ ÀÖ´Â °æ¿ì
+			if( IS_DT(m_myShuttleInfo.UnitKind) ||	// Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ È­ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 			{
 				if(m_bLButtonState)
-				{// °ø°ÝÁß(Å¬¸¯µÊ)
+				{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 					g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_5);
 				}
 				else
-				{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+				{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 					g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 				}
 			}
@@ -11275,28 +11287,28 @@ void CShuttleChild::OldCheckTarget()
 		}
 		if( m_pTarget && m_pOrderTarget == NULL )
 		{
-			// 2005-02-15 by jschoi - ¿À´õ Å¸°ÙÀ» Àâ´Â ºÎºÐ
+			// 2005-02-15 by jschoi - ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 			m_pOrderTarget = m_pTarget;
 
 			// 2005-10-19 by ispark
-			// Enemy Å¸°Ù¿¡ ÀÖ´ÂÁö °Ë»ç
+			// Enemy Å¸ï¿½Ù¿ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 			vector<PK_TARGET *>::iterator itEnemy = m_vecPKTarget.begin();
 			while(itEnemy != m_vecPKTarget.end())
 			{
 				CEnemyData* pTarget = (CEnemyData*)g_pScene->FindUnitDataByClientIndex( (*itEnemy)->nTargetIndex );
 				if(m_pOrderTarget == pTarget)
 				{
-					// ÀÖÀ½
+					// ï¿½ï¿½ï¿½ï¿½
 					return;
 				}
 				itEnemy++;
 			}
 
-			if(	m_pTarget->m_dwPartType == _ENEMY &&						// 1. Å¸°ÙÀÌ EnemyÀÌ°í,
-//				((CEnemyData*)m_pTarget)->GetPkState() == PK_NORMAL &&		// 2. ¼ø¼ö °­Á¦ Å¸°ÙÀÌ¸é // 2006-01-07 by ispark, »èÁ¦
-				g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)	// 3. µµ½Ã Á¡·ÉÀüÁß¿¡´Â º¸³»Áö ¾Ê´Â´Ù.
+			if(	m_pTarget->m_dwPartType == _ENEMY &&						// 1. Å¸ï¿½ï¿½ï¿½ï¿½ Enemyï¿½Ì°ï¿½,
+//				((CEnemyData*)m_pTarget)->GetPkState() == PK_NORMAL &&		// 2. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ì¸ï¿½ // 2006-01-07 by ispark, ï¿½ï¿½ï¿½ï¿½
+				g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)	// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			{
-				// ¼­¹ö·Î º¸³½´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				MSG_FC_MOVE_LOCKON sMsg;
 				sMsg.AttackIndex = g_pShuttleChild->m_myShuttleInfo.ClientIndex;
 				sMsg.TargetIndex = ((CEnemyData*)m_pTarget)->m_infoCharacter.CharacterInfo.ClientIndex;	
@@ -11307,16 +11319,16 @@ void CShuttleChild::OldCheckTarget()
 	}
 	else
 	{
-		// 1Çü ¹«±â¸¦ ÀåÂøÇÏÁö ¾ÊÀº °æ¿ì
-		if( IS_DT(m_myShuttleInfo.UnitKind) ||	// A±â¾îÀÎ °æ¿ì
-			D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ È­¸Á ¾È¿¡ ÀÖ´Â °æ¿ì
+		// 1ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		if( IS_DT(m_myShuttleInfo.UnitKind) ||	// Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ È­ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 		{
 			if(m_bLButtonState)
-			{// °ø°ÝÁß(Å¬¸¯µÊ)
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 				g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_5);
 			}
 			else
-			{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 				g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 			}
 		}
@@ -11329,7 +11341,7 @@ void CShuttleChild::OldCheckTarget()
 
 void CShuttleChild::Old2CheckTarget()
 {
-	// 2005-03-29 by jschoi - ±âÁ¸ Å¸°Ù ¹æ½Ä º¯°æ
+	// 2005-03-29 by jschoi - ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	FLOG( "CShuttleChild::CheckTarget()" );
 	if(m_pSkill->GetSkillTargetState() == TRUE)
 	{
@@ -11361,31 +11373,31 @@ void CShuttleChild::Old2CheckTarget()
 
 		m_pTarget = NULL;
 
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 // 		vector<int>::iterator it = m_pPrimaryWeapon->m_vecTargetIndex.begin();
 // 		while(it != m_pPrimaryWeapon->m_vecTargetIndex.end())
 		vector<TARGET_DATA>::iterator it = m_pPrimaryWeapon->m_vecTargetIndexData.begin();
 		while(it != m_pPrimaryWeapon->m_vecTargetIndexData.end())		
-		// end011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
-			// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			//CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( *it );
 			CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( (*it).nTargetIndex );
-			// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			ASSERT_ASSERT(pUnit);
 			#ifdef C_EPSODE4_UI_CHANGE_JSKIM
-			// 2011-11-03 by jhahn EP4 Áß¸³Áö¿ª ¾ÆÀÌµð »ö º¯°æ
+			// 2011-11-03 by jhahn EP4 ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ((((m_myShuttleInfo.MapChannelIndex.MapIndex - 4000) / 100) == 1) && (pUnit->m_dwPartType == _ENEMY))
 			{
 				return;
 			}
-			//end 2011-11-03 by jhahn EP4 Áß¸³Áö¿ª ¾ÆÀÌµð »ö º¯°æ
+			//end 2011-11-03 by jhahn EP4 ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			#endif
 			if(pUnit)
 			{
 				v2 = D3DXVECTOR2(pUnit->m_nObjScreenX,pUnit->m_nObjScreenY);
-				if(IS_DT(m_myShuttleInfo.UnitKind) && m_bIsAir == FALSE)	// A±â¾îÀÎ °æ¿ì
-				{// 2007-07-27 by dgwoo A±â¾îÀÇ °æ¿ì ¶¥¿¡¼­ µû·Î Ã³¸®ÇØÁØ´Ù.
+				if(IS_DT(m_myShuttleInfo.UnitKind) && m_bIsAir == FALSE)	// Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				{// 2007-07-27 by dgwoo Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 
 					if( D3DXVec2Length(&(v1 - v2)) < SHUTTLE_TARGET_MOUSE_CIRCLE_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800) )
 					{
@@ -11422,8 +11434,8 @@ void CShuttleChild::Old2CheckTarget()
 						g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 					}
 				}
-				// 2005-03-29 by jschoi - °¡¿îµ¥·Î Å¸°ÙÀÏ ¶§ ¿©±â ºÎÅÍ ÁÖ¼®
-				else if(D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ È­¸Á ¾È¿¡ ÀÖ´Â °æ¿ì
+				// 2005-03-29 by jschoi - ï¿½ï¿½ï¿½îµ¥ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
+				else if(D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ È­ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 				{
 					fLength = D3DXVec2Length(&(v1-v2));
 					if( fLength < SHUTTLE_TARGET_MOUSE_CIRCLE_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800) ||
@@ -11431,29 +11443,29 @@ void CShuttleChild::Old2CheckTarget()
 					{
  						m_pTarget = pUnit;
 						if(m_bLButtonState)
-						{// °ø°ÝÁß(Å¬¸¯µÊ) °ø°ÝÁß 1Çü Å¸°Ù º¯°æ
-							// ¸¶¿ì½º ¾÷¹öÆ° ÀÌ¸é Å¸°Ù Ã¤ÀÎÁö
+						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+							// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½Æ° ï¿½Ì¸ï¿½ Å¸ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½
 							// 2006-01-19 by ispark
 							if(TRUE == m_bTargetChange && m_pOrderTarget == NULL)
 							{
-								// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
-								// BELL_INFINITY_DEFENSE_MONSTER ÀÎ ¸ó½ºÅÍ´Â Å¸°ÙÀÌ ¾ÈÀâÈ÷µµ·Ï ÇÑ´Ù
-								// BODYCON_CREATION_MASK ÀÎ ¸ó½ºÅÍ´Â Å¸°ÙÀÌ ¾ÈÀâÈ÷µµ·Ï ÇÑ´Ù
+								// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+								// BELL_INFINITY_DEFENSE_MONSTER ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
+								// BODYCON_CREATION_MASK ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
 								if( m_pTarget->m_dwPartType == _MONSTER )
 								{
-									// 2010. 03. 24 by ckPark ¸®Á¨ÁßÀÎ ¸ó½ºÅÍÁß 10ÃÊ »ý¼º ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ÀÖ´Â ¸ó½ºÅÍ¸¸ Å¸°Ù ¾ÈÀâÈ÷µµ·Ï º¯°æ
+									// 2010. 03. 24 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 									if( ((CMonsterData*)(m_pTarget))->m_pMonsterInfo->Belligerence == BELL_INFINITY_DEFENSE_MONSTER
 // 										|| COMPARE_BODYCON_BIT( ((CMonsterData*)(m_pTarget))->GetCurrentBodyCondition(), BODYCON_CREATION_MASK ) )
 									if( ((CMonsterData*)(m_pTarget))->m_pMonsterInfo->Belligerence == BELL_INFINITY_DEFENSE_MONSTER
 										||
 										( COMPARE_MPOPTION_BIT(((CMonsterData*)(m_pTarget))->m_pMonsterInfo->MPOption, MPOPTION_BIT_PATTERN_MONSTER )
 										&& COMPARE_BODYCON_BIT(((CMonsterData*)(m_pTarget))->GetCurrentBodyCondition(), BODYCON_CREATION_MASK) ) )
-									// end 2010. 03. 24 by ckPark ¸®Á¨ÁßÀÎ ¸ó½ºÅÍÁß 10ÃÊ »ý¼º ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ÀÖ´Â ¸ó½ºÅÍ¸¸ Å¸°Ù ¾ÈÀâÈ÷µµ·Ï º¯°æ
+									// end 2010. 03. 24 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 									{
 										break;
 									}
 								}
-								// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+								// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 								m_pOrderTarget = m_pTarget;
@@ -11461,7 +11473,7 @@ void CShuttleChild::Old2CheckTarget()
 							}
 						}
 						else
-						{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+						{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 							g_pInterface->m_pTarget->SetMouseType(g_pInterface->m_pTarget->m_nTargetColor);
 						}
 						break;
@@ -11486,21 +11498,21 @@ void CShuttleChild::Old2CheckTarget()
 			it++;
 		}
 
-		// 2005-03-29 by jschoi - °¡¿îµ¥·Î Å¸°ÙÀÏ ¶§ ¿©±â ºÎÅÍ ÁÖ¼®
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2005-03-29 by jschoi - ï¿½ï¿½ï¿½îµ¥ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//if(it == m_pPrimaryWeapon->m_vecTargetIndex.end())
 		if(it == m_pPrimaryWeapon->m_vecTargetIndexData.end())
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
-			if( (IS_DT(m_myShuttleInfo.UnitKind) && m_bIsAir == FALSE) ||	// A±â¾îÀÎ °æ¿ì
-				D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ È­¸Á ¾È¿¡ ÀÖ´Â °æ¿ì
+			if( (IS_DT(m_myShuttleInfo.UnitKind) && m_bIsAir == FALSE) ||	// Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ È­ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 			{
 				if(m_bLButtonState)
-				{// °ø°ÝÁß(Å¬¸¯µÊ)
+				{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 					g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_5);
 				}
 				else
-				{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+				{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 					g_pInterface->m_pTarget->SetMouseType(g_pInterface->m_pTarget->m_nTargetColor);
 				}
 			}
@@ -11510,7 +11522,7 @@ void CShuttleChild::Old2CheckTarget()
 			}
 		}
 
-		// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®
+		// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½
 		// if( m_pTarget && m_pOrderTarget == NULL )
 		BOOL bTargetColl = TRUE;
 		if(NULL == m_pOrderTarget )
@@ -11520,47 +11532,47 @@ void CShuttleChild::Old2CheckTarget()
 		
 		if( (FALSE == bTargetColl )&& m_pTarget && m_pOrderTarget == NULL )
 		{
-			// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
-			// BELL_INFINITY_DEFENSE_MONSTER ÀÎ ¸ó½ºÅÍ´Â Å¸°ÙÀÌ ¾ÈÀâÈ÷µµ·Ï ÇÑ´Ù
-			// BODYCON_CREATION_MASK ÀÎ ¸ó½ºÅÍ´Â Å¸°ÙÀÌ ¾ÈÀâÈ÷µµ·Ï ÇÑ´Ù
+			// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+			// BELL_INFINITY_DEFENSE_MONSTER ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
+			// BODYCON_CREATION_MASK ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
 			if( m_pTarget->m_dwPartType == _MONSTER )
 			{
-				// 2010. 03. 24 by ckPark ¸®Á¨ÁßÀÎ ¸ó½ºÅÍÁß 10ÃÊ »ý¼º ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ÀÖ´Â ¸ó½ºÅÍ¸¸ Å¸°Ù ¾ÈÀâÈ÷µµ·Ï º¯°æ
+				// 2010. 03. 24 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 				if( ((CMonsterData*)(m_pTarget))->m_pMonsterInfo->Belligerence == BELL_INFINITY_DEFENSE_MONSTER
 // 					|| COMPARE_BODYCON_BIT( ((CMonsterData*)(m_pTarget))->GetCurrentBodyCondition(), BODYCON_CREATION_MASK ) )
 				if( ((CMonsterData*)(m_pTarget))->m_pMonsterInfo->Belligerence == BELL_INFINITY_DEFENSE_MONSTER
 					||
 					( COMPARE_MPOPTION_BIT(((CMonsterData*)(m_pTarget))->m_pMonsterInfo->MPOption, MPOPTION_BIT_PATTERN_MONSTER )
 					&& COMPARE_BODYCON_BIT(((CMonsterData*)(m_pTarget))->GetCurrentBodyCondition(), BODYCON_CREATION_MASK) ) )
-				// end 2010. 03. 24 by ckPark ¸®Á¨ÁßÀÎ ¸ó½ºÅÍÁß 10ÃÊ »ý¼º ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ÀÖ´Â ¸ó½ºÅÍ¸¸ Å¸°Ù ¾ÈÀâÈ÷µµ·Ï º¯°æ
+				// end 2010. 03. 24 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					return;
 				}
 			}
-			// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+			// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-			// 2005-02-15 by jschoi - ¿À´õ Å¸°ÙÀ» Àâ´Â ºÎºÐ
+			// 2005-02-15 by jschoi - ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 			m_pOrderTarget = m_pTarget;
 
 			// 2005-10-19 by ispark
-			// Enemy Å¸°Ù¿¡ ÀÖ´ÂÁö °Ë»ç
+			// Enemy Å¸ï¿½Ù¿ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 			vector<PK_TARGET *>::iterator itEnemy = m_vecPKTarget.begin();
 			while(itEnemy != m_vecPKTarget.end())
 			{
 				CEnemyData* pTarget = (CEnemyData*)g_pScene->FindUnitDataByClientIndex( (*itEnemy)->nTargetIndex );
 				if(m_pOrderTarget == pTarget)
 				{
-					// ÀÖÀ½
+					// ï¿½ï¿½ï¿½ï¿½
 					return;
 				}
 				itEnemy++;
 			}
 
-			if(	m_pTarget->m_dwPartType == _ENEMY &&						// 1. Å¸°ÙÀÌ EnemyÀÌ°í,
-//				((CEnemyData*)m_pTarget)->GetPkState() == PK_NORMAL &&		// 2. ¼ø¼ö °­Á¦ Å¸°ÙÀÌ¸é // 2006-01-07 by ispark, »èÁ¦
-				g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)	// 3. µµ½Ã Á¡·ÉÀüÁß¿¡´Â º¸³»Áö ¾Ê´Â´Ù.
+			if(	m_pTarget->m_dwPartType == _ENEMY &&						// 1. Å¸ï¿½ï¿½ï¿½ï¿½ Enemyï¿½Ì°ï¿½,
+//				((CEnemyData*)m_pTarget)->GetPkState() == PK_NORMAL &&		// 2. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ì¸ï¿½ // 2006-01-07 by ispark, ï¿½ï¿½ï¿½ï¿½
+				g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)	// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			{
-				// ¼­¹ö·Î º¸³½´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				MSG_FC_MOVE_LOCKON sMsg;
 				sMsg.AttackIndex = g_pShuttleChild->m_myShuttleInfo.ClientIndex;
 				sMsg.TargetIndex = ((CEnemyData*)m_pTarget)->m_infoCharacter.CharacterInfo.ClientIndex;	
@@ -11572,16 +11584,16 @@ void CShuttleChild::Old2CheckTarget()
 	}
 	else
 	{
-		// 1Çü ¹«±â¸¦ ÀåÂøÇÏÁö ¾ÊÀº °æ¿ì
-		if( (IS_DT(m_myShuttleInfo.UnitKind) && m_bIsAir == FALSE) ||	// A±â¾îÀÎ °æ¿ì
-			D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ È­¸Á ¾È¿¡ ÀÖ´Â °æ¿ì
+		// 1ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		if( (IS_DT(m_myShuttleInfo.UnitKind) && m_bIsAir == FALSE) ||	// Aï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			D3DXVec2Length(&(v1 - v3)) < SHUTTLE_ATTACK_CENTER_RADIUS*((float)g_pD3dApp->GetBackBufferDesc().Width/(float)800))// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ È­ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 		{
 			if(m_bLButtonState)
-			{// °ø°ÝÁß(Å¬¸¯µÊ)
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 				g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_4);
 			}
 			else
-			{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 				g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 			}
 		}
@@ -11594,16 +11606,16 @@ void CShuttleChild::Old2CheckTarget()
 
 void CShuttleChild::NewCheckTarget()
 {
-	// 2005-03-24 by jschoi - »õ·Î¿î Å¸°ÙÆÃ ¹æ½Ä
+	// 2005-03-24 by jschoi - ï¿½ï¿½ï¿½Î¿ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// Å¸°ÙÆÃ ¼±ÅÃ(¿¥±â¾î ¼Ó¼º½ºÅ³)
+	// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½Å³)
 	if(m_pSkill->GetSkillTargetState() == TRUE)
 	{
 		g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_11);
 		return;
 	}
 
-	// ÀÎÅÍÆäÀÌ½º ¸ðµå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½
 	// 2006-02-15 by ispark
 	if(//g_pGameMain->IsShowing() ||							// 2006-11-07 by ispark
 		g_pGameMain->m_bMenuLock || 
@@ -11625,27 +11637,27 @@ void CShuttleChild::NewCheckTarget()
 		m_pTarget = NULL;
 
 		if(m_bLButtonState)
-		{// °ø°ÝÁß(Å¬¸¯µÊ)
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 			g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_5);
 		}
 		else
-		{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 			g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_3);
 		}
 
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 // 		vector<int>::iterator it = m_pPrimaryWeapon->m_vecTargetIndex.begin();
 // 		DBGOUT(" m_vecTargetIndex : %d\n",m_pPrimaryWeapon->m_vecTargetIndex.size());
 // 		while(it != m_pPrimaryWeapon->m_vecTargetIndex.end())
 		vector<TARGET_DATA>::iterator it = m_pPrimaryWeapon->m_vecTargetIndexData.begin();
 		DBGOUT(" m_vecTargetIndexData : %d\n",m_pPrimaryWeapon->m_vecTargetIndexData.size());
 		while(it != m_pPrimaryWeapon->m_vecTargetIndexData.end())
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
-			// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			//CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( (*it) );
 			CUnitData* pUnit = g_pScene->FindUnitDataByClientIndex( (*it).nTargetIndex );
-			// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+			// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			ASSERT_ASSERT(pUnit);
 			if(pUnit)
 			{
@@ -11659,11 +11671,11 @@ void CShuttleChild::NewCheckTarget()
 				{
 					m_pTarget = pUnit;
 					if(m_bLButtonState)
-					{// °ø°ÝÁß(Å¬¸¯µÊ)
+					{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½)
 						g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_4);
 					}
 					else
-					{// °ø°ÝÇÏÁö ¾ÊÀ½(³ë Å¬¸¯)
+					{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å¬ï¿½ï¿½)
 						g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_2);
 					}
 					break;
@@ -11674,28 +11686,28 @@ void CShuttleChild::NewCheckTarget()
 
 		if( m_pTarget && m_pOrderTarget == NULL )
 		{
-			// 2005-02-15 by jschoi - ¿À´õ Å¸°ÙÀ» Àâ´Â ºÎºÐ
+			// 2005-02-15 by jschoi - ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îºï¿½
  			m_pOrderTarget = m_pTarget;
 
 			// 2005-10-19 by ispark
-			// Enemy Å¸°Ù¿¡ ÀÖ´ÂÁö °Ë»ç
+			// Enemy Å¸ï¿½Ù¿ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 			vector<PK_TARGET *>::iterator itEnemy = m_vecPKTarget.begin();
 			while(itEnemy != m_vecPKTarget.end())
 			{
 				CEnemyData* pTarget = (CEnemyData*)g_pScene->FindUnitDataByClientIndex( (*itEnemy)->nTargetIndex );
 				if(m_pOrderTarget == pTarget)
 				{
-					// ÀÖÀ½
+					// ï¿½ï¿½ï¿½ï¿½
 					return;
 				}
 				itEnemy++;
 			}
 			
-			if(	m_pTarget->m_dwPartType == _ENEMY &&						// 1. Å¸°ÙÀÌ EnemyÀÌ°í,
-//				((CEnemyData*)m_pTarget)->GetPkState() == PK_NORMAL &&		// 2. ¼ø¼ö °­Á¦ Å¸°ÙÀÌ¸é // 2006-01-07 by ispark, »èÁ¦
-				g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)	// 3. µµ½Ã Á¡·ÉÀüÁß¿¡´Â º¸³»Áö ¾Ê´Â´Ù.
+			if(	m_pTarget->m_dwPartType == _ENEMY &&						// 1. Å¸ï¿½ï¿½ï¿½ï¿½ Enemyï¿½Ì°ï¿½,
+//				((CEnemyData*)m_pTarget)->GetPkState() == PK_NORMAL &&		// 2. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ì¸ï¿½ // 2006-01-07 by ispark, ï¿½ï¿½ï¿½ï¿½
+				g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)	// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			{
-				// ¼­¹ö·Î º¸³½´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				MSG_FC_MOVE_LOCKON sMsg;
 				sMsg.AttackIndex = g_pShuttleChild->m_myShuttleInfo.ClientIndex;
 				sMsg.TargetIndex = ((CEnemyData*)m_pTarget)->m_infoCharacter.CharacterInfo.ClientIndex;
@@ -11706,7 +11718,7 @@ void CShuttleChild::NewCheckTarget()
 	}
 	else
 	{
-		// 1Çü ¹«±â¸¦ ÀåÂøÇÏÁö ¾ÊÀº °æ¿ì
+		// 1ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		g_pInterface->m_pTarget->SetMouseType(MOUSE_TYPE_1);
 	}
 }
@@ -11725,12 +11737,12 @@ void CShuttleChild::CheckMonsterMove(CMonsterData * pMon)
 	switch(pMon->m_ResInfo.bMonType)
 	{
 	case 0:
-		{// ¿òÁ÷ÀÓ ¾øÀ½
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			info.PositionVector = pMon->m_vPos;
 		}
 		break;
 	case 1:
-		{// »óÇÏ ¿òÁ÷ÀÓ
+		{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //			if(pMon->m_vPos.y >= g_pGround->m_projectInfo.fHeightMax - 20.0f
 //				|| pMon->m_vPos.y <= 20.0f)
 			if(pMon->m_vPos.y >= 250.0f)
@@ -11746,7 +11758,7 @@ void CShuttleChild::CheckMonsterMove(CMonsterData * pMon)
 		}
 		break;
 	case 2:
-		{// ÁÂ¿ì ¿òÁ÷ÀÓ
+		{// ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //			if(pMon->m_vPos.x <= 2670.0f || pMon->m_vPos.x >= 3750.0f)// || pMon->m_vPos.z <= 77.0f|| pMon->m_vPos.z >= 957.0f)
 			if(pMon->m_vPos.z <= 77.0f)// || pMon->m_vPos.z <= 77.0f|| pMon->m_vPos.z >= 957.0f)
 			{
@@ -11761,7 +11773,7 @@ void CShuttleChild::CheckMonsterMove(CMonsterData * pMon)
 		}
 		break;
 	case 3:
-		{// »óÇÏ ÁÂ¿ì ¿òÁ÷ÀÓ
+		{// ï¿½ï¿½ï¿½ï¿½ ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //			if(pMon->m_vPos.x <= 2670.0f || pMon->m_vPos.x >= 3750.0f)// || pMon->m_vPos.z <= 77.0f|| pMon->m_vPos.z >= 957.0f)
 			if(pMon->m_vPos.z <= 77.0f)// || pMon->m_vPos.z <= 77.0f|| pMon->m_vPos.z >= 957.0f)
 			{
@@ -11816,7 +11828,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 			SetShuttleFlightInit(fElapsedTime);
 			if(D3DXVec3Length(&(m_vPos - m_vTargetPos)) < 0.5f && ACOS(D3DXVec3Dot(&m_vTargetVel,&m_vVel)) < 0.01f 
 				&& vSide.y < 0.01f)
-			{// °­Á¦ ÀÌµ¿ ÇØÁ¦
+			{// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 				int nCheckX = ((int)m_vPos.x)/TILE_SIZE;
 				int nCheckZ = ((int)m_vPos.z)/TILE_SIZE;
 				if(g_pGround->m_pTileInfo[nCheckX*g_pGround->m_projectInfo.sYSize + nCheckZ].bEnableLand)
@@ -11839,7 +11851,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 			vOldPos = m_vPos;
 
 			if(D3DXVec2Length(&(vPos1 - vPos2)) > 0.5f)
-			{// ¸ñÀûÁö ±îÁö °¡´Â Áß¿¡ °¡´Â °÷À» ¹Ù¶óº¸°Ô ÇÑ´Ù.
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸°ï¿½ ï¿½Ñ´ï¿½.
 				D3DXVec2Normalize(&vVel2,&(vPos2 - vPos1));
 				vVel.x = vVel2.x;
 				vVel.z = vVel2.y;
@@ -11853,7 +11865,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 				m_vPos.z = vPos1.y;
 				m_vPos.y += (m_vTargetPos.y + 20.0f - m_vPos.y)*fElapsedTime;
 				if(D3DXVec2Length(&(vOldPos2 - vPos2)) < D3DXVec2Length(&(vPos1 - vPos2)))
-				{// Å¸°Ù ÁöÁ¡À» Áö³ª°¡°Ô µÉ¶§ Å¸°Ù ÁöÁ¡À¸·Î ÀÌµ¿½ÃÅ²´Ù.
+				{// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¶ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 					m_vPos.x = m_vTargetPos.x;
 					m_vPos.z = m_vTargetPos.z;
 				}
@@ -11888,7 +11900,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 				D3DXVec3TransformCoord(&m_vUp,&m_vUp,&mat);
 			}
 			else
-			{// ¸ñÀûÁö ±îÁö µµÂøÈÄ ¼³Á¤ÇÑ ¹æÇâÀ¸·Î º¸°Ô ÇÑ´Ù.
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 				m_vPos.y += 0.5f*(m_vTargetPos.y - m_vPos.y)*fElapsedTime;
 				
 				vVel = m_vTargetVel;
@@ -11923,14 +11935,14 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 			}
 		}
 		break;
-	case 1:// Á÷¼± Âø·ú
+	case 1:// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			if(m_fSideCheckRate > 0.0f)
 				m_fSideCheckRate -= 0.5f*fElapsedTime;
 			if(m_fSideCheckRate < 0.0f)
 				m_fSideCheckRate = 0.0f;
-			// ÆòÇü ¸¶Ãß±â
-			// 2005-12-07 by ispark, µÚ·Î ¿òÁ÷ÀÌ°í ÀÖ¾ú´Ù¸é ½ºÇÇµå 0À¸·Î ¸¸µé¾î¼­ Á¤Áö
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
+			// 2005-12-07 by ispark, ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ö¾ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Çµï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½
 			if(m_fShuttleSpeed < 0)
 				m_fShuttleSpeed = 0.0f;
 			SetShuttleFlightInit(fElapsedTime);
@@ -11941,7 +11953,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 			{
 				m_fSinMove += fElapsedTime;
 			}
-			m_vPos.y -= 50.0f*fElapsedTime*m_fSinMove;          // Âø·ú½Ã ³ôÀÌ °¨¼Ò·® ¼¼ÆÃ
+			m_vPos.y -= 50.0f*fElapsedTime*m_fSinMove;          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			float fTempHeight = 100.0f;
 			COLLISION_RESULT collResult;
 			if(m_bOnObject)
@@ -11963,11 +11975,11 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 				if(m_vPos.y <= fTempHeight+m_fAmorHeight)
 				{
 					m_vPos.y = fTempHeight+m_fAmorHeight;
-					// 2007-12-05 by bhsohn º®¿¡ ¶Õ°í µé¾î°¡´Â Çö»ó Ã³¸®
+					// 2007-12-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //					SendPacket(T_FC_MOVE_LANDING_DONE);
 //					DBGOUT("T_FC_MOVE_LANDING_DONE\n");
 //					ChangeUnitState( _LANDED );
-					// Ãæµ¹ÀÌ ÀÖ¾î³µ´Ù.
+					// ï¿½æµ¹ï¿½ï¿½ ï¿½Ö¾î³µï¿½ï¿½.
 					if(FALSE == CheckObjLandingColl(collResult.vNormalVector))
 					{
 						if(CancelLandingMode())
@@ -11978,13 +11990,13 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 					SendPacket(T_FC_MOVE_LANDING_DONE);
 					DBGOUT("T_FC_MOVE_LANDING_DONE\n");
 					ChangeUnitState( _LANDED );
-					// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®								
+					// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½								
 					if(IS_DT(m_myShuttleInfo.UnitKind))
 					{
-						// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+						// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 						InitUnitStop();
 					}				
-					// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+					// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					
 					return TRUE;
 				}
@@ -11993,7 +12005,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 			{
 				if(m_vPos.y <= fCheckMapHeight+m_fAmorHeight)
 				{
-					// 2008-03-04 by bhsohn A±â¾î°¡ ¾Æ´Ñ ±â¾î°¡ ¶¥¿¡ Âø·ú½Ã °­Á¦ Ãâ°Ý½ÃÅ´
+					// 2008-03-04 by bhsohn Aï¿½ï¿½î°¡ ï¿½Æ´ï¿½ ï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ý½ï¿½Å´
 					if((g_pTutorial->IsTutorialMode() == FALSE)
 						&& !IS_DT(m_myShuttleInfo.UnitKind))
 					{
@@ -12002,18 +12014,18 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 							return TRUE;
 						}
 					}
-					// end 2008-03-04 by bhsohn A±â¾î°¡ ¾Æ´Ñ ±â¾î°¡ ¶¥¿¡ Âø·ú½Ã °­Á¦ Ãâ°Ý½ÃÅ´
+					// end 2008-03-04 by bhsohn Aï¿½ï¿½î°¡ ï¿½Æ´ï¿½ ï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ý½ï¿½Å´
 					m_vPos.y = fCheckMapHeight+m_fAmorHeight;
 					SendPacket(T_FC_MOVE_LANDING_DONE);
 					DBGOUT("T_FC_MOVE_LANDING_DONE\n");
 					ChangeUnitState( _LANDED );
-					// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®								
+					// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½								
 					if(IS_DT(m_myShuttleInfo.UnitKind))
 					{
-						// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+						// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 						InitUnitStop();
 					}				
-					// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+					// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 					return TRUE;
 				}
@@ -12032,7 +12044,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 //			}
 		}
 		break;
-	case 2:// È¸Àü Âø·ú
+	case 2:// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			SetShuttleFlightInit(fElapsedTime);
 			if(m_fLandingCheckTime > 0.0f)
@@ -12075,7 +12087,7 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 //				if(D3DXVec3Length(&(m_vPos - m_vTargetPos)) < 5.0f)// && ACOS(D3DXVec3Dot(&m_vTargetVel,&m_vVel)) < 0.01f 
 				if(m_vPos.y <= m_vTargetPos.y + 5.0f)// && ACOS(D3DXVec3Dot(&m_vTargetVel,&m_vVel)) < 0.01f 
 //					&& vSide.y < 0.01f)
-				{// °­Á¦ ÀÌµ¿ ÇØÁ¦
+				{// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_vPos.y = m_vTargetPos.y;
 					SendPacket(T_FC_MOVE_LANDING_DONE);
 					DBGOUT("T_FC_MOVE_LANDING_DONE\n");
@@ -12083,13 +12095,13 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 					//m_dwState = _LANDED;
 					m_fShuttleSpeed = 100.0f;
 					
-					// 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®								
+					// 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½								
 					if(IS_DT(m_myShuttleInfo.UnitKind))
 					{
-						// A±â¾î ¶ó¸é ¿òÁ÷ÀÓ ÃÊ±âÈ­
+						// Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 						InitUnitStop();
 					}				
-					// end 2007-01-02 by bhsohn A±â¾î b+Enter·Î ¸ØÃá ÈÄ, Âø·úÇÏ¸é ¾È ¿òÁ÷¿©Áö´Â Çö»ó Ã³¸®
+					// end 2007-01-02 by bhsohn Aï¿½ï¿½ï¿½ b+Enterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 					return TRUE;
 				}
 				m_vPos += 0.5f*(m_vTargetPos - m_vPos)*fElapsedTime;
@@ -12131,13 +12143,13 @@ BOOL CShuttleChild::MoveOrder(BYTE bType)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::SetOrderMoveTargetPos(BOOL bObjectLanding)
-/// \brief		Âø·ú ÁöÁ¡ °è»ê
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 /// \author		dhkwon
 /// \date		2004-06-29 ~ 2004-06-29
-/// \warning	¿ÀºêÁ§Æ®°¡ ÀÖ´Â °æ¿ì À¯´ÖÀÇ ³ôÀÌº¸´Ù ³ôÀ¸¸é Âø·ú ½ÇÆÐ
-///				A±â¾î´Â °æ¿ì bObjectLanding=FALSE
+/// \warning	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+///				Aï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ bObjectLanding=FALSE
 ///
-///		Ãß°¡	Âø·ú ÁöÁ¡ °è»ê¿¡¼­ ¹° ¿ÀºêÁ§Æ®´Â Á¦¿ÜÇÑ´Ù.	// 2005-02-11 by jschoi	
+///		ï¿½ß°ï¿½	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ê¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.	// 2005-02-11 by jschoi	
 ///
 /// \param		
 /// \return		
@@ -12171,7 +12183,7 @@ BOOL CShuttleChild::SetOrderMoveTargetPos(BOOL bObjectLanding)
 		return FALSE;
 	}
 
-//		fTempHeight1 = g_pScene->m_pObjectRender->CheckCollMesh(matTemp,vPos).fDist;// object Ãæµ¹ ³ôÀÌ
+//		fTempHeight1 = g_pScene->m_pObjectRender->CheckCollMesh(matTemp,vPos).fDist;// object ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
 //		if(fTempHeight1 > vPos.y)
 //		{
 //			if(bObjectLanding)
@@ -12187,7 +12199,7 @@ BOOL CShuttleChild::SetOrderMoveTargetPos(BOOL bObjectLanding)
 //		{
 //			fTempHeight1 = vPos.y - fTempHeight1;
 //		}
-	float fTempHeight2 = CheckMap(m_vPos);// ¸Ê Ãæµ¹ ³ôÀÌ
+	float fTempHeight2 = CheckMap(m_vPos);// ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
 	if(fTempHeight2 < fTempHeight1)
 	{
 		if(m_vPos.y > fTempHeight1 + m_fAmorHeight)
@@ -12217,14 +12229,14 @@ BOOL CShuttleChild::SetOrderMoveTargetPos(BOOL bObjectLanding)
 
 void CShuttleChild::SetCursorInit()
 {
-	// 2012-12-17 by jhjang °ÔÀÓÀÌ ¹é±×¶ó¿îµåÀÏ¶§, ¸¶¿ì½º Æ÷Ä¿½º¸¦ ÃÊ±âÈ­ ÇÏÁö ¾Êµµ·Ï ¼öÁ¤
-	//À©µµ¿ì Æ÷Ä¿½º¸¦ Ã¼Å©, ¹é ±×¶ó¿îµåÀÌ¸é Ä¿¼­ ÃÊ±âÈ­¸¦ ÇÏÁö ¾Êµµ·Ï ÇÑ´Ù.
+	// 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½×¶ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½, ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ Ã¼Å©, ï¿½ï¿½ ï¿½×¶ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ Ä¿ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 #ifdef C_MOUSEFOCUS_BACKGROUND_NOTRESET
 	HWND hWnd = GetFocus();
 	if(g_pD3dApp->GetHwnd() != hWnd)
 		return;
 #endif
-	// end 2012-12-17 by jhjang °ÔÀÓÀÌ ¹é±×¶ó¿îµåÀÏ¶§, ¸¶¿ì½º Æ÷Ä¿½º¸¦ ÃÊ±âÈ­ ÇÏÁö ¾Êµµ·Ï ¼öÁ¤
+	// end 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½×¶ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½, ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	FLOG( "CShuttleChild::SetCursorInit()" );
 	POINT pt,pt2;
@@ -12239,7 +12251,7 @@ void CShuttleChild::SetCursorInit()
 	nY += g_pD3dApp->GetBackBufferDesc().Height/2;
 	SetCursorPos(nX,nY);
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	m_bSetCursorPos = TRUE;
 }
 
@@ -12291,13 +12303,13 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 		
 		EVENT_POINT SkillPoint, CameraPoint;
 		SkillPoint=m_pCinemaUnitPattern->GetCurrentCinemaPoint();
-		vOldPos = m_vPos;							// ÀÌÀü À§Ä¡
-		m_vPos = SkillPoint.vPosition;				// À§Ä¡
-		m_vVel = SkillPoint.vDirection;				// ¹æÇâ
+		vOldPos = m_vPos;							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+		m_vPos = SkillPoint.vPosition;				// ï¿½ï¿½Ä¡
+		m_vVel = SkillPoint.vDirection;				// ï¿½ï¿½ï¿½ï¿½
 		m_vUp = SkillPoint.vUpVector;
 		m_vTargetPosition = SkillPoint.vTarget;
 
-		// 2005-12-02 by ispark, ¼Óµµ ÀÔ·Â
+		// 2005-12-02 by ispark, ï¿½Óµï¿½ ï¿½Ô·ï¿½
 		m_fShuttleSpeed = SkillPoint.fVelocity;
 
 		if(m_bIsCameraPattern == TRUE)
@@ -12309,7 +12321,7 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 			vCameraVel = m_vPos - CameraPoint.vPosition;
 			vCameraUp = CameraPoint.vUpVector;
 			
-			// Ä«¸Þ¶óÀÇ À§Ä¡ ¼ÂÆÃ 2004.06.24 jschoi
+			// Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 2004.06.24 jschoi
 			g_pD3dApp->m_pCamera->Tick(vCameraPos,vCameraVel,vCameraUp);
 			
 		}		
@@ -12322,14 +12334,14 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 
 			DeletePattern();
 			m_nEventTypeAirPort = AIR_PORT_LANDING_PATTERN_NONE;
-			// 2008-06-17 by bhsohn Æí´ë °ü·Ã Ã³¸®
-			// ¹«ºê ½ºÅ³ÀÌ ³¡³µÀ¸¸é °ú°Å Æí´ë Á¤º¸·Î º¯°æ
+			// 2008-06-17 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pClientParty->RefreshFormationType();
-			// end 2008-06-17 by bhsohn Æí´ë °ü·Ã Ã³¸®
+			// end 2008-06-17 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		}
 	}
 
-	// Âø·ú ÆÐÅÏ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL bLANDINGPattern = FALSE;
 	switch(m_nEventTypeAirPort)
 	{
@@ -12367,13 +12379,13 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 
 	switch(nPatternType)
 	{
-	case TARGET_ON:	// Å¸ÄÏ ¹æÇâÀÌ ÀÖ´Â ÆÐÅÏ
+	case TARGET_ON:	// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			D3DXMatrixLookAtRH( &m_mMatrix, &m_vPos, &(m_vTargetPosition), &m_vUp);
 			D3DXVec3Normalize( &m_vVel , &(m_vTargetPosition - m_vPos) ); 
 		}
 		break;
-	case TARGET_OFF: // Å¸ÄÏ ¹æÇâÀÌ ¾ø´Â ÆÐÅÏ
+	case TARGET_OFF: // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			D3DXMatrixLookAtLH( &m_mMatrix, &m_vPos, &(m_vPos - m_vVel), &m_vUp);
 		}
@@ -12381,7 +12393,7 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 	}
 
 	// 2005-11-29 by ispark
-	// ¿À¹öºÎ½ºÅÍ ½ºÅ³À» »ç¿ë ÁßÀÌ¶ó¸é Æ¯º° ÀÌÆåÆ®(ºÎ½ºÅÍ) ½ÇÇà
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®(ï¿½Î½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
 	if(m_pSkill->IsSkillOverBooster())
 	{
 		m_nBooster = BOOSTER_TYPE_MAX;
@@ -12390,7 +12402,7 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 
 	D3DXMatrixInverse( &m_mMatrix, NULL, &m_mMatrix );
 
-	// ÁÂ¿ì ³¯°³ ¿£Áø À§Ä¡ ¼³Á¤
+	// ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	m_vSideVel.x = m_mMatrix._11;
 	m_vSideVel.y = m_mMatrix._12;
 	m_vSideVel.z = m_mMatrix._13;
@@ -12404,7 +12416,7 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 	D3DXVECTOR3 vSecondaryRightPos = D3DXVECTOR3(-m_SecondaryAttack.vSidePos.x, m_SecondaryAttack.vSidePos.y, m_SecondaryAttack.vSidePos.z);
 	D3DXVec3TransformCoord(&m_vRWSecondaryPos, &vSecondaryRightPos, &m_mMatrix);
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	D3DXVec3TransformCoord(&m_vPetLeftPos, &m_PetAttack.vSidePos, &m_mMatrix);
 	
 	D3DXVECTOR3 vPetRightPos = D3DXVECTOR3(-m_PetAttack.vSidePos.x,
@@ -12414,12 +12426,12 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 
 	m_vPetLeftVel = m_vVel;
 	m_vPetRightVel = m_vVel;
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
-	// ¹«±â ¹æÇâ(¿¡ÀÌ ±â¾î)
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
 
 	if(IS_DT(m_myShuttleInfo.UnitKind))
 	{
-		// 2006-01-16 by ispark, ¿Ö A±â¾î°¡ ÆÐÅÏ ÀÌµ¿ÀÏ ¶§ Æ÷¸¦ ¿òÁ÷ÀÌ°Ô ÇßÀ»±î? 
+		// 2006-01-16 by ispark, ï¿½ï¿½ Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? 
 //		if(g_pTutorial->IsTutorialMode() == TRUE)
 //		{
 			m_vWeaponVel = m_vVel;
@@ -12430,22 +12442,22 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 //		}
 	}
 	
-	// ½ºÅ©¸°»óÀÇ ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	// ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	g_pD3dApp->CalcObjectSourceScreenCoords(m_vPos, g_pD3dApp->GetBackBufferDesc().Width, g_pD3dApp->GetBackBufferDesc().Height, 
 		m_nObjScreenX, m_nObjScreenY,m_nObjScreenW);
-	// Ä«¸Þ¶ó·ÎºÎÅÍÀÇ °Å¸®
+	// Ä«ï¿½Þ¶ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 	m_fDistanceCamera = D3DXVec3Length(&(m_vPos - g_pD3dApp->m_pCamera->GetEyePt()));
 	m_pMoveChat->Tick();
 	m_pIDChat->Tick();
 
 
-	// 2004-11-26 by jschoi - Ãæµ¹ Ã³¸®
-	// ÆÐÅÏ ÀÌµ¿ Áß Ãæµ¹ Ã³¸®(´Ü, ¿öÇÁÀÎ, ¿öÇÁ¾Æ¿ô ÆÐÅÏÀº Ãæµ¹Ã³¸® »ý·«)
+	// 2004-11-26 by jschoi - ï¿½æµ¹ Ã³ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½(ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	if(	m_nCurrentPatternNumber != PATTERN_UNIT_WARP_IN &&
 		m_nCurrentPatternNumber != PATTERN_UNIT_WARP_OUT &&
 		bLANDINGPattern == FALSE)
 	{
-		// ¸Ê°úÀÇ Ãæµ¹ °Ë»ç-¼ÅÆ²ÀÇ Áß¿ä 4ºÎºÐÀÇ Ãæµ¹ °Ë»ç¸¦ ÇÏÀÚ ¾Õ µÚ ÁÂ ¿ì(4 ±ÍÅüÀÌ ÁÂÇ¥¸¦ ¸ÂÃß´Â ÀÛ¾÷µµ ÇØÁà¾ßÇÒ °ÍÀÌ´Ù)
+		// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½-ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ß¿ï¿½ 4ï¿½Îºï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ç¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½(4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½)
 		D3DXVECTOR3 vFront, vBack, vLeft, vRight;
 		D3DXVECTOR3 vParticlePos;
 		vFront = m_vPos + 8.0f*m_vVel;
@@ -12496,7 +12508,7 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 		if(nMapCheckType)
 		{
 			DeletePattern();
-			m_vPos = vOldPos;			// Ãæµ¹ ÇßÀ¸¹Ç·Î ÀÌÀü À§Ä¡·Î
+			m_vPos = vOldPos;			// ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½
 			m_bKeyBlock = FALSE;
 		}
 
@@ -12504,58 +12516,58 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 		D3DXMATRIX matArray[6];
 		D3DXVECTOR3 vSide,vVel;
 		D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
-		D3DXMatrixLookAtLH(&matArray[COLL_FRONT],&m_vPos,&(m_vPos + m_vVel),&m_vUp);	// ¾Õ
-		D3DXMatrixLookAtLH(&matArray[COLL_BACK],&m_vPos,&(m_vPos - m_vVel),&m_vUp);	// µÚ
-		D3DXMatrixLookAtLH(&matArray[COLL_LEFT],&m_vPos,&(m_vPos - vSide),&m_vUp);		// ÁÂ
-		D3DXMatrixLookAtLH(&matArray[COLL_RIGHT],&m_vPos,&(m_vPos + vSide),&m_vUp);		// ¿ì
-		D3DXMatrixLookAtLH(&matArray[COLL_UP],&m_vPos,&(m_vPos + m_vUp),&vSide);		// À§
-		D3DXMatrixLookAtLH(&matArray[COLL_DOWN],&m_vPos,&(m_vPos - m_vUp),&vSide);		// ¾Æ·¡
+		D3DXMatrixLookAtLH(&matArray[COLL_FRONT],&m_vPos,&(m_vPos + m_vVel),&m_vUp);	// ï¿½ï¿½
+		D3DXMatrixLookAtLH(&matArray[COLL_BACK],&m_vPos,&(m_vPos - m_vVel),&m_vUp);	// ï¿½ï¿½
+		D3DXMatrixLookAtLH(&matArray[COLL_LEFT],&m_vPos,&(m_vPos - vSide),&m_vUp);		// ï¿½ï¿½
+		D3DXMatrixLookAtLH(&matArray[COLL_RIGHT],&m_vPos,&(m_vPos + vSide),&m_vUp);		// ï¿½ï¿½
+		D3DXMatrixLookAtLH(&matArray[COLL_UP],&m_vPos,&(m_vPos + m_vUp),&vSide);		// ï¿½ï¿½
+		D3DXMatrixLookAtLH(&matArray[COLL_DOWN],&m_vPos,&(m_vPos - m_vUp),&vSide);		// ï¿½Æ·ï¿½
 		float fMoveDistance = D3DXVec3Length(&(m_vPos - vOldPos));
-		float size[6] = { 10+fMoveDistance,10+fMoveDistance,10+fMoveDistance,10+fMoveDistance,5+fMoveDistance,5+fMoveDistance };	// À¯´Ö Å©±â	¾Õ,µÚ,ÁÂ,¿ì,À§,¾Æ·¡	
+		float size[6] = { 10+fMoveDistance,10+fMoveDistance,10+fMoveDistance,10+fMoveDistance,5+fMoveDistance,5+fMoveDistance };	// ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½	ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½Æ·ï¿½	
 		nCollType = g_pScene->m_pObjectRender->CheckCollMesh(matArray,size).nCollType;
 		if(nCollType != COLL_NONE)
 		{
-			// Ãæµ¹ Çß´Ù
+			// ï¿½æµ¹ ï¿½ß´ï¿½
 			DeletePattern();
-			m_vPos = vOldPos;			// Ãæµ¹ ÇßÀ¸¹Ç·Î ÀÌÀü À§Ä¡·Î
+			m_vPos = vOldPos;			// ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½
 			m_bKeyBlock = FALSE;
 		}
 
-		// 2013-01-21 by jhjang ½ºÅ³ ÀÌµ¿Áß ¸ó½ºÅÍ¿ÍÀÇ Ãæµ¹ Ã³¸® Ãß°¡
+		// 2013-01-21 by jhjang ï¿½ï¿½Å³ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 		float fColledMonsterSize = 0;
 		ClientIndex_t monsterIndex = 0;
 		nCollType = g_pScene->m_pMonsterRender->CheckCollMesh(matArray,size,&fColledMonsterSize, &monsterIndex).nCollType;
 
 		if(nCollType != COLL_NONE)
 		{
-			// Ãæµ¹ Çß´Ù
+			// ï¿½æµ¹ ï¿½ß´ï¿½
 			DeletePattern();
-			m_vPos = vOldPos;			// Ãæµ¹ ÇßÀ¸¹Ç·Î ÀÌÀü À§Ä¡·Î
+			m_vPos = vOldPos;			// ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½
 			m_bKeyBlock = FALSE;
 		}
-		// end 2013-01-21 by jhjang ½ºÅ³ ÀÌµ¿Áß ¸ó½ºÅÍ¿ÍÀÇ Ãæµ¹ Ã³¸® Ãß°¡
+		// end 2013-01-21 by jhjang ï¿½ï¿½Å³ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 	}
 
 	if(	m_nCurrentPatternNumber == PATTERN_UNIT_WARP_OUT )
 	{
 		if(m_fWarpOutDistance < D3DXVec3Length(&(m_vPos - m_vWarpOutPosition)) )
 		{
-			// ¿öÇÁ Á¾·á ÇØ¾ßÇÒ À§Ä¡¸¦ Áö³ªÃÆ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½.
 			m_fWarpOutDistance = 0.0f;
 			DeletePattern();
 			m_bKeyBlock = FALSE;
 		}
 	}
 
-	// ¸ÊÀ» ¹þ¾î³ª¸é ¸ø³ª°¡°Ô ¼ÂÆÃ Ã¼Å©
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	if(m_vPos.x < 0.0f || m_vPos.x > g_pGround->m_projectInfo.sXSize*TILE_SIZE || 
 		m_vPos.z < 0.0f || m_vPos.z > g_pGround->m_projectInfo.sYSize*TILE_SIZE)
 	{
 		DeletePattern();
-		m_vPos = vOldPos;			// ÀÌÀü À§Ä¡·Î 
+		m_vPos = vOldPos;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ 
 	}
 
-	// ¸ø°¡´Â Áö¿ªÃ¼Å©ÇÏ¿© »ª½ÃÅ²´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼Å©ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 	int nXCheck, nYCheck;
 	nXCheck = (int)(m_vPos.x / TILE_SIZE);
 	nYCheck = (int)(m_vPos.z / TILE_SIZE);
@@ -12563,10 +12575,10 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 	if(m_bMoveGroundType == 2)
 	{
 		DeletePattern();
-		m_vPos = vOldPos;			// ÀÌÀü À§Ä¡·Î 
+		m_vPos = vOldPos;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ 
 	}
 
-	// ±×¸²ÀÚ À§Ä¡ ¼³Á¤
+	// ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 //	CheckShadowPos();
 
 	if(m_pCharacterInfo)
@@ -12582,11 +12594,11 @@ void CShuttleChild::UseSkillMove(float fElapsedTime)
 void CShuttleChild::SetTargetVectorforLandedMove(void)
 {
 	D3DXVECTOR3 temp;
-	m_vPos.x = (int(m_vPos.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;							// ÀÚ½ÅÀÇ Áß½ÉÁ¡ À§Ä¡ °è»ê
+	m_vPos.x = (int(m_vPos.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;							// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 	m_vPos.z = (int(m_vPos.z/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;
 
 	temp = m_vPos + m_vVel * TILE_SIZE;
-	temp.x = (int(temp.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ÀÚ½ÅÀÇ Áß½ÉÁ¡ À§Ä¡ °è»ê
+	temp.x = (int(temp.x/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;								// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 	temp.z = (int(temp.z/TILE_SIZE))*TILE_SIZE + TILE_SIZE/2;
 	
 	D3DXVec3Normalize(&m_vVel, &(temp - m_vPos));
@@ -12600,13 +12612,13 @@ void CShuttleChild::SetUnitMovingAnimation(float fElapsedTime)
 		
 	FLOAT		Yaw;	
 	
-	if(m_fAniFlag == ANI_UPDOWN_FLAG)														/// ÀüÈÄÁø ÁÂÇ¥°è»ê 
+	if(m_fAniFlag == ANI_UPDOWN_FLAG)														/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ 
 	{	
 	
 		D3DXVec3Lerp( &m_vPos, &m_vMyOldPos, &m_vAniFrame, m_fFrameLerp );						
 
 		// 2005-10-26 by ispark
-		// LANDED ¿ÀºêÁ§Æ® °Ë»ç
+		// LANDED ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë»ï¿½
 		CheckCollForObject2(fElapsedTime);
 		
 //		m_fFrameLerp += 0.05f;  //0.05	
@@ -12620,7 +12632,7 @@ void CShuttleChild::SetUnitMovingAnimation(float fElapsedTime)
 			SetTargetVectorforLandedMove();			
 		}
 	}
-	else if(m_fAniFlag == ANI_LEFT_FLAG || m_fAniFlag == ANI_RIGHT_FLAG )					/// ÁÂ¿ì È¸Àü ÁÂÇ¥°è»ê
+	else if(m_fAniFlag == ANI_LEFT_FLAG || m_fAniFlag == ANI_RIGHT_FLAG )					/// ï¿½Â¿ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½
 	{		
 		if(m_fAniFlag == ANI_LEFT_FLAG)
 		{
@@ -12640,20 +12652,20 @@ void CShuttleChild::SetUnitMovingAnimation(float fElapsedTime)
 //			m_fFrameLerp += fElapsedTime;  // 2004-07-21 by dhkwon
 			
 			D3DXMATRIX mat;
-			D3DXQUATERNION	g_aniRot[2];											/// È¸Àü(quaternion)Å° °ª
+			D3DXQUATERNION	g_aniRot[2];											/// È¸ï¿½ï¿½(quaternion)Å° ï¿½ï¿½
 			
 			FLOAT Pitch	= 0;
 			FLOAT Roll	= 0;
-			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[0], Yaw, Pitch, Roll );	/// »ç¿ø¼ö Å°(YÃà90µµ)
+			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[0], Yaw, Pitch, Roll );	/// ï¿½ï¿½ï¿½ï¿½ï¿½ Å°(Yï¿½ï¿½90ï¿½ï¿½)
 			
 			Yaw	= 0;
-			Pitch	= 0;															/// XÃà 0µµ È¸Àü
+			Pitch	= 0;															/// Xï¿½ï¿½ 0ï¿½ï¿½ È¸ï¿½ï¿½
 			Roll	= 0;
-			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[1], Yaw, Pitch, Roll );	/// »ç¿ø¼ö Å°(XÃà90µµ)
+			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[1], Yaw, Pitch, Roll );	/// ï¿½ï¿½ï¿½ï¿½ï¿½ Å°(Xï¿½ï¿½90ï¿½ï¿½)
 			
 			D3DXQUATERNION quat;
 			D3DXQuaternionSlerp( &quat, &g_aniRot[0], &g_aniRot[1], m_fFrameLerp );
-			D3DXMatrixRotationQuaternion( &mat, &quat );							/// »ç¿ø¼ö¸¦ È¸ÀüÇà·Ä°ªÀ¸·Î º¯È¯
+			D3DXMatrixRotationQuaternion( &mat, &quat );							/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 			D3DXVec3TransformCoord(&m_vVel, &m_vVel, &mat);
 			
 			
@@ -12666,13 +12678,13 @@ void CShuttleChild::SetUnitMovingAnimation(float fElapsedTime)
 		}
 	}
 	
-	else if(m_fAniFlag == ANI_REFLEXION_RIGHT_FLAG || m_fAniFlag == ANI_REFLEXION_LEFT_FLAG)/// º®À» ¸¸³¯¶§ È¸Àü ¹Ý°æ°è»ê 									/// ÁÂ¿ì È¸Àü ÁÂÇ¥°è»ê
+	else if(m_fAniFlag == ANI_REFLEXION_RIGHT_FLAG || m_fAniFlag == ANI_REFLEXION_LEFT_FLAG)/// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½Ý°ï¿½ï¿½ï¿½ 									/// ï¿½Â¿ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½
 	{		
 		if(m_fAniFlag == ANI_REFLEXION_LEFT_FLAG)
 		{
 			if(IS_DT(m_myShuttleInfo.UnitKind) && !m_bIsAir)
 			{
-				// 2008-02-12 by dgwoo A±â¾î°¡ ¶¥¿¡¼­ Ãæµ¹½Ã ¹æÇâÀüÈ¯À» ´Ù¸¥±â¾î¿Í Á¶±Ý ´Ù¸£°Ô Ã³¸®.
+				// 2008-02-12 by dgwoo Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½.
 				D3DXMATRIX matTemp;	
 				
 				D3DXMatrixRotationAxis(&matTemp, &m_vUp, -0.08f);
@@ -12717,20 +12729,20 @@ void CShuttleChild::SetUnitMovingAnimation(float fElapsedTime)
 			m_fFrameLerp += fElapsedTime;// 2004-07-21 by dhkwon
 			
 			D3DXMATRIX mat;
-			D3DXQUATERNION	g_aniRot[2];											/// È¸Àü(quaternion)Å° °ª
+			D3DXQUATERNION	g_aniRot[2];											/// È¸ï¿½ï¿½(quaternion)Å° ï¿½ï¿½
 			
 			FLOAT Pitch	= 0;
 			FLOAT Roll	= 0;
-			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[0], Yaw, Pitch, Roll );	/// »ç¿ø¼ö Å°(YÃà90µµ)
+			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[0], Yaw, Pitch, Roll );	/// ï¿½ï¿½ï¿½ï¿½ï¿½ Å°(Yï¿½ï¿½90ï¿½ï¿½)
 			
 			Yaw	= 0;
-			Pitch	= 0;															/// XÃà 0µµ È¸Àü
+			Pitch	= 0;															/// Xï¿½ï¿½ 0ï¿½ï¿½ È¸ï¿½ï¿½
 			Roll	= 0;
-			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[1], Yaw, Pitch, Roll );	/// »ç¿ø¼ö Å°(XÃà90µµ)
+			D3DXQuaternionRotationYawPitchRoll( &g_aniRot[1], Yaw, Pitch, Roll );	/// ï¿½ï¿½ï¿½ï¿½ï¿½ Å°(Xï¿½ï¿½90ï¿½ï¿½)
 			
 			D3DXQUATERNION quat;
 			D3DXQuaternionSlerp( &quat, &g_aniRot[0], &g_aniRot[1], m_fFrameLerp );
-			D3DXMatrixRotationQuaternion( &mat, &quat );							/// »ç¿ø¼ö¸¦ È¸ÀüÇà·Ä°ªÀ¸·Î º¯È¯
+			D3DXMatrixRotationQuaternion( &mat, &quat );							/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 			D3DXVec3TransformCoord(&m_vVel, &m_vVel, &mat);
 			
 			
@@ -12779,7 +12791,7 @@ BOOL CShuttleChild::ScanEnemyFrontBAckAndSpace(void)
 
 BOOL CShuttleChild::InitCinemaSkill(int nSkillItemNumber)
 {
-	// 2005-12-07 by ispark, ¿¡¾î½ºÅ³ »ç¿ëÇÑ´Ù.
+	// 2005-12-07 by ispark, ï¿½ï¿½ï¿½î½ºÅ³ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	m_bSkillAirMove = TRUE;
 
 	if(InitCinemaUnit(nSkillItemNumber, TRUE) == FALSE)
@@ -12834,16 +12846,16 @@ BOOL CShuttleChild::InitCinemaUnit(int nUnitPatternType, BOOL bUpUse)
 	}
 	else
 	{
-		// °­Á¦ ¼ÂÆÃ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ep.vUpVector = D3DXVECTOR3(0, 1, 0);
 	}
 	D3DXVec3Normalize(&ep.vDirection,&ep.vDirection);
 	ep.fVelocity = 100;
-	ep.fCurvature = DEFAULT_CURVATURE;	// ÃÊ±â°ª ¼ÂÆÃ
+	ep.fCurvature = DEFAULT_CURVATURE;	// ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½
 	m_pCinemaUnitPattern->InitCinemaData(ep);
 	return TRUE;
 }
-// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CShuttleChild::InitCinemaUnit(int nUnitPatternType, BOOL bUpUse,D3DXVECTOR3 vPosition, D3DXVECTOR3 vDirection)
 {
 	char str[32];
@@ -12868,12 +12880,12 @@ BOOL CShuttleChild::InitCinemaUnit(int nUnitPatternType, BOOL bUpUse,D3DXVECTOR3
 	}
 	else
 	{
-		// °­Á¦ ¼ÂÆÃ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ep.vUpVector = D3DXVECTOR3(0, 1, 0);
 	}
 	D3DXVec3Normalize(&ep.vDirection,&ep.vDirection);
 	ep.fVelocity = 100;
-	ep.fCurvature = DEFAULT_CURVATURE;	// ÃÊ±â°ª ¼ÂÆÃ
+	ep.fCurvature = DEFAULT_CURVATURE;	// ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½
 	m_pCinemaUnitPattern->InitCinemaData(ep);
 	return TRUE;
 }
@@ -12895,7 +12907,7 @@ void CShuttleChild::InfinityCinema(BOOL bSuccess)
 		vUp.y = m_mMatrix._22;
 		vUp.z = m_mMatrix._23;
 		if(vVel == vUp)
-		{// ¸ÅÆ®¸¯½º°¡ ±úÁöÁö ¾Êµµ·Ï
+		{// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
 			m_mMatrix._21 += 0.001f;
 			m_mMatrix._22 -= 0.001f;
 			m_mMatrix._23 += 0.002f;
@@ -12947,7 +12959,7 @@ BOOL CShuttleChild::InitCinemaCamera(int nCameraPattern, D3DXVECTOR3 vPosition, 
 		SAFE_DELETE( m_pCinemaCamera );
 	}
 	m_pCinemaCamera = g_pScene->LoadCinemaData(str);
-	if(m_pCinemaCamera == NULL) // ÇØ´ç ÆÐÅÏ ÆÄÀÏÀÌ ¾ø´Â °æ¿ì
+	if(m_pCinemaCamera == NULL) // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{
 		m_bIsCameraPattern = FALSE;
 		DBGOUT( "Cinema : Can't Find Pattern(Camera) File.(%s)\n",str);
@@ -12963,11 +12975,11 @@ BOOL CShuttleChild::InitCinemaCamera(int nCameraPattern, D3DXVECTOR3 vPosition, 
 	ep.vUpVector = vUp;
 	D3DXVec3Normalize(&ep.vDirection,&ep.vDirection);
 	ep.fVelocity = 100;
-	ep.fCurvature = DEFAULT_CURVATURE;	// ÃÊ±â°ª ¼ÂÆÃ
+	ep.fCurvature = DEFAULT_CURVATURE;	// ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½
 	m_pCinemaCamera->InitCinemaData(ep);
 	return TRUE;
 }
-//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö 
+//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
 BOOL CShuttleChild::InitCinemaCamera(int nCameraPattern)
 {
@@ -12977,8 +12989,8 @@ BOOL CShuttleChild::InitCinemaCamera(int nCameraPattern)
 	D3DXVec3Normalize(&vVel,&vVel);
 	vUp =  D3DXVECTOR3(0,1,0);
 #ifdef C_EPSODE4_UI_CHANGE_JSKIM											  
-    vVel.x = vVel.x*100;	// 2011-11-28 by jhahn EP4 ½Ã³×¸¶ ¼öÁ¤
-	vPos = m_vPos - vVel + vUp*100;		// 2011-11-28 by jhahn EP4 ½Ã³×¸¶ ¼öÁ¤
+    vVel.x = vVel.x*100;	// 2011-11-28 by jhahn EP4 ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	vPos = m_vPos - vVel + vUp*100;		// 2011-11-28 by jhahn EP4 ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else 
 	vPos = m_vPos - vVel*100 + vUp*100;
 #endif	
@@ -12991,7 +13003,7 @@ BOOL CShuttleChild::InitCinemaCamera(int nCameraPattern)
 		SAFE_DELETE( m_pCinemaCamera );
 	}
 	m_pCinemaCamera = g_pScene->LoadCinemaData(str);
-	if(m_pCinemaCamera == NULL) // ÇØ´ç ÆÐÅÏ ÆÄÀÏÀÌ ¾ø´Â °æ¿ì
+	if(m_pCinemaCamera == NULL) // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{
 		m_bIsCameraPattern = FALSE;
 		DBGOUT( "Cinema : Can't Find Pattern(Camera) File.(%s)\n",str);
@@ -13007,13 +13019,13 @@ BOOL CShuttleChild::InitCinemaCamera(int nCameraPattern)
 	ep.vUpVector = vUp;
 	D3DXVec3Normalize(&ep.vDirection,&ep.vDirection);
 	ep.fVelocity = 100;
-	ep.fCurvature = DEFAULT_CURVATURE;	// ÃÊ±â°ª ¼ÂÆÃ
+	ep.fCurvature = DEFAULT_CURVATURE;	// ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½
 	m_pCinemaCamera->InitCinemaData(ep);
 	return TRUE;
 }
 
-// Ãæµ¹ °Ë»ç 2004.06.19 jschoi 
-// ÀÌ ÇÔ¼ö´Â ´ÜÁö ¼ÅÆ²°ú ¸Ê ¿ÀºêÁ§Æ®¿ÍÀÇ Ãæµ¹ »óÅÂ¸¸ º»´Ù.
+// ï¿½æµ¹ ï¿½Ë»ï¿½ 2004.06.19 jschoi 
+// ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 BOOL CShuttleChild::CheckCollMapObject()
 {
 	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -13024,27 +13036,27 @@ BOOL CShuttleChild::CheckCollMapObject()
 
 	D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
 
-	D3DXMatrixLookAtLH(&matArray[COLL_FRONT],&m_vPos,&(m_vPos + m_vVel),&m_vUp);	// ¾Õ
-	D3DXMatrixLookAtLH(&matArray[COLL_BACK],&m_vPos,&(m_vPos - m_vVel),&m_vUp);	// µÚ
-	D3DXMatrixLookAtLH(&matArray[COLL_LEFT],&m_vPos,&(m_vPos - vSide),&m_vUp);		// ÁÂ
-	D3DXMatrixLookAtLH(&matArray[COLL_RIGHT],&m_vPos,&(m_vPos + vSide),&m_vUp);		// ¿ì
-	D3DXMatrixLookAtLH(&matArray[COLL_UP],&m_vPos,&(m_vPos + m_vUp),&vSide);		// À§
-	D3DXMatrixLookAtLH(&matArray[COLL_DOWN],&m_vPos,&(m_vPos - m_vUp),&vSide);		// ¾Æ·¡
+	D3DXMatrixLookAtLH(&matArray[COLL_FRONT],&m_vPos,&(m_vPos + m_vVel),&m_vUp);	// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_BACK],&m_vPos,&(m_vPos - m_vVel),&m_vUp);	// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_LEFT],&m_vPos,&(m_vPos - vSide),&m_vUp);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_RIGHT],&m_vPos,&(m_vPos + vSide),&m_vUp);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_UP],&m_vPos,&(m_vPos + m_vUp),&vSide);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[COLL_DOWN],&m_vPos,&(m_vPos - m_vUp),&vSide);		// ï¿½Æ·ï¿½
 	
 	float fFrontMove = m_fShuttleSpeed*fElapsedTime;
 //	float fSideMove = m_fLRVelRate*m_fRealShuttleSpeedMax*fElapsedTime;
-	float size[6] = { 10+fFrontMove,10-fFrontMove,10,10,5,5 };	// À¯´Ö Å©±â	¾Õ,µÚ,ÁÂ,¿ì,À§,¾Æ·¡
+	float size[6] = { 10+fFrontMove,10-fFrontMove,10,10,5,5 };	// ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½	ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½Æ·ï¿½
 
 	nCollType = g_pScene->m_pObjectRender->CheckCollMesh(matArray,size).nCollType;
 	
 	if(nCollType == COLL_NONE)
 	{
-		// Ãæµ¹ ¾ÈÇÔ
+		// ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
 		return FALSE;
 	}
 	else
 	{
-		// Ãæµ¹ Çß´Ù
+		// ï¿½æµ¹ ï¿½ß´ï¿½
 		return TRUE;
 	}
 }
@@ -13052,18 +13064,18 @@ BOOL CShuttleChild::CheckCollMapObject()
 void CShuttleChild::DeletePattern()
 {
 	// 2005-07-18 by ispark
-	// FALLING»óÅÂÀÏ¶§ Ä«¸Þ¶ó ÆÐÅÏÀ» ¾ø¾Ö¸é Á¤ÁöµÇ´Â ¹ö±×
+	// FALLINGï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_bIsCameraPattern == TRUE && m_dwState == _FALLING)
 	{
 		return;
 	}
 
-	if(	m_nCurrentPatternNumber == PATTERN_UNIT_WARP_OUT)// ¿öÇÁ ¾Æ¿ô ÆÐÅÏ Á¾·á ½Ã¿¡´Â ¿£Áø ½ºÅ¾
+	if(	m_nCurrentPatternNumber == PATTERN_UNIT_WARP_OUT)// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¾
 	{
-		m_nShuttleStopState = 4;	// Air_Break Type Ãß°¡
+		m_nShuttleStopState = 4;	// Air_Break Type ï¿½ß°ï¿½
 	}
 	m_nCurrentPatternNumber = 0;
-	m_fOldUpRate= 0;		// ÀÌÀü ¾÷º¤ÅÍ¸¦ ±â·ÏÇÏ¿© ºÎµå·´°Ô ±â¿ïÀÎ´Ù(ÁÂ¿ì ÀÌµ¿ ±â¿ïÀÓ°ú È¸Àü ±â¿ïÀÓ Á¶Àý) - jschoi
+	m_fOldUpRate= 0;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Îµå·´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Î´ï¿½(ï¿½Â¿ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) - jschoi
 	m_fSkillMoveTime = 0.0f;
 	SetCursorInit();
 	m_bSkillMoveIsUse = FALSE;
@@ -13076,18 +13088,18 @@ void CShuttleChild::DeletePattern()
 //		g_pD3dApp->m_pCamera->Tick(m_vPos , m_vVel, m_vUp);
 		m_bIsCameraPattern = FALSE;				
 	}
-	// 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+	// 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( IsShowCinema() )
 	{
 		g_pInterface->SetScreenShotMode(FALSE);
 		SetShowCinema ( FALSE );
 		m_bKeyBlock = FALSE;
-// 2011-06-30 by jhahn ÀÎÇÇ3Â÷ ½ÃÁ¡ 1ÀÎÄª º¯°æ
+// 2011-06-30 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½
 		g_pD3dApp->m_pCamera->SetCamType( CAMERA_TYPE_NORMAL);   
 		m_InfiState = TRUE;
-//end 2011-06-30 by jhahn ÀÎÇÇ3Â÷ ½ÃÁ¡ 1ÀÎÄª º¯°æ
+//end 2011-06-30 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½
 
-//2011-07-20 by jhahn	ÀÎÇÇ3Â÷ ½Ã³×¸¶ÇÃ·¹ÀÌÁß Å¸Ä³¸¯ÅÍ ¾Èº¸ÀÌ±â
+//2011-07-20 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½
 
 		CMapEnemyIterator itEnemy = g_pScene->m_mapEnemyList.begin();	
 		while(itEnemy != g_pScene->m_mapEnemyList.end())
@@ -13097,9 +13109,9 @@ void CShuttleChild::DeletePattern()
 			itEnemy++;
 		}			
 
-//end 2011-07-20 by jhahn	ÀÎÇÇ3Â÷ ½Ã³×¸¶ÇÃ·¹ÀÌÁß Å¸Ä³¸¯ÅÍ ¾Èº¸ÀÌ±â
+//end 2011-07-20 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½
 	}
-	//end 2010. 05. 27 by jskim ½Ã³×¸¶ Àû¿ë Ä«¸Þ¶ó ±¸Çö
+	//end 2010. 05. 27 by jskim ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 //void CShuttleChild::SetAttackAvaliableEnemyIndex( int nTargetIndex, BOOL bSet )
@@ -13134,7 +13146,7 @@ void CShuttleChild::DeletePattern()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::SetPKMode(BOOL bSet)
-/// \brief		PK°¡´É¸Ê¿¡¼­ EnemyµéÀ» ¸ðµÎ m_vecAttackAvailableEnemyIndex¿¡ ³Ö°í »«´Ù.
+/// \brief		PKï¿½ï¿½ï¿½É¸Ê¿ï¿½ï¿½ï¿½ Enemyï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ m_vecAttackAvailableEnemyIndexï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 /// \author		dhkwon
 /// \date		2004-07-21 ~ 2004-07-21
 /// \warning	
@@ -13227,12 +13239,12 @@ void CShuttleChild::TryLandingState()
 				(IS_DT(m_myShuttleInfo.UnitKind)==FALSE ||
 				IsTileMapRenderEnable(m_myShuttleInfo.MapChannelIndex.MapIndex) == FALSE) ? TRUE : FALSE;
 
-			if(SetOrderMoveTargetPos(bObjectLanging) == TRUE)// À¯´ÖÀÇ Âø·úÁöÁ¡ ÁÂÇ¥ °è»ê
+			if(SetOrderMoveTargetPos(bObjectLanging) == TRUE)// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½
 			{
 				m_fLandingDist = m_vPos.y - m_vTargetPos.y;
 				if(m_fLandingDist < 180.0f)
 				{
-					// ÀÎÄª º¯È¯ Âø·úÀå¿¡¼­ 1ÀÎÄªÀ¸·Î Âø·ú½Ã 3ÀÎÄªÀüÈ¯ 
+					// ï¿½ï¿½Äª ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½Äªï¿½ï¿½È¯ 
 					if(g_pD3dApp->m_pCamera->m_bCamType == CAMERA_TYPE_FPS)
 					{
 						g_pD3dApp->m_pCamera->ChangeCamType();
@@ -13259,7 +13271,7 @@ void CShuttleChild::TryLandingState()
 		m_pClientParty->FormationFlightClear();
 //		m_infoParty.bFormationFlyingPositionType = 0;
 //		m_bFormationFlight = FALSE;
-		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PARTY_0001,COLOR_SYSTEM);//"Æí´ëºñÇà¿¡¼­ ¹þ¾î³µ½À´Ï´Ù."
+		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PARTY_0001,COLOR_SYSTEM);//"ï¿½ï¿½ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½."
 	}
 }
 
@@ -13319,7 +13331,7 @@ void CShuttleChild::DeleteUsedItem()
 
 void CShuttleChild::SetWearItemParamFactor( int nPos, ITEM* pITEM )
 {
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 // 	if(pITEM)
 // 	{
 // 		m_wearItemParamFactor[nPos].DestParameter1 = pITEM->DestParameter1;
@@ -13359,10 +13371,10 @@ void CShuttleChild::SetWearItemParamFactor( int nPos, ITEM* pITEM )
 			m_wearItemParamFactor[nPos].ArrParameterValue[nArrParamCnt] = 0;
 		}		
 	}
-	// end 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// end 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 }
 
-// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CShuttleChild::SetWearRareItemToCharacterParamFactor(int nPos, CItemInfo* pItemInfo)
 {
 	if(nPos != POS_CENTER)
@@ -13394,18 +13406,18 @@ void CShuttleChild::SetWearRareItemToCharacterParamFactor(int nPos, CItemInfo* p
 		}
 	}
 }
-//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
-//void CShuttleChild::SetWearItemToCharacterParamFactor(int nPos, ITEM* pITEM)		// ITEMÀÇ ParamFactor¸¦ CHARACTER¿¡ Àû¿ëÇÑ´Ù.
+// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//void CShuttleChild::SetWearItemToCharacterParamFactor(int nPos, ITEM* pITEM)		// ITEMï¿½ï¿½ ParamFactorï¿½ï¿½ CHARACTERï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 void CShuttleChild::SetWearItemToCharacterParamFactor(int nPos, CItemInfo* pItemInfo)
-//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
-	// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//SetWearItemParamFactor( nPos, pITEM );
 	SetWearItemParamFactor( nPos, pItemInfo->GetRealItemInfo() );
-	//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö		
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+	//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½		
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 // 	SetParamFactorDesParam(m_paramFactor, m_wearItemParamFactor[nPos].DestParameter1, m_wearItemParamFactor[nPos].ParameterValue1 );
 // 	SetParamFactorDesParam(m_paramFactor, m_wearItemParamFactor[nPos].DestParameter2, m_wearItemParamFactor[nPos].ParameterValue2 );
 // 	SetParamFactorDesParam(m_paramFactor, m_wearItemParamFactor[nPos].DestParameter3, m_wearItemParamFactor[nPos].ParameterValue3 );
@@ -13441,7 +13453,7 @@ void CShuttleChild::SetWearItemToCharacterParamFactor(int nPos, CItemInfo* pItem
 // 	{
 // 		FieldSocketCharacterSendParamfactorInRange( POS_WINGOUT );
 // 	}
-	// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	SetWearRareItemToCharacterParamFactor(nPos, pItemInfo);
 	int nArrParamCnt = 0;
@@ -13452,21 +13464,21 @@ void CShuttleChild::SetWearItemToCharacterParamFactor(int nPos, CItemInfo* pItem
 								m_wearItemParamFactor[nPos].ArrParameterValue[nArrParamCnt]);
 
 	}
-	// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö	
+	// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	nArrParamCnt=0;
 	for(nArrParamCnt = 0; nArrParamCnt < SIZE_MAX_DESPARAM_COUNT_IN_ITEM;nArrParamCnt++)
 	{
-		// Á¢µÎ ´É·ÂÄ¡ Àû¿ë
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		SetParamFactorDesParam(m_paramFactor, 
 		m_wearPreRareItemParamFactor[nPos].ArrDestParameter[nArrParamCnt], 
 		m_wearPreRareItemParamFactor[nPos].ArrParameterValue[nArrParamCnt]);
 
-		// Á¢¹Ì ´É·ÂÄ¡ Àû¿ë
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		SetParamFactorDesParam(m_paramFactor, 
 			m_wearSufRareItemParamFactor[nPos].ArrDestParameter[nArrParamCnt], 
 			m_wearSufRareItemParamFactor[nPos].ArrParameterValue[nArrParamCnt]);
 	}
-	//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL bBreak = FALSE;
 	for(nArrParamCnt = 0; nArrParamCnt < SIZE_MAX_DESPARAM_COUNT_IN_ITEM;nArrParamCnt++)
 	{
@@ -13493,12 +13505,12 @@ void CShuttleChild::SetWearItemToCharacterParamFactor(int nPos, CItemInfo* pItem
 			break;
 		}
 	}
-	// end 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+	// end 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 }
 
-void CShuttleChild::ReleaseWearItemToCharacterParamFactor(int nPos)	// ITEMÀÇ ParamFactor¸¦ CHARACTER¿¡¼­ »«´Ù.
+void CShuttleChild::ReleaseWearItemToCharacterParamFactor(int nPos)	// ITEMï¿½ï¿½ ParamFactorï¿½ï¿½ CHARACTERï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 {
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 // 	ReleaseParamFactorDesParam(m_paramFactor, m_wearItemParamFactor[nPos].DestParameter1, m_wearItemParamFactor[nPos].ParameterValue1 );
 // 	ReleaseParamFactorDesParam(m_paramFactor, m_wearItemParamFactor[nPos].DestParameter2, m_wearItemParamFactor[nPos].ParameterValue2 );
 // 	ReleaseParamFactorDesParam(m_paramFactor, m_wearItemParamFactor[nPos].DestParameter3, m_wearItemParamFactor[nPos].ParameterValue3 );
@@ -13542,17 +13554,17 @@ void CShuttleChild::ReleaseWearItemToCharacterParamFactor(int nPos)	// ITEMÀÇ Pa
 										m_wearItemParamFactor[nPos].ArrParameterValue[nArrParamCnt] );		
 		
 	}
-	// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(nPos == POS_CENTER)
 	{
 		for(nArrParamCnt = 0; nArrParamCnt < SIZE_MAX_DESPARAM_COUNT_IN_ITEM;nArrParamCnt++)
 		{
-			// Á¢µÎ ´É·ÂÄ¡ ÇØÁ¦
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 			ReleaseParamFactorDesParam(m_paramFactor, 
 				m_wearPreRareItemParamFactor[nPos].ArrDestParameter[nArrParamCnt], 
 				m_wearPreRareItemParamFactor[nPos].ArrParameterValue[nArrParamCnt]);
 	 
- 			// Á¢¹Ì ´É·ÂÄ¡ ÇØÁ¦
+ 			// ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
  			ReleaseParamFactorDesParam(m_paramFactor, 
 				m_wearSufRareItemParamFactor[nPos].ArrDestParameter[nArrParamCnt], 
  				m_wearSufRareItemParamFactor[nPos].ArrParameterValue[nArrParamCnt]);
@@ -13566,7 +13578,7 @@ void CShuttleChild::ReleaseWearItemToCharacterParamFactor(int nPos)	// ITEMÀÇ Pa
 			m_wearSufRareItemParamFactor[nPos].ArrParameterValue[nArrParamCnt] =	0;
 		}
 	}
-	//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 
 	BOOL bBreak = FALSE;	
@@ -13597,27 +13609,27 @@ void CShuttleChild::ReleaseWearItemToCharacterParamFactor(int nPos)	// ITEMÀÇ Pa
 		}
 
 	}	
-	// end 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+	// end 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 	SetWearItemParamFactor( nPos, NULL );
 }
-// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //void CShuttleChild::ChangeWearItemToCharacterParamFactor(int nPos, ITEM* pITEM)
 void CShuttleChild::ChangeWearItemToCharacterParamFactor(int nPos, CItemInfo* pItemInfo)
-//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	ReleaseWearItemToCharacterParamFactor( nPos );
-	// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//SetWearItemToCharacterParamFactor( nPos, pITEM );
 	SetWearItemToCharacterParamFactor( nPos, pItemInfo );
-	//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+	//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			FieldSocketCharacterSendParamfactorInRange(int nPos)
-/// \brief		ÁÖº¯ÀÇ Ä³¸¯¿¡¼­ ShuttleChildÀÇ 1Çü ParamFactor¸¦ Àü¼ÛÇÑ´Ù.
+/// \brief		ï¿½Öºï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ShuttleChildï¿½ï¿½ 1ï¿½ï¿½ ParamFactorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		dhkwon
 /// \date		2004-07-31 ~ 2004-07-31
-/// \warning	ShotNum, ReattackTime¸¸ Àû¿ëµÈ´Ù.
+/// \warning	ShotNum, ReattackTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 ///
 /// \param		
 /// \return		
@@ -13633,28 +13645,28 @@ void CShuttleChild::FieldSocketCharacterSendParamfactorInRange(int nPos)
 void CShuttleChild::SetShuttleSpeed()
 {
 	// 2005-11-26 by ispark
-	// A±â¾îÀÌ¸é ¶¥¿¡¼­ ´Ù´Ï¸é ¼Óµµ ¼ÂÆÃ
+	// Aï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù´Ï¸ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(IS_DT(m_myShuttleInfo.UnitKind))
 	{
 		
 
-		// 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+		// 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 
 		//m_fShuttleGroundSpeed = m_fShuttleGroundSpeedMax*(1.0f + m_paramFactor.pfm_SPEED);
-		// ½ºÅ³ µ¥½º ÆÄ¶÷°ªµµ Àû¿ë
+		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_fShuttleGroundSpeed = ( m_fShuttleGroundSpeedMax + GetParamFactor_DesParam( m_paramFactor, DES_ENGINE_GROUND_SPEED_UP ) ) * ( 1.0f + GetParamFactor_DesParam( m_paramFactor, DES_SPEED ) );
 
-		// end 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+		// end 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 
 
 		if(m_fRealShuttleSpeedMax < 0.0f)
 		{
-			m_fRealShuttleSpeedMax = 0.0f;	// ÃÖ¼Ò ¼Ó·Â
+			m_fRealShuttleSpeedMax = 0.0f;	// ï¿½Ö¼ï¿½ ï¿½Ó·ï¿½
 		}
 	}
 
-	// 2005-12-03 by ispark, ¿£Áø°ú ¾Æ¸Ó°¡ ÀåÂøµÇ¾î ÀÖ´ÂÁö ÆÇ´Ü
-	// µÑÁß¿¡ ÇÏ°³¶óµµ ¾ø´Ù¸é... ½ºÇÇµå ¼ÂÆÃ ¿¡·¯
+	// 2005-12-03 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¸Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+	// ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½... ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	ITEM_GENERAL* pItemEngine = m_pStoreData->FindItemInInventoryByWindowPos( POS_REAR );
 	ITEM_GENERAL* pItemArmor = m_pStoreData->FindItemInInventoryByWindowPos( POS_CENTER );
 	if(pItemEngine && pItemArmor)
@@ -13662,11 +13674,11 @@ void CShuttleChild::SetShuttleSpeed()
 	//	m_fRealShuttleSpeedMax = m_fShuttleSpeedMax*(1.0f + m_paramFactor.pfm_SPEED)+1000.0f;
 
 
-		// 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+		// 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 
 		//m_fRealShuttleSpeedMax = m_fShuttleSpeedMax*(1.0f + m_paramFactor.pfm_SPEED);
-		// ½ºÅ³ µ¥½º ÆÄ¶÷°ªµµ Àû¿ë
-		// 2014-07-17 by ymjoo Æ©Åä¸®¾ó¿¡¼­ ÀÌµ¿¼Óµµ °³¼±
+		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2014-07-17 by ymjoo Æ©ï¿½ä¸®ï¿½ó¿¡¼ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef C_TUTORIAL_SPEED_YMJOO
 		if(g_pTutorial->IsTutorialMode())
 		{
@@ -13679,24 +13691,24 @@ void CShuttleChild::SetShuttleSpeed()
 #else
 		m_fRealShuttleSpeedMax = ( m_fShuttleSpeedMax + GetParamFactor_DesParam( m_paramFactor, DES_ENGINE_MAX_SPEED_UP ) ) * ( 1.0f + GetParamFactor_DesParam( m_paramFactor, DES_SPEED ) );
 #endif
-		// END 2014-07-17 by ymjoo Æ©Åä¸®¾ó¿¡¼­ ÀÌµ¿¼Óµµ °³¼±
+		// END 2014-07-17 by ymjoo Æ©ï¿½ä¸®ï¿½ó¿¡¼ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 		
-		// end 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+		// end 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 		
 		
 		if(m_fRealShuttleSpeedMax < 40.0f)
 		{
-			m_fRealShuttleSpeedMax = 40.0f;	// ÃÖ¼Ò ¼Ó·Â
+			m_fRealShuttleSpeedMax = 40.0f;	// ï¿½Ö¼ï¿½ ï¿½Ó·ï¿½
 		}
 
 	//	m_fRealShuttleSpeedBoosterOn = m_fShuttleSpeedBoosterOn*(1.0f + m_paramFactor.pfm_SPEED)+1000.0f;
 
 
-		// 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+		// 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 
 		//m_fRealShuttleSpeedBoosterOn = m_fShuttleSpeedBoosterOn*(1.0f + m_paramFactor.pfm_SPEED);
-		// ½ºÅ³ µ¥½º ÆÄ¶÷°ªµµ Àû¿ë
-		// 2014-07-17 by ymjoo Æ©Åä¸®¾ó¿¡¼­ ÀÌµ¿¼Óµµ °³¼±
+		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2014-07-17 by ymjoo Æ©ï¿½ä¸®ï¿½ó¿¡¼ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef C_TUTORIAL_SPEED_YMJOO
 		if(g_pTutorial->IsTutorialMode())
 		{
@@ -13709,18 +13721,18 @@ void CShuttleChild::SetShuttleSpeed()
 #else
 		m_fRealShuttleSpeedBoosterOn = ( m_fShuttleSpeedBoosterOn + GetParamFactor_DesParam( m_paramFactor, DES_ENGINE_BOOSTER_SPEED_UP ) ) * ( 1.0f + GetParamFactor_DesParam( m_paramFactor, DES_SPEED ) );
 #endif
-		// END 2014-07-17 by ymjoo Æ©Åä¸®¾ó¿¡¼­ ÀÌµ¿¼Óµµ °³¼±
+		// END 2014-07-17 by ymjoo Æ©ï¿½ä¸®ï¿½ó¿¡¼ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		// end 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+		// end 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 
 
 
 		if(m_fRealShuttleSpeedBoosterOn < 50.0f)
 		{
-			m_fRealShuttleSpeedBoosterOn = 50.0f;	// ÃÖ¼Ò ºÎ½ºÅÍ ¼Ó·Â
+			m_fRealShuttleSpeedBoosterOn = 50.0f;	// ï¿½Ö¼ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ó·ï¿½
 		}
 		
-#ifdef C_TUTORIAL_SPEED_YMJOO		// 2014-07-17 by ymjoo Æ©Åä¸®¾ó¿¡¼­ ÀÌµ¿¼Óµµ °³¼±
+#ifdef C_TUTORIAL_SPEED_YMJOO		// 2014-07-17 by ymjoo Æ©ï¿½ä¸®ï¿½ó¿¡¼ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(g_pTutorial->IsTutorialMode())
 		{
 			m_fRealShuttleSpeedMin = 60;
@@ -13735,46 +13747,46 @@ void CShuttleChild::SetShuttleSpeed()
 		else
 		{
 
-			// 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+			// 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 
 			//m_fRealShuttleSpeedMin = m_fShuttleSpeedMin;
-			// ½ºÅ³ µ¥½º ÆÄ¶÷°ªµµ Àû¿ë
+			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_fRealShuttleSpeedMin = ( m_fShuttleSpeedMin + GetParamFactor_DesParam( m_paramFactor, DES_ENGINE_MIN_SPEED_UP ) );
 
-			// 0º¸´Ù ÀûÀ¸¸é 0À¸·Î ¼ÂÆÃ(¿ª»ï°¢ ÇüÅÂ : Á¤Áö ºñÇà)
+			// 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï°¢ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 			//if(m_fRealShuttleSpeedMax < 0.0f)
 			//if( m_fRealShuttleSpeedMin <= 0.0f )
-			if(m_fRealShuttleSpeedMin <= 0.0f && !COMPARE_RACE(g_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))		// 2014-08-07 by ymjoo GM ÃÖ¼Ò¼Ó·Â À½¼ö Àû¿ë
+			if(m_fRealShuttleSpeedMin <= 0.0f && !COMPARE_RACE(g_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER))		// 2014-08-07 by ymjoo GM ï¿½Ö¼Ò¼Ó·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				m_fRealShuttleSpeedMin = 0.0f;
 
-			// end 2009. 08. 11 by ckPark Æí´ë ´ëÇü ½ºÅ³
+			// end 2009. 08. 11 by ckPark ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 		}
 	}
 	else
 	{
-		// 2005-12-03 by ispark, ¿£ÁøÀÌ³ª ¾Æ¸Ó°¡ ¹ÌÃ¢ÀÛÀÌ¹Ç·Î ¼Óµµ ÃÖÀú·Î ±×¸®°í À¯´Ö Á¤Áö
+		// 2005-12-03 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Æ¸Ó°ï¿½ ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_fRealShuttleSpeedMax = 40.0f;
 		m_fRealShuttleSpeedMin = 40.0f;
 		m_fRealShuttleSpeedBoosterOn = 0.0f;
 	}
 
-	// 2005-12-02 by ispark, ÇÏÀÌÆÛ ¹«ºù, ºÎ½ºÅÍ´Â ºÎ½ºÅÍ ¾µ ¶§
+	// 2005-12-02 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Î½ï¿½ï¿½Í´ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
 	ITEM* pItemInfo = g_pStoreData->GetItemInfoFromItemGeneral(g_pStoreData->FindItemInInventoryByWindowPos( POS_REAR ));
 	if(pItemInfo)
 		m_fMouseRate = CAtumSJ::GetEngineRangeAngle(pItemInfo, &m_paramFactor);
 
 
-	// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
-	// È¦µå »óÅÂ¸é ¸ðµç ¼Óµµ 0
+	// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	// È¦ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 0
 	if( m_pSkill->GetMonsterHoldState() )
 	{
 		m_fRealShuttleSpeedMax = 0.0f;
 		m_fRealShuttleSpeedMin = 0.0f;
 		m_fRealShuttleSpeedBoosterOn = 0.0f;
 
-		m_fShuttleGroundSpeed = 0.0f;			// 2014-01-06 by ssjung A±â¾î Áö»ó¿¡¼­ ¸ó½ºÅÍ È¦µå½ºÅ³ ¾È¸Ô´Â ¹ö±× ¼öÁ¤
+		m_fShuttleGroundSpeed = 0.0f;			// 2014-01-06 by ssjung Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ È¦ï¿½å½ºÅ³ ï¿½È¸Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
-	// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+	// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 }
 
 void CShuttleChild::SetParamFactorDesParam( CParamFactor &paramFactor, int nDestParam, float fDestValue)
@@ -13801,10 +13813,10 @@ void CShuttleChild::ReleaseParamFactorDesParam( CParamFactor &paramFactor, int n
 /// \fn			CShuttleChild::SetGroundTargetPos()
 /// \author		jschoi
 /// \date		2004-10-07 ~ 2004-10-07
-/// \warning	Áö»ó Æø°ÝÀ» ÇÒ À§Ä¡¸¦ ¼ÂÆÃÇÑ´Ù.
+/// \warning	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 ///
 /// \param		
-/// \return		m_vGroundTargetPos : Áö»ó Æø°Ý À§Ä¡
+/// \return		m_vGroundTargetPos : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::SetGroundTargetPos()
 {
@@ -13815,31 +13827,31 @@ void CShuttleChild::SetGroundTargetPos()
 	vVel.y = 0;
 	D3DXVec3Normalize(&vVel,&vVel);
 
-	// ÃÊ±â ¼ÂÆÃ
-	float fRange = m_pSecondaryWeapon->GetRealItemInfo()->Range;						// ¹«±âÀÇ »ç°Å¸®
-	m_vGroundTargetPos = m_vPos + vVel * fRange + D3DXVECTOR3(0,-1,0) * (fRange/2) ;	// Å¸ÄÏÀÇ À§Ä¡
-	float fTargetDistance = D3DXVec3Length(&(m_vGroundTargetPos - m_vPos));				// Å¸ÄÏ°úÀÇ °Å¸®
+	// ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	float fRange = m_pSecondaryWeapon->GetRealItemInfo()->Range;						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½
+	m_vGroundTargetPos = m_vPos + vVel * fRange + D3DXVECTOR3(0,-1,0) * (fRange/2) ;	// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+	float fTargetDistance = D3DXVec3Length(&(m_vGroundTargetPos - m_vPos));				// Å¸ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 	vGroundTargetCheckObject = m_vGroundTargetPos;
 	vGroundTargetCheckGround = m_vGroundTargetPos;
-	vTargetVel = m_vGroundTargetPos - m_vPos;											// Å¸ÄÏÀÇ ¹æÇâ
+	vTargetVel = m_vGroundTargetPos - m_vPos;											// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	D3DXVec3Normalize(&vTargetVel,&vTargetVel);
 
-	// 1. Å¸ÄÏ¹æÇâÀ¸·Î  ¿ÀºêÁ§Æ®¿Í Ãæµ¹ °Ë»ç
-	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos + vTargetVel),&D3DXVECTOR3(0,1,0));	// ¼ÅÆ² ¾Õ¹æÇâ
+	// 1. Å¸ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½
+	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos + vTargetVel),&D3DXVECTOR3(0,1,0));	// ï¿½ï¿½Æ² ï¿½Õ¹ï¿½ï¿½ï¿½
 	COLLISION_RESULT collResult = g_pScene->m_pObjectRender->CheckCollMesh(mat,m_vPos, FALSE);
 	if(collResult.fDist < fTargetDistance) 
-	{ // 2Çü ¹«±âÀÇ »ç°Å¸® ¾ÈÂÊ¿¡ ¿ÀºêÁ§Æ®°¡ ÀÖ´Ù¸é ¿ÀºêÁ§Æ®¿¡ Ãæµ¹
+	{ // 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹
 		vGroundTargetCheckObject = m_vPos + vTargetVel*collResult.fDist;	
 	}
 
-	// 2. Å¸ÄÏ¹æÇâÀ¸·Î ÁöÇü°ú Ãæµ¹°Ë»ç
+	// 2. Å¸ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ë»ï¿½
 	float fTempDistance = 0.0f;
 	D3DXVECTOR3 vTempPos;
-	while (fTempDistance < fTargetDistance)	// ÁöÇü ¹× ¹°°ú Ãæµ¹ °Ë»ç
+	while (fTempDistance < fTargetDistance)	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½
 	{
 		vTempPos = m_vPos + vTargetVel * fTempDistance;
 		if(g_pGround->CheckHeightMap(vTempPos) > vTempPos.y)
-		{	// ÁöÇü ¹× ¹°°ú Ãæµ¹ Çß´Ù.
+		{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ß´ï¿½.
 			vGroundTargetCheckGround = vTempPos;
 			break;
 		}
@@ -13847,11 +13859,11 @@ void CShuttleChild::SetGroundTargetPos()
 	}
 
 	if(D3DXVec3Length(&(vGroundTargetCheckObject - m_vPos)) > D3DXVec3Length(&(vGroundTargetCheckGround - m_vPos))) 
-	{ // ÁöÇü°ú ¸ÕÀú Ãæµ¹ÇÑ´Ù.
+	{ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ñ´ï¿½.
 		m_vGroundTargetPos = vGroundTargetCheckGround;
 	}
 	else
-	{ // ¿ÀºêÁ§Æ®¿Í ¸ÕÀú Ãæµ¹ÇÑ´Ù.
+	{ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ñ´ï¿½.
 		m_vGroundTargetPos = vGroundTargetCheckObject;
 	}
 	g_pGameMain->m_pInfSkill->SetGroundTarget(m_vGroundTargetPos);
@@ -13859,7 +13871,7 @@ void CShuttleChild::SetGroundTargetPos()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::SetAirGroundTargetPos()
-/// \brief		°øÁß Æø°Ý
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-12-01 ~ 2006-12-01
 /// \warning	
@@ -13869,7 +13881,7 @@ void CShuttleChild::SetGroundTargetPos()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::SetAirGroundTargetPos()
 {
-	// 2009. 07. 21 by ckPark °øÁßÆø°ÝÁß¿¡ ·¹ÀÌ´õÇØÁ¦½Ã Æ¨±â´Â ¹®Á¦
+	// 2009. 07. 21 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¨ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( !m_pRadarItemInfo )
 	{
 		for( vector<CSkillInfo*>::iterator it = m_pSkill->m_vecUsingSkill.begin();
@@ -13885,7 +13897,7 @@ void CShuttleChild::SetAirGroundTargetPos()
 
 		return;
 	}
-	// end 2009. 07. 21 by ckPark °øÁßÆø°ÝÁß¿¡ ·¹ÀÌ´õÇØÁ¦½Ã Æ¨±â´Â ¹®Á¦
+	// end 2009. 07. 21 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¨ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	D3DXMATRIX mat;
 	D3DXVECTOR3 vVel,vTargetVel;
@@ -13893,32 +13905,32 @@ void CShuttleChild::SetAirGroundTargetPos()
 	vVel = m_vVel;
 	D3DXVec3Normalize(&vVel,&vVel);
 
-	// ÃÊ±â ¼ÂÆÃ
-	// ·¹ÀÌ´õ 2Çü ¹«±â »ç°Å¸®
+	// ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½Ì´ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½
 	float fRange = CAtumSJ::GetSecondaryRadarRange(m_pRadarItemInfo->ItemInfo, &m_paramFactor);
-	m_vGroundTargetPos = m_vPos + vVel * fRange;										// Å¸ÄÏÀÇ À§Ä¡
-	float fTargetDistance = D3DXVec3Length(&(m_vGroundTargetPos - m_vPos));				// Å¸ÄÏ°úÀÇ °Å¸®
+	m_vGroundTargetPos = m_vPos + vVel * fRange;										// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+	float fTargetDistance = D3DXVec3Length(&(m_vGroundTargetPos - m_vPos));				// Å¸ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 	vGroundTargetCheckObject = m_vGroundTargetPos;
 	vGroundTargetCheckGround = m_vGroundTargetPos;
-	vTargetVel = m_vGroundTargetPos - m_vPos;											// Å¸ÄÏÀÇ ¹æÇâ
+	vTargetVel = m_vGroundTargetPos - m_vPos;											// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	D3DXVec3Normalize(&vTargetVel,&vTargetVel);
 
-	// 1. Å¸ÄÏ¹æÇâÀ¸·Î  ¿ÀºêÁ§Æ®¿Í Ãæµ¹ °Ë»ç
-	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos + vTargetVel),&D3DXVECTOR3(0,1,0));	// ¼ÅÆ² ¾Õ¹æÇâ
+	// 1. Å¸ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½
+	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos + vTargetVel),&D3DXVECTOR3(0,1,0));	// ï¿½ï¿½Æ² ï¿½Õ¹ï¿½ï¿½ï¿½
 	COLLISION_RESULT collResult = g_pScene->m_pObjectRender->CheckCollMesh(mat,m_vPos, FALSE);
 	if(collResult.fDist < fTargetDistance) 
-	{ // 2Çü ¹«±âÀÇ »ç°Å¸® ¾ÈÂÊ¿¡ ¿ÀºêÁ§Æ®°¡ ÀÖ´Ù¸é ¿ÀºêÁ§Æ®¿¡ Ãæµ¹
+	{ // 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹
 		vGroundTargetCheckObject = m_vPos + vTargetVel*collResult.fDist;	
 	}
 
-	// 2. Å¸ÄÏ¹æÇâÀ¸·Î ÁöÇü°ú Ãæµ¹°Ë»ç
+	// 2. Å¸ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ë»ï¿½
 	float fTempDistance = 0.0f;
 	D3DXVECTOR3 vTempPos;
-	while (fTempDistance < fTargetDistance)	// ÁöÇü ¹× ¹°°ú Ãæµ¹ °Ë»ç
+	while (fTempDistance < fTargetDistance)	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ë»ï¿½
 	{
 		vTempPos = m_vPos + vTargetVel * fTempDistance;
 		if(g_pGround->CheckHeightMap(vTempPos) > vTempPos.y)
-		{	// ÁöÇü ¹× ¹°°ú Ãæµ¹ Çß´Ù.
+		{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ß´ï¿½.
 			vGroundTargetCheckGround = vTempPos;
 			break;
 		}
@@ -13926,11 +13938,11 @@ void CShuttleChild::SetAirGroundTargetPos()
 	}
 
 	if(D3DXVec3Length(&(vGroundTargetCheckObject - m_vPos)) > D3DXVec3Length(&(vGroundTargetCheckGround - m_vPos))) 
-	{ // ÁöÇü°ú ¸ÕÀú Ãæµ¹ÇÑ´Ù.
+	{ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ñ´ï¿½.
 		m_vGroundTargetPos = vGroundTargetCheckGround;
 	}
 	else
-	{ // ¿ÀºêÁ§Æ®¿Í ¸ÕÀú Ãæµ¹ÇÑ´Ù.
+	{ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ñ´ï¿½.
 		m_vGroundTargetPos = vGroundTargetCheckObject;
 	}
 	g_pGameMain->m_pInfSkill->SetAirGroundTarget(m_vGroundTargetPos);
@@ -13938,7 +13950,7 @@ void CShuttleChild::SetAirGroundTargetPos()
 
 void CShuttleChild::SendMoveWeaponVel()
 {
-	// 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+	// 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 	DWORD dwTime = g_pD3dApp->GetCurrentGameTime();		
 	if(dwTime < m_dwCheckTimeSendMoveVel)		
 	{		
@@ -13951,7 +13963,7 @@ void CShuttleChild::SendMoveWeaponVel()
 	}
 	
 	m_dwCheckTimeSendMoveVel = dwTime;
-	// end 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+	// end 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 
 	MSG_FC_MOVE_WEAPON_VEL sMsg;
 	sMsg.WeaponVel = m_vWeaponVel;
@@ -13965,7 +13977,7 @@ void CShuttleChild::CheckOnObject()
 {
 	D3DXMATRIX mat;
 	D3DXVECTOR3 vSide(0,0,1),vUp(0,1,0);
-	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos - m_vUp),&vSide);		// ¾Æ·¡
+	D3DXMatrixLookAtLH(&mat,&m_vPos,&(m_vPos - m_vUp),&vSide);		// ï¿½Æ·ï¿½
 		
 	if(	g_pScene &&
 		g_pScene->m_pObjectRender)
@@ -13985,7 +13997,7 @@ void CShuttleChild::CheckOnObject()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::PatternWarpIn()
-/// \brief		ÆÐÅÏ ¿öÇÁ ¿ÀºêÁ§Æ®¿¡ ÁøÀÔ½Ã ÆÐÅÏÀ» »ý¼ºÇÑ´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		jschoi
 /// \date		2004-11-27 ~ 2004-11-27
 /// \warning	
@@ -14004,7 +14016,7 @@ void CShuttleChild::PatternWarpIn()
 		vUp.y = m_mMatrix._22;
 		vUp.z = m_mMatrix._23;
 		if(vVel == vUp)
-		{// ¸ÅÆ®¸¯½º°¡ ±úÁöÁö ¾Êµµ·Ï
+		{// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
 			m_mMatrix._21 += 0.001f;
 			m_mMatrix._22 -= 0.001f;
 			m_mMatrix._23 += 0.002f;
@@ -14014,12 +14026,12 @@ void CShuttleChild::PatternWarpIn()
 		m_mMatrix._33 = vVel.z;
 		if(InitCinemaUnit(PATTERN_UNIT_WARP_IN, TRUE) == TRUE)
 		{
-			// ¿öÇÁ°ÔÀÌÆ® ÀÌÆåÆ®
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
 			CObjectChild* pWarpgate = g_pScene->FindWarpGateByPosition( m_vPos );
 			if( pWarpgate )
 			{
-				// 2008-06-24 by dgwoo ¿öÇÁ °ÔÀÌÆ® Ãß°¡.
-				if(pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_2||pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_3)// 2012-06-13 by jhahn ¿öÇÁ °ÔÀÌÆ® Ãß°¡2.
+				// 2008-06-24 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½.
+				if(pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_2||pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_3)// 2012-06-13 by jhahn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½2.
 				{
 					g_pD3dApp->m_pSound->PlayD3DSound(SOUND_WARP_2, pWarpgate->m_vPos, FALSE);
 				}
@@ -14029,7 +14041,7 @@ void CShuttleChild::PatternWarpIn()
 				}
 				pWarpgate->ChangeBodycondition( BODYCON_WARP_MASK );
 				
-				// ÁÖº¯ÀÇ Enemyµé¿¡°Ô ¿öÇÁ°ÔÀÌÆ® ¹ÙµðÄÁÆ¼¼Ç Change¸¦ Àü¼ÛÇÑ´Ù.
+				// ï¿½Öºï¿½ï¿½ï¿½ Enemyï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ùµï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ Changeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				MSG_FC_OBJECT_CHANGE_BODYCONDITION sMsg;
 				sMsg.AVec3Position = pWarpgate->m_vPos;
 				sMsg.bodyCondition = BODYCON_WARP_MASK;
@@ -14051,13 +14063,13 @@ void CShuttleChild::PatternWarpIn()
 		ChangeBodyConditionFromServer(BODYCON_BOOSTER3_MASK);
 	}
 
-	m_nBooster = BOOSTER_TYPE_MIN;						// 2006-09-27 by ispark, ºÎ½ºÅÍ °ÔÀÌÁö ´ÞÁö ¾Ê°Ô ÇÏ±â
+	m_nBooster = BOOSTER_TYPE_MIN;						// 2006-09-27 by ispark, ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï±ï¿½
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::PatternWarpOut()
-/// \brief		¿öÇÁ°ÔÀÌÆ® ÀÌº¥Æ® ¿ÀºêÁ§Æ®¿¡¼­ ¿öÇÁ°¡ ¿Ï·áµÇ¸é, ¿öÇÁ¾Æ¿ô ÆÐÅÏÀ» »ý¼ºÇÑ´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¸ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		jschoi
 /// \date		2004-11-27 ~ 2004-11-27
 /// \warning	
@@ -14067,7 +14079,7 @@ void CShuttleChild::PatternWarpIn()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::PatternWarpOut(BOOL bOtherMap)
 {
-	// 2004-11-26 by jschoi - À§ÇÁ¾Æ¿ô ½Ã ÆÐÅÏ Àû¿ë
+	// 2004-11-26 by jschoi - ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CObjectChild * pCurrentObj = g_pScene->FindEventObjectByTypeAndPosition(EVENT_TYPE_WARP,m_vPos);
 	if(pCurrentObj == NULL)
 	{
@@ -14084,7 +14096,7 @@ void CShuttleChild::PatternWarpOut(BOOL bOtherMap)
 				g_pD3dApp->m_pEffectList->AddChild(pData);
 			}
 
-			// 2006-04-25 by ispark, ÀÌº¥Æ® ¿ÀºêÁ§Æ® Upº¤ÅÍ¸¦ °¡Áö°í ¼ÂÆÃ
+			// 2006-04-25 by ispark, ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Upï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			D3DXVECTOR3 vVel,vUp(0,1,0);
 			D3DXVECTOR3 vVel,vUp = pCurrentObj->m_vUp;
 			vVel = m_vPos - pObjTarget->m_vPos;
@@ -14110,12 +14122,12 @@ void CShuttleChild::PatternWarpOut(BOOL bOtherMap)
 			g_pCamera->Init(m_vPos - 10.0f*vVel,vVel, 3.14f/13.0f, 60.0f);
 			if(InitCinemaUnit(PATTERN_UNIT_WARP_OUT, TRUE) == TRUE)
 			{
-				// ¿öÇÁ°ÔÀÌÆ® ÀÌÆåÆ®
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
 				CObjectChild* pWarpgate = g_pScene->FindWarpGateByPosition( m_vPos );
 				if( pWarpgate )
 				{
-					// 2008-06-24 by dgwoo ¿öÇÁ °ÔÀÌÆ® Ãß°¡.
-					if(pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_2||pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_3)// 2012-06-13 by jhahn ¿öÇÁ °ÔÀÌÆ® Ãß°¡2.
+					// 2008-06-24 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½.
+					if(pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_2||pWarpgate->m_pObjectInfo->Code == WARP_GATE_OBJECT_NUM_3)// 2012-06-13 by jhahn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½2.
 					{
 						g_pD3dApp->m_pSound->PlayD3DSound(SOUND_WARP_2, pWarpgate->m_vPos, FALSE);
 					}
@@ -14125,7 +14137,7 @@ void CShuttleChild::PatternWarpOut(BOOL bOtherMap)
 					}
 					pWarpgate->ChangeBodycondition( BODYCON_WARP_MASK );
 					
-					// ÁÖº¯ÀÇ Enemyµé¿¡°Ô ¿öÇÁ°ÔÀÌÆ® ¹ÙµðÄÁÆ¼¼Ç Change¸¦ Àü¼ÛÇÑ´Ù.
+					// ï¿½Öºï¿½ï¿½ï¿½ Enemyï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ùµï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ Changeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 					MSG_FC_OBJECT_CHANGE_BODYCONDITION sMsg;
 					sMsg.AVec3Position = pWarpgate->m_vPos;
 					sMsg.bodyCondition = BODYCON_WARP_MASK;
@@ -14145,16 +14157,16 @@ void CShuttleChild::PatternWarpOut(BOOL bOtherMap)
 		
 		if(bOtherMap)
 		{
-			// 2009. 09. 03 by ckPark ·Îº¿±â¾î ·Ñ¸µÇÏ¸é¼­ ¿öÇÁ Åë°ú½Ã ÀÌÆåÆ® ³²¾ÆÀÖ´Â ¹®Á¦
+			// 2009. 09. 03 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if( COMPARE_BODYCON_BIT( m_pCharacterInfo->m_nCurrentBodyCondition, BODYCON_ROLLING_MASK ) )
 				g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, FALSE );
-			// end 2009. 09. 03 by ckPark ·Îº¿±â¾î ·Ñ¸µÇÏ¸é¼­ ¿öÇÁ Åë°ú½Ã ÀÌÆåÆ® ³²¾ÆÀÖ´Â ¹®Á¦
+			// end 2009. 09. 03 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			m_nShuttleStopState = 0;
 			m_nBooster = BOOSTER_TYPE_MAX;
 			ChangeSingleBodyCondition(BODYCON_BOOSTER2_MASK);
 			ChangeBodyConditionFromServer(BODYCON_BOOSTER3_MASK);
-			m_nBooster = BOOSTER_TYPE_MIN;							// 2006-09-27 by ispark, ºÎ½ºÅÍ °ÔÀÌÁö ´ÞÁö ¾Ê°Ô ÇÏ±â
+			m_nBooster = BOOSTER_TYPE_MIN;							// 2006-09-27 by ispark, ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï±ï¿½
 		}
 		m_fShuttleSpeed = m_fShuttleSpeedBoosterOn;		
 	}
@@ -14163,14 +14175,14 @@ void CShuttleChild::PatternWarpOut(BOOL bOtherMap)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CheckPickingTarget(CUnitData* pTarget)
-/// \brief		¸¶¿ì½º Æ÷ÀÎÆ®¿¡ ´ëÇÑ pTargetÀÇ ¸Þ½Ã PickingÀ» ¼öÇàÇÑ´Ù.
+/// \brief		ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ pTargetï¿½ï¿½ ï¿½Þ½ï¿½ Pickingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		jschoi
 /// \date		2005-03-24 ~ 2005-03-24
 /// \warning	
 ///
 /// \param		
-/// \return		TRUE : Ãæµ¹ÇÑ´Ù.(Picked)
-///				FALSE : Pick ½ÇÆÐ
+/// \return		TRUE : ï¿½æµ¹ï¿½Ñ´ï¿½.(Picked)
+///				FALSE : Pick ï¿½ï¿½ï¿½ï¿½
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CShuttleChild::CheckPickingTarget(CUnitData* pTarget)
 {
@@ -14250,7 +14262,7 @@ BOOL CShuttleChild::CheckPickingTarget(CUnitData* pTarget)
 
 void CShuttleChild::SetEffectPos(float fElapsedTime)
 {
-	// ÁÂ¿ì ³¯°³ ¿£Áø À§Ä¡ ¼³Á¤
+	// ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	D3DXVECTOR3 vSide;
 	vSide.x = m_mMatrix._11;
 	vSide.y = m_mMatrix._12;
@@ -14260,7 +14272,7 @@ void CShuttleChild::SetEffectPos(float fElapsedTime)
 	{//4.0f
 
 
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 ////	D3DXVec3TransformCoord(&m_vLWBackPos, &m_PrimaryAttack.vSideBackPos, &m_mMatrix);
 // 		D3DXVec3TransformCoord(&m_vLWBackPos, &m_PrimaryAttack.vSidePos, &m_mMatrix);
@@ -14275,12 +14287,12 @@ void CShuttleChild::SetEffectPos(float fElapsedTime)
 // 		D3DXVec3TransformCoord(&vRWBackPos, &vPrimaryRightBackPos, &m_mMatrix);
 // 		m_vRWPos = vRWBackPos + fLen*m_vWeaponVel;
 
-		// ¹ß»ç À§Ä¡ÀÇ vSideBackPos¿¡¼­ °¡Á®¿À³ª
-		// yÃàÀº ¾Æ¸Ó À§Ä¡¿¡¼­ °¡Á®¿Â´Ù(vSidePos)
+		// ï¿½ß»ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ vSideBackPosï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// yï¿½ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½(vSidePos)
 		D3DXVECTOR3 vPrimaryLeftBackPos = m_PrimaryAttack.vSideBackPos;
 		vPrimaryLeftBackPos.y = m_PrimaryAttack.vSidePos.y;
 		
-		// ¿ÞÂÊ ¹ß»ç À§Ä¡
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Ä¡
 		D3DXVec3TransformCoord( &m_vLWBackPos, &vPrimaryLeftBackPos, &m_mMatrix );
 		D3DXVECTOR3 vTempPrimary = vPrimaryLeftBackPos - m_PrimaryAttack.vSidePos;
 		
@@ -14288,7 +14300,7 @@ void CShuttleChild::SetEffectPos(float fElapsedTime)
 		D3DXVec3Normalize( &m_vWeaponVel,&m_vWeaponVel );
 		m_vLWPos = m_vLWBackPos + fLen * m_vWeaponVel;
 		
-		// ¿À¸¥ÂÊ ¹ß»ç À§Ä¡
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Ä¡
 		D3DXVECTOR3 vPrimaryRightBackPos = vPrimaryLeftBackPos;
 		vPrimaryRightBackPos.x = -vPrimaryRightBackPos.x;
 		
@@ -14296,32 +14308,32 @@ void CShuttleChild::SetEffectPos(float fElapsedTime)
 		D3DXVec3TransformCoord( &vRWBackPos, &vPrimaryRightBackPos, &m_mMatrix) ;
 		m_vRWPos = vRWBackPos + fLen * m_vWeaponVel;
 
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		//m_vRWPos += 3.0f*m_vWeaponVel;
 		D3DXVec3TransformCoord(&m_vLWSecondaryPos, &m_SecondaryAttack.vSidePos, &m_mMatrix);
 		D3DXVECTOR3 vSecondaryRightPos = D3DXVECTOR3(-m_SecondaryAttack.vSidePos.x, m_SecondaryAttack.vSidePos.y, m_SecondaryAttack.vSidePos.z);
 		D3DXVec3TransformCoord(&m_vRWSecondaryPos, &vSecondaryRightPos, &m_mMatrix);
 
-		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+		// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 		D3DXVec3TransformCoord(&m_vPetLeftPos, &m_PetAttack.vSidePos, &m_mMatrix);
 		D3DXVECTOR3 vPetRightPos = D3DXVECTOR3(-m_PetAttack.vSidePos.x,
 												m_PetAttack.vSidePos.y, 
 												m_PetAttack.vSidePos.z);
 		D3DXVec3TransformCoord(&m_vPetRightPos, &vPetRightPos, &m_mMatrix);
-		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+		// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	}
 
-	// ½ºÅ©¸°»óÀÇ ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	// ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	g_pD3dApp->CalcObjectSourceScreenCoords(m_vPos, g_pD3dApp->GetBackBufferDesc().Width, g_pD3dApp->GetBackBufferDesc().Height, 
 		m_nObjScreenX, m_nObjScreenY,m_nObjScreenW);
-	// Ä«¸Þ¶ó·ÎºÎÅÍÀÇ °Å¸®
+	// Ä«ï¿½Þ¶ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 	m_fDistanceCamera = D3DXVec3Length(&(m_vPos - g_pD3dApp->m_pCamera->GetEyePt()));
-	// ±×¸²ÀÚ À§Ä¡ ¼³Á¤
+	// ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	CheckShadowPos();
-	m_bCollObjectCheck = 0;				// ÃÊ±âÈ­
+	m_bCollObjectCheck = 0;				// ï¿½Ê±ï¿½È­
 	m_bCollMonsterCheck = 0;
 	m_bCollShuttleCheck = 0;
-	m_bCollAttackCheck = 0;			// ÃÊ±âÈ­
+	m_bCollAttackCheck = 0;			// ï¿½Ê±ï¿½È­
 	// effect matrix & ticking
 	if(m_pCharacterInfo)
 	{
@@ -14334,9 +14346,9 @@ void CShuttleChild::SetEffectPos(float fElapsedTime)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			RollingSystem()
-/// \brief		·Ñ¸µ ½Ã½ºÅÛ(Å°¸¦ °Ë»öÈÄ ±×¿¡ ¸Â´Â ¾Ö´Ï¸ÞÀÌ¼Ç ÇÏµåÄÚµù)
-///				È¸Àü°ªÀ» ¸®ÅÏ
-///				(´Ü, 0Àº ÀÌµ¿ÀÌ ¾øÀ» ¶§ ¾´´Ù.)
+/// \brief		ï¿½Ñ¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½(Å°ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½×¿ï¿½ ï¿½Â´ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ïµï¿½ï¿½Úµï¿½)
+///				È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+///				(ï¿½ï¿½, 0ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.)
 /// \author		ispark
 /// \date		2005-07-05 ~ 2005-07-05
 /// \warning	
@@ -14346,11 +14358,11 @@ void CShuttleChild::SetEffectPos(float fElapsedTime)
 ///////////////////////////////////////////////////////////////////////////////
 float CShuttleChild::RollingSystem(float fElapsedTime)
 {
-	// AÅ° ÁÂÃø ·Ñ¸µ
+	// AÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 	if(m_bKeyDownA)
 	{
 		m_fRollTime += fElapsedTime;
-		if(m_fRollTime >= ROLLING_USE_TIME)					// ·Ñ¸µ Áö¼Ó½Ã°£
+		if(m_fRollTime >= ROLLING_USE_TIME)					// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ó½Ã°ï¿½
 		{
 			m_bKeyDownA = FALSE;
 
@@ -14362,9 +14374,9 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 				g_pTutorial->m_Lesson3State.bLRolling = TRUE;
 			}
 
-			// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, FALSE );
-			// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 			return 0.0f;
 		}
@@ -14386,16 +14398,16 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 					g_pTutorial->m_Lesson3State.bLRolling = TRUE;
 				}
 	
-				// 2006-07-14 by ispark, ·Ñ¸µ½Ã Æí´ë ºñÇà ÇüÅÂ ¿ø»óº¹±Í
+				// 2006-07-14 by ispark, ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½óº¹±ï¿½
 				if(m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER &&
 					m_pClientParty->IsFormationFlight())
 				{
 					g_pShuttleChild->m_pClientParty->ISendPartyChangeFlightFormation(m_byFormationFlightType);
 				}
 
-				// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+				// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 				g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, FALSE );
-				// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+				// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 				return 0.0f;
 			}
@@ -14410,11 +14422,11 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 //		}
 	}
 	
-	// DÅ° ¿ìÃø ·Ñ¸µ
+	// DÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 	if(m_bKeyDownD)
 	{
 		m_fRollTime += fElapsedTime;
-		if(m_fRollTime >= ROLLING_USE_TIME)					// ·Ñ¸µ Áö¼Ó ½Ã°£
+		if(m_fRollTime >= ROLLING_USE_TIME)					// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 		{
 			m_bKeyDownD = FALSE;
 
@@ -14426,9 +14438,9 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 				g_pTutorial->m_Lesson3State.bRRolling = TRUE;
 			}
 
-			// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, FALSE );
-			// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 			return 0.0f;
 		}
@@ -14450,16 +14462,16 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 					g_pTutorial->m_Lesson3State.bRRolling = TRUE;
 				}
 				
-				// 2006-07-14 by ispark, ·Ñ¸µ½Ã Æí´ë ºñÇà ÇüÅÂ ¿ø»óº¹±Í
+				// 2006-07-14 by ispark, ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½óº¹±ï¿½
 				if(m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER &&
 					m_pClientParty->IsFormationFlight())
 				{
 					g_pShuttleChild->m_pClientParty->ISendPartyChangeFlightFormation(m_byFormationFlightType);
 				}
 				
-				// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+				// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 				g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, FALSE );
-				// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+				// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 				return 0.0f;
 			}
@@ -14480,7 +14492,7 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CheckRollKeyDown()
-/// \brief		´õºíÅ¬¸¯À¸·Î ·Ñ¸µÀ¸·Î º¯°æ
+/// \brief		ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-07-05 ~ 2005-07-05, 2005-09-26
 /// \warning	
@@ -14490,12 +14502,12 @@ float CShuttleChild::RollingSystem(float fElapsedTime)
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::CheckRollKeyDown(float fElapsedTime)
 {
-	// ´õºíÅ¬¸¯ ½Ã°£
+	// ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½Ã°ï¿½
 	m_fADoubleKeyTime += fElapsedTime;
 	m_fDDoubleKeyTime += fElapsedTime;
 	
-	// 2008-11-13 by bhsohn ·Ñ¸µ º¯¼ö ¿À¹ö ÇÃ·Î¿ì ³¯¼ö ÀÖ´Â ¼ÒÁö Á¦°Å
-	// ·Ñ¸µ º¯¼ö ¿À¹ö ÇÃ·Î¿ì ³¯¼ö ÀÖ´Â ¼ÒÁö Á¦°Å
+	// 2008-11-13 by bhsohn ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(m_fADoubleKeyTime > 100000.0f)
 	{
 		m_fADoubleKeyTime = 0.5f;
@@ -14504,31 +14516,31 @@ void CShuttleChild::CheckRollKeyDown(float fElapsedTime)
 	{
 		m_fDDoubleKeyTime = 0.5f;
 	}
-	// ¾î´À ÇÏ³ª¶óµµ TRUEÀÌ¸é ÇÔ¼ö¸¦ ¾²Áö ¾Ê´Â´Ù. 
+	// ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ TRUEï¿½Ì¸ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½. 
 	if(m_bKeyDownA || m_bKeyDownD)
 	{
 		return;
 	}
-	else if(g_pD3dApp->m_bChatMode ||										// Ã¤ÆÃ ¸ðµå
-		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-			//g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE) ||			// ºÎ½ºÅÍ »ç¿ë 
-			g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE) ||			// ºÎ½ºÅÍ »ç¿ë 
-			g_pD3dApp->m_bFixUnitDirMode ||									// À¯´Ö °íÁ¤½Ã
-			g_pGameMain->m_pSystem->m_bQuitGameMessage ||					// ¸Þ´º»ç¿ë½Ã À¯´ÖÁ¤Áö ¿É¼Ç Ã¼Å©
-			g_pD3dApp->m_bMessageBox ||										// ¸Þ¼¼Áö ¹Ú½º ¶¹À» ¶§
-			m_dwState != _NORMAL  ||										// ºñÇàÁßÀÌ ¾Æ´Ï¶ó¸é 
-			m_bUnitStop == TRUE ||											// 2005-08-08 by ispark À¯´ÖÁ¤Áö½Ã »ç¿ë ¸øÇÔ
-			m_bPenaltyUnitStop == TRUE)										// 2005-08-10 by ispark Æä³ÎÆ¼½Ã »ç¿ë ±ÝÁö
+	else if(g_pD3dApp->m_bChatMode ||										// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½
+		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+			//g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_SPACE) ||			// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+			g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_SPACE) ||			// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+			g_pD3dApp->m_bFixUnitDirMode ||									// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			g_pGameMain->m_pSystem->m_bQuitGameMessage ||					// ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Ã¼Å©
+			g_pD3dApp->m_bMessageBox ||										// ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			m_dwState != _NORMAL  ||										// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ 
+			m_bUnitStop == TRUE ||											// 2005-08-08 by ispark ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			m_bPenaltyUnitStop == TRUE)										// 2005-08-10 by ispark ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
 		return;
 	}
 
 	if(m_bKeyDownACheck || m_bKeyDownDCheck)
 	{
-		// ÀÌ¹Ì º¸³½ ¸Þ¼¼Áö ÀÌ¹Ç·Î ´õ ÀÌ»ó º¸³»Áö ¾Ê´Â´Ù.
+		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		m_fRollMessageTime += fElapsedTime;
 
-		// 2ÃÊ ÈÄ¿¡´Â º¸³¾ ¼ö ÀÖ´Ù.
+		// 2ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
 		if(2.0f >= m_fRollMessageTime)
 			return;
 	
@@ -14539,22 +14551,22 @@ void CShuttleChild::CheckRollKeyDown(float fElapsedTime)
 
 
 
-	// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
-	// È¦µå°¡ °É·ÈÀ»¶§´Â ·Ñ¸µ ¸øÇÔ
+	// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	// È¦ï¿½å°¡ ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( m_pSkill->IsExistDesParamSKill( DES_SKILL_MON_HOLD ) )
 		return;
-	// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+	// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 
 
-	// ´õºíÅ¬¸¯ ³¡ Ã¼Å©
-	// AÅ° ÁÂÃø ·Ñ¸µ
+	// ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ Ã¼Å©
+	// AÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 	if(m_bKeyDownADouble == TRUE)
 	{
 		m_bKeyDownACheck = TRUE;
 		m_bKeyDownADouble = FALSE;
 
-		// ·Ñ¸µ ÆÐÅ¶
+		// ï¿½Ñ¸ï¿½ ï¿½ï¿½Å¶
 		INIT_MSG_WITH_BUFFER(MSG_FC_MOVE_ROLLING, T_FC_MOVE_ROLLING, pSRolling, SendBuf);
 		pSRolling->PositionAVec3	= m_vPos;
 		pSRolling->TargetAVec3		= m_vVel * 1000.0f;
@@ -14565,17 +14577,17 @@ void CShuttleChild::CheckRollKeyDown(float fElapsedTime)
 		pSRolling->UpAVec3			= vUp * 1000.0f;
 		pSRolling->byLeftDirectionFlag	= TRUE;
 		g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_MOVE_ROLLING));
-//		DBGOUT("ÆÐÅ¶ º¸³Â¾û~~~\n");
+//		DBGOUT("ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½Â¾ï¿½~~~\n");
 		return;
 	}
 
-	// DÅ° ÁÂÃø ·Ñ¸µ
+	// DÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 	if(m_bKeyDownDDouble == TRUE)
 	{
 		m_bKeyDownDCheck = TRUE;
 		m_bKeyDownDDouble = FALSE;
 
-		// ·Ñ¸µ ÆÐÅ¶
+		// ï¿½Ñ¸ï¿½ ï¿½ï¿½Å¶
 		INIT_MSG_WITH_BUFFER(MSG_FC_MOVE_ROLLING, T_FC_MOVE_ROLLING, pSRolling, SendBuf);
 		pSRolling->PositionAVec3	= m_vPos;
 		pSRolling->TargetAVec3		= m_vVel * 1000.0f;
@@ -14586,7 +14598,7 @@ void CShuttleChild::CheckRollKeyDown(float fElapsedTime)
 		pSRolling->UpAVec3			= vUp * 1000.0f;
 		pSRolling->byLeftDirectionFlag	= FALSE;
 		g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_MOVE_ROLLING));
-//		DBGOUT("ÆÐÅ¶ º¸³Â¾û~~~\n");
+//		DBGOUT("ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½Â¾ï¿½~~~\n");
 		return;
 	}
 
@@ -14605,7 +14617,7 @@ void CShuttleChild::CheckRollKeyDown(float fElapsedTime)
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::CheckRoll(BYTE byDir)
 {
-//	DBGOUT("ÆÐÅ¶ ¹Þ¾Ò¾û~~~\n");
+//	DBGOUT("ï¿½ï¿½Å¶ ï¿½Þ¾Ò¾ï¿½~~~\n");
 	if(byDir)
 	{
 		m_bKeyDownA = TRUE;
@@ -14631,11 +14643,11 @@ void CShuttleChild::CheckRoll(BYTE byDir)
 	}
 	m_byFormationFlightType = g_pShuttleChild->m_pClientParty->GetPartyInfo().bFormationFlyingType;
 
-	// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
-	// ·Îº¿¾Æ¸ÓÀÏ °æ¿ì
+	// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	// ï¿½Îºï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	if( IsRobotArmor() )
 	{
-		// ºÎ½ºÅÍ ¾Ö´Ï¸ÞÀÌ¼Ç°ú ·Ñ¸µ ¹ÙµðÄÁ¼ÇÀ» ´Ù ³¡³½µÚ, »õ·Î ½ÃÀÛÇÑ´Ù
+		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç°ï¿½ ï¿½Ñ¸ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 		g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_BOOSTER1_MASK, FALSE );
 		g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_BOOSTER2_MASK, FALSE );
 		g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_BOOSTER3_MASK, FALSE );
@@ -14644,13 +14656,13 @@ void CShuttleChild::CheckRoll(BYTE byDir)
 		g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, FALSE );
 	}
 	g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_ROLLING_MASK, TRUE );
-	// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+	// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::InitRolling()
-/// \brief		·Ñ¸µ ÃÊ±âÈ­
+/// \brief		ï¿½Ñ¸ï¿½ ï¿½Ê±ï¿½È­
 /// \author		ispark
 /// \date		2005-11-15 ~ 2005-11-15
 /// \warning	
@@ -14660,26 +14672,26 @@ void CShuttleChild::CheckRoll(BYTE byDir)
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::InitRolling()
 {
-	m_bKeyDownA = FALSE;			// A ÁÂÃø ·Ñ¸µ
-	m_bKeyDownD = FALSE;			// D ¿ìÃø ·Ñ¸µ
-	m_bKeyDownACheck = FALSE;		// A ÁÂÃø »ç¿ë Çã°¡ Ã¼Å©
-	m_bKeyDownDCheck = FALSE;		// D ¿ìÃø »ç¿ë Çã°¡ Ã¼Å©
-	m_bKeyDownADouble = FALSE;		// A ´õºíÅ¬¸¯
-	m_bKeyDownDDouble = FALSE;		// D ´õºíÅ¬¸¯
-	m_fADoubleKeyTime = 0.5f;			// A ´õºíÅ° Å¸ÀÓ
-	m_fDDoubleKeyTime = 0.5f;			// D ´õºíÅ° Å¸ÀÓ
-	m_fRollTime = 0.0f;				// ·Ñ¸µ Å¸ÀÓ
-	m_fRollAngle = 0.0f;			// ·Ñ¸µ È¸Àü °¢µµ
-	m_fRollLength = 0.0f;			// ·Ñ¸µ °Å¸® Ã¼Å©
+	m_bKeyDownA = FALSE;			// A ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
+	m_bKeyDownD = FALSE;			// D ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
+	m_bKeyDownACheck = FALSE;		// A ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ã°¡ Ã¼Å©
+	m_bKeyDownDCheck = FALSE;		// D ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ã°¡ Ã¼Å©
+	m_bKeyDownADouble = FALSE;		// A ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½
+	m_bKeyDownDDouble = FALSE;		// D ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½
+	m_fADoubleKeyTime = 0.5f;			// A ï¿½ï¿½ï¿½ï¿½Å° Å¸ï¿½ï¿½
+	m_fDDoubleKeyTime = 0.5f;			// D ï¿½ï¿½ï¿½ï¿½Å° Å¸ï¿½ï¿½
+	m_fRollTime = 0.0f;				// ï¿½Ñ¸ï¿½ Å¸ï¿½ï¿½
+	m_fRollAngle = 0.0f;			// ï¿½Ñ¸ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	m_fRollLength = 0.0f;			// ï¿½Ñ¸ï¿½ ï¿½Å¸ï¿½ Ã¼Å©
 	m_fRollDownSpeed = 0.0f;
-	m_fRollMessageTime = 0.0f;		// ·Ñ¸µ ¸Þ¼¼Áö
-	m_bMissileWarning = FALSE;		// ¸¶»çÀÏ °æ°í
+	m_fRollMessageTime = 0.0f;		// ï¿½Ñ¸ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+	m_bMissileWarning = FALSE;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	m_bRollUsed = FALSE;			// 2005-07-14 by ispark
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::GetIsUseInterface()
-/// \brief		ÀÎÅÍÆäÀÌ½º »ç¿ë °¡´ÉÇÑ°¡? ±â¾î »óÅÂ¿¡ µû¶ó ´Ù¸§
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½? ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½
 /// \author		ispark
 /// \date		2005-10-26 ~ 2005-10-26
 /// \warning	
@@ -14689,18 +14701,18 @@ void CShuttleChild::InitRolling()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CShuttleChild::GetIsUseInterface()
 {
-	// 1. ±â¾î »óÅÂÀÌ´Ù
-	// 2. BÅ° ±â¾î Á¤Áö°¡ ¾Æ´Ï´Ù
-	// 3. Âø·ú »óÅÂ ¾Æ´Ï´Ù
-	// 4. A±â¾î Ground »óÅÂ°¡ ¾Æ´Ï´Ù
-	// ÀÎÅÍÆäÀÌ½º »ç¿ë ±ÝÁö
+	// 1. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
+	// 2. BÅ° ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½
+	// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½
+	// 4. Aï¿½ï¿½ï¿½ Ground ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï´ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pD3dApp->m_bCharacter == FALSE && 
 	   g_pShuttleChild->m_bUnitStop == FALSE && 
 	   g_pShuttleChild->m_bLandedMove == FALSE &&
-// 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+// 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		(m_bIsAir || (!m_bIsAir && GetMoving())) ||
 		m_bAttackMode == _SIEGE)
-// end 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+// end 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	   return FALSE;
 
 	return TRUE;
@@ -14709,7 +14721,7 @@ BOOL CShuttleChild::GetIsUseInterface()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::CheckCollForObject2()
-/// \brief		¿ÀºêÁ§Æ® °Ë»ç LANDED »óÅÂ ÀÏ ¶§¸¸
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë»ï¿½ LANDED ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-10-26 ~ 2005-10-26
 /// \warning	
@@ -14723,27 +14735,27 @@ void CShuttleChild::CheckCollForObject2(float fElapsedTime)
 	D3DXMATRIX matArray[2];
 	D3DXVECTOR3 vVel,vFrontPos, vBackPos;
 	
-	vFrontPos = m_vPos;			// »ç¶÷ Å°³ôÀÌ¸¦ »ý°¢ÇÏÀÚ
-	vBackPos = m_vPos;			// Àýº®¸¦ °è»êÇÏ±â À§ÇØ¼­ ³» À§Ä¡ º¸´Ù ´õ ¾ÕÂÊ ÁÂÇ¥ ÀÔ·Â
+	vFrontPos = m_vPos;			// ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	vBackPos = m_vPos;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½Ô·ï¿½
 	vBackPos += m_vVel * -5;
 
-	D3DXMatrixLookAtLH(&matArray[0],&vFrontPos,&(vFrontPos + m_vVel),&m_vUp);		// ¾Õ
-	D3DXMatrixLookAtLH(&matArray[1],&vBackPos,&(vBackPos - m_vVel),&m_vUp);		// µÚ
+	D3DXMatrixLookAtLH(&matArray[0],&vFrontPos,&(vFrontPos + m_vVel),&m_vUp);		// ï¿½ï¿½
+	D3DXMatrixLookAtLH(&matArray[1],&vBackPos,&(vBackPos - m_vVel),&m_vUp);		// ï¿½ï¿½
 	
 	float fFrontMove = m_fShuttleSpeed*fElapsedTime;
-	float size[2] = {25 + fFrontMove, 25 + fFrontMove};	// À¯´Ö Å©±â	¾Õ, ¾Æ·¡
+	float size[2] = {25 + fFrontMove, 25 + fFrontMove};	// ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½	ï¿½ï¿½, ï¿½Æ·ï¿½
 	
-	// ¿ÀºêÁ§Æ®¿Í Ãæµ¹ Ã³¸® 2004.06.18 jschoi
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½ 2004.06.18 jschoi
 	
 	if(	/*m_bCollObjectCheck && */
 		g_pScene &&
 		g_pScene->m_byMapType != MAP_TYPE_TUTORIAL &&
 		g_pScene->m_pObjectRender)
 	{
-		// Á¤¸é
+		// ï¿½ï¿½ï¿½ï¿½
 		CollResult = g_pScene->m_pObjectRender->CheckCollMesh(matArray[0], m_vPos);	
 		// 2005-07-29 by ispark
-		// ¿ÀºêÁ§Æ®¾È¿¡¼­ ³ª¿ÀÁö ¸øÇÏ´Â ¹ö±× ¿¹¿Ü Ã³¸®(³ª¿À°Ô ÇÔ)
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 		float dot = D3DXVec3Dot(&m_vVel, &CollResult.vNormalVector);
 //		if(0.0f >= dot && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W))
 		if(0.0f >= dot)
@@ -14757,7 +14769,7 @@ void CShuttleChild::CheckCollForObject2(float fElapsedTime)
 			}
 		}
 
-		// µÚ
+		// ï¿½ï¿½
 		CollResult = g_pScene->m_pObjectRender->CheckCollMesh(matArray[1], m_vPos);
 		dot = D3DXVec3Dot(&(-m_vVel), &CollResult.vNormalVector);
 //		if(0.0f >= dot && g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_W))
@@ -14787,13 +14799,13 @@ void CShuttleChild::SetUnLockOn()
 {
 	if(m_pOrderTarget)
 	{
-		if(	m_pOrderTarget->m_dwPartType == _ENEMY &&						// 1. ¿À´õÅ¸°ÙÀÌ Enemy¿´°í,
-//			!IsInfluenceCharacter(m_myShuttleInfo.InfluenceType, ((CEnemyData*)m_pOrderTarget)->m_infoCharacter.CharacterInfo.InfluenceType) && // 2. ¼­·Î ´Ù¸¥ ¼¼·ÂÀÌ¶ó¸é
-//			((CEnemyData*)m_pOrderTarget)->GetPkState() == PK_NORMAL &&		// 3. ¼ø¼ö °­Á¦ Å¸°ÙÀÌ¾ú´Ù¸é.
-//			((CEnemyData*)m_pOrderTarget)->GetbPkAttack() &&				// 4. ¼ø¼ö °­Á¦ Å¸°ÙÀÌ¾ú´Ù¸é.
-			g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)		// 3. µµ½Ã Á¡·ÉÀüÁß¿¡´Â º¸³»Áö ¾Ê´Â´Ù.
-		{	// ¼­¹ö·Î º¸³¿
-//			DBGOUT("¾ð¶ô¿Â º¸³¿\n");
+		if(	m_pOrderTarget->m_dwPartType == _ENEMY &&						// 1. ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ Enemyï¿½ï¿½ï¿½ï¿½,
+//			!IsInfluenceCharacter(m_myShuttleInfo.InfluenceType, ((CEnemyData*)m_pOrderTarget)->m_infoCharacter.CharacterInfo.InfluenceType) && // 2. ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
+//			((CEnemyData*)m_pOrderTarget)->GetPkState() == PK_NORMAL &&		// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½Ù¸ï¿½.
+//			((CEnemyData*)m_pOrderTarget)->GetbPkAttack() &&				// 4. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½Ù¸ï¿½.
+			g_pShuttleChild->m_pPkNormalTimer->IsCityWar() == FALSE)		// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+		{	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//			DBGOUT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½\n");
 			MSG_FC_MOVE_UNLOCKON sMsg;
 			sMsg.AttackIndex = m_myShuttleInfo.ClientIndex;
 			sMsg.TargetIndex = ((CEnemyData*)m_pOrderTarget)->m_infoCharacter.CharacterInfo.ClientIndex;	
@@ -14819,7 +14831,7 @@ void CShuttleChild::SetUnLockOn()
 BOOL CShuttleChild::IsEnemyPKTarget(int nTagetIndex)
 {
 	// 2005-11-03 by ispark
-	// Enemy Å¸°ÙÀÌ ÀÖ´ÂÁö °Ë»ç
+	// Enemy Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	CMapEnemyIterator it = g_pScene->m_mapEnemyList.find(nTagetIndex);
 	if(it != g_pScene->m_mapEnemyList.end())
 	{
@@ -14845,11 +14857,11 @@ BOOL CShuttleChild::IsEnemyPKTarget(int nTagetIndex)
 BOOL CShuttleChild::IsEnemyPKAttackTime(int nTagetIndex)
 {
 	// 2005-11-03 by ispark
-	// Enemy °ø°Ý °¡´É °Ë»ç
+	// Enemy ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	CMapEnemyIterator it = g_pScene->m_mapEnemyList.find(nTagetIndex);
 	if(it != g_pScene->m_mapEnemyList.end())
 	{
-		// µµ½ÃÁ¡·ÉÀü ÁßÀÌ¸é °ø°Ý °¡´É. ½Ã°£°ú °ü°è ¾øÀ½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(it->second->m_pPkNormalTimer->IsPkEnableNormalOrderTarget() || m_pPkNormalTimer->IsCityWar())
 			return TRUE;
 	}
@@ -14887,28 +14899,20 @@ BOOL CShuttleChild::WarpSkipInOutAirPort()
 				ChangeUnitState( _NORMAL );
 				m_bWarpLink = FALSE;
 				m_bKeyBlock = FALSE;
-				// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
-//				if(g_pGameMain->m_pMissionInfo->GetMissionMapIndex())
-//				{
-//					INIT_MSG_WITH_BUFFER(MSG_FC_QUEST_MOVE_QUEST_MAP, T_FC_QUEST_MOVE_QUEST_MAP,
-//						pSQuestMove, SendBuf);
-//					pSQuestMove->QuestIndex0 = g_pGameMain->m_pMissionInfo->GetMissionIndex()->QuestIndex;
-//					g_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_QUEST_MOVE_QUEST_MAP));
-//				}
 				
-				// 2007.09.19 by bhsohn ÀüÁø ±âÁö Ãâ°Ý Ã³¸®
+				// 2007.09.19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				//SendGoMissionMap();
 				BOOL bGoMissionMap = SendGoMissionMap();
 				if(FALSE == bGoMissionMap)
 				{
-					// ¹Ì¼Ç¸Ê ¾È º¸³»¸é Ãâ°Ý ¹ßµ¿
+					// ï¿½Ì¼Ç¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ßµï¿½
 					CObjectChild* pObj = g_pScene->FindEventObjectByWarp();
 					if(pObj)
 					{
 						SendFieldSocketRequestEventObjectWarpIn(pObj);
 					}
 				}				
-				// end 2007.09.19 by bhsohn ÀüÁø ±âÁö Ãâ°Ý Ã³¸®
+				// end 2007.09.19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			}
 			return TRUE;
 		}
@@ -14920,7 +14924,7 @@ BOOL CShuttleChild::WarpSkipInOutAirPort()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::InitCharacterToShuttleData()
-/// \brief		Ä³¸¯ÅÍ°¡ ¼ÅÆ²ÇÑÅ× ÃÊ±âÈ­ ½ÃÅ°´Â ÇÔ¼ö. Ä³¸¯ÅÍ¸¸ ¾´´Ù.
+/// \brief		Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½. Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 /// \author		ispark
 /// \date		2005-11-10 ~ 2005-11-10
 /// \warning	
@@ -14935,17 +14939,17 @@ void CShuttleChild::InitCharacterToShuttleData()
 
 	if(m_pPrimaryWeapon)
 	{
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//m_pPrimaryWeapon->m_vecTargetIndex.clear();
 		m_pPrimaryWeapon->m_vecTargetIndexData.clear();
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	}
 	if(m_pSecondaryWeapon)
 	{
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//m_pSecondaryWeapon->m_vecTargetIndex.clear();
 		m_pSecondaryWeapon->m_vecTargetIndexData.clear();
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	}
 	
 	SetMissileCount(0);						// 2005-08-10 by ispark
@@ -14961,7 +14965,7 @@ void CShuttleChild::InitCharacterToShuttleData()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::InitUnitStop()
-/// \brief		À¯´ÖÁ¤Áö »óÅÂ¸¦ Ç¬´Ù. 
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ Ç¬ï¿½ï¿½. 
 /// \author		ispark
 /// \date		2005-11-17 ~ 2005-11-17
 /// \warning	
@@ -14983,7 +14987,7 @@ void CShuttleChild::InitUnitStop()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::UnitStop()
-/// \brief		À¯´ÖÀ» Á¤Áö ½ÃÅ²´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2007-05-11 ~ 2007-05-11
 /// \warning	
@@ -15002,16 +15006,16 @@ void CShuttleChild::UnitStop()
 #else
 	g_pD3dApp->m_bFixUnitDirMode = TRUE;
 #endif
-	// 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ	
+	// 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, BODYCON_STOP_MASK | BODYCON_SET_OR_CLEAR_MASK);
-	//end 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ
-	// 2008-11-06 by bhsohn ¸¶¿ì½º °¡µÎ±â ¸ðµå º¸¿Ï
+	//end 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2008-11-06 by bhsohn ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	g_pD3dApp->RefreshMouseMode();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::SetFormationMove()
-/// \brief		Æí´ëºñÇà½Ã ¹æÇâ ÀüÈ¯. Å¸°ÙÀ» ¸ÂÃß±â À§ÇÑ ¼öÁ¤. ´Ü Æí´ëÀåÀº Á¦¿Ü
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯. Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-11-21 ~ 2005-11-21
 /// \warning	
@@ -15026,7 +15030,7 @@ void CShuttleChild::SetFormationMove(float fElapsedTime)
 
 	D3DXMATRIX  matTemp;
 	
-	// Æí´ëÀåÀº ÀÚÀ¯ÀÚÀç·Î Á¶Á¤ÀÌ °¡´ÉÇÏ¹Ç·Î Æí´ëÀåÀÌ ¾Æ´Ñ°æ¿ì¸¸ ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ñ°ï¿½ì¸¸ ï¿½Ñ´ï¿½.
 	if(m_pClientParty->GetPartyInfo().bPartyType != _PARTYMASTER)
 	{
 		if((m_ptDir.x - m_ptDirOld.x) > 0)
@@ -15055,7 +15059,7 @@ void CShuttleChild::SetFormationMove(float fElapsedTime)
 				m_ptDirOld.y = m_ptDir.y;
 		}
 
-		// »óÇÏ
+		// ï¿½ï¿½ï¿½ï¿½
 		float fAngle = (float)(FORMATION_UPDOWN_RANGE * m_ptDir.y) / ny;
 		if(fAngle > FORMATION_UPDOWN_RANGE)
 			fAngle = FORMATION_UPDOWN_RANGE;
@@ -15071,7 +15075,7 @@ void CShuttleChild::SetFormationMove(float fElapsedTime)
 		D3DXMatrixRotationAxis(&matTemp,&m_vSideVel, m_fMouseRate*m_fCurrentAngle);
 		D3DXVec3TransformCoord(&m_vVel,&m_vVel, &matTemp );
 
-		// ÁÂ¿ì
+		// ï¿½Â¿ï¿½
 		m_fSideRate = (float)(FORMATION_SIDE_RANGE * m_ptDir.x) / nx;
 		if(m_fSideRate > FORMATION_SIDE_RANGE)
 			m_fSideRate = FORMATION_SIDE_RANGE;
@@ -15089,7 +15093,7 @@ void CShuttleChild::SetFormationMove(float fElapsedTime)
 	}
 }
 
-// 2006-01-20 by ispark, »èÁ¦
+// 2006-01-20 by ispark, ï¿½ï¿½ï¿½ï¿½
 //BOOL CShuttleChild::IsInfluenceWarType(int nEnemyIndex)
 //{
 //	if( !COMPARE_INFLUENCE(nEnemyIndex, m_myShuttleInfo.InfluenceType) &&
@@ -15104,7 +15108,7 @@ void CShuttleChild::SetFormationMove(float fElapsedTime)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::CheckWearItem()
-/// \brief		ÀåÂø ¾ÆÀÌÅÛ Ã¼Å© : ºÐ´ç Ã¼Å©
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å© : ï¿½Ð´ï¿½ Ã¼Å©
 /// \author		ispark
 /// \date		2005-12-29 ~ 2005-12-29
 /// \warning	
@@ -15123,21 +15127,21 @@ void CShuttleChild::CheckWearItem(float fElapsedTime)
 		ITEM_GENERAL* pCheckRearWearItem = m_pStoreData->FindItemInInventoryByWindowPos(POS_REAR);
 		if(pCheckRearWearItem == NULL)
 		{
-			wsprintf(buf,STRMSG_C_051203_0001);	// "¿£ÁøÀÌ ÀåÂøµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù."
+			wsprintf(buf,STRMSG_C_051203_0001);	// "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½."
 			g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);			
 		}
 		
 		ITEM_GENERAL* pCheckCenterWearItem = m_pStoreData->FindItemInInventoryByWindowPos(POS_CENTER);
 		if(pCheckCenterWearItem == NULL)
 		{
-			wsprintf(buf,STRMSG_C_051229_0100);	// "¾Æ¸Ó°¡ ÀåÂøµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù."
+			wsprintf(buf,STRMSG_C_051229_0100);	// "ï¿½Æ¸Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½."
 			g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);			
 		}
 	
 		ITEM_GENERAL* pCheckRadarWearItem = m_pStoreData->FindItemInInventoryByWindowPos(POS_PROW);
 		if(pCheckRadarWearItem == NULL)
 		{
-			wsprintf(buf,STRMSG_C_051229_0101);	// "·¹ÀÌ´õ°¡ ÀåÂøµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù."
+			wsprintf(buf,STRMSG_C_051229_0101);	// "ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½."
 			g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);			
 		}
 	}
@@ -15145,7 +15149,7 @@ void CShuttleChild::CheckWearItem(float fElapsedTime)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::CheckDamageBodyCondition()
-/// \brief		±âÁ¸ Damage Ã³¸®¸¦ ¿¡³ÊÁö »óÅÂ¸¦ ¹ÞÀ¸¸é ±×¶§ ÇÑ¹ø Ã³¸®¸¦ º¯È¯ÀÌ ÀÖÀ»¶§ Ã³¸®·Î º¯°æ
+/// \brief		ï¿½ï¿½ï¿½ï¿½ Damage Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¶ï¿½ ï¿½Ñ¹ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-12-30 ~ 2005-12-30
 /// \warning	
@@ -15156,7 +15160,7 @@ void CShuttleChild::CheckWearItem(float fElapsedTime)
 void CShuttleChild::CheckDamageBodyCondition()
 {
 	int nDamageState = 0;
-	// 2007-05-31 by bhsohn ºÎÈ°½Ã ±âÃ¼ ºÒÅ¸´Â Çö»ó Ã³¸®
+	// 2007-05-31 by bhsohn ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //	if(m_myShuttleInfo.CurrentHP / m_myShuttleInfo.HP < CHARACTER_DAMAGE_STATE_05)
 //	{
 //		nDamageState = 3;
@@ -15191,7 +15195,7 @@ void CShuttleChild::CheckDamageBodyCondition()
 	{
 		nDamageState = 0;
 	}
-	// end 2007-05-31 by bhsohn ºÎÈ°½Ã ±âÃ¼ ºÒÅ¸´Â Çö»ó Ã³¸®
+	// end 2007-05-31 by bhsohn ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 	if(m_nCheckDamage != nDamageState)
 	{
@@ -15199,7 +15203,7 @@ void CShuttleChild::CheckDamageBodyCondition()
 
 		if(m_nCheckDamage == 0)
 		{
-			// µ¥¹ÌÁö ºñÈ°¼ºÈ­
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE1_MASK, FALSE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE2_MASK, FALSE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE3_MASK, FALSE );
@@ -15207,7 +15211,7 @@ void CShuttleChild::CheckDamageBodyCondition()
 		}
 		else if(m_nCheckDamage == 1)
 		{
-			// µ¥¹ÌÁö 1¹ø È°¼ºÈ­
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ È°ï¿½ï¿½È­
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE1_MASK, TRUE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE2_MASK, FALSE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE3_MASK, FALSE );
@@ -15215,7 +15219,7 @@ void CShuttleChild::CheckDamageBodyCondition()
 		}
 		else if(m_nCheckDamage == 2)
 		{
-			// µ¥¹ÌÁö 1,2¹ø È°¼ºÈ­
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1,2ï¿½ï¿½ È°ï¿½ï¿½È­
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE1_MASK, TRUE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE2_MASK, TRUE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE3_MASK, FALSE );
@@ -15225,7 +15229,7 @@ void CShuttleChild::CheckDamageBodyCondition()
 		}
 		else if(m_nCheckDamage == 3)
 		{
-			// µ¥¹ÌÁö 1,2,3¹ø ¸ðµÎ È°¼ºÈ­
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1,2,3ï¿½ï¿½ ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE1_MASK, TRUE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE2_MASK, TRUE );
 			g_pD3dApp->SendFieldSocketChangeCharacterBodyCondition( BODYCON_DAMAGE3_MASK, TRUE );
@@ -15238,7 +15242,7 @@ void CShuttleChild::CheckDamageBodyCondition()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CEnemyData::RemoveEnemyTarget()
-/// \brief		Àû Å¸°Ù »èÁ¦
+/// \brief		ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-01-13 ~ 2006-01-13
 /// \warning	
@@ -15258,7 +15262,7 @@ void CShuttleChild::RemoveEnemyTarget()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::InitMissileWarning()
-/// \brief		¹Ì»çÀÏ °æ°í ÃÊ±âÈ­
+/// \brief		ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 /// \author		ispark
 /// \date		2006-02-13 ~ 2006-02-13
 /// \warning	
@@ -15284,7 +15288,7 @@ void CShuttleChild::SetInvenMesh(int nIndex, CSkinnedMesh* pMesh)
 	{
 		return;
 	}
-	// 2007-11-09 by dgwoo ¹«±â ¸Þ½¬¸¦ ¹è¿­¿¡¼­ º¤ÅÍ·Î º¯°æ.
+	// 2007-11-09 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	int nSize = m_vectInvenWeaponMesh.size();
 	int i=0;
 	for(i=0; i < nSize; i++)
@@ -15305,13 +15309,13 @@ void CShuttleChild::SetInvenMesh(int nIndex, CSkinnedMesh* pMesh)
 
 void CShuttleChild::InitInvenMesh()
 {
-	// 2007-11-09 by dgwoo ¹«±â ¸Þ½¬¸¦ ¹è¿­¿¡¼­ º¤ÅÍ·Î º¯°æ.
+	// 2007-11-09 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	m_vectInvenWeaponMesh.clear();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::SendDeadMsg()
-/// \brief		±â¾î Á×À» ¶§ ±âº» ¸Þ¼¼Áö
+/// \brief		ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½âº» ï¿½Þ¼ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-04-10 ~ 2006-04-10
 /// \warning	
@@ -15321,7 +15325,7 @@ void CShuttleChild::InitInvenMesh()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::SendDeadMsg()
 {
-	// 2009. 12. 04 by jskim À¯´Ö »ç¸Á½Ã ÀÎÅÍÆäÀÌ½º¸¦ ¾ø¾Ö¸é ±ÍÈ¯ ¸Þ½ÃÁö ¹Ú½ºµµ ¾ø¾îÁö´Â ¹ö±× ¼öÁ¤
+	// 2009. 12. 04 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½È¯ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	vector<CINFMessageBox*>::iterator it = g_pGameMain->m_pInfWindow->m_vecMessageBox.begin();
 	while(it != g_pGameMain->m_pInfWindow->m_vecMessageBox.end())
 	{
@@ -15333,77 +15337,77 @@ void CShuttleChild::SendDeadMsg()
 		else
 			it++;
 	}
-	//end 2009. 12. 04 by jskim À¯´Ö »ç¸Á½Ã ÀÎÅÍÆäÀÌ½º¸¦ ¾ø¾Ö¸é ±ÍÈ¯ ¸Þ½ÃÁö ¹Ú½ºµµ ¾ø¾îÁö´Â ¹ö±× ¼öÁ¤
+	//end 2009. 12. 04 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½È¯ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
-	// ÀÎÇÇ »ç¸Á½Ã 5ÃÊ ºÎÈ°½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½È°ï¿½Ã½ï¿½ï¿½ï¿½
 	if( g_pGameMain->m_pInfWindow->IsExistMsgBox( _Q_REVIVE_WAIT_5SECOND )
 		|| g_pGameMain->m_pInfWindow->IsExistMsgBox( _Q_ARENA_RESTART ) )
 		return;
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 	MAP_INFO* pMapInfo = g_pDatabase->GetMapInfo(m_myShuttleInfo.MapChannelIndex.MapIndex);
 	if(m_dwState == _FUELALLIN)
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0003, _Q_FUELALLIN_DEAD_RETURN);//"°Ý³³°í·Î ÀÌµ¿ÇÕ´Ï´Ù."		
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_CARD_0003, _Q_FUELALLIN_DEAD_RETURN);//"ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Õ´Ï´ï¿½."		
 	}
-	// 2006-08-08 by ispark, ÀÌº¥Æ® ¸Ê
+	// 2006-08-08 by ispark, ï¿½Ìºï¿½Æ® ï¿½ï¿½
 	else if(IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType))
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_060102_0100, _Q_INFLUENCEMAP_DEAD_RETURN); //"µµ½Ã·Î ±ÍÈ¯ÇÏ°Ú½À´Ï´Ù."		
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_060102_0100, _Q_INFLUENCEMAP_DEAD_RETURN); //"ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½È¯ï¿½Ï°Ú½ï¿½ï¿½Ï´ï¿½."		
 	}
 
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 	// 2007-05-07 by dgwoo ¾Æ·¹³ª ¸ÊÀÏ°æ¿ì Ã³¸®.
+// 	// 2007-05-07 by dgwoo ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ Ã³ï¿½ï¿½.
 // 	else if(IS_MAP_INFLUENCE_ARENA(pMapInfo->MapInfluenceType))
 // 	{
 // 		if(!g_pInterface->m_pGameArena->IsArenaGameState(ARENA_GAME_STATE_RESULT))
-// 			g_pGameMain->m_pInfWindow->AddTimeMsgBox(STRMSG_C_070507_0100,_Q_ARENA_RESTART,30,STRMSG_C_070507_0101);// "ºÎÈ°ÇÏ½Ã°Ú½À´Ï±î?"
+// 			g_pGameMain->m_pInfWindow->AddTimeMsgBox(STRMSG_C_070507_0100,_Q_ARENA_RESTART,30,STRMSG_C_070507_0101);// "ï¿½ï¿½È°ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 // 	}
 	else if( IS_MAP_INFLUENCE_ARENA( pMapInfo->MapInfluenceType )
 			 || IS_MAP_INFLUENCE_INFINITY( pMapInfo->MapInfluenceType ) )
 	{
-		// ÀÎÇÇ »ç¸Á½Ã 5ÃÊ ºÎÈ°½Ã½ºÅÛ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½È°ï¿½Ã½ï¿½ï¿½ï¿½
 		if( !g_pInterface->m_pGameArena->IsArenaGameState( ARENA_GAME_STATE_RESULT ) )
-			g_pGameMain->m_pInfWindow->AddTimeMsgBox( " ", _Q_REVIVE_WAIT_5SECOND, 5, STRMSG_C_091103_0313 );// "\\r%dÃÊ\\r ÈÄ¿¡ ºÎÈ°ÀÌ °¡´ÉÇÕ´Ï´Ù."
+			g_pGameMain->m_pInfWindow->AddTimeMsgBox( " ", _Q_REVIVE_WAIT_5SECOND, 5, STRMSG_C_091103_0313 );// "\\r%dï¿½ï¿½\\r ï¿½Ä¿ï¿½ ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."
 	}
 
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2007-09-28 by dgwoo ¸ð¼±Àü ÁøÇàÁßÀÌ¸é ÅÚ·¹Æ÷Æ® ¿©ºÎ¸¦ ¹¯´Â´Ù.
-	// 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å
+	// 2007-09-28 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+	// 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½
 	//else if(g_pD3dApp->IsWarMotherShip() && IS_OTHER_INFLUENCE_MAP(m_myShuttleInfo.InfluenceType, pMapInfo->MapIndex, pMapInfo->MapInfluenceType))
 	else if(g_pD3dApp->IsWarMotherShip() && CAtumSJ::IsOtherInfluenceMap(m_myShuttleInfo.InfluenceType, pMapInfo->MapIndex, pMapInfo->MapInfluenceType))
-	//end 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å
+	//end 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_070928_0100, _Q_DEAD_RETURN);//"µµ½Ã¸ÊÀ¸·Î ±ÍÈ¯ÇÏ½Ã°Ú½À´Ï±î? (½ÂÀÎ:µµ½Ã¸Ê, Ãë¼Ò:ÅÚ·¹Æ÷Æ®)"
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_070928_0100, _Q_DEAD_RETURN);//"ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½Ã¸ï¿½, ï¿½ï¿½ï¿½:ï¿½Ú·ï¿½ï¿½ï¿½Æ®)"
 	}
 	else if(!EnableRevivalMap(m_myShuttleInfo.InfluenceType, m_myShuttleInfo.MapChannelIndex.MapIndex))
 	{
-		// 2006-01-02 by ispark, ´Ù¸¥ ¼¼·Â¸ÊÀÌ¹Ç·Î ÀÚ±â ¼¼·Â µµ½Ã¸ÊÀ¸·Î ±ÍÈ¯(ÇöÀç ¸Ê¿¡ ºÎÈ° ¾ÈÇÔ)
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_060102_0100, _Q_INFLUENCEMAP_DEAD_RETURN); //"µµ½Ã·Î ±ÍÈ¯ÇÏ°Ú½À´Ï´Ù."
+		// 2006-01-02 by ispark, ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½Ú±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯(ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½)
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_060102_0100, _Q_INFLUENCEMAP_DEAD_RETURN); //"ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½È¯ï¿½Ï°Ú½ï¿½ï¿½Ï´ï¿½."
 	}
-	// 2006-08-08 by ispark, ´Ù¸¥ ¼¼·Â ÀÏ¹Ý¸Ê(ÀÌÀü¸ÊÀ¸·Î ºÎÈ° °¡´É
-	// 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å
+	// 2006-08-08 by ispark, ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ý¸ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½
+	// 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½
 	//else if(g_pD3dApp->IsWarMotherShip() && IS_OTHER_INFLUENCE_MAP((m_myShuttleInfo.InfluenceType, pMapInfo->MapInfluenceType))
 	//else if(CAtumSJ::IsOtherInfluenceMap(m_myShuttleInfo.InfluenceType, pMapInfo->MapIndex, pMapInfo->MapInfluenceType))
-	// 2009. 11. 11 by jskim ÇÁ¸®½ºÄ« Á¦°Å ¼öÁ¤
+	// 2009. 11. 11 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	else if(g_pD3dApp->IsWarMotherShip() && CAtumSJ::IsOtherInfluenceMap(m_myShuttleInfo.InfluenceType, pMapInfo->MapIndex, pMapInfo->MapInfluenceType))
-	//end 2009. 11. 11 by jskim ÇÁ¸®½ºÄ« Á¦°Å ¼öÁ¤
-	//end 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å
+	//end 2009. 11. 11 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//end 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_060808_0000, _Q_DEAD_RETURN);//"µµ½Ã¸ÊÀ¸·Î ±ÍÈ¯ÇÏ½Ã°Ú½À´Ï±î? (½ÂÀÎ:µµ½Ã¸Ê, Ãë¼Ò:ÀÌÀü¸Ê)"
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_060808_0000, _Q_DEAD_RETURN);//"ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½Ã¸ï¿½, ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)"
 	}
 	else
 	{
-		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_051205_0005, _Q_DEAD_RETURN);//"µµ½Ã¸ÊÀ¸·Î ±ÍÈ¯ÇÏ½Ã°Ú½À´Ï±î? (È®ÀÎ:µµ½Ã¸Ê, Ãë¼Ò:ÇöÀç¸Ê)"
+		g_pGameMain->m_pInfWindow->AddMsgBox(STRMSG_C_051205_0005, _Q_DEAD_RETURN);//"ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (È®ï¿½ï¿½:ï¿½ï¿½ï¿½Ã¸ï¿½, ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½)"
 		g_pD3dApp->m_bDeadByP2PPK = FALSE;
 	}
-	// 2008-06-17 by bhsohn Æí´ë °ü·Ã Ã³¸®
-	// Á×¾úÀ»‹š º¸³½´Ù.
+	// 2008-06-17 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	// ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if(m_pClientParty && m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER 
 		&& m_pClientParty->IsFormationFlight())
 	{		
@@ -15414,8 +15418,8 @@ void CShuttleChild::SendDeadMsg()
 
 void CShuttleChild::SetBackView(BOOL bUpDown)
 {
-	// 2006-05-03 by ispark, ¹éºä
-	// Æ©Åä¸®¾ó ¸ðµå¿À ¤¿½ÃÁî¸ðµå½Ã¿¡´Â ¹éºä »ç¿ë ±ÝÁö
+	// 2006-05-03 by ispark, ï¿½ï¿½ï¿½
+	// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pTutorial->IsTutorialMode() == FALSE && m_bAttackMode != _SIEGE)
 	{
 		// DOWN
@@ -15431,24 +15435,24 @@ void CShuttleChild::SetBackView(BOOL bUpDown)
 			m_bTurnCamera = FALSE;
 			m_bMouseLock  = FALSE;
 			m_fOldUpRate = 0.0f;
-			// 2007-03-26 by dgwoo ¿ÉÀú¹ö ¸ðµå½Ã´Â MouseLock À» °Ç´Ù.
+			// 2007-03-26 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ MouseLock ï¿½ï¿½ ï¿½Ç´ï¿½.
 			if(IsObserverMode())
 			{
 				m_bMouseLock = TRUE;
 			}
-			// 2014-04-23 by ymjoo Á¤Áö »óÅÂ¿¡¼­ ¹éºä ÀÌÈÄ ¿ìÅ¬¸¯ Ä«¸Þ¶ó ÀÌµ¿ ¾ÈµÇ´Â ¹ö±× ¼öÁ¤
+			// 2014-04-23 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¬ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½Ìµï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(m_bUnitStop)
 			{
 				m_bMouseLock = TRUE;
 			}
-			// END 2014-04-23 by ymjoo Á¤Áö »óÅÂ¿¡¼­ ¹éºä ÀÌÈÄ ¿ìÅ¬¸¯ Ä«¸Þ¶ó ÀÌµ¿ ¾ÈµÇ´Â ¹ö±× ¼öÁ¤
+			// END 2014-04-23 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¬ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½Ìµï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CShuttleChild::SetSelectCharacterItem()
-/// \brief		¼±ÅÃÃ¢¿¡ °¥¶§ ÇöÀç ³» Ä³¸¯ÅÍ Á¤º¸ ÀÔ·Â
+/// \brief		ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 /// \author		ispark
 /// \date		2006-05-23 ~ 2006-05-23
 /// \warning	
@@ -15458,16 +15462,16 @@ void CShuttleChild::SetBackView(BOOL bUpDown)
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::SetSelectCharacterItem()
 {
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	if(g_pD3dApp->GetArenaState() == ARENA_STATE_ARENA_GAMING )
 	{
-		// ¾Æ·¹³ª ¿¡¼­ °ÔÀÓ Á¾·á½Ã, Àü¿¡ ÀÖ´ø Á¤º¸ °¡Á®¿È.		
+		// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.		
 		CHARACTER* pMainInfo = g_pD3dApp->GetMFSMyShuttleInfo();
-		// °ÔÀÓÁ¤º¸¸¦ ´Ù½Ã °»½Å 
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 		g_pD3dApp->SetMyShuttleInfo(pMainInfo);		
 
 	}
-	// end 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö	
+	// end 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½	
 
 	FC_CONNECT_LOGIN_INFO info;
 	memset(&info, 0x00, sizeof(FC_CONNECT_LOGIN_INFO));
@@ -15477,9 +15481,9 @@ void CShuttleChild::SetSelectCharacterItem()
 	info.PilotFace = g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.PilotFace;
 	info.Race = g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.Race;
 	info.UnitKind = g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.UnitKind;
-	// 2009. 11. 3 by jskim Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö
+	// 2009. 11. 3 by jskim Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	info.RacingPoint = g_pD3dApp->m_pShuttleChild->m_myShuttleInfo.RacingPoint;
-	//end 2009. 11. 3 by jskim Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö
+	//end 2009. 11. 3 by jskim Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	info.CharacterRenderInfo.RI_ProwOut = GetCreateUnitWeapon11(pMsg->Character.UnitKind);
 //	info.CharacterRenderInfo.RI_Rear = GetCreateUnitEngine(pMsg->Character.UnitKind);
 	CHARACTER_RENDER_INFO CharacterRenderInfo;
@@ -15489,69 +15493,69 @@ void CShuttleChild::SetSelectCharacterItem()
 	CharacterRenderInfo.RI_ProwOut = 0;
 
 
-	// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CharacterRenderInfo.RI_ProwOut_ShapeItemNum	 = 0;
 	CharacterRenderInfo.RI_ProwOut_EffectItemNum = 0;
 
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	if(pInfo)
 	{
 		CharacterRenderInfo.RI_ProwOut = pInfo->ItemNum;
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		CharacterRenderInfo.RI_ProwOut_ShapeItemNum	 = pInfo->GetShapeItemNum();
 		CharacterRenderInfo.RI_ProwOut_EffectItemNum = pInfo->GetEffectItemNum();
 
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	pInfo = g_pShuttleChild->m_pStoreData->FindItemInInventoryByWindowPos(POS_WINGOUT);
 	CharacterRenderInfo.RI_WingOut = 0;
 
-	// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CharacterRenderInfo.RI_WingOut_ShapeItemNum		= 0;
 	CharacterRenderInfo.RI_WingOut_EffectItemNum	= 0;
 
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	if(pInfo)
 	{
 		CharacterRenderInfo.RI_WingOut = pInfo->ItemNum;
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		CharacterRenderInfo.RI_WingOut_ShapeItemNum		= pInfo->GetShapeItemNum();
 		CharacterRenderInfo.RI_WingOut_EffectItemNum	= pInfo->GetEffectItemNum();
 
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	pInfo = g_pShuttleChild->m_pStoreData->FindItemInInventoryByWindowPos(POS_CENTER);
 	CharacterRenderInfo.RI_Center = 0;
 	
-	// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	//CharacterRenderInfo.RI_ArmorColorCode = 0;
 	CharacterRenderInfo.RI_Center_ShapeItemNum	= 0;
 
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	if(pInfo)
 	{
 		CharacterRenderInfo.RI_Center = pInfo->ItemNum;
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		//CharacterRenderInfo.RI_ArmorColorCode = pInfo->ColorCode;
 		CharacterRenderInfo.RI_Center_ShapeItemNum	= pInfo->GetShapeItemNum();
 
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	pInfo = g_pShuttleChild->m_pStoreData->FindItemInInventoryByWindowPos(POS_REAR);
@@ -15561,7 +15565,7 @@ void CShuttleChild::SetSelectCharacterItem()
 		CharacterRenderInfo.RI_Rear = pInfo->ItemNum;
 	}
 
-	// 2006-08-14 by dgwoo ·¹ÀÌ´Ù Á¤º¸¸¦ ÀúÀå.
+	// 2006-08-14 by dgwoo ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	pInfo = g_pShuttleChild->m_pStoreData->FindItemInInventoryByWindowPos(POS_PROWIN);
 	CharacterRenderInfo.RI_ProwIn = 0;
 	if(pInfo)
@@ -15583,7 +15587,7 @@ void CShuttleChild::SetSelectCharacterItem()
 		CharacterRenderInfo.RI_Pet = pInfo->ItemNum;
 
 		if ( psPetLvData )
-			CharacterRenderInfo.RI_Pet_ShapeItemNum = pInfo->GetItemInfo()->SourceIndex;//psPetLvData->FieldSourceIndex; //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+			CharacterRenderInfo.RI_Pet_ShapeItemNum = pInfo->GetItemInfo()->SourceIndex;//psPetLvData->FieldSourceIndex; //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	}
 
 	info.CharacterRenderInfo = CharacterRenderInfo;
@@ -15593,7 +15597,7 @@ void CShuttleChild::SetSelectCharacterItem()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::InitWarpShuttle(MAP_CHANNEL_INDEX &channelIndex = NULL)
-/// \brief		¿öÇÁ½Ã ÃÊ±âÈ­
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 /// \author		ispark
 /// \date		2006-05-29 ~ 2006-05-29
 /// \warning	
@@ -15603,18 +15607,18 @@ void CShuttleChild::SetSelectCharacterItem()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::InitWarpShuttle(MAP_CHANNEL_INDEX channelIndex)
 {
-	// 2006-12-14 by dgwoo	µµ½Ã¸Ê¿¡¼± Åä±Û ½ºÅ³À» ÇØÁ¦½ÃÅ²´Ù.
+	// 2006-12-14 by dgwoo	ï¿½ï¿½ï¿½Ã¸Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 	if(IS_BAZAAR_MAP_INDEX(channelIndex.MapIndex) 
 		|| IS_CITY_MAP_INDEX(channelIndex.MapIndex))
 	{
 		m_pSkill->ReleaseAllUsingToggleSkill();
 	}
-	// 2006-12-22 by dgwoo ¿öÇÁ Åë°ú½Ã ±×¶ó¿îµå½ºÅ³À» ÇØÁ¦ÇÑ´Ù.
+	// 2006-12-22 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¶ï¿½ï¿½å½ºÅ³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(m_pSkill)
 		m_pSkill->ReleaseGroundSkill();
-	DeleteItemPoint();// Effect·Î »ý¼ºÇÑ ¾ÆÀÌÅÛÆ÷ÀÎÅÍ¸¦ Áö¿î´Ù
+	DeleteItemPoint();// Effectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_bSkillMoveIsUse = FALSE;
-	// 2007-01-08 by bhsohn ÀÎºñÁöºíÈÄ ¿öÇÁ Åë°ú ½Ã, °ø°ÝÀÌ µÇ´Â Çö»ó Ã³¸®
+	// 2007-01-08 by bhsohn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	//m_bAttack = TRUE;
 	if(m_pSkill)
 	{
@@ -15627,21 +15631,21 @@ void CShuttleChild::InitWarpShuttle(MAP_CHANNEL_INDEX channelIndex)
 	{
 		m_bAttack = TRUE;
 	}
-	// end 2007-01-08 by bhsohn ÀÎºñÁöºíÈÄ ¿öÇÁ Åë°ú ½Ã, °ø°ÝÀÌ µÇ´Â Çö»ó Ã³¸®
+	// end 2007-01-08 by bhsohn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	InitMissileWarning();
-	SetBackView(FALSE);		// 2006-05-29 by ispark, ¹éºä ÃÊ±âÈ­
+	SetBackView(FALSE);		// 2006-05-29 by ispark, ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	InitRolling();
 }
 
 void CShuttleChild::InitWarpShuttle()
 {
-	// 2006-12-22 by dgwoo ¿öÇÁ Åë°ú½Ã ±×¶ó¿îµå½ºÅ³À» ÇØÁ¦ÇÑ´Ù.
+	// 2006-12-22 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¶ï¿½ï¿½å½ºÅ³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(m_pSkill)
 		m_pSkill->ReleaseGroundSkill();
 	
-	DeleteItemPoint();// Effect·Î »ý¼ºÇÑ ¾ÆÀÌÅÛÆ÷ÀÎÅÍ¸¦ Áö¿î´Ù
+	DeleteItemPoint();// Effectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_bSkillMoveIsUse = FALSE;
-	// 2007-01-08 by bhsohn ÀÎºñÁöºíÈÄ ¿öÇÁ Åë°ú ½Ã, °ø°ÝÀÌ µÇ´Â Çö»ó Ã³¸®
+	// 2007-01-08 by bhsohn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	//m_bAttack = TRUE;
 	if(m_pSkill )
 	{
@@ -15654,15 +15658,15 @@ void CShuttleChild::InitWarpShuttle()
 	{
 		m_bAttack = TRUE;
 	}
-	// end 2007-01-08 by bhsohn ÀÎºñÁöºíÈÄ ¿öÇÁ Åë°ú ½Ã, °ø°ÝÀÌ µÇ´Â Çö»ó Ã³¸®
+	// end 2007-01-08 by bhsohn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	InitMissileWarning();
-	SetBackView(FALSE);		// 2006-05-29 by ispark, ¹éºä ÃÊ±âÈ­
+	SetBackView(FALSE);		// 2006-05-29 by ispark, ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	InitRolling();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			int CShuttleChild::CheckUnitState()
-/// \brief		ÇöÀç ±â¾î »óÅÂµéÀ» ¿©·¯°¡Áö·Î ÅëÇØ¼­ ÆÇ´Ü
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ç´ï¿½
 /// \author		ispark
 /// \date		2006-09-19 ~ 2006-09-19
 /// \warning	
@@ -15695,7 +15699,7 @@ int CShuttleChild::CheckUnitState()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::CheckFormationMoveDelete()
-/// \brief		Æí´ë ºñÇà ÁßÀÌ¸é ÇØÁ¦
+/// \brief		ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-11-02 ~ 2006-11-02
 /// \warning	
@@ -15712,7 +15716,7 @@ void CShuttleChild::CheckFormationMoveDelete()
 		m_pClientParty->FormationFlightClear();
 		g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_PARTY_0001, COLOR_SYSTEM);
 
-		// ÇØÁ¦½Ã ¹æÇâ°ª ÃÊ±âÈ­ 
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°ª ï¿½Ê±ï¿½È­ 
 		m_fCurrentSideRate = 0.0f;
 		m_fCurrentAngle = 0.0f;
 	}
@@ -15720,7 +15724,7 @@ void CShuttleChild::CheckFormationMoveDelete()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CHARACTER* GetShuttleInfo();
-/// \brief		¼ÅÆ²ÀÇ Á¤º¸¸¦ ¾ò¾î¿Â´Ù.
+/// \brief		ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 /// \author		dgwoo
 /// \date		2007-01-26 ~ 2007-01-26
 /// \warning	
@@ -15735,8 +15739,8 @@ const CHARACTER* CShuttleChild::GetShuttleInfo()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::IsMyShuttleRolling()
-/// \brief		¼ÅÆ²ÀÇ Á¤º¸¸¦ ¾ò¾î¿Â´Ù.
-/// \author		// 2007-03-23 by bhsohn ·Ñ¸µÇÏ¸é¼­ °øÁß ½ÃÁî ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+/// \brief		ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+/// \author		// 2007-03-23 by bhsohn ï¿½Ñ¸ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 /// \date		2007-03-23 ~ 2007-03-23
 /// \warning	
 ///
@@ -15750,8 +15754,8 @@ BOOL CShuttleChild::IsMyShuttleRolling()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::IsObserverMode()
-/// \brief		¿ÉÀú¹ö ¸ðµå 
-/// \author		// 2007-03-27 by bhsohn ¿ÉÀú¹ö ¸ðµå½Ã ÀÎÅÍÆäÀÌ½º ¼û±è
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+/// \author		// 2007-03-27 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-03-27 ~ 2007-03-27
 /// \warning	
 ///
@@ -15767,7 +15771,7 @@ BOOL CShuttleChild::IsObserverMode()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::IsOperAndObser()
-/// \brief		¿ÉÀú¹ö ¸ðµå ÀÌ°Å³ª °üÀü ¸ðµåÁßÀÎ°¡?
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 /// \author		dgwoo
 /// \date		2007-06-18 ~ 2007-06-18
 /// \warning	
@@ -15784,28 +15788,28 @@ BOOL CShuttleChild::IsOperAndObser()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL ChangeObserveUser(int nKey);
-/// \brief		¿ÉÀú¹ö À¯Àú¸¦ º¯°æÇÒ¶§.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½.
 /// \author		dgwoo
 /// \date		2007-03-29 ~ 2007-03-29
 /// \warning	
 ///
-/// \param		´ÜÃàÅ°ÀÇ ¹øÈ£.
-/// \return		À¯Àú°¡ Á¸ÀçÇÏ´Â°¡ Á¸ÀçÇÏÁö ¾ÊÀº°¡.
+/// \param		ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½È£.
+/// \return		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CShuttleChild::ChangeObserveUser(int nKey)
 {
-	// Áßº¹À¸·Î ¼­¹ö·Î ÀÎµ¦½º°ªÀ» º¸³»´Â°ÍÀ» ¸·±â À§ÇÑ ¼Ò½º
+	// ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½
 	ClientIndex_t tempIndex = m_stObserve.ClientIndex;
 	if(tempIndex == m_ObserveQuick[nKey])
 		return FALSE;
 
-	// ±âÁ¸ÀÇ ¿ÉÀú¹ö ¸ðµå·Î ºÙ¾îÀÖÀ»½Ã ÇØÁ¦¸¦ ¸ÕÀú ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	if(IsObserverMode())
 	{
 		ObserveEnd();
 	}
 
-	// ´ÜÃàÅ° ¹øÈ£¿¡ ÀúÀåµÇ¾îÀÖ´Â ¿ÉÀú¹ö·Î ºÙÀ»°ÍÀ» ¿äÃ».
+	// ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 	
 	if(m_ObserveQuick[nKey])
 	{
@@ -15822,13 +15826,13 @@ void CShuttleChild::TickOperation(float fElapsedTime)
 {
 	if(g_pD3dApp->m_bChatMode == FALSE)
 	{
-		// Å°°ª Ã³¸®.
-		// FÅ°¸¦ ´­·¶À»°æ¿ì À¯Àú »óÅÂÃ¢Àº »ç¶óÁø´Ù.
+		// Å°ï¿½ï¿½ Ã³ï¿½ï¿½.
+		// FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_F))
 		{
 			g_pInterface->m_pGameArena->m_bShowOperUserInfo = !g_pInterface->m_pGameArena->m_bShowOperUserInfo;
 		}
-		// ¿ÉÀú¹ö ¸ðµå¸¦ Ãë¼ÒÇÒ °æ¿ì.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 		if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_ESCAPE))
 		{
 			ObserveCancelUpdateInfo();
@@ -15839,7 +15843,7 @@ void CShuttleChild::TickOperation(float fElapsedTime)
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void TickObserve(float fElapsedTime)
-/// \brief		¿ÉÀú¹ö¸ðµå½Ã ÀÌÇÔ¼ö¸¦ °ÅÄ£´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä£ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2007-03-29 ~ 2007-03-29
 /// \warning	
@@ -15851,10 +15855,10 @@ void CShuttleChild::TickObserve(float fElapsedTime)
 {
 	if(g_pD3dApp->m_bChatMode == FALSE)
 	{
-		// Å°°ª Ã³¸®.
+		// Å°ï¿½ï¿½ Ã³ï¿½ï¿½.
 		for(int i = 0 ; i < OBSERVE_MAX_QUICK ; i++)
 		{
-			// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+			// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 			//if( g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_1+i) )
 			if( g_pD3dApp->GetAsyncKeyState_DIK_DIJ(DIK_1+i) )
 			{
@@ -15863,13 +15867,13 @@ void CShuttleChild::TickObserve(float fElapsedTime)
 					ChangeObserveUser(0);
 				}
 				else{
-					// ¿ÉÀú¹ö ¸ðµå¿¡¼­ ÇöÀç °¡·Á°íÇÏ´Â À¯ÀúÀÇ ´ÜÃàÅ°¸¦ ´­·¶À»°æ¿ì.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 					ChangeObserveUser(i+1);
 				}
 				
 			}
 		}
-		// ¿ÉÀú¹ö ¸ðµå¸¦ Ãë¼ÒÇÒ °æ¿ì.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 		if(g_pD3dApp->m_pKeyBoard->GetAsyncKeyState(DIK_ESCAPE))
 		{
 			ObserveCancelUpdateInfo();
@@ -15879,7 +15883,7 @@ void CShuttleChild::TickObserve(float fElapsedTime)
 }
 void CShuttleChild::ObserveCancelUpdateInfo()
 {
-	// 2007-04-04 by dgwoo ESCÅ°¸¦ ´©¸¦ °æ¿ì¿¡¸¸ ¼ÅÆ²ÀÇ Á¤º¸¸¦ ´Ù½Ã ÀÔ·ÂÇØÁØ´Ù.
+	// 2007-04-04 by dgwoo ESCÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	g_pShuttleChild->m_myShuttleInfo.DP = g_pShuttleChild->m_stObserve.ClientInfo.DP;
 	g_pShuttleChild->m_myShuttleInfo.HP = g_pShuttleChild->m_stObserve.ClientInfo.HP;
 	g_pShuttleChild->m_myShuttleInfo.EP = g_pShuttleChild->m_stObserve.ClientInfo.EP;
@@ -15894,7 +15898,7 @@ void CShuttleChild::ObserveCancelUpdateInfo()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::ObserveEnd()
-/// \brief		¿ÉÀú¹ö Á¾·á½Ã.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 /// \author		dgwoo
 /// \date		2007-04-03 ~ 2007-04-03
 /// \warning	
@@ -15915,7 +15919,7 @@ void CShuttleChild::ObserveEnd()
 
 	m_bMouseLock = FALSE;
 	m_stObserve.ClientIndex = NULL;
-	// ¿ÉÀú¹ö ¸ðµå°¡ ²¨Áö¸é¼­ ºÎ½ºÅÍ ÀÌÆåÆ® ¿ª½Ã »èÁ¦ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	CAppEffectData* pEffect =  g_pScene->FindEffect(RC_EFF_BOOSTER);
 	if(pEffect)
 	{
@@ -15926,7 +15930,7 @@ void CShuttleChild::ObserveEnd()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CShuttleChild::IsbAGearFollowEnemy()
 /// \brief		
-/// \author		// 2007-04-17 by bhsohn °¡±î¿î °Å¸®¿¡¼­ÀÇ ½ÃÁî¸ðµå½Ã µ¥ÀÌÁö ¾Èµé¾î°¡´Â Çö»ó Ã³¸®
+/// \author		// 2007-04-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-04-17 ~ 2007-04-17
 /// \warning	
 ///
@@ -15940,8 +15944,8 @@ BOOL CShuttleChild::IsAGearFollowEnemy()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		½ºÄµ ¾ÆÀÌÅÛ »ç¿ë ¹× Ãë
-/// \author		// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
+/// \brief		ï¿½ï¿½Äµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+/// \author		// 2007-04-19 by bhsohn ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2007-04-19 ~ 2007-04-19
 /// \warning	
 ///
@@ -15967,10 +15971,10 @@ void CShuttleChild::UseScanItem(BOOL i_bScan, float i_fCheckEnableTime, float i_
 	vVel = D3DXVECTOR3(0,0,1);
 	vUp = D3DXVECTOR3(0,1,0);
 	vPos = pUnit->m_vPos;
-	// ½ºÄµ ÀÌÆåÆ® »ý¼º
+	// ï¿½ï¿½Äµ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	CreateScanItemEffect(pUnit, vPos, vVel, vUp, i_fCheckEnableTime, RC_EFF_SCAN_ITEM);	
 
-	// ½ºÄµ À§Ä¡ ÁöÁ¤ 
+	// ï¿½ï¿½Äµ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 
 	m_pSkill->SetScanPosition(SCAN_ITEM, vPos);
 	
 	INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_SHOW_MAP_EFFECT, T_FC_CHARACTER_SHOW_MAP_EFFECT, pSMode, SendBuf);
@@ -15984,8 +15988,8 @@ void CShuttleChild::UseScanItem(BOOL i_bScan, float i_fCheckEnableTime, float i_
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		½ºÄµ ¾ÆÀÌÅÛ »ç¿ë ¹× Ãë
-/// \author		// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
+/// \brief		ï¿½ï¿½Äµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+/// \author		// 2007-04-19 by bhsohn ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2007-04-19 ~ 2007-04-19
 /// \warning	
 ///
@@ -15994,7 +15998,7 @@ void CShuttleChild::UseScanItem(BOOL i_bScan, float i_fCheckEnableTime, float i_
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::UseScanItem(BOOL i_bScan, float i_fCheckEnableTime, float i_fScanRange,INT EffectChange)
 {	
-// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef SC_SEARCHEYE_SHUTTLE_POSITION_JHSEOL_MSPARK
 	if(RC_ITEM_SEARCHEYE_NUM == EffectChange)
 	{
@@ -16047,10 +16051,10 @@ void CShuttleChild::UseScanItem(BOOL i_bScan, float i_fCheckEnableTime, float i_
 		EffectNum = RC_EFF_SCAN_ITEM;
 	}
 	
-	// ½ºÄµ ÀÌÆåÆ® »ý¼º   
+	// ï¿½ï¿½Äµ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½   
 	CreateScanItemEffect(pUnit, vPos, vVel, vUp, i_fCheckEnableTime, EffectNum);	
 	
-	// ½ºÄµ À§Ä¡ ÁöÁ¤ 
+	// ï¿½ï¿½Äµ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 
 	m_pSkill->SetScanPosition(SCAN_ITEM, vPos);
 	
 	INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_SHOW_MAP_EFFECT, T_FC_CHARACTER_SHOW_MAP_EFFECT, pSMode, SendBuf);
@@ -16062,13 +16066,13 @@ void CShuttleChild::UseScanItem(BOOL i_bScan, float i_fCheckEnableTime, float i_
 	
 	g_pD3dApp->m_pFieldWinSocket->Write(SendBuf, MSG_SIZE(MSG_FC_CHARACTER_SHOW_MAP_EFFECT));	
 #endif
-// end 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤	
+// end 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
+/// \author		// 2007-04-19 by bhsohn ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2007-04-19 ~ 2007-04-19
 /// \warning	
 ///
@@ -16080,7 +16084,7 @@ void CShuttleChild::CreateScanItemEffect(CUnitData *pUnit,
 										float i_fCheckEnableTime,
 										UINT i_uEffectId)
 {		
-	// ÀÚ½ÅÀÌ ¾´ ½ºÄµÀÏ °æ¿ì´Â ´«À» »ý¼ºÇÏ°í ¾Æ´Ï¶ó¸é Enemy->UseSkillFromServer¿¡¼­ »ý¼ºÇÑ´Ù.	
+	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Äµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ Enemy->UseSkillFromServerï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.	
 	g_pScene->AddFieldItemScanObject(pUnit, i_fCheckEnableTime, i_uEffectId, _LAY, vVel, vUp, &vPos);	
 }
 
@@ -16134,8 +16138,8 @@ ClientIndex_t CShuttleChild::GetTargetToClientIdx(CAtumData* pTarget)
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		°¢ ±â¾îº° ÀÌ·ú ½Ã°£ Ã¼Å©
-/// \author		// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+/// \brief		ï¿½ï¿½ ï¿½ï¿½îº° ï¿½Ì·ï¿½ ï¿½Ã°ï¿½ Ã¼Å©
+/// \author		// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-05-15 ~ 2007-05-15
 /// \warning	
 ///
@@ -16146,7 +16150,7 @@ float CShuttleChild::GetRasingCheckTime()
 {
 	if(IS_DT(m_myShuttleInfo.UnitKind))
 	{
-		// A±â¾î³Ä?
+		// Aï¿½ï¿½ï¿½ï¿½?
 		return AGEAR_RASING_TIME;
 	}
 	return 1.0f;
@@ -16155,8 +16159,8 @@ float CShuttleChild::GetRasingCheckTime()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Ç®½ºÅÈ Á¤º¸ ¾÷µ¥ÀÌÆ® 
-/// \author		// 2007-05-15 by bhsohn ±â¾î ½ºÅÈ °ü·Ã Ã³¸®
+/// \brief		Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 
+/// \author		// 2007-05-15 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-05-15 ~ 2007-05-15
 /// \warning	
 ///
@@ -16169,8 +16173,8 @@ void CShuttleChild::SetMyShuttleFullStatInfo(GEAR_STAT i_MyShuttleFullStatInfo)
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Ç®½ºÅÈ Á¤º¸ ¾Ë·ÁÁÜ. 
-/// \author		// 2007-05-15 by bhsohn ±â¾î ½ºÅÈ °ü·Ã Ã³¸®
+/// \brief		Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½ï¿½. 
+/// \author		// 2007-05-15 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-05-15 ~ 2007-05-15
 /// \warning	
 ///
@@ -16183,8 +16187,8 @@ GEAR_STAT CShuttleChild::GetMyShuttleFullStatInfo()
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÃÖ´ë °ªÀ» ¸ø ³Ñ°Ô º¯°æ 
-/// \author		// 2007-05-15 by bhsohn ±â¾î ½ºÅÈ °ü·Ã Ã³¸®
+/// \brief		ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+/// \author		// 2007-05-15 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-05-15 ~ 2007-05-15
 /// \warning	
 ///
@@ -16193,39 +16197,39 @@ GEAR_STAT CShuttleChild::GetMyShuttleFullStatInfo()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::ReformMyShuttleStatInfo(GEAR_STAT* pMyGearStat)
 {
-	// 2010. 02. 19 by ckPark 100·¹º§¹Ì¸¸ÀÏ½Ã 300½ºÅÈÃÊ°ú·®ÀÌ Àû¿ëµÇ´Â ¹ö±× ¼öÁ¤
+	// 2010. 02. 19 by ckPark 100ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½Ï½ï¿½ 300ï¿½ï¿½ï¿½ï¿½ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-// 	// °ø°ÝÆÄÆ®
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 // 	if(pMyGearStat->AttackPart > COUNT_MAX_STAT_POINT)
 // 	{
 // 		pMyGearStat->AttackPart = COUNT_MAX_STAT_POINT;
 // 	}
 // 
-// 	// ¹æ¾îÆÄÆ®
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 // 	if(pMyGearStat->DefensePart > COUNT_MAX_STAT_POINT)
 // 	{
 // 		pMyGearStat->DefensePart = COUNT_MAX_STAT_POINT;
 // 	}
 // 
-// 	// ¿¬·áÆÄÆ®
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 // 	if(pMyGearStat->FuelPart > COUNT_MAX_STAT_POINT)
 // 	{
 // 		pMyGearStat->FuelPart = COUNT_MAX_STAT_POINT;
 // 	}
 // 
-// 	// °¨ÀÀÆÄÆ®
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 // 	if(pMyGearStat->SoulPart > COUNT_MAX_STAT_POINT)
 // 	{
 // 		pMyGearStat->SoulPart = COUNT_MAX_STAT_POINT;
 // 	}
 // 
-// 	// ½¯µåÆÄÆ®
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 // 	if(pMyGearStat->ShieldPart > COUNT_MAX_STAT_POINT)
 // 	{
 // 		pMyGearStat->ShieldPart = COUNT_MAX_STAT_POINT;
 // 	}
 // 
-// 	// È¸ÇÇÆÄÆ®, 0 ~ 255ÀÇ È®·ü
+// 	// È¸ï¿½ï¿½ï¿½ï¿½Æ®, 0 ~ 255ï¿½ï¿½ È®ï¿½ï¿½
 // 	if(pMyGearStat->DodgePart > COUNT_MAX_STAT_POINT)
 // 	{
 // 		pMyGearStat->DodgePart = COUNT_MAX_STAT_POINT;
@@ -16269,12 +16273,12 @@ void CShuttleChild::ReformMyShuttleStatInfo(GEAR_STAT* pMyGearStat)
 		}
 	}
 
-	// end 2010. 02. 19 by ckPark 100·¹º§¹Ì¸¸ÀÏ½Ã 300½ºÅÈÃÊ°ú·®ÀÌ Àû¿ëµÇ´Â ¹ö±× ¼öÁ¤
+	// end 2010. 02. 19 by ckPark 100ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½Ï½ï¿½ 300ï¿½ï¿½ï¿½ï¿½ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
-// 2007-05-28 by bhsohn ¾ÆÀÌÅÛ¿¡ ´ëÇÑ Ã¼Å©¼¶ Ãß°¡
+// 2007-05-28 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 
-// 2009. 05. 29 by ckPark SHA256 Ã¼Å©¼¶ ½Ã½ºÅÛ
+// 2009. 05. 29 by ckPark SHA256 Ã¼Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 // BOOL CShuttleChild::GetCheckSum(UINT *o_puiCheckSum, int *o_pnFileSize, char* pFilePath)
 // {
 // 	return m_pGameData->GetCheckSum(o_puiCheckSum, o_pnFileSize, pFilePath);
@@ -16284,12 +16288,12 @@ BOOL CShuttleChild::GetCheckSum(BYTE o_byObjCheckSum[32], int *o_pnFileSize, cha
 {
 	return m_pGameData->GetCheckSum(o_byObjCheckSum, o_pnFileSize, pFilePath);
 }
-// end 2009. 05. 29 by ckPark SHA256 Ã¼Å©¼¶ ½Ã½ºÅÛ
+// end 2009. 05. 29 by ckPark SHA256 Ã¼Å©ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CMonsterData::()
-/// \brief		¿ÀºêÁ§Æ®¸¦ Å¸ÄÏ ÀâÀ»Áö ¸»Áö °áÁ¤
-/// \author		// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®	
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½	
 /// \date		2007-05-17 ~ 2007-05-17
 /// \warning	
 ///
@@ -16309,7 +16313,7 @@ BOOL CShuttleChild::IsCheckObjectColl(CAtumData *pTarget)
 	case _MONSTER:
 		{
 			CUnitData* pEnemyUnit = (CUnitData*)pTarget;			
-			bTargetEnemyInfo = pEnemyUnit->IsCheckObjectColl();	// Ãæµ¹Ã¼Å©
+			bTargetEnemyInfo = pEnemyUnit->IsCheckObjectColl();	// ï¿½æµ¹Ã¼Å©
 		}
 		break;		
 	default:
@@ -16324,8 +16328,8 @@ BOOL CShuttleChild::IsCheckObjectColl(CAtumData *pTarget)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÇöÀç ÀÖ´Â ¸Ê¿¡ ´ëÇÑ Á¤º¸
-/// \author		// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-06-04 ~ 2007-06-04
 /// \warning	
 ///
@@ -16341,7 +16345,7 @@ CHARACTER CShuttleChild::GetMyShuttleInfo()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+/// \author		// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-06-12 ~ 2007-06-12
 /// \warning	
 ///
@@ -16354,8 +16358,8 @@ PARTYINFO CShuttleChild::GetPartyInfo()
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¹Ì¼Ç¸ÊÀ¸·Î º¸³»±â
-/// \author		// 2007-06-12 by bhsohn ¹Ì¼Ç ÀÎÅÍÆäÀÌ½º ¼öÁ¤¾È
+/// \brief		ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2007-06-12 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-06-12 ~ 2007-06-12
 /// \warning	
 ///
@@ -16367,6 +16371,14 @@ BOOL CShuttleChild::SendGoMissionMap()
 	int nMapQuestIndex = g_pGameMain->GetMissionMapQuestIdx();	
 	if(nMapQuestIndex)
 	{
+		char szTemp[256];
+		sprintf(szTemp, "MapIndex : %i", nMapQuestIndex);
+		g_pD3dApp->m_pChat->CreateChatChild(szTemp, COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
+		if (nMapQuestIndex == FFA_MAP)
+		{
+			g_pD3dApp->m_pChat->CreateChatChild("FFA_MAP has been Fired", COLOR_SKILL_USE, CHAT_TAB_SYSTEM);
+		}
+
 		INIT_MSG_WITH_BUFFER(MSG_FC_QUEST_MOVE_QUEST_MAP, T_FC_QUEST_MOVE_QUEST_MAP,
 			pSQuestMove, SendBuf);
 		pSQuestMove->QuestIndex0 = nMapQuestIndex;
@@ -16378,8 +16390,8 @@ BOOL CShuttleChild::SendGoMissionMap()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// À¯´Ö Á¤º¸ ÃÊ±âÈ­ 
-/// \author		// 2007-07-04 by bhsohn ·£µù ¸ð¼ÇÁß Æ÷Å» ÅÀÀ»½Ã ¹ö±× ¼öÁ¤
+/// \brief		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
+/// \author		// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-04 ~ 2007-07-04
 /// \warning	
 ///
@@ -16397,32 +16409,32 @@ void CShuttleChild::InitUnitState()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::IsWeaponeTarget()
-/// \brief		1Çü 2Çü ¹«±â ¹ß»ç½Ã Å¸°ÝÀ» ÁÙ¼öÀÖ´Â »óÅÂÀÎ°¡?
+/// \brief		1ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¼ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 /// \author		dgwoo
 /// \date		2007-07-25 ~ 2007-07-25
 /// \warning	
 ///
-/// \param		2Çü¹«±âÀÎ°¡?
-/// \return		°ø°ÝÇÒ°æ¿ì Å¸°ÙÀÌ ¸ÂÀ¸¸é True Çã°ø¿¡ ¸ÂÀ¸¸é False
+/// \param		2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
+/// \return		ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ True ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ False
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CShuttleChild::IsWeaponeTarget(BOOL i_bSecondW)
 {
 	if(i_bSecondW)
 	{
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//if(m_pSecondaryWeapon->m_vecTargetIndex.empty() == FALSE)
 		if(m_pSecondaryWeapon->m_vecTargetIndexData.empty() == FALSE)
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
 			return TRUE;
 		}
 	}
 	else
 	{
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		//if(m_pPrimaryWeapon->m_vecTargetIndex.empty() == FALSE)
 		if(m_pPrimaryWeapon->m_vecTargetIndexData.empty() == FALSE)
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		{
 			return TRUE;
 		}
@@ -16433,15 +16445,15 @@ void CShuttleChild::InitWeaponeTarget()
 {
 	if(m_pSecondaryWeapon)
 	{
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		m_pSecondaryWeapon->m_vecTargetIndexData.clear();
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	}
 		if(m_pPrimaryWeapon)
 	{
-		// 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		m_pPrimaryWeapon->m_vecTargetIndexData.clear();
-		// end 2011. 03. 08 by jskim ÀÎÇÇ3Â÷ ±¸Çö - ³Í Å¸°Ù ½Ã½ºÅÛ
+		// end 2011. 03. 08 by jskim ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	}
 }
 void CShuttleChild::RenderInvenBack()
@@ -16467,7 +16479,7 @@ void CShuttleChild::RenderInvenBack()
 	g_pD3dDev->SetTransform( D3DTS_VIEW,		&pMatPresView);
 	g_pD3dDev->SetTransform( D3DTS_PROJECTION, &pMatBackProj);	
 	
-	// ¹é±×¶ó¿îµå ·»´õ¸µ
+	// ï¿½ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	// Restore the modified render states
 	g_pD3dDev->SetRenderState( D3DRS_CLIPPLANEENABLE, 0x00 );
 	g_pD3dDev->SetRenderState( D3DRS_CULLMODE, D3DCULL_NONE );
@@ -16491,7 +16503,7 @@ void CShuttleChild::RenderInvenBack()
 
 	pMatBack = pMatBack * pTemp;
 
-	// ¹é±×¶ó¿îµå		
+	// ï¿½ï¿½×¶ï¿½ï¿½ï¿½		
 	g_pD3dDev->SetTransform( D3DTS_WORLD, &pMatBack );
 	g_pD3dDev->SetRenderState( D3DRS_ZENABLE, TRUE );
 	g_pD3dDev->SetRenderState( D3DRS_LIGHTING, TRUE );
@@ -16503,7 +16515,7 @@ void CShuttleChild::RenderInvenBack()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CShuttleChild::IsRevivalUseItem()
-/// \brief		ºÎÈ° ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ Á¶°ÇÀÌ µÇ´Â°¡?
+/// \brief		ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´Â°ï¿½?
 /// \author		dgwoo
 /// \date		2007-10-08 ~ 2007-10-08
 /// \warning	
@@ -16514,40 +16526,40 @@ void CShuttleChild::RenderInvenBack()
 BOOL CShuttleChild::IsRevivalUseItem()
 {
 	MAP_INFO* pMapInfo = g_pDatabase->GetMapInfo(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex);	
-	if(IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType) ||   // 2008-04-08 by dgwoo && -> || º¯°æ.
+	if(IS_MAP_INFLUENCE_EVENT_AREA(pMapInfo->MapInfluenceType) ||   // 2008-04-08 by dgwoo && -> || ï¿½ï¿½ï¿½ï¿½.
 	IS_MAP_INFLUENCE_ARENA(pMapInfo->MapInfluenceType))
 	{
 		return FALSE;
 	}
 
-	// ÀÏ¹Ý ¼¼·ÂÀº ¸Ê°ú »ó°ü¾øÀÌ »ç¿ë°¡´ÉÇÏ´Ù.
+	// ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½Ï´ï¿½.
 	if(IS_NORMAL_INFLUENCE_TYPE(m_myShuttleInfo.InfluenceType))
 	{
 		return TRUE;
 	}
 
-	// 2007-10-08 by dgwoo ¾ÈÀüÁö¿ªÀº ¸ðµÎ TRUE
-	if(MAP_INFLUENCE_NEUTRALITY == pMapInfo->MapInfluenceType					// Áß¸³Áö¿ªÀÌ°Å³ª
-		|| IS_MAP_INFLUENCE_CONFLICT_AREA(pMapInfo->MapInfluenceType)			// ºÐÀïÁö¿ªÀÌ°Å³ª
-		|| m_myShuttleInfo.MapChannelIndex.ChannelIndex > 0)					// ¾ÈÀü Ã¤³ÎÀÌ¸é »ç¿ë°¡´É.
+	// 2007-10-08 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ TRUE
+	if(MAP_INFLUENCE_NEUTRALITY == pMapInfo->MapInfluenceType					// ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½
+		|| IS_MAP_INFLUENCE_CONFLICT_AREA(pMapInfo->MapInfluenceType)			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½
+		|| m_myShuttleInfo.MapChannelIndex.ChannelIndex > 0)					// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½.
 	{
 		return TRUE;
 	}
 
-	// °ÅÁ¡ °ü·Ã.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(g_pInterface->m_pINFOpMain->IsRevivalUseItemWarMonster(m_myShuttleInfo.MapChannelIndex.MapIndex))
-	{// ÇöÀç ³»°¡ ÀÖ´Â ¸ÊÀÌ °ÅÁ¡Àü°ú °ü·ÃÀÌ ÀÖ´Â ¸ÊÀÌ¸é.
+	{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½.
 		return FALSE;
 	}
 
-	// ÀüÁø±âÁöÀü °ü·Ã.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(IS_MAP_INFLUENCE_OUTPOST(pMapInfo->MapInfluenceType))
-	{// ÀüÁø±âÁö ¸Ê¿¡¼± ºÎÈ° ¾ÆÀÌÅÛ »ç¿ë±ÝÁö.
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		return FALSE;
 	}
 
-	// ¸ð¼±Àü °ü·Ã.
-	// 2008-04-04 by bhsohn ¸ð¼±Àü °ü¸® Å¬·¡½º Ãß°¡
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	// 2008-04-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	if(g_pGameMain->GetSummonMotherShipCnt())
 	{
 		if(IS_MAP_INFLUENCE_VCN(pMapInfo->MapInfluenceType))
@@ -16584,7 +16596,7 @@ CEffectInfo* CShuttleChild::GetEffectWeapon(int nInvenIdx)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2007-12-05 by bhsohn º®¿¡ ¶Õ°í µé¾î°¡´Â Çö»ó Ã³¸®
+/// \author		// 2007-12-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-12-05 ~ 2007-12-05
 /// \warning	
 ///
@@ -16604,7 +16616,7 @@ BOOL CShuttleChild::CheckObjLandingColl(D3DXVECTOR3 vNormalVector )
 	float fAngleRadian = GetRadianVectorBetweenVector(vObjNormalVector, vObjSide);	
 	float fDo = 90.0f - (fAngleRadian*57.29577951f);
 	DBGOUT("fDo [%.2f] \n", fDo);	
-	// 10µµ ³ÑÀ¸¸é ¾ÈµÈ´Ù. 
+	// 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ´ï¿½. 
 	if(fDo > MAX_LADING_DO)
 	{
 		return FALSE;
@@ -16614,7 +16626,7 @@ BOOL CShuttleChild::CheckObjLandingColl(D3DXVECTOR3 vNormalVector )
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2007-12-05 by bhsohn º®¿¡ ¶Õ°í µé¾î°¡´Â Çö»ó Ã³¸®
+/// \author		// 2007-12-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2007-12-05 ~ 2007-12-05
 /// \warning	
 ///
@@ -16627,7 +16639,7 @@ BOOL CShuttleChild::CancelLandingMode()
 	{
 		//if(m_fNumpad0keyTime <= 0.0f)
 		{
-			// Âø·úÀü ½ÃÁ¡ÀÌ 1ÀÎÄªÀÌ¿´À¸¸é ´Ù½Ã 1ÀÎÄªÀ¸·Î º¯È¯ 
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äªï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ 1ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ 
 			if(m_bLandingOldCamtypeFPS)
 			{
 				g_pD3dApp->m_pCamera->ChangeCamType();
@@ -16639,7 +16651,7 @@ BOOL CShuttleChild::CancelLandingMode()
 			g_pCamera->Init(m_vPos - 10.0f*m_vVel,m_vVel, 3.14f/13.0f, 60.0f);
 			m_fNumpad0keyTime = 2.0f;
 			ChangeUnitState(_TAKINGOFF);
-			// 2007-05-15 by bhsohn A±â¾î º¸¿Ï
+			// 2007-05-15 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//m_fRasingCheckTime = 1.0f;
 			m_fRasingCheckTime = GetRasingCheckTime();
 		}
@@ -16652,7 +16664,7 @@ BOOL CShuttleChild::CancelLandingMode()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-01-16 by bhsohn A±â¾î ¿öÇÁ ½ÇÆÐ½Ã À§Àå,±×¶ó¿îµå ¿¢¼¿ Ãë¼Ò ½ÃÅ´
+/// \author		// 2008-01-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å´
 /// \date		2008-01-16 ~ 2008-01-16
 /// \warning	
 ///
@@ -16664,7 +16676,7 @@ void CShuttleChild::SetShuttleAirMode(BOOL bIsAir)
 	m_bIsAir = bIsAir;
 	if(bIsAir && IS_DT(m_myShuttleInfo.UnitKind) && (m_pSkill))
 	{
-		// ±âÃ¼°¡ ¶°ÀÖ´Â »óÅÂ¿¡¼­ A±â¾î ±×¶ó¿îµå ±â¼úÀ» ²û.
+		// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 		m_pSkill->ReleaseGroundSkill();			
 	}
 }
@@ -16672,7 +16684,7 @@ void CShuttleChild::SetShuttleAirMode(BOOL bIsAir)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+/// \author		// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 /// \date		2007-11-22 ~ 2007-11-22
 /// \warning	
 ///
@@ -16692,7 +16704,7 @@ UID32_t	CShuttleChild::GetCharacterUniqueNumber()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-03-17 by bhsohn À©µµ¿ì ÀÌµ¿½Ã Tick¾Èµé¾î¿À´Â ¹®Á¦ Ã³¸®
+/// \author		// 2008-03-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Tickï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-03-17 ~ 2008-03-17
 /// \warning	
 ///
@@ -16707,7 +16719,7 @@ BOOL CShuttleChild::IsUnitStop()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-03-17 by bhsohn À©µµ¿ì ÀÌµ¿½Ã Tick¾Èµé¾î¿À´Â ¹®Á¦ Ã³¸®
+/// \author		// 2008-03-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Tickï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-03-17 ~ 2008-03-17
 /// \warning	
 ///
@@ -16721,8 +16733,8 @@ BOOL CShuttleChild::IsAir()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		°ø°³¼³Á¤ ¿É¼Ç º¯°æ
-/// \author		// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-06-25 ~ 2008-06-25
 /// \warning	
 ///
@@ -16731,15 +16743,15 @@ BOOL CShuttleChild::IsAir()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::SetSecretInfoOption(INT i_nSecretInfoOption)
 {
-	// 2008-12-16 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+	// 2008-12-16 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 	if((m_myShuttleInfo.SecretInfoOption & USER_INFO_OPTION_MISSIONMASTER) != (i_nSecretInfoOption & USER_INFO_OPTION_MISSIONMASTER))
 	{
 		if(i_nSecretInfoOption & USER_INFO_OPTION_MISSIONMASTER)
-		{// ¹Ì¼Ç¸¶½ºÅÍ·Î µî·Ï.
+		{// ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½.
 			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_081219_0100,COLOR_SYSTEM);
 		}else
-		{// ¹Ì¼Ç¸¶½ºÅÍ¿¡¼­ ÇØÁ¦.
+		{// ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			g_pD3dApp->m_pChat->CreateChatChild(STRMSG_C_081219_0101,COLOR_SYSTEM);
 		}
 		m_myShuttleInfo.SecretInfoOption = i_nSecretInfoOption;	
@@ -16747,7 +16759,7 @@ void CShuttleChild::SetSecretInfoOption(INT i_nSecretInfoOption)
 	}else
 	{
 		char buf[256];
-		wsprintf(buf, STRMSG_C_080609_0200); //"\\y¿É¼ÇÀÌ º¯°æµÇ¾ú½À´Ï´Ù."
+		wsprintf(buf, STRMSG_C_080609_0200); //"\\yï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);	
 	}
 	m_myShuttleInfo.SecretInfoOption = i_nSecretInfoOption;	
@@ -16761,7 +16773,7 @@ void CShuttleChild::SetAmorHeight(INT i_nAmorNum)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+/// \author		// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 /// \date		2008-09-08 ~ 2008-09-08
 /// \warning	
 ///
@@ -16783,7 +16795,7 @@ D3DXMATRIX CShuttleChild::GetMatWeaponPosition(int nIdx)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+/// \author		// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 /// \date		2008-09-08 ~ 2008-09-08
 /// \warning	
 ///
@@ -16798,7 +16810,7 @@ int CShuttleChild::GetInvenWeaponMeshSize()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+/// \author		// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 /// \date		2008-09-08 ~ 2008-09-08
 /// \warning	
 ///
@@ -16816,7 +16828,7 @@ INVEN_WEAPON_MESH* CShuttleChild::GetInvenWeaponMesh(int nIdx)
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+/// \author		// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 /// \date		2008-09-08 ~ 2008-09-08
 /// \warning	
 ///
@@ -16830,7 +16842,7 @@ float CShuttleChild::GetRotationX()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-08-22 by bhsohn EP3 ÀÎº¥Åä¸® Ã³¸®
+/// \author		// 2008-08-22 by bhsohn EP3 ï¿½Îºï¿½ï¿½ä¸® Ã³ï¿½ï¿½
 /// \date		2008-09-08 ~ 2008-09-08
 /// \warning	
 ///
@@ -16844,8 +16856,8 @@ float CShuttleChild::GetRotationZ()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// ºÎ½ºÅÍ ½Ã°£
-/// \author		// 2008-09-26 by bhsohn ½Å±Ô ÀÎÃ¾Æ® Ã³¸®
+/// \brief		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+/// \author		// 2008-09-26 by bhsohn ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ® Ã³ï¿½ï¿½
 /// \date		2008-09-26 ~ 2008-09-26
 /// \warning	
 ///
@@ -16871,8 +16883,8 @@ float CShuttleChild::GetEnchantDesParam(CItemInfo* pItemInfo, int nDestParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// ¿£Áø ÀÎÃ¾ Á¤º¸ °»½Å
-/// \author		// 2008-09-26 by bhsohn ½Å±Ô ÀÎÃ¾Æ® Ã³¸®
+/// \brief		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¾ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-09-26 by bhsohn ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ® Ã³ï¿½ï¿½
 /// \date		2008-09-26 ~ 2008-09-26
 /// \warning	
 ///
@@ -16881,7 +16893,7 @@ float CShuttleChild::GetEnchantDesParam(CItemInfo* pItemInfo, int nDestParam)
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::UpdateEngineInfo()
 {
-	// ¿£Áø ¾ÆÀÌÅÛ °¡Á®¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CItemInfo* pEngineItem = g_pStoreData->FindItemInInventoryByWindowPos( POS_REAR ); 
 	if(NULL == pEngineItem)
 	{
@@ -16889,44 +16901,44 @@ void CShuttleChild::UpdateEngineInfo()
 	}
 	ITEM* pITEM = pEngineItem->GetRealItemInfo();
 	
-	// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+	// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 	{
 		m_fBURN = (float)pITEM->Time/1000.0f;		
 		float fTimeUp = GetEnchantDesParam(pEngineItem, DES_ENGINE_BOOSTER_TIME_UP);
 		m_fBURN += fTimeUp;		
-		// FLOATÇü ÀçÁ¤·Ä ÇÏ¿© »ç¿ë
+		// FLOATï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
 		m_fBURN = FloatRangeDecimal(m_fBURN, 2);
 	}
 
-	// ÃÖ¼Ò ¼Óµµ
+	// ï¿½Ö¼ï¿½ ï¿½Óµï¿½
 	{
 		m_fShuttleSpeedMin = pITEM->AbilityMin;
 		float fTime = GetEnchantDesParam(pEngineItem, DES_ENGINE_MIN_SPEED_UP);
 		m_fShuttleSpeedMin += fTime;
 
 	}
-	// ÃÖ´ë ¼Óµµ
+	// ï¿½Ö´ï¿½ ï¿½Óµï¿½
 	{
 		m_fShuttleSpeedMax = pITEM->AbilityMax;
 		float fTime = GetEnchantDesParam(pEngineItem, DES_ENGINE_MAX_SPEED_UP);
 		m_fShuttleSpeedMax += fTime;		
 	}
 
-	// Áö»ó ¼Óµµ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 	{
 		m_fShuttleGroundSpeedMax = pITEM->Charging;			// 2005-11-26 by ispark
 		float fTime = GetEnchantDesParam(pEngineItem, DES_ENGINE_GROUND_SPEED_UP);
 		m_fShuttleGroundSpeedMax += fTime;		
 	}
 
-	// ºÎ½ºÅÍ ¼Óµµ
+	// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 	{
 		m_fShuttleSpeedBoosterOn = (float)pITEM->Range;
 		float fTime = GetEnchantDesParam(pEngineItem, DES_ENGINE_BOOSTER_SPEED_UP);
 		m_fShuttleSpeedBoosterOn += fTime;		
 	}	
 	
-	// ÇÏÀÌÆÛ ¹«ºù(¼±È¸°¢)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½È¸ï¿½ï¿½)
 	{	
 		CParamFactor*	pRefEnchant = pEngineItem->GetEnchantParamFactor();		
 		if(pRefEnchant)
@@ -16936,27 +16948,27 @@ void CShuttleChild::UpdateEngineInfo()
 		}
 		else
 		{
-			// ÃÊ±âÈ­			
+			// ï¿½Ê±ï¿½È­			
 			m_paramFactor.pfm_ENGINE_ANGLE_UP = m_paramFactor.pfm_ENGINE_BOOSTERANGLE_UP = 0.0f;
 		}
 		
 		m_fMouseRate = CAtumSJ::GetEngineRangeAngle(pITEM, &m_paramFactor);
 	}
 
-	// ¿£Áø UI°»½Å
+	// ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½
 	if(g_pGameMain && g_pGameMain->m_pUnitInfoBar)
 	{
 		g_pGameMain->m_pUnitInfoBar->SetBURN(m_fCurrentBURN, m_fBURN);
 		g_pGameMain->m_pUnitInfoBar->SetSpeed(m_fShuttleSpeed, m_fShuttleSpeedMin, m_fShuttleSpeedBoosterOn);
 	}
 
-	SetShuttleSpeed(); // ½ºÇÇµå °»½Å
+	SetShuttleSpeed(); // ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// ¿£Áø ÀÎÃ¾ Á¤º¸ °»½Å
-/// \author		// 2008-09-26 by bhsohn ½Å±Ô ÀÎÃ¾Æ® Ã³¸®
+/// \brief		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¾ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-09-26 by bhsohn ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ® Ã³ï¿½ï¿½
 /// \date		2008-09-26 ~ 2008-09-26
 /// \warning	
 ///
@@ -16967,7 +16979,7 @@ void CShuttleChild::SetRadarRange(CItemInfo* i_pRadarItemInfo)
 {
 	CParamFactor*	pRefEnchant = i_pRadarItemInfo->GetEnchantParamFactor();
 	
-	// 2011. 2. 25 by jskim º¸±Þ »óÁ¡ Âø·ú½Ã ·¹ÀÌ´õ ÃÊ±âÈ­ µÇ´Â ¹ö±× ¼öÁ¤
+	// 2011. 2. 25 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  	if(pRefEnchant)
  	{
  		m_paramFactor.pfm_ATTACK_RANGE_01 = pRefEnchant->pfm_ATTACK_RANGE_01;
@@ -16975,7 +16987,7 @@ void CShuttleChild::SetRadarRange(CItemInfo* i_pRadarItemInfo)
  	}
  	else
  	{
- 		// ÃÊ±âÈ­
+ 		// ï¿½Ê±ï¿½È­
  		m_paramFactor.pfm_ATTACK_RANGE_01 = m_paramFactor.pfm_ATTACK_RANGE_02 = 0.0f;
  	}
 	if(pRefEnchant)
@@ -16983,13 +16995,13 @@ void CShuttleChild::SetRadarRange(CItemInfo* i_pRadarItemInfo)
 		m_paramFactor.pfm_ATTACK_RANGE_01 = pRefEnchant->pfm_ATTACK_RANGE_01;
 		m_paramFactor.pfm_ATTACK_RANGE_02 = pRefEnchant->pfm_ATTACK_RANGE_02;
  	}
-	// end 2011. 2. 25 by jskim º¸±Þ »óÁ¡ Âø·ú½Ã ·¹ÀÌ´õ ÃÊ±âÈ­ µÇ´Â ¹ö±× ¼öÁ¤
-	// 2008-11-13 by bhsohn EP3-2 ¿¡¼­ ·¹ÀÌ´õ »çÁ¤°Å¸® Áõ°¡ Æê Àû¿ë ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
-	// 2009-05-14 by bhsohn ·¹ÀÌ´õ º¯°æ½Ã, ÆêÀÌ ¾Æ´Ñ ¾ÆÀÌÅÛ¿¡¼­ »ç°Å¸® Àû¿ë ¾ÈµÇ´Â ¹®Á¦ ÇØ°á	
+	// end 2011. 2. 25 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2008-11-13 by bhsohn EP3-2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
+	// 2009-05-14 by bhsohn ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½	
 //	CItemInfo* pPetItem = m_pStoreData->FindItemInInventoryByWindowPos(POS_PET);
 //	if(pPetItem)
 // 	{
-// 		// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+// 		// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 // 		// 	if(m_wearItemParamFactor[POS_PET].DestParameter1 == DES_ATTACK_RANGE_01 
 // 		// 			|| m_wearItemParamFactor[POS_PET].DestParameter1 == DES_ATTACK_RANGE_02 )
 // 		// 		{
@@ -17027,11 +17039,11 @@ void CShuttleChild::SetRadarRange(CItemInfo* i_pRadarItemInfo)
 // 			}
 // 			
 // 		}				
-// 		// end 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡	
+// 		// end 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½	
 // 	}		
 
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ÀåÂøÇ° ÃÖ´ë °³¼ö°ª º¯°æ.
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Ç° ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	//for(int nEqId=0; nEqId<WEAR_ITEM_NUMBER; nEqId++)
 	auto nEqId{ 0 };
 	for( nEqId=0; nEqId < MAX_EQUIP_POS; nEqId++ )
@@ -17052,11 +17064,11 @@ void CShuttleChild::SetRadarRange(CItemInfo* i_pRadarItemInfo)
 			}							
 		}
 	}
-	// end 2009-05-14 by bhsohn ·¹ÀÌ´õ º¯°æ½Ã, ÆêÀÌ ¾Æ´Ñ ¾ÆÀÌÅÛ¿¡¼­ »ç°Å¸® Àû¿ë ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+	// end 2009-05-14 by bhsohn ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 
 
-	// 2011. 2. 25 by jskim º¸±Þ »óÁ¡ Âø·ú½Ã ·¹ÀÌ´õ ÃÊ±âÈ­ µÇ´Â ¹ö±× ¼öÁ¤
-	// Á¢µÎ, Á¢¹Ì ´É·ÂÄ¡ Áß ·¹ÀÌ´õ °Å¸® µ¥½ºÆÄ¶÷ Àû¿ë
+	// 2011. 2. 25 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for( nEqId = 0; nEqId < MAX_EQUIP_POS; ++nEqId )
 	{
 		CItemInfo* pEqItem = m_pStoreData->FindItemInInventoryByWindowPos( nEqId );
@@ -17082,22 +17094,22 @@ void CShuttleChild::SetRadarRange(CItemInfo* i_pRadarItemInfo)
 			}
 		}
 	}
-	//end 2011. 2. 25 by jskim º¸±Þ »óÁ¡ Âø·ú½Ã ·¹ÀÌ´õ ÃÊ±âÈ­ µÇ´Â ¹ö±× ¼öÁ¤
+	//end 2011. 2. 25 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-	// 2009-02-25 by bhsohn ¹öÇÁÇü »ç°Å¸® ·¹ÀÌ´õ ¾ÈµÇ´Â ¹ö±× ¼öÁ¤
+	// 2009-02-25 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pGameMain && g_pGameMain->m_pInfSkill)
 	{
 		g_pGameMain->m_pInfSkill->RefreshSkillRader();
 	}
-	// end 2009-02-25 by bhsohn ¹öÇÁÇü »ç°Å¸® ·¹ÀÌ´õ ¾ÈµÇ´Â ¹ö±× ¼öÁ¤
+	// end 2009-02-25 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// ¿£Áø ÀÎÃ¾ Á¤º¸ °»½Å
-/// \author		// 2008-09-26 by bhsohn ½Å±Ô ÀÎÃ¾Æ® Ã³¸®
+/// \brief		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¾ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-09-26 by bhsohn ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ® Ã³ï¿½ï¿½
 /// \date		2008-09-26 ~ 2008-09-26
 /// \warning	
 ///
@@ -17111,8 +17123,8 @@ CParamFactor* CShuttleChild::GetShuttleParamFactor()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17124,11 +17136,11 @@ void CShuttleChild::SetCursorJostickPos()
 	CJoyStickInput *pJoyStick = g_pD3dApp->GetJoystickControl();
 	if(!pJoyStick)
 	{
-		// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		return;
 	}
 	
-	//A±â¾î°¡ ¶¥¿¡ ÀÖÀ»¶§
+	//Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind))
 //	{
 //	}
@@ -17136,7 +17148,7 @@ void CShuttleChild::SetCursorJostickPos()
 //	{
 //		SetAirCursorJostickPos();
 //	}
-	// 2009-02-25 by bhsohn Á¶ÀÌ½ºÆ½ ÀÌ¿ë, ¸Þ´ºÃ¢ ¶ì¿ì¸é A±â¾î´Â ¸¶¿ì½º·Î Á¶Àý
+	// 2009-02-25 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Ì¿ï¿½, ï¿½Þ´ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(IS_DT(m_myShuttleInfo.UnitKind))
 	{
 		if(g_pGameMain)
@@ -17144,7 +17156,7 @@ void CShuttleChild::SetCursorJostickPos()
 			GUI_BUILDINGNPC* pCurrentBuildingNpc = NULL;;
 			if(g_pInterface->m_pCityBase)
 			{
-				//ÇöÀç ¾ó¸° »óÁ¡ÀÌÀÖ³Ä?
+				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö³ï¿½?
 				pCurrentBuildingNpc = g_pInterface->m_pCityBase->GetCurrentBuildingNPC();
 			}
 
@@ -17154,12 +17166,12 @@ void CShuttleChild::SetCursorJostickPos()
 				|| (g_pGameMain->m_pSystem && g_pGameMain->m_pSystem->IsOptionShow())
 				|| (pCurrentBuildingNpc))
 			{
-				// Ã¢ ¶ì¿ì°í ÀÖÀ¸¸é Á¶ÀÌ½ºÆ½¾ÈµÊ
+				// Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½Æ½ï¿½Èµï¿½
 				return;
 			}
 		}
 	}
-	// end 2009-02-25 by bhsohn Á¶ÀÌ½ºÆ½ ÀÌ¿ë, ¸Þ´ºÃ¢ ¶ì¿ì¸é A±â¾î´Â ¸¶¿ì½º·Î Á¶Àý
+	// end 2009-02-25 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Ì¿ï¿½, ï¿½Þ´ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	SetAirCursorJostickPos();
 	
@@ -17167,8 +17179,8 @@ void CShuttleChild::SetCursorJostickPos()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17195,7 +17207,7 @@ void CShuttleChild::SetAirCursorJostickPos()
 	int nX = pt2.x - pt.x;
 	int nY = pt2.y - pt.y;
 	{
-		// °¡¿îµ¥ ¿µ¿ª
+		// ï¿½ï¿½ï¿½îµ¥ ï¿½ï¿½ï¿½ï¿½
 		nX += nMaxX;
 		nY += nMaxY;
 	}
@@ -17203,16 +17215,16 @@ void CShuttleChild::SetAirCursorJostickPos()
 	int nJoyStick = 0;
 	int nCurselValue = 0;
 	
-	nJoyStick = SetCursorJostickLeftRight(JOSTICK_OPTION_MOUSE_LEFT, nMaxX);	// ¸¶¿ì½º ¿ÞÂÊ Ã¼Å©
+	nJoyStick = SetCursorJostickLeftRight(JOSTICK_OPTION_MOUSE_LEFT, nMaxX);	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	nX += nJoyStick;	
 	
-	nJoyStick = SetCursorJostickLeftRight(JOSTICK_OPTION_MOUSE_RIGHT, nMaxX);	// ¸¶¿ì½º ¿À¸¥ÂÊ Ã¼Å©
+	nJoyStick = SetCursorJostickLeftRight(JOSTICK_OPTION_MOUSE_RIGHT, nMaxX);	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	nX += nJoyStick;		
 	
-	nJoyStick = SetCursorJostickUpDown(JOSTICK_OPTION_MOUSE_UP, nMaxY);			// ¸¶¿ì½º À§·Î Ã¼Å©
+	nJoyStick = SetCursorJostickUpDown(JOSTICK_OPTION_MOUSE_UP, nMaxY);			// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	nY += nJoyStick;	
 	
-	nJoyStick = SetCursorJostickUpDown(JOSTICK_OPTION_MOUSE_DOWN, nMaxY);			// ¸¶¿ì½º ¾Æ·¡·Î Ã¼Å©
+	nJoyStick = SetCursorJostickUpDown(JOSTICK_OPTION_MOUSE_DOWN, nMaxY);			// ï¿½ï¿½ï¿½ì½º ï¿½Æ·ï¿½ï¿½ï¿½ Ã¼Å©
 	nY += nJoyStick;	
 	
 	
@@ -17221,8 +17233,8 @@ void CShuttleChild::SetAirCursorJostickPos()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¿ÞÂÊ, ¿À¸¥ÂÊ Ã¼Å©
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17234,12 +17246,12 @@ int  CShuttleChild::SetCursorJostickLeftRight(int nLeftRightIndex, int nMaxX)
 	CJoyStickInput *pJoyStick = g_pD3dApp->GetJoystickControl();
 	if(!pJoyStick)
 	{
-		// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		return 0;
 	}
 	else if(g_pGameMain && g_pGameMain->IsShowOpJoystick())
 	{
-		// Á¶ÀÌ½ºÆ½ ¿É¼ÇÃ¢ÀÌ ¶°ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 		return 0;
 	}
 
@@ -17250,22 +17262,22 @@ int  CShuttleChild::SetCursorJostickLeftRight(int nLeftRightIndex, int nMaxX)
 	float fTmpVaule = 0.0f;
 	nKeyIdx = nKeyValue = 0;
 
-	// ¸¶¿ì½º Á¦¾î´Â ÇÑ±ºµ¥ ¹Û¿¡ ¸ø³Ö´Â´Ù.	
+	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½Ö´Â´ï¿½.	
 	g_pInterface->GetJoystickInfo(nLeftRightIndex, 0, &nKeyIdx, &nKeyValue);
 	if(-1 == nKeyIdx)
 	{
 		return nRtnJoyStatus;
 	}
 		
-	// ÈÙ¹æ½ÄÀÎ³Ä Å° ¹æ½ÄÀÌ³Ä¸¦ Ã¼Å©
+	// ï¿½Ù¹ï¿½ï¿½ï¿½Î³ï¿½ Å° ï¿½ï¿½ï¿½ï¿½Ì³Ä¸ï¿½ Ã¼Å©
 	if(pJoyStick->IsJoystickWheel(nKeyIdx))
 	{
-		// ÈÙ½ºÅ©·Ñ ¹æ½ÄÀÌ´Ù.
+		// ï¿½Ù½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 		nJoyStick = pJoyStick->GetJoySitckInfo(nKeyIdx);
 		if((nKeyValue >= 0 && nJoyStick >= 0)
 			|| (nKeyValue <= 0 && nJoyStick <= 0))
 		{
-			fTmpVaule = ((float)nJoyStick)/JOYSTIC_STEP_MAX_VALUE;	// ºñÀ²°è»ê					
+			fTmpVaule = ((float)nJoyStick)/JOYSTIC_STEP_MAX_VALUE;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½					
 			if(fTmpVaule > 1.0f)
 			{
 				fTmpVaule = 1.0f;
@@ -17282,7 +17294,7 @@ int  CShuttleChild::SetCursorJostickLeftRight(int nLeftRightIndex, int nMaxX)
 	}
 	else
 	{
-		// Å° Å¬¸¯ ¹æ½Ä ÀÌ´Ù.
+		// Å° Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì´ï¿½.
 		nJoyStick = pJoyStick->GetJoySitckInfo(nKeyIdx);
 		if(nJoyStick > 0)
 		{				
@@ -17302,8 +17314,8 @@ int  CShuttleChild::SetCursorJostickLeftRight(int nLeftRightIndex, int nMaxX)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¿ÞÂÊ, ¿À¸¥ÂÊ Ã¼Å©
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17315,12 +17327,12 @@ int  CShuttleChild::SetCursorJostickUpDown(int nUpDownIndex, int nMaxY)
 	CJoyStickInput *pJoyStick = g_pD3dApp->GetJoystickControl();
 	if(!pJoyStick)
 	{
-		// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		return 0;
 	}
 	else if(g_pGameMain && g_pGameMain->IsShowOpJoystick())
 	{
-		// Á¶ÀÌ½ºÆ½ ¿É¼ÇÃ¢ÀÌ ¶°ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 		return 0;
 	}
 	int nRtnJoyStatus = 0;
@@ -17330,22 +17342,22 @@ int  CShuttleChild::SetCursorJostickUpDown(int nUpDownIndex, int nMaxY)
 	float fTmpVaule = 0.0f;
 	nKeyIdx = nKeyValue = 0;
 
-	// ¸¶¿ì½º Á¦¾î´Â ÇÑ±ºµ¥ ¹Û¿¡ ¸ø³Ö´Â´Ù.	
+	// ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½Ö´Â´ï¿½.	
 	g_pInterface->GetJoystickInfo(nUpDownIndex, 0, &nKeyIdx, &nKeyValue);
 	if(-1 == nKeyIdx)
 	{
 		return nRtnJoyStatus;
 	}
 		
-	// ÈÙ¹æ½ÄÀÎ³Ä Å° ¹æ½ÄÀÌ³Ä¸¦ Ã¼Å©
+	// ï¿½Ù¹ï¿½ï¿½ï¿½Î³ï¿½ Å° ï¿½ï¿½ï¿½ï¿½Ì³Ä¸ï¿½ Ã¼Å©
 	if(pJoyStick->IsJoystickWheel(nKeyIdx))
 	{
-		// ÈÙ½ºÅ©·Ñ ¹æ½ÄÀÌ´Ù.
+		// ï¿½Ù½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 		nJoyStick = pJoyStick->GetJoySitckInfo(nKeyIdx);
 		if((nKeyValue >= 0 && nJoyStick >= 0)
 			|| (nKeyValue <= 0 && nJoyStick <= 0))
 		{
-			fTmpVaule = ((float)nJoyStick)/JOYSTIC_STEP_MAX_VALUE;	// ºñÀ²°è»ê					
+			fTmpVaule = ((float)nJoyStick)/JOYSTIC_STEP_MAX_VALUE;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½					
 			if(fTmpVaule > 1.0f)
 			{
 				fTmpVaule = 1.0f;
@@ -17362,7 +17374,7 @@ int  CShuttleChild::SetCursorJostickUpDown(int nUpDownIndex, int nMaxY)
 	}
 	else
 	{
-		// Å° Å¬¸¯ ¹æ½Ä ÀÌ´Ù.
+		// Å° Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì´ï¿½.
 		nJoyStick = pJoyStick->GetJoySitckInfo(nKeyIdx);
 		if(nJoyStick > 0)
 		{				
@@ -17383,8 +17395,8 @@ int  CShuttleChild::SetCursorJostickUpDown(int nUpDownIndex, int nMaxY)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		·Ñ¸µÀÌ °¡´ÉÇÑ »óÅÂ´Ù
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17405,8 +17417,8 @@ BOOL CShuttleChild::IsPossibleRolling()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		·Ñ¸µÀÌ °¡´ÉÇÑ »óÅÂ´Ù
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17423,11 +17435,11 @@ void CShuttleChild::StartRolling(int nKeyIndex)
 	{
 	case DIK_A:
 		{
-			// 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+			// 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			ActiveKeyDownADouble();
 // 			if(m_fADoubleKeyTime < DOUBLEKEY_TIME 
 // 				&& m_bKeyDownACheck == FALSE 
-// 				// ºÎ½ºÅÍ »ç¿ë½Ã¿¡´Â ·Ñ¸µÀ» ÀúÀåÇÏÁö ¾Ê´Â´Ù.
+// 				// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 // 				&& m_nBooster != BOOSTER_TYPE_MAX)
 // 			{
 // 				DbgOut("CShuttleChild::WndProc() : m_bKeyDownADouble = TRUE\n");
@@ -17438,16 +17450,16 @@ void CShuttleChild::StartRolling(int nKeyIndex)
 // 			{
 // 				m_fADoubleKeyTime = 0.0f;
 // 			}
-			// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+			// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		break;
 	case DIK_D:
 		{
-			// 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+			// 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			ActiveKeyDownDDouble();
 // 			if(m_fDDoubleKeyTime < DOUBLEKEY_TIME 
 // 				&& m_bKeyDownDCheck == FALSE
-// 				// ºÎ½ºÅÍ »ç¿ë½Ã¿¡´Â ·Ñ¸µÀ» ÀúÀåÇÏÁö ¾Ê´Â´Ù.
+// 				// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 // 				&& m_nBooster != BOOSTER_TYPE_MAX)
 // 			{
 // 				DbgOut("CShuttleChild::WndProc() : m_bKeyDownDDouble = TRUE\n");
@@ -17458,7 +17470,7 @@ void CShuttleChild::StartRolling(int nKeyIndex)
 // 			{
 // 				m_fDDoubleKeyTime = 0.0f;
 // 			}
-			// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+			// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		break;
 	}
@@ -17466,8 +17478,8 @@ void CShuttleChild::StartRolling(int nKeyIndex)
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		·Ñ¸µÀ» Ã¼Å©ÇÑ´Ù.
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½Ñ¸ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17479,12 +17491,12 @@ void CShuttleChild::CheckJoystickKeyDown()
 	CJoyStickInput *pJoyStick = g_pD3dApp->GetJoystickControl();
 	if(!pJoyStick)
 	{
-		// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		return;
 	}
 	else if(!IsPossibleJoystickMove())
 	{
-		// ºñÇàÁßÀÌ ¾Æ´Ï´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
 		return;
 	}
 
@@ -17498,7 +17510,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 		if(g_pInterface->IsChangeJoySitckInfo(DIK_A) 
 			&& (0 == m_nJoyStickRolling))
 		{			
-			StartRolling(DIK_A);	// ·Ñ¸µ ½ÃÀÛ Ã¼Å©
+			StartRolling(DIK_A);	// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 		}
 	}
 	else if(g_pInterface->GetJostickStats(DIK_D))
@@ -17508,7 +17520,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 		if(g_pInterface->IsChangeJoySitckInfo(DIK_D)
 			&& (0 == m_nJoyStickRolling))
 		{			
-			StartRolling(DIK_D);	// ·Ñ¸µ ½ÃÀÛ Ã¼Å©
+			StartRolling(DIK_D);	// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 		}
 	}
 
@@ -17523,7 +17535,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 	for(nSlotIdx = 0;nSlotIdx < MAX_JOSTICK_OPTION_BEHAVIOR;nSlotIdx++)
 	{
 		{
-			// 1Çü¹«±â
+			// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			BOOL bWeaponChangeKey1 = FALSE;
 			int nKeyIdx, nKeyValue;
 			nKeyIdx = nKeyValue = 0;
@@ -17539,26 +17551,26 @@ void CShuttleChild::CheckJoystickKeyDown()
 			{
 				int nJoyStickStas = pJoyStick->GetJoySitckInfo(nKeyIdx);
 				
-				// ±âº»¹«±â
+				// ï¿½âº»ï¿½ï¿½ï¿½ï¿½
 				if(nJoyStickStas)
 				{
 					if(	m_pSkill && m_pSkill->GetSkillTargetState() == TRUE )
 					{
-						//	³»°¡ Áö±Ý Å¸°Ù ½ºÅ³À» »ç¿ëÇÏ±â À§ÇØ Å¸°ÙÀ» Ã£´Â ÁßÀÌ¶ó¸é..
-						//	ÃÑ¾ËÀÌ ¹ß»çµÇÁö ¾Ê°í, ´ë½Å¿¡ ½ºÅ³ Å¬·¡½º¿¡ ÀÖ´Â Å¸°ÙÀ» Ã£´Â ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.
+						//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½..
+						//	ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½, ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½Å³ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ñ´ï¿½.
 						m_pSkill->FindTargetForSkill();
 					}
-					// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½					
+					// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 					//else if(!m_bLButtonState  && (IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster)))
 					else if(!m_bLButtonState  && (IS_WEAPON_ENABLESTATE(m_dwState, m_nBooster))&& IsPossibleAttackStat())
 					{
-						//±âº» ¹«±â ¹ß»ç
+						//ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
 						m_bLButtonState = TRUE;
 					}
 				}			
 				else if(m_bLButtonState && !nJoyStickStas)
 				{
-					// ±âº»¹«±â ¹ß»ç Ãë¼Ò
+					// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ï¿½
 					m_bLButtonState = FALSE;
 					m_PrimaryAttack.AttackData.TargetInfo.SetNullTarget();
 					m_bTargetChange = TRUE;
@@ -17567,7 +17579,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 			}
 		}
 		{
-			// 2Çü¹«±â
+			// 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			BOOL bWeaponChangeKey2 = FALSE;
 			int nKeyIdx, nKeyValue;
 			nKeyIdx = nKeyValue = 0;
@@ -17582,8 +17594,8 @@ void CShuttleChild::CheckJoystickKeyDown()
 			if(bWeaponChangeKey2)
 			{
 				int nJoyStickStas = pJoyStick->GetJoySitckInfo(nKeyIdx);
-				// °í±Þ¹«±â
-				// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½									
+				// ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½
+				// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½									
 				//if(!m_bRButtonState && nJoyStickStas)
 				if(!m_bRButtonState && nJoyStickStas && IsPossibleAttackStat())
 				{			
@@ -17598,7 +17610,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 			}	
 		}
 		{
-			// •üºä		
+			// ï¿½ï¿½ï¿½ï¿½		
 			BOOL bKeyDown = FALSE;	
 			BOOL bChangeKey = FALSE;
 			int nKeyIdx, nKeyValue;
@@ -17630,7 +17642,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 	
 
 	{
-		// À¯´ÖÁ¤Áö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(g_pInterface->OnJoystickKeyDown(JOSTICK_OPTION_UNITSTOP))
 		{
 			OnKeyDownUnitStop();
@@ -17638,7 +17650,7 @@ void CShuttleChild::CheckJoystickKeyDown()
 	}
 
 	{
-		// Ãâµ¿
+		// ï¿½âµ¿
 		if(g_pInterface->OnJoystickKeyDown(JOSTICK_OPTION_TAKEOFF))
 		{			
 		}
@@ -17646,14 +17658,14 @@ void CShuttleChild::CheckJoystickKeyDown()
 
 	
 	{
-		// Æí´ë ´ëÇü Âü¿©
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(g_pInterface->OnJoystickKeyDown(JOSTICK_OPTION_JOIN_FORMATION))
 		{
 			OnKeyDownJoinFormation();
 		}
 	}
 	{
-		// ½ºÅ³ ½½·Ô º¯°æ 
+		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 		if(g_pInterface->OnJoystickKeyDown(JOSTICK_OPTION_SLOT_CHANGE))
 		{
 			if(g_pGameMain && g_pGameMain->m_pQuickSlot)
@@ -17663,29 +17675,29 @@ void CShuttleChild::CheckJoystickKeyDown()
 			
 		}
 	}
-	// 2009-01-16 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ½ÂÀÎ/Ãë¼Ò Ãß°¡
+	// 2009-01-16 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	{
-		// ½ÂÀÎ ¹öÆ°
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 		if(g_pInterface->OnJoystickKeyDown(JOSTICK_OPTION_OK))
 		{
 			// if i==0 then ok, if i==1 then cancel
 			g_pGameMain->m_pInfWindow->OnButtonClick(0);
 		}		
-		// Ãë¼Ò ¹öÆ°
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 		else if(g_pInterface->OnJoystickKeyDown(JOSTICK_OPTION_CANCEL))
 		{
 			g_pGameMain->m_pInfWindow->OnButtonClick(1);
 		}
 	}
-	// end 2009-01-16 by bhsohn Á¶ÀÌ½ºÆ½ Ãß°¡ ½ÂÀÎ/Ãë¼Ò Ãß°¡
+	// end 2009-01-16 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	m_nJoyStickRolling = nJoyStickRolling;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		·Ñ¸µÀ» Ã¼Å©ÇÑ´Ù.
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½Ñ¸ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17704,8 +17716,8 @@ void CShuttleChild::SetJoystickUnLockOn()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		°¨µµ¸¦ °¡Á®¿Â´Ù.
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17719,7 +17731,7 @@ float CShuttleChild::GetJoystckMoveValue(float i_fValue)
 	
 	if(!pJoyStick && !g_pD3dApp->IsUseJoyStick())
 	{
-		// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		return fDstValue;
 	}	
 
@@ -17730,8 +17742,8 @@ float CShuttleChild::GetJoystckMoveValue(float i_fValue)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		À¯´Ö ½ºÅé
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17740,23 +17752,23 @@ float CShuttleChild::GetJoystckMoveValue(float i_fValue)
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::OnKeyDownUnitStop()
 {	
-	// À¯´ÖÁ¤Áö ½Ã½ºÅÛ	
-	// ±â¾îÀÇ »óÅÂ°¡ Á×Àº »óÈ²ÀÏ¶§´Â BÅ°´Â ¸·´Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½	
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½Ï¶ï¿½ï¿½ï¿½ BÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 	if(CheckUnitState() == BREAKDOWN)
 	{
 		return;
 	}
-	else if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind)			//A±â¾î°¡ ¶¥¿¡ ÀÖÀ»¶§
-		|| g_pD3dApp->m_dwGameState == _SHOP						//»óÁ¡¿¡ ÀÖÀ»¶§
-		|| m_bAttackMode == _SIEGE)									//½ÃÁî ¸ðµåÀÏ¶§ 
+	else if(m_bIsAir == FALSE && IS_DT(m_myShuttleInfo.UnitKind)			//Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		|| g_pD3dApp->m_dwGameState == _SHOP						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		|| m_bAttackMode == _SIEGE)									//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ 
 	{
 		return;
 	}
 	// 2005-10-06 by ispark
-	// Æ©Åä¸®¾óÀÏ¶§´Â Á¤Áö »ç¿ë ¾ÈÇÔ
-	// Æí´ë ºñÇàÀÏ¶§ Æí´ëÀå ÀÌ¿Ü´Â Á¤½Ã »ç¿ë ±ÝÁö
-	// ±â¾î°¡ LANDEDÀÏ¶§ Á¤Áö »ç¿ë ¾ÈÇÔ
-	// ÆÐÅÏ »ç¿ëÁß¿¡´Â Á¤Áö »ç¿ë ¾ÈÇÔ
+	// Æ©ï¿½ä¸®ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿Ü´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½î°¡ LANDEDï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if((g_pTutorial->IsTutorialMode() == FALSE || 
 		(g_pTutorial->GetLesson() == L2 && g_pTutorial->GetChapter() == L2_2 && g_pTutorial->GetChapterState() == TUTORIAL_STATE_MOTION)) &&
 		m_pClientParty->IsFormationFlightMove() == FALSE &&
@@ -17765,39 +17777,39 @@ void CShuttleChild::OnKeyDownUnitStop()
 	{
 		if(m_bUnitStop == FALSE)	
 		{			
-			// À¯´Ö Á¤Áö
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			g_pShuttleChild->UnitStop();
 		}
-		else if(m_bSkillGoMove)	// Ãâ¹ß ÇÒ ¶§
+		else if(m_bSkillGoMove)	// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
 		{
-			// 2008-07-03 by bhsohn EP3 ¹ö±× ¸®Æ÷Æ® ¼öÁ¤
+			// 2008-07-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			if(g_pGameMain->m_pCommunity->IsShowCommunityWindow())
 			{
-				// Ãâ¹ß½Ã °­Á¦·Î Ã¢´ÝÀ½
+				// ï¿½ï¿½ß½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½
 				g_pGameMain->m_pCommunity->ShowCommunityWindow(FALSE);
 			}
 			if(g_pGameMain->m_pSystem && g_pGameMain->m_pSystem->IsOptionShow())
 			{
 				g_pGameMain->PopupSystemOptinWnd();
 			}
-			// end 2008-07-03 by bhsohn EP3 ¹ö±× ¸®Æ÷Æ® ¼öÁ¤
+			// end 2008-07-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			
 			m_bUnitStop = FALSE;
 			m_bPenaltyUnitStop = TRUE;
 			m_bMouseMoveLock = FALSE;
 			m_nBooster = BOOSTER_TYPE_MIN;
 			g_pInterface->m_pGameMain->InitShowWindow();
-			// 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ
+			// 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			g_pShuttleChild->SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, BODYCON_SET_OR_CLEAR_MASK );
-			//end 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ
+			//end 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}						
 	}	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		À¯´Ö ½ºÅé
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17806,11 +17818,11 @@ void CShuttleChild::OnKeyDownUnitStop()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::OnKeyDownJoinFormation()
 {	
-	// 2004-11-26 by jschoi - _GAME »óÅÂ°¡ ¾Æ´Ï°Å³ª ¿öÇÁÁß¿¡´Â ´ëÇü¿¡ Âü¿©ÇÒ ¼ö ¾ø´Ù.
+	// 2004-11-26 by jschoi - _GAME ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if( g_pD3dApp->m_dwGameState != _GAME ||
 		m_nCurrentPatternNumber == PATTERN_UNIT_WARP_OUT ||
 		m_nCurrentPatternNumber == PATTERN_UNIT_WARP_IN 
-		|| IS_CITY_MAP_INDEX(g_pD3dApp->GetMyShuttleMapChannelIndex().MapIndex)) // 2007-06-26 by bhsohn ¸¶À»¿¡¼­ Æí´ë ºñÇà µÇ´Â ¹ö±× ¼öÁ¤
+		|| IS_CITY_MAP_INDEX(g_pD3dApp->GetMyShuttleMapChannelIndex().MapIndex)) // 2007-06-26 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
 		DBGOUT("Current Game State (%d) , and PatternType is (%d), So Can't join FormationFlight.\n",g_pD3dApp->m_dwGameState,m_nCurrentPatternNumber);
 		return;
@@ -17836,7 +17848,7 @@ void CShuttleChild::OnKeyDownJoinFormation()
 					m_pClientParty->ISendPartyGetFlightPosition();
 									
 					// 2005-10-24 by ispark
-					// Æí´ëºñÇà ½ÅÃ»ÀÏ ¶§ ±â¾î Á¤Áö Ç¬´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¬ï¿½ï¿½.
 					m_bUnitStop = FALSE;
 					m_nBooster = BOOSTER_TYPE_MIN;
 					m_bPenaltyUnitStop = FALSE;
@@ -17844,22 +17856,22 @@ void CShuttleChild::OnKeyDownJoinFormation()
 					m_bMouseMoveLock = FALSE;
 					g_pD3dApp->m_bFixUnitDirMode = FALSE;
 					g_pInterface->m_pGameMain->InitShowWindow();
-					// 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ	
+					// 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 					SendFieldSocketChangeBodyCondition( m_myShuttleInfo.ClientIndex, BODYCON_SET_OR_CLEAR_MASK );
-					//end 2010. 03. 30 by jskim À¯´Ö »óÅÂ ¹ÙµðÄÁµð¼Ç ¼­¹ö Àü´Þ	
+					//end 2010. 03. 30 by jskim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 					m_ptDirOld.x = 0;
 					m_ptDirOld.y = 0;
 				}
 				else if((*itParty)->m_pEnemyData->m_dwState != _NORMAL)
 				{
 					char buf[256];
-					wsprintf(buf,STRMSG_C_PARTY_0042);//"Æí´ëÀåÀÌ Æí´ëºñÇàÀ» ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."
+					wsprintf(buf,STRMSG_C_PARTY_0042);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 					g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);
 				}
 				else
 				{
 					char buf[256];
-					wsprintf(buf,STRMSG_C_PARTY_0043);//"Æí´ëÀåÀ¸·ÎºÎÅÍ °Å¸®°¡ ³Ê¹« ¸Ö¸® ¶³¾îÁ® ÀÖ½À´Ï´Ù."
+					wsprintf(buf,STRMSG_C_PARTY_0043);//"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."
 					g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);
 				}
 				return;
@@ -17871,33 +17883,33 @@ void CShuttleChild::OnKeyDownJoinFormation()
 	else if(!m_pClientParty->GetPartyInfo().bFormationFlyingType)
 	{//
 		char buf[256];
-		wsprintf(buf,STRMSG_C_PARTY_0044);//"Æí´ë ºñÇà ´ëÇü ¼±ÅÃÀÌ Àß¸øµÇ¾ú½À´Ï´Ù."
+		wsprintf(buf,STRMSG_C_PARTY_0044);//"ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);
 	}
 	else if(m_pClientParty->GetPartyInfo().bFormationFlyingPositionType)
 	{
 		char buf[256];
-		wsprintf(buf,STRMSG_C_PARTY_0045);//"Æí´ë ºñÇà Æ÷Áö¼ÇÀÌ Àß¸øµÇ¾ú½À´Ï´Ù."
+		wsprintf(buf,STRMSG_C_PARTY_0045);//"ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);
 	}
 	else if(m_pClientParty->GetPartyInfo().bPartyType != _PARTYMEMBER)
 	{
 		char buf[256];
-		wsprintf(buf,STRMSG_C_PARTY_0046);//"ÇöÀç Æí´ë¿øÀÌ ¾Æ´Õ´Ï´Ù. È®ÀÎÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù."
+		wsprintf(buf,STRMSG_C_PARTY_0046);//"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½. È®ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½."
 		g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);
 	}
 	else
 	{
 		char buf[256];
-		wsprintf(buf,STRMSG_C_PARTY_0047);//"Æí´ë ºñÇàÀ» ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."
+		wsprintf(buf,STRMSG_C_PARTY_0047);//"ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."
 		g_pD3dApp->m_pChat->CreateChatChild(buf,COLOR_SYSTEM);
 	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Á¶ÀÌ½ºÆ½À¸·Î ¿òÁ÷ÀÏ¼ö ÀÖ´Â »óÅÂ³Ä?
-/// \author		// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+/// \brief		ï¿½ï¿½ï¿½Ì½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â³ï¿½?
+/// \author		// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 /// \date		2008-11-13 ~ 2008-11-13
 /// \warning	
 ///
@@ -17907,13 +17919,13 @@ void CShuttleChild::OnKeyDownJoinFormation()
 BOOL CShuttleChild::IsPossibleJoystickMove()
 {
 	if((TRUE == g_pD3dApp->m_pKeyBoard->GetKeyBoardLostDevice())
-		||(FALSE == g_pD3dApp->m_pKeyBoard->GetKeyBoardFocus())) // Æ÷Ä¿½º ¾øÀ»½Ã, °­Á¦ Á¶ÀÌ½ºÆ½ »ç¿ë¾ÈÇÔ
+		||(FALSE == g_pD3dApp->m_pKeyBoard->GetKeyBoardFocus())) // ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		return FALSE;
 	}
 	else if(g_pGameMain && g_pGameMain->IsShowOpJoystick())
 	{
-		// Á¶ÀÌ½ºÆ½ ¿É¼ÇÃ¢ÀÌ ¶°ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 		return FALSE;
 	}
 	else if(g_pD3dApp->IsPossibleWindowMove())
@@ -17932,8 +17944,8 @@ BOOL CShuttleChild::IsPossibleJoystickMove()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		¹«ÇÑÀ¸·Î ÃÑ¾Ë ³ª°¡´Â Çö»ó Ã³¸®
-/// \author		// 2008-12-04 by bhsohn ¹«ÇÑÀ¸·Î ÃÑ¾Ë ³ª°¡´Â Çö»ó Ã³¸®
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+/// \author		// 2008-12-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2008-12-04 ~ 2008-12-04
 /// \warning	
 ///
@@ -17957,8 +17969,8 @@ BOOL CShuttleChild::IsWeapongShotting()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
-/// \author		// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+/// \brief		Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2009-02-19 ~ 2009-02-19
 /// \warning	
 ///
@@ -17967,14 +17979,14 @@ BOOL CShuttleChild::IsWeapongShotting()
 ///////////////////////////////////////////////////////////////////////////////
 void CShuttleChild::TickCheckGearAttackStat()
 {
-	//float GetOriDistance() {return m_fOriDistance;}// µðÆúÆ® Ä«¸Þ¶óÀÇ ¼ÅÆ²·ÎºÎÅÍ °Å¸®
+	//float GetOriDistance() {return m_fOriDistance;}// ï¿½ï¿½ï¿½ï¿½Æ® Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½Îºï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 	if(IsPossibleAttackStat())
 	{
 		return;		
 	}
 	if(m_bLButtonState)
 	{
-		// ±âº»¹«±â ¹ß»ç Ãë¼Ò
+		// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ï¿½
 		m_bLButtonState = FALSE;
 		m_PrimaryAttack.AttackData.TargetInfo.SetNullTarget();
 		m_bTargetChange = TRUE;
@@ -17991,8 +18003,8 @@ void CShuttleChild::TickCheckGearAttackStat()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		ÇöÀç °ø°Ý °¡´ÉÇÑ »óÅÂ³Ä?
-/// \author		// 2009-02-19 by bhsohn Ä«¸Þ¶ó ½Ã¼± º¯°æÈÄ, ½±°Ô »ç³É ¹æ¹ý ¸·À½
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½?
+/// \author		// 2009-02-19 by bhsohn Ä«ï¿½Þ¶ï¿½ ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2009-02-19 ~ 2009-02-19
 /// \warning	
 ///
@@ -18005,20 +18017,20 @@ BOOL CShuttleChild::IsPossibleAttackStat()
 	{
 		return TRUE;
 	}		
-	// // µðÆúÆ® Ä«¸Þ¶óÀÇ ¼ÅÆ²·ÎºÎÅÍ °Å¸®
-	if(g_pCamera->GetCamDistance() <= (g_pCamera->GetOriDistance()+ATTACK_POSSIBLE_DISTANCE)) // ¾à°£ÀÇ ¿©¹éÀ» µÎÀÚ ¿©¹éÀÇ ¹¦¹Ì;;;
+	// // ï¿½ï¿½ï¿½ï¿½Æ® Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½Îºï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
+	if(g_pCamera->GetCamDistance() <= (g_pCamera->GetOriDistance()+ATTACK_POSSIBLE_DISTANCE)) // ï¿½à°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½;;;
 	{
 		return TRUE;		
 	}
 	return FALSE;
 }
 
-// 2010. 04. 15 by jskim ºÎ½ºÅÍ ÃÖ¼Ò ¼Óµµ, ÃÖ°í ¼Óµµ 2¹è µÇ´Â ¹ö±× ¼öÁ¤
-// 2010. 03. 25 by jskim Speed, Angle Ãß°¡ °è»ê
+// 2010. 04. 15 by jskim ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½Óµï¿½, ï¿½Ö°ï¿½ ï¿½Óµï¿½ 2ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2010. 03. 25 by jskim Speed, Angle ï¿½ß°ï¿½ ï¿½ï¿½ï¿½
 void CShuttleChild::RecalculateSpeedAndAngle()
 {
 	
-	// ÀåÂøµÈ ¾ÆÀÌÅÛ¿¡¼­ ºÎ½ºÅÍ ½Ã°¡ °¡Á®¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CItemInfo* pEngineItem = g_pStoreData->FindItemInInventoryByWindowPos( POS_REAR );
 	
 	if(!pEngineItem)
@@ -18036,8 +18048,8 @@ void CShuttleChild::RecalculateSpeedAndAngle()
 		if(!pAllItem || i == POS_REAR )
 			continue;
 
-		// 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
-		//// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+		// 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 		//m_fBURN += GetEnchantDesParam(pAllItem, DES_ENGINE_BOOSTER_TIME_UP) + pAllItem->GetRealItemInfo()->GetParameterValue(DES_ENGINE_BOOSTER_TIME_UP);
 		float tempBURN = 0.0f;
 		if(pAllItem && i == POS_CENTER)
@@ -18062,47 +18074,47 @@ void CShuttleChild::RecalculateSpeedAndAngle()
 				}
 			}
 		}	
-		// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 		m_fBURN += GetEnchantDesParam(pAllItem, DES_ENGINE_BOOSTER_TIME_UP) + pAllItem->GetRealItemInfo()->GetParameterValue(DES_ENGINE_BOOSTER_TIME_UP) + tempBURN;
-		//end 2010. 04. 21 by jskim ½Å±Ô ·°Å° ¸Ó½Å ±¸Çö
+		//end 2010. 04. 21 by jskim ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_fBURN = FloatRangeDecimal(m_fBURN, 2);
 	}
 
-	// »ç¿ë·ù ¾ÆÀÌÅÛ ±â´É °¡Á®¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vector<ItemFontInfo*> ItemInfo = g_pGameMain->m_pInfSkill->GetItemFontInfo();
 	vector<ItemFontInfo*>::iterator it = ItemInfo.begin();
 	while(it != ItemInfo.end())
 	{
-		// ºÎ½ºÅÍ Ãß°¡ ½Ã°£ 
+		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ 
 		if((*it)->pItemInfo)
 	 	{
 	 		m_fBURN += (*it)->pItemInfo->GetParameterValue(DES_ENGINE_BOOSTER_TIME_UP);
-	 		// FLOATÇü ÀçÁ¤·Ä ÇÏ¿© »ç¿ë
+	 		// FLOATï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
 	 		m_fBURN = FloatRangeDecimal(m_fBURN, 2);
  		}
 		it++;
  	}
 }
-//end 2010. 03. 25 by jskim Speed, Angle Ãß°¡ °è»ê
-//end 2010. 04. 15 by jskim ºÎ½ºÅÍ ÃÖ¼Ò ¼Óµµ, ÃÖ°í ¼Óµµ 2¹è µÇ´Â ¹ö±× ¼öÁ¤
+//end 2010. 03. 25 by jskim Speed, Angle ï¿½ß°ï¿½ ï¿½ï¿½ï¿½
+//end 2010. 04. 15 by jskim ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½Óµï¿½, ï¿½Ö°ï¿½ ï¿½Óµï¿½ 2ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+// 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 void	CShuttleChild::SetDeadMessageEnable( BOOL bDeadMessageEnable )
 {
 	m_bDeadMessageEnable = bDeadMessageEnable;
 }
-// end 2010. 03. 25 by ckPark »ç¸Á½Ã 5ÃÊÀÌ»ó Ãß¶ôÇÏ¸é ºÎÈ°¸Þ¼¼Áö Ãß°¡
+// end 2010. 03. 25 by ckPark ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ß¶ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È°ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-// 2010-06-08 by dgwoo, Æê½Ã½ºÅÛ Ãß°¡. 
+// 2010-06-08 by dgwoo, ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½. 
 void CShuttleChild::SetPartner(char* i_szPartner,BOOL i_bCharacter)
 {
 	int nPartner = atoi(i_szPartner);
 	DeleteWearItem(WEAR_ITEM_KIND_PET);
 	CreateWearItem( WEAR_ITEM_KIND_PET, nPartner, i_bCharacter);
 }
-// 2010-06-08 by dgwoo, Æê½Ã½ºÅÛ Ãß°¡. 
+// 2010-06-08 by dgwoo, ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½. 
 
-// 2010-06-15 by shcho&hslee Æê ½Ã½ºÅÛ - Æê ¼ÒÀ¯ Á¤º¸ ¹Þ±â.
+// 2010-06-15 by shcho&hslee ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½.
 BOOL CShuttleChild:: PutPetInfo(MSG_FC_ITEM_PET_BASEDATA* pMsg)
 {
 
@@ -18116,16 +18128,16 @@ BOOL CShuttleChild:: PutPetInfo(MSG_FC_ITEM_PET_BASEDATA* pMsg)
 
 
 
-	//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ	
+	//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½	
     pNewPetCurInfo->CreatedPetUID = pMsg->CreatedPetUID;
 //	pNewPetCurInfo->EnableEditPetName = pMsg->EnableEditPetName;
 //	pNewPetCurInfo->EnableLevelUp = pMsg->EnableLevelUp;
-	//end 2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+	//end 2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	pNewPetCurInfo->PetExp = pMsg->PetExp;
 	pNewPetCurInfo->PetIndex = pMsg->PetIndex;
 	pNewPetCurInfo->PetLevel = pMsg->PetLevel;
 
-//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	pNewPetCurInfo->PetExpRatio = pMsg->PetExpRatio;
 	pNewPetCurInfo->PetEnableSocketCount = pMsg->PetEnableSocketCount;	
 
@@ -18148,16 +18160,16 @@ BOOL CShuttleChild:: PutPetInfo(MSG_FC_ITEM_PET_BASEDATA* pMsg)
 	}
 
 	strcpy ( pNewPetCurInfo->PetName , pMsg->PetName );	
-//end 2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+//end 2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 	GetPetManager()->InsertPetCurrentData( pNewPetCurInfo );
 
 	return TRUE;
 
 }
-// End 2010-06-15 by shcho&hslee Æê ½Ã½ºÅÛ - Æê ¼ÒÀ¯ Á¤º¸ ¹Þ±â.
+// End 2010-06-15 by shcho&hslee ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½.
 
-// 2011-05-31 by jhahn	ÀÎÇÇ3Â÷½Ã³×¸¶ º¯°æ
+// 2011-05-31 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CShuttleChild::Infinity3Cinema(short bSuccess)
 {
 
@@ -18166,9 +18178,9 @@ void CShuttleChild::Infinity3Cinema(short bSuccess)
 	if ( TRUE == g_pInterface->m_pInfinity->GetEnableCinemaSkip() )
 		return;
 	
-	// 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ½ºÅµ±ÝÁö
+	// 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
 	m_InfiState		= FALSE;
-	//end 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ½ºÅµ±ÝÁö
+	//end 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
 	
 
 	
@@ -18176,20 +18188,20 @@ void CShuttleChild::Infinity3Cinema(short bSuccess)
 
 	if (bSuccess == 1)
 	{
-		// 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ÀÓ½ÃÀ§Ä¡
+		// 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½Ó½ï¿½ï¿½ï¿½Ä¡
 		g_pShuttleChild->m_vPos.x = INFINITY_THIRD_X_POS;
 		g_pShuttleChild->m_vPos.z = INFINITY_THIRD_Z_POS;
 		g_pShuttleChild->m_vPos.y = INFINITY_THIRD_Y_POS;
-		//end 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ÀÓ½ÃÀ§Ä¡
+		//end 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½Ó½ï¿½ï¿½ï¿½Ä¡
 		pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPositionIndex(EVENT_TYPE_INFI_CINEMA_THIRD, EVENT_TYPE_PARAM_INFITHIRD_CINEMA_SUCCESS);
 	}	
 	else if (bSuccess == 2)
 	{
-		// 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ÀÓ½ÃÀ§Ä¡
+		// 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½Ó½ï¿½ï¿½ï¿½Ä¡
 		g_pShuttleChild->m_vPos.x = INFINITY_THIRD_X_POS;
 		g_pShuttleChild->m_vPos.z = INFINITY_THIRD_Z_POS;
 		g_pShuttleChild->m_vPos.y = INFINITY_THIRD_Y_POS;
-		//end 2011-06-30 by jhahn  ÀÎÇÇ3Â÷ ½Ã³×¸¶ ÀÓ½ÃÀ§Ä¡
+		//end 2011-06-30 by jhahn  ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½Ó½ï¿½ï¿½ï¿½Ä¡
 		pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPositionIndex(EVENT_TYPE_INFI_CINEMA_THIRD, EVENT_TYPE_PARAM_INFITHIRD_CINEMA_FAIL);
 	}	
 	if(pCurrentObjEvent)
@@ -18201,7 +18213,7 @@ void CShuttleChild::Infinity3Cinema(short bSuccess)
 		vUp.y = m_mMatrix._22;
 		vUp.z = m_mMatrix._23;
 		if(vVel == vUp)
-		{// ¸ÅÆ®¸¯½º°¡ ±úÁöÁö ¾Êµµ·Ï
+		{// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
 			m_mMatrix._21 += 0.001f;
 			m_mMatrix._22 -= 0.001f;
 			m_mMatrix._23 += 0.002f;
@@ -18221,16 +18233,16 @@ void CShuttleChild::Infinity3Cinema(short bSuccess)
 		
 		if(InitCinemaUnit(succestype, FALSE, pCurrentObjEvent->m_vPos, vPos) == TRUE)
 		{
-		// 2011-06-30 by jhahn ÀÎÇÇ3Â÷    ½ÃÁ¡ 1ÀÎÄª º¯°æ
+		// 2011-06-30 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½
 			g_pD3dApp->m_pCamera->SetCamType( CAMERA_TYPE_FPS);
-		//end  2011-06-30 by jhahn ÀÎÇÇ3Â÷    ½ÃÁ¡ 1ÀÎÄª º¯°æ
+		//end  2011-06-30 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½
 			m_bSkillMoveIsUse = TRUE;
 			g_pD3dApp->StartFadeEffect(TRUE,3,D3DCOLOR_ARGB(0,0,0,0));
 		if(g_pInterface->m_bShowInterface)
 		{						
-				// 2011-06-30 by jhahn ÀÎÇÇ3Â÷ ½Ã³×¸¶ ¶§ °ø°Ý±ÝÁö
+				// 2011-06-30 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½
 				m_bLButtonState = m_bRButtonState = FALSE;
-				//end 2011-06-30 by jhahn ÀÎÇÇ3Â÷ ½Ã³×¸¶ ¶§ °ø°Ý±ÝÁö
+				//end 2011-06-30 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½
 			
 				SetShowCinema ( TRUE );
 			g_pInterface->SetScreenShotMode(TRUE);
@@ -18245,9 +18257,9 @@ void CShuttleChild::Infinity3Cinema(short bSuccess)
 		}
 	}	
 }
-// End 2011-05-31 by jhahn	ÀÎÇÇ3Â÷½Ã³×¸¶ º¯°æ
+// End 2011-05-31 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2012-09-20 by jhahn ÀÎºñÁöºí¿¡¼­ ÆÄÆ®³Ê ¾ÆÀÌÅÛ »ç¿ë°¡´É
+// 2012-09-20 by jhahn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 void CShuttleChild::PetUseItme()
 {
 
@@ -18270,12 +18282,12 @@ void CShuttleChild::PetUseItme()
 		return;
 	}
 
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DWORD dwGameCurrentTime = g_pD3dApp->GetGameCurrentTime();
 	BOOL bUsePacketSend = FALSE;	
-	if(max(1, dwGameCurrentTime-m_dwPetUseItemTime_Spell) > MAX_PETUSETITEM_CAP)  // 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	if(max(1, dwGameCurrentTime-m_dwPetUseItemTime_Spell) > MAX_PETUSETITEM_CAP)  // 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
-		//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+		//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 		for (int i = 0 ; i < SIZE_MAX_PETSOCKET_AUTOSKILL_SLOT ; i++)
 		{
 			if(tempCurrentInfo->PetAutoSkill.ItemNum[i] && g_pShuttleChild->GetPetManager()->GetSocketOnOff())
@@ -18285,22 +18297,22 @@ void CShuttleChild::PetUseItme()
 				if (tempskill &&(g_pShuttleChild->m_myShuttleInfo.CurrentSP >= tempskill->ItemInfo->ReqSP ) &&  (tempskill->GetCheckReattackTime() <= 0.0f ))
 				{
 					g_pShuttleChild->m_pSkill->UseSkill(tempskill );
-					// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+					// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					bUsePacketSend = TRUE;
-					// END 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤	
+					// END 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 				}
 			}		
 		}
 	}
 
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(bUsePacketSend)
 	{
 		m_dwPetUseItemTime_Spell = g_pD3dApp->GetGameCurrentTime();
 	}
-	// END 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// END 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CItemInfo* pItemInfo = NULL;
 	if(max(1, dwGameCurrentTime-m_dwPetUseItemTime_Hp) > MAX_PETUSETITEM_CAP)  
 	{
@@ -18309,7 +18321,7 @@ void CShuttleChild::PetUseItme()
 		{
 			float temp = g_pShuttleChild->m_myShuttleInfo.HP;
 			float temp2 = temp / 100;
-			HpCharge = FALSE;			// 2014-08-06 by ymjoo ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ ¼³Á¤ ¼öÄ¡ ±îÁö¸¸ È¸º¹µÇµµ·Ï ¼öÁ¤
+			HpCharge = FALSE;			// 2014-08-06 by ymjoo ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ( g_pShuttleChild->m_myShuttleInfo.CurrentHP < (temp2 * tempCurrentInfo->PetKitHP.TriggerValue ))
 			{
 				HpCharge = TRUE;
@@ -18327,7 +18339,7 @@ void CShuttleChild::PetUseItme()
 					{
 						g_pGameMain->m_pInven->SendUseItem( (ITEM_BASE*)pItemInfo );
 
-						m_dwPetUseItemTime_Hp = dwGameCurrentTime; // 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+						m_dwPetUseItemTime_Hp = dwGameCurrentTime; // 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					else
 						pItemInfo = NULL;
@@ -18338,7 +18350,7 @@ void CShuttleChild::PetUseItme()
 			}
 		}
 	}
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(max(1, dwGameCurrentTime-m_dwPetUseItemTime_Dp) > MAX_PETUSETITEM_CAP)  
 	{		
 		pItemInfo = g_pStoreData->FindItemInInventoryByItemNum( tempCurrentInfo->PetKitShield.ItemNum );
@@ -18346,7 +18358,7 @@ void CShuttleChild::PetUseItme()
 		{
 			float temp = g_pShuttleChild->m_myShuttleInfo.DP;
 			float temp2 = temp / 100;
-			ShieldCharge = FALSE;			// 2014-08-06 by ymjoo ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ ¼³Á¤ ¼öÄ¡ ±îÁö¸¸ È¸º¹µÇµµ·Ï ¼öÁ¤
+			ShieldCharge = FALSE;			// 2014-08-06 by ymjoo ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ( g_pShuttleChild->m_myShuttleInfo.CurrentDP < (temp2 * tempCurrentInfo->PetKitShield.TriggerValue ))
 			{
 				ShieldCharge = TRUE;
@@ -18364,7 +18376,7 @@ void CShuttleChild::PetUseItme()
 					{
 						g_pGameMain->m_pInven->SendUseItem( (ITEM_BASE*)pItemInfo );
 
-						m_dwPetUseItemTime_Dp = dwGameCurrentTime; // 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+						m_dwPetUseItemTime_Dp = dwGameCurrentTime; // 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					
 				}
@@ -18372,7 +18384,7 @@ void CShuttleChild::PetUseItme()
 			}
 		}
 	}
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(max(1, dwGameCurrentTime-m_dwPetUseItemTime_Sp) > MAX_PETUSETITEM_CAP)  
 	{
 		pItemInfo = g_pStoreData->FindItemInInventoryByItemNum( tempCurrentInfo->PetKitSP.ItemNum );
@@ -18381,9 +18393,9 @@ void CShuttleChild::PetUseItme()
 			float temp = g_pShuttleChild->m_myShuttleInfo.SP;
 			float temp2 = temp / 100;
 //			if ( g_pShuttleChild->m_myShuttleInfo.CurrentSP < (temp2 * tempCurrentInfo->PetKitSP.TriggerValue ))
-			// m_myShuttleInfo.CurrentSP : ·£´õ¸µµÇ°í ÀÖ´Â SP°ª
-			// g_pShuttleChild->m_fNextSP : ½ÇÁ¦ ¼­¹ö ¿¡¼­ ¾Ë·ÁÁÖ´Â SP°ª (Áß¿ä. ÀÌ °ªÀ¸·Î ÇöÀç ³» ±âÃ¼ÀÇ SP°ªÀ» Ã¼Å©ÇØ¾ßÇÑ´Ù.!!)
-			SpCharge = FALSE;			// 2014-08-06 by ymjoo ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ ¼³Á¤ ¼öÄ¡ ±îÁö¸¸ È¸º¹µÇµµ·Ï ¼öÁ¤
+			// m_myShuttleInfo.CurrentSP : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½Ö´ï¿½ SPï¿½ï¿½
+			// g_pShuttleChild->m_fNextSP : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö´ï¿½ SPï¿½ï¿½ (ï¿½ß¿ï¿½. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ SPï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ø¾ï¿½ï¿½Ñ´ï¿½.!!)
+			SpCharge = FALSE;			// 2014-08-06 by ymjoo ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ( g_pShuttleChild->m_fNextSP < (temp2 * tempCurrentInfo->PetKitSP.TriggerValue ))
 			{
 //				DBGOUT(" SpCharge = TRUE; #1 \n");
@@ -18402,28 +18414,28 @@ void CShuttleChild::PetUseItme()
 					{
 						g_pGameMain->m_pInven->SendUseItem( (ITEM_BASE*)pItemInfo );						
 
-						m_dwPetUseItemTime_Sp = dwGameCurrentTime; // 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+						m_dwPetUseItemTime_Sp = dwGameCurrentTime; // 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					
 				}		
 			}
 		}		
 	}	
-	//end 2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+	//end 2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 }
-//end 2012-09-20 by jhahn ÀÎºñÁöºí¿¡¼­ ÆÄÆ®³Ê ¾ÆÀÌÅÛ »ç¿ë°¡´É
+//end 2012-09-20 by jhahn ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 
-// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 INT CShuttleChild::GetInSameMapPartyMemberCount()
 {					 
 	if(m_pClientParty)
 		return m_pClientParty->GetInSameMapPartyMemberCount();
 	return 0;
 }
-// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+// 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CShuttleChild::ActiveKeyDownADouble()
 {
 	if((g_pTutorial->IsTutorialMode() == FALSE || 
@@ -18433,8 +18445,8 @@ void CShuttleChild::ActiveKeyDownADouble()
 	{
 		if(m_fADoubleKeyTime < DOUBLEKEY_TIME 
 			&& m_bKeyDownACheck == FALSE 
-			&& m_nBooster != BOOSTER_TYPE_MAX // ºÎ½ºÅÍ »ç¿ë½Ã¿¡´Â ·Ñ¸µÀ» ÀúÀåÇÏÁö ¾Ê´Â´Ù.
-			&& !m_bRollUsed) // ·Ñ¸µÁßÀÏ¶§ ¼±ÀÔ·Â ¹Þ´Â°ÍÀ» ¸·´Â´Ù
+			&& m_nBooster != BOOSTER_TYPE_MAX // ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+			&& !m_bRollUsed) // ï¿½Ñ¸ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½Þ´Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½
 		{
 			DbgOut("CShuttleChild::WndProc() : m_bKeyDownADouble = TRUE\n");
 			m_bKeyDownADouble = TRUE;
@@ -18455,8 +18467,8 @@ void CShuttleChild::ActiveKeyDownDDouble()
 	{
 		if(m_fDDoubleKeyTime < DOUBLEKEY_TIME 
 			&& m_bKeyDownDCheck == FALSE
-			&& m_nBooster != BOOSTER_TYPE_MAX // ºÎ½ºÅÍ »ç¿ë½Ã¿¡´Â ·Ñ¸µÀ» ÀúÀåÇÏÁö ¾Ê´Â´Ù.
-			&& !m_bRollUsed) // ·Ñ¸µÁßÀÏ¶§ ¼±ÀÔ·Â ¹Þ´Â°ÍÀ» ¸·´Â´Ù
+			&& m_nBooster != BOOSTER_TYPE_MAX // ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+			&& !m_bRollUsed) // ï¿½Ñ¸ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½Þ´Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½
 		{
 			DbgOut("CShuttleChild::WndProc() : m_bKeyDownDDouble = TRUE\n");
 			m_bKeyDownDDouble = TRUE;
@@ -18468,13 +18480,13 @@ void CShuttleChild::ActiveKeyDownDDouble()
 		}
 	}
 }
-// end 2012-12-04 by jhjang ºÎ½ºÅÍ »ç¿ë Á÷Àü ·Ñ¸µ ¼±ÀÔ·Â ¹ö±× ¼öÁ¤
+// end 2012-12-04 by jhjang ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		A±â¾î ¹è¸®¾î ÀÌÆåÆ® ¿öÇÁÈÄ »ç¶óÁö´Â ¿À·ù Ã³¸®
-/// \author		// 2012-12-17 by bhsohn A±â¾î ¹è¸®¾î ÀÌÆåÆ® ¿öÇÁÈÄ »ç¶óÁö´Â ¿À·ù Ã³¸®
+/// \brief		Aï¿½ï¿½ï¿½ ï¿½è¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+/// \author		// 2012-12-17 by bhsohn Aï¿½ï¿½ï¿½ ï¿½è¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \date		2012-12-17 ~ 2012-12-17
 /// \warning	
 ///
@@ -18482,9 +18494,9 @@ void CShuttleChild::ActiveKeyDownDDouble()
 /// \return		
 ///////////////////////////////////////////////////////////////////////////////
 //void CShuttleChild::UpdateSkillEffectInfo()
-// 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+// 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CShuttleChild::UpdateSkillEffectInfo(int nSkillNum)
-// end 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+// end 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	vector<CSkillInfo*>::iterator itvecSkillInfo = m_pSkill->m_vecUsingSkill.begin();
 	while(itvecSkillInfo != m_pSkill->m_vecUsingSkill.end())
@@ -18502,22 +18514,22 @@ void CShuttleChild::UpdateSkillEffectInfo(int nSkillNum)
 		}
 		else if(SKILLTYPE_TIMELIMIT != pUsingSkillInfo->ItemInfo->SkillType)
 		{
-			// Å¸ÀÓ ¹öÇÁ°¡ ¾Æ´Ï´Ù
+			// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½
 			itvecSkillInfo++;
 			continue;
 		}
 		else if(SKILL_STATE_USING != pUsingSkillInfo->GetSkillState())
 		{
-			// »ç¿ëÁßÀÌ ¾Æ´Ï´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
 			itvecSkillInfo++;
 			continue;
 		}
 
-		INT   ItemNum = pUsingSkillInfo->ItemNum;		// ¾ÆÀÌÅÛ ¹øÈ£
+		INT   ItemNum = pUsingSkillInfo->ItemNum;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		//if(SKILL_BASE_NUM(ItemNum) != AGEAR_SKILL_BASENUM_BARIAL)		
-		// 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+		// 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(SKILL_BASE_NUM(ItemNum) != nSkillNum)		
-		// end 2013-02-14 by mspark, M±â¾î ¹«Àû ½ºÅ³ ¿öÇÁÈÄ¿¡ »ó´ë¹æ¿¡°Ô º¸ÀÌÁö ¾Ê´Â ¹®Á¦ ¼öÁ¤
+		// end 2013-02-14 by mspark, Mï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			itvecSkillInfo++;
 			continue;
@@ -18532,7 +18544,7 @@ void CShuttleChild::UpdateSkillEffectInfo(int nSkillNum)
 			ITEM* pItem = g_pDatabase->GetServerItemInfo(ItemNum);
 			if(pItem)
 			{
-				// 2013-03-13 by bhsohn ½ºÅ³ ¹øÈ£ ±¸Á¶ ¼öÁ¤
+				// 2013-03-13 by bhsohn ï¿½ï¿½Å³ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				CAppEffectData* pEff = new CAppEffectData(g_pShuttleChild,SKILL_BASE_NUM(pItem->SourceIndex),D3DXVECTOR3(0,0,0));
 				CAppEffectData* pEff = new CAppEffectData(g_pShuttleChild,SKILL_BASE_SOURCEINDEX(pItem->SourceIndex),D3DXVECTOR3(0,0,0));
 
@@ -18552,7 +18564,7 @@ void CShuttleChild::UpdateSkillEffectInfo(int nSkillNum)
 	}	
 
 }
-// 2013-06-25 by ssjung µ¥¹ÌÁö ÀÌÆåÆ®°¡ ¾È³ª¿À´Â Çö»ó ¼öÁ¤
+// 2013-06-25 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 BodyCond_t CShuttleChild::ShuttleChangeBodyCondition()
 {
 	BodyCond_t hyBody = BODYCON_SET_OR_CLEAR_MASK;					
@@ -18574,9 +18586,9 @@ BodyCond_t CShuttleChild::ShuttleChangeBodyCondition()
 	}
 	return hyBody;
 }
-// end 2013-06-25 by ssjung µ¥¹ÌÁö ÀÌÆåÆ®°¡ ¾È³ª¿À´Â Çö»ó ¼öÁ¤
+// end 2013-06-25 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+// 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CShuttleChild::GetMoving()
 {
 	float fTempVal = 0.0f;
@@ -18587,9 +18599,9 @@ BOOL CShuttleChild::GetMoving()
 	
 	return TRUE;
 }
-// end 2013-10-18 by ssjung A±â¾î°¡ ½ÃÁî¸ðµå ÀÌ°Å³ª ¿òÁ÷ÀÏ¶§ ÀÎÅÍÆäÀÌ½º ¶ç¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+// end 2013-10-18 by ssjung Aï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2013-11-14 by ssjung ºñÇà Áß Ã¤ÆÃ ÇÒ½Ã Á¶ÀÛÅ°°¡ ÀÛµ¿ÇÏ´Â ¹®Á¦ ¼öÁ¤
+// 2013-11-14 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CShuttleChild::GetChatModeState()
 {
 	if(g_pGameMain)
@@ -18597,4 +18609,4 @@ BOOL CShuttleChild::GetChatModeState()
 
 	return FALSE;
 }																	 
-// end 2013-11-14 by ssjung ºñÇà Áß Ã¤ÆÃ ÇÒ½Ã Á¶ÀÛÅ°°¡ ÀÛµ¿ÇÏ´Â ¹®Á¦ ¼öÁ¤
+// end 2013-11-14 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½

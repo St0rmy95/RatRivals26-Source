@@ -28,10 +28,10 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_PC_CONNECT_GET_SERVER_GROUP_LIST_OK:			return "T_PC_CONNECT_GET_SERVER_GROUP_LIST_OK";
 	case T_PC_CONNECT_GET_GAME_SERVER_GROUP_LIST:		return "T_PC_CONNECT_GET_GAME_SERVER_GROUP_LIST";		// 2007-05-02 by cmkwon
 	case T_PC_CONNECT_GET_GAME_SERVER_GROUP_LIST_OK:	return "T_PC_CONNECT_GET_GAME_SERVER_GROUP_LIST_OK";	// 2007-05-02 by cmkwon
-	case T_PC_CONNECT_NETWORK_CHECK:					return "T_PC_CONNECT_NETWORK_CHECK";	// 2007-06-18 by cmkwon, ³×Æ®¿öÅ© »óÅÂ Ã¼Å©
-	case T_PC_CONNECT_NETWORK_CHECK_OK:					return "T_PC_CONNECT_NETWORK_CHECK_OK";	// 2007-06-18 by cmkwon, ³×Æ®¿öÅ© »óÅÂ Ã¼Å©
-	case T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST:		return "T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST";		// 2007-09-05 by cmkwon, EXE_1¿¡ ·Î±×ÀÎ ¼­¹ö ¼±ÅÃ ÀÎÅÍÆäÀÌ½º ¼öÁ¤ -
-	case T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST_OK:	return "T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST_OK";	// 2007-09-05 by cmkwon, EXE_1¿¡ ·Î±×ÀÎ ¼­¹ö ¼±ÅÃ ÀÎÅÍÆäÀÌ½º ¼öÁ¤ -
+	case T_PC_CONNECT_NETWORK_CHECK:					return "T_PC_CONNECT_NETWORK_CHECK";	// 2007-06-18 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+	case T_PC_CONNECT_NETWORK_CHECK_OK:					return "T_PC_CONNECT_NETWORK_CHECK_OK";	// 2007-06-18 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+	case T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST:		return "T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST";		// 2007-09-05 by cmkwon, EXE_1ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST_OK:	return "T_PC_CONNECT_GET_NEW_GAME_SERVER_GROUP_LIST_OK";	// 2007-09-05 by cmkwon, EXE_1ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
 
 	case T_PC_CONNECT_LOGIN_BLOCKED:					return "T_PC_CONNECT_LOGIN_BLOCKED";
 
@@ -42,23 +42,23 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_CONNECT_SYNC_TIME:						return "T_FC_CONNECT_SYNC_TIME";
 	case T_FC_CONNECT_NOTIFY_SERVER_SHUTDOWN:			return "T_FC_CONNECT_NOTIFY_SERVER_SHUTDOWN";
 
-	case T_FC_CONNECT_NETWORK_CHECK:					return "T_FC_CONNECT_NETWORK_CHECK";		// 2008-02-15 by cmkwon, Client<->FieldServer °£ ³×Æ®¿öÅ© »óÅÂ Ã¼Å© - 
-	case T_FC_CONNECT_NETWORK_CHECK_OK:					return "T_FC_CONNECT_NETWORK_CHECK_OK";		// 2008-02-15 by cmkwon, Client<->FieldServer °£ ³×Æ®¿öÅ© »óÅÂ Ã¼Å© - 
+	case T_FC_CONNECT_NETWORK_CHECK:					return "T_FC_CONNECT_NETWORK_CHECK";		// 2008-02-15 by cmkwon, Client<->FieldServer ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ Ã¼Å© - 
+	case T_FC_CONNECT_NETWORK_CHECK_OK:					return "T_FC_CONNECT_NETWORK_CHECK_OK";		// 2008-02-15 by cmkwon, Client<->FieldServer ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ Ã¼Å© - 
 
 
 
-	case T_FC_CONNECT_ARENASERVER_INFO:					return "T_FC_CONNECT_ARENASERVER_INFO";			// 2007-12-28 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FC_CONNECT_ARENASERVER_LOGIN:				return "T_FC_CONNECT_ARENASERVER_LOGIN";			// 2007-12-28 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FC_CONNECT_ARENASERVER_LOGIN_OK:				return "T_FC_CONNECT_ARENASERVER_LOGIN_OK";			// 2007-12-28 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FC_CONNECT_ARENASERVER_SSERVER_GROUP_FOR_CLIENT:				return "T_FC_CONNECT_ARENASERVER_SSERVER_GROUP_FOR_CLIENT";			// 2008-02-25 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FC_CONNECT_ARENASERVER_TO_IMSERVER:				return "T_FC_CONNECT_ARENASERVER_TO_IMSERVER";			// 2008-03-03 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	// start 2011-11-03 by shcho, yedang ¼Ë´Ù¿îÁ¦ ±¸Çö - 
-	case T_FC_SHUTDOWNMINS_USER_ALTER:					return "T_FC_SHUTDOWNMINS_USER_ALTER";		// 10ºÐ ¸¶´Ù ¾Ë¸²
-	case T_FC_SHUTDOWNMINS_USER_ENDGAME:				return "T_FC_SHUTDOWNMINS_USER_ENDGAME";	// Á¾·á Àü¼Û
-	case ERR_SHUTDOWNMINORS_USER:						return "ERR_SHUTDOWNMINORS_USER";			// 16¼¼ ÀÌÇÏ ·±Ã³¿¡¼­ ¸·À½ ¿¡·¯Ã³¸®
-	// end 2011-11-03 by shcho, yedang ¼Ë´Ù¿îÁ¦ ±¸Çö - 
+	case T_FC_CONNECT_ARENASERVER_INFO:					return "T_FC_CONNECT_ARENASERVER_INFO";			// 2007-12-28 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CONNECT_ARENASERVER_LOGIN:				return "T_FC_CONNECT_ARENASERVER_LOGIN";			// 2007-12-28 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CONNECT_ARENASERVER_LOGIN_OK:				return "T_FC_CONNECT_ARENASERVER_LOGIN_OK";			// 2007-12-28 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CONNECT_ARENASERVER_SSERVER_GROUP_FOR_CLIENT:				return "T_FC_CONNECT_ARENASERVER_SSERVER_GROUP_FOR_CLIENT";			// 2008-02-25 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CONNECT_ARENASERVER_TO_IMSERVER:				return "T_FC_CONNECT_ARENASERVER_TO_IMSERVER";			// 2008-03-03 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	// start 2011-11-03 by shcho, yedang ï¿½Ë´Ù¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_SHUTDOWNMINS_USER_ALTER:					return "T_FC_SHUTDOWNMINS_USER_ALTER";		// 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
+	case T_FC_SHUTDOWNMINS_USER_ENDGAME:				return "T_FC_SHUTDOWNMINS_USER_ENDGAME";	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_SHUTDOWNMINORS_USER:						return "ERR_SHUTDOWNMINORS_USER";			// 16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+	// end 2011-11-03 by shcho, yedang ï¿½Ë´Ù¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case T_FC_CONNECT_BUGTRAPSERVER_INFO:				return "T_FC_CONNECT_BUGTRAPSERVER_INFO";	// 2014-01-27 by bckim, ¹ö±× Æ®·¦
+	case T_FC_CONNECT_BUGTRAPSERVER_INFO:				return "T_FC_CONNECT_BUGTRAPSERVER_INFO";	// 2014-01-27 by bckim, ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½
 	
 	case T_FP_CONNECT_CLOSE:							return "T_FP_CONNECT_CLOSE";
 	case T_FP_CONNECT_ALIVE:							return "T_FP_CONNECT_ALIVE";
@@ -70,11 +70,11 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FP_CONNECT_NOTIFY_FIELDSERVER_CHANGE:		return "T_FP_CONNECT_NOTIFY_FIELDSERVER_CHANGE";
 	case T_FP_CONNECT_NOTIFY_FIELDSERVER_CHANGE_OK:		return "T_FP_CONNECT_NOTIFY_FIELDSERVER_CHANGE_OK";
 	case T_FP_CONNECT_PREPARE_SHUTDOWN:					return "T_FP_CONNECT_PREPARE_SHUTDOWN";
-	case T_FP_CONNECT_UPDATE_DBSERVER_GROUP:			return "T_FP_CONNECT_UPDATE_DBSERVER_GROUP";		// 2008-04-29 by cmkwon, ¼­¹ö±º Á¤º¸ DB¿¡ Ãß°¡(½Å±Ô °èÁ¤ Ä³¸¯ÅÍ »ý¼º Á¦ÇÑ ½Ã½ºÅÛÃß°¡) - 
-	case T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT:		return "T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT";		// 2008-04-29 by cmkwon, ¼­¹ö±º Á¤º¸ DB¿¡ Ãß°¡(½Å±Ô °èÁ¤ Ä³¸¯ÅÍ »ý¼º Á¦ÇÑ ½Ã½ºÅÛÃß°¡) - 
-	case T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT_OK:		return "T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT_OK";	// 2008-04-29 by cmkwon, ¼­¹ö±º Á¤º¸ DB¿¡ Ãß°¡(½Å±Ô °èÁ¤ Ä³¸¯ÅÍ »ý¼º Á¦ÇÑ ½Ã½ºÅÛÃß°¡) - 
-	case T_FP_ADMIN_RELOAD_WORLDRANKING:				return "T_FP_ADMIN_RELOAD_WORLDRANKING";		// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FP_ADMIN_RELOAD_INFLUENCERATE:				return "T_FP_ADMIN_RELOAD_INFLUENCERATE";		// 2009-09-16 by cmkwon, ¼¼·Â ÃÊ±âÈ­½Ã ¾îºäÂ¡ ¹æÁö ±¸Çö - 
+	case T_FP_CONNECT_UPDATE_DBSERVER_GROUP:			return "T_FP_CONNECT_UPDATE_DBSERVER_GROUP";		// 2008-04-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ß°ï¿½) - 
+	case T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT:		return "T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT";		// 2008-04-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ß°ï¿½) - 
+	case T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT_OK:		return "T_FP_CONNECT_CHECK_CONNECTABLE_ACCOUNT_OK";	// 2008-04-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ß°ï¿½) - 
+	case T_FP_ADMIN_RELOAD_WORLDRANKING:				return "T_FP_ADMIN_RELOAD_WORLDRANKING";		// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FP_ADMIN_RELOAD_INFLUENCERATE:				return "T_FP_ADMIN_RELOAD_INFLUENCERATE";		// 2009-09-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case T_IP_CONNECT_CLOSE:							return "T_IP_CONNECT_CLOSE";
 	case T_IP_CONNECT_ALIVE:							return "T_IP_CONNECT_ALIVE";
@@ -82,15 +82,15 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IP_CONNECT_IM_CONNECT_OK:					return "T_IP_CONNECT_IM_CONNECT_OK";
 	case T_IP_GET_SERVER_GROUP_INFO:					return "T_IP_GET_SERVER_GROUP_INFO";
 	case T_IP_GET_SERVER_GROUP_INFO_ACK:				return "T_IP_GET_SERVER_GROUP_INFO_ACK";
-	case T_IP_ADMIN_PETITION_SET_PERIOD:				return "T_IP_ADMIN_PETITION_SET_PERIOD";		// 2007-11-19 by cmkwon, ÁøÁ¤½Ã½ºÅÛ ¾÷µ¥ÀÌÆ® - 
-	case T_IP_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM:			return "T_IP_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM";		// 2009-01-14 by cmkwon, ¿î¿µÀÚ ÀÚµ¿ °øÁö ½Ã½ºÅÛ ±¸Çö - 
-	case T_IP_MONITOR_RELOAD_VERSION_INFO_OK:			return "T_IP_MONITOR_RELOAD_VERSION_INFO_OK";	// 2013-03-14 by jhseol, ¹öÀüÀÎÆ÷ ¸®·Îµå ½Ã Á¢¼Ó Çã¿ë IP¸®½ºÆ®µµ °»½Å
+	case T_IP_ADMIN_PETITION_SET_PERIOD:				return "T_IP_ADMIN_PETITION_SET_PERIOD";		// 2007-11-19 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® - 
+	case T_IP_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM:			return "T_IP_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM";		// 2009-01-14 by cmkwon, ï¿½î¿µï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_IP_MONITOR_RELOAD_VERSION_INFO_OK:			return "T_IP_MONITOR_RELOAD_VERSION_INFO_OK";	// 2013-03-14 by jhseol, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ IPï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 	case T_IC_CONNECT_CLOSE:							return "T_IC_CONNECT_CLOSE";
 	case T_IC_CONNECT_ALIVE:							return "T_IC_CONNECT_ALIVE";
 	case T_IC_CONNECT_LOGIN:							return "T_IC_CONNECT_LOGIN";
 	case T_IC_CONNECT_LOGIN_OK:							return "T_IC_CONNECT_LOGIN_OK";
-	case T_IC_CONNECT_FM_TO_IM_OK:						return "T_IC_CONNECT_FM_TO_IM_OK";		// 2008-03-03 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
+	case T_IC_CONNECT_FM_TO_IM_OK:						return "T_IC_CONNECT_FM_TO_IM_OK";		// 2008-03-03 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case T_FI_CONNECT:									return "T_FI_CONNECT";
 	case T_FI_CONNECT_OK:								return "T_FI_CONNECT_OK";
@@ -146,14 +146,14 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_NL_CONNECT_CLOSE:							return "T_NL_CONNECT_CLOSE";
 	case T_NL_CONNECT_ALIVE:							return "T_NL_CONNECT_ALIVE";
 
-	case T_PP_CONNECT:									return "T_PP_CONNECT";			// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer ·Î ¼­ºñ½º Á¤º¸ Àü¼Û ½Ã½ºÅÛ Ãß°¡ - 
-	case T_PP_CONNECT_OK:								return "T_PP_CONNECT_OK";		// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer ·Î ¼­ºñ½º Á¤º¸ Àü¼Û ½Ã½ºÅÛ Ãß°¡ - 
-	case T_PP_CONNECT_DO_CLOSE:							return "T_PP_CONNECT_DO_CLOSE";	// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer ·Î ¼­ºñ½º Á¤º¸ Àü¼Û ½Ã½ºÅÛ Ãß°¡ - 
+	case T_PP_CONNECT:									return "T_PP_CONNECT";			// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case T_PP_CONNECT_OK:								return "T_PP_CONNECT_OK";		// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case T_PP_CONNECT_DO_CLOSE:							return "T_PP_CONNECT_DO_CLOSE";	// 2008-02-22 by cmkwon, ServerPreServer->MasangPreServer ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
 
 	case T_FI_EVENT_NOTIFY_WARP:						return "T_FI_EVENT_NOTIFY_WARP";
-// 2005-07-27 by cmkwon, ´Ù¸¥ ÇÊµå¼­¹ö·ÎÀÇ ¿öÇÁ´Â ¾øÀ¸¹Ç·Î »èÁ¦ÇÔ
+// 2005-07-27 by cmkwon, ï¿½Ù¸ï¿½ ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	case T_FI_EVENT_NOTIFY_WARP_OK:						return "T_FI_EVENT_NOTIFY_WARP_OK";
-	case T_FI_EVENT_CHAT_BLOCK:							return "T_FI_EVENT_CHAT_BLOCK";		// 2008-12-30 by cmkwon, ÁöµµÀÚ Ã¤ÆÃ Á¦ÇÑ Ä«µå ±¸Çö - 
+	case T_FI_EVENT_CHAT_BLOCK:							return "T_FI_EVENT_CHAT_BLOCK";		// 2008-12-30 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 
 	case T_IC_CHAT_ALL:									return "T_IC_CHAT_ALL";
@@ -178,7 +178,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IC_CHAT_FRIENDLIST_LOADING_OK:				return "T_IC_CHAT_FRIENDLIST_LOADING_OK";
 	case T_IC_CHAT_FRIENDLIST_INSERT:					return "T_IC_CHAT_FRIENDLIST_INSERT";
 	case T_IC_CHAT_FRIENDLIST_INSERT_OK:				return "T_IC_CHAT_FRIENDLIST_INSERT_OK";
-	case T_IC_CHAT_FRIENDLIST_INSERT_NOTIFY:			return "T_IC_CHAT_FRIENDLIST_INSERT_NOTIFY";	// 2009-01-13 by cmkwon, Ä£±¸ µî·Ï½Ã »ó´ë¹æ¿¡°Ô ¾Ë¸² ½Ã½ºÅÛ Àû¿ë - 
+	case T_IC_CHAT_FRIENDLIST_INSERT_NOTIFY:			return "T_IC_CHAT_FRIENDLIST_INSERT_NOTIFY";	// 2009-01-13 by cmkwon, Ä£ï¿½ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case T_IC_CHAT_FRIENDLIST_DELETE:					return "T_IC_CHAT_FRIENDLIST_DELETE";
 	case T_IC_CHAT_FRIENDLIST_DELETE_OK:				return "T_IC_CHAT_FRIENDLIST_DELETE_OK";
@@ -193,9 +193,12 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IC_CHAT_CASH_ALL:							return "T_IC_CHAT_CASH_ALL";
 	case T_IC_CHAT_INFLUENCE_ALL:						return "T_IC_CHAT_INFLUENCE_ALL";
 	case T_IC_CHAT_ARENA:								return "T_IC_CHAT_ARENA";
-	case T_IC_CHAT_WAR:									return "T_IC_CHAT_WAR";			// 2008-05-19 by dhjin, EP3 - Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ, ÀüÀï Ã¤ÆÃ
-	case T_IC_CHAT_CHATROOM:							return "T_IC_CHAT_CHATROOM";	// 2008-06-18 by dhjin, EP3 Ã¤ÆÃ¹æ - 
-	case T_IC_CHAT_INFINITY:							return "T_IC_CHAT_INFINITY";	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Ã¤ÆÃ
+	case T_IC_CHAT_WAR:									return "T_IC_CHAT_WAR";			// 2008-05-19 by dhjin, EP3 - Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+#ifdef _RAT_CHAT_SYSTEM
+	case T_IC_CHAT_INFLUENCE_ALL_RAT:					return "T_IC_CHAT_INFLUENCE_ALL_RAT";
+#endif
+	case T_IC_CHAT_CHATROOM:							return "T_IC_CHAT_CHATROOM";	// 2008-06-18 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - 
+	case T_IC_CHAT_INFINITY:							return "T_IC_CHAT_INFINITY";	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 		
 	case T_FI_CHAT_MAP:									return "T_FI_CHAT_MAP";
 	case T_FI_CHAT_REGION:								return "T_FI_CHAT_REGION";
@@ -203,18 +206,18 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FI_CHAT_CASH_ALL:							return "T_FI_CHAT_CASH_ALL";
 	case T_FI_CHAT_ARENA:								return "T_FI_CHAT_ARENA";
 	case T_FI_CHAT_OUTPOST_GUILD:						return "T_FI_CHAT_OUTPOST_GUILD";	// 2007-10-06 by cmkwon
-	case T_FI_CHAT_INFINITY:							return "T_FI_CHAT_INFINITY";	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Ã¤ÆÃ
+	case T_FI_CHAT_INFINITY:							return "T_FI_CHAT_INFINITY";	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 
 	case T_FI_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT_OK:	return "T_FI_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT_OK";
-	case T_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT:		return "T_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT";		// 2008-07-11 by dhjin, EP3 Ä£±¸¸ñ·Ï -
+	case T_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT:		return "T_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT";		// 2008-07-11 by dhjin, EP3 Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ -
 
 	case T_FC_CHAT_MAP:									return "T_FC_CHAT_MAP";
 	case T_FC_CHAT_REGION:								return "T_FC_CHAT_REGION";
 	case T_FC_CHAT_CASH_ALL:							return "T_FC_CHAT_CASH_ALL";
 	case T_FC_CHAT_ARENA:								return "T_FC_CHAT_ARENA";
-	case T_FC_CHAT_ALL_INFLUENCE:						return "T_FC_CHAT_ALL_INFLUENCE";	// 2007-08-09 by cmkwon, ¸ðµç ¼¼·Â¿¡ Ã¤ÆÃ Àü¼ÛÇÏ±â -
-	case T_FC_CHAT_OUTPOST_GUILD:						return "T_FC_CHAT_OUTPOST_GUILD";	// 2007-10-06 by cmkwon, ÀüÁø ±âÁö ¼ÒÀ¯ÇÑ ¿©´ÜÀå ¼¼·Â Ã¤ÆÃ °¡´É
-	case T_FC_CHAT_INFINITY:							return "T_FC_CHAT_INFINITY";	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Ã¤ÆÃ
+	case T_FC_CHAT_ALL_INFLUENCE:						return "T_FC_CHAT_ALL_INFLUENCE";	// 2007-08-09 by cmkwon, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ -
+	case T_FC_CHAT_OUTPOST_GUILD:						return "T_FC_CHAT_OUTPOST_GUILD";	// 2007-10-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_CHAT_INFINITY:							return "T_FC_CHAT_INFINITY";	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 
 	case T_FC_CHARACTER_CREATE:							return "T_FC_CHARACTER_CREATE";
 	case T_FC_CHARACTER_CREATE_OK:						return "T_FC_CHARACTER_CREATE_OK";
@@ -284,7 +287,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_CHARACTER_CASH_PREMIUM_CARD_INFO:			return "T_FC_CHARACTER_CASH_PREMIUM_CARD_INFO";	
 	case T_FC_CHARACTER_TUTORIAL_SKIP:					return "T_FC_CHARACTER_TUTORIAL_SKIP";	
 	case T_FC_CHARACTER_TUTORIAL_SKIP_OK:				return "T_FC_CHARACTER_TUTORIAL_SKIP_OK";
-	// 2005-07-26 by hblee : Âø·úÀå¿¡¼­ Ä³¸¯ÅÍ ¸ðµå º¯È¯.
+	// 2005-07-26 by hblee : ï¿½ï¿½ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯.
 	case T_FC_CHARACTER_CHANGE_CHARACTER_MODE:			return "T_FC_CHARACTER_CHANGE_CHARACTER_MODE";
 	case T_FC_CHARACTER_CHANGE_CHARACTER_MODE_OK:		return "T_FC_CHARACTER_CHANGE_CHARACTER_MODE_OK";
 	case T_FC_CHARACTER_FALLING_BY_FUEL_ALLIN:			return "T_FC_CHARACTER_FALLING_BY_FUEL_ALLIN";
@@ -309,39 +312,39 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_CHARACTER_SHOW_MAP_EFFECT_OK:				return "T_FC_CHARACTER_SHOW_MAP_EFFECT_OK";		// 2007-04-20 by cmkwon
 	case T_FC_CHARACTER_PAY_WARPOINT:					return "T_FC_CHARACTER_PAY_WARPOINT";			// 2007-05-16 by dhjin
 	case T_FC_CHARACTER_WATCH_INFO:						return "T_FC_CHARACTER_WATCH_INFO";				// 2007-06-19 by dhjin
-	// 2008-01-10 by dhjin,  ¾Æ·¹³ª ÅëÇÕ - 
+	// 2008-01-10 by dhjin,  ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 	case T_FC_CHARACTER_GAMESTART_FROM_ARENA_TO_MAINSERVER:			return "T_FC_CHARACTER_GAMESTART_FROM_ARENA_TO_MAINSERVER";
 	case T_FC_CHARACTER_READY_GAMESTART_FROM_ARENA_TO_MAINSERVER:			return "T_FC_CHARACTER_READY_GAMESTART_FROM_ARENA_TO_MAINSERVER";
 	case T_FC_CHARACTER_READY_GAMESTART_FROM_ARENA_TO_MAINSERVER_OK:		return "T_FC_CHARACTER_READY_GAMESTART_FROM_ARENA_TO_MAINSERVER_OK";
-	case T_FC_CHARACTER_GET_USER_INFO:					return "T_FC_CHARACTER_GET_USER_INFO";					// C->F, // 2008-06-23 by dhjin, EP3 À¯ÀúÁ¤º¸¿É¼Ç -
-	case T_FC_CHARACTER_GET_USER_INFO_OK:				return "T_FC_CHARACTER_GET_USER_INFO_OK";				// F->C, // 2008-06-23 by dhjin, EP3 À¯ÀúÁ¤º¸¿É¼Ç -
-	case T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET:		return "T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET";		// C->F, // 2008-06-23 by dhjin, EP3 À¯ÀúÁ¤º¸¿É¼Ç -
-	case T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET_OK:	return "T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET_OK";	// F->C, // 2008-06-23 by dhjin, EP3 À¯ÀúÁ¤º¸¿É¼Ç -
-	case T_FC_CHARACTER_CHANGE_NICKNAME:				return "T_FC_CHARACTER_CHANGE_NICKNAME";		// C->F, // 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_CHARACTER_CHANGE_NICKNAME_OK:				return "T_FC_CHARACTER_CHANGE_NICKNAME_OK";		// F->C, // 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX:				return "T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX";		// 2009-10-12 by cmkwon, ÇÁ¸®½ºÄ« Á¦°Å ¹æ¾È Àû¿ë - 
-	case T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX_OK:			return "T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX_OK";	// 2009-10-12 by cmkwon, ÇÁ¸®½ºÄ« Á¦°Å ¹æ¾È Àû¿ë - 
-	case T_FC_CHARACTER_CHANGE_ADDED_INVENTORY_COUNT:			return "T_FC_CHARACTER_CHANGE_ADDED_INVENTORY_COUNT";	// 2009-11-02 by cmkwon, Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö - 
+	case T_FC_CHARACTER_GET_USER_INFO:					return "T_FC_CHARACTER_GET_USER_INFO";					// C->F, // 2008-06-23 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ -
+	case T_FC_CHARACTER_GET_USER_INFO_OK:				return "T_FC_CHARACTER_GET_USER_INFO_OK";				// F->C, // 2008-06-23 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ -
+	case T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET:		return "T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET";		// C->F, // 2008-06-23 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ -
+	case T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET_OK:	return "T_FC_CHARACTER_CHANGE_INFO_OPTION_SECRET_OK";	// F->C, // 2008-06-23 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ -
+	case T_FC_CHARACTER_CHANGE_NICKNAME:				return "T_FC_CHARACTER_CHANGE_NICKNAME";		// C->F, // 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CHARACTER_CHANGE_NICKNAME_OK:				return "T_FC_CHARACTER_CHANGE_NICKNAME_OK";		// F->C, // 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX:				return "T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX";		// 2009-10-12 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX_OK:			return "T_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX_OK";	// 2009-10-12 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_CHARACTER_CHANGE_ADDED_INVENTORY_COUNT:			return "T_FC_CHARACTER_CHANGE_ADDED_INVENTORY_COUNT";	// 2009-11-02 by cmkwon, Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 	//////////////////////////////////////////////////////////////////
-	// 2012-06-05 by jhseol, ¾ÆÅÛ¹Ì¸®º¸±â - Å¬¶ó¿äÃ» ÆÐÅ¶ Ãß°¡
-	case T_FC_CHARACTER_GET_USER_ITEM_INFO:						return "T_FC_CHARACTER_GET_USER_ITEM_INFO";		// 2012-06-05 by jhseol, ¾ÆÅÛ¹Ì¸®º¸±â - »ìÆìº¼ ÄÉ¸¯ÅÍ UID
-	case T_FC_CHARACTER_GET_USER_ITEM_INFO_OK:					return "T_FC_CHARACTER_GET_USER_ITEM_INFO_OK";	// 2012-06-05 by jhseol, ¾ÆÅÛ¹Ì¸®º¸±â - »ìÆìº» ÄÉ¸¯ÅÍÀÇ ¾ÆÅÛÁ¤º¸
-	case T_FC_CHARACTER_GET_USER_ITEM_INFO_OK_DONE:				return "T_FC_CHARACTER_GET_USER_ITEM_INFO_OK_DONE";	// 2012-06-05 by jhseol, ¾ÆÅÛ¹Ì¸®º¸±â - »ìÆìº» ÄÉ¸¯ÅÍÀÇ ¾ÆÅÛÁ¤º¸
-	case T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET:				return "T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET";		// 2012-07-12 by isshin ¾ÆÅÛ¹Ì¸®º¸±â On / Off ±â´É - °ø°³ ¿©ºÎ
-	case T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET_OK:			return "T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET_OK";	// 2012-07-12 by isshin ¾ÆÅÛ¹Ì¸®º¸±â On / Off ±â´É - °ø°³ ¿©ºÎ
+	// 2012-06-05 by jhseol, ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ - Å¬ï¿½ï¿½ï¿½Ã» ï¿½ï¿½Å¶ ï¿½ß°ï¿½
+	case T_FC_CHARACTER_GET_USER_ITEM_INFO:						return "T_FC_CHARACTER_GET_USER_ITEM_INFO";		// 2012-06-05 by jhseol, ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ìº¼ ï¿½É¸ï¿½ï¿½ï¿½ UID
+	case T_FC_CHARACTER_GET_USER_ITEM_INFO_OK:					return "T_FC_CHARACTER_GET_USER_ITEM_INFO_OK";	// 2012-06-05 by jhseol, ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ìº» ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_FC_CHARACTER_GET_USER_ITEM_INFO_OK_DONE:				return "T_FC_CHARACTER_GET_USER_ITEM_INFO_OK_DONE";	// 2012-06-05 by jhseol, ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ìº» ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET:				return "T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET";		// 2012-07-12 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ On / Off ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET_OK:			return "T_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET_OK";	// 2012-07-12 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ On / Off ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case T_FC_CHARACTER_DEBUFF_DOT_INFO:				return "T_FC_CHARACTER_DEBUFF_DOT_INFO";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - C -> F
-	case T_FC_CHARACTER_DEBUFF_DOT_INFO_OK:				return "T_FC_CHARACTER_DEBUFF_DOT_INFO_OK";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - F -> C
-	case T_FC_CHARACTER_DEBUFF_DOT_APPLYING:			return "T_FC_CHARACTER_DEBUFF_DOT_APPLYING";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - F -> C
-	case T_FC_CHARACTER_DEBUFF_DOT_RELEASE:				return "T_FC_CHARACTER_DEBUFF_DOT_RELEASE";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - F -> C
+	case T_FC_CHARACTER_DEBUFF_DOT_INFO:				return "T_FC_CHARACTER_DEBUFF_DOT_INFO";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - C -> F
+	case T_FC_CHARACTER_DEBUFF_DOT_INFO_OK:				return "T_FC_CHARACTER_DEBUFF_DOT_INFO_OK";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - F -> C
+	case T_FC_CHARACTER_DEBUFF_DOT_APPLYING:			return "T_FC_CHARACTER_DEBUFF_DOT_APPLYING";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - F -> C
+	case T_FC_CHARACTER_DEBUFF_DOT_RELEASE:				return "T_FC_CHARACTER_DEBUFF_DOT_RELEASE";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - F -> C
 
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	case T_FC_CHARACTER_KILLCOUNT:						return "T_FC_CHARACTER_KILLCOUNT";
 	case T_FC_CHARACTER_RESTCOUNT:						return "T_FC_CHARACTER_RESTCOUNT";
 	case T_FC_CHARACTER_BONUS_EXP_RATE:					return "T_FC_CHARACTER_BONUS_EXP_RATE";
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	case T_FC_CHARACTER_PAY_CONTRIBUTIONPOINT:			return "T_FC_CHARACTER_PAY_CONTRIBUTIONPOINT";	// 2013-08-14 by jhseol, °ÅÁ¡Àü ¸®´º¾ó - ¼¼·ÂÆ÷ÀÎÆ® ºñÀ² º¯°æ
+	case T_FC_CHARACTER_PAY_CONTRIBUTIONPOINT:			return "T_FC_CHARACTER_PAY_CONTRIBUTIONPOINT";	// 2013-08-14 by jhseol, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	case T_FN_CHARACTER_CHANGE_UNITKIND:				return "T_FN_CHARACTER_CHANGE_UNITKIND";
 	case T_FN_CHARACTER_CHANGE_BODYCONDITION:			return "T_FN_CHARACTER_CHANGE_BODYCONDITION";
@@ -376,18 +379,18 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_MOVE_HACKSHIELD_CRCReqMsg:				return "T_FC_MOVE_HACKSHIELD_CRCReqMsg";
 	case T_FC_MOVE_HACKSHIELD_CRCAckMsg:				return "T_FC_MOVE_HACKSHIELD_CRCAckMsg";
 	case T_FC_MOVE_HACKSHIELD_HACKING_CLIENT:			return "T_FC_MOVE_HACKSHIELD_HACKING_CLIENT";
-	case T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT:				return "T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT";			// 2008-11-28 by cmkwon, ´ë¸¸ Netpower_Tpe XignCode(°ÔÀÓ°¡µå) Àû¿ë - 
-	case T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT_OK:			return "T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT_OK";		// 2008-11-28 by cmkwon, ´ë¸¸ Netpower_Tpe XignCode(°ÔÀÓ°¡µå) Àû¿ë - 
-	case T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK:				return "T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK";			// 2008-11-28 by cmkwon, ´ë¸¸ Netpower_Tpe XignCode(°ÔÀÓ°¡µå) Àû¿ë - 
-	case T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK_OK:			return "T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK_OK";		// 2008-11-28 by cmkwon, ´ë¸¸ Netpower_Tpe XignCode(°ÔÀÓ°¡µå) Àû¿ë - 
-	case T_FC_MOVE_NPROTECT_REQ_AUTH_DATA:				return "T_FC_MOVE_NPROTECT_REQ_AUTH_DATA";			// 2009-03-09 by cmkwon, ÀÏº» Arario nProtect¿¡ CSÀÎÁõ Àû¿ëÇÏ±â - 
-	case T_FC_MOVE_NPROTECT_REQ_AUTH_DATA_OK:			return "T_FC_MOVE_NPROTECT_REQ_AUTH_DATA_OK";		// 2009-03-09 by cmkwon, ÀÏº» Arario nProtect¿¡ CSÀÎÁõ Àû¿ëÇÏ±â - 
-	case T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA:			return "T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA";		// 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
-	case T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA_OK:		return "T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA_OK";	// 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
-	case T_FC_MOVE_XTRAP_REQ_STEP:						return "T_FC_MOVE_XTRAP_REQ_STEP";			// 2009-10-06 by cmkwon, º£Æ®³² °ÔÀÓ °¡µå X-TRAPÀ¸·Î º¯°æ - 
-	case T_FC_MOVE_XTRAP_REQ_STEP_OK:					return "T_FC_MOVE_XTRAP_REQ_STEP_OK";		// 2009-10-06 by cmkwon, º£Æ®³² °ÔÀÓ °¡µå X-TRAPÀ¸·Î º¯°æ - 
-	case T_FC_MOVE_APEX_REQ_APEXDATA:					return "T_FC_MOVE_APEX_REQ_APEXDATA";			// 2009-11-04 by cmkwon, ÅÂ±¹ °ÔÀÓ°¡µå Apex·Î º¯°æ - 
-	case T_FC_MOVE_APEX_REQ_APEXDATA_OK:				return "T_FC_MOVE_APEX_REQ_APEXDATA_OK";		// 2009-11-04 by cmkwon, ÅÂ±¹ °ÔÀÓ°¡µå Apex·Î º¯°æ - 
+	case T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT:				return "T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT";			// 2008-11-28 by cmkwon, ï¿½ë¸¸ Netpower_Tpe XignCode(ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT_OK:			return "T_FC_MOVE_XIGNCODE_REQ_SCAN_INIT_OK";		// 2008-11-28 by cmkwon, ï¿½ë¸¸ Netpower_Tpe XignCode(ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK:				return "T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK";			// 2008-11-28 by cmkwon, ï¿½ë¸¸ Netpower_Tpe XignCode(ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK_OK:			return "T_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK_OK";		// 2008-11-28 by cmkwon, ï¿½ë¸¸ Netpower_Tpe XignCode(ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_NPROTECT_REQ_AUTH_DATA:				return "T_FC_MOVE_NPROTECT_REQ_AUTH_DATA";			// 2009-03-09 by cmkwon, ï¿½Ïºï¿½ Arario nProtectï¿½ï¿½ CSï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - 
+	case T_FC_MOVE_NPROTECT_REQ_AUTH_DATA_OK:			return "T_FC_MOVE_NPROTECT_REQ_AUTH_DATA_OK";		// 2009-03-09 by cmkwon, ï¿½Ïºï¿½ Arario nProtectï¿½ï¿½ CSï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - 
+	case T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA:			return "T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA";		// 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
+	case T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA_OK:		return "T_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA_OK";	// 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
+	case T_FC_MOVE_XTRAP_REQ_STEP:						return "T_FC_MOVE_XTRAP_REQ_STEP";			// 2009-10-06 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ X-TRAPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_XTRAP_REQ_STEP_OK:					return "T_FC_MOVE_XTRAP_REQ_STEP_OK";		// 2009-10-06 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ X-TRAPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_APEX_REQ_APEXDATA:					return "T_FC_MOVE_APEX_REQ_APEXDATA";			// 2009-11-04 by cmkwon, ï¿½Â±ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ Apexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_MOVE_APEX_REQ_APEXDATA_OK:				return "T_FC_MOVE_APEX_REQ_APEXDATA_OK";		// 2009-11-04 by cmkwon, ï¿½Â±ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ Apexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case T_FN_MONSTER_MOVE:								return "T_FN_MONSTER_MOVE";
 	case T_FN_MOVE_OK:									return "T_FN_MOVE_OK";
@@ -444,8 +447,8 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_BATTLE_ATTACK_EVASION_OK:					return "T_FC_BATTLE_ATTACK_EVASION_OK";
 	case T_FC_BATTLE_DELETE_DUMMY_OK:					return "T_FC_BATTLE_DELETE_DUMMY_OK";		// 2006-12-04 by dhjin
 	case T_FC_BATTLE_EXPLODE_DUMMY_OK:					return "T_FC_BATTLE_EXPLODE_DUMMY_OK";		// 2006-12-04 by dhjin
-	case T_FC_BATTLE_MONSTER_BARRIER_USING:				return "T_FC_BATTLE_MONSTER_BARRIER_USING";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - F -> C
-	case T_FC_BATTLE_MONSTER_BARRIER_USE:				return "T_FC_BATTLE_MONSTER_BARRIER_USE";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - F -> C(n)
+	case T_FC_BATTLE_MONSTER_BARRIER_USING:				return "T_FC_BATTLE_MONSTER_BARRIER_USING";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - F -> C
+	case T_FC_BATTLE_MONSTER_BARRIER_USE:				return "T_FC_BATTLE_MONSTER_BARRIER_USE";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - F -> C(n)
 
 	case T_FN_BATTLE_ATTACK_PRIMARY:					return "T_FN_BATTLE_ATTACK_PRIMARY";
 	case T_FN_BATTLE_ATTACK_RESULT_PRIMARY:				return "T_FN_BATTLE_ATTACK_RESULT_PRIMARY";
@@ -457,7 +460,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FN_BATTLE_DROP_FIXER:						return "T_FN_BATTLE_DROP_FIXER";
 	case T_FN_BATTLE_DROP_FIXER_OK:						return "T_FN_BATTLE_DROP_FIXER_OK";
 	case T_FN_BATTLE_ATTACK_HIDE_ITEM_W_KIND:			return "T_FN_BATTLE_ATTACK_HIDE_ITEM_W_KIND";
-	case T_FN_BATTLE_ATTACK_SKILL:						return "T_FN_BATTLE_ATTACK_SKILL";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - N -> F
+	case T_FN_BATTLE_ATTACK_SKILL:						return "T_FN_BATTLE_ATTACK_SKILL";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - N -> F
 	case T_FC_PARTY_CREATE_OK:							return "T_FC_PARTY_CREATE_OK";
 	case T_FC_PARTY_REQUEST_INVITE:						return "T_FC_PARTY_REQUEST_INVITE";
 	case T_FC_PARTY_REQUEST_INVITE_QUESTION:			return "T_FC_PARTY_REQUEST_INVITE_QUESTION";
@@ -502,10 +505,10 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FI_PARTY_UPDATE_ITEM_POS:					return "T_FI_PARTY_UPDATE_ITEM_POS";
 	case T_FI_PARTY_ALL_FLIGHT_POSITION:				return "T_FI_PARTY_ALL_FLIGHT_POSITION";
 	case T_FI_PARTY_UPDATE_PARTY_INFO:					return "T_FI_PARTY_UPDATE_PARTY_INFO";
-	case T_FI_PARTY_CHANGE_EXP_DISTRIBUTE_TYPE:			return "T_FI_PARTY_CHANGE_EXP_DISTRIBUTE_TYPE";		// 2008-06-04 by dhjin, EP3 Æí´ë ¼öÁ¤ - °æÇèÄ¡ ºÐ¹è ¹æ½Ä º¯°æ 
-	case T_FI_PARTY_CHANGE_ITEM_DISTRIBUTE_TYPE:		return "T_FI_PARTY_CHANGE_ITEM_DISTRIBUTE_TYPE";	// 2008-06-04 by dhjin, EP3 Æí´ë ¼öÁ¤ - ¾ÆÀÌÅÛ ºÐ¹è ¹æ½Ä º¯°æ
-	case T_FI_PARTY_CHANGE_FORMATION_SKILL:				return "T_FI_PARTY_CHANGE_FORMATION_SKILL";			// 2009-08-03 by cmkwon, EP3-4 Æí´ë ´ëÇü ½ºÅ³ ±¸Çö - 
-	case T_FI_PARTY_ARENA_TEAM_NUM:						return "T_FI_PARTY_ARENA_TEAM_NUM";					// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : °°Àº ÆÀÀÎÁö Ã¼Å©ÇÒ ÆÀ¹øÈ£ ¼³Á¤
+	case T_FI_PARTY_CHANGE_EXP_DISTRIBUTE_TYPE:			return "T_FI_PARTY_CHANGE_EXP_DISTRIBUTE_TYPE";		// 2008-06-04 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	case T_FI_PARTY_CHANGE_ITEM_DISTRIBUTE_TYPE:		return "T_FI_PARTY_CHANGE_ITEM_DISTRIBUTE_TYPE";	// 2008-06-04 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FI_PARTY_CHANGE_FORMATION_SKILL:				return "T_FI_PARTY_CHANGE_FORMATION_SKILL";			// 2009-08-03 by cmkwon, EP3-4 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FI_PARTY_ARENA_TEAM_NUM:						return "T_FI_PARTY_ARENA_TEAM_NUM";					// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 
 	case T_IC_PARTY_CREATE:								return "T_IC_PARTY_CREATE";
 	case T_IC_PARTY_ACCEPT_INVITE_OK:					return "T_IC_PARTY_ACCEPT_INVITE_OK";
@@ -532,20 +535,20 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IC_PARTY_MEMBER_REJOINED:					return "T_IC_PARTY_MEMBER_REJOINED";
 	case T_IC_PARTY_UPDATE_ITEM_POS:					return "T_IC_PARTY_UPDATE_ITEM_POS";
 	case T_IC_PARTY_ALL_FLIGHT_POSITION:				return "T_IC_PARTY_ALL_FLIGHT_POSITION";
-	case T_IC_PARTY_REQUEST_PARTYINFO_FROM_A_TO_M:		return "T_IC_PARTY_REQUEST_PARTYINFO_FROM_A_TO_M";	// 2008-02-28 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_IC_PARTY_LEAVE_FROM_M_TO_A:					return "T_IC_PARTY_LEAVE_FROM_M_TO_A";				// 2008-02-28 by dhjin, ¾Æ·¹³ª ÅëÇÕ -
-	case T_IC_PARTY_LEAVE_FROM_A_TO_M:					return "T_IC_PARTY_LEAVE_FROM_A_TO_M";				// 2008-02-28 by dhjin, ¾Æ·¹³ª ÅëÇÕ -
-	case T_IC_PARTY_LIST_INFO:							return "T_IC_PARTY_LIST_INFO";						// C -> I, 2008-06-02 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë Á¤º¸ ¸®½ºÆ® ¿äÃ»
-	case T_IC_PARTY_LIST_INFO_OK:						return "T_IC_PARTY_LIST_INFO_OK";					// I -> C, 2008-06-02 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë Á¤º¸ ¸®½ºÆ® ¿äÃ» OK
-	case T_IC_PARTY_JOIN_FREE:							return "T_IC_PARTY_JOIN_FREE";						// C -> I, 2008-06-03 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë ÀÚÀ¯ Âü¿©
-	case T_IC_PARTY_JOIN_FREE_OK:						return "T_IC_PARTY_JOIN_FREE_OK";					// I -> C, 2008-06-03 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë ÀÚÀ¯ Âü¿© OK
-	case T_IC_PARTY_CHANGE_INFO:						return "T_IC_PARTY_CHANGE_INFO";					// C -> I, 2008-06-04 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë Á¤º¸ ¼öÁ¤
-	case T_IC_PARTY_CHANGE_INFO_OK:						return "T_IC_PARTY_CHANGE_INFO_OK";					// I -> C, 2008-06-04 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë Á¤º¸ ¼öÁ¤ OK
-	case T_IC_PARTY_RECOMMENDATION_MEMBER:				return "T_IC_PARTY_RECOMMENDATION_MEMBER";			// C -> I, 2008-06-04 by dhjin, EP3 Æí´ë ¼öÁ¤ - ÃßÃµ ÄÉ¸¯ÅÍ ¿äÃ»
-	case T_IC_PARTY_RECOMMENDATION_MEMBER_OK:			return "T_IC_PARTY_RECOMMENDATION_MEMBER_OK";		// I -> C, 2008-06-04 by dhjin, EP3 Æí´ë ¼öÁ¤ - ÃßÃµ ÄÉ¸¯ÅÍ ¿äÃ» OK
-	case T_IC_PARTY_INFO:								return "T_IC_PARTY_INFO";							// I -> C, 2008-06-10 by dhjin, EP3 Æí´ë ¼öÁ¤ - Æí´ë Á¤º¸ Àü¼Û
-	case T_FC_PARTY_REQUEST_INVITE_QUESTION_THE_ARENA:	return "T_FC_PARTY_REQUEST_INVITE_QUESTION_THE_ARENA";	// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : ¾Æ·¹³ª ¹æ ÀÔÀå½Ã ÀÚµ¿À¸·Î ÆÄÆ¼¸¦ »ý¼ºÇÒ¶§ »ç¿ëÇÏ´Â ÆÐÅ¶
-	case T_FC_PARTY_AUTO_CREATED_THE_ARENA:				return "T_FC_PARTY_AUTO_CREATED_THE_ARENA";			// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : ¾Æ·¹³ª ¹æ ÀÔÀå½Ã ÀÚµ¿À¸·Î ÆÄÆ¼¸¦ »ý¼ºÇÒ¶§ »ç¿ëÇÏ´Â ÆÐÅ¶
+	case T_IC_PARTY_REQUEST_PARTYINFO_FROM_A_TO_M:		return "T_IC_PARTY_REQUEST_PARTYINFO_FROM_A_TO_M";	// 2008-02-28 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_IC_PARTY_LEAVE_FROM_M_TO_A:					return "T_IC_PARTY_LEAVE_FROM_M_TO_A";				// 2008-02-28 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_IC_PARTY_LEAVE_FROM_A_TO_M:					return "T_IC_PARTY_LEAVE_FROM_A_TO_M";				// 2008-02-28 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_IC_PARTY_LIST_INFO:							return "T_IC_PARTY_LIST_INFO";						// C -> I, 2008-06-02 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
+	case T_IC_PARTY_LIST_INFO_OK:						return "T_IC_PARTY_LIST_INFO_OK";					// I -> C, 2008-06-02 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» OK
+	case T_IC_PARTY_JOIN_FREE:							return "T_IC_PARTY_JOIN_FREE";						// C -> I, 2008-06-03 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_PARTY_JOIN_FREE_OK:						return "T_IC_PARTY_JOIN_FREE_OK";					// I -> C, 2008-06-03 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_PARTY_CHANGE_INFO:						return "T_IC_PARTY_CHANGE_INFO";					// C -> I, 2008-06-04 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_PARTY_CHANGE_INFO_OK:						return "T_IC_PARTY_CHANGE_INFO_OK";					// I -> C, 2008-06-04 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_PARTY_RECOMMENDATION_MEMBER:				return "T_IC_PARTY_RECOMMENDATION_MEMBER";			// C -> I, 2008-06-04 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ãµ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	case T_IC_PARTY_RECOMMENDATION_MEMBER_OK:			return "T_IC_PARTY_RECOMMENDATION_MEMBER_OK";		// I -> C, 2008-06-04 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ãµ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» OK
+	case T_IC_PARTY_INFO:								return "T_IC_PARTY_INFO";							// I -> C, 2008-06-10 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_PARTY_REQUEST_INVITE_QUESTION_THE_ARENA:	return "T_FC_PARTY_REQUEST_INVITE_QUESTION_THE_ARENA";	// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å¶
+	case T_FC_PARTY_AUTO_CREATED_THE_ARENA:				return "T_FC_PARTY_AUTO_CREATED_THE_ARENA";			// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å¶
 	
 	case T_FI_CHARACTER_DELETE_CHARACTER:				return "T_FI_CHARACTER_DELETE_CHARACTER";
 	case T_FI_CHARACTER_CHANGE_LEVEL:					return "T_FI_CHARACTER_CHANGE_LEVEL";
@@ -566,12 +569,12 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_MONSTER_SUMMON_MONSTER:					return "T_FC_MONSTER_SUMMON_MONSTER";
 	case T_FC_MONSTER_TUTORIAL_MONSTER_DEAD_NOTIFY:		return "T_FC_MONSTER_TUTORIAL_MONSTER_DEAD_NOTIFY";
 	case T_FC_MONSTER_TUTORIAL_MONSTER_DELETE:			return "T_FC_MONSTER_TUTORIAL_MONSTER_DELETE";
-	case T_FC_MONSTER_CHANGE_INDEX:						return "T_FC_MONSTER_CHANGE_INDEX";		// 2011-05-17 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ½Ã³×¸¶ ¸ó½ºÅÍ ±³Ã¼ ±â´É
+	case T_FC_MONSTER_CHANGE_INDEX:						return "T_FC_MONSTER_CHANGE_INDEX";		// 2011-05-17 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 
-	case T_FC_MONSTER_CINEMA_DELETE_NOTIFY:				return "T_FC_MONSTER_CINEMA_DELETE_NOTIFY";		// 2011-05-30 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¸ó½ºÅÍ »èÁ¦ Å¬¶óÀÌ¾ðÆ® ¹Ý¿µ
+	case T_FC_MONSTER_CINEMA_DELETE_NOTIFY:				return "T_FC_MONSTER_CINEMA_DELETE_NOTIFY";		// 2011-05-30 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Ý¿ï¿½
 
-	case T_FC_TRIGGER_MAP_BUFF_SKILL:					return "T_FC_TRIGGER_MAP_BUFF_SKILL";			// 2011-10-18 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - È­»êÀç / ¸ð·¡ ÆøÇ³
-	case T_FC_SET_LIMITTIME:							return "T_FC_SET_LIMITTIME";					// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
+	case T_FC_TRIGGER_MAP_BUFF_SKILL:					return "T_FC_TRIGGER_MAP_BUFF_SKILL";			// 2011-10-18 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - È­ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ ï¿½ï¿½Ç³
+	case T_FC_SET_LIMITTIME:							return "T_FC_SET_LIMITTIME";					// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½
 
 	case T_FN_MAPPROJECT_START:							return "T_FN_MAPPROJECT_START";
 	case T_FN_MAPPROJECT_START_OK:						return "T_FN_MAPPROJECT_START_OK";
@@ -599,15 +602,15 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FN_NPCSERVER_START:							return "T_FN_NPCSERVER_START";
 	case T_FN_NPCSERVER_START_OK:						return "T_FN_NPCSERVER_START_OK";
 	case T_FN_NPCSERVER_SUMMON_JACO_MONSTER:			return "T_FN_NPCSERVER_SUMMON_JACO_MONSTER";
-	case T_FN_NPCSERVER_DELETE_MONSTER_IN_MAPCHANNEL:	return "T_FN_NPCSERVER_DELETE_MONSTER_IN_MAPCHANNEL";	// 2007-08-22 by cmkwon, ÇØ´ç ¸ÊÃ¤³Î ¸ó½ºÅÍ ¸ðµÎ »èÁ¦ÇÏ±â ±â´É Ãß°¡
+	case T_FN_NPCSERVER_DELETE_MONSTER_IN_MAPCHANNEL:	return "T_FN_NPCSERVER_DELETE_MONSTER_IN_MAPCHANNEL";	// 2007-08-22 by cmkwon, ï¿½Ø´ï¿½ ï¿½ï¿½Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-	case T_FN_MONSTER_CHANGE_OK:						return "T_FN_MONSTER_CHANGE_OK";		// 2011-05-11 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ½Ã³×¸¶ °ü·Ã ±â´É Ãß°¡ - ÇØ´ç ¸ÊÃ¤³Î Æ¯Á¤ ¸ó½ºÅÍ º¯°æ ±â´É Ãß°¡
-	case T_FN_NPCSERVER_CINEMA_MONSTER_DESTROY:			return "T_FN_NPCSERVER_CINEMA_MONSTER_DESTROY";		// 2011-04-28 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ½Ã³×¸¶ °ü·Ã ±â´É Ãß°¡ - ÇØ´ç ¸ÊÃ¤³Î Æ¯Á¤ ¸ó½ºÅÍ »èÁ¦ ±â´É Ãß°¡
-	case T_FN_NPCSERVER_CINEMA_MONSTER_CHANGE:			return "T_FN_NPCSERVER_CINEMA_MONSTER_CHANGE";		// 2011-05-11 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ½Ã³×¸¶ °ü·Ã ±â´É Ãß°¡ - ÇØ´ç ¸ÊÃ¤³Î Æ¯Á¤ ¸ó½ºÅÍ º¯°æ ±â´É Ãß°¡
-	case T_FN_NPCSERVER_CINEMA_MONSTER_REGEN:			return "T_FN_NPCSERVER_CINEMA_MONSTER_REGEN";		// 2011-06-02 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ½ºÅÜ 6 - ÁÖ±âÀû ¼ÒÈ¯ ±â´É Á¦ÀÛ
-	case T_FN_MONITOR_RELOAD_VERSION_INFO_OK:			return "T_FN_MONITOR_RELOAD_VERSION_INFO_OK";		// 2013-03-14 by jhseol, ¹öÀüÀÎÆ÷ ¸®·Îµå ½Ã Á¢¼Ó Çã¿ë IP¸®½ºÆ®µµ °»½Å
+	case T_FN_MONSTER_CHANGE_OK:						return "T_FN_MONSTER_CHANGE_OK";		// 2011-05-11 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½Ø´ï¿½ ï¿½ï¿½Ã¤ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FN_NPCSERVER_CINEMA_MONSTER_DESTROY:			return "T_FN_NPCSERVER_CINEMA_MONSTER_DESTROY";		// 2011-04-28 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½Ø´ï¿½ ï¿½ï¿½Ã¤ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FN_NPCSERVER_CINEMA_MONSTER_CHANGE:			return "T_FN_NPCSERVER_CINEMA_MONSTER_CHANGE";		// 2011-05-11 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½Ø´ï¿½ ï¿½ï¿½Ã¤ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FN_NPCSERVER_CINEMA_MONSTER_REGEN:			return "T_FN_NPCSERVER_CINEMA_MONSTER_REGEN";		// 2011-06-02 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ 6 - ï¿½Ö±ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FN_MONITOR_RELOAD_VERSION_INFO_OK:			return "T_FN_MONITOR_RELOAD_VERSION_INFO_OK";		// 2013-03-14 by jhseol, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ IPï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case T_FC_INFINITY_SET_LIMITTIME:					return "T_FC_INFINITY_SET_LIMITTIME";		// 2011-05-30 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ÇÃ·¹ÀÌ ½Ã°£ Àç¼³Á¤ ±â´É 
+	case T_FC_INFINITY_SET_LIMITTIME:					return "T_FC_INFINITY_SET_LIMITTIME";		// 2011-05-30 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ç¼³ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 
 	case T_FC_EVENT_WARP:								return "T_FC_EVENT_WARP";
 	case T_FC_EVENT_WARP_SAME_MAP:						return "T_FC_EVENT_WARP_SAME_MAP";
@@ -635,22 +638,22 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_EVENT_CALL_WARP_EVENT_REQUEST:			return "T_FC_EVENT_CALL_WARP_EVENT_REQUEST";
 	case T_FC_EVENT_CALL_WARP_EVENT_REQUEST_ACK:		return "T_FC_EVENT_CALL_WARP_EVENT_REQUEST_ACK";
 	case T_FC_EVENT_CLICK_TELEPORT:						return "T_FC_EVENT_CLICK_TELEPORT";
-	case T_FC_EVENT_CLICK_TELEPORT_OK:					return "T_FC_EVENT_CLICK_TELEPORT_OK";			// 2008-04-22 by dhjin, ¸ð¼±Àü Á¤º¸ Ç¥½Ã ±âÈ¹¾È - ÅÚ·¹Æ÷Æ® ºôµù ¿Ï·á ½Ã°£
+	case T_FC_EVENT_CLICK_TELEPORT_OK:					return "T_FC_EVENT_CLICK_TELEPORT_OK";			// 2008-04-22 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ - ï¿½Ú·ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ã°ï¿½
 	case T_FC_EVENT_TELEPORT_BUILDCOMPLETE:				return "T_FC_EVENT_TELEPORT_BUILDCOMPLETE";		
 	case T_FC_EVENT_TELEPORT_DESTROY:					return "T_FC_EVENT_TELEPORT_DESTROY";
 
-	case T_FC_EVENT_NOTIFY_MSG_GET:						return "T_FC_EVENT_NOTIFY_MSG_GET";		// 2007-11-28 by cmkwon, ÅëÁö½Ã½ºÅÛ ±¸Çö -
-	case T_FC_EVENT_NOTIFY_MSG_GET_OK:					return "T_FC_EVENT_NOTIFY_MSG_GET_OK";	// 2007-11-28 by cmkwon, ÅëÁö½Ã½ºÅÛ ±¸Çö -
-	case T_FC_EVENT_NOTIFY_MSG_DELETE:					return "T_FC_EVENT_NOTIFY_MSG_DELETE";	// 2007-11-28 by cmkwon, ÅëÁö½Ã½ºÅÛ ±¸Çö -
+	case T_FC_EVENT_NOTIFY_MSG_GET:						return "T_FC_EVENT_NOTIFY_MSG_GET";		// 2007-11-28 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_EVENT_NOTIFY_MSG_GET_OK:					return "T_FC_EVENT_NOTIFY_MSG_GET_OK";	// 2007-11-28 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_EVENT_NOTIFY_MSG_DELETE:					return "T_FC_EVENT_NOTIFY_MSG_DELETE";	// 2007-11-28 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
 
-	case T_FC_EVENT_COUPON_EVENT_INFO:					return "T_FC_EVENT_COUPON_EVENT_INFO";			// 2008-01-10 by cmkwon, ¾ÆÀÌÅÛ ÀÌº¥Æ® ½Ã½ºÅÛ¿¡ ½Å ÄíÆù ½Ã½ºÅÛ Ãß°¡ - 
-	case T_FC_EVENT_COUPON_EVENT_USE_COUPON:			return "T_FC_EVENT_COUPON_EVENT_USE_COUPON";	// 2008-01-10 by cmkwon, ¾ÆÀÌÅÛ ÀÌº¥Æ® ½Ã½ºÅÛ¿¡ ½Å ÄíÆù ½Ã½ºÅÛ Ãß°¡ - 
-	case T_FC_EVENT_COUPON_EVENT_USE_COUPON_OK:			return "T_FC_EVENT_COUPON_EVENT_USE_COUPON_OK";	// 2008-01-10 by cmkwon, ¾ÆÀÌÅÛ ÀÌº¥Æ® ½Ã½ºÅÛ¿¡ ½Å ÄíÆù ½Ã½ºÅÛ Ãß°¡ - 
+	case T_FC_EVENT_COUPON_EVENT_INFO:					return "T_FC_EVENT_COUPON_EVENT_INFO";			// 2008-01-10 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case T_FC_EVENT_COUPON_EVENT_USE_COUPON:			return "T_FC_EVENT_COUPON_EVENT_USE_COUPON";	// 2008-01-10 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case T_FC_EVENT_COUPON_EVENT_USE_COUPON_OK:			return "T_FC_EVENT_COUPON_EVENT_USE_COUPON_OK";	// 2008-01-10 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
 
 	case T_FN_EVENT_WARP:								return "T_FN_EVENT_WARP";
 	case T_FN_EVENT_OTHER_WARPED:						return "T_FN_EVENT_OTHER_WARPED";
 	case T_FN_EVENT_WARP_CONNECT_OK:					return "T_FN_EVENT_WARP_CONNECT_OK";
-// 2005-07-27 by cmkwon, ´Ù¸¥ ÇÊµå¼­¹ö·ÎÀÇ ¿öÇÁ´Â ¾øÀ¸¹Ç·Î »èÁ¦ÇÔ
+// 2005-07-27 by cmkwon, ï¿½Ù¸ï¿½ ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	case T_FP_EVENT_NOTIFY_WARP:						return "T_FP_EVENT_NOTIFY_WARP";
 //	case T_FP_EVENT_NOTIFY_WARP_OK:						return "T_FP_EVENT_NOTIFY_WARP_OK";
 	case T_FP_EVENT_ENTER_SELECT_SCREEN:				return "T_FP_EVENT_ENTER_SELECT_SCREEN";
@@ -664,18 +667,18 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 
 	case T_FP_CASH_CHANGE_CHARACTERNAME:				return "T_FP_CASH_CHANGE_CHARACTERNAME";
 
-	case T_FP_ADMIN_BLOCKACCOUNT:						return "T_FP_ADMIN_BLOCKACCOUNT";		// 2008-01-31 by cmkwon, °èÁ¤ ºí·°/ÇØÁ¦ ¸í·É¾î·Î °¡´ÉÇÑ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FP_ADMIN_BLOCKACCOUNT_OK:					return "T_FP_ADMIN_BLOCKACCOUNT_OK";	// 2008-01-31 by cmkwon, °èÁ¤ ºí·°/ÇØÁ¦ ¸í·É¾î·Î °¡´ÉÇÑ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FP_ADMIN_UNBLOCKACCOUNT:						return "T_FP_ADMIN_UNBLOCKACCOUNT";		// 2008-01-31 by cmkwon, °èÁ¤ ºí·°/ÇØÁ¦ ¸í·É¾î·Î °¡´ÉÇÑ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FP_ADMIN_UNBLOCKACCOUNT_OK:					return "T_FP_ADMIN_UNBLOCKACCOUNT_OK";	// 2008-01-31 by cmkwon, °èÁ¤ ºí·°/ÇØÁ¦ ¸í·É¾î·Î °¡´ÉÇÑ ½Ã½ºÅÛ ±¸Çö - 
+	case T_FP_ADMIN_BLOCKACCOUNT:						return "T_FP_ADMIN_BLOCKACCOUNT";		// 2008-01-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FP_ADMIN_BLOCKACCOUNT_OK:					return "T_FP_ADMIN_BLOCKACCOUNT_OK";	// 2008-01-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FP_ADMIN_UNBLOCKACCOUNT:						return "T_FP_ADMIN_UNBLOCKACCOUNT";		// 2008-01-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FP_ADMIN_UNBLOCKACCOUNT_OK:					return "T_FP_ADMIN_UNBLOCKACCOUNT_OK";	// 2008-01-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 		
-	case T_FP_ADMIN_STRATRGYPOINT_INFO_CHANGE:	return "T_FP_ADMIN_STRATRGYPOINT_INFO_CHANGE";	// 2012-11-13 by jhseol, ÀüÀï ½Ã½ºÅÛ ¸®´º¾ó - °ÅÁ¡Àü
+	case T_FP_ADMIN_STRATRGYPOINT_INFO_CHANGE:	return "T_FP_ADMIN_STRATRGYPOINT_INFO_CHANGE";	// 2012-11-13 by jhseol, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	case T_FP_GLOG_CONNECT_USER_NEW:					return "T_FP_GLOG_CONNECT_USER_NEW";		// 2012-01-08 by hskim, GLog 2Â÷
-	case T_FP_GLOG_CONNECT_USER_LOGIN:					return "T_FP_GLOG_CONNECT_USER_LOGIN";		// 2012-01-08 by hskim, GLog 2Â÷
+	case T_FP_GLOG_CONNECT_USER_NEW:					return "T_FP_GLOG_CONNECT_USER_NEW";		// 2012-01-08 by hskim, GLog 2ï¿½ï¿½
+	case T_FP_GLOG_CONNECT_USER_LOGIN:					return "T_FP_GLOG_CONNECT_USER_LOGIN";		// 2012-01-08 by hskim, GLog 2ï¿½ï¿½
 
 	case T_FP_MONITOR_SET_MGAME_EVENT_TYPE:				return "T_FP_MONITOR_SET_MGAME_EVENT_TYPE";
-	case T_FP_MONITOR_RELOAD_VERSION_INFO_OK:			return "T_FP_MONITOR_RELOAD_VERSION_INFO_OK";		// 2008-09-08 by cmkwon, SCMonitor¿¡¼­ ReloadVersionInfo½Ã¿¡ ÀÏºÎ Ã¼Å©¼¶ÆÄÀÏ(.\Res-Tex\*.*)µµ ¸®·ÎµåÇÏ±â - 
+	case T_FP_MONITOR_RELOAD_VERSION_INFO_OK:			return "T_FP_MONITOR_RELOAD_VERSION_INFO_OK";		// 2008-09-08 by cmkwon, SCMonitorï¿½ï¿½ï¿½ï¿½ ReloadVersionInfoï¿½Ã¿ï¿½ ï¿½Ïºï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(.\Res-Tex\*.*)ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½Ï±ï¿½ - 
 
 	case T_FC_STORE_GET_ITEM:							return "T_FC_STORE_GET_ITEM";
 	case T_FC_STORE_PUT_ITEM_HEADER:					return "T_FC_STORE_PUT_ITEM_HEADER";
@@ -693,12 +696,12 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_STORE_DELETE_USINGITEM:					return "T_FC_STORE_DELETE_USINGITEM";
 	case T_FC_STORE_UPDATE_USINGITEM:					return "T_FC_STORE_UPDATE_USINGITEM";
 	case T_FC_STORE_EXPIRE_USINGITEM:					return "T_FC_STORE_EXPIRE_USINGITEM";		// 2006-10-11 by cmkwon
-	case T_FC_STORE_UPDATE_ITEMSTORAGE:					return "T_FC_STORE_UPDATE_ITEMSTORAGE";		// 2009-03-16 by cmkwon, ºüÁø°Í Ãß°¡
-	case T_FC_STORE_UPDATE_ITEMNUM:						return "T_FC_STORE_UPDATE_ITEMNUM";			// 2009-03-16 by cmkwon, ºüÁø°Í Ãß°¡
-	case T_FC_STORE_REQUEST_QUICKSLOT:					return "T_FC_STORE_REQUEST_QUICKSLOT";		// 2009-03-16 by cmkwon, ºüÁø°Í Ãß°¡
-	case T_FC_STORE_REQUEST_QUICKSLOT_OK:				return "T_FC_STORE_REQUEST_QUICKSLOT_OK";	// 2009-03-16 by cmkwon, ºüÁø°Í Ãß°¡
-	case T_FC_STORE_SAVE_QUICKSLOT:						return "T_FC_STORE_SAVE_QUICKSLOT";			// 2009-03-16 by cmkwon, ºüÁø°Í Ãß°¡
-	case T_FC_STORE_UPDATE_ARMOR_ITEM_EVENT_INFO:		return "T_FC_STORE_UPDATE_ARMOR_ITEM_EVENT_INFO";	// 2013-04-18 by jhseol,bckim ÀÌ´ÞÀÇ ¾Æ¸Ó - ÀÌ´ÞÀÇ ¾Æ¸Ó º¯°æ »çÇ× Àü´Þ ÆÐÅ¶
+	case T_FC_STORE_UPDATE_ITEMSTORAGE:					return "T_FC_STORE_UPDATE_ITEMSTORAGE";		// 2009-03-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FC_STORE_UPDATE_ITEMNUM:						return "T_FC_STORE_UPDATE_ITEMNUM";			// 2009-03-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FC_STORE_REQUEST_QUICKSLOT:					return "T_FC_STORE_REQUEST_QUICKSLOT";		// 2009-03-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FC_STORE_REQUEST_QUICKSLOT_OK:				return "T_FC_STORE_REQUEST_QUICKSLOT_OK";	// 2009-03-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FC_STORE_SAVE_QUICKSLOT:						return "T_FC_STORE_SAVE_QUICKSLOT";			// 2009-03-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case T_FC_STORE_UPDATE_ARMOR_ITEM_EVENT_INFO:		return "T_FC_STORE_UPDATE_ARMOR_ITEM_EVENT_INFO";	// 2013-04-18 by jhseol,bckim ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ - ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶
 		
 	case T_FC_STORE_LOG_GUILD_ITEM:						return "T_FC_STORE_LOG_GUILD_ITEM";
 	case T_FC_STORE_LOG_GUILD_ITEM_OK:					return "T_FC_STORE_LOG_GUILD_ITEM_OK";
@@ -711,7 +714,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_ITEM_GET_ITEM_OK:							return "T_FC_ITEM_GET_ITEM_OK";
 	case T_FC_ITEM_GET_ITEM_FAIL:						return "T_FC_ITEM_GET_ITEM_FAIL";
 	case T_FC_ITEM_PUT_ITEM:							return "T_FC_ITEM_PUT_ITEM";
-// 2005-11-15 by cmkwon, Á¦°ÅÇÔ
+// 2005-11-15 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	case T_FC_ITEM_BONUSSKILLPOINT:						return "T_FC_ITEM_BONUSSKILLPOINT";
 //	case T_FC_ITEM_BONUSSKILLPOINT_OK:					return "T_FC_ITEM_BONUSSKILLPOINT_OK";
 	case T_FC_ITEM_CHANGE_WINDOW_POSITION:				return "T_FC_ITEM_CHANGE_WINDOW_POSITION";
@@ -756,20 +759,20 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_ITEM_USE_RANDOMBOX_OK:					return "T_FC_ITEM_USE_RANDOMBOX_OK";
 	case T_FC_ITEM_USE_SKILL_SUPPORT_ITEM:				return "T_FC_ITEM_USE_SKILL_SUPPORT_ITEM";
 	case T_FC_ITEM_USE_SKILL_SUPPORT_ITEM_OK:			return "T_FC_ITEM_USE_SKILL_SUPPORT_ITEM_OK";
-	case T_FC_ITEM_USE_RANDOMBOX_OK_DONE:				return "T_FC_ITEM_USE_RANDOMBOX_OK_DONE";			// 2008-08-26 by cmkwon, ItemAttribute Ãß°¡ - ÆÐÅ°Áö(Package) ¾ÆÀÌÅÛ
-	case T_FC_ITEM_USE_LUCKY_ITEM:						return "T_FC_ITEM_USE_LUCKY_ITEM";					// C->F, 2008-11-04 by dhjin, ·°Å°¸Ó½Å
-	case T_FC_ITEM_USE_LUCKY_ITEM_OK:					return "T_FC_ITEM_USE_LUCKY_ITEM_OK";				// F->C, 2008-11-04 by dhjin, ·°Å°¸Ó½Å
-	case T_FC_ITEM_CHANGED_SHAPEITEMNUM:				return "T_FC_ITEM_CHANGED_SHAPEITEMNUM";			// 2009-08-26 by cmkwon, ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_ITEM_CHANGED_EFFECTITEMNUM:				return "T_FC_ITEM_CHANGED_EFFECTITEMNUM";			// 2009-08-26 by cmkwon, ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_ITEM_USE_PET_SOCKET_ITEM:					return "T_FC_ITEM_USE_PET_SOCKET_ITEM";				// C->F, // 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ ¾ÆÀÌÅÛ »ç¿ë (Åä±Û)
+	case T_FC_ITEM_USE_RANDOMBOX_OK_DONE:				return "T_FC_ITEM_USE_RANDOMBOX_OK_DONE";			// 2008-08-26 by cmkwon, ItemAttribute ï¿½ß°ï¿½ - ï¿½ï¿½Å°ï¿½ï¿½(Package) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_FC_ITEM_USE_LUCKY_ITEM:						return "T_FC_ITEM_USE_LUCKY_ITEM";					// C->F, 2008-11-04 by dhjin, ï¿½ï¿½Å°ï¿½Ó½ï¿½
+	case T_FC_ITEM_USE_LUCKY_ITEM_OK:					return "T_FC_ITEM_USE_LUCKY_ITEM_OK";				// F->C, 2008-11-04 by dhjin, ï¿½ï¿½Å°ï¿½Ó½ï¿½
+	case T_FC_ITEM_CHANGED_SHAPEITEMNUM:				return "T_FC_ITEM_CHANGED_SHAPEITEMNUM";			// 2009-08-26 by cmkwon, ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_ITEM_CHANGED_EFFECTITEMNUM:				return "T_FC_ITEM_CHANGED_EFFECTITEMNUM";			// 2009-08-26 by cmkwon, ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_ITEM_USE_PET_SOCKET_ITEM:					return "T_FC_ITEM_USE_PET_SOCKET_ITEM";				// C->F, // 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½)
 
-	case T_FC_ITEM_USE_PET_SOCKET_ITEM_OK:				return "T_FC_ITEM_USE_PET_SOCKET_ITEM_OK";			// F->C, // 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ ¾ÆÀÌÅÛ »ç¿ë °á°ú (Åä±Û)
-	case T_FC_ITEM_CANCEL_PET_SOCKET_ITEM:				return "T_FC_ITEM_CANCEL_PET_SOCKET_ITEM";			// C->F, // 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ ¾ÆÀÌÅÛ »ç¿ë ÁßÁö (Åä±Û)
-	case T_FC_ITEM_CANCEL_PET_SOCKET_ITEM_OK:			return "T_FC_ITEM_CANCEL_PET_SOCKET_ITEM_OK";		// F->C, // 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ ¾ÆÀÌÅÛ »ç¿ë ÁßÁö °á°ú (Åä±Û)
-	case T_FC_ITEM_NOTIFY_WINDOW_POSITION:				return "T_FC_ITEM_NOTIFY_WINDOW_POSITION";			// F->C, // 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷
+	case T_FC_ITEM_USE_PET_SOCKET_ITEM_OK:				return "T_FC_ITEM_USE_PET_SOCKET_ITEM_OK";			// F->C, // 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½)
+	case T_FC_ITEM_CANCEL_PET_SOCKET_ITEM:				return "T_FC_ITEM_CANCEL_PET_SOCKET_ITEM";			// C->F, // 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½)
+	case T_FC_ITEM_CANCEL_PET_SOCKET_ITEM_OK:			return "T_FC_ITEM_CANCEL_PET_SOCKET_ITEM_OK";		// F->C, // 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½)
+	case T_FC_ITEM_NOTIFY_WINDOW_POSITION:				return "T_FC_ITEM_NOTIFY_WINDOW_POSITION";			// F->C, // 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½
 
-	case T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE:		return "T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE";				// C->F, // 2014-06-10 by ymjoo ¼¼·Â º¯°æ ¾ÆÀÌÅÛ
-	case T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE_NOTIFY:	return "T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE_NOTIFY";	// F->C, // 2014-06-10 by ymjoo ¼¼·Â º¯°æ ¾ÆÀÌÅÛ
+	case T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE:		return "T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE";				// C->F, // 2014-06-10 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE_NOTIFY:	return "T_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE_NOTIFY";	// F->C, // 2014-06-10 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	case T_FC_SHOP_PUT_ITEM_HEADER:						return "T_FC_SHOP_PUT_ITEM_HEADER";
 	case T_FC_SHOP_PUT_ITEM:							return "T_FC_SHOP_PUT_ITEM";
@@ -777,7 +780,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_SHOP_GET_ITEMINFO:						return "T_FC_SHOP_GET_ITEMINFO";
 	case T_FC_SHOP_GET_ITEMINFO_OK:						return "T_FC_SHOP_GET_ITEMINFO_OK";
 	case T_FC_SHOP_BUY_ITEM:							return "T_FC_SHOP_BUY_ITEM";
-	case T_FC_SHOP_BUY_ITEM_UPDATE:						return "T_FC_SHOP_BUY_ITEM_UPDATE";					// F->C, // 2011-12-26 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
+	case T_FC_SHOP_BUY_ITEM_UPDATE:						return "T_FC_SHOP_BUY_ITEM_UPDATE";					// F->C, // 2011-12-26 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½
 	case T_FC_SHOP_BUY_ITEM_OK:							return "T_FC_SHOP_BUY_ITEM_OK";
 	case T_FC_SHOP_SELL_ITEM:							return "T_FC_SHOP_SELL_ITEM";
 	case T_FC_SHOP_SELL_ITEM_OK:						return "T_FC_SHOP_SELL_ITEM_OK";
@@ -787,19 +790,19 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_SHOP_REQUEST_REPAIR:						return "T_FC_SHOP_REQUEST_REPAIR";
 	case T_FC_SHOP_REQUEST_REPAIR_OK:					return "T_FC_SHOP_REQUEST_REPAIR_OK";
 	case T_FC_SHOP_BUY_CASH_ITEM:						return "T_FC_SHOP_BUY_CASH_ITEM";
-	case T_FC_SHOP_BUY_CASH_ITEM_OK:					return "T_FC_SHOP_BUY_CASH_ITEM_OK";			// 2007-11-13 by cmkwon, ¼±¹°ÇÏ±â ±â´É Ãß°¡ -
+	case T_FC_SHOP_BUY_CASH_ITEM_OK:					return "T_FC_SHOP_BUY_CASH_ITEM_OK";			// 2007-11-13 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ -
 	case T_FC_SHOP_BUY_COLOR_ITEM:						return "T_FC_SHOP_BUY_COLOR_ITEM";
 	case T_FC_SHOP_BUY_COLOR_ITEM_OK:					return "T_FC_SHOP_BUY_COLOR_ITEM_OK";
 	case T_FC_SHOP_BUY_WARPOINT_ITEM_OK:				return "T_FC_SHOP_BUY_WARPOINT_ITEM_OK";		// 2007-06-13 by dhjin
 	case T_FC_SHOP_BUY_WARPOINT_ITEM:					return "T_FC_SHOP_BUY_WARPOINT_ITEM";			// 2007-06-13 by dhjin	
 
-	case T_FC_SHOP_CLOSE:								return "T_FC_SHOP_CLOSE";						// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
+	case T_FC_SHOP_CLOSE:								return "T_FC_SHOP_CLOSE";						// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½
 	
-	case T_FC_SHOP_INFLUENCE_BUFF:						return "T_FC_SHOP_INFLUENCE_BUFF";				// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
-	case T_FC_SHOP_INFLUENCE_BUFF_OK:					return "T_FC_SHOP_INFLUENCE_BUFF_OK";			// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
+	case T_FC_SHOP_INFLUENCE_BUFF:						return "T_FC_SHOP_INFLUENCE_BUFF";				// 2013-05-09 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	case T_FC_SHOP_INFLUENCE_BUFF_OK:					return "T_FC_SHOP_INFLUENCE_BUFF_OK";			// 2013-05-09 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
-	case T_FC_SHOP_CHECK_GIVE_TARGET:					return "T_FC_SHOP_CHECK_GIVE_TARGET";			// 2007-11-13 by cmkwon, ¼±¹°ÇÏ±â ±â´É Ãß°¡ -
-	case T_FC_SHOP_CHECK_GIVE_TARGET_OK:				return "T_FC_SHOP_CHECK_GIVE_TARGET_OK";		// 2007-11-13 by cmkwon, ¼±¹°ÇÏ±â ±â´É Ãß°¡ -
+	case T_FC_SHOP_CHECK_GIVE_TARGET:					return "T_FC_SHOP_CHECK_GIVE_TARGET";			// 2007-11-13 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ -
+	case T_FC_SHOP_CHECK_GIVE_TARGET_OK:				return "T_FC_SHOP_CHECK_GIVE_TARGET_OK";		// 2007-11-13 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ -
 
 	case T_FC_TRADE_REQUEST_TRADE:						return "T_FC_TRADE_REQUEST_TRADE";
 	case T_FC_TRADE_REQUEST_TRADE_OK:					return "T_FC_TRADE_REQUEST_TRADE_OK";
@@ -822,8 +825,8 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_TRADE_INSERT_ITEM:						return "T_FC_TRADE_INSERT_ITEM";
 	case T_FC_TRADE_DELETE_ITEM:						return "T_FC_TRADE_DELETE_ITEM";
 	case T_FC_TRADE_UPDATE_ITEM_COUNT:					return "T_FC_TRADE_UPDATE_ITEM_COUNT";
-	case T_FC_TRADE_OK_TRADE_NOTIFY:					return "T_FC_TRADE_OK_TRADE_NOTIFY";		// 2008-11-21 by cmkwon, °Å·¡ ½ÂÀÎ È®ÀÎ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_TRADE_SEE_PET_DATA:						return "T_FC_TRADE_SEE_PET_DATA";			// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - °Å·¡ ½Ã Æê Á¤º¸ Àü¼Û
+	case T_FC_TRADE_OK_TRADE_NOTIFY:					return "T_FC_TRADE_OK_TRADE_NOTIFY";		// 2008-11-21 by cmkwon, ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_TRADE_SEE_PET_DATA:						return "T_FC_TRADE_SEE_PET_DATA";			// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½Å·ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case T_FC_TRADE_DELETE_CURRENT_PET_DATA:			return "T_FC_TRADE_DELETE_CURRENT_PET_DATA";
 	case T_FC_TRADE_INSERT_CURRENT_PET_DATA:			return "T_FC_TRADE_INSERT_CURRENT_PET_DATA";
 
@@ -831,7 +834,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_COUNTDOWN_DONE:							return "T_FC_COUNTDOWN_DONE";
 	case T_FC_OBJECT_CHANGE_BODYCONDITION:				return "T_FC_OBJECT_CHANGE_BODYCONDITION";
 	case T_FC_OBJECT_CHANGE_BODYCONDITION_OK:			return "T_FC_OBJECT_CHANGE_BODYCONDITION_OK";
-	case T_FC_OBJECT_CHANGE					:			return "T_FC_OBJECT_CHANGE";				// 2011-11-07 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ
+	case T_FC_OBJECT_CHANGE					:			return "T_FC_OBJECT_CHANGE";				// 2011-11-07 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½
 	case T_FC_AUCTION_REGISTER_ITEM:					return "T_FC_AUCTION_REGISTER_ITEM";
 	case T_FC_AUCTION_REGISTER_ITEM_OK:					return "T_FC_AUCTION_REGISTER_ITEM_OK";
 	case T_FC_AUCTION_CANCEL_REGISTER:					return "T_FC_AUCTION_CANCEL_REGISTER";
@@ -857,10 +860,10 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FI_GUILD_DELETE_GUILD:						return "T_FI_GUILD_DELETE_GUILD";
 	case T_FI_GUILD_REG_DELETE_GUILD:					return "T_FI_GUILD_REG_DELETE_GUILD";
 	case T_FI_GUILD_DISMEMBER:							return "T_FI_GUILD_DISMEMBER";
-	case T_FI_GUILD_OUTPOST:							return "T_FI_GUILD_OUTPOST";	// F->I, // 2008-05-20 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÀüÁø±âÁö °ü·Ã
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
-	case T_FI_GUILD_BONUS_EXP_RATE:						return "T_FI_GUILD_BOUNUEXP_RATE";	// F->I, // 2012-10-12 by jhjang ¿©´Ü °æÇèÄ¡ ºñÀ² Àü¼Û
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	case T_FI_GUILD_OUTPOST:							return "T_FI_GUILD_OUTPOST";	// F->I, // 2008-05-20 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_FI_GUILD_BONUS_EXP_RATE:						return "T_FI_GUILD_BOUNUEXP_RATE";	// F->I, // 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	case T_IC_GUILD_CREATE:								return "T_IC_GUILD_CREATE";
 	case T_IC_GUILD_CREATE_OK:							return "T_IC_GUILD_CREATE_OK";
@@ -903,36 +906,36 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IC_GUILD_CHANGE_MEMBER_CAPACITY:				return "T_IC_GUILD_CHANGE_MEMBER_CAPACITY";
 	case T_IC_GUILD_GET_GUILD_MEMBER_LIST_OK:			return "T_IC_GUILD_GET_GUILD_MEMBER_LIST_OK";
 	case T_IC_GUILD_END_WAR_ADMIN_NOTIFY:				return "T_IC_GUILD_END_WAR_ADMIN_NOTIFY";
-	case T_IC_GUILD_MEMBER_LEVEL_UP:					return "T_IC_GUILD_MEMBER_LEVEL_UP";		// 2008-05-20 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü¿ø ·¹º§¾÷ °ü·Ã
-	case T_IC_GUILD_NEW_COMMANDER:						return "T_IC_GUILD_NEW_COMMANDER";		// 2008-05-20 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´ÜÀå À§ÀÓ
-	case T_IC_GUILD_NOTICE_WRITE:						return "T_IC_GUILD_NOTICE_WRITE";		// 2008-05-20 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü °øÁö
-	case T_IC_GUILD_NOTICE_WRITE_OK:					return "T_IC_GUILD_NOTICE_WRITE_OK";		// 2008-05-20 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü °øÁö
-	case T_IC_GUILD_GET_APPLICANT:						return "T_IC_GUILD_GET_APPLICANT";				// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü Áö¿øÀÚ °ü¸®
-	case T_IC_GUILD_GET_APPLICANT_OK_HEADER:			return "T_IC_GUILD_GET_APPLICANT_OK_HEADER";	// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü Áö¿øÀÚ °ü¸® OK
-	case T_IC_GUILD_GET_APPLICANT_OK:					return "T_IC_GUILD_GET_APPLICANT_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü Áö¿øÀÚ °ü¸® OK
-	case T_IC_GUILD_GET_APPLICANT_OK_DONE:				return "T_IC_GUILD_GET_APPLICANT_OK_DONE";		// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü Áö¿øÀÚ °ü¸® OK
-	case T_IC_GUILD_GET_INTRODUCTION:					return "T_IC_GUILD_GET_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³
-	case T_IC_GUILD_GET_INTRODUCTION_OK:				return "T_IC_GUILD_GET_INTRODUCTION_OK";		// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ ok
-	case T_IC_GUILD_GET_SELF_INTRODUCTION:				return "T_IC_GUILD_GET_SELF_INTRODUCTION";		// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü Áö¿øÀÚ ¼Ò°³¼­ 
-	case T_IC_GUILD_GET_SELF_INTRODUCTION_OK:			return "T_IC_GUILD_GET_SELF_INTRODUCTION_OK";	// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü Áö¿øÀÚ ¼Ò°³¼­ OK
-	case T_IC_GUILD_SEARCH_INTRODUCTION:				return "T_IC_GUILD_SEARCH_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ °Ë»ö 
-	case T_IC_GUILD_SEARCH_INTRODUCTION_OK_HEADER:		return "T_IC_GUILD_SEARCH_INTRODUCTION_OK_HEADER";	// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ °Ë»ö OK
-	case T_IC_GUILD_SEARCH_INTRODUCTION_OK:				return "T_IC_GUILD_SEARCH_INTRODUCTION_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ °Ë»ö OK
-	case T_IC_GUILD_SEARCH_INTRODUCTION_OK_DONE:		return "T_IC_GUILD_SEARCH_INTRODUCTION_OK_DONE";		// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ °Ë»ö OK
-	case T_IC_GUILD_UPDATE_INTRODUCTION:				return "T_IC_GUILD_UPDATE_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ ÀÛ¼º 
-	case T_IC_GUILD_UPDATE_INTRODUCTION_OK:				return "T_IC_GUILD_UPDATE_INTRODUCTION_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ ÀÛ¼º OK
-	case T_IC_GUILD_DELETE_INTRODUCTION:				return "T_IC_GUILD_DELETE_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ Áö¿ì±â  
-	case T_IC_GUILD_DELETE_INTRODUCTION_OK:				return "T_IC_GUILD_DELETE_INTRODUCTION_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¼Ò°³ Áö¿ì±â OK
-	case T_IC_GUILD_UPDATE_SELFINTRODUCTION:			return "T_IC_GUILD_UPDATE_SELFINTRODUCTION";		// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÀÚ±â ¼Ò°³ ÀÛ¼º 
-	case T_IC_GUILD_UPDATE_SELFINTRODUCTION_OK:			return "T_IC_GUILD_UPDATE_SELFINTRODUCTION_OK";		// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÀÚ±â ¼Ò°³ ÀÛ¼º OK
-	case T_IC_GUILD_DELETE_SELFINTRODUCTION:			return "T_IC_GUILD_DELETE_SELFINTRODUCTION";		// C->I, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÀÚ±â ¼Ò°³ Áö¿ì±â  
-	case T_IC_GUILD_DELETE_SELFINTRODUCTION_OK:			return "T_IC_GUILD_DELETE_SELFINTRODUCTION_OK";		// I->C, // 2008-05-27 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÀÚ±â ¼Ò°³ Áö¿ì±â OK
-	case T_IC_GUILD_CHANGE_FAME_RANK:					return "T_IC_GUILD_CHANGE_FAME_RANK";				// I->C, // 2008-06-10 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü ¸í¼º º¯°æ
-	case T_IC_GUILD_APPLICANT_INVITE:					return "T_IC_GUILD_APPLICANT_INVITE";				// C->I, // 2008-06-12 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - Áö¿øÀÚ °ü¸®¿¡¼­ ¿©´Ü¿ø ÃÊ´ë
-	case T_IC_GUILD_APPLICANT_INVITE_OK:				return "T_IC_GUILD_APPLICANT_INVITE_OK";			// I->C, // 2008-06-12 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - Áö¿øÀÚ °ü¸®¿¡¼­ ¿©´Ü¿ø ÃÊ´ë OK
-	case T_IC_GUILD_APPLICANT_REJECT_INVITE:			return "T_IC_GUILD_APPLICANT_REJECT_INVITE";		// C->I, // 2008-06-12 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - Áö¿øÀÚ °ü¸®¿¡¼­ ¿©´Ü¿ø ÃÊ´ë °ÅºÎ 
-	case T_IC_GUILD_APPLICANT_REJECT_INVITE_OK:			return "T_IC_GUILD_APPLICANT_REJECT_INVITE_OK";		// I->C, // 2008-06-12 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - Áö¿øÀÚ °ü¸®¿¡¼­ ¿©´Ü¿ø ÃÊ´ë °ÅºÎ OK
-	case T_IC_GUILD_CHANGE_MEMBERSHIP:					return "T_IC_GUILD_CHANGE_MEMBERSHIP";				// I->C, // 2008-06-20 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´ÜÀå ¸É¹ö½± Á¤º¸ Àü¼Û
+	case T_IC_GUILD_MEMBER_LEVEL_UP:					return "T_IC_GUILD_MEMBER_LEVEL_UP";		// 2008-05-20 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_GUILD_NEW_COMMANDER:						return "T_IC_GUILD_NEW_COMMANDER";		// 2008-05-20 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_GUILD_NOTICE_WRITE:						return "T_IC_GUILD_NOTICE_WRITE";		// 2008-05-20 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_GUILD_NOTICE_WRITE_OK:					return "T_IC_GUILD_NOTICE_WRITE_OK";		// 2008-05-20 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_GUILD_GET_APPLICANT:						return "T_IC_GUILD_GET_APPLICANT";				// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_GUILD_GET_APPLICANT_OK_HEADER:			return "T_IC_GUILD_GET_APPLICANT_OK_HEADER";	// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_GUILD_GET_APPLICANT_OK:					return "T_IC_GUILD_GET_APPLICANT_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_GUILD_GET_APPLICANT_OK_DONE:				return "T_IC_GUILD_GET_APPLICANT_OK_DONE";		// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_GUILD_GET_INTRODUCTION:					return "T_IC_GUILD_GET_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	case T_IC_GUILD_GET_INTRODUCTION_OK:				return "T_IC_GUILD_GET_INTRODUCTION_OK";		// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ok
+	case T_IC_GUILD_GET_SELF_INTRODUCTION:				return "T_IC_GUILD_GET_SELF_INTRODUCTION";		// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ 
+	case T_IC_GUILD_GET_SELF_INTRODUCTION_OK:			return "T_IC_GUILD_GET_SELF_INTRODUCTION_OK";	// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ OK
+	case T_IC_GUILD_SEARCH_INTRODUCTION:				return "T_IC_GUILD_SEARCH_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½Ë»ï¿½ 
+	case T_IC_GUILD_SEARCH_INTRODUCTION_OK_HEADER:		return "T_IC_GUILD_SEARCH_INTRODUCTION_OK_HEADER";	// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½Ë»ï¿½ OK
+	case T_IC_GUILD_SEARCH_INTRODUCTION_OK:				return "T_IC_GUILD_SEARCH_INTRODUCTION_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½Ë»ï¿½ OK
+	case T_IC_GUILD_SEARCH_INTRODUCTION_OK_DONE:		return "T_IC_GUILD_SEARCH_INTRODUCTION_OK_DONE";		// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½Ë»ï¿½ OK
+	case T_IC_GUILD_UPDATE_INTRODUCTION:				return "T_IC_GUILD_UPDATE_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½Û¼ï¿½ 
+	case T_IC_GUILD_UPDATE_INTRODUCTION_OK:				return "T_IC_GUILD_UPDATE_INTRODUCTION_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½Û¼ï¿½ OK
+	case T_IC_GUILD_DELETE_INTRODUCTION:				return "T_IC_GUILD_DELETE_INTRODUCTION";			// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  
+	case T_IC_GUILD_DELETE_INTRODUCTION_OK:				return "T_IC_GUILD_DELETE_INTRODUCTION_OK";			// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_GUILD_UPDATE_SELFINTRODUCTION:			return "T_IC_GUILD_UPDATE_SELFINTRODUCTION";		// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ ï¿½Û¼ï¿½ 
+	case T_IC_GUILD_UPDATE_SELFINTRODUCTION_OK:			return "T_IC_GUILD_UPDATE_SELFINTRODUCTION_OK";		// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ ï¿½Û¼ï¿½ OK
+	case T_IC_GUILD_DELETE_SELFINTRODUCTION:			return "T_IC_GUILD_DELETE_SELFINTRODUCTION";		// C->I, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  
+	case T_IC_GUILD_DELETE_SELFINTRODUCTION_OK:			return "T_IC_GUILD_DELETE_SELFINTRODUCTION_OK";		// I->C, // 2008-05-27 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_GUILD_CHANGE_FAME_RANK:					return "T_IC_GUILD_CHANGE_FAME_RANK";				// I->C, // 2008-06-10 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_GUILD_APPLICANT_INVITE:					return "T_IC_GUILD_APPLICANT_INVITE";				// C->I, // 2008-06-12 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½Ê´ï¿½
+	case T_IC_GUILD_APPLICANT_INVITE_OK:				return "T_IC_GUILD_APPLICANT_INVITE_OK";			// I->C, // 2008-06-12 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½Ê´ï¿½ OK
+	case T_IC_GUILD_APPLICANT_REJECT_INVITE:			return "T_IC_GUILD_APPLICANT_REJECT_INVITE";		// C->I, // 2008-06-12 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½Ê´ï¿½ ï¿½Åºï¿½ 
+	case T_IC_GUILD_APPLICANT_REJECT_INVITE_OK:			return "T_IC_GUILD_APPLICANT_REJECT_INVITE_OK";		// I->C, // 2008-06-12 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½Ê´ï¿½ ï¿½Åºï¿½ OK
+	case T_IC_GUILD_CHANGE_MEMBERSHIP:					return "T_IC_GUILD_CHANGE_MEMBERSHIP";				// I->C, // 2008-06-20 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	case T_FC_SKILL_USE_SKILLPOINT:						return "T_FC_SKILL_USE_SKILLPOINT";
 	case T_FC_SKILL_USE_SKILLPOINT_OK:					return "T_FC_SKILL_USE_SKILLPOINT_OK";
@@ -995,8 +998,8 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_INFO_GET_GAME_EVENT_INFO_OK:				return "T_FC_INFO_GET_GAME_EVENT_INFO_OK";
 	case T_FC_INFO_GET_SERVER_DATE_TIME:				return "T_FC_INFO_GET_SERVER_DATE_TIME";
 	case T_FC_INFO_GET_SERVER_DATE_TIME_OK:				return "T_FC_INFO_GET_SERVER_DATE_TIME_OK";
-	case T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO:			return "T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO";	// 2007-10-30 by cmkwon, ¼¼·Âº° ÇØÇÇ¾Æ¿ö ÀÌº¥Æ® ±¸Çö - C->F
-	case T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_BY_LEVEL:	return "T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_BY_LEVEL";	// 2008-03-14 by dhjin, Levelº° ÇØÇÇ¾Æ¿ö ÀÌº¥Æ® ±¸Çö -
+	case T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO:			return "T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO";	// 2007-10-30 by cmkwon, ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - C->F
+	case T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_BY_LEVEL:	return "T_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_BY_LEVEL";	// 2008-03-14 by dhjin, Levelï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ -
 	case T_FC_INFO_CHECK_RESOBJ_CHECKSUM:				return "T_FC_INFO_CHECK_RESOBJ_CHECKSUM";		// 2007-05-28 by cmkwon
 
 	case T_FC_REQUEST_REQUEST:							return "T_FC_REQUEST_REQUEST";
@@ -1064,38 +1067,38 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IC_COUNTDOWN_START:							return "T_IC_COUNTDOWN_START";
 	case T_IC_COUNTDOWN_DONE:							return "T_IC_COUNTDOWN_DONE";
 
-	case T_IC_VOIP_SET:									return "T_IC_VOIP_SET";					// C -> I, 2008-06-17 by dhjin, EP3 VOIP - ¼³Á¤ 
-	case T_IC_VOIP_SET_OK:								return "T_IC_VOIP_SET_OK";				// I -> C, 2008-06-17 by dhjin, EP3 VOIP - ¼³Á¤ Á¤º¸ Àü¼Û
+	case T_IC_VOIP_SET:									return "T_IC_VOIP_SET";					// C -> I, 2008-06-17 by dhjin, EP3 VOIP - ï¿½ï¿½ï¿½ï¿½ 
+	case T_IC_VOIP_SET_OK:								return "T_IC_VOIP_SET_OK";				// I -> C, 2008-06-17 by dhjin, EP3 VOIP - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	// T0_IC_CHATROOM
-	case T_IC_CHATROOM_CREATE:							return "T_IC_CHATROOM_CREATE";					// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ »ý¼º
-	case T_IC_CHATROOM_CREATE_OK:						return "T_IC_CHATROOM_CREATE_OK";				// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ »ý¼º OK
-	case T_IC_CHATROOM_LIST_INFO:						return "T_IC_CHATROOM_LIST_INFO";				// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ¸ñ·Ï °¡Á®¿À±â
-	case T_IC_CHATROOM_LIST_INFO_OK:					return "T_IC_CHATROOM_LIST_INFO_OK";			// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ¸ñ·Ï °¡Á®¿À±â OK
-	case T_IC_CHATROOM_REQUEST_INVITE:					return "T_IC_CHATROOM_REQUEST_INVITE";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÃÊ´ë ¿äÃ» 
-	case T_IC_CHATROOM_REQUEST_INVITE_QUESTION:			return "T_IC_CHATROOM_REQUEST_INVITE_QUESTION";	// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÃÊ´ë ´ë»ó¿¡°Ô Àü¼Û
-	case T_IC_CHATROOM_JOIN:							return "T_IC_CHATROOM_JOIN";					// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ Âü¿©
-	case T_IC_CHATROOM_JOIN_OK:							return "T_IC_CHATROOM_JOIN_OK";					// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ Âü¿© OK
-	case T_IC_CHATROOM_ACCEPT_INVITE:					return "T_IC_CHATROOM_ACCEPT_INVITE";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÃÊ´ë ¼ö¶ô
-	case T_IC_CHATROOM_ACCEPT_INVITE_OK:				return "T_IC_CHATROOM_ACCEPT_INVITE_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÃÊ´ë ¼ö¶ô OK
-	case T_IC_CHATROOM_REJECT_INVITE:					return "T_IC_CHATROOM_REJECT_INVITE";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÃÊ´ë °ÅÀý
-	case T_IC_CHATROOM_REJECT_INVITE_OK:				return "T_IC_CHATROOM_REJECT_INVITE_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÃÊ´ë °ÅÀý OK
-	case T_IC_CHATROOM_LEAVE:							return "T_IC_CHATROOM_LEAVE";					// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ³ª°¡±â
-	case T_IC_CHATROOM_LEAVE_OK:						return "T_IC_CHATROOM_LEAVE_OK";				// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ³ª°¡±â OK
-	case T_IC_CHATROOM_BAN:								return "T_IC_CHATROOM_BAN";						// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ Ãß¹æ
-	case T_IC_CHATROOM_BAN_OK:							return "T_IC_CHATROOM_BAN_OK";					// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ Ãß¹æ OK
-	case T_IC_CHATROOM_CHANGE_NAME:						return "T_IC_CHATROOM_CHANGE_NAME";				// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÀÌ¸§ º¯°æ
-	case T_IC_CHATROOM_CHANGE_NAME_OK:					return "T_IC_CHATROOM_CHANGE_NAME_OK";			// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÀÌ¸§ º¯°æ OK
-	case T_IC_CHATROOM_CHANGE_MASTER:					return "T_IC_CHATROOM_CHANGE_MASTER";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ¹æÀå º¯°æ
-	case T_IC_CHATROOM_CHANGE_MASTER_OK:				return "T_IC_CHATROOM_CHANGE_MASTER_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ¹æÀå º¯°æ OK
-	case T_IC_CHATROOM_CHANGE_LOCK_PW:					return "T_IC_CHATROOM_CHANGE_LOCK_PW";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ºñ¹Ð¹øÈ£ º¯°æ
-	case T_IC_CHATROOM_CHANGE_LOCK_PW_OK:				return "T_IC_CHATROOM_CHANGE_LOCK_PW_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ºñ¹Ð¹øÈ£ º¯°æ OK
-	case T_IC_CHATROOM_CHANGE_MAX_MEMBER:				return "T_IC_CHATROOM_CHANGE_MAX_MEMBER";		// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÀÎ¿ø¼ö º¯°æ
-	case T_IC_CHATROOM_CHANGE_MAX_MEMBER_OK:			return "T_IC_CHATROOM_CHANGE_MAX_MEMBER_OK";	// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÀÎ¿ø¼ö º¯°æ OK
-	case T_IC_CHATROOM_MEMBER_INFO:						return "T_IC_CHATROOM_MEMBER_INFO";				// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ¸É¹ö Á¤º¸ Àü¼Û
-	case T_IC_CHATROOM_MEMBER_INFO_OK:					return "T_IC_CHATROOM_MEMBER_INFO_OK";			// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ¸É¹ö Á¤º¸ Àü¼Û OK
-	case T_IC_CHATROOM_OTHER_MEMBER_INFO:				return "T_IC_CHATROOM_OTHER_MEMBER_INFO";		// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ´Ù¸¥ ¸É¹ö Á¤º¸ Àü¼Û
-	case T_IC_CHATROOM_OTHER_MEMBER_INFO_OK:			return "T_IC_CHATROOM_OTHER_MEMBER_INFO_OK";	// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ´Ù¸¥ ¸É¹ö Á¤º¸ Àü¼Û OK
+	case T_IC_CHATROOM_CREATE:							return "T_IC_CHATROOM_CREATE";					// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_CREATE_OK:						return "T_IC_CHATROOM_CREATE_OK";				// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_LIST_INFO:						return "T_IC_CHATROOM_LIST_INFO";				// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_LIST_INFO_OK:					return "T_IC_CHATROOM_LIST_INFO_OK";			// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_REQUEST_INVITE:					return "T_IC_CHATROOM_REQUEST_INVITE";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ã» 
+	case T_IC_CHATROOM_REQUEST_INVITE_QUESTION:			return "T_IC_CHATROOM_REQUEST_INVITE_QUESTION";	// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ó¿¡°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_JOIN:							return "T_IC_CHATROOM_JOIN";					// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_JOIN_OK:							return "T_IC_CHATROOM_JOIN_OK";					// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_ACCEPT_INVITE:					return "T_IC_CHATROOM_ACCEPT_INVITE";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_ACCEPT_INVITE_OK:				return "T_IC_CHATROOM_ACCEPT_INVITE_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_REJECT_INVITE:					return "T_IC_CHATROOM_REJECT_INVITE";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_REJECT_INVITE_OK:				return "T_IC_CHATROOM_REJECT_INVITE_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_LEAVE:							return "T_IC_CHATROOM_LEAVE";					// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_LEAVE_OK:						return "T_IC_CHATROOM_LEAVE_OK";				// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_BAN:								return "T_IC_CHATROOM_BAN";						// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ß¹ï¿½
+	case T_IC_CHATROOM_BAN_OK:							return "T_IC_CHATROOM_BAN_OK";					// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ß¹ï¿½ OK
+	case T_IC_CHATROOM_CHANGE_NAME:						return "T_IC_CHATROOM_CHANGE_NAME";				// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_CHANGE_NAME_OK:					return "T_IC_CHATROOM_CHANGE_NAME_OK";			// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_CHANGE_MASTER:					return "T_IC_CHATROOM_CHANGE_MASTER";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_CHANGE_MASTER_OK:				return "T_IC_CHATROOM_CHANGE_MASTER_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_CHANGE_LOCK_PW:					return "T_IC_CHATROOM_CHANGE_LOCK_PW";			// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_CHANGE_LOCK_PW_OK:				return "T_IC_CHATROOM_CHANGE_LOCK_PW_OK";		// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_CHANGE_MAX_MEMBER:				return "T_IC_CHATROOM_CHANGE_MAX_MEMBER";		// C -> I, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_CHANGE_MAX_MEMBER_OK:			return "T_IC_CHATROOM_CHANGE_MAX_MEMBER_OK";	// I -> C, 2008-06-16 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_MEMBER_INFO:						return "T_IC_CHATROOM_MEMBER_INFO";				// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_MEMBER_INFO_OK:					return "T_IC_CHATROOM_MEMBER_INFO_OK";			// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
+	case T_IC_CHATROOM_OTHER_MEMBER_INFO:				return "T_IC_CHATROOM_OTHER_MEMBER_INFO";		// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ù¸ï¿½ ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_IC_CHATROOM_OTHER_MEMBER_INFO_OK:			return "T_IC_CHATROOM_OTHER_MEMBER_INFO_OK";	// I -> C, 2008-06-25 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Ù¸ï¿½ ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OK
 		
 	case T_FC_CITYWAR_START_WAR:						return "T_FC_CITYWAR_START_WAR";
 	case T_FC_CITYWAR_MONSTER_CREATED:					return "T_FC_CITYWAR_MONSTER_CREATED";
@@ -1126,10 +1129,10 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_WAR_MONSTER_CREATED:						return "T_FC_WAR_MONSTER_CREATED";
 	case T_FC_WAR_MONSTER_AUTO_DESTROYED:				return "T_FC_WAR_MONSTER_AUTO_DESTROYED";
 	case T_FC_WAR_MONSTER_DEAD:							return "T_FC_WAR_MONSTER_DEAD";
-	case T_FC_WAR_BOSS_CONTRIBUTION_GUILD:				return "T_FC_WAR_BOSS_CONTRIBUTION_GUILD";	// 2008-12-29 by dhjin, ÀüÀï º¸»ó Ãß°¡¾È, F->C(n)
-	case T_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES:		return "T_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES";		// 2013-05-09 by hskim, ¼¼·Â Æ÷ÀÎÆ® °³¼±
-	case T_FC_WAR_INFLUENCE_CONSECUTIVE_POINT:			return "T_FC_WAR_INFLUENCE_CONSECUTIVE_POINT";			// 2013-08-01 by jhseol, ¿ªÀüÀÇ ¹öÇÁ ¸®´º¾ó - ¼¼·ÂÆ÷ÀÎÆ® Á¤º¸ º¸³»ÁÖ±â
-	case T_FC_INFLUENCE_SHOW_INFO:						return "T_FC_INFLUENCE_SHOW_INFO";						// 2014-06-17 by bckim, ¼¼·Â ºÒ±ÕÇü ( ¼¼·ÂÁ¤º¸ ¹× ¿ì¼¼¼¼·Â Ç¥½Ã )
+	case T_FC_WAR_BOSS_CONTRIBUTION_GUILD:				return "T_FC_WAR_BOSS_CONTRIBUTION_GUILD";	// 2008-12-29 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½, F->C(n)
+	case T_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES:		return "T_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES";		// 2013-05-09 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	case T_FC_WAR_INFLUENCE_CONSECUTIVE_POINT:			return "T_FC_WAR_INFLUENCE_CONSECUTIVE_POINT";			// 2013-08-01 by jhseol, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+	case T_FC_INFLUENCE_SHOW_INFO:						return "T_FC_INFLUENCE_SHOW_INFO";						// 2014-06-17 by bckim, ï¿½ï¿½ï¿½ï¿½ ï¿½Ò±ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ì¼¼ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ )
 
 
 	case T_FC_BAZAAR_CUSTOMER_INFO_OK:					return "T_FC_BAZAAR_CUSTOMER_INFO_OK";
@@ -1206,9 +1209,9 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FL_LOG_PvEWIN:								return "T_FL_LOG_PvEWIN";
 	case T_FL_LOG_PvELOSS:								return "T_FL_LOG_PvELOSS";
 
-	// 2012-12-17 by bckim, ±æµåÃ¢°í ¾ÆÀÌÅÛ ÀÌµ¿ °ü·Ã Ãß°¡·Î±× 
+	// 2012-12-17 by bckim, ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Î±ï¿½ 
 	case T_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT:					return "T_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT";
-	// 2012-12-17 by bckim, ±æµåÃ¢°í ¾ÆÀÌÅÛ ÀÌµ¿ °ü·Ã Ãß°¡·Î±×.End 
+	// 2012-12-17 by bckim, ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Î±ï¿½.End 
 	case T_FL_LOG_ITEM_CHARACTER_ITEM:					return "T_FL_LOG_ITEM_CHARACTER_ITEM";
 	case T_FL_LOG_ITEM_GET_ITEM:						return "T_FL_LOG_ITEM_GET_ITEM";
 	case T_FL_LOG_ITEM_TRADE_SEND:						return "T_FL_LOG_ITEM_TRADE_SEND";
@@ -1246,48 +1249,48 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FL_LOG_HACKING_LOG:							return "T_FL_LOG_HACKING_LOG";
 
 	case T_FL_LOG_MONSTER_BOSS:							return "T_FL_LOG_MONSTER_BOSS";
-	case T_FL_LOG_ALL_MONSTER_KILL_LOG:					return "T_FL_LOG_ALL_MONSTER_KILL_LOG";			// 2014-03-31 by bckim, ¸ðµç ¸ó½ºÅÍ Å³·Î±× ( Ä³³ª´Ù ¿äÃ»)
+	case T_FL_LOG_ALL_MONSTER_KILL_LOG:					return "T_FL_LOG_ALL_MONSTER_KILL_LOG";			// 2014-03-31 by bckim, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å³ï¿½Î±ï¿½ ( Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»)
 
-	case T_FL_LOG_MS_WAR:								return "T_FL_LOG_MS_WAR";			// 2008-04-01 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FL_LOG_SP_WAR:								return "T_FL_LOG_SP_WAR";			// 2008-04-01 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FL_LOG_WAR_CONTRIBUTION:						return "T_FL_LOG_WAR_CONTRIBUTION";			// 2008-12-23 by dhjin, ÀüÀï º¸»ó Ãß°¡¾È
-	case T_FL_LOG_WAR_CONTRIBUTION_GEAR:				return "T_FL_LOG_WAR_CONTRIBUTION_GEAR";			// 2008-12-23 by dhjin, ÀüÀï º¸»ó Ãß°¡¾È
+	case T_FL_LOG_MS_WAR:								return "T_FL_LOG_MS_WAR";			// 2008-04-01 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FL_LOG_SP_WAR:								return "T_FL_LOG_SP_WAR";			// 2008-04-01 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FL_LOG_WAR_CONTRIBUTION:						return "T_FL_LOG_WAR_CONTRIBUTION";			// 2008-12-23 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
+	case T_FL_LOG_WAR_CONTRIBUTION_GEAR:				return "T_FL_LOG_WAR_CONTRIBUTION_GEAR";			// 2008-12-23 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
 
-	case T_FL_LOG_INFLWAR_START:						return "T_FL_LOG_INFLWAR_START";					// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T_FL_LOG_INFLWAR_END:							return "T_FL_LOG_INFLWAR_END";						// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T_FL_LOG_OUTPOSTWAR_RESET_START:				return "T_FL_LOG_OUTPOSTWAR_RESET_START";			// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T_FL_LOG_OUTPOSTWAR_RESET_DESTROY:				return "T_FL_LOG_OUTPOSTWAR_RESET_DESTROY";			// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T_FL_LOG_OUTPOSTWAR_RESET_COMPLETE:			return "T_FL_LOG_OUTPOSTWAR_RESET_COMPLETE";		// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY:			return "T_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY";		// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T_FL_LOG_OUTPOSTWAR_SET_NEXTTIME:				return "T_FL_LOG_OUTPOSTWAR_SET_NEXTTIME";			// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
+	case T_FL_LOG_INFLWAR_START:						return "T_FL_LOG_INFLWAR_START";					// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T_FL_LOG_INFLWAR_END:							return "T_FL_LOG_INFLWAR_END";						// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T_FL_LOG_OUTPOSTWAR_RESET_START:				return "T_FL_LOG_OUTPOSTWAR_RESET_START";			// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T_FL_LOG_OUTPOSTWAR_RESET_DESTROY:				return "T_FL_LOG_OUTPOSTWAR_RESET_DESTROY";			// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T_FL_LOG_OUTPOSTWAR_RESET_COMPLETE:			return "T_FL_LOG_OUTPOSTWAR_RESET_COMPLETE";		// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY:			return "T_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY";		// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T_FL_LOG_OUTPOSTWAR_SET_NEXTTIME:				return "T_FL_LOG_OUTPOSTWAR_SET_NEXTTIME";			// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
 
 	case T_FL_LOG_POLL_VOTE:							return "T_FL_LOG_POLL_VOTE";						// 2007-11-08 by dhjin
 	case T_FL_LOG_POLL_DELETE_LEADERCANDIDATE:			return "T_FL_LOG_POLL_DELETE_LEADERCANDIDATE";		// 2007-11-08 by dhjin
 
 	case T_FL_LOG_DISMEMBER_GUILD:						return "T_FL_LOG_DISMEMBER_GUILD";		// 2007-11-08 by dhjin
 	case T_FL_LOG_NOTIFY_MSG_DELETE:					return "T_FL_LOG_NOTIFY_MSG_DELETE";	// 2008-01-23 by cmkwon
-	case T_FL_LOG_USE_COUPON:							return "T_FL_LOG_USE_COUPON";			// 2008-01-23 by cmkwon, S_F, S_L: ÄíÆù »ç¿ë °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
+	case T_FL_LOG_USE_COUPON:							return "T_FL_LOG_USE_COUPON";			// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
 
-	case T_FL_LOG_ITEM_ATTACH_ITEM:						return "T_FL_LOG_ITEM_ATTACH_ITEM";		// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
-	case T_FL_LOG_ITEM_DETACH_ITEM:						return "T_FL_LOG_ITEM_DETACH_ITEM";		// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
-	case T_FL_LOG_ITEM_DELETE:							return "T_FL_LOG_ITEM_DELETE";			// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
+	case T_FL_LOG_ITEM_ATTACH_ITEM:						return "T_FL_LOG_ITEM_ATTACH_ITEM";		// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
+	case T_FL_LOG_ITEM_DETACH_ITEM:						return "T_FL_LOG_ITEM_DETACH_ITEM";		// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
+	case T_FL_LOG_ITEM_DELETE:							return "T_FL_LOG_ITEM_DELETE";			// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
 
-	case T_FL_LOG_LUCKY_DROP:							return "T_FL_LOG_LUCKY_DROP";			// 2009-03-31 by dhjin, ·°Å°¸Ó½Å ·Î±×
-	case T_FL_LOG_INFINITY_START:						return "T_FL_LOG_INFINITY_START";		// 193 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ½ÃÀÛ °ü·Ã Á¤º¸ 
-	case T_FL_LOG_INFINITY_START_ITEM:					return "T_FL_LOG_INFINITY_START_ITEM";	// 194 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ½ÃÀÛ½Ã ¾ÆÀÌÅÛ º¹»ç Á¤º¸
-	case T_FL_LOG_INFINITY_CINEMA:						return "T_FL_LOG_INFINITY_CINEMA";		// 195 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ¿¬Ãâ ·Î±×
-	case T_FL_LOG_MONSTER_SKILL:						return "T_FL_LOG_MONSTER_SKILL";		// 196 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ¸ó½ºÅÍ ½ºÅ³ »ç¿ë½Ã
-	case T_FL_LOG_HPACTION_TALK:						return "T_FL_LOG_HPACTION_TALK";		// 197 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ¸ó½ºÅÍ ´ëÈ­ »ç¿ë½Ã
-	case T_FL_LOG_INFINITY_FIN:							return "T_FL_LOG_INFINITY_FIN";			// 198 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, Á¾·á °ü·Ã Á¤º¸ 
-	case T_FL_LOG_INFINITY_FIN_ITEM:					return "T_FL_LOG_INFINITY_FIN_ITEM";	// 199 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, Á¾·á½Ã ¾ÆÀÌÅÛ º¹»ç Á¤º¸
-	case T_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER:		return "T_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER";	// 200 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, Á¾·á½Ã »ì¾ÆÀÖ´Â ¸ó½ºÅÍ Á¤º¸
-	case T_FL_LOG_INFINITY_LEAVE_ITEM:					return "T_FL_LOG_INFINITY_LEAVE_ITEM";	// 201 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ÀÎÇÇ Å»Åð½Ã ¾ÆÀÌÅÛ º¹»ç Á¤º¸
+	case T_FL_LOG_LUCKY_DROP:							return "T_FL_LOG_LUCKY_DROP";			// 2009-03-31 by dhjin, ï¿½ï¿½Å°ï¿½Ó½ï¿½ ï¿½Î±ï¿½
+	case T_FL_LOG_INFINITY_START:						return "T_FL_LOG_INFINITY_START";		// 193 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	case T_FL_LOG_INFINITY_START_ITEM:					return "T_FL_LOG_INFINITY_START_ITEM";	// 194 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FL_LOG_INFINITY_CINEMA:						return "T_FL_LOG_INFINITY_CINEMA";		// 195 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½
+	case T_FL_LOG_MONSTER_SKILL:						return "T_FL_LOG_MONSTER_SKILL";		// 196 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	case T_FL_LOG_HPACTION_TALK:						return "T_FL_LOG_HPACTION_TALK";		// 197 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+	case T_FL_LOG_INFINITY_FIN:							return "T_FL_LOG_INFINITY_FIN";			// 198 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	case T_FL_LOG_INFINITY_FIN_ITEM:					return "T_FL_LOG_INFINITY_FIN_ITEM";	// 199 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER:		return "T_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER";	// 200 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FL_LOG_INFINITY_LEAVE_ITEM:					return "T_FL_LOG_INFINITY_LEAVE_ITEM";	// 201 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	case T_FL_LOG_FIXED_TERM_SHAPE_START:				return "T_FL_LOG_FIXED_TERM_SHAPE_START";		// 217 - // 2012-10-10 by hskim, ±â°£Á¦ ¼Ó¼º ±¸Çö (±â°£Á¦ ¿ÜÇü)
-	case T_FL_LOG_FIXED_TERM_SHAPE_END:					return "T_FL_LOG_FIXED_TERM_SHAPE_END";			// 218 - // 2012-10-10 by hskim, ±â°£Á¦ ¼Ó¼º ±¸Çö (±â°£Á¦ ¿ÜÇü)
+	case T_FL_LOG_FIXED_TERM_SHAPE_START:				return "T_FL_LOG_FIXED_TERM_SHAPE_START";		// 217 - // 2012-10-10 by hskim, ï¿½â°£ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	case T_FL_LOG_FIXED_TERM_SHAPE_END:					return "T_FL_LOG_FIXED_TERM_SHAPE_END";			// 218 - // 2012-10-10 by hskim, ï¿½â°£ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 	case T_FL_LOG_START_FIELD_SERVER:					return "T_FL_LOG_START_FIELD_SERVER";
-	case T_FL_LOG_MONITOR_RELOAD_VERSION_INFO_OK:		return "T_FL_LOG_MONITOR_RELOAD_VERSION_INFO_OK";	// 254 - // 2013-03-14 by jhseol, ¹öÀüÀÎÆ÷ ¸®·Îµå ½Ã Á¢¼Ó Çã¿ë IP¸®½ºÆ®µµ °»½Å
+	case T_FL_LOG_MONITOR_RELOAD_VERSION_INFO_OK:		return "T_FL_LOG_MONITOR_RELOAD_VERSION_INFO_OK";	// 254 - // 2013-03-14 by jhseol, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ IPï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	case T_FM_GET_NUM_CLIENTS:							return "T_FM_GET_NUM_CLIENTS";
 	case T_FM_GET_NUM_CLIENTS_OK:						return "T_FM_GET_NUM_CLIENTS_OK";
@@ -1399,20 +1402,20 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_PA_ADMIN_GET_ACCOUNT_LIST:					return "T_PA_ADMIN_GET_ACCOUNT_LIST";
 	case T_PA_ADMIN_GET_ACCOUNT_LIST_OK:				return "T_PA_ADMIN_GET_ACCOUNT_LIST_OK";
 	case T_PA_ADMIN_RELOAD_HAPPYEV:						return "T_PA_ADMIN_RELOAD_HAPPYEV";
-	case T_PA_ADMIN_RELOAD_ITEMEV:						return "T_PA_ADMIN_RELOAD_ITEMEV";	      // 2006-08-31 by dhjin, ItemEvent Reload°ü·Ã
+	case T_PA_ADMIN_RELOAD_ITEMEV:						return "T_PA_ADMIN_RELOAD_ITEMEV";	      // 2006-08-31 by dhjin, ItemEvent Reloadï¿½ï¿½ï¿½ï¿½
 	case T_PA_ADMIN_UPDATE_PCBANGLIST:					return "T_PA_ADMIN_UPDATE_PCBANGLIST";		// 2007-01-22 by dhjin	
 	case T_PA_ADMIN_UPDATE_STRATEGYPOINT_NOTSUMMONTIME:	return "T_PA_ADMIN_UPDATE_STRATEGYPOINT_NOTSUMMONTIME";		// 2007-03-06 by dhjin
-	case T_PA_ADMIN_PETITION_SET_PERIOD:				return "T_PA_ADMIN_PETITION_SET_PERIOD";		// 2007-11-19 by cmkwon, ÁøÁ¤½Ã½ºÅÛ ¾÷µ¥ÀÌÆ® - 
-	case T_PA_ADMIN_SET_DBSERVER_GROUP:					return "T_PA_ADMIN_SET_DBSERVER_GROUP";		// 2008-04-29 by cmkwon, ¼­¹ö±º Á¤º¸ DB¿¡ Ãß°¡(½Å±Ô °èÁ¤ Ä³¸¯ÅÍ »ý¼º Á¦ÇÑ ½Ã½ºÅÛÃß°¡) - 
-	case T_PA_ADMIN_SET_DBSERVER_GROUP_OK:				return "T_PA_ADMIN_SET_DBSERVER_GROUP_OK";		// 2008-04-29 by cmkwon, ¼­¹ö±º Á¤º¸ DB¿¡ Ãß°¡(½Å±Ô °èÁ¤ Ä³¸¯ÅÍ »ý¼º Á¦ÇÑ ½Ã½ºÅÛÃß°¡) - 
-	case T_PA_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM:			return "T_PA_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM";		// 2009-01-14 by cmkwon, ¿î¿µÀÚ ÀÚµ¿ °øÁö ½Ã½ºÅÛ ±¸Çö - 
-	case T_PA_ADMIN_RELOAD_WORLDRANKING:				return "T_PA_ADMIN_RELOAD_WORLDRANKING";			// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_PA_ADMIN_RELOAD_INFLUENCERATE:				return "T_PA_ADMIN_RELOAD_INFLUENCERATE";			// 2009-09-16 by cmkwon, ¼¼·Â ÃÊ±âÈ­½Ã ¾îºäÂ¡ ¹æÁö ±¸Çö - 
-	case T_PA_ADMIN_LOG_ACCOUNT_ACCOUNTTYPE_CHANGE:			return "T_PA_ADMIN_LOG_ACCOUNT_ACCOUNTTYPE_CHANGE";			// 2012-06-07 by hskim, °ü¸®ÀÚ °èÁ¤ º¸¾È °­È­ - °èÁ¤ ±ÇÇÑ º¯°æ½Ã ·Î±× ³²±è
-	case T_PA_ADMIN_LOG_CHARACTER_RACEACCOUNTTYPE_CHANGE:	return "T_PA_ADMIN_LOG_CHARACTER_RACEACCOUNTTYPE_CHANGE";	// 2012-06-07 by hskim, °ü¸®ÀÚ °èÁ¤ º¸¾È °­È­ - °èÁ¤ ±ÇÇÑ º¯°æ½Ã ·Î±× ³²±è
+	case T_PA_ADMIN_PETITION_SET_PERIOD:				return "T_PA_ADMIN_PETITION_SET_PERIOD";		// 2007-11-19 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® - 
+	case T_PA_ADMIN_SET_DBSERVER_GROUP:					return "T_PA_ADMIN_SET_DBSERVER_GROUP";		// 2008-04-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ß°ï¿½) - 
+	case T_PA_ADMIN_SET_DBSERVER_GROUP_OK:				return "T_PA_ADMIN_SET_DBSERVER_GROUP_OK";		// 2008-04-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ß°ï¿½) - 
+	case T_PA_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM:			return "T_PA_ADMIN_RELOAD_ADMIN_NOTICE_SYSTEM";		// 2009-01-14 by cmkwon, ï¿½î¿µï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_PA_ADMIN_RELOAD_WORLDRANKING:				return "T_PA_ADMIN_RELOAD_WORLDRANKING";			// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_PA_ADMIN_RELOAD_INFLUENCERATE:				return "T_PA_ADMIN_RELOAD_INFLUENCERATE";			// 2009-09-16 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_PA_ADMIN_LOG_ACCOUNT_ACCOUNTTYPE_CHANGE:			return "T_PA_ADMIN_LOG_ACCOUNT_ACCOUNTTYPE_CHANGE";			// 2012-06-07 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_PA_ADMIN_LOG_CHARACTER_RACEACCOUNTTYPE_CHANGE:	return "T_PA_ADMIN_LOG_CHARACTER_RACEACCOUNTTYPE_CHANGE";	// 2012-06-07 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case T_PA_ADMIN_STRATRGYPOINT_INFO_CHANGE:			return "T_PA_ADMIN_STRATRGYPOINT_INFO_CHANGE";		// 2012-11-13 by jhseol, ÀüÀï ½Ã½ºÅÛ ¸®´º¾ó - °ÅÁ¡Àü
-	case T_PA_ADMIN_RELOAD_GUILD_INFO:					return "T_PA_ADMIN_RELOAD_GUILD_INFO";				// 2014-02-11 by bckim, ¼¼·ÂÃÊ±âÈ­½Ã Á¤º¸ µ¿±âÈ­Ã³¸®	
+	case T_PA_ADMIN_STRATRGYPOINT_INFO_CHANGE:			return "T_PA_ADMIN_STRATRGYPOINT_INFO_CHANGE";		// 2012-11-13 by jhseol, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case T_PA_ADMIN_RELOAD_GUILD_INFO:					return "T_PA_ADMIN_RELOAD_GUILD_INFO";				// 2014-02-11 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­Ã³ï¿½ï¿½	
 
 	case T_IA_ADMIN_CONNECT:							return "T_IA_ADMIN_CONNECT";
 	case T_IA_ADMIN_CONNECT_OK:							return "T_IA_ADMIN_CONNECT_OK";
@@ -1426,7 +1429,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FA_ADMIN_CONNECT_OK:							return "T_FA_ADMIN_CONNECT_OK";
 	case T_FA_ADMIN_CHANGE_SERVER_STATE:				return "T_FA_ADMIN_CHANGE_SERVER_STATE";
 
-	case T_FC_ARENA_PLAY_CHARACTER_TYPE:				return "T_FC_ARENA_PLAY_CHARACTER_TYPE";	// 2012-06-08 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ßpart2 - ÄÉ¸¯ÅÍ : Å¸ÀÔ º¹»ç
+	case T_FC_ARENA_PLAY_CHARACTER_TYPE:				return "T_FC_ARENA_PLAY_CHARACTER_TYPE";	// 2012-06-08 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½part2 - ï¿½É¸ï¿½ï¿½ï¿½ : Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case T_FC_ARENA_REQUEST_TEAM:						return "T_FC_ARENA_REQUEST_TEAM";
 	case T_FC_ARENA_REQUEST_TEAM_OK:					return "T_FC_ARENA_REQUEST_TEAM_OK";
 	case T_FC_ARENA_CREATE_TEAM:						return "T_FC_ARENA_CREATE_TEAM";	
@@ -1463,7 +1466,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_ARENA_WATCH_START:						return "T_FC_ARENA_WATCH_START";
 	case T_FC_ARENA_WATCH_END:							return "T_FC_ARENA_WATCH_END";
 	case T_FC_ARENA_WATCH_REMOVE_USER:					return "T_FC_ARENA_WATCH_REMOVE_USER";
-	// 2008-01-08 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
+	// 2008-01-08 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 	case T_FC_ARENA_POSSIBLE_GAMESTART:					return "T_FC_ARENA_POSSIBLE_GAMESTART";
 	case T_FC_ARENA_CHARACTER_GAMESTART:				return "T_FC_ARENA_CHARACTER_GAMESTART";
 	case T_FC_ARENA_USE_CITYWARPITEM:					return "T_FC_ARENA_USE_CITYWARPITEM";
@@ -1500,245 +1503,245 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_INFO_EXPEDIENCYFUND_REQUEST_OK:			return "T_FC_INFO_EXPEDIENCYFUND_REQUEST_OK";
 	case T_FC_INFO_EXPEDIENCYFUND_PAYBACK:				return "T_FC_INFO_EXPEDIENCYFUND_PAYBACK";
 	case T_FC_INFO_EXPEDIENCYFUND_PAYBACK_OK:			return "T_FC_INFO_EXPEDIENCYFUND_PAYBACK_OK";
-	case T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD:		return "T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD";		// 2007-09-12 by cmkwon, º£Æ®³² 2Â÷ÆÐ½º¿öµå ±¸Çö -
-	case T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD_OK:	return "T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD_OK";	// 2007-09-12 by cmkwon, º£Æ®³² 2Â÷ÆÐ½º¿öµå ±¸Çö -
-	case T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD:		return "T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD";		// 2007-09-12 by cmkwon, º£Æ®³² 2Â÷ÆÐ½º¿öµå ±¸Çö -
-	case T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD_OK:		return "T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD_OK";		// 2007-09-12 by cmkwon, º£Æ®³² 2Â÷ÆÐ½º¿öµå ±¸Çö -
-	case T_FC_INFO_SECONDARYPASSWORD_LOCK:					return "T_FC_INFO_SECONDARYPASSWORD_LOCK";					// 2007-09-12 by cmkwon, º£Æ®³² 2Â÷ÆÐ½º¿öµå ±¸Çö -
-	case T_FC_INFO_SECONDARYPASSWORD_LOCK_OK:				return "T_FC_INFO_SECONDARYPASSWORD_LOCK_OK";				// 2007-09-12 by cmkwon, º£Æ®³² 2Â÷ÆÐ½º¿öµå ±¸Çö -
-	case T_FC_INFO_GET_GUILDMARK:						return "T_FC_INFO_GET_GUILDMARK";					// 2007-12-07 by dhjin, ¿©´Ü ¸¶Å© C->F
-	case T_FC_INFO_GET_GUILDMARK_OK:					return "T_FC_INFO_GET_GUILDMARK_OK";				// 2007-12-07 by dhjin, ¿©´Ü ¸¶Å© F->C
-	case T_FtoA_MFSINFO:								return "T_FtoA_MFSINFO";							// 2007-12-27 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 	
-	case T_FtoA_MFSINFO_OK:								return "T_FtoA_MFSINFO_OK";							// 2007-12-27 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_ALIVE:									return "T_FtoA_ALIVE";								// 2007-12-27 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_AUTH_CHARACTER:							return "T_FtoA_AUTH_CHARACTER";						// 2007-12-27 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_AUTH_CHARACTER_OK:						return "T_FtoA_AUTH_CHARACTER_OK";					// 2007-12-27 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 	
-	case T_FtoA_ARENA_STATE_CHANGE:						return "T_FtoA_ARENA_STATE_CHANGE";					// 2008-01-03 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_ARENA_TEAM_MATCHING:					return "T_FtoA_ARENA_TEAM_MATCHING";				// 2008-01-04 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 	
-	case T_FtoA_ARENA_TEAM_MATCHING_OK:					return "T_FtoA_ARENA_TEAM_MATCHING_OK";				// 2008-01-04 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_ARENA_SERVER_PAY:						return "T_FtoA_ARENA_SERVER_PAY";					// 2008-01-10 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_ARENA_CHARACTER_PAY:					return "T_FtoA_ARENA_CHARACTER_PAY";					// 2008-01-10 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_ARENA_CHARACTER_DISCONNECT:				return "T_FtoA_ARENA_CHARACTER_DISCONNECT";				// 2008-01-15 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case T_FtoA_ARENA_CHARACTERARENAINFO_UPDATA:		return "T_FtoA_ARENA_CHARACTERARENAINFO_UPDATA";		// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - º¸»ó : AFS -> MFS CharacterArena UUpdata ¿äÃ» ÆÐÅ¶
-	case T_FtoA_ARENA_CHARACTER_RESET_RELOAD:			return "T_FtoA_ARENA_CHARACTER_RESET_RELOAD";		// 2012-12-18 by jhseol, ¾Æ·¹³ª Ä³¸¯ÅÍ ¸®¼Â ÈÄ Ä³¸¯ÅÍ Á¤º¸ ´Ù½Ã ·ÎµùÇÏ±â.
-	case T_FC_INFO_MSWARINFO_DISPLAY:					return "T_FC_INFO_MSWARINFO_DISPLAY";				// 2008-03-27 by dhjin, ¸ð¼±Àü Á¤º¸ Ç¥½Ã ±âÈ¹¾È - 
-	case T_FC_INFO_MSWARINFO_DISPLAY_OPTION:			return "T_FC_INFO_MSWARINFO_DISPLAY_OPTION";				// 2008-03-27 by dhjin, ¸ð¼±Àü Á¤º¸ Ç¥½Ã ±âÈ¹¾È - 
-	case T_FC_INFO_MSWARINFO_DISPLAY_OPTION_OK:			return "T_FC_INFO_MSWARINFO_DISPLAY_OK";				// 2008-03-27 by dhjin, ¸ð¼±Àü Á¤º¸ Ç¥½Ã ±âÈ¹¾È - 
-	case T_FC_INFO_MSWARINFO_RESULT:					return "T_FC_INFO_MSWARINFO_RESULT";					// 2008-04-02 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FC_INFO_MSWARINFO_RESULT_OK:					return "T_FC_INFO_MSWARINFO_RESULT_OK";					// 2008-04-02 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FC_INFO_SPWARINFO_RESULT:					return "T_FC_INFO_SPWARINFO_RESULT";					// 2008-04-02 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FC_INFO_SPWARINFO_RESULT_OK_HEADER:			return "T_FC_INFO_SPWARINFO_RESULT_OK_HEADER";			// 2008-04-02 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FC_INFO_SPWARINFO_RESULT_OK:					return "T_FC_INFO_SPWARINFO_RESULT_OK";					// 2008-04-02 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FC_INFO_SPWARINFO_RESULT_OK_DONE:			return "T_FC_INFO_SPWARINFO_RESULT_OK_DONE";			// 2008-04-02 by dhjin, ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢ ±âÈ¹¾È - 
-	case T_FC_CHAT_LETTER_REQUEST_TITLE:				return "T_FC_CHAT_LETTER_REQUEST_TITLE";				// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö ¸®½ºÆ® ¿äÃ» C->F
-	case T_FC_CHAT_LETTER_REQUEST_TITLE_OK_HEADER:		return "T_FC_CHAT_LETTER_REQUEST_TITLE_OK_HEADER";		// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö ¸®½ºÆ® Àü¼Û F->C
-	case T_FC_CHAT_LETTER_REQUEST_TITLE_OK:				return "T_FC_CHAT_LETTER_REQUEST_TITLE_OK";				// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö ¸®½ºÆ® Àü¼Û F->C
-	case T_FC_CHAT_LETTER_REQUEST_TITLE_OK_DONE:		return "T_FC_CHAT_LETTER_REQUEST_TITLE_OK_DONE";		// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö ¸®½ºÆ® Àü¼Û F->C
-	case T_FC_CHAT_LETTER_READ:							return "T_FC_CHAT_LETTER_READ";							// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö ÀÐ±â ¿äÃ» C->F
-	case T_FC_CHAT_LETTER_READ_OK:						return "T_FC_CHAT_LETTER_READ_OK";						// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö ÀÐ±â ¿Ï·á F->C
-	case T_FC_CHAT_LETTER_DELETE:						return "T_FC_CHAT_LETTER_DELETE";						// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö Áö¿ì±â ¿äÃ» C->F
-	case T_FC_CHAT_LETTER_DELETE_OK:					return "T_FC_CHAT_LETTER_DELETE_OK";					// 2008-04-29 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö Áö¿ì±â ¿Ï·á F->C
-	case T_FC_CHAT_LETTER_SEND:							return "T_FC_CHAT_LETTER_SEND";							// 2008-05-08 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö Àü¼Û C->F
-	case T_FC_CHAT_LETTER_SEND_OK:						return "T_FC_CHAT_LETTER_SEND_OK";						// 2008-05-08 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö Àü¼Û ¿Ï·á F->C 
-	case T_FC_CHAT_LETTER_RECEIVE:						return "T_FC_CHAT_LETTER_RECEIVE";						// 2008-05-08 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö Àü¼Û ¹ÞÀ½ F->C
-	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE:				return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE";				// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö ¸®½ºÆ® ¿äÃ» C->F
-	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_HEADER:	return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_HEADER";	// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö ¸®½ºÆ® Àü¼Û F->C
-	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK:			return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK";			// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö ¸®½ºÆ® Àü¼Û F->C
-	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_DONE:		return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_DONE";		// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö ¸®½ºÆ® Àü¼Û F->C
-	case T_FC_CHAT_ALLLETTER_READ:						return "T_FC_CHAT_ALLLETTER_READ";						// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö ÀÐ±â ¿äÃ» C->F
-	case T_FC_CHAT_ALLLETTER_READ_OK:					return "T_FC_CHAT_ALLLETTER_READ_OK";					// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö ÀÐ±â ¿Ï·á F->C
-	case T_FC_CHAT_ALLLETTER_DELETE:					return "T_FC_CHAT_ALLLETTER_DELETE";					// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö Áö¿ì±â ¿äÃ» C->F
-	case T_FC_CHAT_ALLLETTER_DELETE_OK:					return "T_FC_CHAT_ALLLETTER_DELETE_OK";				// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö Áö¿ì±â ¿Ï·á F->C
-	case T_FC_CHAT_ALLLETTER_SEND:						return "T_FC_CHAT_ALLLETTER_SEND";					// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö Àü¼Û C->F
-	case T_FC_CHAT_ALLLETTER_SEND_OK:					return "T_FC_CHAT_ALLLETTER_SEND_OK";					// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö Àü¼Û ¿Ï·á F->C 
-	case T_FC_CHAT_ALLLETTER_RECEIVE:					return "T_FC_CHAT_ALLLETTER_RECEIVE";					// 2008-05-09 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÀüÃ¼ ÆíÁö Àü¼Û ¹ÞÀ½ F->C
-	case T_FC_EVENT_INFLUENCEMARK:						return "T_FC_EVENT_INFLUENCEMARK";						// 2008-08-18 by dhjin, ¼¼·Â¸¶Å©ÀÌº¥Æ® F->C
-	case T_FC_EVENT_INFLUENCEMARKEND:					return "T_FC_EVENT_INFLUENCEMARKEND";					// 2008-08-18 by dhjin, ¼¼·Â¸¶Å©ÀÌº¥Æ® F->C
-	case T_FC_QUEST_REQUEST_MISSIONMASTER_HELP:			return "T_FC_QUEST_REQUEST_MISSIONMASTER_HELP";			// 2008-12-02 by dhjin, C -> F, ¹Ì¼Ç¸¶½ºÅÍ ¿äÃ»
-	case T_FC_QUEST_REQUEST_MISSIONMASTER_HELP_INVITE:	return "T_FC_QUEST_REQUEST_MISSIONMASTER_HELP_INVITE";	// 2008-12-02 by dhjin, F -> C(n), ·£´ýÀ¸·Î »ÌÈù ¹Ì¼Ç¸¶½ºÅÍ¿¡°Ô ¿äÃ»
-	case T_FC_QUEST_MISSIONMASTER_HELP_INVITE:			return "T_FC_QUEST_MISSIONMASTER_HELP_INVITE";			// 2008-12-02 by dhjin, C -> F, ¹Ì¼Ç¸¶½ºÅÍ ¿äÃ» ½Â¶ô 
-	case T_FC_QUEST_MISSIONMASTER_HELP_INVITE_OK:		return "T_FC_QUEST_MISSIONMASTER_HELP_INVITE_OK";		// 2008-12-02 by dhjin, F -> C, ¹Ì¼Ç¸¶½ºÅÍ ¿äÃ» ½Â¶ô
-	case T_FC_QUEST_MISSIONMASTER_HELP_REJECT:			return "T_FC_QUEST_MISSIONMASTER_HELP_REJECT";			// 2008-12-02 by dhjin, C -> F, ¹Ì¼Ç¸¶½ºÅÍ ¿äÃ» °ÅÀý 
-	case T_FC_QUEST_MISSIONMASTER_HELP_REJECT_OK:		return "T_FC_QUEST_MISSIONMASTER_HELP_REJECT_OK";		// 2008-12-02 by dhjin, F -> C, ¹Ì¼Ç¸¶½ºÅÍ ¿äÃ» °ÅÀý
-	case T_FC_QUEST_INSERT_QUEST:						return "T_FC_QUEST_INSERT_QUEST";						// 2009-03-31 by cmkwon, ¼¼·ÂÃÊ±âÈ­ ½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_QUEST_DELETE_QUEST:						return "T_FC_QUEST_DELETE_QUEST";						// 2009-03-31 by cmkwon, ¼¼·ÂÃÊ±âÈ­ ½Ã½ºÅÛ ±¸Çö - 
+	case T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD:		return "T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD";		// 2007-09-12 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD_OK:	return "T_FC_INFO_SECONDARYPASSWORD_UPDATE_PASSWORD_OK";	// 2007-09-12 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD:		return "T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD";		// 2007-09-12 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD_OK:		return "T_FC_INFO_SECONDARYPASSWORD_CHECK_PASSWORD_OK";		// 2007-09-12 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFO_SECONDARYPASSWORD_LOCK:					return "T_FC_INFO_SECONDARYPASSWORD_LOCK";					// 2007-09-12 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFO_SECONDARYPASSWORD_LOCK_OK:				return "T_FC_INFO_SECONDARYPASSWORD_LOCK_OK";				// 2007-09-12 by cmkwon, ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFO_GET_GUILDMARK:						return "T_FC_INFO_GET_GUILDMARK";					// 2007-12-07 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© C->F
+	case T_FC_INFO_GET_GUILDMARK_OK:					return "T_FC_INFO_GET_GUILDMARK_OK";				// 2007-12-07 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© F->C
+	case T_FtoA_MFSINFO:								return "T_FtoA_MFSINFO";							// 2007-12-27 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 	
+	case T_FtoA_MFSINFO_OK:								return "T_FtoA_MFSINFO_OK";							// 2007-12-27 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_ALIVE:									return "T_FtoA_ALIVE";								// 2007-12-27 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_AUTH_CHARACTER:							return "T_FtoA_AUTH_CHARACTER";						// 2007-12-27 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_AUTH_CHARACTER_OK:						return "T_FtoA_AUTH_CHARACTER_OK";					// 2007-12-27 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 	
+	case T_FtoA_ARENA_STATE_CHANGE:						return "T_FtoA_ARENA_STATE_CHANGE";					// 2008-01-03 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_ARENA_TEAM_MATCHING:					return "T_FtoA_ARENA_TEAM_MATCHING";				// 2008-01-04 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 	
+	case T_FtoA_ARENA_TEAM_MATCHING_OK:					return "T_FtoA_ARENA_TEAM_MATCHING_OK";				// 2008-01-04 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_ARENA_SERVER_PAY:						return "T_FtoA_ARENA_SERVER_PAY";					// 2008-01-10 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_ARENA_CHARACTER_PAY:					return "T_FtoA_ARENA_CHARACTER_PAY";					// 2008-01-10 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_ARENA_CHARACTER_DISCONNECT:				return "T_FtoA_ARENA_CHARACTER_DISCONNECT";				// 2008-01-15 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FtoA_ARENA_CHARACTERARENAINFO_UPDATA:		return "T_FtoA_ARENA_CHARACTERARENAINFO_UPDATA";		// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ : AFS -> MFS CharacterArena UUpdata ï¿½ï¿½Ã» ï¿½ï¿½Å¶
+	case T_FtoA_ARENA_CHARACTER_RESET_RELOAD:			return "T_FtoA_ARENA_CHARACTER_RESET_RELOAD";		// 2012-12-18 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Îµï¿½ï¿½Ï±ï¿½.
+	case T_FC_INFO_MSWARINFO_DISPLAY:					return "T_FC_INFO_MSWARINFO_DISPLAY";				// 2008-03-27 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_MSWARINFO_DISPLAY_OPTION:			return "T_FC_INFO_MSWARINFO_DISPLAY_OPTION";				// 2008-03-27 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_MSWARINFO_DISPLAY_OPTION_OK:			return "T_FC_INFO_MSWARINFO_DISPLAY_OK";				// 2008-03-27 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_MSWARINFO_RESULT:					return "T_FC_INFO_MSWARINFO_RESULT";					// 2008-04-02 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_MSWARINFO_RESULT_OK:					return "T_FC_INFO_MSWARINFO_RESULT_OK";					// 2008-04-02 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_SPWARINFO_RESULT:					return "T_FC_INFO_SPWARINFO_RESULT";					// 2008-04-02 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_SPWARINFO_RESULT_OK_HEADER:			return "T_FC_INFO_SPWARINFO_RESULT_OK_HEADER";			// 2008-04-02 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_SPWARINFO_RESULT_OK:					return "T_FC_INFO_SPWARINFO_RESULT_OK";					// 2008-04-02 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_INFO_SPWARINFO_RESULT_OK_DONE:			return "T_FC_INFO_SPWARINFO_RESULT_OK_DONE";			// 2008-04-02 by dhjin, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½È¹ï¿½ï¿½ - 
+	case T_FC_CHAT_LETTER_REQUEST_TITLE:				return "T_FC_CHAT_LETTER_REQUEST_TITLE";				// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» C->F
+	case T_FC_CHAT_LETTER_REQUEST_TITLE_OK_HEADER:		return "T_FC_CHAT_LETTER_REQUEST_TITLE_OK_HEADER";		// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_LETTER_REQUEST_TITLE_OK:				return "T_FC_CHAT_LETTER_REQUEST_TITLE_OK";				// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_LETTER_REQUEST_TITLE_OK_DONE:		return "T_FC_CHAT_LETTER_REQUEST_TITLE_OK_DONE";		// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_LETTER_READ:							return "T_FC_CHAT_LETTER_READ";							// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½Ã» C->F
+	case T_FC_CHAT_LETTER_READ_OK:						return "T_FC_CHAT_LETTER_READ_OK";						// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½Ï·ï¿½ F->C
+	case T_FC_CHAT_LETTER_DELETE:						return "T_FC_CHAT_LETTER_DELETE";						// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» C->F
+	case T_FC_CHAT_LETTER_DELETE_OK:					return "T_FC_CHAT_LETTER_DELETE_OK";					// 2008-04-29 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ F->C
+	case T_FC_CHAT_LETTER_SEND:							return "T_FC_CHAT_LETTER_SEND";							// 2008-05-08 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ C->F
+	case T_FC_CHAT_LETTER_SEND_OK:						return "T_FC_CHAT_LETTER_SEND_OK";						// 2008-05-08 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ F->C 
+	case T_FC_CHAT_LETTER_RECEIVE:						return "T_FC_CHAT_LETTER_RECEIVE";						// 2008-05-08 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE:				return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE";				// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» C->F
+	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_HEADER:	return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_HEADER";	// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK:			return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK";			// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_DONE:		return "T_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK_DONE";		// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_CHAT_ALLLETTER_READ:						return "T_FC_CHAT_ALLLETTER_READ";						// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½Ã» C->F
+	case T_FC_CHAT_ALLLETTER_READ_OK:					return "T_FC_CHAT_ALLLETTER_READ_OK";					// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½Ï·ï¿½ F->C
+	case T_FC_CHAT_ALLLETTER_DELETE:					return "T_FC_CHAT_ALLLETTER_DELETE";					// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» C->F
+	case T_FC_CHAT_ALLLETTER_DELETE_OK:					return "T_FC_CHAT_ALLLETTER_DELETE_OK";				// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ F->C
+	case T_FC_CHAT_ALLLETTER_SEND:						return "T_FC_CHAT_ALLLETTER_SEND";					// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ C->F
+	case T_FC_CHAT_ALLLETTER_SEND_OK:					return "T_FC_CHAT_ALLLETTER_SEND_OK";					// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ F->C 
+	case T_FC_CHAT_ALLLETTER_RECEIVE:					return "T_FC_CHAT_ALLLETTER_RECEIVE";					// 2008-05-09 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_EVENT_INFLUENCEMARK:						return "T_FC_EVENT_INFLUENCEMARK";						// 2008-08-18 by dhjin, ï¿½ï¿½ï¿½Â¸ï¿½Å©ï¿½Ìºï¿½Æ® F->C
+	case T_FC_EVENT_INFLUENCEMARKEND:					return "T_FC_EVENT_INFLUENCEMARKEND";					// 2008-08-18 by dhjin, ï¿½ï¿½ï¿½Â¸ï¿½Å©ï¿½Ìºï¿½Æ® F->C
+	case T_FC_QUEST_REQUEST_MISSIONMASTER_HELP:			return "T_FC_QUEST_REQUEST_MISSIONMASTER_HELP";			// 2008-12-02 by dhjin, C -> F, ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	case T_FC_QUEST_REQUEST_MISSIONMASTER_HELP_INVITE:	return "T_FC_QUEST_REQUEST_MISSIONMASTER_HELP_INVITE";	// 2008-12-02 by dhjin, F -> C(n), ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	case T_FC_QUEST_MISSIONMASTER_HELP_INVITE:			return "T_FC_QUEST_MISSIONMASTER_HELP_INVITE";			// 2008-12-02 by dhjin, C -> F, ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Â¶ï¿½ 
+	case T_FC_QUEST_MISSIONMASTER_HELP_INVITE_OK:		return "T_FC_QUEST_MISSIONMASTER_HELP_INVITE_OK";		// 2008-12-02 by dhjin, F -> C, ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Â¶ï¿½
+	case T_FC_QUEST_MISSIONMASTER_HELP_REJECT:			return "T_FC_QUEST_MISSIONMASTER_HELP_REJECT";			// 2008-12-02 by dhjin, C -> F, ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ 
+	case T_FC_QUEST_MISSIONMASTER_HELP_REJECT_OK:		return "T_FC_QUEST_MISSIONMASTER_HELP_REJECT_OK";		// 2008-12-02 by dhjin, F -> C, ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	case T_FC_QUEST_INSERT_QUEST:						return "T_FC_QUEST_INSERT_QUEST";						// 2009-03-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_QUEST_DELETE_QUEST:						return "T_FC_QUEST_DELETE_QUEST";						// 2009-03-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case T_FC_INFO_DECLARATION_MSWAR_INFO:				return "T_FC_INFO_DECLARATION_MSWAR_INFO";				// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±ÀüÆ÷°í Á¤º¸ ¿äÃ» C->F
-	case T_FC_INFO_DECLARATION_MSWAR_INFO_OK:			return "T_FC_INFO_DECLARATION_MSWAR_INFO_OK";			// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±ÀüÆ÷°í Á¤º¸ Àü¼Û F->C
-	case T_FC_INFO_DECLARATION_MSWAR_SET:				return "T_FC_INFO_DECLARATION_MSWAR_SET";				// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±ÀüÆ÷°í ½Ã°£ ¹× Æ÷±â ¼³Á¤ C->F
-	case T_FI_INFO_DECLARATION_MSWAR_SET_OK:			return "T_FI_INFO_DECLARATION_MSWAR_SET_OK";			// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±ÀüÆ÷°í ½Ã°£ ¹× Æ÷±â ¼³Á¤ F->I
-	case T_IC_INFO_DECLARATION_MSWAR_SET_OK:			return "T_IC_INFO_DECLARATION_MSWAR_SET_OK";			// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±ÀüÆ÷°í ½Ã°£ ¹× Æ÷±â ¼³Á¤ I->C
+	case T_FC_INFO_DECLARATION_MSWAR_INFO:				return "T_FC_INFO_DECLARATION_MSWAR_INFO";				// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» C->F
+	case T_FC_INFO_DECLARATION_MSWAR_INFO_OK:			return "T_FC_INFO_DECLARATION_MSWAR_INFO_OK";			// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_INFO_DECLARATION_MSWAR_SET:				return "T_FC_INFO_DECLARATION_MSWAR_SET";				// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ C->F
+	case T_FI_INFO_DECLARATION_MSWAR_SET_OK:			return "T_FI_INFO_DECLARATION_MSWAR_SET_OK";			// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ F->I
+	case T_IC_INFO_DECLARATION_MSWAR_SET_OK:			return "T_IC_INFO_DECLARATION_MSWAR_SET_OK";			// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ I->C
 
-	case T_FC_INFO_WRK_GET_SERVICE_INFO:				return "T_FC_INFO_WRK_GET_SERVICE_INFO";				// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_SERVICE_INFO_OK:				return "T_FC_INFO_WRK_GET_SERVICE_INFO_OK";				// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_SERVICE_INFO_OK_IMAGE:		return "T_FC_INFO_WRK_GET_SERVICE_INFO_OK_IMAGE";		// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_SERVICE_INFO_OK_DONE:		return "T_FC_INFO_WRK_GET_SERVICE_INFO_OK_DONE";		// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_RANKER_LIST:					return "T_FC_INFO_WRK_GET_RANKER_LIST";					// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_LEVEL_RANKER_LIST_OK:		return "T_FC_INFO_WRK_GET_LEVEL_RANKER_LIST_OK";		// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_FAME_RANKER_LIST_OK:			return "T_FC_INFO_WRK_GET_FAME_RANKER_LIST_OK";			// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_PVP_RANKER_LIST_OK:			return "T_FC_INFO_WRK_GET_PVP_RANKER_LIST_OK";			// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_SELF_RANKING:				return "T_FC_INFO_WRK_GET_SELF_RANKING";				// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
-	case T_FC_INFO_WRK_GET_SELF_RANKING_OK:				return "T_FC_INFO_WRK_GET_SELF_RANKING_OK";				// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
+	case T_FC_INFO_WRK_GET_SERVICE_INFO:				return "T_FC_INFO_WRK_GET_SERVICE_INFO";				// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_SERVICE_INFO_OK:				return "T_FC_INFO_WRK_GET_SERVICE_INFO_OK";				// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_SERVICE_INFO_OK_IMAGE:		return "T_FC_INFO_WRK_GET_SERVICE_INFO_OK_IMAGE";		// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_SERVICE_INFO_OK_DONE:		return "T_FC_INFO_WRK_GET_SERVICE_INFO_OK_DONE";		// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_RANKER_LIST:					return "T_FC_INFO_WRK_GET_RANKER_LIST";					// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_LEVEL_RANKER_LIST_OK:		return "T_FC_INFO_WRK_GET_LEVEL_RANKER_LIST_OK";		// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_FAME_RANKER_LIST_OK:			return "T_FC_INFO_WRK_GET_FAME_RANKER_LIST_OK";			// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_PVP_RANKER_LIST_OK:			return "T_FC_INFO_WRK_GET_PVP_RANKER_LIST_OK";			// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_SELF_RANKING:				return "T_FC_INFO_WRK_GET_SELF_RANKING";				// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FC_INFO_WRK_GET_SELF_RANKING_OK:				return "T_FC_INFO_WRK_GET_SELF_RANKING_OK";				// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	////////////////////////////////////////////////////////////////////////////////
-	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ -
-	case T_FN_MONSTER_HPTALK:							return "T_FN_MONSTER_HPTALK";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - , N->F
-	case T_FC_MONSTER_HPTALK:							return "T_FC_MONSTER_HPTALK";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - , F->C
-	case T_FC_MONSTER_SKILL:							return "T_FC_MONSTER_SKILL";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - , F->C
-	case T_FC_INFINITY_MODE_LIST:						return "T_FC_INFINITY_MODE_LIST";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸®½ºÆ® ¿äÃ», C -> F
-	case T_FC_INFINITY_MODE_LIST_OK:					return "T_FC_INFINITY_MODE_LIST_OK";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸®½ºÆ® ¿äÃ», F -> C
-	case T_FC_INFINITY_READY_LIST:						return "T_FC_INFINITY_READY_LIST";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸®½ºÆ® ¿äÃ», C -> F
-	case T_FC_INFINITY_READY_LIST_OK:					return "T_FC_INFINITY_READY_LIST_OK";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸®½ºÆ® ¿äÃ», F -> C
-	case T_FC_INFINITY_CREATE:							return "T_FC_INFINITY_CREATE";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ »ý¼º ¿äÃ», C -> F
-	case T_FC_INFINITY_CREATE_OK:						return "T_FC_INFINITY_CREATE_OK";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ »ý¼º ¿äÃ», F -> C
-	case T_FC_INFINITY_JOIN:							return "T_FC_INFINITY_JOIN";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °¡ÀÔ ¿äÃ», C -> F
-	case T_FC_INFINITY_JOIN_REQUEST_MASTERUSER:			return "T_FC_INFINITY_JOIN_REQUEST_MASTERUSER";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¹æÀå¿¡°Å °¡ÀÔÀÚ ½ÂÀÎ ¿©ºÎ ¿äÃ», F -> C
-	case T_FC_INFINITY_JOIN_REQUEST_MASTERUSER_OK:		return "T_FC_INFINITY_JOIN_REQUEST_MASTERUSER_OK";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¹æÀå¿¡°Å °¡ÀÔÀÚ ½ÂÀÎ ¿©ºÎ ¿äÃ», C -> F
-	case T_FC_INFINITY_JOIN_OK:							return "T_FC_INFINITY_JOIN_OK";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °¡ÀÔ ¿äÃ», F -> C
-	case T_FC_INFINITY_MEMBER_INFO_LIST:				return "T_FC_INFINITY_MEMBER_INFO_LIST";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸É¹ö Á¤º¸, C -> F
-	case T_FC_INFINITY_MEMBER_INFO_LIST_OK:				return "T_FC_INFINITY_MEMBER_INFO_LIST_OK";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸É¹ö Á¤º¸, F -> C
-	case T_FC_INFINITY_CHANGE_MASTER:					return "T_FC_INFINITY_CHANGE_MASTER";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸¶½ºÅÍ º¯°æ, C -> F
-	case T_FC_INFINITY_CHANGE_MASTER_OK:				return "T_FC_INFINITY_CHANGE_MASTER_OK";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸¶½ºÅÍ º¯°æ, F -> C
-	case T_FC_INFINITY_LEAVE:							return "T_FC_INFINITY_LEAVE";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Å»Åð, C -> F
-	case T_FC_INFINITY_LEAVE_OK:						return "T_FC_INFINITY_LEAVE_OK";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Å»Åð, F -> C
-	case T_FC_INFINITY_BAN:								return "T_FC_INFINITY_BAN";								// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Ãß¹æ, C -> F
-	case T_FC_INFINITY_BAN_OK:							return "T_FC_INFINITY_BAN_OK";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ Ãß¹æ, F -> C
-	case T_FtoA_INFINITY_IMPUTE_LIST:					return "T_FtoA_INFINITY_IMPUTE_LIST";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ±Í¼Ó Á¤º¸ Àü¼Û, MFS -> AFS
-	case T_FC_INFINITY_READY:							return "T_FC_INFINITY_READY";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ·¡µð ¹öÆ° ´©¸§, C -> F
-	case T_FC_INFINITY_READY_OK:						return "T_FC_INFINITY_READY_OK";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ·¡µð ¹öÆ° ´©¸§, F -> C
-	case T_FC_INFINITY_READY_CANCEL:					return "T_FC_INFINITY_READY_CANCEL";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ·¡µðÃë¼Ò ¹öÆ° ´©¸§, C -> F
-	case T_FC_INFINITY_READY_CANCEL_OK:					return "T_FC_INFINITY_READY_CANCEL_OK";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ·¡µðÃë¼Ò ¹öÆ° ´©¸§, F -> C
-	case T_FC_INFINITY_START:							return "T_FC_INFINITY_START";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ½ÃÀÛ ¹öÆ° ´©¸§(ÀÎÇÇ ½ÃÀÛ), C -> F
-	case T_FtoA_INFINITY_START:							return "T_FtoA_INFINITY_START";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ½ÃÀÛ MainFieldServer·Î ¾Ë¸², AFS -> MFS
-	case T_FtoA_INFINITY_START_OK:						return "T_FtoA_INFINITY_START_OK";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ½ÃÀÛ MainFieldSeverÁØºñ ¿Ï·á Àü¼Û, MFS -> AFS
-	case T_FC_INFINITY_MAP_LOADING:						return "T_FC_INFINITY_MAP_LOADING";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸Ê ·Îµù »óÅÂÀÓÀ» ¾Ë¸², F -> C
-	case T_FC_INFINITY_MAP_LOADED:						return "T_FC_INFINITY_MAP_LOADED";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸Ê ·Îµù ¿Ï·á, C -> F
-	case T_FtoA_INFINITY_IMPUTE:						return "T_FtoA_INFINITY_IMPUTE";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ±Í¼Ó Á¤º¸ Àü¼Û, AFS -> MFS
-	case T_FC_INFINITY_ENTER:							return "T_FC_INFINITY_ENTER";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ¸Ê ÀÔÀå Çã°¡, F -> C
-	case T_FC_INFINITY_CINEMA:							return "T_FC_INFINITY_CINEMA";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ½Ã³×¸¶ Á¤º¸ Àü¼Û, F -> C
-	case T_FN_NPCSERVER_CINEMA_MONSTER_CREATE:			return "T_FN_NPCSERVER_CINEMA_MONSTER_CREATE";			// 2010-03-31 by dhjin, ÀÎÇÇ´ÏÆ¼(±âÁö¹æ¾î) -	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Å° ¸ó½ºÅÍ »ý¼º, F -> N
-	case T_FC_INFINITY_SUCCESS_FIN:						return "T_FC_INFINITY_SUCCESS_FIN";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¼º°ø Á¾·á, F -> C
-	case T_FC_INFINITY_FAIL_FIN:						return "T_FC_INFINITY_FAIL_FIN";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ½ÇÆÐ Á¾·á, F -> C
-	case T_FC_INFINITY_FIN_OK:							return "T_FC_INFINITY_FIN_OK";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Á¾·á È®ÀÎ ÈÄ ¸¶À»(Main¼­¹ö·Î µ¹¾Æ°¨), C -> F
-	case T_FC_INFINITY_READY_FINISH_MAINSVR_START:		return "T_FC_INFINITY_READY_FINISH_MAINSVR_START";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Main¼­¹ö·Î µ¹¾Æ°¥ ÁØºñ°¡ ¿Ï·á µÊ, F -> C
-	case T_FC_INFINITY_MOVIE:							return "T_FC_INFINITY_MOVIE";							// 2011-05-17 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ½Ã³×¸¶ ¿¬Ãâ, F -> C
-	case T_FtoA_INFINITY_UPDATE_ALL_ITEM_COUNT:			return "T_FtoA_INFINITY_UPDATE_ALL_ITEM_COUNT";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_INSERT_ITEM_HEADER:			return "T_FtoA_INFINITY_INSERT_ITEM_HEADER";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_INSERT_ITEM:					return "T_FtoA_INFINITY_INSERT_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_INSERT_ITEM_DONE:				return "T_FtoA_INFINITY_INSERT_ITEM_DONE";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_UPDATE_ITEM_HEADER:			return "T_FtoA_INFINITY_UPDATE_ITEM_HEADER";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_UPDATE_ITEM:					return "T_FtoA_INFINITY_UPDATE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_UPDATE_ITEM_DONE:				return "T_FtoA_INFINITY_UPDATE_ITEM_DONE";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_DELETE_ITEM:					return "T_FtoA_INFINITY_DELETE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_UPDATE_USER_INFO:				return "T_FtoA_INFINITY_UPDATE_USER_INFO";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î À¯Àú µ¿±âÈ­ À§ÇØ Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_READY_FINISH_MAINSVR_START:	return "T_FtoA_INFINITY_READY_FINISH_MAINSVR_START";	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Main¼­¹ö·Î µ¹¾Æ°¥ ÁØºñ°¡ ¿Ï·á µÊ, MFS -> AFS
-	case T_FtoA_INFINITY_LOG:							return "T_FtoA_INFINITY_LOG";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ·Î±× Àü¼Û, AFS -> MFS
-	case T_FtoA_INFINITY_USING_TIME_LIMIT_ITEM:			return "T_FtoA_INFINITY_USING_TIME_LIMIT_ITEM";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ MainFieldServer·Î ·Î±× Àü¼Û, AFS -> MFS
-	case T_FN_NPCSERVER_NEW_CHANGE_OBJECT:				return "T_FN_NPCSERVER_NEW_CHANGE_OBJECT";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - º¯°æ ¿ÀºêÁ§Æ®¸¦ À§ÇØ!!!! 
-	case T_FN_NPCSERVER_RESET_CHANGE_OBJECT:			return "T_FN_NPCSERVER_RESET_CHANGE_OBJECT";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - º¯°æ ¿ÀºêÁ§Æ®¸¦ À§ÇØ!!!! 
-	case T_FC_INFINITY_TENDER_DROPITEM_INFO:			return "T_FC_INFINITY_TENDER_DROPITEM_INFO";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¸ó½ºÅÍ¿¡°Ô¼­ µå¶øµÈ Tender ¾ÆÀÌÅÛ, F -> C
-	case T_FC_INFINITY_TENDER_START:					return "T_FC_INFINITY_TENDER_START";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Tender ½ÃÀÛ, F -> C
-	case T_FC_INFINITY_TENDER_PUT_IN_TENDER:			return "T_FC_INFINITY_TENDER_PUT_IN_TENDER";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - À¯Àú Tender ¹öÆ° ´©¸§, C -> F
-	case T_FC_INFINITY_TENDER_PUT_IN_TENDER_OK:			return "T_FC_INFINITY_TENDER_PUT_IN_TENDER_OK";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - À¯Àú Tender ¹öÆ° ´©¸§ °á°ú, F -> C
-	case T_FC_INFINITY_TENDER_RESULT:					return "T_FC_INFINITY_TENDER_RESULT";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÔÂûÀÚ °á°ú, F -> C
-	case T_FC_INFINITY_TENDER_RESULT_TIMEOVER:			return "T_FC_INFINITY_TENDER_TIMEOVER";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Tender ½Ã°£ÀÌ Áö³µÁö¸¸ ÀÔÂûÀÚ°¡ ¾ø´Ù, F -> C
-	case T_FC_INFINITY_TENDER_RESULT_ALLGIVEUP:			return "T_FC_INFINITY_TENDER_ALLGIVEUP";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÔÂûÀÚ ¸ðµÎ Æ÷±â, F -> C
-	case T_FC_INFO_APPLY_RESISTANCE_ITEM:				return "T_FC_INFO_APPLY_RESISTANCE_ITEM";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀúÇ× ¾ÆÀÌÅÛ Àû¿ë Á¤º¸ Àü¼Û, F -> C(n)
-	case T_FC_SHOP_INFINITY_ITEM_HEADER:				return "T_FC_SHOP_INFINITY_ITEM_HEADER";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »óÁ¡
-	case T_FC_SHOP_INFINITY_ITEM:						return "T_FC_SHOP_INFINITY_ITEM";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »óÁ¡
-	case T_FC_SHOP_INFINITY_ITEM_DONE:					return "T_FC_SHOP_INFINITY_ITEM_DONE";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »óÁ¡
-	case T_FC_SHOP_INFINITY_BUY_ITEM:					return "T_FC_SHOP_INFINITY_BUY_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »óÁ¡, ±¸¸Å
-	case T_FC_INFINITY_CHANGE_LIMITTIME:				return "T_FC_INFINITY_CHANGE_LIMITTIME";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ »ç¸Á½Ã ÆÐ³ÎÆ¼ Ãß°¡, F -> C
-	case T_FC_INFINITY_JOIN_CANCEL:						return "T_FC_INFINITY_JOIN_CANCEL";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ÀÔÀå Ãë¼Ò
-	case T_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER:	return "T_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER";	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ÀÔÀå Ãë¼Ò
-	case T_FC_INFINITY_REQUEST_RESTART_BY_DISCONNECT:	return "T_FC_INFINITY_REQUEST_RESTART_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FC_INFINITY_RESTART_BY_DISCONNECT:			return "T_FC_INFINITY_RESTART_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FC_INFINITY_MAP_LOADED_RESTART_BY_DISCONNECT:			return "T_FC_INFINITY_MAP_LOADED_RESTART_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FC_INFINITY_DELETED_CINEMA_HEADER:			return "T_FC_INFINITY_DELETED_CINEMA_HEADER";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FC_INFINITY_DELETED_CINEMA:					return "T_FC_INFINITY_DELETED_CINEMA";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FC_INFINITY_DELETED_CINEMA_DONE:				return "T_FC_INFINITY_DELETED_CINEMA_DONE";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FC_INFINITY_ENTER_BY_DISCONNECT:				return "T_FC_INFINITY_ENTER_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®
-	case T_FtoA_INFINITY_STATE_CHANGE:					return "T_FtoA_INFINITY_STATE_CHANGE";			// 2009-09-09 ~ 2010-01-20 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ »óÅÂ °ªÀ» ¸ÞÀÎ¼­¹ö·Î Àü¼ÛÇÑ´Ù. ÀÎÇÇ »óÅÂ Ã¼Å©
-	case T_FI_PARTY_AUTO_CREATE:						return "T_FI_PARTY_AUTO_CREATE";					// 2009-09-09 ~ 2010-01-26 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÚµ¿ Æí´ë »ý¼º ¿äÃ», F -> I
-	case T_FI_PARTY_AUTO_CREATE_OK:						return "T_FI_PARTY_AUTO_CREATE_OK";				// 2009-09-09 ~ 2010-01-26 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÚµ¿ Æí´ë »ý¼º ¿Ï·á, I -> F
-	case T_FC_PARTY_AUTO_CREATED:						return "T_FC_PARTY_AUTO_CREATED";					// 2009-09-09 ~ 2010-01-26 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÚµ¿ Æí´ë »ý¼º ¿Ï·á ¾Ë¸², F -> C
-	case T_IC_PARTY_GET_AUTO_PARTY_INFO:				return "T_IC_PARTY_GET_AUTO_PARTY_INFO";			// 2009-09-09 ~ 2010-01-26 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÚµ¿ Æí´ë Á¤º¸ ¿äÃ», C -> I
-	case T_IC_PARTY_GET_AUTO_PARTY_INFO_OK:				return "T_IC_PARTY_GET_AUTO_PARTY_INFO_OK";		// 2009-09-09 ~ 2010-01-26 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÚµ¿ Æí´ë Á¤º¸ Àü¼Û, I -> C
-	case T_FI_PARTY_DISCONNECT_LEAVE_OK:				return "T_FI_PARTY_DISCONNECT_LEAVE_OK";		// 2009-09-09 ~ 2010-01-27 by dhjin, ÀÎÇÇ´ÏÆ¼ - °­Á¦ Á¾·á À¯Àú ÆÄÆ¼¿¡¼­ Å»ÅðÃ³¸®!
-	case T_FC_ITEM_USE_INVOKING_WEAR_ITEM:				return "T_FC_ITEM_USE_INVOKING_WEAR_ITEM";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ »ç¿ë, C->F
-	case T_FC_ITEM_EXPIRE_TIME_INVOKING_WEAR_ITEM:		return "T_FC_ITEM_EXPIRE_TIME_INVOKING_WEAR_ITEM";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ Áö¼Ó ½Ã°£ ¿Ï·á, C->F
-	case T_FC_INFO_APPLY_DESTPARAM:						return "T_FC_INFO_APPLY_DESTPARAM";				// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, DestParam Àû¿ë À¯Àú Á¤º¸ Àü¼Û
-	case T_FC_INFO_APPLY_DESTPARAM_LIST:				return "T_FC_INFO_APPLY_DESTPARAM_LIST";				// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, DestParam Àû¿ë À¯Àú Á¤º¸ Àü¼Û
-	case T_FC_ITEM_END_COOLINGTIME_ITEM:				return "T_FC_ITEM_END_COOLINGTIME_ITEM";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ÄðÅ¸ÀÓ Á¾·á C->F
-	case T_FC_ITEM_END_COOLINGTIME_ITEM_OK:				return "T_FC_ITEM_END_COOLINGTIME_ITEM_OK";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ÄðÅ¸ÀÓ Á¾·á F->C
-	case T_FC_ITEM_GET_COOLINGTIME_INFO:				return "T_FC_ITEM_GET_COOLINGTIME_INFO";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ÄðÅ¸ÀÓ Á¤º¸ ¿äÃ» C->F
-	case T_FC_ITEM_GET_COOLINGTIME_INFO_OK:				return "T_FC_ITEM_GET_COOLINGTIME_INFO_OK";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ÄðÅ¸ÀÓ Á¤º¸ ¿äÃ» F->C
-	case T_FC_ITEM_USE_INVOKING_WEAR_ITEM_BUFF:			return "T_FC_ITEM_USE_INVOKING_WEAR_ITEM_BUFF";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ¹öÇÁ ¿Ã¸®¼¼¿ä F->C
-	case T_FC_INFINITY_CHANGE_ALIVE_FOR_GAMECLEAR_MONSTERHP:	return "T_FC_INFINITY_CHANGE_ALIVE_FOR_GAMECLEAR_MONSTERHP";		// 2010-03-31 by dhjin, ÀÎÇÇ´ÏÆ¼(±âÁö¹æ¾î) - ÀÎÇÇ »ç¸Á½Ã ÆÐ³ÎÆ¼, F -> C
-	case T_FC_MONSTER_CREATED_ALIVE_FOR_GAMECLEAR:		return "T_FC_MONSTER_CREATED_ALIVE_FOR_GAMECLEAR";		// 2010-03-31 by dhjin, ÀÎÇÇ´ÏÆ¼(±âÁö¹æ¾î) -
+	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ -
+	case T_FN_MONSTER_HPTALK:							return "T_FN_MONSTER_HPTALK";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - , N->F
+	case T_FC_MONSTER_HPTALK:							return "T_FC_MONSTER_HPTALK";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - , F->C
+	case T_FC_MONSTER_SKILL:							return "T_FC_MONSTER_SKILL";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - , F->C
+	case T_FC_INFINITY_MODE_LIST:						return "T_FC_INFINITY_MODE_LIST";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã», C -> F
+	case T_FC_INFINITY_MODE_LIST_OK:					return "T_FC_INFINITY_MODE_LIST_OK";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã», F -> C
+	case T_FC_INFINITY_READY_LIST:						return "T_FC_INFINITY_READY_LIST";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã», C -> F
+	case T_FC_INFINITY_READY_LIST_OK:					return "T_FC_INFINITY_READY_LIST_OK";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã», F -> C
+	case T_FC_INFINITY_CREATE:							return "T_FC_INFINITY_CREATE";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», C -> F
+	case T_FC_INFINITY_CREATE_OK:						return "T_FC_INFINITY_CREATE_OK";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», F -> C
+	case T_FC_INFINITY_JOIN:							return "T_FC_INFINITY_JOIN";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», C -> F
+	case T_FC_INFINITY_JOIN_REQUEST_MASTERUSER:			return "T_FC_INFINITY_JOIN_REQUEST_MASTERUSER";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», F -> C
+	case T_FC_INFINITY_JOIN_REQUEST_MASTERUSER_OK:		return "T_FC_INFINITY_JOIN_REQUEST_MASTERUSER_OK";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», C -> F
+	case T_FC_INFINITY_JOIN_OK:							return "T_FC_INFINITY_JOIN_OK";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», F -> C
+	case T_FC_INFINITY_MEMBER_INFO_LIST:				return "T_FC_INFINITY_MEMBER_INFO_LIST";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½, C -> F
+	case T_FC_INFINITY_MEMBER_INFO_LIST_OK:				return "T_FC_INFINITY_MEMBER_INFO_LIST_OK";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_CHANGE_MASTER:					return "T_FC_INFINITY_CHANGE_MASTER";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, C -> F
+	case T_FC_INFINITY_CHANGE_MASTER_OK:				return "T_FC_INFINITY_CHANGE_MASTER_OK";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_LEAVE:							return "T_FC_INFINITY_LEAVE";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½, C -> F
+	case T_FC_INFINITY_LEAVE_OK:						return "T_FC_INFINITY_LEAVE_OK";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_BAN:								return "T_FC_INFINITY_BAN";								// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½, C -> F
+	case T_FC_INFINITY_BAN_OK:							return "T_FC_INFINITY_BAN_OK";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½, F -> C
+	case T_FtoA_INFINITY_IMPUTE_LIST:					return "T_FtoA_INFINITY_IMPUTE_LIST";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, MFS -> AFS
+	case T_FC_INFINITY_READY:							return "T_FC_INFINITY_READY";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½, C -> F
+	case T_FC_INFINITY_READY_OK:						return "T_FC_INFINITY_READY_OK";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_READY_CANCEL:					return "T_FC_INFINITY_READY_CANCEL";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½, C -> F
+	case T_FC_INFINITY_READY_CANCEL_OK:					return "T_FC_INFINITY_READY_CANCEL_OK";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_START:							return "T_FC_INFINITY_START";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½), C -> F
+	case T_FtoA_INFINITY_START:							return "T_FtoA_INFINITY_START";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½Ë¸ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_START_OK:						return "T_FtoA_INFINITY_START_OK";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ MainFieldSeverï¿½Øºï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½, MFS -> AFS
+	case T_FC_INFINITY_MAP_LOADING:						return "T_FC_INFINITY_MAP_LOADING";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½, F -> C
+	case T_FC_INFINITY_MAP_LOADED:						return "T_FC_INFINITY_MAP_LOADED";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îµï¿½ ï¿½Ï·ï¿½, C -> F
+	case T_FtoA_INFINITY_IMPUTE:						return "T_FtoA_INFINITY_IMPUTE";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FC_INFINITY_ENTER:							return "T_FC_INFINITY_ENTER";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ã°¡, F -> C
+	case T_FC_INFINITY_CINEMA:							return "T_FC_INFINITY_CINEMA";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FN_NPCSERVER_CINEMA_MONSTER_CREATE:			return "T_FN_NPCSERVER_CINEMA_MONSTER_CREATE";			// 2010-03-31 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) -	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> N
+	case T_FC_INFINITY_SUCCESS_FIN:						return "T_FC_INFINITY_SUCCESS_FIN";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_FAIL_FIN:						return "T_FC_INFINITY_FAIL_FIN";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_FIN_OK:							return "T_FC_INFINITY_FIN_OK";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½), C -> F
+	case T_FC_INFINITY_READY_FINISH_MAINSVR_START:		return "T_FC_INFINITY_READY_FINISH_MAINSVR_START";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½Øºï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_MOVIE:							return "T_FC_INFINITY_MOVIE";							// 2011-05-17 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FtoA_INFINITY_UPDATE_ALL_ITEM_COUNT:			return "T_FtoA_INFINITY_UPDATE_ALL_ITEM_COUNT";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_INSERT_ITEM_HEADER:			return "T_FtoA_INFINITY_INSERT_ITEM_HEADER";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_INSERT_ITEM:					return "T_FtoA_INFINITY_INSERT_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_INSERT_ITEM_DONE:				return "T_FtoA_INFINITY_INSERT_ITEM_DONE";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_UPDATE_ITEM_HEADER:			return "T_FtoA_INFINITY_UPDATE_ITEM_HEADER";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_UPDATE_ITEM:					return "T_FtoA_INFINITY_UPDATE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_UPDATE_ITEM_DONE:				return "T_FtoA_INFINITY_UPDATE_ITEM_DONE";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_DELETE_ITEM:					return "T_FtoA_INFINITY_DELETE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_UPDATE_USER_INFO:				return "T_FtoA_INFINITY_UPDATE_USER_INFO";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_READY_FINISH_MAINSVR_START:	return "T_FtoA_INFINITY_READY_FINISH_MAINSVR_START";	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½Øºï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½, MFS -> AFS
+	case T_FtoA_INFINITY_LOG:							return "T_FtoA_INFINITY_LOG";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FtoA_INFINITY_USING_TIME_LIMIT_ITEM:			return "T_FtoA_INFINITY_USING_TIME_LIMIT_ITEM";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½, AFS -> MFS
+	case T_FN_NPCSERVER_NEW_CHANGE_OBJECT:				return "T_FN_NPCSERVER_NEW_CHANGE_OBJECT";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!!!! 
+	case T_FN_NPCSERVER_RESET_CHANGE_OBJECT:			return "T_FN_NPCSERVER_RESET_CHANGE_OBJECT";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!!!! 
+	case T_FC_INFINITY_TENDER_DROPITEM_INFO:			return "T_FC_INFINITY_TENDER_DROPITEM_INFO";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Í¿ï¿½ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Tender ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_TENDER_START:					return "T_FC_INFINITY_TENDER_START";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Tender ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_TENDER_PUT_IN_TENDER:			return "T_FC_INFINITY_TENDER_PUT_IN_TENDER";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Tender ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½, C -> F
+	case T_FC_INFINITY_TENDER_PUT_IN_TENDER_OK:			return "T_FC_INFINITY_TENDER_PUT_IN_TENDER_OK";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ Tender ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_TENDER_RESULT:					return "T_FC_INFINITY_TENDER_RESULT";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_TENDER_RESULT_TIMEOVER:			return "T_FC_INFINITY_TENDER_TIMEOVER";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Tender ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFINITY_TENDER_RESULT_ALLGIVEUP:			return "T_FC_INFINITY_TENDER_ALLGIVEUP";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C
+	case T_FC_INFO_APPLY_RESISTANCE_ITEM:				return "T_FC_INFO_APPLY_RESISTANCE_ITEM";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, F -> C(n)
+	case T_FC_SHOP_INFINITY_ITEM_HEADER:				return "T_FC_SHOP_INFINITY_ITEM_HEADER";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½
+	case T_FC_SHOP_INFINITY_ITEM:						return "T_FC_SHOP_INFINITY_ITEM";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½
+	case T_FC_SHOP_INFINITY_ITEM_DONE:					return "T_FC_SHOP_INFINITY_ITEM_DONE";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½
+	case T_FC_SHOP_INFINITY_BUY_ITEM:					return "T_FC_SHOP_INFINITY_BUY_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
+	case T_FC_INFINITY_CHANGE_LIMITTIME:				return "T_FC_INFINITY_CHANGE_LIMITTIME";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ ï¿½ß°ï¿½, F -> C
+	case T_FC_INFINITY_JOIN_CANCEL:						return "T_FC_INFINITY_JOIN_CANCEL";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case T_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER:	return "T_FC_INFINITY_JOIN_CANCEL_REQUEST_MASTERUSER";	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case T_FC_INFINITY_REQUEST_RESTART_BY_DISCONNECT:	return "T_FC_INFINITY_REQUEST_RESTART_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FC_INFINITY_RESTART_BY_DISCONNECT:			return "T_FC_INFINITY_RESTART_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FC_INFINITY_MAP_LOADED_RESTART_BY_DISCONNECT:			return "T_FC_INFINITY_MAP_LOADED_RESTART_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FC_INFINITY_DELETED_CINEMA_HEADER:			return "T_FC_INFINITY_DELETED_CINEMA_HEADER";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FC_INFINITY_DELETED_CINEMA:					return "T_FC_INFINITY_DELETED_CINEMA";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FC_INFINITY_DELETED_CINEMA_DONE:				return "T_FC_INFINITY_DELETED_CINEMA_DONE";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FC_INFINITY_ENTER_BY_DISCONNECT:				return "T_FC_INFINITY_ENTER_BY_DISCONNECT";			// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	case T_FtoA_INFINITY_STATE_CHANGE:					return "T_FtoA_INFINITY_STATE_CHANGE";			// 2009-09-09 ~ 2010-01-20 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+	case T_FI_PARTY_AUTO_CREATE:						return "T_FI_PARTY_AUTO_CREATE";					// 2009-09-09 ~ 2010-01-26 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», F -> I
+	case T_FI_PARTY_AUTO_CREATE_OK:						return "T_FI_PARTY_AUTO_CREATE_OK";				// 2009-09-09 ~ 2010-01-26 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½, I -> F
+	case T_FC_PARTY_AUTO_CREATED:						return "T_FC_PARTY_AUTO_CREATED";					// 2009-09-09 ~ 2010-01-26 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ë¸ï¿½, F -> C
+	case T_IC_PARTY_GET_AUTO_PARTY_INFO:				return "T_IC_PARTY_GET_AUTO_PARTY_INFO";			// 2009-09-09 ~ 2010-01-26 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã», C -> I
+	case T_IC_PARTY_GET_AUTO_PARTY_INFO_OK:				return "T_IC_PARTY_GET_AUTO_PARTY_INFO_OK";		// 2009-09-09 ~ 2010-01-26 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, I -> C
+	case T_FI_PARTY_DISCONNECT_LEAVE_OK:				return "T_FI_PARTY_DISCONNECT_LEAVE_OK";		// 2009-09-09 ~ 2010-01-27 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½Ã³ï¿½ï¿½!
+	case T_FC_ITEM_USE_INVOKING_WEAR_ITEM:				return "T_FC_ITEM_USE_INVOKING_WEAR_ITEM";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, C->F
+	case T_FC_ITEM_EXPIRE_TIME_INVOKING_WEAR_ITEM:		return "T_FC_ITEM_EXPIRE_TIME_INVOKING_WEAR_ITEM";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ï·ï¿½, C->F
+	case T_FC_INFO_APPLY_DESTPARAM:						return "T_FC_INFO_APPLY_DESTPARAM";				// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, DestParam ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_INFO_APPLY_DESTPARAM_LIST:				return "T_FC_INFO_APPLY_DESTPARAM_LIST";				// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, DestParam ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_ITEM_END_COOLINGTIME_ITEM:				return "T_FC_ITEM_END_COOLINGTIME_ITEM";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ C->F
+	case T_FC_ITEM_END_COOLINGTIME_ITEM_OK:				return "T_FC_ITEM_END_COOLINGTIME_ITEM_OK";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_ITEM_GET_COOLINGTIME_INFO:				return "T_FC_ITEM_GET_COOLINGTIME_INFO";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» C->F
+	case T_FC_ITEM_GET_COOLINGTIME_INFO_OK:				return "T_FC_ITEM_GET_COOLINGTIME_INFO_OK";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» F->C
+	case T_FC_ITEM_USE_INVOKING_WEAR_ITEM_BUFF:			return "T_FC_ITEM_USE_INVOKING_WEAR_ITEM_BUFF";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ F->C
+	case T_FC_INFINITY_CHANGE_ALIVE_FOR_GAMECLEAR_MONSTERHP:	return "T_FC_INFINITY_CHANGE_ALIVE_FOR_GAMECLEAR_MONSTERHP";		// 2010-03-31 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼, F -> C
+	case T_FC_MONSTER_CREATED_ALIVE_FOR_GAMECLEAR:		return "T_FC_MONSTER_CREATED_ALIVE_FOR_GAMECLEAR";		// 2010-03-31 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) -
 
-	case T_FC_ITEM_UPDATE_TRANSFORMER_OK:				return "T_FC_ITEM_UPDATE_TRANSFORMER_OK";			// 2010-03-18 by cmkwon, ¸ó½ºÅÍº¯½Å ±¸Çö - 
-	case T_FI_PARTY_UPDATE_ITEM_TRANSFORMER_OK:			return "T_FI_PARTY_UPDATE_ITEM_TRANSFORMER_OK";		// 2010-03-18 by cmkwon, ¸ó½ºÅÍº¯½Å ±¸Çö - 
-	case T_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK:			return "T_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK";		// 2010-03-18 by cmkwon, ¸ó½ºÅÍº¯½Å ±¸Çö - 
+	case T_FC_ITEM_UPDATE_TRANSFORMER_OK:				return "T_FC_ITEM_UPDATE_TRANSFORMER_OK";			// 2010-03-18 by cmkwon, ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_FI_PARTY_UPDATE_ITEM_TRANSFORMER_OK:			return "T_FI_PARTY_UPDATE_ITEM_TRANSFORMER_OK";		// 2010-03-18 by cmkwon, ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK:			return "T_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK";		// 2010-03-18 by cmkwon, ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case T_FN_BATTLE_ATTACK_SKILL_CANCEL:				return "T_FN_BATTLE_ATTACK_SKILL_CANCEL";		// 2010-03-31 by dhjin, ÀÎÇÇ´ÏÆ¼(±âÁö¹æ¾î) -
-	case T_FC_MONSTER_SKILL_CANCEL:						return "T_FC_MONSTER_SKILL_CANCEL";		// 2010-03-31 by dhjin, ÀÎÇÇ´ÏÆ¼(±âÁö¹æ¾î) -
-	case T_FtoA_UPDATE_ITEM_NOTI:						return "T_FtoA_UPDATE_ITEM_NOTI";		//	MFS -> AFS // 2010-03-31 by dhjin, ÀÎÇÇ´ÏÆ¼ ÀÔÀå Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
+	case T_FN_BATTLE_ATTACK_SKILL_CANCEL:				return "T_FN_BATTLE_ATTACK_SKILL_CANCEL";		// 2010-03-31 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) -
+	case T_FC_MONSTER_SKILL_CANCEL:						return "T_FC_MONSTER_SKILL_CANCEL";		// 2010-03-31 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) -
+	case T_FtoA_UPDATE_ITEM_NOTI:						return "T_FtoA_UPDATE_ITEM_NOTI";		//	MFS -> AFS // 2010-03-31 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case T_FtoA_INFINITY_UPDATE_USER_MAP_INFO:			return "T_FtoA_INFINITY_UPDATE_USER_MAP_INFO";		// 2010-04-06 by cmkwon, ÀÎÇÇ2Â÷ Ãß°¡ ¼öÁ¤ - 
+	case T_FtoA_INFINITY_UPDATE_USER_MAP_INFO:			return "T_FtoA_INFINITY_UPDATE_USER_MAP_INFO";		// 2010-04-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 	
-	//case T_FC_INFINITY_DIFFICULTY_LIST:				return "T_FC_INFINITY_DIFFICULTY_LIST";		// 2010-05-04 by shcho, ÀÎÇÇ´ÏÆ¼ ³­ÀÌµµ Á¶Àý -
-	case T_FC_INFINITY_DIFFICULTY_LIST_OK:				return "T_FC_INFINITY_DIFFICULTY_LIST_OK";	// 2010-05-04 by shcho, ÀÎÇÇ´ÏÆ¼ ³­ÀÌµµ Á¶Àý -
+	//case T_FC_INFINITY_DIFFICULTY_LIST:				return "T_FC_INFINITY_DIFFICULTY_LIST";		// 2010-05-04 by shcho, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T_FC_INFINITY_DIFFICULTY_LIST_OK:				return "T_FC_INFINITY_DIFFICULTY_LIST_OK";	// 2010-05-04 by shcho, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ -
 
-	case T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL:			return "T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL";			// C -> AFS // 2010-05-24 by hsLee, ³­ÀÌµµ º¯°æ ¿äÃ».
-	case T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK :		return "T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK";		// AFS -> C // 2010-05-24 by hsLee, ³­ÀÌµµ º¯°æ ¿äÃ» °á°ú.
+	case T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL:			return "T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL";			// C -> AFS // 2010-05-24 by hsLee, ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	case T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK :		return "T_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK";		// AFS -> C // 2010-05-24 by hsLee, ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½.
 
-	case T_FC_INFINITY_READY_CANCEL_ALL_OK :			return "T_FC_INFINITY_READY_CANCEL_ALL_OK";				// AFS -> C // 2010-05-31 by hsLee, ¸ðµç ·¡µð Ãë¼Ò. (³­ÀÌµµ º¯°æ½Ã).
+	case T_FC_INFINITY_READY_CANCEL_ALL_OK :			return "T_FC_INFINITY_READY_CANCEL_ALL_OK";				// AFS -> C // 2010-05-31 by hsLee, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. (ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½).
 
-	case T_FC_INFINITY_SKIP_ENDING_CINEMA :				return "T_FC_INFINITY_SKIP_ENDING_CINEMA";				// C -> F // ÀÎÇÇ´ÏÆ¼ °ÅÁ¡ ¹æ¾î ¿£µù ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ ¿äÃ». 2010. 07. 27 by hsLee.
-	case T_FC_INFINITY_SKIP_ENDING_CINEMA_OK :			return "T_FC_INFINITY_SKIP_ENDING_CINEMA_OK";			// F -> C // ÀÎÇÇ´ÏÆ¼ °ÅÁ¡ ¹æ¾î ¿£µù ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ °á°ú. 2010. 07. 27 by hsLee.
+	case T_FC_INFINITY_SKIP_ENDING_CINEMA :				return "T_FC_INFINITY_SKIP_ENDING_CINEMA";				// C -> F // ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ ï¿½ï¿½Ã». 2010. 07. 27 by hsLee.
+	case T_FC_INFINITY_SKIP_ENDING_CINEMA_OK :			return "T_FC_INFINITY_SKIP_ENDING_CINEMA_OK";			// F -> C // ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ ï¿½ï¿½ï¿½. 2010. 07. 27 by hsLee.
 
-	case T_FC_ITEM_HOMEPREMIUM_INFO :					return "T_FC_ITEM_HOMEPREMIUM_INFO";				// F->C, // 2010-06-01 by shcho, PC¹æ ±ÇÇÑ È¹µæ(Ä³½¬) ¾ÆÀÌÅÛ -
+	case T_FC_ITEM_HOMEPREMIUM_INFO :					return "T_FC_ITEM_HOMEPREMIUM_INFO";				// F->C, // 2010-06-01 by shcho, PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½(Ä³ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Å¬¶óÀÌ¾ðÆ® ÆÐÅ¶ Àü¼Û Ä¿¸Çµå Ãß°¡
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Çµï¿½ ï¿½ß°ï¿½
 	case T_FC_ITEM_PET_HEADER:							return "T_FC_ITEM_PET_HEADER";				
 	case T_FC_ITEM_PET:									return "T_FC_ITEM_PET";
 	case T_FC_ITEM_PET_BASEDATA_OK:						return "T_FC_ITEM_PET_BASEDATA_OK";
-	//case T_FC_ITEM_PET_SKILLDATA_OK:					return "T_FC_ITEM_PET_SKILLDATA_OK";		// 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷
-	//case T_FC_ITEM_PET_SOCKETDATA_OK:					return "T_FC_ITEM_PET_SOCKETDATA_OK";		// 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷
+	//case T_FC_ITEM_PET_SKILLDATA_OK:					return "T_FC_ITEM_PET_SKILLDATA_OK";		// 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½
+	//case T_FC_ITEM_PET_SOCKETDATA_OK:					return "T_FC_ITEM_PET_SOCKETDATA_OK";		// 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½
 	case T_FC_ITEM_PET_DONE:							return "T_FC_ITEM_PET_DONE";
 	
-	case T_IP_AUTHENTICATION_SHUTDOWN:					return "T_IP_AUTHENTICATION_SHUTDOWN";		// 2011-06-22 by hskim, »ç¼³ ¼­¹ö ¹æÁö
-	case T_FP_AUTHENTICATION_SHUTDOWN:					return "T_FP_AUTHENTICATION_SHUTDOWN";		// 2011-06-22 by hskim, »ç¼³ ¼­¹ö ¹æÁö	
+	case T_IP_AUTHENTICATION_SHUTDOWN:					return "T_IP_AUTHENTICATION_SHUTDOWN";		// 2011-06-22 by hskim, ï¿½ç¼³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FP_AUTHENTICATION_SHUTDOWN:					return "T_FP_AUTHENTICATION_SHUTDOWN";		// 2011-06-22 by hskim, ï¿½ç¼³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 
-	case T_IP_SELECTIVE_SHUTDOWN_NOTICE:				return "T_IP_SELECTIVE_SHUTDOWN_NOTICE";		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+	case T_IP_SELECTIVE_SHUTDOWN_NOTICE:				return "T_IP_SELECTIVE_SHUTDOWN_NOTICE";		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 
 	/////////////////////////////////////////////////////////////
-	// start 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ±â´É ±¸Çö
+	// start 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case T_FC_ITEM_PET_SET_NAME:						return "T_FC_ITEM_PET_SET_NAME";					// C -> F, 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê ÀÌ¸§ º¯°æ ¿äÃ»
-	case T_FC_ITEM_PET_SET_NAME_OK:						return "T_FC_ITEM_PET_SET_NAME_OK";					// F -> C, 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê ÀÌ¸§ º¯°æ ¿äÃ» °á°ú
-	case T_FC_ITEM_PET_SET_EXP_RATIO:					return "T_FC_ITEM_PET_SET_EXP_RATIO";				// C -> F, 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê °æÇèÄ¡ È¹µæ ºñÀ² º¯°æ ¿äÃ»
-	case T_FC_ITEM_PET_SET_EXP_RATIO_OK:				return "T_FC_ITEM_PET_SET_EXP_RATIO_OK";			// F -> C, 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê °æÇèÄ¡ È¹µæ ºñÀ² º¯°æ °á°ú
-	case T_FC_ITEM_PET_CHANGE_LEVEL:					return "T_FC_ITEM_PET_CHANGE_LEVEL";				// F -> C, 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê ·¹º§¾÷ ¾Ë¸²
-	case T_FC_ITEM_PET_CHANGE_EXP:						return "T_FC_ITEM_PET_CHANGE_EXP";					// F -> C, 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê °æÇèÄ¡ È¹µæ ¾Ë¸²
+	case T_FC_ITEM_PET_SET_NAME:						return "T_FC_ITEM_PET_SET_NAME";					// C -> F, 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	case T_FC_ITEM_PET_SET_NAME_OK:						return "T_FC_ITEM_PET_SET_NAME_OK";					// F -> C, 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_SET_EXP_RATIO:					return "T_FC_ITEM_PET_SET_EXP_RATIO";				// C -> F, 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	case T_FC_ITEM_PET_SET_EXP_RATIO_OK:				return "T_FC_ITEM_PET_SET_EXP_RATIO_OK";			// F -> C, 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_CHANGE_LEVEL:					return "T_FC_ITEM_PET_CHANGE_LEVEL";				// F -> C, 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
+	case T_FC_ITEM_PET_CHANGE_EXP:						return "T_FC_ITEM_PET_CHANGE_EXP";					// F -> C, 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ È¹ï¿½ï¿½ ï¿½Ë¸ï¿½
 
-	case T_FC_ITEM_PET_SET_SOCKET:						return "T_FC_ITEM_PET_SET_SOCKET";					// C -> F, 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ ¾ÆÀÌÅÛ ¼³Á¤
-	case T_FC_ITEM_PET_SET_SOCKET_OK:					return "T_FC_ITEM_PET_SET_SOCKET_OK";				// F -> C, 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ ¾ÆÀÌÅÛ ¼³Á¤ °á°ú
-	case T_FC_ITEM_PET_SET_KIT_SLOT:					return "T_FC_ITEM_PET_SET_KIT_SLOT";				// C -> F, 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Å°Æ® ½½·Ô ¼³Á¤
-	case T_FC_ITEM_PET_SET_KIT_SLOT_OK:					return "T_FC_ITEM_PET_SET_KIT_SLOT_OK";				// F -> C, 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Å°Æ® ½½·Ô ¼³Á¤ °á°ú
-	case T_FC_ITEM_PET_SET_AUTOSKILL_SLOT:				return "T_FC_ITEM_PET_SET_AUTOSKILL_SLOT";			// C -> F, 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¿ÀÅä ½ºÅ³ ½½·Ô ¼³Á¤
-	case T_FC_ITEM_PET_SET_AUTOSKILL_SLOT_OK:			return "T_FC_ITEM_PET_SET_AUTOSKILL_SLOT_OK";		// F -> C, 2011-08-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¿ÀÅä ½ºÅ³ ½½·Ô ¼³Á¤		
+	case T_FC_ITEM_PET_SET_SOCKET:						return "T_FC_ITEM_PET_SET_SOCKET";					// C -> F, 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_SET_SOCKET_OK:					return "T_FC_ITEM_PET_SET_SOCKET_OK";				// F -> C, 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_SET_KIT_SLOT:					return "T_FC_ITEM_PET_SET_KIT_SLOT";				// C -> F, 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - Å°Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_SET_KIT_SLOT_OK:					return "T_FC_ITEM_PET_SET_KIT_SLOT_OK";				// F -> C, 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - Å°Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_SET_AUTOSKILL_SLOT:				return "T_FC_ITEM_PET_SET_AUTOSKILL_SLOT";			// C -> F, 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FC_ITEM_PET_SET_AUTOSKILL_SLOT_OK:			return "T_FC_ITEM_PET_SET_AUTOSKILL_SLOT_OK";		// F -> C, 2011-08-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		
 
-	case T_FtoA_INFINITY_COME_BACK_PREWORK:				return "T_FtoA_INFINITY_COME_BACK_PREWORK";			//  AMF - >MFS // 2011-09-29 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÎÇÇ MainFieldServer·Î µ¹¾Æ°¡±â À§ÇÑ »çÀü ÀÛ¾÷ Ã³¸® ¸í·É
-	case T_FtoA_INFINITY_UPDATE_ITEM_PET:				return "T_FtoA_INFINITY_UPDATE_ITEM_PET";			//	AFS -> MFS // 2011-09-30 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÎÇÇ MainFieldServer·Î ÆÄÆ®³Ê ¾ÆÀÌÅÛ µ¿±âÈ­ À§ÇØ Àü¼Û
-	case T_FtoA_INFINITY_COME_BACK_POSTWORK:			return "T_FtoA_INFINITY_COME_BACK_POSTWORK";		//  AMF - >MFS  // 2011-09-29 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÎÇÇ MainFieldServer·Î µ¹¾Æ°¡±â À§ÇÑ ÈÄ ÀÛ¾÷ Ã³¸® ¸í·É
+	case T_FtoA_INFINITY_COME_BACK_PREWORK:				return "T_FtoA_INFINITY_COME_BACK_PREWORK";			//  AMF - >MFS // 2011-09-29 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case T_FtoA_INFINITY_UPDATE_ITEM_PET:				return "T_FtoA_INFINITY_UPDATE_ITEM_PET";			//	AFS -> MFS // 2011-09-30 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_FtoA_INFINITY_COME_BACK_POSTWORK:			return "T_FtoA_INFINITY_COME_BACK_POSTWORK";		//  AMF - >MFS  // 2011-09-29 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ MainFieldServerï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Û¾ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// end 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ±â´É ±¸Çö
+	// end 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	/////////////////////////////////////////////////////////////
 
 	////////////////////////////////////////////////////////////////////////////
-	// 2012-10-05 by jhseol, NPlay pc¹æ ¸ðµâ
+	// 2012-10-05 by jhseol, NPlay pcï¿½ï¿½ ï¿½ï¿½ï¿½
 	case T_FP_PCBANG_USER_GAME_START:					return "T_FP_PCBANG_USER_GAME_START";
 	case T_FP_PCBANG_USER_GAME_END:						return "T_FP_PCBANG_USER_GAME_END";
 	case T_FP_PCBANG_USER_PREMIUN_END:					return "T_FP_PCBANG_USER_PREMIUN_END";
@@ -1746,26 +1749,26 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FP_PCBANG_USER_PREMIUM_REQUEST:				return "T_FP_PCBANG_USER_PREMIUM_REQUEST";
 	case T_FP_PCBANG_USER_PREMIUM_RESIDUAL_TIME:		return "T_FP_PCBANG_USER_PREMIUM_RESIDUAL_TIME";
 	case T_FC_CHARACTER_PCBANG_PREMIUN_APPLY:			return "T_FC_CHARACTER_PCBANG_PREMIUN_APPLY";
-	// end 2012-10-05 by jhseol, NPlay pc¹æ ¸ðµâ
+	// end 2012-10-05 by jhseol, NPlay pcï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// 2012-10-17 by hskim, XignCodeÀÛ¾÷
+	// 2012-10-17 by hskim, XignCodeï¿½Û¾ï¿½
 	case T_FC_CHARACTER_XIGNCODE_C_ACK_PACKET:			return "T_FC_CHARACTER_XIGNCODE_C_ACK_PACKET";
 	case T_FC_CHARACTER_XIGNCODE_C_ACK_CODE:			return "T_FC_CHARACTER_XIGNCODE_C_ACK_CODE";
 	case T_FC_CHARACTER_XIGNCODE_S_ACK_PACKET:			return "T_FC_CHARACTER_XIGNCODE_S_ACK_PACKET";
-	// end 2012-10-17 by hskim, XignCodeÀÛ¾÷
+	// end 2012-10-17 by hskim, XignCodeï¿½Û¾ï¿½
 
-	case T_FC_SHOP_AUTH_KEY:							return "T_FC_SHOP_AUTH_KEY";		// 2013-03-13 by hskim, À¥ Ä³½Ã »óÁ¡
+	case T_FC_SHOP_AUTH_KEY:							return "T_FC_SHOP_AUTH_KEY";		// 2013-03-13 by hskim, ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-05-31 by jhseol,bckim ¾Æ¸Ó ÄÃ·º¼Ç - ÆÐÅ¶ Ãß°¡ : ¸Þ¼¼Áö
+	// 2013-05-31 by jhseol,bckim ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ - ï¿½ï¿½Å¶ ï¿½ß°ï¿½ : ï¿½Þ¼ï¿½ï¿½ï¿½
 	case T_FC_COLLECTION_INFO:							return "T_FC_COLLECTION_INFO";
 	case T_FC_COLLECTION_SHAPE_CHANGE:					return "T_FC_COLLECTION_SHAPE_CHANGE";
 	case T_FC_COLLECTION_MONTHLY_AROMOR_EVENT_INIT:		return "T_FC_COLLECTION_MONTHLY_AROMOR_EVENT_INIT";
 	case T_FC_COLLECTION_MONTHLY_AROMOR_EVENT_INFO:		return "T_FC_COLLECTION_MONTHLY_AROMOR_EVENT_INFO";
-	// end 2013-05-31 by jhseol,bckim ¾Æ¸Ó ÄÃ·º¼Ç - ÆÐÅ¶ Ãß°¡ : ¸Þ¼¼Áö
+	// end 2013-05-31 by jhseol,bckim ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ - ï¿½ï¿½Å¶ ï¿½ß°ï¿½ : ï¿½Þ¼ï¿½ï¿½ï¿½
 
-	case T_FC_INFO_NGCSPWAR_DISPLAY:					return "T_FC_INFO_NGCSPWAR_DISPLAY";	// 2013-08-14 by jhseol, °ÅÁ¡Àü ¸®´º¾ó - NGC °ÅÁ¡
+	case T_FC_INFO_NGCSPWAR_DISPLAY:					return "T_FC_INFO_NGCSPWAR_DISPLAY";	// 2013-08-14 by jhseol, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - NGC ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-11-25 by jhseol&bckim, °Å·¡¼Ò - ÇØ´õ ¹× ÆÐÅ¶ Ãß°¡
+	// 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½ - ï¿½Ø´ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ß°ï¿½
 	case T_FC_MARKET_BASE_INFO_REQUEST:					return "T_FC_MARKET_BASE_INFO_REQUEST";
 	case T_FC_MARKET_BASE_INFO_HEADER:					return "T_FC_MARKET_BASE_INFO_HEADER";
 	case T_FC_MARKET_BASE_INFO_OK:						return "T_FC_MARKET_BASE_INFO_OK";
@@ -1792,9 +1795,9 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_MARKET_MY_LIST_HEADER:					return "T_FC_MARKET_MY_LIST_HEADER";
 	case T_FC_MARKET_MY_LIST_OK:						return "T_FC_MARKET_MY_LIST_OK";
 	case T_FC_MARKET_MY_LIST_DONE:						return "T_FC_MARKET_MY_LIST_DONE";
-	// end 2013-11-25 by jhseol&bckim, °Å·¡¼Ò - ÇØ´õ ¹× ÆÐÅ¶ Ãß°¡
+	// end 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½ - ï¿½Ø´ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ß°ï¿½
 
-	// 2014-01-03 by jhseol&bckim, ÆÄ±«°æ¸ÅÀå
+	// 2014-01-03 by jhseol&bckim, ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	case T_FC_DESTROY_AUCTION_BASE_INFO_REQUEST:		return "T_FC_DESTROY_AUCTION_BASE_INFO_REQUEST";
 	case T_FC_DESTROY_AUCTION_BASE_INFO_HEADER:			return "T_FC_DESTROY_AUCTION_BASE_INFO_HEADER";
 	case T_FC_DESTROY_AUCTION_BASE_INFO_OK:				return "T_FC_DESTROY_AUCTION_BASE_INFO_OK";
@@ -1809,13 +1812,13 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_FC_DESTROY_AUCTION_MY_LIST_DONE:				return "T_FC_DESTROY_AUCTION_MY_LIST_DONE";
 	case T_FC_DESTROY_AUCTION_NOTI_START:				return "T_FC_DESTROY_AUCTION_NOTI_START";
 	case T_FC_DESTROY_AUCTION_NOTI_END:					return "T_FC_DESTROY_AUCTION_NOTI_END";
-	// end 2014-01-03 by jhseol&bckim, ÆÄ±«°æ¸ÅÀå
+	// end 2014-01-03 by jhseol&bckim, ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	}
 	return "NO SUCH MESSAGE TYPE";
 }
 
-// 2014-03-31 by bckim, ¸ðµç ¸ó½ºÅÍ Å³·Î±× ( Ä³³ª´Ù ¿äÃ») 
+// 2014-03-31 by bckim, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å³ï¿½Î±ï¿½ ( Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã») 
 const char* GetKillLogTypeString(INT msgType)
 {
 	switch(msgType)
@@ -1828,7 +1831,7 @@ const char* GetKillLogTypeString(INT msgType)
 
 	return "MONSTER_ERROR";
 }
-// End. 2014-03-31 by bckim, ¸ðµç ¸ó½ºÅÍ Å³·Î±× ( Ä³³ª´Ù ¿äÃ») 
+// End. 2014-03-31 by bckim, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å³ï¿½Î±ï¿½ ( Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã») 
 
 
 const char* GetGameLogTypeString(MessageType_t msgType)
@@ -1853,7 +1856,7 @@ const char* GetGameLogTypeString(MessageType_t msgType)
 	case T1_FL_LOG_SPEED_HACK:							return "T1_FL_LOG_SPEED_HACK";
 	case T1_FL_LOG_CREATE_CHARACTER:					return "T1_FL_LOG_CREATE_CHARACTER";
 	case T1_FL_LOG_DELETE_CHARACTER:					return "T1_FL_LOG_DELETE_CHARACTER";
-	case T1_FL_LOG_DELETE_CHARACTER_BY_ADMIN:			return "T1_FL_LOG_DELETE_CHARACTER_BY_ADMIN"; // 2014-01-21 by jekim, Åø¿¡¼­ Ä³¸¯ÅÍ »èÁ¦ °¡´ÉÇÏ°Ô ÇÏ±â.
+	case T1_FL_LOG_DELETE_CHARACTER_BY_ADMIN:			return "T1_FL_LOG_DELETE_CHARACTER_BY_ADMIN"; // 2014-01-21 by jekim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï±ï¿½.
 
 	case T1_FL_LOG_MEMORY_HACK:							return "T1_FL_LOG_MEMORY_HACK";
 	case T1_FL_LOG_PvEWIN:								return "T1_FL_LOG_PvEWIN";
@@ -1866,10 +1869,10 @@ const char* GetGameLogTypeString(MessageType_t msgType)
 	case T1_FL_LOG_ITEM_BUY_ITEM:						return "T1_FL_LOG_ITEM_BUY_ITEM";
 
 	
-	case T1_FL_LOG_ITEM_BUY_CASH_PRICE:					return "T1_FL_LOG_ITEM_BUY_CASH_PRICE";	// 2012-10-16 by bckim, Ä³½¬¾ÆÀÌÅÛ ÁöºÒÁ¤º¸ Log Ãß°¡
-	case T1_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT:	return "T1_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT";	// 2012-12-17 by bckim, ±æµåÃ¢°í ¾ÆÀÌÅÛ ÀÌµ¿ °ü·Ã Ãß°¡·Î±× 
-	case T1_FL_LOG_ITEM_INITIALIZED_GUILD_STORE:		return "T1_FL_LOG_ITEM_INITIALIZED_GUILD_STORE";	// 2012-12-20 by bckim, ¼¼·ÂÃÊ±âÈ­½Ã ±æµåÃ¢°í¾ÆÀÌÅÛÀÌ ±æµåÀå¿¡°Ô ¿Å°ÜÁö´Â ¾ÆÀÌÅÛ ·Î±×
-	case T1_FL_LOG_ITEM_GET_WITH_SAME_ACCOUNT:			return "T1_FL_LOG_ITEM_GET_WITH_SAME_ACCOUNT";	// 2012-12-27 by bckim, µ¿ÀÏ°èÁ¤, °¢°¢ÀÇ ÄÉ¸¯ÅÍ°£ÀÇ ¾ÆÀÌÅÛ ÀÌµ¿½Ã ·Î±×Ãß°¡
+	case T1_FL_LOG_ITEM_BUY_CASH_PRICE:					return "T1_FL_LOG_ITEM_BUY_CASH_PRICE";	// 2012-10-16 by bckim, Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Log ï¿½ß°ï¿½
+	case T1_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT:	return "T1_FL_LOG_ITEM_CHARACTER_ITEM_GUILDSTORE_RESULT";	// 2012-12-17 by bckim, ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Î±ï¿½ 
+	case T1_FL_LOG_ITEM_INITIALIZED_GUILD_STORE:		return "T1_FL_LOG_ITEM_INITIALIZED_GUILD_STORE";	// 2012-12-20 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½
+	case T1_FL_LOG_ITEM_GET_WITH_SAME_ACCOUNT:			return "T1_FL_LOG_ITEM_GET_WITH_SAME_ACCOUNT";	// 2012-12-27 by bckim, ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½Í°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ß°ï¿½
 	
 	case T1_FL_LOG_ITEM_SELL_ITEM:						return "T1_FL_LOG_ITEM_SELL_ITEM";
 	case T1_FL_LOG_ITEM_USE_ITEM:						return "T1_FL_LOG_ITEM_USE_ITEM";
@@ -1895,9 +1898,9 @@ const char* GetGameLogTypeString(MessageType_t msgType)
 	case T1_FL_LOG_ARENA_TEAM_MATCH:				return "T1_FL_LOG_ARENA_TEAM_MATCH";				// 2007-06-11 by dhjin
 	case T1_FL_LOG_TUTORIAL_COMPLETION:				return "T1_FL_LOG_TUTORIAL_COMPLETION";				// 60 - Tutorial, 2007-07-06 by dhjin
 
-	case T1_FL_LOG_OUTPOST_START:					return "T1_FL_LOG_OUTPOST_START";					// 61 - OutPost½ÃÀÛ ·Î±×, 2007-10-02 by dhjin
-	case T1_FL_LOG_OUTPOST_END:						return "T1_FL_LOG_OUTPOST_END";						// 62 - OutPostÁ¾·á ·Î±×, 2007-10-02 by dhjin
-	case T1_FL_LOG_EXPEDIENCYFUND:					return "T1_FL_LOG_EXPEDIENCYFUND";					// 63 - ÆÇ°øºñ Áõ/°¨ ·Î±×, 2007-10-02 by dhjin
+	case T1_FL_LOG_OUTPOST_START:					return "T1_FL_LOG_OUTPOST_START";					// 61 - OutPostï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½, 2007-10-02 by dhjin
+	case T1_FL_LOG_OUTPOST_END:						return "T1_FL_LOG_OUTPOST_END";						// 62 - OutPostï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½, 2007-10-02 by dhjin
+	case T1_FL_LOG_EXPEDIENCYFUND:					return "T1_FL_LOG_EXPEDIENCYFUND";					// 63 - ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½/ï¿½ï¿½ ï¿½Î±ï¿½, 2007-10-02 by dhjin
 
 	case T1_FL_LOG_SERVER_INFO_MAP:						return "T1_FL_LOG_SERVER_INFO_MAP";
 	case T1_FL_LOG_SERVER_INFO_TOTAL:					return "T1_FL_LOG_SERVER_INFO_TOTAL";
@@ -1908,84 +1911,84 @@ const char* GetGameLogTypeString(MessageType_t msgType)
 
 	case T1_FL_LOG_SERVER_INTEGRAION:					return "T1_FL_LOG_SERVER_INTEGRAION";			// 2007-01-26 by cmkwon
 	case T1_FL_LOG_SERVER_INTEGRAION_GUILD_STORE_ITEMS:	return "T1_FL_LOG_SERVER_INTEGRAION_GUILD_STORE_ITEMS";	// 2007-02-15 by cmkwon
-	case T1_FL_LOG_SERVER_INTEGRAION_ONLY_CASH_STORE_ITEMS:	return "T1_FL_LOG_SERVER_INTEGRAION_ONLY_CASH_STORE_ITEMS";	// 2008-02-28 by cmkwon, ¿¹´ç ¼­¹ö±º ÅëÇÕ Ä³½¬ ¾ÆÀÌÅÛ¸¸ ÀÌµ¿ÇÏ´Â ÇÁ·Î½ÃÀú
+	case T1_FL_LOG_SERVER_INTEGRAION_ONLY_CASH_STORE_ITEMS:	return "T1_FL_LOG_SERVER_INTEGRAION_ONLY_CASH_STORE_ITEMS";	// 2008-02-28 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½
 
-	case T1_FL_LOG_INFLWAR_START:						return "T1_FL_LOG_INFLWAR_START";					// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T1_FL_LOG_INFLWAR_END:							return "T1_FL_LOG_INFLWAR_END";						// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T1_FL_LOG_OUTPOSTWAR_RESET_START:				return "T1_FL_LOG_OUTPOSTWAR_RESET_START";			// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T1_FL_LOG_OUTPOSTWAR_RESET_DESTROY:			return "T1_FL_LOG_OUTPOSTWAR_RESET_DESTROY";		// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T1_FL_LOG_OUTPOSTWAR_RESET_COMPLETE:			return "T1_FL_LOG_OUTPOSTWAR_RESET_COMPLETE";		// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T1_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY:		return "T1_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY";	// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
-	case T1_FL_LOG_OUTPOSTWAR_SET_NEXTTIME:				return "T1_FL_LOG_OUTPOSTWAR_SET_NEXTTIME";			// 2007-10-16 by cmkwon, ·Î±× Ãß°¡ -
+	case T1_FL_LOG_INFLWAR_START:						return "T1_FL_LOG_INFLWAR_START";					// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T1_FL_LOG_INFLWAR_END:							return "T1_FL_LOG_INFLWAR_END";						// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T1_FL_LOG_OUTPOSTWAR_RESET_START:				return "T1_FL_LOG_OUTPOSTWAR_RESET_START";			// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T1_FL_LOG_OUTPOSTWAR_RESET_DESTROY:			return "T1_FL_LOG_OUTPOSTWAR_RESET_DESTROY";		// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T1_FL_LOG_OUTPOSTWAR_RESET_COMPLETE:			return "T1_FL_LOG_OUTPOSTWAR_RESET_COMPLETE";		// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T1_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY:		return "T1_FL_LOG_OUTPOSTWAR_PROTECTOR_DESTROY";	// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
+	case T1_FL_LOG_OUTPOSTWAR_SET_NEXTTIME:				return "T1_FL_LOG_OUTPOSTWAR_SET_NEXTTIME";			// 2007-10-16 by cmkwon, ï¿½Î±ï¿½ ï¿½ß°ï¿½ -
 
 
 	case T1_FL_LOG_POLL_VOTE:							return "T1_FL_LOG_POLL_VOTE";
 	case T1_FL_LOG_POLL_DELETE_LEADERCANDIDATE:			return "T1_FL_LOG_POLL_DELETE_LEADERCANDIDATE";
 
 	case T1_FL_LOG_DISMEMBER_GUILD:						return "T1_FL_LOG_DISMEMBER_GUILD";
-	case T1_FL_LOG_NOTIFY_MSG_DELETE:					return "T1_FL_LOG_NOTIFY_MSG_DELETE";		// 2007-11-28 by cmkwon, ÅëÁö½Ã½ºÅÛ ±¸Çö -
-	case T1_FL_LOG_USE_COUPON:							return "T1_FL_LOG_USE_COUPON";				// 2008-01-23 by cmkwon, S_F, S_L: ÄíÆù »ç¿ë °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
+	case T1_FL_LOG_NOTIFY_MSG_DELETE:					return "T1_FL_LOG_NOTIFY_MSG_DELETE";		// 2007-11-28 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case T1_FL_LOG_USE_COUPON:							return "T1_FL_LOG_USE_COUPON";				// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
 		
-	case T1_FL_LOG_ITEM_GIFT_SEND:						return "T1_FL_LOG_ITEM_GIFT_SEND";			// 2007-11-13 by cmkwon, ¼±¹°ÇÏ±â ±â´É Ãß°¡ - 
-	case T1_FL_LOG_ITEM_GIFT_RECV:						return "T1_FL_LOG_ITEM_GIFT_RECV";			// 2007-11-13 by cmkwon, ¼±¹°ÇÏ±â ±â´É Ãß°¡ - 
-	case T1_FL_LOG_ITEM_REARRANGE_DELETE_ITEM:			return "T1_FL_LOG_ITEM_REARRANGE_DELETE_ITEM";	// 2007-11-29 by cmkwon, Ä«¿îÅÍºí¾ÆÀÌÅÛ ÇÕÃÄÁö´Â °ÔÀÓ ·Î±× ³²±â±â - 
-	case T1_FL_LOG_ITEM_REARRANGE_ITEM:					return "T1_FL_LOG_ITEM_REARRANGE_ITEM";			// 2007-11-29 by cmkwon, Ä«¿îÅÍºí¾ÆÀÌÅÛ ÇÕÃÄÁö´Â °ÔÀÓ ·Î±× ³²±â±â - 
-	case T1_FL_LOG_ITEM_ATTACH_ITEM:					return "T1_FL_LOG_ITEM_ATTACH_ITEM";			// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
-	case T1_FL_LOG_ITEM_DETACH_ITEM:					return "T1_FL_LOG_ITEM_DETACH_ITEM";			// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
-	case T1_FL_LOG_ITEM_DELETE:							return "T1_FL_LOG_ITEM_DELETE";					// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - 
+	case T1_FL_LOG_ITEM_GIFT_SEND:						return "T1_FL_LOG_ITEM_GIFT_SEND";			// 2007-11-13 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case T1_FL_LOG_ITEM_GIFT_RECV:						return "T1_FL_LOG_ITEM_GIFT_RECV";			// 2007-11-13 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case T1_FL_LOG_ITEM_REARRANGE_DELETE_ITEM:			return "T1_FL_LOG_ITEM_REARRANGE_DELETE_ITEM";	// 2007-11-29 by cmkwon, Ä«ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ - 
+	case T1_FL_LOG_ITEM_REARRANGE_ITEM:					return "T1_FL_LOG_ITEM_REARRANGE_ITEM";			// 2007-11-29 by cmkwon, Ä«ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ - 
+	case T1_FL_LOG_ITEM_ATTACH_ITEM:					return "T1_FL_LOG_ITEM_ATTACH_ITEM";			// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
+	case T1_FL_LOG_ITEM_DETACH_ITEM:					return "T1_FL_LOG_ITEM_DETACH_ITEM";			// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
+	case T1_FL_LOG_ITEM_DELETE:							return "T1_FL_LOG_ITEM_DELETE";					// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - 
 
-	case T1_FL_LOG_LUCKY_DROP:							return "T1_FL_LOG_LUCKY_DROP";					// 2009-03-31 by dhjin, ·°Å°¸Ó½Å ·Î±×
+	case T1_FL_LOG_LUCKY_DROP:							return "T1_FL_LOG_LUCKY_DROP";					// 2009-03-31 by dhjin, ï¿½ï¿½Å°ï¿½Ó½ï¿½ ï¿½Î±ï¿½
 
-	case T1_FL_LOG_BLOCK_ACCOUNT:						return "T1_FL_LOG_BLOCK_ACCOUNT";				// 2008-01-30 by cmkwon, °èÁ¤ ºí·° ·Î±× ³²±â±â ±¸Çö - 
-	case T1_FL_LOG_UNBLOCK_ACCOUNT:						return "T1_FL_LOG_UNBLOCK_ACCOUNT";				// 2008-01-30 by cmkwon, °èÁ¤ ºí·° ·Î±× ³²±â±â ±¸Çö - 
+	case T1_FL_LOG_BLOCK_ACCOUNT:						return "T1_FL_LOG_BLOCK_ACCOUNT";				// 2008-01-30 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case T1_FL_LOG_UNBLOCK_ACCOUNT:						return "T1_FL_LOG_UNBLOCK_ACCOUNT";				// 2008-01-30 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case T1_FL_LOG_WAR_CONTRIBUTION:					return "T1_FL_LOG_WAR_CONTRIBUTION";			// 2008-12-29 by dhjin, ÀüÀï º¸»ó Ãß°¡¾È
-	case T1_FL_LOG_WAR_CONTRIBUTION_GEAR:				return "T1_FL_LOG_WAR_CONTRIBUTION_GEAR";		// 2008-12-29 by dhjin, ÀüÀï º¸»ó Ãß°¡¾È
+	case T1_FL_LOG_WAR_CONTRIBUTION:					return "T1_FL_LOG_WAR_CONTRIBUTION";			// 2008-12-29 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
+	case T1_FL_LOG_WAR_CONTRIBUTION_GEAR:				return "T1_FL_LOG_WAR_CONTRIBUTION_GEAR";		// 2008-12-29 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
 	
-	case T1_FL_LOG_INFINITY_START:						return "T1_FL_LOG_INFINITY_START";	// 193 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ½ÃÀÛ °ü·Ã Á¤º¸ 
-	case T1_FL_LOG_INFINITY_START_ITEM:					return "T1_FL_LOG_INFINITY_START_ITEM";	// 194 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ½ÃÀÛ½Ã ¾ÆÀÌÅÛ º¹»ç Á¤º¸
-	case T1_FL_LOG_INFINITY_CINEMA:						return "T1_FL_LOG_INFINITY_CINEMA";	// 195 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ¿¬Ãâ ·Î±×
-	case T1_FL_LOG_MONSTER_SKILL:						return "T1_FL_LOG_MONSTER_SKILL";	// 196 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ¸ó½ºÅÍ ½ºÅ³ »ç¿ë½Ã
-	case T1_FL_LOG_HPACTION_TALK:						return "T1_FL_LOG_HPACTION_TALK";	// 197 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ¸ó½ºÅÍ ´ëÈ­ »ç¿ë½Ã
-	case T1_FL_LOG_INFINITY_FIN:						return "T1_FL_LOG_INFINITY_FIN";	// 198 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, Á¾·á °ü·Ã Á¤º¸ 
-	case T1_FL_LOG_INFINITY_FIN_ITEM:					return "T1_FL_LOG_INFINITY_FIN_ITEM";	// 199 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, Á¾·á½Ã ¾ÆÀÌÅÛ º¹»ç Á¤º¸
-	case T1_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER:		return "T1_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER";	// 200 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, Á¾·á½Ã »ì¾ÆÀÖ´Â ¸ó½ºÅÍ Á¤º¸	
-	case T1_FL_LOG_INFINITY_LEAVE_ITEM:					return "T1_FL_LOG_INFINITY_LEAVE_ITEM";	// 201 - // 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ °ÔÀÓ·Î±× Ãß°¡, ÀÎÇÇ Å»Åð½Ã ¾ÆÀÌÅÛ º¹»ç Á¤º¸
-	case T1_FL_LOG_PET_LEVEL:							return "T1_FL_LOG_PET_LEVEL"; // 213 - // 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÆÄÆ®³Ê ·¹º§ º¯°æ
-	case T1_FL_LOG_CONNECT_USER_NEW:					return "T1_FL_LOG_CONNECT_USER_NEW";	// 214 - // 2012-01-08 by hskim, GLog 2Â÷ - À¯Àú ½Å±Ô Á¢¼Ó
-	case T1_FL_LOG_CONNECT_USER_LOGIN:					return "T1_FL_LOG_CONNECT_USER_LOGIN";	// 214 - // 2012-01-08 by hskim, GLog 2Â÷ - À¯Àú Á¢¼Ó
+	case T1_FL_LOG_INFINITY_START:						return "T1_FL_LOG_INFINITY_START";	// 193 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	case T1_FL_LOG_INFINITY_START_ITEM:					return "T1_FL_LOG_INFINITY_START_ITEM";	// 194 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_INFINITY_CINEMA:						return "T1_FL_LOG_INFINITY_CINEMA";	// 195 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½
+	case T1_FL_LOG_MONSTER_SKILL:						return "T1_FL_LOG_MONSTER_SKILL";	// 196 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_HPACTION_TALK:						return "T1_FL_LOG_HPACTION_TALK";	// 197 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_INFINITY_FIN:						return "T1_FL_LOG_INFINITY_FIN";	// 198 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	case T1_FL_LOG_INFINITY_FIN_ITEM:					return "T1_FL_LOG_INFINITY_FIN_ITEM";	// 199 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER:		return "T1_FL_LOG_INFINITY_FIN_ALIVE_KEY_MONSTER";	// 200 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	case T1_FL_LOG_INFINITY_LEAVE_ITEM:					return "T1_FL_LOG_INFINITY_LEAVE_ITEM";	// 201 - // 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó·Î±ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_PET_LEVEL:							return "T1_FL_LOG_PET_LEVEL"; // 213 - // 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_CONNECT_USER_NEW:					return "T1_FL_LOG_CONNECT_USER_NEW";	// 214 - // 2012-01-08 by hskim, GLog 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_CONNECT_USER_LOGIN:					return "T1_FL_LOG_CONNECT_USER_LOGIN";	// 214 - // 2012-01-08 by hskim, GLog 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case T1_FL_LOG_STATISTICS_MONEY:					return "T1_FL_LOG_STATISTICS_MONEY";		// 216 - // 2012-01-16 by hskim, Åë°è - È­Æó
+	case T1_FL_LOG_STATISTICS_MONEY:					return "T1_FL_LOG_STATISTICS_MONEY";		// 216 - // 2012-01-16 by hskim, ï¿½ï¿½ï¿½ - È­ï¿½ï¿½
 
-	case T1_FL_LOG_FIXED_TERM_SHAPE_START:				return "T1_FL_LOG_FIXED_TERM_SHAPE_START";	// 217 - // 2012-10-10 by hskim, ±â°£Á¦ ¼Ó¼º ±¸Çö (±â°£Á¦ ¿ÜÇü)
-	case T1_FL_LOG_FIXED_TERM_SHAPE_END:				return "T1_FL_LOG_FIXED_TERM_SHAPE_END";		// 218 - // 2012-10-10 by hskim, ±â°£Á¦ ¼Ó¼º ±¸Çö (±â°£Á¦ ¿ÜÇü)
+	case T1_FL_LOG_FIXED_TERM_SHAPE_START:				return "T1_FL_LOG_FIXED_TERM_SHAPE_START";	// 217 - // 2012-10-10 by hskim, ï¿½â°£ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	case T1_FL_LOG_FIXED_TERM_SHAPE_END:				return "T1_FL_LOG_FIXED_TERM_SHAPE_END";		// 218 - // 2012-10-10 by hskim, ï¿½â°£ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	case T1_FL_GLOG_NEW_ACCOUNT_INFO:					return "T1_FL_GLOG_NEW_ACCOUNT_INFO";		//			// 2013-03-14 by bckim, Glog ±â´ÉÃß°¡
+	case T1_FL_GLOG_NEW_ACCOUNT_INFO:					return "T1_FL_GLOG_NEW_ACCOUNT_INFO";		//			// 2013-03-14 by bckim, Glog ï¿½ï¿½ï¿½ï¿½ß°ï¿½
 
-	case T1_FL_LOG_COLLECTION_STATE:					return "T1_FL_LOG_COLLECTION_STATE";			// 226 - // 2013-05-31 by jhseol,bckim ¾Æ¸Ó ÄÃ·º¼Ç - GameLog Ãß°¡
-	case T1_FL_LOG_COLLECTION_SHAPE_CHANGE:				return "T1_FL_LOG_COLLECTION_SHAPE_CHANGE";		// 227 - // 2013-05-31 by jhseol,bckim ¾Æ¸Ó ÄÃ·º¼Ç - GameLog Ãß°¡
-	case T1_FL_LOG_ACCOUNT_INFL_CHANGE_BY_ADMIN:		return "T1_FL_LOG_ACCOUNT_INFL_CHANGE_BY_ADMIN";// 228 - // 2013-07-26 by jhseol, Å¸ °èÁ¤ ¼¼·Âº¯°æ - GameLog Ãß°¡
-	case T1_FL_LOG_ITEM_TRY_ENCHANT_INFO:				return "T1_FL_LOG_ITEM_TRY_ENCHANT_INFO";		//  75 - // 2013-07-01 by bckim, 10ÀÎÃ¦Æ® ¹Ì¸¸ ÇÏÀÌÆÛÄ«µåÃ³¸®, ·Î±×Ãß°¡, ¿î¿µÅø º¸¿Ï
+	case T1_FL_LOG_COLLECTION_STATE:					return "T1_FL_LOG_COLLECTION_STATE";			// 226 - // 2013-05-31 by jhseol,bckim ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
+	case T1_FL_LOG_COLLECTION_SHAPE_CHANGE:				return "T1_FL_LOG_COLLECTION_SHAPE_CHANGE";		// 227 - // 2013-05-31 by jhseol,bckim ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
+	case T1_FL_LOG_ACCOUNT_INFL_CHANGE_BY_ADMIN:		return "T1_FL_LOG_ACCOUNT_INFL_CHANGE_BY_ADMIN";// 228 - // 2013-07-26 by jhseol, Å¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
+	case T1_FL_LOG_ITEM_TRY_ENCHANT_INFO:				return "T1_FL_LOG_ITEM_TRY_ENCHANT_INFO";		//  75 - // 2013-07-01 by bckim, 10ï¿½ï¿½Ã¦Æ® ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½Ã³ï¿½ï¿½, ï¿½Î±ï¿½ï¿½ß°ï¿½, ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case T1_FL_LOG_ITEM_DISSOLUTION_ITEM:				return "T1_FL_LOG_ITEM_DISSOLUTION_ITEM";		// 76 - // 2013-08-05 by bckim, ¿ëÇØ ´ë»ó¾ÆÀÌÅÛ ·Î±× Ãß°¡
+	case T1_FL_LOG_ITEM_DISSOLUTION_ITEM:				return "T1_FL_LOG_ITEM_DISSOLUTION_ITEM";		// 76 - // 2013-08-05 by bckim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ß°ï¿½
 
-		// 2013-11-25 by jhseol&bckim, °Å·¡¼Ò - GameLog Ãß°¡
-	case T1_FL_LOG_MARKET_REGISTRATION:					return "T1_FL_LOG_MARKET_REGISTRATION";			// 85 - µî·Ï
-	case T1_FL_LOG_MARKET_BUY:							return "T1_FL_LOG_MARKET_BUY";					// 86 - ±¸¸Å
-	case T1_FL_LOG_MARKET_GET:							return "T1_FL_LOG_MARKET_GET";					// 87 - È¸¼ö
-		// end 2013-11-25 by jhseol&bckim, °Å·¡¼Ò - GameLog Ãß°¡
+		// 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
+	case T1_FL_LOG_MARKET_REGISTRATION:					return "T1_FL_LOG_MARKET_REGISTRATION";			// 85 - ï¿½ï¿½ï¿½
+	case T1_FL_LOG_MARKET_BUY:							return "T1_FL_LOG_MARKET_BUY";					// 86 - ï¿½ï¿½ï¿½ï¿½
+	case T1_FL_LOG_MARKET_GET:							return "T1_FL_LOG_MARKET_GET";					// 87 - È¸ï¿½ï¿½
+		// end 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
 
-	case T1_FL_LOG_BUGTRAP_ACCEPT:						return "T1_FL_LOG_BUGTRAP_ACCEPT";				// 2014-01-27 by bckim, ¹ö±× Æ®·¦
+	case T1_FL_LOG_BUGTRAP_ACCEPT:						return "T1_FL_LOG_BUGTRAP_ACCEPT";				// 2014-01-27 by bckim, ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½
 
-	case T1_FL_LOG_USE_SKILL:							return "T1_FL_LOG_USE_SKILL";					// 2014-03-31 by jekim, ½ºÅ³ »ç¿ë ·Î±×
+	case T1_FL_LOG_USE_SKILL:							return "T1_FL_LOG_USE_SKILL";					// 2014-03-31 by jekim, ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Î±ï¿½
 
-		// 2014-01-03 by jhseol&bckim, ÆÄ±«°æ¸ÅÀå - GameLog Ãß°¡
-	case T1_FL_LOG_DESTROY_AUCTION_TENDER:				return "T1_FL_LOG_DESTROY_AUCTION_TENDER";		// 89 - ÀÔÂû			
-	case T1_FL_LOG_DESTROY_AUCTION_FIX:					return "T1_FL_LOG_DESTROY_AUCTION_FIX";			// 90 - ³«ÂûÇ° È¸¼ö	
-	case T1_FL_LOG_DESTROY_AUCTION_GET:					return "T1_FL_LOG_DESTROY_AUCTION_GET";			// 91 - ³«ÂûÇ° È¸¼ö	
-		// end 2014-01-03 by jhseol&bckim, ÆÄ±«°æ¸ÅÀå - GameLog Ãß°¡
+		// 2014-01-03 by jhseol&bckim, ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
+	case T1_FL_LOG_DESTROY_AUCTION_TENDER:				return "T1_FL_LOG_DESTROY_AUCTION_TENDER";		// 89 - ï¿½ï¿½ï¿½ï¿½			
+	case T1_FL_LOG_DESTROY_AUCTION_FIX:					return "T1_FL_LOG_DESTROY_AUCTION_FIX";			// 90 - ï¿½ï¿½ï¿½ï¿½Ç° È¸ï¿½ï¿½	
+	case T1_FL_LOG_DESTROY_AUCTION_GET:					return "T1_FL_LOG_DESTROY_AUCTION_GET";			// 91 - ï¿½ï¿½ï¿½ï¿½Ç° È¸ï¿½ï¿½	
+		// end 2014-01-03 by jhseol&bckim, ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - GameLog ï¿½ß°ï¿½
 
-	case T1_FL_LOG_ALL_MONSTER_KILL_LOG:				return "T1_FL_LOG_ALL_MONSTER_KILL_LOG";			// 2014-03-31 by bckim, ¸ðµç ¸ó½ºÅÍ Å³·Î±× ( Ä³³ª´Ù ¿äÃ»)
+	case T1_FL_LOG_ALL_MONSTER_KILL_LOG:				return "T1_FL_LOG_ALL_MONSTER_KILL_LOG";			// 2014-03-31 by bckim, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å³ï¿½Î±ï¿½ ( Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»)
 	}
 
 	return "UNKNOWN_GAME_LOG_TYPE";
@@ -2037,11 +2040,11 @@ const char* GetItemUpdateTypeString(BYTE i_byItemUpdateTy)
 	case IUT_ARENA_ITEM:					return "IUT_ARENA_ITEM";
 	case IUT_TUTORIAL_PAY_ITEM:				return "IUT_TUTORIAL_PAY_ITEM";
 	case IUT_EXPEDIENCYFUND_PAYBACK:		return "IUT_EXPEDIENCYFUND_PAYBACK";
-	case IUT_GIVEEVENTITEM_COUPONEVENT:		return "IUT_GIVEEVENTITEM_COUPONEVENT";		// 2008-01-10 by cmkwon, ¾ÆÀÌÅÛ ÀÌº¥Æ® ½Ã½ºÅÛ¿¡ ½Å ÄíÆù ½Ã½ºÅÛ Ãß°¡ - 
-	case IUT_DEPENDENCY_ITEM:				return "IUT_DEPENDENCY_ITEM";		// 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷
-	case IUT_WARP:							return "IUT_WARP";							// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ¿öÇÁ ÀÔÀå Á¶°Ç¿¡ ÀÇÇÑ ¾ÆÀÌÅÛ »èÁ¦
-	case IUT_DISSOLUTION_ITEM:				return "IUT_DISSOLUTION_ITEM";		// 2013-08-05 by bckim, ¿ëÇØ ´ë»ó¾ÆÀÌÅÛ ·Î±× Ãß°¡
-	case IUT_MARKET:						return "IUT_MARKET";				// 2013-11-25 by jhseol&bckim, °Å·¡¼Ò - °Å·¡Áß°³¼Ò Å¸ÀÔ Ãß°¡
+	case IUT_GIVEEVENTITEM_COUPONEVENT:		return "IUT_GIVEEVENTITEM_COUPONEVENT";		// 2008-01-10 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case IUT_DEPENDENCY_ITEM:				return "IUT_DEPENDENCY_ITEM";		// 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½
+	case IUT_WARP:							return "IUT_WARP";							// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case IUT_DISSOLUTION_ITEM:				return "IUT_DISSOLUTION_ITEM";		// 2013-08-05 by bckim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ß°ï¿½
+	case IUT_MARKET:						return "IUT_MARKET";				// 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½ - ï¿½Å·ï¿½ï¿½ß°ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ß°ï¿½
 	}
 
 	return "UNKNOWN_ITEM_UPDATE_TYPE";
@@ -2050,7 +2053,7 @@ const char* GetItemUpdateTypeString(BYTE i_byItemUpdateTy)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			const char* GetItemDeleteTypeString(BYTE i_byItemDeleteTy)
-/// \brief		// 2008-01-23 by cmkwon, S_F, S_L: ÀåÂø/ÀåÂøÇØÁ¦ °ÔÀÓ ·Î±×¿¡ Ãß°¡ - GetItemDeleteTypeString() Ãß°¡
+/// \brief		// 2008-01-23 by cmkwon, S_F, S_L: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¿ï¿½ ï¿½ß°ï¿½ - GetItemDeleteTypeString() ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2008-01-23 ~ 2008-01-23
 /// \warning	
@@ -2064,9 +2067,9 @@ const char* GetItemDeleteTypeString(BYTE i_byItemDeleteTy)
 	{
 	case IDT_GENERAL:						return "IDT_GENERAL";
 	case IDT_EXPIRE_TIME:					return "IDT_EXPIRE_TIME";
-	case IDT_INVALID_ITEMNUM:				return "IDT_INVALID_ITEMNUM";		// 2009-11-20 by cmkwon, ¼ÒÀ¯ ¾ÆÀÌÅÛ ·Îµù½Ã À¯È¿ÇÏÁö ¾ÊÀº ¾ÆÀÌÅÛ Ã³¸® ¼öÁ¤ - 
-	case IDT_COUNTABLEITEM_ZERO:			return "IDT_COUNTABLEITEM_ZERO";	// 2009-11-20 by cmkwon, ¼ÒÀ¯ ¾ÆÀÌÅÛ ·Îµù½Ã À¯È¿ÇÏÁö ¾ÊÀº ¾ÆÀÌÅÛ Ã³¸® ¼öÁ¤ - 
-	case IDT_MARKET:						return "IDT_MARKET";				// 2013-11-25 by jhseol&bckim, °Å·¡¼Ò - °Å·¡Áß°³¼Ò Å¸ÀÔ Ãß°¡
+	case IDT_INVALID_ITEMNUM:				return "IDT_INVALID_ITEMNUM";		// 2009-11-20 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case IDT_COUNTABLEITEM_ZERO:			return "IDT_COUNTABLEITEM_ZERO";	// 2009-11-20 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case IDT_MARKET:						return "IDT_MARKET";				// 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½ - ï¿½Å·ï¿½ï¿½ß°ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ß°ï¿½
 	}
 
 	return "UNKNOWN_ITEM_DELETE_TYPE";
@@ -2088,8 +2091,8 @@ char* GetErrorString(Err_t err)
 	case ERR_COMMON_INVALID_BUILDINGKIND:				return "ERR_COMMON_INVALID_BUILDINGKIND";
 	case ERR_COMMON_NO_SUCH_BUILDINGKIND:				return "ERR_COMMON_NO_SUCH_BUILDINGKIND";
 	case ERR_COMMON_BAD_NETWORK:						return "ERR_COMMON_BAD_NETWORK";
-	case ERR_COMMON_CONNECTING_GAME:					return "ERR_COMMON_CONNECTING_GAME";		// 2008-11-26 by cmkwon, ´ë¸¸ Netpower_Tpe À¥¿¡¼­ ¾ÆÀÌÅÛ Ãß°¡ ÇÁ·Î½ÃÀú Ãß°¡ - 
-	case ERR_COMMON_DISABLE_CONTENT:					return "ERR_COMMON_DISABLE_CONTENT";		// 2011-10-05 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÄÁÅÙÃ÷ OFF ¿¡·¯ ¸Þ½ÃÁö ¿ë
+	case ERR_COMMON_CONNECTING_GAME:					return "ERR_COMMON_CONNECTING_GAME";		// 2008-11-26 by cmkwon, ï¿½ë¸¸ Netpower_Tpe ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
+	case ERR_COMMON_DISABLE_CONTENT:					return "ERR_COMMON_DISABLE_CONTENT";		// 2011-10-05 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OFF ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 	case ERR_DB_ACCOUNT_ALREAY_EXISTS:					return "ERR_DB_ACCOUNT_ALREAY_EXISTS";
 	case ERR_DB_ACCOUNT_CHARACTER_NO_MATCH:				return "ERR_DB_ACCOUNT_CHARACTER_NO_MATCH";
@@ -2103,8 +2106,8 @@ char* GetErrorString(Err_t err)
 	case ERR_DB_CANNOT_INSERT_DEFAULT_ITEMS:			return "ERR_DB_CANNOT_INSERT_DEFAULT_ITEMS";
 	case ERR_DB_CONNECTION_ERROR:						return "ERR_DB_CONNECTION_ERROR";
 	case ERR_DB_EXECUTION_FAILED:						return "ERR_DB_EXECUTION_FAILED";
-	case ERR_DB_NO_SUCH_DATA:							return "ERR_DB_NO_SUCH_DATA";		// 2008-06-12 by dhjin, EP3 µ¥ÀÌÅ¸ °ª ¾øÀ» °æ¿ì ¿¡·¯ Ãß°¡
-	case ERR_DB_INSERT_QUERY_ERROR:						return "ERR_DB_INSERT_QUERY_ERROR";		// 2008-11-26 by cmkwon, ´ë¸¸ Netpower_Tpe À¥¿¡¼­ ¾ÆÀÌÅÛ Ãß°¡ ÇÁ·Î½ÃÀú Ãß°¡ - 
+	case ERR_DB_NO_SUCH_DATA:							return "ERR_DB_NO_SUCH_DATA";		// 2008-06-12 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½Å¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case ERR_DB_INSERT_QUERY_ERROR:						return "ERR_DB_INSERT_QUERY_ERROR";		// 2008-11-26 by cmkwon, ï¿½ë¸¸ Netpower_Tpe ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
 
 	case ERR_PROTOCOL_INVALID_PROTOCOL_TYPE:			return "ERR_PROTOCOL_INVALID_PROTOCOL_TYPE";
 	case ERR_PROTOCOL_INVALID_FIELD_DATA:				return "ERR_PROTOCOL_INVALID_FIELD_DATA";
@@ -2204,8 +2207,8 @@ char* GetErrorString(Err_t err)
 	case ERR_PROTOCOL_INVLID_GUILDNAME:					return "ERR_PROTOCOL_INVLID_GUILDNAME";
 	case ERR_PROTOCOL_NOT_GET_GUILDSTORE_MEMBER:		return "ERR_PROTOCOL_NOT_GET_GUILDSTORE_MEMBER";
 	case ERR_PROTOCOL_DOING_GUILDWAR_BATTLE:			return "ERR_PROTOCOL_DOING_GUILDWAR_BATTLE";
-	case ERR_PROTOCOL_INVLID_GuildMarkSize:				return "ERR_PROTOCOL_INVLID_GuildMarkSize";			// 2007-08-02 by cmkwon, ¿©´Ü ¸¶Å© ½É»ç ½Ã½ºÅÛ ±¸Çö - ¿©´Ü¸¶Å© »çÀÌÁî ¿À·ù
-	case ERR_PROTOCOL_OVER_MEMBERCOUNT:					return "ERR_PROTOCOL_OVER_MEMBERCOUNT";		// 2008-05-27 by dhjin, EP3 ¿©´Ü ¼öÁ¤ »çÇ× - ¿©´Ü¿ø Áõ°¡ Ä³½¬ ¾ÆÀÌÅÛ, ÃÖ´ë ¿©´Ü¿ø ¼ö ³Ñ±è
+	case ERR_PROTOCOL_INVLID_GuildMarkSize:				return "ERR_PROTOCOL_INVLID_GuildMarkSize";			// 2007-08-02 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½É»ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Ü¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_OVER_MEMBERCOUNT:					return "ERR_PROTOCOL_OVER_MEMBERCOUNT";		// 2008-05-27 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ ï¿½Ñ±ï¿½
 
 	case ERR_PROTOCOL_TOO_FAR_TO_TRADE:					return "ERR_PROTOCOL_TOO_FAR_TO_TRADE";
 	case ERR_PROTOCOL_ALREADY_TRADING:					return "ERR_PROTOCOL_ALREADY_TRADING";
@@ -2227,7 +2230,7 @@ char* GetErrorString(Err_t err)
 	case ERR_PROTOCOL_ALREADY_HAVE_RARE_FIX:			return "ERR_PROTOCOL_ALREADY_HAVE_RARE_FIX";
 	case ERR_PROTOCOL_ALREADY_INITIALIZE_RARE_FIX:		return "ERR_PROTOCOL_ALREADY_INITIALIZE_RARE_FIX";
 	case ERR_PROTOCOL_CANNOT_USE_ITEMKIND_PREVENTION_DELETE_ITEM:	return "ERR_PROTOCOL_CANNOT_USE_ITEMKIND_PREVENTION_DELETE_ITEM";
-	case ERR_PROTOCOL_CANNOT_USE_ITEMKIND_PREVENTION_DELETE_ITEM_BY_STARTCOUNT:	return "ERR_PROTOCOL_CANNOT_USE_ITEMKIND_PREVENTION_DELETE_ITEM_BY_STARTCOUNT";	// 2009-01-19 by dhjin, ÀÎÃ¾Æ® È®·ü Áõ°¡, 10ÀÎÃ¾ ÆÄ¹æ Ä«µå
+	case ERR_PROTOCOL_CANNOT_USE_ITEMKIND_PREVENTION_DELETE_ITEM_BY_STARTCOUNT:	return "ERR_PROTOCOL_CANNOT_USE_ITEMKIND_PREVENTION_DELETE_ITEM_BY_STARTCOUNT";	// 2009-01-19 by dhjin, ï¿½ï¿½Ã¾Æ® È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 10ï¿½ï¿½Ã¾ ï¿½Ä¹ï¿½ Ä«ï¿½ï¿½
 
 	case ERR_PROTOCOL_NOT_ENOUGH_EP:					return "ERR_PROTOCOL_NOT_ENOUGH_EP";
 	case ERR_PROTOCOL_TOO_LONG_DISTANCE:				return "ERR_PROTOCOL_TOO_LONG_DISTANCE";
@@ -2273,18 +2276,18 @@ char* GetErrorString(Err_t err)
 	case ERR_PROTOCOL_BAZAAR_NO_SUCH_ITEM:				return "ERR_PROTOCOL_BAZAAR_NO_SUCH_ITEM";
 	case ERR_PROTOCOL_GUILD_STORE_FULL_ITEM:			return "ERR_PROTOCOL_GUILD_STORE_FULL_ITEM";
 	case ERR_PROTOCOL_CANNOT_USE_ITEM_IN_ARENA:			return "ERR_PROTOCOL_CANNOT_USE_ITEM_IN_ARENA";
-	case ERR_PROTOCOL_INVALID_MIXING_INFO:				return "ERR_PROTOCOL_INVALID_MIXING_INFO";		// 2009-10-01 by cmkwon, ±×·¡ÇÈ ¸®¼Ò½º º¯°æ °ü·Ã ÃÊ±âÈ­ ±â´É ±¸Çö - 
-	case ERR_PROTOCOL_NOT_WEARING_STATE:				return "ERR_PROTOCOL_NOT_WEARING_STATE";			// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ÀåÂø »óÅÂ°¡ ¾Æ´Ï´Ù. 
-	case ERR_PROTOCOL_INVALID_INVOKING_TYPE:			return "ERR_PROTOCOL_INVALID_INVOKING_TYPE";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ¹ßµ¿ Å¸ÀÙ ¿À·ù
-	case ERR_PROTOCOL_FAIL_INVOKING_BY_RATE:			return "ERR_PROTOCOL_FAIL_INVOKING_BY_RATE";		// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ¹ßµ¿ ¹Ì½º
-	case ERR_PROTOCOL_FAIL_INVOKING_BY_REQITEMNUM:		return "ERR_PROTOCOL_FAIL_INVOKING_BY_REQITEMNUM";	// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ¹ßµ¿ Á¶°Ç °ª ¿À·ù
-	case ERR_PROTOCOL_COOLING_TIME_INVOKING_ITEM:		return "ERR_PROTOCOL_COOLING_TIME_INVOKING_ITEM";	// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ¹ßµ¿·ù ¾ÆÀÌÅÛ ÄðÅ¸ÀÓÁß
-	case ERR_PROTOCOL_CANNOT_RARE_ITEM:					return "ERR_PROTOCOL_CANNOT_RARE_ITEM";	// 2009-09-09 ~ 2010-02-10 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¹ßµ¿·ùÀåÂø¾ÆÀÌÅÛ, ¹ßµ¿·ù ¾ÆÀÌÅÛ ÄðÅ¸ÀÓÁß
-	case ERR_PROTOCOL_NOT_ACTIVATED_ITEM:				return "ERR_PROTOCOL_NOT_ACTIVATED_ITEM";			// 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - È°¼ºÈ­ µÇÁö ¾ÊÀº ¾ÆÀÌÅÛ
-	case ERR_PROTOCOL_CANNOT_ATTACHED_ITEM:				return "ERR_PROTOCOL_CANNOT_ATTACHED_ITEM";			// 2011-09-20 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀåÂøµÇÁö ¾ÊÀº ¾ÆÀÌÅÛ
-	case ERR_PROTOCOL_CANNOT_ENCHANT_MORE_THEN_10:			return "ERR_PROTOCOL_CANNOT_ENCHANT_MORE_THEN_10";		// 2011-10-19 by hskim, EP4 [Free to play] - 10 È¸ ÀÎÃ¾Æ® ¾ÆÀÌÅÛ ±â´É ±¸Çö - 10 ÀÎÃ¦Æ® ÀÌ»ó ¾ÆÀÌÅÛÀº °­È­ÇÒ ¼ö ¾øÀ½
-	case ERR_PROTOCOL_CANNOT_ENCHANT_DIFFERENCE_ATTRIBUTE:	return "ERR_PROTOCOL_CANNOT_ENCHANT_DIFFERENCE_ATTRIBUTE";		// 2011-10-19 by hskim, EP4 [Free to play] - 10 È¸ ÀÎÃ¾Æ® ¾ÆÀÌÅÛ ±â´É ±¸Çö - ÀÎÃ¦Æ® ¼Ó¼ºÀÌ Æ²·Á ÀÎÃ¦Æ® ÇÒ ¼ö ¾øÀ½
-	case ERR_PROTOCOL_CANNOT_ENCHANT_LACK_REQUIREMENT:		return "ERR_PROTOCOL_CANNOT_ENCHANT_LACK_REQUIREMENT";			// 2011-10-19 by hskim, EP4 [Free to play] - Á¢µÎ/Á¢¹Ì °íÁ¤ ¿É¼Ç - ¿ä±¸Á¶°Ç¿¡ ºÎÀûÇÔ
+	case ERR_PROTOCOL_INVALID_MIXING_INFO:				return "ERR_PROTOCOL_INVALID_MIXING_INFO";		// 2009-10-01 by cmkwon, ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_PROTOCOL_NOT_WEARING_STATE:				return "ERR_PROTOCOL_NOT_WEARING_STATE";			// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï´ï¿½. 
+	case ERR_PROTOCOL_INVALID_INVOKING_TYPE:			return "ERR_PROTOCOL_INVALID_INVOKING_TYPE";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ßµï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_FAIL_INVOKING_BY_RATE:			return "ERR_PROTOCOL_FAIL_INVOKING_BY_RATE";		// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ßµï¿½ ï¿½Ì½ï¿½
+	case ERR_PROTOCOL_FAIL_INVOKING_BY_REQITEMNUM:		return "ERR_PROTOCOL_FAIL_INVOKING_BY_REQITEMNUM";	// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ßµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_COOLING_TIME_INVOKING_ITEM:		return "ERR_PROTOCOL_COOLING_TIME_INVOKING_ITEM";	// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_CANNOT_RARE_ITEM:					return "ERR_PROTOCOL_CANNOT_RARE_ITEM";	// 2009-09-09 ~ 2010-02-10 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_NOT_ACTIVATED_ITEM:				return "ERR_PROTOCOL_NOT_ACTIVATED_ITEM";			// 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_CANNOT_ATTACHED_ITEM:				return "ERR_PROTOCOL_CANNOT_ATTACHED_ITEM";			// 2011-09-20 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_CANNOT_ENCHANT_MORE_THEN_10:			return "ERR_PROTOCOL_CANNOT_ENCHANT_MORE_THEN_10";		// 2011-10-19 by hskim, EP4 [Free to play] - 10 È¸ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 10 ï¿½ï¿½Ã¦Æ® ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_CANNOT_ENCHANT_DIFFERENCE_ATTRIBUTE:	return "ERR_PROTOCOL_CANNOT_ENCHANT_DIFFERENCE_ATTRIBUTE";		// 2011-10-19 by hskim, EP4 [Free to play] - 10 È¸ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã¦Æ® ï¿½Ó¼ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_CANNOT_ENCHANT_LACK_REQUIREMENT:		return "ERR_PROTOCOL_CANNOT_ENCHANT_LACK_REQUIREMENT";			// 2011-10-19 by hskim, EP4 [Free to play] - ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ - ï¿½ä±¸ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	case ERR_PROTOCOL_REQ_EXPERIENCE_NOT_MATCHED:		return "ERR_PROTOCOL_REQ_EXPERIENCE_NOT_MATCHED";
 	case ERR_PROTOCOL_REQ_RACE_NOT_MATCHED:				return "ERR_PROTOCOL_REQ_RACE_NOT_MATCHED";
 	case ERR_PROTOCOL_REQ_ATTACK_PART_NOT_MATCHED:		return "ERR_PROTOCOL_REQ_ATTACK_PART_NOT_MATCHED";
@@ -2315,8 +2318,8 @@ char* GetErrorString(Err_t err)
 	case ERR_PROTOCOL_REQ_PARTYMEMBERS_SOMEONE_CANNOT_WARP:	return "ERR_PROTOCOL_REQ_PARTYMEMBERS_SOMEONE_CANNOT_WARP";
 	case ERR_PROTOCOL_REQ_PARTYMEMBERS_SOMEONE_NOT_COMPLETION:	return "ERR_PROTOCOL_REQ_PARTYMEMBERS_SOMEONE_NOT_COMPLETION";
 	case ERR_PROTOCOL_REQ_MIX_ITEM_NOT_MATCHED:			return "ERR_PROTOCOL_REQ_MIX_ITEM_NOT_MATCHED";		// 2007-04-02 by cmkwon
-	case ERR_PROTOCOL_REQ_PW_NOT_MATCHED:				return "ERR_PROTOCOL_REQ_PW_NOT_MATCHED";		// 2008-06-03 by dhjin, EP3 Æí´ë ¼öÁ¤ - PW¿À·ù
-	case ERR_PROTOCOL_NOT_WARP_BURNING_MAP:				return "ERR_PROTOCOL_NOT_WARP_BURNING_MAP";		// 2010-11-24 by shcho, ÄÝ¿Àºê È÷¾î·Î »ç¿ë½Ã ¹ö´×Å¸ÀÓ ¸ÊÀÌ¸é ¼ÒÈ¯ºÒ°¡ Ã³¸®
+	case ERR_PROTOCOL_REQ_PW_NOT_MATCHED:				return "ERR_PROTOCOL_REQ_PW_NOT_MATCHED";		// 2008-06-03 by dhjin, EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - PWï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_NOT_WARP_BURNING_MAP:				return "ERR_PROTOCOL_NOT_WARP_BURNING_MAP";		// 2010-11-24 by shcho, ï¿½Ý¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½È¯ï¿½Ò°ï¿½ Ã³ï¿½ï¿½
 
 	case ERR_PROTOCOL_NO_SUCH_CHARACTER_QUEST:			return "ERR_PROTOCOL_NO_SUCH_CHARACTER_QUEST";
 	case ERR_PROTOCOL_QUEST_ALREADY_COMPLETED:			return "ERR_PROTOCOL_QUEST_ALREADY_COMPLETED";
@@ -2344,8 +2347,8 @@ char* GetErrorString(Err_t err)
 	case ERR_PROTOCOL_NO_SUCH_QUEST_INFO:				return "ERR_PROTOCOL_NO_SUCH_QUEST_INFO";
 	case ERR_PROTOCOL_NO_SUCH_ITEM_INFO:				return "ERR_PROTOCOL_NO_SUCH_ITEM_INFO";
 
-	case ERR_PROTOCOL_SELECTIVE_SHUTDOWN_NOT_ALLOWED_TIME:		return "ERR_PROTOCOL_SELECTIVE_SHUTDOWN_NOT_ALLOWED_TIME";		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î - ÇöÀç ½Ã°£¿¡´Â °ÔÀÓÀ» ÇÃ·¹ÀÌ ÇÒ¼ö ¾øÀ½
-	case ERR_PROTOCOL_SELECTIVE_SHUTDOWN_APPLY_LOGOUT:			return "ERR_PROTOCOL_SELECTIVE_SHUTDOWN_APPLY_LOGOUT";			// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î - ¼±ÅÃÀû ¼Ë´Ù¿î Àû¿ë
+	case ERR_PROTOCOL_SELECTIVE_SHUTDOWN_NOT_ALLOWED_TIME:		return "ERR_PROTOCOL_SELECTIVE_SHUTDOWN_NOT_ALLOWED_TIME";		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_SELECTIVE_SHUTDOWN_APPLY_LOGOUT:			return "ERR_PROTOCOL_SELECTIVE_SHUTDOWN_APPLY_LOGOUT";			// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	case ERR_CHAT_CHARACTER_NAME_NOT_MATCHED:			return "ERR_CHAT_CHARACTER_NAME_NOT_MATCHED";
 	case ERR_CHAT_NOT_ALLOWED_STRING:					return "ERR_CHAT_NOT_ALLOWED_STRING";
@@ -2360,7 +2363,7 @@ char* GetErrorString(Err_t err)
 	case ERR_FRIEND_NO_SUCH_CHARACTER_IN_LIST:			return "ERR_FRIEND_NO_SUCH_CHARACTER_IN_LIST";
 	case ERR_COUNTDOWN_INVALID_COUNTDOWN_TYPE:			return "ERR_COUNTDOWN_INVALID_COUNTDOWN_TYPE";
 	case ERR_COUNTDOWN_NOT_ENOUGH_TIME:					return "ERR_COUNTDOWN_NOT_ENOUGH_TIME";
-	case ERR_INTERVAL_SYSTEM_SECOND:					return "ERR_INTERVAL_SYSTEM_SECOND";			// 2008-08-18 by dhjin, 1ÃÊ ÅÒ ½Ã½ºÅÛ ±âÈ¹¾È
+	case ERR_INTERVAL_SYSTEM_SECOND:					return "ERR_INTERVAL_SYSTEM_SECOND";			// 2008-08-18 by dhjin, 1ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½
 
 	case ERR_CITYWAR_NO_SUCH_CITYWAR_INFO:				return "ERR_CITYWAR_NO_SUCH_CITYWAR_INFO";
 	case ERR_CITYWAR_NOT_MATCHED_CITY_MAP_INDEX:		return "ERR_CITYWAR_NOT_MATCHED_CITY_MAP_INDEX";
@@ -2377,8 +2380,8 @@ char* GetErrorString(Err_t err)
 	case ERR_CASH_INVALID_ITEM_INFORMATION:				return "ERR_CASH_INVALID_ITEM_INFORMATION";
 	case ERR_CASH_NORMAL_ERROR:							return "ERR_CASH_NORMAL_ERROR";
 	case ERR_CASH_CASH_SHOP_NO_SERVICE:					return "ERR_CASH_CASH_SHOP_NO_SERVICE";
-	case ERR_CASH_LIBRARY_INIT_ERROR:					return "ERR_CASH_LIBRARY_INIT_ERROR";		// 2007-08-22 by cmkwon, Áß±¹ Yetime ºô¸µ ¶óÀÌºê·¯¸® Àû¿ë -
-	case ERR_CASH_INVALID_GIVE_TARGET_ACCOUNT:			return "ERR_CASH_INVALID_GIVE_TARGET_ACCOUNT";		// 2009-08-18 by cmkwon, ¿¹´ç Ä³½¬˜Þ ºí·° °èÁ¤ Ã¼Å© Ãß°¡ - 
+	case ERR_CASH_LIBRARY_INIT_ERROR:					return "ERR_CASH_LIBRARY_INIT_ERROR";		// 2007-08-22 by cmkwon, ï¿½ß±ï¿½ Yetime ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºê·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case ERR_CASH_INVALID_GIVE_TARGET_ACCOUNT:			return "ERR_CASH_INVALID_GIVE_TARGET_ACCOUNT";		// 2009-08-18 by cmkwon, ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½ß°ï¿½ - 
 
 	case ERR_INVALID_CHARACTER:							return "ERR_INVALID_CHARACTER";
 	case ERR_INVALID_PEER_CHARACTER:					return "ERR_INVALID_PEER_CHARACTER";
@@ -2421,14 +2424,14 @@ char* GetErrorString(Err_t err)
 	case ERR_CANNOT_WARP_TO_CITY:						return "ERR_CANNOT_WARP_TO_CITY";				// 2007-05-22 by cmkwon
 	case ERR_INVALID_WEAPON_INDEX:						return "ERR_INVALID_WEAPON_INDEX";				// 2007-06-08 by cmkwon
 	case ERR_INVALID_TUTORIAL:							return "ERR_INVALID_TUTORIAL";
-	case ERR_CANNOT_USE_SPEAKER_ITEM:					return "ERR_CANNOT_USE_SPEAKER_ITEM";			// 2007-08-24 by cmkwon, ½ºÇÇÄ¿¾ÆÀÌÅÛ »ç¿ë °¡´É/±ÝÁö ¼³Á¤ ±â´É Ãß°¡
-	case ERR_CONFERENCEROOM_PERMISSION_DENIED:			return "ERR_CONFERENCEROOM_PERMISSION_DENIED";	// 2007-08-30 by cmkwon, È¸ÀÇ·ë ½Ã½ºÅÛ ±¸Çö - ¿öÇÁ ºÒ°¡ ¿¡·¯ Ãß°¡
-	case ERR_CANNOT_WARP_TO_OUTPOST:					return "ERR_CANNOT_WARP_TO_OUTPOST";			// 2007-08-28 by dhjin, ÀüÁø±âÁö ¸ÊÀ¸·Î ¿öÇÁ ºÒ°¡
+	case ERR_CANNOT_USE_SPEAKER_ITEM:					return "ERR_CANNOT_USE_SPEAKER_ITEM";			// 2007-08-24 by cmkwon, ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case ERR_CONFERENCEROOM_PERMISSION_DENIED:			return "ERR_CONFERENCEROOM_PERMISSION_DENIED";	// 2007-08-30 by cmkwon, È¸ï¿½Ç·ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	case ERR_CANNOT_WARP_TO_OUTPOST:					return "ERR_CANNOT_WARP_TO_OUTPOST";			// 2007-08-28 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 
-	case ERR_CANNOT_WARP_TO_OUTPOST_CITY_MAP:			return "ERR_CANNOT_WARP_TO_OUTPOST_CITY_MAP";			// 2007-08-28 by dhjin, ÀüÁø±âÁö ¸ÊÀ¸·Î ¿öÇÁ ºÒ°¡
-	case ERR_CANNOT_SEARCH_OUTPOST:						return "ERR_CANNOT_SEARCH_OUTPOST";			// 2007-08-28 by dhjin, ÀüÁø±âÁö ¸ÊÀ¸·Î ¿öÇÁ ºÒ°¡
-	case ERR_ALREADY_SET_OUTPOST_NEXTWARTIME:			return "ERR_ALREADY_SET_OUTPOST_NEXTWARTIME";			// 2007-08-28 by dhjin, ÀüÁø±âÁö ¸ÊÀ¸·Î ¿öÇÁ ºÒ°¡
-	case ERR_CANNOT_SEARCH_OUTPOST_NEXTWARTIME:			return "ERR_CANNOT_SEARCH_OUTPOST_NEXTWARTIME";			// 2007-08-28 by dhjin, ÀüÁø±âÁö ¸ÊÀ¸·Î ¿öÇÁ ºÒ°¡
+	case ERR_CANNOT_WARP_TO_OUTPOST_CITY_MAP:			return "ERR_CANNOT_WARP_TO_OUTPOST_CITY_MAP";			// 2007-08-28 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	case ERR_CANNOT_SEARCH_OUTPOST:						return "ERR_CANNOT_SEARCH_OUTPOST";			// 2007-08-28 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	case ERR_ALREADY_SET_OUTPOST_NEXTWARTIME:			return "ERR_ALREADY_SET_OUTPOST_NEXTWARTIME";			// 2007-08-28 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	case ERR_CANNOT_SEARCH_OUTPOST_NEXTWARTIME:			return "ERR_CANNOT_SEARCH_OUTPOST_NEXTWARTIME";			// 2007-08-28 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 
 	
 	case ERR_ARENA_NO_SUCH_TEAM:						return "ERR_ARENA_NO_SUCH_TEAM";				// 2007-04-23 by dhjin
@@ -2440,7 +2443,7 @@ char* GetErrorString(Err_t err)
 	case ERR_ARENA_STATE:								return "ERR_ARENA_STATE";						// 2007-04-23 by dhjin, 
 	case ERR_ARENA_STATE_TEAM_READY:					return "ERR_ARENA_STATE_TEAM_READY";			// 2007-06-05 by dhjin
 	case ERR_ARENA_STATE_TEAM_WARING:					return "ERR_ARENA_STATE_TEAM_WARING";			// 2007-06-05 by dhjin
-	case ERR_ARENA_BLOCKED:								return "ERR_ARENA_BLOCKED";						// 2007-07-11 by cmkwon, ¾Æ·¹³ªºí·° ½Ã½ºÅÛ ±¸Çö
+	case ERR_ARENA_BLOCKED:								return "ERR_ARENA_BLOCKED";						// 2007-07-11 by cmkwon, ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	case ERR_NO_SEARCH_CITYLEADER_INFO:					return "ERR_NO_SEARCH_CITYLEADER_INFO";			// 2007-09-13 by cmkwon
 	case ERR_REQ_NOT_LEADER_CANDIDATE:					return "ERR_REQ_NOT_LEADER_CANDIDATE";			// 2007-10-30 by dhjin
@@ -2457,10 +2460,10 @@ char* GetErrorString(Err_t err)
 	case ERR_REQ_NOT_POLLDATE_ALL_RANGE:				return "ERR_REQ_NOT_POLLDATE_ALL_RANGE";		// 2007-11-20 by dhjin
 	case ERR_REQ_REG_LEADER_CANDIDATE:					return "ERR_REQ_REG_LEADER_CANDIDATE";		// 2007-11-20 by dhjin
 
-	case ERR_CANNOT_WARP_DURING_MSWAR:					return "ERR_CANNOT_WARP_DURING_MSWAR";			// 2012-07-02 by hskim, ¸ð¼±Àü °³¼± - ¸ð¼±Àü ÁøÇà½Ã ½ºÅæÁî ·çÀÎ ÁøÀÔ ºÒ°¡
+	case ERR_CANNOT_WARP_DURING_MSWAR:					return "ERR_CANNOT_WARP_DURING_MSWAR";			// 2012-07-02 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 
 	case ERR_WARING_OUTPOST_TO_OWNMAP:					return "ERR_WARING_OUTPOST_TO_OWNMAP";			// 2007-11-01 by dhjin
-	case ERR_DELETE_CHARACTER_GUILDCOMMANDER:			return "ERR_DELETE_CHARACTER_GUILDCOMMANDER";	// 2008-10-20 by dhjin, ¿©´ÜÀåÀº ÄÉ¸¯ÅÍ »èÁ¦ ºÒ°¡·Î º¯°æ
+	case ERR_DELETE_CHARACTER_GUILDCOMMANDER:			return "ERR_DELETE_CHARACTER_GUILDCOMMANDER";	// 2008-10-20 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	case ERR_SECPASS_NOT_USE_SYSTEM:					return "ERR_SECPASS_NOT_USE_SYSTEM";			// 2007-09-13 by cmkwon
 	case ERR_SECPASS_PASSWORD_NOT_SETTING:				return "ERR_SECPASS_PASSWORD_NOT_SETTING";		// 2007-09-13 by cmkwon
@@ -2470,68 +2473,68 @@ char* GetErrorString(Err_t err)
 	case ERR_SECPASS_NEW_PASSWORD_NOT_SETTING:			return "ERR_SECPASS_NEW_PASSWORD_NOT_SETTING";	// 2007-09-13 by cmkwon
 	case ERR_SECPASS_LOCKED:							return "ERR_SECPASS_LOCKED";					// 2007-09-13 by cmkwon
 
-	case ERR_LUCKYITEM_INSERT_BUT_COINITEM_DELETE:		return "ERR_LUCKYITEM_INSERT_BUT_COINITEM_DELETE";				// 2008-11-10 by dhjin, ·°Å°¸Ó½Å ¾ÆÀÌÅÛÀÌ ÇÏ³ª¶óµµ Áö±ÞµÇ¾úÁö¸¸ ½Ã½ºÅÛ¿¡ ¿À·ù°¡ ÀÖ¾î Á¤»óÁö±ÞÀÌ µÇÁö´Â ¾Ê¾ÒÀ» °æ¿ì
+	case ERR_LUCKYITEM_INSERT_BUT_COINITEM_DELETE:		return "ERR_LUCKYITEM_INSERT_BUT_COINITEM_DELETE";				// 2008-11-10 by dhjin, ï¿½ï¿½Å°ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		
 	case ERR_INVALID_ARMOR_ITEM:						return "ERR_INVALID_ARMOR_ITEM";
 	case ERR_ITEM_TRADING:								return "ERR_ITEM_TRADING";
 	case ERR_USING_SHOP:								return "ERR_USING_SHOP";
-	case ERR_NO_SUCH_WEAPON_ITEM:						return "ERR_NO_SUCH_WEAPON_ITEM";				// 2007-08-07 by cmkwon, 1Çü/2Çü ¹«±â ÃÑ¾Ë ÃæÀü ¾ÆÀÌÅÛ ±¸Çö - ¿¡·¯ÄÚµå Ãß°¡
-	case ERR_ALREADY_FULL_BULLET:						return "ERR_ALREADY_FULL_BULLET";				// 2007-08-07 by cmkwon, 1Çü/2Çü ¹«±â ÃÑ¾Ë ÃæÀü ¾ÆÀÌÅÛ ±¸Çö - ¿¡·¯ÄÚµå Ãß°¡
-	case ERR_INVALID_ITEMEVENT_UID:						return "ERR_INVALID_ITEMEVENT_UID";				// 2008-01-10 by cmkwon, ¾ÆÀÌÅÛ ÀÌº¥Æ® ½Ã½ºÅÛ¿¡ ½Å ÄíÆù ½Ã½ºÅÛ Ãß°¡ - 
+	case ERR_NO_SUCH_WEAPON_ITEM:						return "ERR_NO_SUCH_WEAPON_ITEM";				// 2007-08-07 by cmkwon, 1ï¿½ï¿½/2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ß°ï¿½
+	case ERR_ALREADY_FULL_BULLET:						return "ERR_ALREADY_FULL_BULLET";				// 2007-08-07 by cmkwon, 1ï¿½ï¿½/2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ß°ï¿½
+	case ERR_INVALID_ITEMEVENT_UID:						return "ERR_INVALID_ITEMEVENT_UID";				// 2008-01-10 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - 
 	case ERR_NOT_ACCOUNT_BLOCKED:						return "ERR_NOT_ACCOUNT_BLOCKED";
-	case ERR_SOLD_OUT_SHOP_ITEM:						return "ERR_SOLD_OUT_SHOP_ITEM";				// 2010-01-26 by cmkwon, Ä³½¬ ¾ÆÀÌÅÛ ÇÑÁ¤ÆÇ¸Å ½Ã½ºÅÛ ±¸Çö - 
-	case ERR_NO_SUCH_ENCHANT_INFO:						return "ERR_NO_SUCH_ENCHANT_INFO";				// 2010-04-20 by cmkwon, ½Å±Ô ·¯Å° ¸Ó½Å ±¸Çö - 
+	case ERR_SOLD_OUT_SHOP_ITEM:						return "ERR_SOLD_OUT_SHOP_ITEM";				// 2010-01-26 by cmkwon, Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_NO_SUCH_ENCHANT_INFO:						return "ERR_NO_SUCH_ENCHANT_INFO";				// 2010-04-20 by cmkwon, ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case ERR_PROTOCOL_SUBLEADER_SET_FAIL:				return "ERR_PROTOCOL_SUBLEADER_SET_FAIL";
 	case ERR_PROTOCOL_SUBLEADER_SET_ALEADY:				return "ERR_PROTOCOL_SUBLEADER_SET_ALEADY";
 
-	case ERR_CANNOT_USE_GUILD_STORE:					return "ERR_CANNOT_USE_GUILD_STORE";			// 2009-09-23 by cmkwon, ÇÊµåÃ¢°í Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
-	case ERR_CANNOT_USE_STORE:							return "ERR_CANNOT_USE_STORE";					// 2009-09-23 by cmkwon, ÇÊµåÃ¢°í Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
-	case ERR_CANNOT_USE_FIELD_STORE:					return "ERR_CANNOT_USE_FIELD_STORE";			// 2009-09-23 by cmkwon, ÇÊµåÃ¢°í Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
-	case ERR_ALREADY_USING_BUILDING:					return "ERR_ALREADY_USING_BUILDING";			// 2009-09-23 by cmkwon, ÇÊµåÃ¢°í Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
-	case ERR_NO_SUCH_BUILDINGINDEX:						return "ERR_NO_SUCH_BUILDINGINDEX";				// 2009-09-23 by cmkwon, ÇÊµåÃ¢°í Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
-	case ERR_CANNOT_BUY_ITEM:							return "ERR_CANNOT_BUY_ITEM";					// 2009-09-23 by cmkwon, ÇÊµåÃ¢°í Ä³½¬ ¾ÆÀÌÅÛ ±¸Çö - 
-	case ERR_ALREADY_USE_ITEMPARAM:						return "ERR_ALREADY_USE_ITEMPARAM";				// 2010-01-18 by cmkwon, ¾ÆÀÌÅÛ »ç¿ë½Ã Parameter Áßº¹ Ã¼Å© ½Ã½ºÅÛ ±¸Çö - 
-	case ERR_INSUFFICIENT_NUMBER_SHOP_ITEM:				return "ERR_INSUFFICIENT_NUMBER_SHOP_ITEM";		// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ±¸¸ÅÇÒ¼ö ÀÖ´Â ¼ö·®ÀÌ ºÎÁ·ÇÔ
-	case ERR_NOT_OWNER_SHOP:							return "ERR_NOT_OWNER_SHOP";					// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ¼ÒÀ¯ »óÁ¡ÀÌ ¾Æ´Ô
+	case ERR_CANNOT_USE_GUILD_STORE:					return "ERR_CANNOT_USE_GUILD_STORE";			// 2009-09-23 by cmkwon, ï¿½Êµï¿½Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_CANNOT_USE_STORE:							return "ERR_CANNOT_USE_STORE";					// 2009-09-23 by cmkwon, ï¿½Êµï¿½Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_CANNOT_USE_FIELD_STORE:					return "ERR_CANNOT_USE_FIELD_STORE";			// 2009-09-23 by cmkwon, ï¿½Êµï¿½Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_ALREADY_USING_BUILDING:					return "ERR_ALREADY_USING_BUILDING";			// 2009-09-23 by cmkwon, ï¿½Êµï¿½Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_NO_SUCH_BUILDINGINDEX:						return "ERR_NO_SUCH_BUILDINGINDEX";				// 2009-09-23 by cmkwon, ï¿½Êµï¿½Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_CANNOT_BUY_ITEM:							return "ERR_CANNOT_BUY_ITEM";					// 2009-09-23 by cmkwon, ï¿½Êµï¿½Ã¢ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_ALREADY_USE_ITEMPARAM:						return "ERR_ALREADY_USE_ITEMPARAM";				// 2010-01-18 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Parameter ï¿½ßºï¿½ Ã¼Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_INSUFFICIENT_NUMBER_SHOP_ITEM:				return "ERR_INSUFFICIENT_NUMBER_SHOP_ITEM";		// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case ERR_NOT_OWNER_SHOP:							return "ERR_NOT_OWNER_SHOP";					// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
 
 	case ERR_MAP_CHECKSUM_NOT_MATCHED:					return "ERR_MAP_CHECKSUM_NOT_MATCHED";		// 2007-04-06 by cmkwon
-	case ERR_REQ_WARP_ONE_TIME_LIMITED:					return "ERR_REQ_WARP_ONE_TIME_LIMITED";			// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - 1¹ø¸¸ ÀÔÀå ÇÒ ¼öÀÖÀ½
-	case ERR_REQ_WARP_GUILD_NOT_MATCHED:				return "ERR_REQ_WARP_GUILD_NOT_MATCHED";		// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ÇöÀç ÀÔÀåÇÒ ¼ö ÀÖ´Â ±æµå°¡ ¾Æ´Ô
-	case ERR_REQ_WARP_MAXIMUM_USER_LIMITED:				return "ERR_REQ_WARP_MAXIMUM_USER_LIMITED";		// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ÃÖ´ë Á¢¼ÓÇÒ ¼ö ÀÖ´Â ÀÎ¿øÀ» ³Ñ¾úÀ½
-	case ERR_REQ_WARP_NO_QUEST_ITEM:					return "ERR_REQ_WARP_NO_QUEST_ITEM";			// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ÀÔÀå¿¡ ÇÊ¿äÇÑ Äù½ºÆ® ¾ÆÀÌÅÛÀÌ ¾øÀ½
-	case ERR_REQ_WARP_GAME_START_NOT_ALLOWED_USER:		return "ERR_REQ_WARP_GAME_START_NOT_ALLOWED_USER";		// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - °ÔÀÓ ½ÃÀÛ½Ã¿¡ ¸Ê¿¡ ÀÔÀåÀÌ Çã¿ëµÈ À¯Àú°¡ ¾Æ´Ô
-	case ERR_REQ_WARP_INFLUENCE_NOT_MATCHED:			return "ERR_REQ_WARP_INFLUENCE_NOT_MATCHED";		// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - Å©¸®½ºÅ» ½Ã½ºÅÛ - ÇöÀç ÀÔÀåÇÒ ¼ö ÀÖ´Â ¼¼·ÂÀÌ ¾Æ´Ô
+	case ERR_REQ_WARP_ONE_TIME_LIMITED:					return "ERR_REQ_WARP_ONE_TIME_LIMITED";			// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case ERR_REQ_WARP_GUILD_NOT_MATCHED:				return "ERR_REQ_WARP_GUILD_NOT_MATCHED";		// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½å°¡ ï¿½Æ´ï¿½
+	case ERR_REQ_WARP_MAXIMUM_USER_LIMITED:				return "ERR_REQ_WARP_MAXIMUM_USER_LIMITED";		// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½
+	case ERR_REQ_WARP_NO_QUEST_ITEM:					return "ERR_REQ_WARP_NO_QUEST_ITEM";			// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½å¿¡ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_REQ_WARP_GAME_START_NOT_ALLOWED_USER:		return "ERR_REQ_WARP_GAME_START_NOT_ALLOWED_USER";		// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½Ã¿ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	case ERR_REQ_WARP_INFLUENCE_NOT_MATCHED:			return "ERR_REQ_WARP_INFLUENCE_NOT_MATCHED";		// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
 
-	case ERR_REQ_CHOOSE_START_CIIY_MAP_INDEX:			return "ERR_REQ_CHOOSE_START_CIIY_MAP_INDEX";	// 2009-10-12 by cmkwon, ÇÁ¸®½ºÄ« Á¦°Å ¹æ¾È Àû¿ë - 
+	case ERR_REQ_CHOOSE_START_CIIY_MAP_INDEX:			return "ERR_REQ_CHOOSE_START_CIIY_MAP_INDEX";	// 2009-10-12 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case ERR_INVALID_ARENASERVER:						return "ERR_INVALID_ARENASERVER";			// 2008-03-07 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case ERR_NO_SUCH_FIELDSERVER:						return "ERR_NO_SUCH_FIELDSERVER";			// 2008-03-07 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case ERR_INVALID_MAINSERVER_CHARACTER:				return "ERR_INVALID_MAINSERVER_CHARACTER";	// 2008-03-07 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case ERR_INVALID_ARENASERVER_CHARACTER:				return "ERR_INVALID_ARENASERVER_CHARACTER";	// 2008-03-07 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 	
-	case ERR_CANNOT_USE_ARENASERVER:					return "ERR_CANNOT_USE_ARENASERVER";		// 2008-03-07 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
-	case ERR_NOT_CONNECT_TO_ARENASERVER:				return "ERR_NOT_CONNECT_TO_ARENASERVER";	// 2008-03-07 by dhjin, ¾Æ·¹³ª ÅëÇÕ - 
+	case ERR_INVALID_ARENASERVER:						return "ERR_INVALID_ARENASERVER";			// 2008-03-07 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_NO_SUCH_FIELDSERVER:						return "ERR_NO_SUCH_FIELDSERVER";			// 2008-03-07 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_INVALID_MAINSERVER_CHARACTER:				return "ERR_INVALID_MAINSERVER_CHARACTER";	// 2008-03-07 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_INVALID_ARENASERVER_CHARACTER:				return "ERR_INVALID_ARENASERVER_CHARACTER";	// 2008-03-07 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 	
+	case ERR_CANNOT_USE_ARENASERVER:					return "ERR_CANNOT_USE_ARENASERVER";		// 2008-03-07 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_NOT_CONNECT_TO_ARENASERVER:				return "ERR_NOT_CONNECT_TO_ARENASERVER";	// 2008-03-07 by dhjin, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
-	case ERR_NO_SUCH_LETTER:							return "ERR_NO_SUCH_LETTER";				// 2008-04-30 by dhjin, EP3 ÆíÁö ½Ã½ºÅÛ - ÆíÁö¸¦ Ã£Áö ¸øÇÏ¿´´Ù.
+	case ERR_NO_SUCH_LETTER:							return "ERR_NO_SUCH_LETTER";				// 2008-04-30 by dhjin, EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½.
 
-	case ERR_ALREADY_REG:								return "ERR_ALREADY_REG";					// 2008-04-30 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÀÚ±â ¼Ò°³°¡ µî·ÏÀÌ µÇ¾îÀÖ´Ù.
-	case ERR_CANNOT_USE_NEW_COMMANDER_BY_CITYLEADER:    return "ERR_CANNOT_USE_NEW_COMMANDER_BY_CITYLEADER";		// 2008-06-19 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ÁöµµÀÚ³ª ÀüÁø±âÁö ¿©´ÜÀåÀº ¿©´ÜÀå À§ÀÓ ºÒ°¡ 
-	case ERR_CANNOT_USE_NEW_COMMANDER_BY_POLL:		    return "ERR_CANNOT_USE_NEW_COMMANDER_BY_POLL";				// 2008-06-19 by dhjin, EP3 - ¿©´Ü ¼öÁ¤ »çÇ× - ¼±°Å¿¡ Ãâ¸¶ÇÑ »ç¶÷Àº ¿©´ÜÀå À§ÀÓ ºÒ°¡
-	case ERR_POSSESS_OUTPOST:						    return "ERR_POSSESS_OUTPOST";							// 2009-06-30 by cmkwon, ¿©´Ü ÇØÃ¼½Ã Ã¼Å© ¼öÁ¤ - 
+	case ERR_ALREADY_REG:								return "ERR_ALREADY_REG";					// 2008-04-30 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö´ï¿½.
+	case ERR_CANNOT_USE_NEW_COMMANDER_BY_CITYLEADER:    return "ERR_CANNOT_USE_NEW_COMMANDER_BY_CITYLEADER";		// 2008-06-19 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ 
+	case ERR_CANNOT_USE_NEW_COMMANDER_BY_POLL:		    return "ERR_CANNOT_USE_NEW_COMMANDER_BY_POLL";				// 2008-06-19 by dhjin, EP3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Å¿ï¿½ ï¿½â¸¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	case ERR_POSSESS_OUTPOST:						    return "ERR_POSSESS_OUTPOST";							// 2009-06-30 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½ - 
 
-	case ERR_INVALID_DATA_FROM_CLIENT:					return "ERR_INVALID_DATA_FROM_CLIENT";			// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - Å¬¶óÀÌ¾ðÆ®·ÎºÎÅÍ ¹ÞÀº Àß¸øµÈ µ¥ÀÌÅ¸
-	case ERR_CHATROOM_NO_SUCH_CREATE_NUM:				return"ERR_CHATROOM_NO_SUCH_CREATE_NUM";		// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - »ý¼º ¹æ ¹øÈ£°¡ ¾ø´Ù
-	case ERR_CHATROOM_NO_SUCH:							return"ERR_CHATROOM_NO_SUCH";					// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æÀÌ ¾ø´Ù.
-	case ERR_CHATROOM_ALREADY_USING:					return"ERR_CHATROOM_ALREADY_USING";				// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - ÀÌ¹Ì Ã¤ÆÃ¹æ ÀÌ¿ëÁßÀÌ´Ù.
-	case ERR_CHATROOM_PERMISSION_DENIED:				return"ERR_CHATROOM_PERMISSION_DENIED";			// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - ±ÇÇÑÀÌ ¾ø´Ù.
-	case ERR_CHATROOM_FULL_MEMBER:						return"ERR_CHATROOM_FULL_MEMBER";				// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - Ã¤ÆÃ¹æ ÀÎ¿øÀÌ ¸¸¶¥ÀÌ´Ù.
-	case ERR_CHATROOM_NO_SUCH_NEW_MASTER:				return"ERR_CHATROOM_NO_SUCH_NEW_MASTER";		// 2008-06-17 by dhjin, EP3 Ã¤ÆÃ¹æ - »õ·Î¿î ¹æÀåÀ» Ã£Áö ¸øÇß´Ù.
-	case ERR_NOT_MATCH_PW:								return"ERR_NOT_MATCH_PW";						// 2008-07-15 by dhjin, EP3 Ã¤ÆÃ¹æ - ¾ÏÈ£ ºÒÀÏÄ¡.
-	case ERR_NO_SUCH_DECLARATION_MSWAR_INFO:			return"ERR_NO_SUCH_DECLARATION_MSWAR_INFO";		// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±Àü Æ÷°í Á¤º¸ ¸øÃ£À½
-	case ERR_NO_MORE_DECLARATION_MSWAR_SET:				return"ERR_NO_MORE_DECLARATION_MSWAR_SET";		// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±Àü Æ÷°í ½Ã°£À» ´õ ÀÌ»ó ¼³Á¤ ÇÒ ¼ö ¾ø´Ù.
-	case ERR_INVALID_DECLARATION_MSWAR_TIME:			return"ERR_INVALID_DECLARATION_MSWAR_TIME";		// 2009-01-12 by dhjin, ¼±Àü Æ÷°í - ¼±Àü Æ÷°í ½Ã°£ ¼³Á¤ÀÌ Àß¸øµÊ.
+	case ERR_INVALID_DATA_FROM_CLIENT:					return "ERR_INVALID_DATA_FROM_CLIENT";			// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸
+	case ERR_CHATROOM_NO_SUCH_CREATE_NUM:				return"ERR_CHATROOM_NO_SUCH_CREATE_NUM";		// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_CHATROOM_NO_SUCH:							return"ERR_CHATROOM_NO_SUCH";					// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	case ERR_CHATROOM_ALREADY_USING:					return"ERR_CHATROOM_ALREADY_USING";				// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - ï¿½Ì¹ï¿½ Ã¤ï¿½Ã¹ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+	case ERR_CHATROOM_PERMISSION_DENIED:				return"ERR_CHATROOM_PERMISSION_DENIED";			// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	case ERR_CHATROOM_FULL_MEMBER:						return"ERR_CHATROOM_FULL_MEMBER";				// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - Ã¤ï¿½Ã¹ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+	case ERR_CHATROOM_NO_SUCH_NEW_MASTER:				return"ERR_CHATROOM_NO_SUCH_NEW_MASTER";		// 2008-06-17 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½.
+	case ERR_NOT_MATCH_PW:								return"ERR_NOT_MATCH_PW";						// 2008-07-15 by dhjin, EP3 Ã¤ï¿½Ã¹ï¿½ - ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡.
+	case ERR_NO_SUCH_DECLARATION_MSWAR_INFO:			return"ERR_NO_SUCH_DECLARATION_MSWAR_INFO";		// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã£ï¿½ï¿½
+	case ERR_NO_MORE_DECLARATION_MSWAR_SET:				return"ERR_NO_MORE_DECLARATION_MSWAR_SET";		// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	case ERR_INVALID_DECLARATION_MSWAR_TIME:			return"ERR_INVALID_DECLARATION_MSWAR_TIME";		// 2009-01-12 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½.
 
-	case ERR_CANNOT_CHOOSE_INFLUENCE_TYPE:				return"ERR_CANNOT_CHOOSE_INFLUENCE_TYPE";		// 2009-03-31 by cmkwon, ¼¼·ÂÃÊ±âÈ­ ½Ã½ºÅÛ ±¸Çö - 
+	case ERR_CANNOT_CHOOSE_INFLUENCE_TYPE:				return"ERR_CANNOT_CHOOSE_INFLUENCE_TYPE";		// 2009-03-31 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case ERR_CANNOT_CONNECT_INTERNET:					return "ERR_CANNOT_CONNECT_INTERNET";
 	case ERR_CANNOT_CONNECT_AUTO_UPDATE_SERVER:			return "ERR_CANNOT_CONNECT_AUTO_UPDATE_SERVER";
@@ -2545,83 +2548,83 @@ char* GetErrorString(Err_t err)
 	case ERR_FUNC_HttpQueryInfo:						return "ERR_FUNC_HttpQueryInfo";
 	case ERR_VERSIONINFO_FILE_NOT_FOUND:				return "ERR_VERSIONINFO_FILE_NOT_FOUND";		// 2007-05-09 by cmkwon
 	case ERR_VERSIONINFO_FILE_CAN_NOT_CREATE:			return "ERR_VERSIONINFO_FILE_CAN_NOT_CREATE";		// 2007-05-09 by cmkwon
-	case ERR_NOT_ALLOWED_IP:							return "ERR_NOT_ALLOWED_IP";		// 2007-10-19 by cmkwon, AllowedIP ½Ã½ºÅÛ º¯°æ -
+	case ERR_NOT_ALLOWED_IP:							return "ERR_NOT_ALLOWED_IP";		// 2007-10-19 by cmkwon, AllowedIP ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
 
 	////////////////////////////////////////////////////////////////////////////////
-	// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - 
-	case ERR_DEBUFF_SKILL_APPLYING_SLIENCE:				return "ERR_DEBUFF_SKILL_APPLYING_SLIENCE";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - »çÀÏ·±½º µð¹öÇÁ°¡ Àû¿ëÁßÀÌ´Ù.
-	case ERR_RELEASE_SKILL_NOT_FIND:					return "ERR_RELEASE_SKILL_NOT_FIND";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÇØÁ¦ÇÒ ½ºÅ³À» Ã£À»¼ö°¡ ¾ø´Ù.
-	case ERR_DEBUFF_SKILL_APPLYING_NOT_HP_RECOVERY:		return "ERR_DEBUFF_SKILL_APPLYING_NOT_HP_RECOVERY";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - HPÈ¸º¹ ±ÝÁö
-	case ERR_DEBUFF_SKILL_APPLYING_NOT_DP_RECOVERY:		return "ERR_DEBUFF_SKILL_APPLYING_NOT_DP_RECOVERY";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - DPÈ¸º¹ ±ÝÁö
-	case ERR_DEBUFF_SKILL_APPLYING_NOT_SP_RECOVERY:		return "ERR_DEBUFF_SKILL_APPLYING_NOT_SP_RECOVERY";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - SPÈ¸º¹ ±ÝÁö
-	case ERR_INFINITY_NO_SUCH_MODE_LIST:				return "ERR_INFINITY_NO_SUCH_MODE_LIST";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ ¸®½ºÆ®¸¦ Ã£Áö ¸øÇßÀ» °æ¿ì
-	case ERR_INFINITY_NO_SUCH_READY_LIST:				return "ERR_INFINITY_NO_SUCH_READY_LIST";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ ´ë±â ¸®½ºÆ®¸¦ Ã£Áö ¸øÇßÀ» °æ¿ì
-	case ERR_INFINITY_OVER_ENTRANCECOUNT:				return "ERR_INFINITY_OVER_ENTRANCECOUNT";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ ÀÔÀå °¡´ÉÇÑ ¼ö¸¦ ³Ñ°å´Ù.
-	case ERR_INFINITY_CREATE_FAIL:						return "ERR_INFINITY_CREATE_FAIL";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ »ý¼º ½ÇÆÐ
-	case ERR_INFINITY_JOIN_FAIL_SOCKET:					return "ERR_INFINITY_JOIN_FAIL_SOCKET";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ °¡ÀÔ ½ÇÆÐ - ¼ÒÄÏ NULL°ª
-	case ERR_INFINITY_MAX_ADMISSIONCNT:					return "ERR_INFINITY_MAX_ADMISSIONCNT";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ °¡ÀÔ ½ÇÆÐ - ÃÖ´ë ÀÎ¿ø
-	case ERR_INFINITY_MISMATCH_LEVEL:					return "ERR_INFINITY_MISMATCH_LEVEL";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ °¡ÀÔ ½ÇÆÐ - ·¹º§
-	case ERR_INFINITY_MODE:								return "ERR_INFINITY_MODE";								// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Àß¸øµÈ ¸ðµå
-	case ERR_INFINITY_CREATEUID:						return "ERR_INFINITY_CREATEUID";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - Àß¸øµÈ »ý¼º ¹øÈ£
-	case ERR_INFINITY_NO_SUCH_MASTER_USER:				return "ERR_INFINITY_NO_SUCH_MASTER_USER";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ °¡ÀÔ ½ÇÆÐ - ÀÎÇÇ ¸¶½ºÅÍ
-	case ERR_INFINITY_JOIN_FAIL_MASTERUSER_REJECT:		return "ERR_INFINITY_JOIN_FAIL_MASTERUSER_REJECT";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ °¡ÀÔ ½ÇÆÐ - »ý¼º ¹øÈ£
-	case ERR_INFINITY_NO_SUCH_MEMBER_LIST:				return "ERR_INFINITY_NO_SUCH_MEMBER_LIST";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ À¯Àú ¸®½ºÆ®¸¦ Ã£Áö ¸øÇßÀ» °æ¿ì
-	case ERR_INFINITY_STATE:							return "ERR_INFINITY_STATE";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼ Àß¸øµÈ »óÅÂ°ª
-	case ERR_INFINITY_SAME_MASTER:						return "ERR_INFINITY_SAME_MASTER";						// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - µ¿ÀÏ ÀÎ¹°!
-	case ERR_INFINITY_MASTER:							return "ERR_INFINITY_MASTER";							// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¸¶½ºÅÍ°¡ ¾Æ´Ï´Ù.
-	case ERR_INFINITY_CREATE_MAPCHANNEL:				return "ERR_INFINITY_CREATE_MAPCHANNEL";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¸Ê »ý¼º Áß Ã¤³Î »ý¼º ¿À·ù
-	case ERR_INFINITY_NOT_ALL_READY:					return "ERR_INFINITY_NOT_ALL_READY";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¸ðµç À¯Àú°¡ ·¡µð »óÅÂ°¡ ¾Æ´Ï´Ù.
-	case ERR_INFINITY_CANNOT_USE_ITEM:					return "ERR_INFINITY_CANNOT_USE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼¿¡¼­ »ç¿ë ºÒ°¡
-	case ERR_INFINITY_MIN_ADMISSIONCNT:					return "ERR_INFINITY_MIN_ADMISSIONCNT";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ ÀÌ¿ë ÃÖ¼Ò ÀÎ¿ø ¿À·ù
-	case ERR_INFINITY_TENDER_PROCESSING:				return "ERR_INFINITY_TENDER_PROCESSING";				// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - TenderÁßÀÌ´Ù.
-	case ERR_INFINITY_NOT_PROCESSING_TENDERITEM:		return "ERR_INFINITY_NOT_PROCESSING_TENDERITEM";		// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - TenderÁøÇàÁßÀÎ ¾ÆÀÌÅÛÀÌ ¾Æ´Ï´Ù.
-	case ERR_INFINITY_ONLY_USE_ITEM:					return "ERR_INFINITY_ONLY_USE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÀÎÇÇ´ÏÆ¼¿¡¼­¸¸ »ç¿ë °¡´É
-	case ERR_INFINITY_CANNOT_SUCH_TEAM:					return "ERR_INFINITY_CANNOT_SUCH_TEAM";					// 2009-09-09 ~ 2010 by dhjin, ÀÎÇÇ´ÏÆ¼ - ÆÃ±ä À¯Àú ÀçÁ¢¼Ó Ã³¸®, Á¸ÀçÇÏ´Â ÆÀÀÌ ¾ø´Ù.
-	case ERR_INFINITY_NULL_VALUE:						return "ERR_INFINITY_NULL_VALUE";						// 2009-09-09 ~ 2010-01 by dhjin, ÀÎÇÇ´ÏÆ¼ - ¼Ò½º Ã¼Å©, NULL°ª Ã¼Å©
-	case ERR_INFINITY_CANNOT_ALL_START:					return "ERR_INFINITY_CANNOT_ALL_START";					// 2010-04-06 by cmkwon, ÀÎÇÇ2Â÷ Ãß°¡ ¼öÁ¤ - 
-	case ERR_INFINITY_TENDER_ALREADY_CHOICED:			return "ERR_INFINITY_TENDER_ALREADY_CHOICED";			// 2010-04-09 by cmkwon, ÀÎÇÇ2Â÷ Ãß°¡ ¼öÁ¤(´Ü°èº° º¸»ó Ãß°¡) - 
+	// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - 
+	case ERR_DEBUFF_SKILL_APPLYING_SLIENCE:				return "ERR_DEBUFF_SKILL_APPLYING_SLIENCE";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+	case ERR_RELEASE_SKILL_NOT_FIND:					return "ERR_RELEASE_SKILL_NOT_FIND";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	case ERR_DEBUFF_SKILL_APPLYING_NOT_HP_RECOVERY:		return "ERR_DEBUFF_SKILL_APPLYING_NOT_HP_RECOVERY";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - HPÈ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_DEBUFF_SKILL_APPLYING_NOT_DP_RECOVERY:		return "ERR_DEBUFF_SKILL_APPLYING_NOT_DP_RECOVERY";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - DPÈ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_DEBUFF_SKILL_APPLYING_NOT_SP_RECOVERY:		return "ERR_DEBUFF_SKILL_APPLYING_NOT_SP_RECOVERY";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - SPÈ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_NO_SUCH_MODE_LIST:				return "ERR_INFINITY_NO_SUCH_MODE_LIST";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case ERR_INFINITY_NO_SUCH_READY_LIST:				return "ERR_INFINITY_NO_SUCH_READY_LIST";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case ERR_INFINITY_OVER_ENTRANCECOUNT:				return "ERR_INFINITY_OVER_ENTRANCECOUNT";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½.
+	case ERR_INFINITY_CREATE_FAIL:						return "ERR_INFINITY_CREATE_FAIL";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_JOIN_FAIL_SOCKET:					return "ERR_INFINITY_JOIN_FAIL_SOCKET";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ NULLï¿½ï¿½
+	case ERR_INFINITY_MAX_ADMISSIONCNT:					return "ERR_INFINITY_MAX_ADMISSIONCNT";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ö´ï¿½ ï¿½Î¿ï¿½
+	case ERR_INFINITY_MISMATCH_LEVEL:					return "ERR_INFINITY_MISMATCH_LEVEL";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_MODE:								return "ERR_INFINITY_MODE";								// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case ERR_INFINITY_CREATEUID:						return "ERR_INFINITY_CREATEUID";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	case ERR_INFINITY_NO_SUCH_MASTER_USER:				return "ERR_INFINITY_NO_SUCH_MASTER_USER";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_JOIN_FAIL_MASTERUSER_REJECT:		return "ERR_INFINITY_JOIN_FAIL_MASTERUSER_REJECT";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	case ERR_INFINITY_NO_SUCH_MEMBER_LIST:				return "ERR_INFINITY_NO_SUCH_MEMBER_LIST";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	case ERR_INFINITY_STATE:							return "ERR_INFINITY_STATE";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½
+	case ERR_INFINITY_SAME_MASTER:						return "ERR_INFINITY_SAME_MASTER";						// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½!
+	case ERR_INFINITY_MASTER:							return "ERR_INFINITY_MASTER";							// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Æ´Ï´ï¿½.
+	case ERR_INFINITY_CREATE_MAPCHANNEL:				return "ERR_INFINITY_CREATE_MAPCHANNEL";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_NOT_ALL_READY:					return "ERR_INFINITY_NOT_ALL_READY";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï´ï¿½.
+	case ERR_INFINITY_CANNOT_USE_ITEM:					return "ERR_INFINITY_CANNOT_USE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	case ERR_INFINITY_MIN_ADMISSIONCNT:					return "ERR_INFINITY_MIN_ADMISSIONCNT";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½Ö¼ï¿½ ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_TENDER_PROCESSING:				return "ERR_INFINITY_TENDER_PROCESSING";				// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Tenderï¿½ï¿½ï¿½Ì´ï¿½.
+	case ERR_INFINITY_NOT_PROCESSING_TENDERITEM:		return "ERR_INFINITY_NOT_PROCESSING_TENDERITEM";		// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - Tenderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
+	case ERR_INFINITY_ONLY_USE_ITEM:					return "ERR_INFINITY_ONLY_USE_ITEM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_INFINITY_CANNOT_SUCH_TEAM:					return "ERR_INFINITY_CANNOT_SUCH_TEAM";					// 2009-09-09 ~ 2010 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	case ERR_INFINITY_NULL_VALUE:						return "ERR_INFINITY_NULL_VALUE";						// 2009-09-09 ~ 2010-01 by dhjin, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ò½ï¿½ Ã¼Å©, NULLï¿½ï¿½ Ã¼Å©
+	case ERR_INFINITY_CANNOT_ALL_START:					return "ERR_INFINITY_CANNOT_ALL_START";					// 2010-04-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_INFINITY_TENDER_ALREADY_CHOICED:			return "ERR_INFINITY_TENDER_ALREADY_CHOICED";			// 2010-04-09 by cmkwon, ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ü°èº° ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½) - 
 
-	case ERR_INFINITY_DIFFICLUTY_NOT_FIND :				return "ERR_INFINITY_DIFFICLUTY_NOT_FIND";				// 2010-05-04 by shcho, ÀÎÇÇ´ÏÆ¼ ³­ÀÌµµ Á¶Àý - ³­ÀÌµµ¸¦ Ã£Áö ¸øÇßÀ» ¶§
-	case ERR_INFINITY_DIFFICULTY_LEVEL_SAME :			return "ERR_INFINITY_DIFFICULTY_LEVEL_SAME";			// 2010. 05. 19 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý. (½ÅÈ£Ã³¸® + ¸ó½ºÅÍ Ã³¸®(¼­¹ö) ) - °°Àº ³­ÀÌµµ·Î º¯°æ ¿äÃ» ¿À·ù.
-	case ERR_INFINITY_DIFFICULTY_LEVEL_INVALID :		return "ERR_INFINITY_DIFFICULTY_LEVEL_INVALID";			// 2010. 05. 19 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý. (½ÅÈ£Ã³¸® + ¸ó½ºÅÍ Ã³¸®(¼­¹ö) ) - À¯È¿ÇÏÁö ¾ÊÀº ³­ÀÌµµ º¯°æ°ª ¿äÃ» ¿À·ù.
+	case ERR_INFINITY_DIFFICLUTY_NOT_FIND :				return "ERR_INFINITY_DIFFICLUTY_NOT_FIND";				// 2010-05-04 by shcho, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	case ERR_INFINITY_DIFFICULTY_LEVEL_SAME :			return "ERR_INFINITY_DIFFICULTY_LEVEL_SAME";			// 2010. 05. 19 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½È£Ã³ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ) - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
+	case ERR_INFINITY_DIFFICULTY_LEVEL_INVALID :		return "ERR_INFINITY_DIFFICULTY_LEVEL_INVALID";			// 2010. 05. 19 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½È£Ã³ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ) - ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½æ°ª ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
 
-	case ERR_INFINITY_MISMATCH_CREATEUID :				return "ERR_INFINITY_MISMATCH_CREATEUID";				// ÀÎÇÇ´ÏÆ¼ - ¹æ »ý¼º¹øÈ£ ºÒÀÏÄ¡.	// 2010. 07. 27 by hsLee ÀÎÇÇ´ÏÆ¼ 2Â÷ °ÅÁ¡ ¹æ¾î ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ Ã³¸®.
-	case ERR_INFINITY_PLAYING_STATE :					return "ERR_INFINITY_PLAYING_STATE";					// ÀÎÇÇ´ÏÆ¼ - °ÔÀÓ ÁøÇà ÁßÀÌ ¾Æ´Ñ °æ¿ì. ( STATE - PLAYING ~ ¿£µù ) // 2010. 07. 27 by hsLee ÀÎÇÇ´ÏÆ¼ 2Â÷ °ÅÁ¡ ¹æ¾î ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ Ã³¸®.
-	case ERR_INFINITY_ALWAYS_SKIP_ENDINGCINEMA :		return "ERR_INFINITY_ALWAYS_SKIP_ENDINGCINEMA";			// ÀÎÇÇ´ÏÆ¼ - ÀÌ¹Ì ¿¬Ãâ ½ºÅµ È°¼ºÈ­ µÇ¾î ÀÖÀ½. // 2010. 07. 27 by hsLee ÀÎÇÇ´ÏÆ¼ 2Â÷ °ÅÁ¡ ¹æ¾î ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ Ã³¸®.
+	case ERR_INFINITY_MISMATCH_CREATEUID :				return "ERR_INFINITY_MISMATCH_CREATEUID";				// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡.	// 2010. 07. 27 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ Ã³ï¿½ï¿½.
+	case ERR_INFINITY_PLAYING_STATE :					return "ERR_INFINITY_PLAYING_STATE";					// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½. ( STATE - PLAYING ~ ï¿½ï¿½ï¿½ï¿½ ) // 2010. 07. 27 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ Ã³ï¿½ï¿½.
+	case ERR_INFINITY_ALWAYS_SKIP_ENDINGCINEMA :		return "ERR_INFINITY_ALWAYS_SKIP_ENDINGCINEMA";			// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ È°ï¿½ï¿½È­ ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½. // 2010. 07. 27 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ Ã³ï¿½ï¿½.
 
-	case ERR_DEBUFF_SKILL_APPLYING_STOPMAGIC :			return "ERR_DEBUFF_SKILL_APPLYING_STOPMAGIC";			// 2011-10-28 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - ½ºÅ³ Ãß°¡ : Ä§¹¬ ´çÇØ ½ºÅ³À» »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.
+	case ERR_DEBUFF_SKILL_APPLYING_STOPMAGIC :			return "ERR_DEBUFF_SKILL_APPLYING_STOPMAGIC";			// 2011-10-28 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - ï¿½ï¿½Å³ ï¿½ß°ï¿½ : Ä§ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 
-	case ERR_KNOWN_ERROR:								return "ERR_KNOWN_ERROR";			// 2010-04-26 by cmkwon, ·¯½Ã¾Æ Innva ÀÎÁõ/ºô¸µ ½Ã½ºÅÛ º¯°æ - 
-	case ERR_INVALID_HANDLE:							return "ERR_INVALID_HANDLE";			// 2010-04-26 by cmkwon, ·¯½Ã¾Æ Innva ÀÎÁõ/ºô¸µ ½Ã½ºÅÛ º¯°æ - 
+	case ERR_KNOWN_ERROR:								return "ERR_KNOWN_ERROR";			// 2010-04-26 by cmkwon, ï¿½ï¿½ï¿½Ã¾ï¿½ Innva ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_INVALID_HANDLE:							return "ERR_INVALID_HANDLE";			// 2010-04-26 by cmkwon, ï¿½ï¿½ï¿½Ã¾ï¿½ Innva ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	///////////////////////////////////////////////////////////////////////////////
-	// 2011-01-26 by hskim, ÀÎÁõ ¼­¹ö ±¸Çö
+	// 2011-01-26 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	case ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DATA:			return "ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DATA"; // 2011-01-26 by hskim, ÀÎÁõ ¼­¹ö ±¸Çö - PreServer ·Î ºÎÅÍ ¹ÞÀº Data Size°¡ Authentication Packet Type¿¡ µû¸¥ Data Sizeº¸´Ù ÀÛÀ½
-	case ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DB:			return "ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DB";	// 2011-01-26 by hskim, ÀÎÁõ ¼­¹ö ±¸Çö - PreServer ·Î ºÎÅÍ ¹ÞÀºµ¥ÀÌÅ¸¸¦ »ç¿ëÇØ ÀÎÁõÀýÂ÷¸¦ °ÅÃÆÁö¸¸ Áß°£¿¡ Á¤»óÀûÀ¸·Î Ã³¸®µÇÁö ¾Ê¾Ò´Ù
+	case ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DATA:			return "ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DATA"; // 2011-01-26 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - PreServer ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Data Sizeï¿½ï¿½ Authentication Packet Typeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Data Sizeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DB:			return "ERR_PROTOCOL_INVALID_AUTHENTICATION_SERVER_LOGIN_DB";	// 2011-01-26 by hskim, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - PreServer ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´ï¿½
 
 	/////////////////////////////////////////////////////////////
-	// 2011-08-22 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷
+	// 2011-08-22 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½
 
-	case ERR_PET_NUMERIC_VALUE_OUT_OF_RANGE:			return "ERR_PET_NUMERIC_VALUE_OUT_OF_RANGE";		// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - °ªÀÌ ¹üÀ§¸¦ ¹þ¾î³²
-	case ERR_PET_NOT_EQUIPPED:							return "ERR_PET_NOT_EQUIPPED";						// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÆêÀÌ ÀåÂøµÇ¾î ÀÖÁö ¾Ê´Ù
-	case ERR_PET_EMPTY_NAME:							return "ERR_PET_EMPTY_NAME";						// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÌ¸§ÀÌ ºñ¿© ÀÖÀ½
-	case ERR_PET_NOT_ALLOW_LEVEL_UP:					return "ERR_PET_NOT_ALLOW_LEVEL_UP";				// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ·¹º§¾÷ Çã¿ë ¾ÈÇÔ
-	case ERR_PET_NOT_ALLOW_CHANGE_NAME:					return "ERR_PET_NOT_ALLOW_CHANGE_NAME";				// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÌ¸§ º¯°æ Çã¿ë ¾ÈÇÔ
-	case ERR_PET_NOT_ALLOW_SOCKET_INDEX:				return "ERR_PET_NOT_ALLOW_SOCKET_INDEX";			// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Çã¿ë¾ÈµÇ´Â ¼ÒÄÏ ÀÎµ¦½º
-	case ERR_PET_ALREADY_USE_SOCKET:					return "ERR_PET_ALREADY_USE_SOCKET";				// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÌ¹Ì »ç¿ëµÈ ¼ÒÄÏ
-	case ERR_PET_INVALID_SOCKET:						return "ERR_PET_INVALID_SOCKET";					// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Àß¸øµÈ ¼ÒÄÏ
-	case ERR_PET_NO_SUCH_INFO:							return "ERR_PET_NO_SUCH_INFO";						// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Æê°ü·Ã Á¤º¸¸¦ Ã£À»¼ö ¾øÀ½
-	case ERR_PET_INVALID_AUTOSKILL:						return "ERR_PET_INVALID_AUTOSKILL";					// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Àß¸øµÈ ÀÚµ¿ ½ºÅ³
-	case ERR_PET_INVALID_AUTOKIT:						return "ERR_PET_INVALID_AUTOKIT";					// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - Àß¸øµÈ ¿ÀÆ® ½ºÅ³
-	case ERR_PET_NOT_MATCH_SOCKET:						return "ERR_PET_NOT_MATCH_SOCKET";					// 2011-09-15 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ¼ÒÄÏ¾ÆÀÌÅÛÀÌ ¼­¹öÁ¤º¸¿Í ÀÏÄ¡ÇÏÁö ¾Ê´Â´Ù
+	case ERR_PET_NUMERIC_VALUE_OUT_OF_RANGE:			return "ERR_PET_NUMERIC_VALUE_OUT_OF_RANGE";		// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³²
+	case ERR_PET_NOT_EQUIPPED:							return "ERR_PET_NOT_EQUIPPED";						// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
+	case ERR_PET_EMPTY_NAME:							return "ERR_PET_EMPTY_NAME";						// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PET_NOT_ALLOW_LEVEL_UP:					return "ERR_PET_NOT_ALLOW_LEVEL_UP";				// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PET_NOT_ALLOW_CHANGE_NAME:					return "ERR_PET_NOT_ALLOW_CHANGE_NAME";				// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PET_NOT_ALLOW_SOCKET_INDEX:				return "ERR_PET_NOT_ALLOW_SOCKET_INDEX";			// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	case ERR_PET_ALREADY_USE_SOCKET:					return "ERR_PET_ALREADY_USE_SOCKET";				// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PET_INVALID_SOCKET:						return "ERR_PET_INVALID_SOCKET";					// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PET_NO_SUCH_INFO:							return "ERR_PET_NO_SUCH_INFO";						// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case ERR_PET_INVALID_AUTOSKILL:						return "ERR_PET_INVALID_AUTOSKILL";					// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½Å³
+	case ERR_PET_INVALID_AUTOKIT:						return "ERR_PET_INVALID_AUTOKIT";					// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½Å³
+	case ERR_PET_NOT_MATCH_SOCKET:						return "ERR_PET_NOT_MATCH_SOCKET";					// 2011-09-15 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
 
 	case ERR_SECURITY_NOT_CHECK_VERSION:				return "ERR_SECURITY_NOT_CHECK_VERSION";
 	case ERR_SECURITY_HACKING_GUID:						return "ERR_SECURITY_HACKING_GUID";
 	case ERR_SECURITY_HACKING_CRC:						return "ERR_SECURITY_HACKING_CRC";
 	case ERR_SECURITY_HACKING_CLIENT:					return "ERR_SECURITY_HACKING_CLIENT";
-	case ERR_SECURITY_ANTICPX_INVALID_HANDLE:			return "ERR_SECURITY_ANTICPX_INVALID_HANDLE";	// 2008-04-03 by cmkwon, ÇÙ½¯µå ¼­¹ö ¿¬µ¿ ½Ã½ºÅÛ ¼öÁ¤ - 
-	case ERR_SECURITY_CREATE_CLIENT_FAIL:				return "ERR_SECURITY_CREATE_CLIENT_FAIL";		// 2008-04-03 by cmkwon, ÇÙ½¯µå ¼­¹ö ¿¬µ¿ ½Ã½ºÅÛ ¼öÁ¤ - 
+	case ERR_SECURITY_ANTICPX_INVALID_HANDLE:			return "ERR_SECURITY_ANTICPX_INVALID_HANDLE";	// 2008-04-03 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
+	case ERR_SECURITY_CREATE_CLIENT_FAIL:				return "ERR_SECURITY_CREATE_CLIENT_FAIL";		// 2008-04-03 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 
 	case ERR_AHNHS_ENGINE_DETECT_GAME_HACK:				return "ERR_AHNHS_ENGINE_DETECT_GAME_HACK";
 	case ERR_AHNHS_ACTAPC_DETECT_AUTOMOUSE:				return "ERR_AHNHS_ACTAPC_DETECT_AUTOMOUSE";
@@ -2636,11 +2639,11 @@ char* GetErrorString(Err_t err)
 	case ERR_AHNHS_ACTAPC_DETECT_MODULE_CHANGE:			return "ERR_AHNHS_ACTAPC_DETECT_MODULE_CHANGE";
 	case ERR_AHNHS_ACTAPC_DETECT_ABNORMAL_MEMORY_ACCESS:	return "ERR_AHNHS_ACTAPC_DETECT_ABNORMAL_MEMORY_ACCESS";	// 2007-04-09 by cmkwon
 
-	case ERR_AHNHS_ACTAPC_DETECT_ENGINEFAILED:				return "ERR_AHNHS_ACTAPC_DETECT_ENGINEFAILED";	// 2008-03-24 by cmkwon, ÇÙ½¯µå 2.0 Àû¿ë - AHNHS_ACTAPC_DETECT_ENGINEFAILED Ãß°¡µÊ
-	case ERR_AHNHS_ACTAPC_DETECT_AUTOMACRO:						return "ERR_AHNHS_ACTAPC_DETECT_AUTOMACRO";						// 2009-07-17 by cmkwon, ÇÙ½¯µå ÀÚÃ¼ Á¾·á Ã³¸® ¿¡·¯Å¸ÀÔÃß°¡(Å¬¶óÀÌ¾ðÆ®¸¸ »ç¿ë) - 
-	case ERR_AHNHS_ACTAPC_DETECT_CODEMISMATCH:					return "ERR_AHNHS_ACTAPC_DETECT_CODEMISMATCH";					// 2009-07-17 by cmkwon, ÇÙ½¯µå ÀÚÃ¼ Á¾·á Ã³¸® ¿¡·¯Å¸ÀÔÃß°¡(Å¬¶óÀÌ¾ðÆ®¸¸ »ç¿ë) - 
-	case ERR_AHNHS_ACTAPC_DETECT_ABNORMAL_HACKSHIELD_STATUS:	return "ERR_AHNHS_ACTAPC_DETECT_ABNORMAL_HACKSHIELD_STATUS";	// 2009-07-17 by cmkwon, ÇÙ½¯µå ÀÚÃ¼ Á¾·á Ã³¸® ¿¡·¯Å¸ÀÔÃß°¡(Å¬¶óÀÌ¾ðÆ®¸¸ »ç¿ë) - 
-	case ERR_AHNHS_ACTAPC_DETECT_LMP_FAILED:					return "ERR_AHNHS_ACTAPC_DETECT_LMP_FAILED";					// 2009-07-17 by cmkwon, ÇÙ½¯µå ÀÚÃ¼ Á¾·á Ã³¸® ¿¡·¯Å¸ÀÔÃß°¡(Å¬¶óÀÌ¾ðÆ®¸¸ »ç¿ë) - 
+	case ERR_AHNHS_ACTAPC_DETECT_ENGINEFAILED:				return "ERR_AHNHS_ACTAPC_DETECT_ENGINEFAILED";	// 2008-03-24 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ 2.0 ï¿½ï¿½ï¿½ï¿½ - AHNHS_ACTAPC_DETECT_ENGINEFAILED ï¿½ß°ï¿½ï¿½ï¿½
+	case ERR_AHNHS_ACTAPC_DETECT_AUTOMACRO:						return "ERR_AHNHS_ACTAPC_DETECT_AUTOMACRO";						// 2009-07-17 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ß°ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½) - 
+	case ERR_AHNHS_ACTAPC_DETECT_CODEMISMATCH:					return "ERR_AHNHS_ACTAPC_DETECT_CODEMISMATCH";					// 2009-07-17 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ß°ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½) - 
+	case ERR_AHNHS_ACTAPC_DETECT_ABNORMAL_HACKSHIELD_STATUS:	return "ERR_AHNHS_ACTAPC_DETECT_ABNORMAL_HACKSHIELD_STATUS";	// 2009-07-17 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ß°ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½) - 
+	case ERR_AHNHS_ACTAPC_DETECT_LMP_FAILED:					return "ERR_AHNHS_ACTAPC_DETECT_LMP_FAILED";					// 2009-07-17 by cmkwon, ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ß°ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½) - 
 
 	case ERR_CASH_PREMIUM_CARD_INVALID_ITEMNUM:			return "ERR_CASH_PREMIUM_CARD_INVALID_ITEMNUM";
 	case ERR_CASH_PREMIUM_CARD_ALREADY_USING:			return "ERR_CASH_PREMIUM_CARD_ALREADY_USING";
@@ -2649,16 +2652,16 @@ char* GetErrorString(Err_t err)
 	case ERR_CASH_PREMIUM_CARD_NOT_YET_BUY_STATE:		return "ERR_CASH_PREMIUM_CARD_NOT_YET_BUY_STATE";
 	case ERR_NOT_DISSOLVED_ITEM:						return "ERR_NOT_DISSOLVED_ITEM";
 	case ERR_NOT_INSERT_DISSOLVED_ITEMS:				return "ERR_NOT_INSERT_DISSOLVED_ITEMS";
-	case ERR_CANNOT_DO_GIFT_UNDER_LEVEL:				return "ERR_CANNOT_DO_GIFT_UNDER_LEVEL";	// 2013-07-08 by bckim, Ä³³ª´Ù¿äÃ» ·¹º§70 ¹Ì¸¸Àº ¼±¹°ÇÏ±â ºÒ°¡
+	case ERR_CANNOT_DO_GIFT_UNDER_LEVEL:				return "ERR_CANNOT_DO_GIFT_UNDER_LEVEL";	// 2013-07-08 by bckim, Ä³ï¿½ï¿½ï¿½Ù¿ï¿½Ã» ï¿½ï¿½ï¿½ï¿½70 ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½Ò°ï¿½
 	
-	// 2012-08-17 by jhseol, ¸¶»ó BPSoft ºô¸µ½Ã½ºÅÛ
+	// 2012-08-17 by jhseol, ï¿½ï¿½ï¿½ï¿½ BPSoft ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 	case ERR_CASH_BPSOFT_COM_LIBRARY_INIT:				return "ERR_CASH_BPSOFT_COM_LIBRARY_INIT";
 	case ERR_CASH_BPSOFT_CREATION_OBJECK:				return "ERR_CASH_BPSOFT_CREATION_OBJECK";
 	case ERR_CASH_BPSOFT_METHOD_CALL:					return "ERR_CASH_BPSOFT_METHOD_CALL";
 	case ERR_CASH_BPSOFT_EXCEPTION:						return "ERR_CASH_BPSOFT_EXCEPTION";
-	// end 2012-08-17 by jhseol, ¸¶»ó BPSoft ºô¸µ½Ã½ºÅÛ
+	// end 2012-08-17 by jhseol, ï¿½ï¿½ï¿½ï¿½ BPSoft ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 
-	case ERR_PROTOCOL_STATUS_INFORMATION_NOT_CORRECT:	return "ERR_PROTOCOL_STATUS_INFORMATION_NOT_CORRECT";			// 2014-04-10 by bckim, °Å·¡¼Ò ¿¹¿ÜÃ³¸® Ãß°¡
+	case ERR_PROTOCOL_STATUS_INFORMATION_NOT_CORRECT:	return "ERR_PROTOCOL_STATUS_INFORMATION_NOT_CORRECT";			// 2014-04-10 by bckim, ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 	}
 
 	return "UNKNOWN_ERROR";
@@ -2667,7 +2670,7 @@ char* GetErrorString(Err_t err)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			char *GET_LANGUAGE_TYPE_STRING(int i_nLangTy)
-/// \brief		// 2008-04-25 by cmkwon, Áö¿ø ¾ð¾î¿¡ µ¶ÀÏ¾î Ãß°¡ - GET_LANGUAGE_TYPE_STRING() Ãß°¡
+/// \brief		// 2008-04-25 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î¿¡ ï¿½ï¿½ï¿½Ï¾ï¿½ ï¿½ß°ï¿½ - GET_LANGUAGE_TYPE_STRING() ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2008-04-25 ~ 2008-04-25
 /// \warning	
@@ -2677,7 +2680,7 @@ char* GetErrorString(Err_t err)
 ///////////////////////////////////////////////////////////////////////////////
 char *GET_LANGUAGE_TYPE_STRING(int i_nLangTy)
 {
-	// 2008-04-25 by cmkwon, Áö¿ø ¾ð¾î/¼­ºñ½º Ãß°¡½Ã ²À Ãß°¡ µÇ¾î¾ß ÇÏ´Â »çÇ× - [¾ð¾î-ÇÊ¼ö] Ãß°¡ ¾ð¾î ½ºÆ®¸µÀ¸·Î °¡Á®¿À±â ÇÔ¼ö¿¡ Ãß°¡
+	// 2008-04-25 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ - [ï¿½ï¿½ï¿½-ï¿½Ê¼ï¿½] ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	switch(i_nLangTy)
 	{
@@ -2689,12 +2692,12 @@ char *GET_LANGUAGE_TYPE_STRING(int i_nLangTy)
 	case LANGUAGE_TYPE_GERMAN:			return "LANGUAGE_TYPE_GERMAN";
 	case LANGUAGE_TYPE_THAI:			return "LANGUAGE_TYPE_THAI";
 	case LANGUAGE_TYPE_RUSSIAN:			return "LANGUAGE_TYPE_RUSSIAN";
-	case LANGUAGE_TYPE_TAIWANESE:		return "LANGUAGE_TYPE_TAIWANESE";	// 2008-09-23 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(´ë¸¸ Netpower_Tpe) - 
-	case LANGUAGE_TYPE_TURKISH:			return "LANGUAGE_TYPE_TURKISH";		// 2008-12-22 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Gameforge4D ÅÍÅ°¾Æ, ºÒ¾î, ÀÌÅ»¸®¾Æ¾î) - 
-	case LANGUAGE_TYPE_FRENCH:			return "LANGUAGE_TYPE_FRENCH";		// 2008-12-22 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Gameforge4D ÅÍÅ°¾Æ, ºÒ¾î, ÀÌÅ»¸®¾Æ¾î) - 
-	case LANGUAGE_TYPE_ITALIAN:			return "LANGUAGE_TYPE_ITALIAN";		// 2008-12-22 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Gameforge4D ÅÍÅ°¾Æ, ºÒ¾î, ÀÌÅ»¸®¾Æ¾î) - 
-	case LANGUAGE_TYPE_POLISH:			return "LANGUAGE_TYPE_POLISH";		// 2009-03-17 by cmkwon, Áö¿ø ¾ð¾î Ãß°¡(Æú¶õµå¾î, ½ºÆäÀÎ¾î) - 
-	case LANGUAGE_TYPE_SPANISH:			return "LANGUAGE_TYPE_SPANISH";		// 2009-03-17 by cmkwon, Áö¿ø ¾ð¾î Ãß°¡(Æú¶õµå¾î, ½ºÆäÀÎ¾î) - 
+	case LANGUAGE_TYPE_TAIWANESE:		return "LANGUAGE_TYPE_TAIWANESE";	// 2008-09-23 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½ë¸¸ Netpower_Tpe) - 
+	case LANGUAGE_TYPE_TURKISH:			return "LANGUAGE_TYPE_TURKISH";		// 2008-12-22 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Gameforge4D ï¿½ï¿½Å°ï¿½ï¿½, ï¿½Ò¾ï¿½, ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½) - 
+	case LANGUAGE_TYPE_FRENCH:			return "LANGUAGE_TYPE_FRENCH";		// 2008-12-22 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Gameforge4D ï¿½ï¿½Å°ï¿½ï¿½, ï¿½Ò¾ï¿½, ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½) - 
+	case LANGUAGE_TYPE_ITALIAN:			return "LANGUAGE_TYPE_ITALIAN";		// 2008-12-22 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Gameforge4D ï¿½ï¿½Å°ï¿½ï¿½, ï¿½Ò¾ï¿½, ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½) - 
+	case LANGUAGE_TYPE_POLISH:			return "LANGUAGE_TYPE_POLISH";		// 2009-03-17 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½) - 
+	case LANGUAGE_TYPE_SPANISH:			return "LANGUAGE_TYPE_SPANISH";		// 2009-03-17 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½) - 
 	}
 	return "LANGUAGE_TYPE_UNKNOWN";
 }
@@ -2727,22 +2730,22 @@ char * GetStringBLOCKED_TYPE(int i_blocktype)
 {
 	switch(i_blocktype)
 	{
-	case T_BLOCKEDACCOUNT_UNKNOWN:				return "Unknown";				// ¾Ë¼ö ¾øÀ½
-	case T_BLOCKEDACCOUNT_NORMAL:				return "Normal";				// Æ¯º°ÇÑ »çÀ¯ ¾øÀ½, ÀÓ½Ã·Î
+	case T_BLOCKEDACCOUNT_UNKNOWN:				return "Unknown";				// ï¿½Ë¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_BLOCKEDACCOUNT_NORMAL:				return "Normal";				// Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ó½Ã·ï¿½
 	case T_BLOCKEDACCOUNT_MONEY_RELATED:		return "Related Money";			// 
 	case T_BLOCKEDACCOUNT_ITEM_RELATED:			return "Related Item";			// 
 	case T_BLOCKEDACCOUNT_SPEEDHACK_RELATED:	return "Related SpeedHack";		//  
 	case T_BLOCKEDACCOUNT_CHAT_RELATED:			return "Related Chatting";		// 
 	case T_BLOCKEDACCOUNT_CHAT_GAMEBUG:			return "Related GameBug";		// 
-	case T_BLOCKEDACCOUNT_MEMORYHACK_AUTOBLOCK:	return "Related AutoBlock - MemHack";		// 2012-12-14 by hskim, ¸Þ¸ð¸®ÇÙ ÀÚµ¿ ºí·° ±â´É ±¸Çö
-	case T_BLOCKEDACCOUNT_SPEEDHACK_AUTOBLOCK:	return "Related AutoBlock - SpdHack";		// 2013-01-29 by hskim, ½ºÇÇµåÇÙ ÀÚµ¿ ºí·° ±â´É ±¸Çö
+	case T_BLOCKEDACCOUNT_MEMORYHACK_AUTOBLOCK:	return "Related AutoBlock - MemHack";		// 2012-12-14 by hskim, ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case T_BLOCKEDACCOUNT_SPEEDHACK_AUTOBLOCK:	return "Related AutoBlock - SpdHack";		// 2013-01-29 by hskim, ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	return "Unknown";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			int GetBlockTypeBYBlockTypeString(char *i_szTyString)
-/// \brief		// 2008-01-30 by cmkwon, °èÁ¤ ºí·° ·Î±× ³²±â±â ±¸Çö - GetBlockTypeBYBlockTypeString() Ãß°¡
+/// \brief		// 2008-01-30 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - GetBlockTypeBYBlockTypeString() ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2008-01-30 ~ 2008-01-30
 /// \warning	
@@ -2781,18 +2784,18 @@ int GetBlockTypeBYBlockTypeString(char *i_szTyString)
 	{
 		return T_BLOCKEDACCOUNT_CHAT_GAMEBUG;
 	}
-	// 2012-12-14 by hskim, ¸Þ¸ð¸®ÇÙ ÀÚµ¿ ºí·° ±â´É ±¸Çö
+	// 2012-12-14 by hskim, ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(0 == stricmp(i_szTyString, "Related AutoBlock - MemHack"))
 	{
 		return T_BLOCKEDACCOUNT_MEMORYHACK_AUTOBLOCK;
 	}
-	// end 2012-12-14 by hskim, ¸Þ¸ð¸®ÇÙ ÀÚµ¿ ºí·° ±â´É ±¸Çö
-	// 2013-01-29 by hskim, ½ºÇÇµåÇÙ ÀÚµ¿ ºí·° ±â´É ±¸Çö
+	// end 2012-12-14 by hskim, ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2013-01-29 by hskim, ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(0 == stricmp(i_szTyString, "Related AutoBlock - SpdHack"))
 	{
 		return T_BLOCKEDACCOUNT_SPEEDHACK_AUTOBLOCK;
 	}
-	// end 2013-01-29 by hskim, ½ºÇÇµåÇÙ ÀÚµ¿ ºí·° ±â´É ±¸Çö
+	// end 2013-01-29 by hskim, ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	return T_BLOCKEDACCOUNT_UNKNOWN;
 }
@@ -2831,7 +2834,7 @@ char *GetStringGuildMarkState(BYTE i_byGuildMarkState, BOOL i_bForUser/*=FALSE*/
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2010-04-20 by cmkwon, ½Å±Ô ·¯Å° ¸Ó½Å ±¸Çö - 
+/// \brief		// 2010-04-20 by cmkwon, ï¿½Å±ï¿½ ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2010-04-21 ~ 2010-04-21
 /// \warning	
@@ -2860,7 +2863,7 @@ char *GetEnchatLogTypeString(int i_nEnchantLogTy)
 	return "ENCHANT_LOGTYPE_UNKNOWN";
 }
 
-// 2013-07-01 by bckim, 10ÀÎÃ¦Æ® ¹Ì¸¸ ÇÏÀÌÆÛÄ«µåÃ³¸®, ·Î±×Ãß°¡, ¿î¿µÅø º¸¿Ï
+// 2013-07-01 by bckim, 10ï¿½ï¿½Ã¦Æ® ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½Ã³ï¿½ï¿½, ï¿½Î±ï¿½ï¿½ß°ï¿½, ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 char *GetTryEnchantSuccessTypeString(int i_nSuccessType)
 {
 	switch(i_nSuccessType)
@@ -2872,7 +2875,7 @@ char *GetTryEnchantSuccessTypeString(int i_nSuccessType)
 	}	
 	return "TRY_ENCHANT_LOGTYPE_UNKNOWN";
 }
-// End. 2013-07-01 by bckim, 10ÀÎÃ¦Æ® ¹Ì¸¸ ÇÏÀÌÆÛÄ«µåÃ³¸®, ·Î±×Ãß°¡, ¿î¿µÅø º¸¿Ï
+// End. 2013-07-01 by bckim, 10ï¿½ï¿½Ã¦Æ® ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½Ã³ï¿½ï¿½, ï¿½Î±ï¿½ï¿½ß°ï¿½, ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 int GetEnchantLogType(ITEM *i_pEnchantItemInfo, BOOL i_bSuccessFlag)
@@ -2907,35 +2910,35 @@ int GetEnchantLogType(ITEM *i_pEnchantItemInfo, BOOL i_bSuccessFlag)
 	return ENCHANT_LOGTYPE_UNKNOWN;
 }
 
-// 2013-03-13 by hskim, À¥ Ä³½Ã »óÁ¡
+// 2013-03-13 by hskim, ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 char* GetErrorXMLRPCString(int err)
 {
-	// ¾Æ·¡ ºÎºÐ ±¸ÇöÀÌ ¸¶¹«¸®µÇ¸é ¿µ¾î·Î ¹ø¿ª ÇÒ ¿¹Á¤
+	// ï¿½Æ·ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	switch(err)
 	{
 	/*
-	case XMLRPC_ERROR_INTERNAL_SERVER				:				return "¼­¹ö ³»ºÎ ¿¡·¯";
-	case XMLRPC_ERROR_INVALID_SERVER_ID				:				return "¼­¹ö ID À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_DISABLE_SERVER				:				return "¼­¹ö Ã³¸® ºÒ°¡ »óÅÂ";
-	case XMLRPC_ERROR_DISABLE_REQUEST				:				return "¼­¹ö ÇØ´ç ¿äÃ» Ã³¸® ºÒ°¡ »óÅÂ";
-	case XMLRPC_ERROR_INVALID_USER_IP				:				return "À¯Àú IP ÁÖ¼Ò°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_NOT_MATCHED_USER_INFO			:				return "°èÁ¤°ú Ä³¸¯ÅÍ Á¤º¸°¡ °°Áö ¾ÊÀ½";
-	case XMLRPC_ERROR_INVALID_ACCOUNTUID			:				return "°èÁ¤ Á¤º¸°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_INVALID_CHARACTERUID			:				return "Ä³¸¯ÅÍ Á¤º¸°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_INVALID_ITEMNUM				:				return "¾ÆÀÌÅÛ ¹øÈ£°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_OUT_OF_RANGE_ITEMCOUNT		:				return "¾ÆÀÌÅÛ ¼öÀÇ ¹üÀ§°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_INVALID_AUTHENTICATION_KEY	:				return "±¸¸Å »óÁ¡ ÀÎÁõÅ°°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_NOT_ACCEPTED_USER				:				return "ÇØ´ç À¯ÀúÀÇ ¿äÃ» Ã³¸® ºÒ°¡";
-	case XMLRPC_ERROR_INVALID_ITEM_STORAGE			:				return "¾ÆÀÌÅÛ À§Ä¡°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_NEED_MORE_CASH				:				return "±¸¸Å¿¡ ÇÊ¿äÇÑ Ä³½Ã ºÎÁ·";
-	case XMLRPC_ERROR_BILLING_ERROR					:				return "ºô¸µ ¿¬µ¿ ¿¡·¯";
-	case XMLRPC_ERROR_INVALID_GET_CHARACTERUID		:				return "¼±¹° ¹ÞÀ» °èÁ¤ Á¤º¸°¡ À¯È¿ÇÏÁö ¾ÊÀ½";
-	case XMLRPC_ERROR_NOT_FOUND_BILLING_ITEM_LIST	:				return "ºô¸µ ¸ñ·Ï¿¡ ¾ø´Â ¾ÆÀÌÅÛ (±¸¸Å ºÒ°¡)";
-	case XMLRPC_ERROR_UNKNOWN_ERROR					:				return "¾Ë¼ö ¾ø´Â ¿¡·¯";
-	case XMLRPC_ERROR_NOT_FOUND_RPC_METHOD			:				return "RPC ¸Þ¼Òµå¸¦ Ã£À» ¼ö ¾øÀ½";
-	case XMLRPC_ERROR_NOT_MATCHED_PARAMETER_TYPE	:				return "RPC ¸Þ¼ÒµåÀÇ ÆÄ¶ó¹ÌÅÍ Çü½ÄÀÌ Æ²¸²";
-	case XMLRPC_ERROR_INVALID_XML					:				return "XML Çü½ÄÀÌ Æ²¸²";
+	case XMLRPC_ERROR_INTERNAL_SERVER				:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_SERVER_ID				:				return "ï¿½ï¿½ï¿½ï¿½ ID ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_DISABLE_SERVER				:				return "ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_DISABLE_REQUEST				:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_USER_IP				:				return "ï¿½ï¿½ï¿½ï¿½ IP ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_NOT_MATCHED_USER_INFO			:				return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_ACCOUNTUID			:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_CHARACTERUID			:				return "Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_ITEMNUM				:				return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_OUT_OF_RANGE_ITEMCOUNT		:				return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_AUTHENTICATION_KEY	:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_NOT_ACCEPTED_USER				:				return "ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½ ï¿½Ò°ï¿½";
+	case XMLRPC_ERROR_INVALID_ITEM_STORAGE			:				return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_NEED_MORE_CASH				:				return "ï¿½ï¿½ï¿½Å¿ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_BILLING_ERROR					:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_GET_CHARACTERUID		:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_NOT_FOUND_BILLING_ITEM_LIST	:				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½)";
+	case XMLRPC_ERROR_UNKNOWN_ERROR					:				return "ï¿½Ë¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_NOT_FOUND_RPC_METHOD			:				return "RPC ï¿½Þ¼Òµå¸¦ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+	case XMLRPC_ERROR_NOT_MATCHED_PARAMETER_TYPE	:				return "RPC ï¿½Þ¼Òµï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½";
+	case XMLRPC_ERROR_INVALID_XML					:				return "XML ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½";
 	*/
 
 	case XMLRPC_ERROR_INTERNAL_SERVER				:				return "XMLRPC_ERROR_INTERNAL_SERVER";
@@ -2966,4 +2969,4 @@ char* GetErrorXMLRPCString(int err)
 
 	return "XMLRPC_ERROR_UNKNOWN";
 }
-// end 2013-03-13 by hskim, À¥ Ä³½Ã »óÁ¡
+// end 2013-03-13 by hskim, ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½

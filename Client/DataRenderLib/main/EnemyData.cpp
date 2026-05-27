@@ -30,8 +30,8 @@
 #include "PkNormalTimer.h"
 #include "Skill.h"
 #include "WeaponItemInfo.h"
-#include "StoreData.h"		// 2008-08-19 by bhsohn ¼¼·Â ¸¶Å© ½Ã½ºÅÛ Ãß°¡
-#include "INFGameMain.h"	// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+#include "StoreData.h"		// 2008-08-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+#include "INFGameMain.h"	// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 
 
 
@@ -43,10 +43,10 @@ CEnemyData::CEnemyData(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 {
 	FLOG( "CEnemyData()" );
 	m_pCharacterInfo = NULL;
-	m_pEnemyCharacterInfo = NULL;							// 2005-07-26 by ispark Àû Ä³¸¯ÅÍ Á¤º¸
+	m_pEnemyCharacterInfo = NULL;							// 2005-07-26 by ispark ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	m_pRenderer = g_pD3dApp->m_pShuttleRender;
 	m_pRender = g_pD3dApp->m_pUnitRender;
-	m_pCharacterRender = g_pD3dApp->m_pCharacterRender;		// 2005-07-26 by ispark Ä³¸¯ÅÍ Rendering
+	m_pCharacterRender = g_pD3dApp->m_pCharacterRender;		// 2005-07-26 by ispark Ä³ï¿½ï¿½ï¿½ï¿½ Rendering
 	m_pTarget = NULL;
 	m_fTargetCheckTime = 1.0f;
 
@@ -153,7 +153,7 @@ CEnemyData::CEnemyData(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 	m_nTargetIndex = 0;
 
 	// 2005-07-28 by ispark
-	// Àû Ä³¸¯ÅÍ
+	// ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½
 //	m_bEnemyCharacter = TRUE;
 	m_hyBodyCondition = 0;
 	if(m_infoCharacter.CharacterInfo.CharacterMode0 == FALSE)
@@ -163,18 +163,18 @@ CEnemyData::CEnemyData(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 	else
 	{
 		m_bEnemyCharacter = TRUE;
-		// Ä³¸¯ÅÍ´Â Upº¤ÅÍ°¡ ¹Ø¿¡²¨
+		// Ä³ï¿½ï¿½ï¿½Í´ï¿½ Upï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ø¿ï¿½ï¿½ï¿½
 		m_vUp = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
 	}
 
-// 2011-07-18 by jhahn ÀÎÇÇ3Â÷ ½Ã³×¸¶ Å¸Ä³¸¯ÅÍ ¾Èº¸ÀÌ±â
+// 2011-07-18 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½
 	m_bRender = TRUE;
-//end 2011-07-18 by jhahn ÀÎÇÇ3Â÷ ½Ã³×¸¶ Å¸Ä³¸¯ÅÍ ¾Èº¸ÀÌ±â
+//end 2011-07-18 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½
 
 	m_bSetPosition = FALSE;
 	m_pMoveChatShop = NULL;
 
-	// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+	// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 	m_MonsterTransformer = pMsg->CharacterRenderInfo.RI_MonsterUnitKind_ForTransformer;
 
 	ITEM *temp = g_pDatabase->GetServerMonsterTransItemInfo(m_MonsterTransformer);
@@ -183,7 +183,7 @@ CEnemyData::CEnemyData(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 
 	m_MonsterTransPrimarySidePos = D3DXVECTOR3(0, 0, 0);
 	m_MonsterTransSecondarySidePos = D3DXVECTOR3(0, 0, 0);
-	//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+	//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 }
 
 CEnemyData::~CEnemyData()
@@ -219,7 +219,7 @@ CEnemyData::~CEnemyData()
 		m_pIDChat->DeleteDeviceObjects();
 	}
 	SAFE_DELETE(m_pIDChat);
-	if(m_pCharacterInfo)//Ãß°¡
+	if(m_pCharacterInfo)//ï¿½ß°ï¿½
 	{
 		m_pCharacterInfo->InvalidateDeviceObjects();
 		m_pCharacterInfo->DeleteDeviceObjects();
@@ -255,9 +255,9 @@ HRESULT CEnemyData::InitDeviceObjects()
 		m_pEnemyCharacterInfo->DeleteDeviceObjects();
 		SAFE_DELETE(m_pEnemyCharacterInfo);
 	}
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	m_pPetManager = g_pShuttleChild->GetPetManager();
-	//end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	//end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	return S_OK;
 }
 
@@ -339,17 +339,33 @@ void CEnemyData::Init()
 	CChatMoveData * pData;
 	if(COMPARE_RACE(m_infoCharacter.CharacterInfo.Race,RACE_GAMEMASTER))
 	{
+#ifdef _RAT_FFA
+		if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+			pData = new CChatMoveData(m_pIDChat, "FFA Enemy", COLOR_CHARACTER_ID02, 9, 256, 32);
+		else
+			pData = new CChatMoveData(m_pIDChat, m_infoCharacter.CharacterInfo.CharacterName, COLOR_CHARACTER_ID02, 9, 256, 32);
+		m_dwPartType = _ADMIN;
+#else
 		pData = new CChatMoveData(m_pIDChat,m_infoCharacter.CharacterInfo.CharacterName,COLOR_CHARACTER_ID02,9,256,32);
 		m_dwPartType = _ADMIN;
+#endif
 	}
 	else
 	{
-		pData = new CChatMoveData(m_pIDChat,m_infoCharacter.CharacterInfo.CharacterName,COLOR_CHARACTER_ID00,9,256,32);
+#ifdef _RAT_FFA
+		if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+			pData = new CChatMoveData(m_pIDChat, "FFA Enemy", COLOR_CHARACTER_ID00, 9, 256, 32);
+		else
+			pData = new CChatMoveData(m_pIDChat, m_infoCharacter.CharacterInfo.CharacterName, COLOR_CHARACTER_ID00, 9, 256, 32);
+#else
+		pData = new CChatMoveData(m_pIDChat, m_infoCharacter.CharacterInfo.CharacterName, COLOR_CHARACTER_ID00, 9, 256, 32);
+#endif
 	}
+
 	pData->InitDeviceObjects();
 //	pData->RestoreDeviceObjects();
 	pData = (CChatMoveData *)m_pIDChat->AddChild(pData);
-	// ÃÊ±âÈ­½Ã¿¡ ÃÖÃÊ ¸ÅÆ®¸¯½º¸¦ ±¸ÇÑ´Ù.
+	// ï¿½Ê±ï¿½È­ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	D3DXMatrixLookAtRH( &m_mMatrix, &m_vPos, &(m_vPos+100.0f*m_vVel), &m_vUp);
 	D3DXMatrixInverse( &m_mMatrix, NULL, &m_mMatrix );
 
@@ -371,21 +387,21 @@ void CEnemyData::Init()
 		m_bDegree = 0;
 		m_bItemDegree = FALSE;
 	}
-	// 2005-11-24 by ispark, ItemNum -> SourceIndexÀ¸·Î º¯°æ
+	// 2005-11-24 by ispark, ItemNum -> SourceIndexï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//ITEM * pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_Center);
 	
-	// ¿ÜÇü¾ÆÀÌÅÛ¹øÈ£°¡ ¾ø´Ù¸é ¿ø·¡ ¾ÆÀÌÅÛ ¹øÈ£¸¦ »ç¿ëÇÑ´Ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	int nItemNum = 0;
 	if( m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum )
 		nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum;
 	else
 		nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Center;
 	ITEM* pItem	= g_pDatabase->GetServerItemInfo( nItemNum );
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+	// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 	BOOL bMonTras = FALSE;
 	if(m_MonsterTransformer)
 	{
@@ -406,29 +422,31 @@ void CEnemyData::Init()
 		if(pItem)
 			nItemNum = pItem->SourceIndex;
 	}
-	//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+	//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+
+#ifdef _RAT_FFA
+	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+		pItem = NULL;
+#endif
 
 	if(pItem)
 	{
-		// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-		//ChangeUnitCharacterInfo(pItem->SourceIndex, 
-		//	m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 		ChangeUnitCharacterInfo(nItemNum, m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE , bMonTras);
-		//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+		//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 	}
 	else
 	{
-		// µðÆúÆ®
+		// ï¿½ï¿½ï¿½ï¿½Æ®
 		ChangeUnitCharacterInfo(0, 
 			m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 	}
 
 	// 2005-07-28 by ispark
-	// Ä³¸¯ÅÍ ·»´õ¸µ ¹øÈ£ ÀÔ·Â
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ô·ï¿½
 	SetPilotNumber(m_infoCharacter.CharacterInfo.PilotFace);
 
 	// 2005-07-28 by ispark
-	// Ä³¸¯ÅÍ ÀÌÀü ÁÂÇ¥ ÀÔ·Â - ¿©±â¼­ ÃÊ±âÈ­´Â ÇöÀç ÁÂÇ¥¿Í µ¿ÀÏ·Î ÀÔ·Â
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½Ô·ï¿½ - ï¿½ï¿½ï¿½â¼­ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½Ô·ï¿½
 	m_vOldPos = m_vPos;
 
 	if(m_pCharacterInfo)
@@ -439,7 +457,7 @@ void CEnemyData::Init()
 //	RestoreChat();
 	RestoreDeviceObjects();
 
-	// Æí´ëÀü ´ë»óÀÎ°¡?
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 	if( g_pShuttleChild && 
 		g_pShuttleChild->m_pClientParty)
 	{
@@ -450,7 +468,7 @@ void CEnemyData::Init()
 		}
 	}
 
-	// ¿©´ÜÀü ´ë»óÀÎ°¡?
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 	if(g_pShuttleChild->m_pGuildWarInfo)
 	{
 		if( g_pShuttleChild->IsPkState(PK_GVG) &&
@@ -460,26 +478,40 @@ void CEnemyData::Init()
 		}
 	}
 
-	// ¼¼·ÂÀü
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	if(g_pShuttleChild->IsInfluenceWarType(m_infoCharacter.CharacterInfo.InfluenceType) == TRUE)
+#ifdef _RAT_FFA
+	if ( (g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex == m_infoCharacter.CharacterInfo.MapChannelIndex.MapIndex && MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType))
+	{
+		SetPkState(PK_WAR, TRUE);
+	}
+	else
+	{
+		if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType))
+		{
+			SetPkState(PK_WAR, TRUE);
+		}
+	}
+#else
 	if(!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType))
 	{
 		SetPkState( PK_WAR, TRUE );
 	}
+#endif
 
 	MSG_FC_CHARACTER_GET_OTHER_PARAMFACTOR sMsg;
 	sMsg.ClientIndex = m_infoCharacter.CharacterInfo.ClientIndex;
 	sMsg.ItemPosition = POS_PROWOUT;
 	g_pFieldWinSocket->SendMsg( T_FC_CHARACTER_GET_OTHER_PARAMFACTOR, (char*)&sMsg, sizeof(sMsg) );
 
-	// 2006-07-28 by ispark, °³ÀÎ »óÁ¡¿ë
+	// 2006-07-28 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_byBazaarType = 0;
 	memset(m_szBazaarName, 0x00, SIZE_MAX_BAZAAR_NAME);
 
-	// 2006-09-20 by ispark, ÀÌÆåÆ® ÃÊ±âÈ­
+	// 2006-09-20 by ispark, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 	InitItemPoint();
 
-	// 2006-11-27 by ispark, ¾ËÆÄ¿Í °ü·ÃµÈ ·»´õ¸µ ÁßÀÌ¸é
+	// 2006-11-27 by ispark, ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½
 	if(m_infoCharacter.CharacterRenderInfo.RI_Invisible)
 	{
 		SetAlphaData();
@@ -501,13 +533,13 @@ void CEnemyData::Tick()
 	D3DXVECTOR3 vPos;
 	if(GetCurrentBodyCondition() & BODYCON_CLIENT_SINGLE == 0)
 	{
-		DBGOUT("(%s)Enemy ¿£ÁøÀÌ ¾øÀ½\n", m_infoCharacter.CharacterInfo.CharacterName);
+		DBGOUT("(%s)Enemy ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½\n", m_infoCharacter.CharacterInfo.CharacterName);
 	}
 
 	if(m_bEnemyCharacter)
 	{
 		TickCharacter(fElapsedTime);
-		// Ä³¸¯ÅÍ Å° ³ôÀÌ·Î ¼öÁ¤
+		// Ä³ï¿½ï¿½ï¿½ï¿½ Å° ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½ï¿½ï¿½ï¿½
 		vPos = m_vPos;
 		vPos.y += GetCharacterHeight(m_nPilotNum) + 1.0f;
 	}
@@ -515,12 +547,12 @@ void CEnemyData::Tick()
 	{
 		TickUnit(fElapsedTime);
 		vPos = m_vPos;
-		// 2006-12-04 by ispark, Ã¼ÇÁ»çÃâ
+		// 2006-12-04 by ispark, Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ChaffDataTick();
 	}
 
 	// 2005-08-02 by ispark
-	// ½ºÅ©¸°»óÀÇ ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	// ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(m_bSetPosition == TRUE)
 	{
 		g_pD3dApp->CalcObjectSourceScreenCoords(vPos, g_pD3dApp->GetBackBufferDesc().Width, g_pD3dApp->GetBackBufferDesc().Height, 
@@ -535,13 +567,13 @@ void CEnemyData::Tick()
 		m_pMoveChatShop->Tick();
 	}
 
-	// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®		
+	// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½		
 	TickCheckObjectTOEnemy();
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CEnemyData::UpdateCheckObject()
-/// \brief		¿ÀºêÁ§Æ® Ãæµ¹ °ü·Ã Ã¼Å©
-/// \author		// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®	
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+/// \author		// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½	
 /// \date		2007-05-17 ~ 2007-05-17
 /// \warning	
 ///
@@ -550,18 +582,18 @@ void CEnemyData::Tick()
 ///////////////////////////////////////////////////////////////////////////////
 void CEnemyData::TickCheckObjectTOEnemy()
 {
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
-		//|| (IsInfluenceCharacter(g_pShuttleChild->GetMyShuttleInfo().InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType))) // °°Àº ¼¼·Â	
-	//(g_pD3dApp->IsMyShuttleCharacter() == TRUE)		// ¸¶À»ÀÌ¸é ¹«Á¶°Ç º¸ÀÎ´Ù.
-	if((m_infoCharacter.CharacterInfo.ClientIndex == g_pShuttleChild->GetTargetClientIndext())	// ÀûÀ» Å¸ÄÏ Àâ°íÀÖÀ¸¸é
-		|| (m_nTargetIndex == g_pShuttleChild->GetMyShuttleInfo().ClientIndex)// ³ª¸¦ Å¸ÄÏÀ» Àâ°í ÀÖÀ¸¸é ¹«Á¶°Ç º¸ÀÎ´Ù.
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+		//|| (IsInfluenceCharacter(g_pShuttleChild->GetMyShuttleInfo().InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType))) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	//(g_pD3dApp->IsMyShuttleCharacter() == TRUE)		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
+	if((m_infoCharacter.CharacterInfo.ClientIndex == g_pShuttleChild->GetTargetClientIndext())	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		|| (m_nTargetIndex == g_pShuttleChild->GetMyShuttleInfo().ClientIndex)// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 		)		
 	{		
 		InitCheckInfo();
 		return;
 	}
 
-	// Ã¼Å© ½Ã°£Àº 1ÃÊ¸¶´Ù
+	// Ã¼Å© ï¿½Ã°ï¿½ï¿½ï¿½ 1ï¿½Ê¸ï¿½ï¿½ï¿½
 	n_fCheckObjectTime -= g_pD3dApp->GetCheckElapsedTime();
 
 	if( n_fCheckObjectTime > 0)
@@ -581,13 +613,13 @@ void CEnemyData::InitCheckInfo()
 
 void CEnemyData::UpdateCheckObjectTOEnemy(BOOL bTarget)
 {
-	// ¿ÀºêÁ§Æ® Ãæµ¹ °ü·Ã Ã¼Å©
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	D3DXVECTOR3	vMyShuttlePos	= g_pShuttleChild->m_vPos;
 	D3DXVECTOR3	vEmenyPos		= m_vPos;
 
 	m_bCheckObject = FALSE;
 	m_bCheckObjectEnemyShow = TRUE;		
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	BOOL bHidden = FALSE;
 	//BOOL bSamInfluence = IsInfluenceCharacter(g_pShuttleChild->GetMyShuttleInfo().InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType);	
 	BOOL bSamInfluence = IsSameInfluence(g_pShuttleChild->GetMyShuttleInfo().InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType);	
@@ -595,13 +627,13 @@ void CEnemyData::UpdateCheckObjectTOEnemy(BOOL bTarget)
 	{		
 		if(m_infoCharacter.CharacterInfo.ClientIndex == g_pShuttleChild->GetTargetClientIndext())
 		{
-			// Å¸ÄÏÀº ¹«Á¶°Ç º¸ÀÎ´Ù.
+			// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 			InitCheckInfo();
 			return;
 		}
 		else
 		{
-			// Tick¿¡¼­ Ã¼Å© ÇÏ´Â°Í¸¸ ¾ÆÀÌµð ¼û±â±â µ¿ÀÛ		
+			// Tickï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½Ï´Â°Í¸ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		
 			if(!bSamInfluence)
 			{
 				if(g_pD3dApp->IsOptionEtc(OPTION_RADIO_ENEMY_ID_HIDE))
@@ -619,16 +651,16 @@ void CEnemyData::UpdateCheckObjectTOEnemy(BOOL bTarget)
 		}				
 		if(bHidden)
 		{
-			// ¼û°Ü¶ó
+			// ï¿½ï¿½ï¿½Ü¶ï¿½
 			m_bCheckObject = TRUE;
 			m_bCheckObjectEnemyShow = FALSE;
 			return;			
 		}				
 		
-		// Å¸ÄÏÆÃ¿¡¼­ Ã¼Å©
+		// Å¸ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã¼Å©
 		if(bSamInfluence || (g_pD3dApp->IsMyShuttleCharacter() == TRUE))
 		{			
-			// °°Àº ¼¼·Â È¤Àº ¸¶À»¿¡¼± ¿ÀºêÁ§Æ® Ãæµ¹ Ã¼Å©ÇÒÇÊ¿ä¾øÀ½
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹ Ã¼Å©ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½
 			InitCheckInfo();		
 			return;
 		}
@@ -653,7 +685,7 @@ void CEnemyData::UpdateCheckObjectTOEnemy(BOOL bTarget)
 			}
 			if(bHidden)
 			{
-				// ¼û°Ü¶ó
+				// ï¿½ï¿½ï¿½Ü¶ï¿½
 				m_bCheckObject = TRUE;
 				m_bCheckObjectEnemyShow = FALSE;				
 			}	
@@ -661,24 +693,24 @@ void CEnemyData::UpdateCheckObjectTOEnemy(BOOL bTarget)
 			{
 				InitCheckInfo();
 			}
-			// °°Àº ¼¼·Â È¤Àº ¸¶À»¿¡¼± ¿ÀºêÁ§Æ® Ãæµ¹ Ã¼Å©ÇÒÇÊ¿ä¾øÀ½
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹ Ã¼Å©ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½
 			return;			
 		}
 	}
 
 
 	
-	// end 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// end 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(g_pScene->IsObjectCheckPosTOPos(vMyShuttlePos, vEmenyPos, m_vUp))
 	{
-		// ¿ÀºêÁ§Æ®°¡ ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½.
 		m_bCheckObject = TRUE;
 		m_bCheckObjectEnemyShow = FALSE;
 	}
-	// ÁöÇü°ü·Ã Ã¼Å©¸¦ ÇÑ´Ù. 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½Ñ´ï¿½. 
 	else if(g_pScene->IsTileCheckPosTOPos(vMyShuttlePos, vEmenyPos))
 	{
-		// ÁöÇüÀÌ ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.
 		m_bCheckObject = TRUE;
 		m_bCheckObjectEnemyShow = FALSE;		
 	}	
@@ -686,8 +718,8 @@ void CEnemyData::UpdateCheckObjectTOEnemy(BOOL bTarget)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CEnemyData::UpdateCheckObject()
-/// \brief		¿ÀºêÁ§Æ® Ãæµ¹ °ü·Ã Ã¼Å©
-/// \author		// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®	
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+/// \author		// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½	
 /// \date		2007-05-17 ~ 2007-05-17
 /// \warning	
 ///
@@ -701,8 +733,8 @@ BOOL CEnemyData::IsCheckObjectShow()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CEnemyData::IsCheckObjectColl()
-/// \brief		¿ÀºêÁ§Æ® Ãæµ¹ °ü·Ã ¿©ºÎ ÆÇ´Ü 
-/// \author		// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®	
+/// \brief		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ 
+/// \author		// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½	
 /// \date		2007-05-17 ~ 2007-05-17
 /// \warning	
 ///
@@ -723,7 +755,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 		DelSecondWeapon();
 		if( m_dwState == _FALLEN )
 		{
-			// 2006-01-21 by ispark, ¹ÙµðÄÁµð¼Ç ¼ÂÆÃ ¼öÁ¤
+			// 2006-01-21 by ispark, ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			ChangeSingleBodyCondition(hyBodyCondition);
 			hyBodyCondition &= ~(BODYCON_CHARACTER_MODE_STOP|BODYCON_CHARACTER_MODE_RUN|BODYCON_CHARACTER_MODE_WALK);
 			ChangeBodyCondition( hyBodyCondition );
@@ -733,7 +765,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //			m_bAttackEnemy = FALSE;
 //			SetPkState( PK_ALL, FALSE );
 //			g_pShuttleChild->SetAttackAvaliableEnemyIndex( m_infoCharacter.ClientIndex, FALSE );
-			// 2006-01-13 by ispark, Å¸°Ù ÀÎµ¦½º »èÁ¦
+			// 2006-01-13 by ispark, Å¸ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_nTargetIndex = 0;
 			if( g_pShuttleChild->m_pOrderTarget == this)
 			{
@@ -743,21 +775,21 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 			ChangeSingleBodyCondition(BODYCON_EXPLOSION_MASK);
 			ChangeUnitState( _FALLING );
 			
-			// 2007-01-31 by dgwoo Àû±â°¡ Á×¾úÀ» °æ¿ì Ä³½ºÆÃÁßÀÎ ½ºÅ³À» Ãë¼ÒÇÑ´Ù.
+			// 2007-01-31 by dgwoo ï¿½ï¿½ï¿½â°¡ ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			if(this->m_pSkillEffect)
 				this->m_pSkillEffect->DeleteCastingStateSkillEffect();
 
 
-			// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+			// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 			
 			if( m_pSkillEffect )
 				m_pSkillEffect->DeleteCastingStateMonsterSkillEffect();
 
-			// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+			// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 
 
-			// ¿þÆùÁß ÀÌ Ä³¸¯À» ÇâÇÏ´Â °Íµé
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Íµï¿½
 			CWeapon * pNode = (CWeapon *)g_pScene->m_pWeaponData->m_pChild;
 			while(pNode)
 			{
@@ -765,7 +797,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 				{
 					pNode->m_pTarget = NULL;
 
-					// 2004-12-02 by ydkim ¸¶ÀÎ°ø°Ý½Ã ¾îÅÃÀ»¹ÞÀ»¶§ Å¸°ÙÀÌ ¾ø¾îÁ³À»¶§
+					// 2004-12-02 by ydkim ï¿½ï¿½ï¿½Î°ï¿½ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if(pNode->m_dwPartType == _MINE
 						&& pNode->m_dwWeaponState == _EXPLODING)
 					{
@@ -774,7 +806,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 				}
 				pNode = (CWeapon *)pNode->m_pNext;
 			}
-			// Æí´ëÀåÀÎ °æ¿ì Æí´ë ÀÌÅ»
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å»
 
 //			if(m_infoParty.bPartyType == _PARTYMASTER 
 //				&& g_pShuttleChild->m_pClientParty->IsFormationFlight())
@@ -793,18 +825,18 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 	}
 	else if(m_bEnemyCharacter == FALSE)
 	{
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		
-		// ·Ñ¸µ½Ã ºÎ½ºÅÍ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ µ¤¾î¾º¿öÁö¹Ç·Î ¸·´Â´Ù(Ã¼ÀÎ·Ñ¸µ½Ã³ª ·Ñ¸µ½Ã ·º¹®Á¦)
+		// ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¾ºï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½Â´ï¿½(Ã¼ï¿½Î·Ñ¸ï¿½ï¿½Ã³ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		if( COMPARE_BODYCON_BIT(hyBodyCondition, BODYCON_BOOSTER1_MASK | BODYCON_BOOSTER2_MASK | BODYCON_BOOSTER3_MASK | BODYCON_BOOSTER4_MASK | BODYCON_BOOSTER5_MASK) )
 		{
 			if( IsRobotArmor() && (m_bRollLeft || m_bRollRight) )
 				return;
 		}
 		
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-		// 2006-01-21 by ispark, ¹ÙµðÄÁµð¼Ç ¼ÂÆÃ ¼öÁ¤
+		// 2006-01-21 by ispark, ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if( COMPARE_BODYCON_BIT(GetCurrentBodyCondition(),BODYCON_BOOSTER3_MASK) && 
 //			!COMPARE_BODYCON_BIT(hyBodyCondition,BODYCON_BOOSTER3_MASK))
 //		{
@@ -833,7 +865,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 			//DBGOUT("Enemy ChangeBodycondition[%016I64X]\n", hyBodyCondition);
 			ChangeUnitState( _NORMAL );
 		}
-		// Æí´ëÀåÀÎ °æ¿ì ¹ÙµðÄÁµð¼Ç µû¶ó°¨
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		if( m_infoParty.bPartyType == _PARTYMASTER && 
 		if( m_nPartyID != 0 &&
 			g_pShuttleChild->m_pClientParty->GetMasterInfo().m_nUniqueNumber == m_infoCharacter.CharacterInfo.CharacterUniqueNumber &&
@@ -882,8 +914,8 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 	}
 	else
 	{
-		// Ä³¸¯ÅÍ ¹Ùµð ÄÁµð¼Ç
-		// ¼­¹ö·Î ºÎÅÍ ³¯¶ó¿È
+		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	}
 }
@@ -896,34 +928,34 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //	
 //	switch(bFormType)
 //	{
-//	case FLIGHT_FORM_2_COLUMN:// ÀÌ¿­ Á¾´ë Æí´ë
+//	case FLIGHT_FORM_2_COLUMN:// ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			FormationFlightType1(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_2_LINE:// ÀÌ¿­ È¾´ë Æí´ë
+//	case FLIGHT_FORM_2_LINE:// ï¿½Ì¿ï¿½ È¾ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			FormationFlightType2(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_TRIANGLE:// »ï°¢ Æí´ë
+//	case FLIGHT_FORM_TRIANGLE:// ï¿½ï°¢ ï¿½ï¿½ï¿½
 //			FormationFlightType3(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_INVERTED_TRIANGLE:// ¿ª»ï°¢ Æí´ë
+//	case FLIGHT_FORM_INVERTED_TRIANGLE:// ï¿½ï¿½ï¿½ï°¢ ï¿½ï¿½ï¿½
 //			FormationFlightType4(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_BELL:// Á¾ Æí´ë
+//	case FLIGHT_FORM_BELL:// ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			FormationFlightType5(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_INVERTED_BELL:// ¿ªÁ¾ Æí´ë
+//	case FLIGHT_FORM_INVERTED_BELL:// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			FormationFlightType6(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_X:// X-Çü Æí´ë
+//	case FLIGHT_FORM_X:// X-ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			FormationFlightType7(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
-//	case FLIGHT_FORM_STAR:// Star-Çü Æí´ë
+//	case FLIGHT_FORM_STAR:// Star-ï¿½ï¿½ ï¿½ï¿½ï¿½
 //			FormationFlightType8(vPos,vTarget,vUp,vSide,bPositionType);
 //		break;
 //	}
 //}
 //
-//void CEnemyData::FormationFlightType1(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ÀÌ¿­Á¾´ëÇü
+//void CEnemyData::FormationFlightType1(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType1()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -964,7 +996,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //		SetPosition( m_vNextPos, vTarget, vUp);
 //}
 //
-//void CEnemyData::FormationFlightType2(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ÀÌ¿­È¾´ëÇü
+//void CEnemyData::FormationFlightType2(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ï¿½Ì¿ï¿½È¾ï¿½ï¿½ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType2()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1025,7 +1057,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //
 //}
 //
-//void CEnemyData::FormationFlightType3(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// »ï°¢ Æí´ë Çü
+//void CEnemyData::FormationFlightType3(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ï¿½ï°¢ ï¿½ï¿½ï¿½ ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType3()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1087,7 +1119,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //
 //}
 //
-//void CEnemyData::FormationFlightType4(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ¿ª»ï°¢ Çü
+//void CEnemyData::FormationFlightType4(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ï¿½ï¿½ï¿½ï°¢ ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType4()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1149,7 +1181,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //
 //}
 //
-//void CEnemyData::FormationFlightType5(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// Á¾ Çü
+//void CEnemyData::FormationFlightType5(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ï¿½ï¿½ ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType5()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1211,7 +1243,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //
 //}
 //
-//void CEnemyData::FormationFlightType6(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ¿ªÁ¾ Çü
+//void CEnemyData::FormationFlightType6(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType6()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1273,7 +1305,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //
 //}
 //
-//void CEnemyData::FormationFlightType7(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// X-Çü
+//void CEnemyData::FormationFlightType7(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// X-ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType7()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1334,7 +1366,7 @@ void CEnemyData::ChangeBodyConditionFromServer(BodyCond_t hyBodyCondition)
 //		SetPosition( m_vNextPos, vTarget, vUp);
 //
 //}
-//void CEnemyData::FormationFlightType8(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// Star-Çü
+//void CEnemyData::FormationFlightType8(D3DXVECTOR3& vPos, D3DXVECTOR3& vTarget, D3DXVECTOR3& vUp, D3DXVECTOR3& vSide, BYTE bPositionType)// Star-ï¿½ï¿½
 //{
 //	FLOG( "CShuttleChild::FormationFlightType8()" );
 //	float fElapsedTime = g_pD3dApp->GetElapsedTime();
@@ -1417,7 +1449,7 @@ void CEnemyData::Render()
 	
 	if(m_bDegree == 2) 
 	{ 
-		// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+		// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 		//g_pD3dDev->SetRenderState( D3DRS_SPECULARENABLE, TRUE ); 
 		if(m_MonsterTransformer)
 		{
@@ -1427,14 +1459,14 @@ void CEnemyData::Render()
 		{
 			g_pD3dDev->SetRenderState( D3DRS_SPECULARENABLE, TRUE ); 
 		}	
-		//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+		//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 	}
 
 	// 2005-07-26 by ispark
-	// Ä³¸¯ÅÍ Rendering
+	// Ä³ï¿½ï¿½ï¿½ï¿½ Rendering
 	if(m_bEnemyCharacter)
 	{
-		// Ä³¸¯ÅÍÀÏ¶§ Speculare¸¦ ²ö´Ù.
+		// Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ Speculareï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		g_pD3dDev->SetRenderState( D3DRS_SPECULARENABLE, FALSE );
 		g_pD3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 		g_pD3dDev->SetRenderState( D3DRS_ZENABLE,  TRUE );
@@ -1457,7 +1489,7 @@ void CEnemyData::Render()
 		}
 		
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 // 		int nArmorColor;
 // 		if(m_infoCharacter.CharacterRenderInfo.RI_ArmorColorCode == 0)
@@ -1466,13 +1498,13 @@ void CEnemyData::Render()
 // 			nArmorColor = max(1, m_infoCharacter.CharacterRenderInfo.RI_ArmorColorCode%100);
 // 		((CUnitRender*)m_pRender)->Render(this, nArmorColor);
 
-		// ¾Æ¸Ó Ä®¶ó´Â ÀÌÁ¦ »ç¿ëÇÏÁö ¾Ê´Â´Ù
-		// 2011-07-18 by jhahn ÀÎÇÇ3Â÷ ½Ã³×¸¶ Å¸Ä³¸¯ÅÍ ¾Èº¸ÀÌ±â
+		// ï¿½Æ¸ï¿½ Ä®ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
+		// 2011-07-18 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½
 		if (m_bRender)					
 		((CUnitRender*)m_pRender)->Render( this, 0 );
-		//end 2011-07-18 by jhahn ÀÎÇÇ3Â÷ ½Ã³×¸¶ Å¸Ä³¸¯ÅÍ ¾Èº¸ÀÌ±â
+		//end 2011-07-18 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã³×¸ï¿½ Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì±ï¿½
 
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	}
 
@@ -1486,12 +1518,12 @@ void CEnemyData::SetPosition(MSG_FC_MOVE_OK* pMsg)
 {
 	FLOG( "CEnemyData::SetPosition(MSG_FC_MOVE_OK* pMsg)" );
 	// 2006-01-13 by ispark, 
-	// m_bSetPositionÀº Enemy·Î ºÎÅÍ ¹ÞÀº È®½ÇÇÑ Æ÷Áö¼Ç µ¥ÀÌÅ¸¶ó°í ¾Ë¸°´Ù. 
-	// Àû ÀÌ¸§°ú À¯´Ö ·»´õ¸µ ¶§¹®¿¡ º¯¼ö ÇÏ³ª¸¦ ³Ö¾ú´Ù. Ã³À½¿¡´Â ¹æÇâ°ªÀÌ ¾øÀ» ¼ö ÀÖ±â ¶§¹®¿¡
-	// ¸ÞÆ®¸¯½º¸¦ ¸¸µé¼ö ¾ø´Ù. ±×·¡¼­ ·»´õ¸µÀÌ Á» ´õ ´Ê°Ô ³ª¿Ô¾ú´Ù. 
+	// m_bSetPositionï¿½ï¿½ Enemyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½. 
+	// ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½. Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½. 
 	m_bSetPosition = TRUE;	
 	// 2005-07-29 by ispark
-	// Move°¡ Ä³¸¯ÅÍÀÎÁö À¯´ÖÀÎÁö ÆÇ´Ü.
+	// Moveï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½.
 	if(pMsg->moveBitFlag.CharacterMode0 != m_bEnemyCharacter)
 	{
 		if(pMsg->moveBitFlag.CharacterMode0 == FALSE)
@@ -1499,13 +1531,13 @@ void CEnemyData::SetPosition(MSG_FC_MOVE_OK* pMsg)
 			m_bEnemyCharacter = FALSE;
 			m_infoCharacter.CharacterInfo.CharacterMode0 = 0;				// 2006-09-27 by ispark
 			ChangeUnitState(_NORMAL);
-			InitItemPoint();												// 2006-10-20 by ispark, ÀÌÆåÆ® Àç¼ÂÆÃ
+			InitItemPoint();												// 2006-10-20 by ispark, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		else
 		{
 			m_bEnemyCharacter = TRUE;
 			m_infoCharacter.CharacterInfo.CharacterMode0 = 1;				// 2006-09-27 by ispark
-			InitItemPoint();												// 2006-10-20 by ispark, ÀÌÆåÆ® Àç¼ÂÆÃ
+			InitItemPoint();												// 2006-10-20 by ispark, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 
@@ -1519,7 +1551,7 @@ void CEnemyData::SetPosition(MSG_FC_MOVE_OK* pMsg)
 		m_vNextPos = A2DX(pMsg->PositionVector);
 	}
 
-	// FC_MOVE_TARGET : shuttlechild°¡ Âø·ú»óÅÂÀÎ °æ¿ì, ÀÏÁ¤ °Å¸®¸¦ Åë°úÇÏ¸é ÇØ´ç Ä³¸¯ÅÍ¿¡°Ô º¸³½´Ù.
+	// FC_MOVE_TARGET : shuttlechildï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if( UNIT_STATE_NO_MOVE(g_pShuttleChild->m_dwState) && 
 		g_pD3dApp->Distance3DTo2D(g_pShuttleChild->m_vPos, m_vPos) > SEND_FC_TARGET_DISTANCE &&
 		g_pD3dApp->Distance3DTo2D(g_pShuttleChild->m_vPos, m_vNextPos) < SEND_FC_TARGET_DISTANCE)
@@ -1527,35 +1559,35 @@ void CEnemyData::SetPosition(MSG_FC_MOVE_OK* pMsg)
 //		MSG_FC_MOVE_TARGET sMsg;
 //		sMsg.ClientIndex = m_infoCharacter.CharacterInfo.ClientIndex;
 //		g_pFieldWinSocket->SendMsg( T_FC_MOVE_TARGET, (char*)&sMsg, sizeof(sMsg));
-//		DBGOUT("**************    Second FC_MOVE_TARGET:Index[%d]    °Å¸®°¡ SEND_FC_TARGET_DISTANCE ¾ÈÀ¸·Î µé¾î¿È*****************\n",m_infoCharacter.CharacterInfo.ClientIndex);
+//		DBGOUT("**************    Second FC_MOVE_TARGET:Index[%d]    ï¿½Å¸ï¿½ï¿½ï¿½ SEND_FC_TARGET_DISTANCE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*****************\n",m_infoCharacter.CharacterInfo.ClientIndex);
 		SetClientIndexDataByVector(g_pD3dApp->m_vecMoveTarget, m_infoCharacter.CharacterInfo.ClientIndex);
 	}
 
 	m_bRequestMove = FALSE;
 	D3DXVec3Normalize(&m_vOriNextVel,&A2DX(pMsg->TargetVector));
 	D3DXVec3Normalize(&m_vOriNextUp,&A2DX(pMsg->UpVector));
-	// Ä³¸¯ÀÌ °©ÀÚ±â ·»´õ¸µ ¾ÈµÉ½Ã ¾Æ·¡ ÄÚµå·Î ¾÷º¤ÅÍ¸¦ °íÁ¤ÇÏÀÚ
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÉ½ï¿½ ï¿½Æ·ï¿½ ï¿½Úµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	m_vUp = pMsg->UpVector;
 
 	float fLength = D3DXVec3Length(&(m_vNextPos - m_vPos));
-	// °Å¸®Â÷°¡ ¹ß»ý ÇÔÀ¸·Î ¿¹»óÁöÁ¡À» °è»êÇÑ´Ù.-ÇöÀçÀÇ ¼Óµµ¿¡ ºñ·ÊÇÏ¿© °è»ê
+	// ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
 	m_vExpectPos = m_vNextPos + (m_vNextPos - m_vPos);//*5.0f;//*fLength;
 	m_vMovepos = m_vExpectPos - m_vPos;
 //	fLength = D3DXVec3Length(&m_vMovepos);
-	// ÇöÀç ¼Óµµ°¡ ¼ÅÆ²ÀÇ ÃÖ´ë ¼Óµµº¸´Ù Å©¸é ÃÖ´ë ¼Óµµ¸¸Å­ÀÇ Å©±â·Î ÁÙ¿©Áà¾ßÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Óµï¿½ï¿½ï¿½Å­ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(fLength > 800.0f)
 	{
 		D3DXVec3Normalize(&m_vMovepos,&m_vMovepos);
 		m_vPos = m_vNextPos;
-		DBGOUT("Enemy : Different Position to Server \n");// ÁÂÇ¥ Â÷ÀÌ°¡ ¸¹ÀÌ ³ª¼­ ÇÑ¹ø¿¡ ÀÌµ¿ÇÕ´Ï´Ù.\n
+		DBGOUT("Enemy : Different Position to Server \n");// ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Õ´Ï´ï¿½.\n
 	}
-	// 2007-04-09 by bhsohn Ä³¸¯ÅÍ ¾Ö´Ï¸ÞÀÌ¼Ç °è¼Ó ¿òÁ÷ÀÌ´Â Çö»ó Ã³¸®
+	// 2007-04-09 by bhsohn Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
  	else if(fLength < 3.0f)
 	{
 		m_vPos = m_vNextPos;
 		m_vMovepos = D3DXVECTOR3(0,0,0);
 	}
-/*	// ¹æÇâ°ú ¾÷º¤ÅÍ´Â ÁÂÇ¥Ã³·³ Å©°Ô ¿µÇâÀ» ÁÖÁö ¾ÊÀ¸¹Ç·Î Expect¸¦ ±¸ÇÏÁö ¾Ê°Ú´Ù.
+/*	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½Ç¥Ã³ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ Expectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°Ú´ï¿½.
 	if(D3DXVec3Length(&(m_vNextVel-m_vVel)) < 0.3f)
 	{
 		m_vMoveVel = D3DXVECTOR3(0,0,0);
@@ -1580,7 +1612,7 @@ void CEnemyData::SetPosition(MSG_FC_MOVE_OK* pMsg)
 #endif
 
 	// 2005-07-27 by ispark
-	// Å×½ºÆ®
+	// ï¿½×½ï¿½Æ®
 //	DBGOUT("ID : %s(%d%d)\n", m_infoCharacter.CharacterInfo.CharacterName, m_infoCharacter.CharacterInfo.CharacterMode0, m_bEnemyCharacter);
 //	DBGOUT("Pos: %f %f %f\n", m_vPos.x, m_vPos.y, m_vPos.z);
 //	DBGOUT("Vel: %f %f %f\n", m_vVel.x, m_vVel.y, m_vVel.z);
@@ -1825,7 +1857,7 @@ void CEnemyData::CheckShadowPos(BOOL bOnObject)
 	if(bOnObject && g_pScene->m_pObjectRender &&
 		(D3DXVec3Length(&(m_vShadowPos4-m_vShadowPos2)) > m_fObjectSize*6 ||
 		D3DXVec3Length(&(m_vShadowPos1-m_vShadowPos3)) > m_fObjectSize*6))
-	{// ±×¸²ÀÚ°¡ ¿ÀÇÁÁ§Æ®¿¡ °ÉÃÄ ´Ã¾îÁö¸é ÁöÇü°ú ¹°À» ±âÁØÀ¸·Î ±×¸²ÀÚ À§Ä¡¸¦ ¼¼ÆÃÇÑ´Ù.
+	{// ï¿½×¸ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		m_vShadowPos1 = vTempShadowPos[0];
 		m_vShadowPos2 = vTempShadowPos[1];
 		m_vShadowPos3 = vTempShadowPos[2];
@@ -1847,25 +1879,25 @@ void CEnemyData::InitItemPoint()
 	DeleteItemPoint();
  	ITEM * pItem = NULL;
 	
-	// 2006-07-21 by ispark, Ä³¸¯ÅÍ¿Í ±â¾î ÀÌÆåÆ® ÃÊ±âÈ­
+	// 2006-07-21 by ispark, Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 	/*--------------------------------------------------------------------------*/
-	// ±â¾î ÀÌÆåÆ®
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	if(m_bEnemyCharacter == FALSE)
 	{
 		pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_ProwOut);
 
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-		// ¿ÜÇü ¾ÆÀÌÅÛÀ» Ãß°¡ÀûÀ¸·Î ¾ò¾î¿Â´Ù
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½
 		ITEM* pShapeItem	= g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_ProwOut_ShapeItemNum );
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		memset(&m_PrimaryAttack, 0x00, sizeof(ATTACK_DATA));
 				
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//CreatePrimaryWeaponItem(pItem);
 		CreatePrimaryWeaponItem( pItem, pShapeItem );
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		if(pItem)
 		{
@@ -1874,18 +1906,18 @@ void CEnemyData::InitItemPoint()
 		pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_WingOut);
 
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-		// ¿ÜÇü ¾ÆÀÌÅÛÀ» Ãß°¡ÀûÀ¸·Î ¾ò¾î¿Â´Ù
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½
 		pShapeItem	= g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_WingOut_ShapeItemNum );
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 		memset(&m_SecondaryAttack, 0x00, sizeof(ATTACK_DATA));
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//CreateSecondaryWeaponItem(pItem);
 		CreateSecondaryWeaponItem( pItem, pShapeItem );
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		if(pItem)
 		{
@@ -1906,10 +1938,10 @@ void CEnemyData::InitItemPoint()
 			// 2005-08-23 by ispark
 
 
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_Prow);
 
-			// ¿ÜÇü¾ÆÀÌÅÛ¹øÈ£°¡ ¾ø´Ù¸é ¿ø·¡ ¾ÆÀÌÅÛ ¹øÈ£¸¦ »ç¿ëÇÑ´Ù
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 			int nItemNum = 0;
 			if( m_infoCharacter.CharacterRenderInfo.RI_Prow_ShapeItemNum )
 				nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Prow_ShapeItemNum;
@@ -1918,7 +1950,7 @@ void CEnemyData::InitItemPoint()
 
 			pItem = g_pDatabase->GetServerItemInfo( nItemNum );
 
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 			if(pItem)
@@ -1930,14 +1962,14 @@ void CEnemyData::InitItemPoint()
 		if(m_infoCharacter.CharacterRenderInfo.RI_Center)
 		{
 			// 2005-07-20 by ispark
-			// ±âÃ¼¿Í °ü·ÃµÈ °ÍÀÌ¹Ç·Î FALSE
+			// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ FALSE
 			// 2005-11-22 by ispark
 
 
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_Center);
 
-			// ¿ÜÇü¾ÆÀÌÅÛ¹øÈ£°¡ ¾ø´Ù¸é ¿ø·¡ ¾ÆÀÌÅÛ ¹øÈ£¸¦ »ç¿ëÇÑ´Ù
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 			int nItemNum = 0;
 			if( m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum )
 				nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum;
@@ -1945,8 +1977,8 @@ void CEnemyData::InitItemPoint()
 				nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Center;
 
 			pItem = g_pDatabase->GetServerItemInfo( nItemNum );
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-			// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			BOOL bMonTras = FALSE;
 
 			if(m_MonsterTransformer)
@@ -1968,18 +2000,22 @@ void CEnemyData::InitItemPoint()
 				if(pItem)
 					nItemNum = pItem->SourceIndex;
 			}
-			//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+
+#ifdef _RAT_FFA
+			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+				pItem = NULL;
+#endif
 
 			if(pItem)
 			{
-				// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-				//ChangeUnitCharacterInfo(pItem->SourceIndex, m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
+				// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 				ChangeUnitCharacterInfo(nItemNum, m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE , bMonTras);
-				//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+				//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			}
 			else
 			{
-				// µðÆúÆ®
+				// ï¿½ï¿½ï¿½ï¿½Æ®
  				ChangeUnitCharacterInfo(0, 
  					m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 			}
@@ -1991,10 +2027,10 @@ void CEnemyData::InitItemPoint()
 		}	
 	}
 	/*--------------------------------------------------------------------------*/
-	// Ä³¸¯ÅÍ ÀÌÆåÆ®
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	else if(m_bEnemyCharacter == TRUE)
 	{
-		// 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â - ¸¶À»¿¡¼­µµ ÀÌÆåÆ®Á¤º¸ ¾ò±â À§ÇÔ
+		// 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ITEM* pShapeItem = NULL;
 		if(m_infoCharacter.CharacterRenderInfo.RI_ProwOut)
 		{
@@ -2011,23 +2047,23 @@ void CEnemyData::InitItemPoint()
 			memset(&m_SecondaryAttack, 0x00, sizeof(ATTACK_DATA));
 			CreateSecondaryWeaponItem( pItem, pShapeItem );
 		}		
-		// end 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â - ¸¶À»¿¡¼­µµ ÀÌÆåÆ®Á¤º¸ ¾ò±â À§ÇÔ
+		// end 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	/*--------------------------------------------------------------------------*/
-	// ÀüÃ¼ ÀÌÆåÆ®
-	// 2006-07-21 by ispark, ÀÌÆåÆ® Ä³½¬ ¾ÆÀÌÅÛ
+	// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
+	// 2006-07-21 by ispark, ï¿½ï¿½ï¿½ï¿½Æ® Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_infoCharacter.CharacterRenderInfo.RI_WingIn)
 	{
-		// 2008-08-19 by bhsohn ¼¼·Â ¸¶Å© ½Ã½ºÅÛ Ãß°¡
+		// 2008-08-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		//pItem = g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_WingIn );
 		int nTmpItemNum = m_infoCharacter.CharacterRenderInfo.RI_WingIn ;
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-		// ¿ÜÇü¾ÆÀÌÅÛ¹øÈ£°¡ ÀÖ´Ù¸é ¿ÜÇü¾ÆÀÌÅÛ ¹øÈ£¸¦ »ç¿ë
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½
 		if( m_infoCharacter.CharacterRenderInfo.RI_WingIn_ShapeItemNum )
 			nTmpItemNum	= m_infoCharacter.CharacterRenderInfo.RI_WingIn_ShapeItemNum;
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 		int nObjectId = g_pStoreData->GetInfluenceMarkShow(m_infoCharacter.CharacterInfo.InfluenceType);		
@@ -2036,7 +2072,7 @@ void CEnemyData::InitItemPoint()
 			nTmpItemNum = nObjectId;
 		}	
 		pItem = g_pDatabase->GetServerItemInfo( nTmpItemNum );
-		// end 2008-08-19 by bhsohn ¼¼·Â ¸¶Å© ½Ã½ºÅÛ Ãß°¡
+		// end 2008-08-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		if(pItem)
 		{
 			CreateWearItem( WEAR_ITEM_KIND_WINGIN, pItem->SourceIndex, m_bEnemyCharacter );
@@ -2065,10 +2101,10 @@ void CEnemyData::InitItemPoint()
 		}
 	}
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 	if ( m_infoCharacter.CharacterRenderInfo.RI_Pet )
 	{
-		// 2013-05-16 by bhsohn Æê·¹º§ºÎºÐ¶§¹®¿¡ Æê ¾Èº¸ÀÌ´Â ¹®Á¦ Ã³¸®
+		// 2013-05-16 by bhsohn ï¿½ê·¹ï¿½ï¿½ï¿½ÎºÐ¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //		pItem = g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_Pet );
 		INT nPetItemNum = m_infoCharacter.CharacterRenderInfo.RI_Pet;
 		if(m_infoCharacter.CharacterRenderInfo.RI_Pet_ShapeItemNum > 0)
@@ -2076,25 +2112,25 @@ void CEnemyData::InitItemPoint()
 			nPetItemNum = m_infoCharacter.CharacterRenderInfo.RI_Pet_ShapeItemNum;
 		}
 		pItem = g_pDatabase->GetServerItemInfo( nPetItemNum );
-		// END 2013-05-16 by bhsohn Æê·¹º§ºÎºÐ¶§¹®¿¡ Æê ¾Èº¸ÀÌ´Â ¹®Á¦ Ã³¸®
+		// END 2013-05-16 by bhsohn ï¿½ê·¹ï¿½ï¿½ï¿½ÎºÐ¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		
 		if ( pItem )
-		{	// ÆêÀº SourceIndex°¡ 2°³ÀÌ±â ¶§¹®¿¡  'RI_Pet_ShapeItemNum'À» Æê ·¹º§°ªÀ¸·Î È°¿ëÇÑ´Ù.
-			// 2013-05-16 by bhsohn Æê·¹º§ºÎºÐ¶§¹®¿¡ Æê ¾Èº¸ÀÌ´Â ¹®Á¦ Ã³¸®
+		{	// ï¿½ï¿½ï¿½ï¿½ SourceIndexï¿½ï¿½ 2ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  'RI_Pet_ShapeItemNum'ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ï¿½Ñ´ï¿½.
+			// 2013-05-16 by bhsohn ï¿½ê·¹ï¿½ï¿½ï¿½ÎºÐ¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //			tPET_LEVEL_DATA *psPetLvData = g_pDatabase->GetPtr_PetLevelData( pItem->LinkItem , m_infoCharacter.CharacterRenderInfo.RI_Pet_ShapeItemNum );
-			tPET_LEVEL_DATA *psPetLvData = g_pDatabase->GetPtr_PetLevelData( pItem->LinkItem , 1); // »ó´ë Æê·¹º§ ¹«Á¶°Ç 1·Î ·Îµù
-			// END 2013-05-16 by bhsohn Æê·¹º§ºÎºÐ¶§¹®¿¡ Æê ¾Èº¸ÀÌ´Â ¹®Á¦ Ã³¸®
+			tPET_LEVEL_DATA *psPetLvData = g_pDatabase->GetPtr_PetLevelData( pItem->LinkItem , 1); // ï¿½ï¿½ï¿½ ï¿½ê·¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Îµï¿½
+			// END 2013-05-16 by bhsohn ï¿½ê·¹ï¿½ï¿½ï¿½ÎºÐ¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-			tPET_BASE_ALL_DATA *psPetAllData = g_pDatabase->GetPtr_PetAllDataByIndex( pItem->LinkItem);	   //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+			tPET_BASE_ALL_DATA *psPetAllData = g_pDatabase->GetPtr_PetAllDataByIndex( pItem->LinkItem);	   //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			
 			INT SourceIndex = 0;
 
 			if ( psPetLvData )
 			{
 				if ( m_bEnemyCharacter )
-					SourceIndex = pItem->SourceIndex - 3100000;//psPetLvData->CitySourceIndex;	  //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+					SourceIndex = pItem->SourceIndex - 3100000;//psPetLvData->CitySourceIndex;	  //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				else 
-					SourceIndex = pItem->SourceIndex - 3200000;//psPetLvData->FieldSourceIndex;	  //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+					SourceIndex = pItem->SourceIndex - 3200000;//psPetLvData->FieldSourceIndex;	  //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 				CreateWearItem ( WEAR_ITEM_KIND_PET , SourceIndex , m_bEnemyCharacter );
 			}
@@ -2107,12 +2143,12 @@ void CEnemyData::InitItemPoint()
 }
 
 
-// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //void CEnemyData::ChangeItemPoint(BYTE bPos,INT nItemNum, INT nColorNum)
-// 2012-11-29 by bhsohn ÆÄÆ®³Ê ¿ÜÇü º¯°æ ½ÃÆ®ÅÛ º¯°æ
+// 2012-11-29 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, INT nEffectItemNum )
 void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, INT nEffectItemNum, int nPetLevel/*=-1*/)
-// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 {
 	FLOG( "CEnemyData::ChangeItemPoint(BYTE bPos,INT nItemNum)" );
@@ -2120,24 +2156,30 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 	switch(bPos)
 	{
 	case POS_PROWOUT:
-		{// 1Çü
+		{// 1ï¿½ï¿½
 			DeleteWearItem( WEAR_ITEM_KIND_WEAPON_11 );
 			DeleteWearItem( WEAR_ITEM_KIND_WEAPON_12 );
 
-			// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 			DeleteRobotAGearWeapon();
-			// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+			// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 			ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
 			memset(&m_PrimaryAttack, 0x00, sizeof(ATTACK_DATA));
 
 
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//CreatePrimaryWeaponItem(pItem);
 
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( nShapeItemNum );
+
+#ifdef _RAT_FFA
+			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+				pShapeItem = NULL;
+#endif
+
 			CreatePrimaryWeaponItem( pItem, pShapeItem );
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 			if(pItem)
@@ -2147,21 +2189,24 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 		}
 		break;
 	case POS_WINGOUT:
-		{// 2Çü
+		{// 2ï¿½ï¿½
 			DeleteWearItem( WEAR_ITEM_KIND_WEAPON_21 );
 			DeleteWearItem( WEAR_ITEM_KIND_WEAPON_22 );
 			ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
 			memset(&m_SecondaryAttack, 0x00, sizeof(ATTACK_DATA));
 
 
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//CreateSecondaryWeaponItem(pItem);
 
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( nShapeItemNum );
 			CreateSecondaryWeaponItem( pItem, pShapeItem );
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-
+#ifdef _RAT_FFA
+			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+				pShapeItem = NULL;
+#endif
 			if(pItem)
 			{
 				m_SecondaryAttack.nMultiNumCount = GetMultiNum(pItem, &m_paramFactor);
@@ -2169,7 +2214,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 		}
 		break;
 	case POS_REAR:
-		{// ¿£Áø
+		{// ï¿½ï¿½ï¿½ï¿½
 			DeleteWearItem( WEAR_ITEM_KIND_ENGINE );
 			// 2005-11-14 by ispark
 				ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
@@ -2181,7 +2226,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 		}
 		break;
 	case POS_PROW:
-		{// ¼±µÎ
+		{// ï¿½ï¿½ï¿½ï¿½
 			DeleteWearItem( WEAR_ITEM_KIND_PROW );
 			// 2005-11-14 by ispark
 				ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
@@ -2193,27 +2238,23 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 		}
 		break;
 	case POS_CENTER:
-		{// ¹æ¾î
+		{// ï¿½ï¿½ï¿½
 			m_infoCharacter.CharacterRenderInfo.RI_Center = nItemNum;
 
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 			//m_infoCharacter.CharacterRenderInfo.RI_ArmorColorCode = nColorNum;
 			m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum = nShapeItemNum;
 
 			if( nShapeItemNum )
-				// 2010. 02. 17 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ¹ö±× ¼öÁ¤
+				// 2010. 02. 17 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//nItemNum = nItemNum;
 				nItemNum = nShapeItemNum;
-				// end 2010. 02. 17 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ¹ö±× ¼öÁ¤
+				// end 2010. 02. 17 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-			// 2005-07-20 by ispark
-			// ±âÃ¼¿Í °ü·ÃµÈ °ÍÀÌ¹Ç·Î FALSE
-			// 2005-11-14 by ispark
 			ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
 	
-			// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			if(m_MonsterTransformer)
 			{
 				ChangeUnitCharacterInfo(nItemNum, m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
@@ -2234,32 +2275,38 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 				if(pItem)
 					nItemNum = pItem->SourceIndex;
 			}
-			//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+
+#ifdef _RAT_FFA
+			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+				pItem = NULL;
+#endif
+
+			//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			if(pItem)
 			{
-				// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+				// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 				//ChangeUnitCharacterInfo(pItem->SourceIndex, m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 				ChangeUnitCharacterInfo(nItemNum, m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE, bMonTras);
-				//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+				//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 				if(m_pCharacterInfo)
 				{
 					m_pCharacterInfo->SetShuttleChildEffect(FALSE);
 				}
 
-				// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
-				// ÀÏ´Ü ¹«±âµéÀ» ´Ù Áö¿îµÚ
-				// 2014-08-01 by ymjoo A±â¾î ·Îº¿¾Æ¸Ó ±âº»¹«±â ·»´õ ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤
+				// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+				// ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+				// 2014-08-01 by ymjoo Aï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Æ¸ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				//ShowWeapon( FALSE );
 				ShowWeapon(0, FALSE);
-				// END 2014-08-01 by ymjoo A±â¾î ·Îº¿¾Æ¸Ó ±âº»¹«±â ·»´õ ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤
+				// END 2014-08-01 by ymjoo Aï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Æ¸ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				DeleteRobotAGearWeapon();
 				if( !IsRobotArmor() )
 				{
-					// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-					// ·Îº¿ ¾Æ¸Ó°¡ ¾Æ´Ò°æ¿ì ±âÁ¸ ¹«±âµéÀ» Ãß°¡
+					// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+					// ï¿½Îºï¿½ ï¿½Æ¸Ó°ï¿½ ï¿½Æ´Ò°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 					//ShowWeapon( FALSE );
 					//ShowWeapon( TRUE );
-					// 2014-08-01 by ymjoo A±â¾î ·Îº¿¾Æ¸Ó ±âº»¹«±â ·»´õ ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤
+					// 2014-08-01 by ymjoo Aï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Æ¸ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(IS_DT(m_infoCharacter.CharacterInfo.UnitKind))
 					{
 						ITEM* pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_ProwOut);
@@ -2272,23 +2319,23 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 					else
 						//ShowWeapon( TRUE );
 						ShowWeapon(0, TRUE);
-					// END 2014-08-01 by ymjoo A±â¾î ·Îº¿¾Æ¸Ó ±âº»¹«±â ·»´õ ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤
-					//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+					// END 2014-08-01 by ymjoo Aï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Æ¸ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 					
 				}
 				else
 				{
-					// ·Îº¿ ¾Æ¸ÓÀÏ °æ¿ì
+					// ï¿½Îºï¿½ ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					int		type = 0;
 					ITEM*	pPrimaryWeapon = NULL;
 
 					type = GetUnitTypeDecimal(m_infoCharacter.CharacterInfo.UnitKind);
 					pPrimaryWeapon = g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_ProwOut );
 
-					// A±â¾îÀÌ°í, ÁÖ¹«±â¸¦ Âø¿ëÇÏ¿´À» °æ¿ì A±â¾î¿ë ÀÓ½Ã ¹«±â ÀÌÆåÆ® Ãß°¡
+					// Aï¿½ï¿½ï¿½ï¿½Ì°ï¿½, ï¿½Ö¹ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 					if( type == 2 && pPrimaryWeapon )
 					{
-						// 2014-08-01 by ymjoo A±â¾î ·Îº¿¾Æ¸Ó ±âº»¹«±â ·»´õ ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤
+						// 2014-08-01 by ymjoo Aï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Æ¸ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 						ITEM* pAGearWeapon = g_pDatabase->GetServerItemInfo( A_GEAR_ROBOT_PRIMARY_WEAPON_ITEM_NUM );
 // 						if( pAGearWeapon )
 //							CreateRobotAGearWeapon( pAGearWeapon, type );
@@ -2296,37 +2343,41 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 						ITEM* pShapeItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_ProwOut_ShapeItemNum);
 						CreatePrimaryWeaponItem(pItem, pShapeItem);
 						ShowWeapon(1, TRUE);
-						// END 2014-08-01 by ymjoo A±â¾î ·Îº¿¾Æ¸Ó ±âº»¹«±â ·»´õ ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤
+						// END 2014-08-01 by ymjoo Aï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Æ¸ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 				}
-				// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+				// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 			}
 			else
 			{
-				// µðÆúÆ®
+				// ï¿½ï¿½ï¿½ï¿½Æ®
 				ChangeUnitCharacterInfo(0, 
 					m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 			}
 		}
 		break;
-		// 2006-07-25 by ispark, POS_ATTACHMENT -> POS_WINGINÀ¸·Î º¯°æ
+		// 2006-07-25 by ispark, POS_ATTACHMENT -> POS_WINGINï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case POS_WINGIN:
 		{
 			DeleteWearItem( WEAR_ITEM_KIND_WINGIN );
 
-			// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+#ifdef _RAT_FFA
+			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+				break;
+#endif
+			// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if( nShapeItemNum )
 				nItemNum = nShapeItemNum;
-			// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-			// 2008-08-19 by bhsohn ¼¼·Â ¸¶Å© ½Ã½ºÅÛ Ãß°¡					
+			// 2008-08-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½					
 			int nObjectId = g_pStoreData->GetInfluenceMarkShow(m_infoCharacter.CharacterInfo.InfluenceType);		
 			if(nObjectId)
 			{
 				nItemNum = nObjectId;
 			}				
-			// end 2008-08-19 by bhsohn ¼¼·Â ¸¶Å© ½Ã½ºÅÛ Ãß°¡
+			// end 2008-08-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 			// 2005-11-14 by ispark
 				ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
@@ -2339,7 +2390,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 
 	//case POS_ATTACHMENT:
 	case POS_ACCESSORY_UNLIMITED :
-		{// ÄÁÅ×ÀÌ³Ê (¿¬·áÅë)
+		{// ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 			DeleteWearItem( WEAR_ITEM_KIND_ACCESSORY_UNLIMITED );
 			// 2005-11-14 by ispark
 				ITEM * pItem = g_pDatabase->GetServerItemInfo(nItemNum);
@@ -2363,10 +2414,10 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 		}
 		break;
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê ÀåÂøÇ° ·Îµå Ãß°¡.
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç° ï¿½Îµï¿½ ï¿½ß°ï¿½.
 	case POS_PET :
 		{
-			// 2012-11-29 by bhsohn ÆÄÆ®³Ê ¿ÜÇü º¯°æ ½ÃÆ®ÅÛ º¯°æ
+			// 2012-11-29 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef	SC_PARTNER_SHAPE_CHANGE_HSKIM
 			if( nShapeItemNum > 0 )
 			{
@@ -2377,7 +2428,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 				nPetLevel = 1;
 			}
 #endif
-			// END 2012-11-29 by bhsohn ÆÄÆ®³Ê ¿ÜÇü º¯°æ ½ÃÆ®ÅÛ º¯°æ
+			// END 2012-11-29 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 			DeleteWearItem ( WEAR_ITEM_KIND_PET );
 
@@ -2386,19 +2437,19 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 
 			if ( pItem )
 			{
-				// 2012-11-29 by bhsohn ÆÄÆ®³Ê ¿ÜÇü º¯°æ ½ÃÆ®ÅÛ º¯°æ
+				// 2012-11-29 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				tPET_LEVEL_DATA *psPetLvData = g_pDatabase->GetPtr_PetLevelData ( pItem->LinkItem , nShapeItemNum );
 #ifdef	SC_PARTNER_SHAPE_CHANGE_HSKIM
 				tPET_LEVEL_DATA *psPetLvData = g_pDatabase->GetPtr_PetLevelData ( pItem->LinkItem , nPetLevel);
 #else
 				tPET_LEVEL_DATA *psPetLvData = g_pDatabase->GetPtr_PetLevelData ( pItem->LinkItem , nShapeItemNum );
 #endif				
-				// END 2012-11-29 by bhsohn ÆÄÆ®³Ê ¿ÜÇü º¯°æ ½ÃÆ®ÅÛ º¯°æ
-				tPET_BASE_ALL_DATA *psPetAllData = g_pDatabase->GetPtr_PetAllDataByIndex( pItem->LinkItem); //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+				// END 2012-11-29 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				tPET_BASE_ALL_DATA *psPetAllData = g_pDatabase->GetPtr_PetAllDataByIndex( pItem->LinkItem); //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 				if ( psPetLvData )
 				{
-					CreateWearItem ( WEAR_ITEM_KIND_PET , m_bEnemyCharacter == TRUE ? pItem->SourceIndex - 3100000: pItem->SourceIndex - 3200000, m_bEnemyCharacter );	//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+					CreateWearItem ( WEAR_ITEM_KIND_PET , m_bEnemyCharacter == TRUE ? pItem->SourceIndex - 3100000: pItem->SourceIndex - 3200000, m_bEnemyCharacter );	//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 				}
 			}
 		}
@@ -2408,13 +2459,13 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 /*
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CEnemyData::CheckPrimaryAttack(BOOL bReset, ITEM* pPrimary)
-/// \brief		Primary weaponÀÇ actionÀ» ¼öÇàÇÑ´Ù.
+/// \brief		Primary weaponï¿½ï¿½ actionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		dhkwon
 /// \date		2004-03-21 ~ 2004-03-21
-/// \warning	CUnitDataÀÇ PrimaryAttackActionÇÔ¼ö¸¦ ¿À¹ö¶óÀÌµù(virtual function)ÇÏ¿© Àç±¸¼º
-///				((CUnitData*)p)->PrimaryAttackActionÀ» ¼öÇàÇÏ´õ¶óµµ ÀÚ½ÄÀÇ °ÍÀÌ ¼öÇàµÊ
-///				ÀÌ ºÎºÐÀº CEnemyData,CShuttleChild°£¿¡ ¾à°£ÀÇ Â÷ÀÌ°¡ ÀÖ¾î µû·Î ±¸ÇöµÇ¾ú´Ù.
-///				1Çü ¾ÆÀÌÅÛ ¹øÈ£¿Í ÀåÂø ¾ÆÀÌÅÛ ¹øÈ£¿ÍÀÇ Â÷ÀÌ : EFFECT_WEAR_WEAPON_1
+/// \warning	CUnitDataï¿½ï¿½ PrimaryAttackActionï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½(virtual function)ï¿½Ï¿ï¿½ ï¿½ç±¸ï¿½ï¿½
+///				((CUnitData*)p)->PrimaryAttackActionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+///				ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ CEnemyData,CShuttleChildï¿½ï¿½ï¿½ï¿½ ï¿½à°£ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½.
+///				1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : EFFECT_WEAR_WEAPON_1
 /// \param		
 /// \return		
 ///////////////////////////////////////////////////////////////////////////////
@@ -2425,8 +2476,8 @@ void CEnemyData::CheckPrimaryAttack(BOOL bReset, ITEM* pPrimary)
 
 	if( m_pPrimaryAttackTarget && 
 		(!m_pPrimaryAttackTarget->m_bUsing || m_pPrimaryAttackTarget->m_dwState != _NORMAL))
-		m_pPrimaryAttackTarget = NULL;	// µ¥ÀÌÅ¸°¡ Áö¿öÁú °ÍÀÎÁö Ã¼Å©ÇÏ¿© Å¸°ÙÆ÷ÀÎÅÍ¸¦ NULL¼ÂÆÃ
-	// °ø°ÝÅ°¸¦ ´©¸£°í ÀÖÀ»¶§¿¡¸¸ ´õ¹Ì ÃÑ¾ËÀÌ ³¯¾Æ°¡°Ô µÈ´Ù
+		m_pPrimaryAttackTarget = NULL;	// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï¿ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ NULLï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½È´ï¿½
 	ITEM * info1 = NULL;
 	ITEM * info2 = NULL;
 
@@ -2459,20 +2510,20 @@ void CEnemyData::CheckPrimaryAttack(BOOL bReset, ITEM* pPrimary)
 	}
 }
 */
-// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //void CEnemyData::CheckAttack(ATTACK_DATA &attackData, BOOL bReset, ITEM* pWeaponITEM)
 void CEnemyData::CheckAttack( ATTACK_DATA &attackData, BOOL bReset, ITEM* pWeaponITEM /* = NULL */, ITEM* pEffectItem /* = NULL */ )
-// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	FLOG( "CEnemyData::CheckPrimaryAttack(BOOL bReset)" );
 	pWeaponITEM = g_pDatabase->GetServerItemInfo(attackData.AttackData.ItemNum);
 	if(pWeaponITEM)
 	{
 		
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//CUnitData::CheckAttack( attackData, bReset, pWeaponITEM );
 
-		// ÃÑ¾Ë »ý¼º½Ã ÀÌÆåÆ® ¹øÈ£µµ °°ÀÌ ³Ñ°ÜÁØ´Ù
+		// ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
 		ITEM* pEffectItem = NULL;
 		if( IS_PRIMARY_ATT_TYPE( attackData.AttackData.AttackType ) )
 		{
@@ -2484,26 +2535,26 @@ void CEnemyData::CheckAttack( ATTACK_DATA &attackData, BOOL bReset, ITEM* pWeapo
 			if( m_infoCharacter.CharacterRenderInfo.RI_WingOut_EffectItemNum )
 				pEffectItem = g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_WingOut_EffectItemNum );
 		}
-		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê ¹«±â »ý¼º
+		// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		if( ATT_TYPE_PET_GENERAL == attackData.AttackData.AttackType )
 // 		{
 // 			if( m_infoCharacter.CharacterRenderInfo.RI_ProwOut_EffectItemNum )
 // 				pEffectItem = g_pDatabase->GetServerItemInfo( m_infoCharacter.CharacterRenderInfo.RI_ProwOut_EffectItemNum );
 // 		}
-		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê ¹«±â »ý¼º
+		// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		CUnitData::CheckAttack( attackData, bReset, pWeaponITEM, pEffectItem );
 
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CEnemyData::CreateSecondaryShieldDamage(D3DXVECTOR3 vCollPos)
-/// \brief		½¯µå µ¥¹ÌÁö°¡ ¼­¹ö¿¡¼­ ¿ÔÀ» °æ¿ì ÀÌÆåÆ® »ý¼º
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 /// \author		dhkwon
 /// \date		2004-05-18 ~ 2004-05-18
-/// \warning	2Çü ¾ÆÀÌÅÛ ¹øÈ£¿Í ÀåÂø ¾ÆÀÌÅÛ ¹øÈ£¿ÍÀÇ Â÷ÀÌ : EFFECT_WEAR_WEAPON_2
+/// \warning	2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : EFFECT_WEAR_WEAPON_2
 ///
 /// \param		
 /// \return		
@@ -2549,24 +2600,24 @@ void CEnemyData::MoveSkill()
 	D3DXVec3Cross(&vSide,&m_vUp,&m_vVel);
 
 	if(m_bSkillMoveType == 0)
-	{// »óÇÏ°³³äÀÇ 360µµ È¸Àü(Å¸ÀÔ 0)
+	{// ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ 360ï¿½ï¿½ È¸ï¿½ï¿½(Å¸ï¿½ï¿½ 0)
 		D3DXMatrixRotationAxis( &matTemp, &vSide, -fElapsedTime);
 		D3DXVec3TransformCoord( &m_vUp, &m_vUp, &matTemp );
 		D3DXVec3TransformCoord( &m_vVel, &m_vVel, &matTemp );
 	}
 	else if(m_bSkillMoveType == 1)
-	{// »óÇÏ°³³äÀÇ 360µµ È¸Àü(Å¸ÀÔ 1)
+	{// ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ 360ï¿½ï¿½ È¸ï¿½ï¿½(Å¸ï¿½ï¿½ 1)
 		D3DXMatrixRotationAxis( &matTemp, &vSide, -m_fSkillMoveTime);
 		D3DXVec3TransformCoord( &vVel, &m_vVel, &matTemp );
 	}
 	else if(m_bSkillMoveType == 2)
-	{// »óÇÏ°³³äÀÇ 360µµ È¸Àü(Å¸ÀÔ 2)
+	{// ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ 360ï¿½ï¿½ È¸ï¿½ï¿½(Å¸ï¿½ï¿½ 2)
 		D3DXMatrixRotationAxis( &matTemp, &vSide, -fElapsedTime);
 		D3DXVec3TransformCoord( &m_vUp, &m_vUp, &matTemp );
 		D3DXVec3TransformCoord( &m_vVel, &m_vVel, &matTemp );
 	}
 	else if(m_bSkillMoveType == 3)
-	{// »óÇÏ°³³äÀÇ 360µµ È¸Àü(Å¸ÀÔ 3)
+	{// ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ 360ï¿½ï¿½ È¸ï¿½ï¿½(Å¸ï¿½ï¿½ 3)
 		D3DXMatrixRotationAxis( &matTemp, &vSide, -m_fSkillMoveTime);
 		D3DXVec3TransformCoord( &vVel, &m_vVel, &matTemp );
 		vUp = m_vUp;
@@ -2574,28 +2625,28 @@ void CEnemyData::MoveSkill()
 		D3DXVec3TransformCoord( &m_vUp, &m_vUp, &matTemp );
 	}
 	else if(m_bSkillMoveType == 4)
-	{// ¾ÕÀ¸·Î µ¹Áø
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		vUp = m_vUp;
 		D3DXMatrixRotationAxis( &matTemp, &m_vVel, -10.0f*m_fSkillMoveTime);
 		D3DXVec3TransformCoord( &m_vUp, &m_vUp, &matTemp );
 	}
 	else if(m_bSkillMoveType == 5)
-	{//¿ì ÀÌµ¿
+	{//ï¿½ï¿½ ï¿½Ìµï¿½
 	}
 	else if(m_bSkillMoveType == 6)
-	{//ÁÂ ÀÌµ¿
+	{//ï¿½ï¿½ ï¿½Ìµï¿½
 	}
 	else if(m_bSkillMoveType == 7)
-	{// BT Çü - ÄüÅÏ(¿ì 360µµ ÅÏ)
+	{// BT ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ 360ï¿½ï¿½ ï¿½ï¿½)
 	}
 	else if(m_bSkillMoveType == 8)
-	{// BT Çü - ÄüÅÏ(ÁÂ 360µµ ÅÏ)
+	{// BT ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ 360ï¿½ï¿½ ï¿½ï¿½)
 	}
 	else if(m_bSkillMoveType == 9)
-	{// BT Çü - ¸®¹ö½ºÅÏ(¿¡¾îºê·¹ÀÌÅ© ÈÄ »ó´ëº¸´Ù ³·Àº ³ôÀÌ·Î ±Þ°­ÇÏÇÏ¿© µÚ·Î ¿ªºÎ½ºÅÍÇÏ¿© »ó´ëÀÇ ÈÄ¹Ì¸¦ Àâ´Â °Í)
+	{// BT ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ê·¹ï¿½ï¿½Å© ï¿½ï¿½ ï¿½ï¿½ëº¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Þ°ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¹Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½)
 	}
 	else if(m_bSkillMoveType == 10)
-	{// BT Çü - ÄÚºê¶ó±âµ¿(À¯´ÖÀÇ ¼±µÎ¸¦ µé¾î ¼ø°£ ½ºÇÇµå¸¦ 0À¸·Î ÇÏ¿© Á¦ÀÚ¸®¿¡ ¶°ÀÖ°Ô ¸¸µç´Ù)
+	{// BT ï¿½ï¿½ - ï¿½Úºï¿½ï¿½âµ¿(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµå¸¦ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½)
 	}
 
 	float fCheckTime = 2.0f*3.14f;
@@ -2680,17 +2731,17 @@ void CEnemyData::SetItemParamFactor( MSG_FC_CHARACTER_GET_OTHER_PARAMFACTOR_OK* 
 //		break;
 //	default:
 //		{
-//			DBGOUT("MSG_FC_CHARACTER_GET_OTHER_PARAMFACTOR_OK(pos:%d) ±¸Çö ¾ÈµÊ\n",pMsg->ItemPosition);
+//			DBGOUT("MSG_FC_CHARACTER_GET_OTHER_PARAMFACTOR_OK(pos:%d) ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½\n",pMsg->ItemPosition);
 //		}
 //		break;
 //	}
 }
 
-// 2006-11-27 by ispark, ¾È¾²´Â ÇÔ¼ö ÀÌ¹Ç·Î ÁÖ¼® Ã³¸®
+// 2006-11-27 by ispark, ï¿½È¾ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½Ì¹Ç·ï¿½ ï¿½Ö¼ï¿½ Ã³ï¿½ï¿½
 //void CEnemyData::UseSkillFromServer(INT nSkillItemNumber, ClientIndex_t nTargetIndex)
 //	{
 //// 2004-10-28 by jschoi
-//// Enemy°¡ ½ºÅ³À» »ç¿ëÇÏ¸é ÇØ´ç ÀÌÆåÆ®¸¦ º¸¿©ÁØ´Ù.
+//// Enemyï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 //
 ////	if( SKILL_KIND(nSkillItemNumber) == SKILL_KIND_CONTROL )
 ////	{
@@ -2714,9 +2765,9 @@ void CEnemyData::SetItemParamFactor( MSG_FC_CHARACTER_GET_OTHER_PARAMFACTOR_OK* 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			RollingSystem()
-/// \brief		·Ñ¸µ ½Ã½ºÅÛ(Å°¸¦ °Ë»öÈÄ ±×¿¡ ¸Â´Â ¾Ö´Ï¸ÞÀÌ¼Ç ÇÏµåÄÚµù)
-///				È¸Àü°ªÀ» ¸®ÅÏ
-///				(´Ü, 0Àº ÀÌµ¿ÀÌ ¾øÀ» ¶§ ¾´´Ù.)
+/// \brief		ï¿½Ñ¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½(Å°ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½×¿ï¿½ ï¿½Â´ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ïµï¿½ï¿½Úµï¿½)
+///				È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+///				(ï¿½ï¿½, 0ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.)
 /// \author		ispark
 /// \date		2005-07-05 ~ 2005-07-05
 /// \warning	
@@ -2726,11 +2777,11 @@ void CEnemyData::SetItemParamFactor( MSG_FC_CHARACTER_GET_OTHER_PARAMFACTOR_OK* 
 ///////////////////////////////////////////////////////////////////////////////
 float CEnemyData::RollingSystem(float fElapsedTime)
 {
-	// AÅ° ÁÂÃø ·Ñ¸µ
+	// AÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 	if(m_bRollLeft)
 	{
 		m_fRollStartTime += fElapsedTime;
-		if(m_fRollStartTime >= ROLLING_USE_TIME)					// ·Ñ¸µ Áö¼Ó½Ã°£
+		if(m_fRollStartTime >= ROLLING_USE_TIME)					// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½Ó½Ã°ï¿½
 		{
 			return 0.0f;
 		}
@@ -2751,12 +2802,12 @@ float CEnemyData::RollingSystem(float fElapsedTime)
 		}
 	}
 	
-	// DÅ° ¿ìÃø ·Ñ¸µ
+	// DÅ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 	if(m_bRollRight)
 	{
 		m_fRollStartTime += fElapsedTime;
 
-		if(m_fRollStartTime >= ROLLING_USE_TIME)					// ·Ñ¸µ Áö¼Ó ½Ã°£
+		if(m_fRollStartTime >= ROLLING_USE_TIME)					// ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 		{
 			return 0.0f;
 		}
@@ -2803,11 +2854,11 @@ void CEnemyData::CheckRoll(MSG_FC_MOVE_ROLLING_OK *pMsg)
 	else
 		m_bRollRight = TRUE;
 
-	// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
-	// ·Îº¿ ¾Æ¸ÓÀÏ°æ¿ì
+	// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	// ï¿½Îºï¿½ ï¿½Æ¸ï¿½ï¿½Ï°ï¿½ï¿½
 	if( IsRobotArmor() )
 	{
-		// ºÎ½ºÅÍ ¾Ö´Ï¸ÞÀÌ¼Ç°ú ·Ñ¸µ ¹ÙµðÄÁ¼ÇÀ» ´Ù ³¡³½µÚ, »õ·Î ½ÃÀÛÇÑ´Ù
+		// ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç°ï¿½ ï¿½Ñ¸ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 		TurnSingleBodyCondition( BODYCON_BOOSTER1_MASK, FALSE );
 		TurnSingleBodyCondition( BODYCON_BOOSTER2_MASK, FALSE );
 		TurnSingleBodyCondition( BODYCON_BOOSTER3_MASK, FALSE );
@@ -2816,13 +2867,13 @@ void CEnemyData::CheckRoll(MSG_FC_MOVE_ROLLING_OK *pMsg)
 		TurnSingleBodyCondition( BODYCON_ROLLING_MASK, FALSE );
 	}
 	TurnSingleBodyCondition( BODYCON_ROLLING_MASK, TRUE );
-	// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+	// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CEnemyData::LoadEnemyCharacterInfo(char *strFileName)
-/// \brief		Àû Ä³¸¯ÅÍ¿¡¸¸ ÇÊ¿äÇÑ ºÎºÐ
+/// \brief		ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 /// \author		ispark
 /// \date		2005-07-27 ~ 2005-07-27
 /// \warning	
@@ -2854,7 +2905,7 @@ void CEnemyData::LoadEnemyCharacterInfo(char *strFileName)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CEnemyData::CheckShadowPos()
-/// \brief		Àû Ä³¸¯ÅÍ ±×¸²ÀÚ
+/// \brief		ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-07-27 ~ 2005-07-27
 /// \warning	
@@ -2865,7 +2916,7 @@ void CEnemyData::LoadEnemyCharacterInfo(char *strFileName)
 void CEnemyData::CheckShadowPos()
 {
 	D3DXVECTOR3 vShadowPos[4];
-	// ¿©±â¼­ ¼öÄ¡´Â ±×¸²ÀÚ¸¦ »Ñ¸± »çÀÌÁî¸¦ ¶æÇÑ´Ù. ¿øÁ¡¿¡¼­ ´ë°¢¼± ¹æÇâÀ¸·Î °Å¸®ÀÌ´Ù.
+	// ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½×¸ï¿½ï¿½Ú¸ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½Ì´ï¿½.
 	vShadowPos[0] = m_vPos + CHARACTER_SHADOW_SCALE * (m_vVel - m_vSideVel);
 	vShadowPos[1] = m_vPos + CHARACTER_SHADOW_SCALE * (m_vVel + m_vSideVel);
 	vShadowPos[2] = m_vPos - CHARACTER_SHADOW_SCALE * (m_vVel - m_vSideVel);
@@ -2902,8 +2953,8 @@ void CEnemyData::CheckShadowPos()
 			}
 		}
 
-		// ±×¸²ÀÚ´Â Z¹öÆÛ¸¦ »ç¿ëÇÏ¹Ç·Î ±×¸²ÀÚ ³ôÀÌ¸¦ 0.2f¸¸Å­ ¿Ã¸°´Ù.
-		// ³» Ä³¸¯ÅÍ¿Í °ãÄ¡´Â Çö»ó¶§¹®ÀÌ´Ù. ±×·¯³ª Àû Ä³¸¯ÅÍ¿Í ÀûÄ³¸¯ÅÍ°£ÀÇ »óÈ²ÀÌ ÇÊ¿ä
+		// ï¿½×¸ï¿½ï¿½Ú´ï¿½ Zï¿½ï¿½ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ 0.2fï¿½ï¿½Å­ ï¿½Ã¸ï¿½ï¿½ï¿½.
+		// ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ó¶§¹ï¿½ï¿½Ì´ï¿½. ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½Ê¿ï¿½
 //		vShadowPos[i].y -= (7.087f - 0.1f);
 		vShadowPos[i].y -= (7.087f);
 	}
@@ -2952,29 +3003,29 @@ void CEnemyData::TickUnit(float fElapsedTime)
 //		m_dwState == _TAKINGOFF)
 
 	/// add by syjun 
-	// FrameMove¿¡¼­ ÀÏ°ýÀûÀ¸·Î ÇØÁÖ¾î¾ß ÇÒ°ÍÀÓ
-	//Æí´ëÀåÀ» ±âÁØÀ¸·Î ÁØºñÇÑ´Ù.
-	// Æí´ëÀåÀ» ±¸ÇÑ´Ù.
+	// FrameMoveï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ï¿½Ñ´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	/*
 	if(m_infoParty.bPartyType == _PARTYMASTER )
 	{
-		if( ³»°¡ Æí´ëÀåÀÎ °æ¿ì )
-		//³ª¸¦ Á¦¿ÜÇÑ ¸ðµç Æí´ë¿øµéÀÇ À§Ä¡¸¦ ¼¼ÆÃ
+		if( ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ )
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else
 		{
-			//ÀÌÀ¯´ÖÀÇ À§Ä¡¸¦ ±¸ÇØ¼­
-			//³ª¿Í Æí´ëÀ¯´ÖÀÇ À§Ä¡¸¦ ¼¼ÆÃ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 	else if( m_infoParty.bPartyType == _PARTYMEMBER)
 	{
-		if( ³»°¡ Æí´ëÀåÀÎ °æ¿ì )
-		//ÀÌ À¯´ÖÀÇ À§Ä¡¸¦ ³ª¸¦ ±âÁØÀ¸·Î ¼¼ÆÃ
+		if( ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ )
+		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else
 
 	}*/
 	// 2005-08-29 by ispark
-	// A±â¾î ÀÏ°æ¿ì _LANDED´Â ¶¥¿¡¼­ ¿òÁ÷ÀÌ´Â °æ¿ìÀÌ¹Ç·Î ¿òÁ÷ÀÌ°Ô ÇÑ´Ù.
+	// Aï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ï¿½ _LANDEDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ñ´ï¿½.
 	if(UNIT_STATE_MOVE(m_dwState) || IS_DT(m_infoCharacter.CharacterInfo.UnitKind) == TRUE)
 	{
 		if(m_fLifeTime > -8.0f)
@@ -2986,7 +3037,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			m_fLifeTime < -3.0f && 
 			!m_bRequestMove)
 		{
-			// Move Á¤º¸ ¿äÃ» ÇØ¾ßÇÔ
+			// Move ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ø¾ï¿½ï¿½ï¿½
 			m_bRequestMove = TRUE;
 //			if(m_dwState == _FALLING || m_dwState == _EXPLODING)
 //			{
@@ -2996,7 +3047,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 //			}
 //			else
 //			{
-				// 2006-06-15 by ispark, ÀÏÁ¤½Ã°£¿¡ º¸³»´Â ¹æ½ÄÀ¸·Î º¯°æ
+				// 2006-06-15 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				MSG_FC_CHARACTER_GET_OTHER_MOVE sMsg;
 //				memset(&sMsg,0x00,sizeof(sMsg));
 //				char buffer[SIZE_MAX_PACKET];
@@ -3017,7 +3068,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 ////			m_nPartyID == 0 &&
 //			IsPkState(PK_PVP)==FALSE && 
 //			IsPkState(PK_FVF)==FALSE )
-		// ¾ÆÀÌÅÛ ·»´õ¸µ °ü·Ã Á¤º¸ °ü¸®
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(m_bIsItemPointSet && m_fLifeTime <= -8.0f)
 		{
 			DeleteItemPoint();
@@ -3034,7 +3085,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 		else if(!m_bIsItemPointSet && m_fLifeTime > -8.0f)
 		{
 			if(m_fCheckItemInfoTime < 0.0f)
-			{// Á¤º¸ ¿äÃ»
+			{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 //				MSG_FC_CHARACTER_GET_OTHER_RENDER_INFO sMsg;
 //				memset(&sMsg,0x00,sizeof(sMsg));
 //				char buffer[SIZE_MAX_PACKET];
@@ -3057,7 +3108,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 //				m_nObjScreenX, m_nObjScreenY, m_nObjScreenW );
 //			return;
 //		}
-		// ÆÐÅ¶ÀÌ ¿À´Â ½Ã°£¿¡ µû¶ó ÀÌµ¿ ÁöÁ¡À» ÁÙÀÎ´Ù(·ºÀ¸·Î ÀÎÇÑ Èçµé¸² ¹æÁö)
+		// ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½é¸² ï¿½ï¿½ï¿½ï¿½)
 		if(m_fLifeTime < 1.5f && m_fLifeTime >= 0.0f)
 		{
 			vMovepos = m_vMovepos * (m_fLifeTime / 1.5f);
@@ -3103,7 +3154,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			m_vUp = m_vNextUp;
 		}
 	}
-/*	// ¾ÆÀÌÅÛ Ã¼Å©
+/*	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	if(((!m_pWeapon1_1) && (!m_pWeapon1_2)) || 
 		((!m_pWeapon2_1) && (!m_pWeapon2_2)) || 
 		(m_CharacterRenderInfo.RI_Rear && !m_pEngine))
@@ -3122,7 +3173,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 //		((IS_DT(m_infoCharacter.CharacterInfo.UnitKind) && !m_pWeapon1_1 && !m_pWeapon1_2) ||	!m_pEngine))
 //		((IS_DT(m_infoCharacter.CharacterInfo.UnitKind) && !m_pWeapon1_1_1 && !m_pWeapon1_2) ||	!m_pEngine))
 		(IS_DT(m_infoCharacter.CharacterInfo.UnitKind) && !m_pWeapon1_1_1 && !m_pWeapon1_2))
-	{// Á¤º¸ ¿äÃ»
+	{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 //		MSG_FC_CHARACTER_GET_OTHER_RENDER_INFO sMsg;
 //		memset(&sMsg,0x00,sizeof(sMsg));
 //		char buffer[SIZE_MAX_PACKET];
@@ -3152,14 +3203,14 @@ void CEnemyData::TickUnit(float fElapsedTime)
 
 //	if(UNIT_STATE_MOVE(m_dwState))
 	// 2005-08-29 by ispark
-	// A±â¾î ÀÏ°æ¿ì _LANDED´Â ¶¥¿¡¼­ ¿òÁ÷ÀÌ´Â °æ¿ìÀÌ¹Ç·Î ¿òÁ÷ÀÌ°Ô ÇÑ´Ù.
+	// Aï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ï¿½ _LANDEDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ñ´ï¿½.
 	if((UNIT_STATE_MOVE(m_dwState) || 
 		IS_DT(m_infoCharacter.CharacterInfo.UnitKind) == TRUE) && 
 		pPartyEnemyInfo == NULL)
 	{
 		char buf[8];
 		memset(buf,0x00,sizeof(buf));
-//		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST; // ÀÓ½Ã List  Å¸ÀÔÀ» ¾ø¾Ö¾ßÇÒÁöµµ...
+//		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST; // ï¿½Ó½ï¿½ List  Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 
 		D3DXVECTOR3 vOldVel;
 		vOldVel = m_vVel;
@@ -3185,7 +3236,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 		D3DXVec3Normalize(&m_vUp,&m_vUp);
 
 		// 2005-07-08 by ispark
-		// Àû±â ¼Óµµ¸¦ µÎ¹è·Î ¿Ã·ÈºÃÀ½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ï¿½ ï¿½Ã·Èºï¿½ï¿½ï¿½
 		if(!g_pShuttleChild->IsObserverMode())
 			m_vPos += vMovepos*fElapsedTime*1.0f;
 		else
@@ -3198,7 +3249,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			m_pEffectTarget->m_bUsing = FALSE;
 			m_pEffectTarget = NULL;
 			char message[256];
-			wsprintf(message,STRMSG_C_TARGET_0001);	//"2Çü Å¸°Ù ÇØÁ¦µÊ"
+			wsprintf(message,STRMSG_C_TARGET_0001);	//"2ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 			g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 		}
 //		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST;
@@ -3225,7 +3276,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 		D3DXVec3Normalize(&m_vVel,&m_vVel);
 		m_vUp += m_vMoveUp*fElapsedTime;
 		D3DXVec3Normalize(&m_vUp,&m_vUp);
-		// ¹°¼ÓÀÎÁö Ã¼Å©
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 		if( g_pShuttleChild->CheckIsWater(m_vPos) && 
 			m_vPos.y < g_pGround->m_projectInfo.fWaterHeight)
 		{
@@ -3242,7 +3293,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 				m_pEffectTarget->m_bUsing = FALSE;
 				m_pEffectTarget = NULL;
 				char message[256];
-				wsprintf(message,STRMSG_C_TARGET_0001);	//"2Çü Å¸°Ù ÇØÁ¦µÊ"
+				wsprintf(message,STRMSG_C_TARGET_0001);	//"2ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 				g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 			}
 //			m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST;
@@ -3255,7 +3306,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			D3DXVec3Normalize(&m_vVel,&m_vVel);
 			m_vUp = m_vNextUp;//*fElapsedTime;
 			D3DXVec3Normalize(&m_vUp,&m_vUp);
-			// ¹°¼ÓÀÎÁö Ã¼Å©
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 			if(g_pShuttleChild->CheckIsWater(m_vPos) && m_vPos.y < g_pGround->m_projectInfo.fWaterHeight)
 				m_bIsUnderWater = TRUE;
 		}
@@ -3269,7 +3320,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			m_pEffectTarget->m_bUsing = FALSE;
 			m_pEffectTarget = NULL;
 			char message[256];
-			wsprintf(message,STRMSG_C_TARGET_0001);	//"2Çü Å¸°Ù ÇØÁ¦µÊ"
+			wsprintf(message,STRMSG_C_TARGET_0001);	//"2ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 			g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 		}
 //		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST;
@@ -3293,7 +3344,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			m_pEffectTarget->m_bUsing = FALSE;
 			m_pEffectTarget = NULL;
 			char message[256];
-			wsprintf(message,STRMSG_C_TARGET_0001);	//"2Çü Å¸°Ù ÇØÁ¦µÊ"
+			wsprintf(message,STRMSG_C_TARGET_0001);	//"2ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 			g_pD3dApp->m_pChat->CreateChatChild(message,COLOR_SYSTEM);
 		}
 //		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST;
@@ -3307,26 +3358,26 @@ void CEnemyData::TickUnit(float fElapsedTime)
 	D3DXVECTOR3 vVirtualUp = m_vUp;
 
 	// 2005-07-07 by ispark
-	// ·Ñ¸µ ¾Ö´Ï¸ÞÀÌ¼Ç
+	// ï¿½Ñ¸ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
 	if(m_bRollStart)
 	{
 		float fElapsedTime = g_pD3dApp->GetElapsedTime();
 		float fUpRate = RollingSystem(fElapsedTime);		// 2005-07-05 by ispark
 
-		// 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-		// ·Îº¿ ¾Æ¸ÓÀÏ °æ¿ì, ·Ñ¸µ È¸ÀüÀ» ÇÏÁö ¾Ê´Â´Ù
+		// ï¿½Îºï¿½ ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½Ñ¸ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
 		if( IsRobotArmor() )
 			fUpRate = 0.0f;
 
-		// end 2009. 07. 07 by ckPark ·Îº¿±â¾î ¿äÃ»»çÇ×(·Ñ¸µ, ¼±ÅÃÈ­¸é, ¹«±â, A±â¾îÆ÷´ë)
+		// end 2009. 07. 07 by ckPark ï¿½Îºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½(ï¿½Ñ¸ï¿½, ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 		D3DXMATRIX mMatrix;
 		D3DXMatrixRotationAxis(&mMatrix, &m_vVel, fUpRate);		
 		D3DXVec3TransformCoord(&vVirtualUp, &m_vUp, &mMatrix );
 	}
 	
-	// 2007-04-17 by dgwoo ´Ù¸¥ À¯ÀúÀÇ ±â¾î°¡ ¶³¸®´Â ¹ö±× ¼öÁ¤.
+	// 2007-04-17 by dgwoo ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 //	D3DXMATRIX matVirtualTemp;
 //	//D3DXMatrixRotationAxis(&matVirtualTemp, &m_vVel, 0.0f);
 //	D3DXMatrixIdentity(&matVirtualTemp);
@@ -3334,7 +3385,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 //	D3DXMatrixLookAtRH( &m_mMatrix, &m_vPos, &(m_vPos+m_vVel), &vVirtualUp);
 //	D3DXMatrixInverse( &m_mMatrix, NULL, &m_mMatrix );
 //
-	// Ãæµ¹½Ã ¾Ö´Ï¸ÞÀÌ¼ÇÀ» º¸¿©ÁÖ±â À§ÇÑ ¸ÅÆ®¸¯½º¸¦ Àû¿ëÇÑ´Ù.
+	// ï¿½æµ¹ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	D3DXMatrixLookAtRH( &m_mMatrix, &m_vPos, &(m_vPos+m_vVel), &m_vUp);
 	D3DXMatrixLookAtRH( &m_mMatrix, &m_vPos, &(m_vPos+m_vVel), &vVirtualUp);
 	D3DXMatrixInverse( &m_mMatrix, NULL, &m_mMatrix );
@@ -3356,14 +3407,14 @@ void CEnemyData::TickUnit(float fElapsedTime)
 		D3DXVec3TransformCoord(&vRWBackPos, &vPrimaryRightBackPos, &m_mMatrix);
 		m_vRWPos = vRWBackPos + fLen*m_vWeaponVel;
 			
-		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+		// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 		D3DXVec3TransformCoord(&m_vPetLeftPos, &m_PetAttack.vSidePos, &m_mMatrix);
 		
 		D3DXVECTOR3 vPetRightPos = D3DXVECTOR3(-m_PetAttack.vSidePos.x,
 												m_PetAttack.vSidePos.y, 
 												m_PetAttack.vSidePos.z);
 		D3DXVec3TransformCoord(&m_vPetRightPos, &vPetRightPos, &m_mMatrix);
-		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+		// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 		m_vRWPos += 3.0f*m_vWeaponVel;
 		D3DXVec3TransformCoord(&m_vLWSecondaryPos, &m_SecondaryAttack.vSidePos, &m_mMatrix);
 		D3DXVECTOR3 vSecondaryRightPos = D3DXVECTOR3(-m_SecondaryAttack.vSidePos.x, m_SecondaryAttack.vSidePos.y, m_SecondaryAttack.vSidePos.z);
@@ -3377,19 +3428,19 @@ void CEnemyData::TickUnit(float fElapsedTime)
 		D3DXVec3TransformCoord(&m_vRWPos, &vPrimaryRightPos, &m_mMatrix);
 		m_vRWPos += 5.0f*m_vVel;
 
-		// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+		// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 		D3DXVec3TransformCoord(&m_vPetLeftPos, &m_PetAttack.vSidePos, &m_mMatrix);
 		
 		D3DXVECTOR3 vPetRightPos = D3DXVECTOR3(-m_PetAttack.vSidePos.x,
 												m_PetAttack.vSidePos.y, 
 												m_PetAttack.vSidePos.z);
 		D3DXVec3TransformCoord(&m_vPetRightPos, &vPetRightPos, &m_mMatrix);
-		// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¹«±â À§Ä¡
+		// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-		// 2010-12-27 by hsson Æê½Ã½ºÅÛ - Æê µ¿±âÈ­ ºÎºÐ ¼öÁ¤
+		// 2010-12-27 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_vPetLeftVel = m_vVel;
 		m_vPetRightVel = m_vVel;
-		// end 2010-12-27 by hsson Æê½Ã½ºÅÛ - Æê µ¿±âÈ­ ºÎºÐ ¼öÁ¤
+		// end 2010-12-27 by hsson ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		D3DXVec3TransformCoord(&m_vLWSecondaryPos, &m_SecondaryAttack.vSidePos, &m_mMatrix);
 		D3DXVECTOR3 vSecondaryRightPos = D3DXVECTOR3(-m_SecondaryAttack.vSidePos.x, m_SecondaryAttack.vSidePos.y, m_SecondaryAttack.vSidePos.z);
@@ -3402,18 +3453,18 @@ void CEnemyData::TickUnit(float fElapsedTime)
 	}
 	
 
-	// 2005-01-05 by jschoi - ÇöÀç ºí·»µù ¸Þ½Ã »ç¿ë ¾ÈÇÔ.
+	// 2005-01-05 by jschoi - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 //	m_bCheckBlend = FALSE;
 
 	m_bCheckColl = FALSE;
-	// 50.0f ¼öÄ¡´Â Â÷ÈÄ¿¡ ¼ÅÆ²ÀÇ Å©±â¿Í ¸ó½ºÅÍÀÇ Å©±âÀÇ ÇÕÀÇ Àý¹ÝÀÇ Å©±â·Î ¼ÂÆÃµÇ¾î¾ßÇÑ´Ù.
+	// 50.0f ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(D3DXVec3Length(&(m_vPos - g_pShuttleChild->m_vPos)) < 50.0f)
 	{
 		m_bCheckColl = TRUE;
-		g_pShuttleChild->m_bCollShuttleCheck++;		// ¼ÅÆ²¿¡°Ô Ãæµ¹ Ã¼Å©·çÆ¾¿¡ µé¾î°¡¶ó°í ¼ÂÆÃ
+		g_pShuttleChild->m_bCollShuttleCheck++;		// ï¿½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ Ã¼Å©ï¿½ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
-	///  Enemy ¿¡ ÀýµÎÃ¼ ÄÃ¸µÀ» Àû¿ëÇÏ¿© m_vecEnemyRenderList ¸¦ ¸¸µç´Ù. - 2004-07-31 jschoi
+	///  Enemy ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ m_vecEnemyRenderList ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. - 2004-07-31 jschoi
 	if(m_bUsing)
 	{
 		BOOL bResult = g_pFrustum->CheckSphere( m_vPos.x, m_vPos.y, m_vPos.z, m_fObjectSize );
@@ -3423,7 +3474,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			g_pScene->m_vecUnitRenderList.push_back((CUnitData*)this);
 			m_fDistanceCamera = D3DXVec3Length(&(m_vPos - g_pD3dApp->m_pCamera->GetEyePt()));
 
-			// 2005-01-05 by jschoi - ÇöÀç ºí·»µù ¸Þ½Ã »ç¿ë ¾ÈÇÔ.
+			// 2005-01-05 by jschoi - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 //			D3DXVECTOR3 v1,v2;
 //			m_bCheckBlend = FALSE;
 //			D3DXVec3Normalize(&v1,&(g_pShuttleChild->m_vPos - g_pD3dApp->m_pCamera->GetEyePt()));
@@ -3439,7 +3490,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 		}	
 	}
 
-	/// ±×¸²ÀÚ ±×¸± Enemy ¼±Á¤ 2004-07-29 jschoi
+	/// ï¿½×¸ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ Enemy ï¿½ï¿½ï¿½ï¿½ 2004-07-29 jschoi
 	if(m_bUsing)
 	{
 		D3DXVECTOR3 vShadowPos;
@@ -3529,11 +3580,11 @@ void CEnemyData::TickUnit(float fElapsedTime)
 //	CheckPrimaryAttack(FALSE);
 	m_PrimaryAttack.fCheckAutoMaticTimer -= g_pD3dApp->GetElapsedTime();
 	m_PrimaryAttack.fCheckAttackTime -= g_pD3dApp->GetElapsedTime();
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	m_PetAttack.fCheckAutoMaticTimer -= g_pD3dApp->GetElapsedTime();
 	m_PetAttack.fCheckAttackTime -= g_pD3dApp->GetElapsedTime();
 	//SetPetPosition();
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - Æê °ø°Ý Ã³¸®
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 	CheckAttack(m_PrimaryAttack, FALSE);
 	m_SecondaryAttack.fCheckAutoMaticTimer -= g_pD3dApp->GetElapsedTime();
@@ -3563,12 +3614,12 @@ void CEnemyData::TickUnit(float fElapsedTime)
 
 	if(nOldDegree != m_bDegree)
 	{
-		// 2005-11-24 by ispark, ItemNum -> SourceIndexÀ¸·Î º¯°æ
+		// 2005-11-24 by ispark, ItemNum -> SourceIndexï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//ITEM * pItem = g_pDatabase->GetServerItemInfo(m_infoCharacter.CharacterRenderInfo.RI_Center);
 
-		// ¿ÜÇü¾ÆÀÌÅÛ¹øÈ£°¡ ¾ø´Ù¸é ¿ø·¡ ¾ÆÀÌÅÛ ¹øÈ£¸¦ »ç¿ëÇÑ´Ù
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 		int nItemNum = 0;
 		if( m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum )
 			nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Center_ShapeItemNum;
@@ -3576,8 +3627,8 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			nItemNum = m_infoCharacter.CharacterRenderInfo.RI_Center;
 
 		ITEM* pItem = g_pDatabase->GetServerItemInfo( nItemNum );
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
-		// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 		BOOL bMonTras = FALSE;
 
 		if(m_MonsterTransformer)
@@ -3599,19 +3650,25 @@ void CEnemyData::TickUnit(float fElapsedTime)
 			if(pItem)
 				nItemNum = pItem->SourceIndex;
 		}
-		//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+
+#ifdef _RAT_FFA
+		if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+			pItem = NULL;
+#endif
+
+		//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 		if(pItem)
 		{
-			// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			// 			ChangeUnitCharacterInfo(pItem->SourceIndex, 
 			// 				m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 			ChangeUnitCharacterInfo(nItemNum, 
 				m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE , bMonTras);
-			//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 		}
 		else
 		{
-			// µðÆúÆ®
+			// ï¿½ï¿½ï¿½ï¿½Æ®
 			ChangeUnitCharacterInfo(0, 
 				m_infoCharacter.CharacterInfo.UnitKind, m_infoCharacter.CharacterInfo.BodyCondition, FALSE);
 		}
@@ -3646,9 +3703,9 @@ void CEnemyData::TickUnit(float fElapsedTime)
 void CEnemyData::TickCharacter(float fElapsedTime)
 {
 	//////////////////////////////////////////////////////////////////////////
-	// ÀÌµ¿
+	// ï¿½Ìµï¿½
 	D3DXVECTOR3 vMovepos = D3DXVECTOR3(0,0,0);
-	// ÆÐÅ¶ÀÌ ¿À´Â ½Ã°£¿¡ µû¶ó ÀÌµ¿ ÁöÁ¡À» ÁÙÀÎ´Ù(·ºÀ¸·Î ÀÎÇÑ Èçµé¸² ¹æÁö)
+	// ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½é¸² ï¿½ï¿½ï¿½ï¿½)
 	if(m_fLifeTime < 1.5f && m_fLifeTime >= 0.0f)
 	{
 		vMovepos = m_vMovepos * (m_fLifeTime / 1.5f);
@@ -3662,7 +3719,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 		vMovepos = m_vMovepos;
 	}
 
-	// 2006-01-10 by ispark, ¹«ºê Á¤º¸ ¿äÃ» Å¸ÀÓ
+	// 2006-01-10 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» Å¸ï¿½ï¿½
 	if(m_fLifeTime > -8.0f)
 		m_fLifeTime -= fElapsedTime;
 	if(m_fLifeTime < -8.0f)
@@ -3672,9 +3729,9 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 		m_fLifeTime < -3.0f && 
 		!m_bRequestMove)
 	{
-		// Move Á¤º¸ ¿äÃ» ÇØ¾ßÇÔ
+		// Move ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ø¾ï¿½ï¿½ï¿½
 		m_bRequestMove = TRUE;
-		// 2006-06-15 by ispark, ÀÏÁ¤½Ã°£¿¡ º¸³»´Â ¹æ½ÄÀ¸·Î º¯°æ
+		// 2006-06-15 by ispark, ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		MSG_FC_CHARACTER_GET_OTHER_MOVE sMsg;
 //		memset(&sMsg,0x00,sizeof(sMsg));
 //		char buffer[SIZE_MAX_PACKET];
@@ -3742,7 +3799,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 	{
 		char buf[8];
 		memset(buf,0x00,sizeof(buf));
-//		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST; // ÀÓ½Ã List  Å¸ÀÔÀ» ¾ø¾Ö¾ßÇÒÁöµµ...
+//		m_nEnemyTypePrimary = ENEMYDATA_ENEMYLIST; // ï¿½Ó½ï¿½ List  Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 
 //		D3DXVECTOR3 vOldVel;
 //		vOldVel = m_vVel;
@@ -3768,7 +3825,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 //		D3DXVec3Normalize(&m_vUp,&m_vUp);
 
 		// 2005-07-28 by ispark
-		// Ä³¸¯ÅÍ ¹æÇâ º¤ÅÍ´Â Áï½Ã ¹Ù²Û´Ù.
+		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù²Û´ï¿½.
 //		float fAngle;
 //		D3DXMATRIX matTemp;
 //		fAngle = ACOS(D3DXVec3Dot(&m_vOriNextVel,&m_vVel));
@@ -3776,11 +3833,11 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 //		D3DXVec3TransformCoord(&m_vVel, &m_vVel, &matTemp);
 		m_vVel = m_vOriNextVel;
 
-		// Ä³¸¯ÅÍ´Â Upº¤ÅÍ°¡ Ç×»ó ¹Ø¿¡ °ªÀÌ´Ù.
+		// Ä³ï¿½ï¿½ï¿½Í´ï¿½ Upï¿½ï¿½ï¿½Í°ï¿½ ï¿½×»ï¿½ ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 		m_vUp = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
 
 		// 2005-07-08 by ispark
-		// Àû±â ¼Óµµ¸¦ µÎ¹è·Î ¿Ã·ÈºÃÀ½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ï¿½ ï¿½Ã·Èºï¿½ï¿½ï¿½
 		m_vPos += vMovepos*fElapsedTime*1.0f;
 	}
 
@@ -3790,7 +3847,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 //		m_nObjScreenX, m_nObjScreenY, m_nObjScreenW );
 
 	//////////////////////////////////////////////////////////////////////////
-	// ·»´õ¸µ ÇÒ °ÍÀÎ°¡?
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½?
 	if(m_bUsing)
 	{
 		BOOL bResult = g_pFrustum->CheckSphere( m_vPos.x, m_vPos.y, m_vPos.z, m_fObjectSize );
@@ -3800,7 +3857,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 			g_pScene->m_vecUnitRenderList.push_back((CUnitData*)this);
 			m_fDistanceCamera = D3DXVec3Length(&(m_vPos - g_pD3dApp->m_pCamera->GetEyePt()));
 
-			// 2006-07-26 by ispark, Ä³¸¯ÅÍ ¿öÇÁ ÀÌº¥Æ®¿¡¼­´Â »óÇÏ ÀÌµ¿ °¡´É
+			// 2006-07-26 by ispark, Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 			CObjectChild* pCurrentObjEvent;
 			pCurrentObjEvent = (CObjectChild *)g_pScene->m_pObjectRender->CheckCollMeshEventOther(m_vPos, m_vVel, m_vUp, 80.0f, EVENT_TYPE_CHARACTERMODE_WARP_TARGET);
 			if(pCurrentObjEvent == NULL)
@@ -3817,18 +3874,18 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 				if(D3DXVec3Length(&D3DXVECTOR3(vEventPos - vChaPos)) > 14.0f)
 				{
 					// 2005-08-04 by ispark
-					// ·»´õ¸µ ÇÒ¶§¸¸ ÁÂÇ¥°ªÀ» Á¤È®ÇÏ°Ô Ã¼Å©ÇÑ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½Ï°ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 					CheckCharacterPos();
 				}
 			}
 			else
 			{
 				// 2005-08-04 by ispark
-				// ·»´õ¸µ ÇÒ¶§¸¸ ÁÂÇ¥°ªÀ» Á¤È®ÇÏ°Ô Ã¼Å©ÇÑ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½Ï°ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 				CheckCharacterPos();
 			}
 
-			// ±×¸²ÀÚ
+			// ï¿½×¸ï¿½ï¿½ï¿½
 			if(0 < g_pSOption->sShadowState)
 			{
 				m_bShadowIsRender = TRUE;
@@ -3840,7 +3897,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 	}	
 
 	//////////////////////////////////////////////////////////////////////////
-	// ±×¸²ÀÚ
+	// ï¿½×¸ï¿½ï¿½ï¿½
 //	D3DXVECTOR3 vShadowPos;
 //	vShadowPos = m_vPos;
 //	// 2005-08-01 by ispark
@@ -3863,7 +3920,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 //
 //	}
 
-	// Ãæµ¹½Ã ¾Ö´Ï¸ÞÀÌ¼ÇÀ» º¸¿©ÁÖ±â À§ÇÑ ¸ÅÆ®¸¯½º¸¦ Àû¿ëÇÑ´Ù.
+	// ï¿½æµ¹ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	D3DXMatrixLookAtRH( &m_mMatrix, &m_vPos, &(m_vPos+m_vVel), &m_vUp);
 	D3DXMatrixInverse( &m_mMatrix, NULL, &m_mMatrix );
 	// 2005-08-04 by ispark
@@ -3873,22 +3930,22 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 //	m_vSideVel.z = m_mMatrix._13;
 
 	// 2005-07-28 by ispark
-	// Ä³¸¯ÅÍ »çÀÌÁî È®´ë
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 	D3DXMATRIX matTemp;
 	D3DXMatrixScaling(&matTemp, CHARACTER_SCALE, CHARACTER_SCALE, CHARACTER_SCALE);
 	m_mMatrix = matTemp * m_mMatrix;
 
 	//////////////////////////////////////////////////////////////////////////
-	// ¾Ö´Ï¸ÞÀÌ¼Ç
+	// ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
 	// 2005-08-04 by ispark
-	// X¿Í Z°ª¸¸À¸·Î ÆÇ´Ü. Y°ªÀº Á¦¿Ü
-	// ¹Ùµð ÄÁµð¼Ç ÆÇ´Ü
+	// Xï¿½ï¿½ Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½. Yï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½Ùµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 	if(m_pEnemyCharacterInfo)
 	{
 		if(m_vOldPos.x == m_vPos.x &&
 			m_vOldPos.z == m_vPos.z)
 		{
-			// ¿òÁ÷ÀÌÁö ¾ÊÀº »óÅÂ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_pEnemyCharacterInfo->ChangeBodyCondition(BODYCON_CHARACTER_MODE_STOP);
 			if(m_pContainer)
 			{
@@ -3897,7 +3954,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 		}
 		else
 		{
-			// ¿òÁ÷ÀÌ´Â »óÅÂ (´Þ¸°´Ù)
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Þ¸ï¿½ï¿½ï¿½)
 			m_pEnemyCharacterInfo->ChangeBodyCondition(BODYCON_CHARACTER_MODE_RUN);
 			if(m_pContainer)
 			{
@@ -3906,7 +3963,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 		}
 	}
 
-	// ÀÔ·Â
+	// ï¿½Ô·ï¿½
 	if(m_pEnemyCharacterInfo)
 	{
 		m_pEnemyCharacterInfo->SetAllBodyConditionMatrix(m_mMatrix);
@@ -3921,7 +3978,7 @@ void CEnemyData::TickCharacter(float fElapsedTime)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CEnemyData::SetPilotNumber(BYTE PilotFace)
-/// \brief		Àû Ä³¸¯ÅÍ ³Ñ¹ö ÀÔ·Â
+/// \brief		ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½Ô·ï¿½
 /// \author		ispark
 /// \date		2005-07-28 ~ 2005-07-28
 /// \warning	
@@ -3950,7 +4007,7 @@ void CEnemyData::SetPilotNumber(BYTE PilotFace)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			CEnemyData::CheckCharacterPos()
-/// \brief		Àû Ä³¸¯ÅÍ À§Ä¡ Á¶Á¤
+/// \brief		ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 /// \author		ispark
 /// \date		2005-08-04 ~ 2005-08-04
 /// \warning	
@@ -3961,11 +4018,11 @@ void CEnemyData::SetPilotNumber(BYTE PilotFace)
 void CEnemyData::CheckCharacterPos()
 {
 	//////////////////////////////////////////////////////////////////////////
-	// ¿ÀºêÁ§Æ® Ãæµ¹
-	// ¿©±â¼­ ¿ÀºêÁ§Æ®´Â »óÁ¡ ³»ºÎÀÌ´Ù.
-	// Ä³¸¯ÅÍ´Â ¿ÀºêÁ§Æ® À§¿¡ Á¸ÀçÇÑ´Ù´Â Á¤ÀÇ·Î ½ÃÀÛÇÑ´Ù. ¿Àºê ³ôÀÌ »êÃâ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½æµ¹
+	// ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+	// Ä³ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	D3DXVECTOR3 vPos = m_vPos;
-	vPos.y += 7.087f;			// Ãæµ¹°Ë»ç·Î ÀÎÇÑ ³ôÀÌ °ªÀ» ¿Ã¸°´Ù.
+	vPos.y += 7.087f;			// ï¿½æµ¹ï¿½Ë»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½.
 	float fTempHeight = 0.0f;
 	float fObjHeight = -DEFAULT_COLLISION_DISTANCE;
 	
@@ -3999,7 +4056,7 @@ void CEnemyData::DeleteChatMoveShop()
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CEnemyData::UseSkillFromServer(INT ItemNum)
-/// \brief		Àû¿¡ °ü·Ã ½ºÅ³ µ¥ÀÌÅÍ Ã³¸®
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 /// \author		ispark
 /// \date		2006-11-27 ~ 2006-11-27
 /// \warning	
@@ -4011,35 +4068,35 @@ void CEnemyData::UseSkillFromServer(INT ItemNum)
 {
 	ITEM *pitem = g_pDatabase->GetServerItemInfo(ItemNum);
 
-	// ³ªÇÑÅ× ½ºÅ³À» Ãë¼Ò ½ÃÅ°´Â ½ºÅ³(»ó´ëÆíÀÌ »ç¿ë)
-	// ½ºÄ³´×
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½Å³(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
+	// ï¿½ï¿½Ä³ï¿½ï¿½
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 	//if(IS_EXIST_DES_PARAM(pitem, DES_SKILL_SCANNING))
 	if(pitem->IsExistDesParam(DES_SKILL_SCANNING))
 	{
-		// 2007-02-12 by dgwoo À¯Àú°¡ ½ºÄµ½ºÅ³À» »ç¿ëÇßÀ»°æ¿ì.
-		// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
+		// 2007-02-12 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äµï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// 2007-04-19 by bhsohn ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		D3DXVECTOR3	vVel, vUp;
 		vVel = D3DXVECTOR3(0,0,1);
 		vUp = D3DXVECTOR3(0,1,0);
-// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef SC_SEARCHEYE_SHUTTLE_POSITION_JHSEOL_MSPARK
 		//
 #else
 		g_pScene->AddFieldItemScanObject(this,pitem->Time, RC_EFF_SCAN_SKILL, _LAY, vVel, vUp);
 #endif
-// end 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+// end 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  	
-//		if(!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType,m_infoCharacter.CharacterInfo.InfluenceType) ||	// »ó´ëÆí ÀÌ°Å³ª
-//			IsPkEnable())																											// PK¸ðµå
+//		if(!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType,m_infoCharacter.CharacterInfo.InfluenceType) ||	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½
+//			IsPkEnable())																											// PKï¿½ï¿½ï¿½
 //			{
-// 2007-02-06 by dgwoo SCAN ½ºÅ³À» »ç¿ë½Ã Åõ¸í»óÅÂÀÎ ½ºÅ³À» Ãë¼ÒÇÏ´Â°ÍÀÌ ¾Æ´Ï¶ó  º¸ÀÌ°Ô ÇÑ´Ù.
+// 2007-02-06 by dgwoo SCAN ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½  ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ñ´ï¿½.
 //					g_pShuttleChild->m_pSkill->ReleseSkill(DES_SKILL_SCANNING, ItemNum);
 //			}
 	}
  	
-	// 2007-02-28 by dgwoo ÀûÀ¯Àú°¡ Á¤È­½ºÅ³¿¡ ´çÇßÀ»°æ¿ì Ä³½ºÆÃÅ¸ÀÓÀÌÀÖ´Â ½ºÅ³ÀÇ ÀÌÆåÆ®¸¦ »èÁ¦ÇÑ´Ù.
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// 2007-02-28 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 	//if(IS_EXIST_DES_PARAM(pitem, DES_SKILL_CANCELALL))
 	if(pitem->IsExistDesParam(DES_SKILL_CANCELALL))
 	{
@@ -4047,22 +4104,22 @@ void CEnemyData::UseSkillFromServer(INT ItemNum)
 	}
 
 
-	// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
-	// 2012-02-23 by jhahn Ä§¹¬¶§ ºòºÕ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
+	// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	// 2012-02-23 by jhahn Ä§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-	// ¸ó½ºÅÍ ¸±¸®Áî½Ã ¹öÇÁ ÇØÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( pitem->IsExistDesParam( DES_SKILL_RELEASE )  ||
 		ItemNum/10 == IGEAR_SKILL_BASENUM_SILENCE / 10 )
 		m_pSkillEffect->DeleteCastingStateMonsterSkillEffect();
 
-	//end 2012-02-23 by jhahn Ä§¹¬¶§ ºòºÕ ÀÌÆåÆ® ¹ö±× ¼öÁ¤
-	// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+	//end 2012-02-23 by jhahn Ä§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 		
 	//--------------------------------------------------------------------------//
-	// À§Àå, ÀÎºñÁöºí
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// ï¿½ï¿½ï¿½ï¿½, ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 // 	if(IS_EXIST_DES_PARAM(pitem, DES_SKILL_CAMOUFLAGE) ||
 // 		IS_EXIST_DES_PARAM(pitem, DES_INVISIBLE))
 	if(pitem->IsExistDesParam(DES_SKILL_CAMOUFLAGE) ||
@@ -4086,25 +4143,25 @@ void CEnemyData::CancelUsingSkill(INT ItemNum)
 {
 	ITEM *pitem = g_pDatabase->GetServerItemInfo(ItemNum);
 
-	// Ä³½ºÆÃ Å¸ÀÓÀÌ ÀÖ´Â ½ºÅ³ ÀÌÆåÆ®¸¦ »èÁ¦ÇÑ´Ù.
+	// Ä³ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(pitem->AttackTime > 0)
 	{
 		m_pSkillEffect->DeleteCastingStateSkillEffect();		
 	}
 
 
-	// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+	// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 	if( pitem->AttackTime > 0 )
 	{
 		m_pSkillEffect->DeleteCastingStateMonsterSkillEffect();
 	}
 
-	// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+	// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 	//--------------------------------------------------------------------------//
-	// À§Àå, ÀÎºñÁöºí
-	// 2009-04-21 by bhsohn ¾ÆÀÌÅÛ DesParamÃß°¡
+	// ï¿½ï¿½ï¿½ï¿½, ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
+	// 2009-04-21 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DesParamï¿½ß°ï¿½
 // 	if(IS_EXIST_DES_PARAM(pitem, DES_SKILL_CAMOUFLAGE) ||
 // 		IS_EXIST_DES_PARAM(pitem, DES_INVISIBLE))
 	if(pitem->IsExistDesParam(DES_SKILL_CAMOUFLAGE) ||
@@ -4116,7 +4173,7 @@ void CEnemyData::CancelUsingSkill(INT ItemNum)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void CEnemyData::SetAlphaData()
-/// \brief		°æ¿ì¿¡ µû¶ó Åõ¸í ¶Ç´Â ¹ÝÅõ¸íÀ¸·Î º¸ÀÌ°Ô ÇÑ´Ù.
+/// \brief		ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ñ´ï¿½.
 /// \author		ispark
 /// \date		2006-11-28 ~ 2006-11-28
 /// \warning	
@@ -4126,26 +4183,26 @@ void CEnemyData::CancelUsingSkill(INT ItemNum)
 ///////////////////////////////////////////////////////////////////////////////
 void CEnemyData::SetAlphaData()
 {
-	// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
-	// ½ºÄµ ¹öÇÁ¸¦ °¡Áö°í ÀÖÁö¾Ê°Å³ª  °Å¸®°¡ ¸Ö¸é Åõ¸íÇÏ°Ô º¸ÀÎ´Ù.
+	// 2007-04-19 by bhsohn ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// ï¿½ï¿½Äµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê°Å³ï¿½  ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 	BOOL bCanSeeInvisible = g_pShuttleChild->m_pSkill->IsCanSeeInvisible(m_vPos);
 
-	if(((!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType)		// ´Ù¸¥ ¼¼·ÂÀÌ°Å³ª.
-		|| IsPkEnable())																										// PK¸ðµåÀÏ¶§.
-		// 2007-02-07 by dgwoo ½ºÄµ ¹öÇÁ¸¦ °¡Áö°í ÀÖÁö¾Ê°Å³ª  °Å¸®°¡ ¸Ö¸é Åõ¸íÇÏ°Ô º¸ÀÎ´Ù.
-		// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
-//		&& (!g_pShuttleChild->m_pSkill->ISScanSkill()
-//		|| D3DXVec3Length(&(g_pShuttleChild->m_pSkill->m_vScanPosition - m_vPos)) > g_pShuttleChild->m_pSkill->GetScanRange()))
+	if((((!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType)		// ´Ù¸¥ ¼¼·ÂÀÌ°Å³ª.
+		|| IsPkEnable())																// PK¸ðµåÀÏ¶§.
+#ifdef _RAT_FFA
+		|| MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType
+#endif
+		)
 		&& (FALSE == bCanSeeInvisible))		// ÀÎºñÁöºí ¾´ ±âÃ¼¸¦ º¼¼ö ÀÖ´Â »óÅÂ³Ä?
 		//--------------------------------------------------------------------------//
 #ifndef _DEBUG
 		&& !COMPARE_RACE(g_pShuttleChild->m_myShuttleInfo.Race,RACE_OPERATION|RACE_GAMEMASTER)
 #endif 
-		)	// °ü¸®ÀÚ, ¿µÀÚ´Â ¹ÝÅõ¸í¸¸ Ã³¸®ÇÔ
-	{// Åõ¸íÇÏ°Ô º¸ÀÎ´Ù.
+		)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 		SetUnitAlpha(CL_SKILL_CAMOUFLAGE, SKILL_OBJECT_ALPHA_OTHER_INFLUENCE);
 		
-		// 2006-11-28 by ispark, Å¸°Ù ÀâÀº ³à¼®ÀÌ °°Àº ³à¼®ÀÌ¸é
+		// 2006-11-28 by ispark, Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½à¼®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½à¼®ï¿½Ì¸ï¿½
 		if(g_pShuttleChild->m_pOrderTarget == this)
 		{
 			g_pShuttleChild->SetUnLockOn();
@@ -4157,7 +4214,7 @@ void CEnemyData::SetAlphaData()
 		}
 	}
 	else
-	{// ¹ÝÅõ¸íÇÏ°Ô º¸ÀÎ´Ù.
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 		SetUnitAlpha(CL_SKILL_CAMOUFLAGE, SKILL_OBJECT_ALPHA_DEFAULT);
 	}
 
@@ -4182,7 +4239,7 @@ void CEnemyData::InitAlphaData()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			ENEMYINFO CEnemyData::GetEnemyInfo()
 /// \brief		
-/// \author		// 2007-06-13 by bhsohn ¸Þ¸ð¸® ¹ö±× µð¹ö±ë
+/// \author		// 2007-06-13 by bhsohn ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-06-13 ~ 2007-06-13
 /// \warning	
 ///
@@ -4198,7 +4255,7 @@ ENEMYINFO CEnemyData::GetEnemyInfo()
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
 /// \brief		
-/// \author		// 2008-07-14 by bhsohn Ä³¸¯ÅÍ »óÅÂ ¹ö±× ¼öÁ¤
+/// \author		// 2008-07-14 by bhsohn Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /// \date		2007-07-14 ~ 2007-07-14
 /// \warning	
 ///
@@ -4208,28 +4265,28 @@ ENEMYINFO CEnemyData::GetEnemyInfo()
 BOOL CEnemyData::IsSameInfluence(BYTE	myInfluenceType, BYTE	emenyInfluenceType)
 {
 	if(COMPARE_INFLUENCE(myInfluenceType, INFLUENCE_TYPE_NORMAL))
-	{// ¹ÙÀÌÁ¦´ÏÀ¯  ½ÃÆ¼ ÀÏ¹Ý±º
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½Æ¼ ï¿½Ï¹Ý±ï¿½
 		if(COMPARE_INFLUENCE(emenyInfluenceType, INFLUENCE_TYPE_NORMAL))
 		{
 			return TRUE;
 		}
 	}
 	if(COMPARE_INFLUENCE(myInfluenceType, INFLUENCE_TYPE_VCN))
-	{// ¹ÙÀÌÁ¦´ÏÀ¯  ½ÃÆ¼ Á¤±Ô±º
+	{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Ô±ï¿½
 		if(COMPARE_INFLUENCE(emenyInfluenceType, INFLUENCE_TYPE_VCN))
 		{
 			return TRUE;
 		}
 	}	
 	if(COMPARE_INFLUENCE(myInfluenceType, INFLUENCE_TYPE_ANI))
-	{// ¾Ë¸µÅÏ ½ÃÆ¼ ¹Ý¶õ±º
+	{// ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½Ý¶ï¿½ï¿½ï¿½
 		if(COMPARE_INFLUENCE(emenyInfluenceType, INFLUENCE_TYPE_ANI))
 		{
 			return TRUE;
 		}
 	}
 	if(COMPARE_INFLUENCE(myInfluenceType, INFLUENCE_TYPE_RRP))
-	{// ¹ÙÅ»·¯½º ¿¬¹æ±º
+	{// ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ±º
 		if(COMPARE_INFLUENCE(emenyInfluenceType, INFLUENCE_TYPE_RRP))
 		{
 			return TRUE;
@@ -4240,8 +4297,8 @@ BOOL CEnemyData::IsSameInfluence(BYTE	myInfluenceType, BYTE	emenyInfluenceType)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		Àû ±âÃ¼ ¸¶Å© ¾ÆÀÌÅÛ °»½Å
-/// \author		// 2008-08-19 by bhsohn ¼¼·Â ¸¶Å© ½Ã½ºÅÛ Ãß°¡
+/// \brief		ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/// \author		// 2008-08-19 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 /// \date		2008-08-19 ~ 2008-08-19
 /// \warning	
 ///
@@ -4250,17 +4307,22 @@ BOOL CEnemyData::IsSameInfluence(BYTE	myInfluenceType, BYTE	emenyInfluenceType)
 ///////////////////////////////////////////////////////////////////////////////
 void CEnemyData::RefreshMarkItem()
 {
+#ifdef _RAT_FFA
+	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+		return;
+#endif
+
 	if(m_infoCharacter.CharacterRenderInfo.RI_WingIn)
 	{
-		// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//ChangeItemPoint(POS_WINGIN, m_infoCharacter.CharacterRenderInfo.RI_WingIn, 0);
 		ChangeItemPoint( POS_WINGIN, m_infoCharacter.CharacterRenderInfo.RI_WingIn, m_infoCharacter.CharacterRenderInfo.RI_WingIn_ShapeItemNum, 0 );
-		// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+		// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 }
 
-// 2013-06-17 by bhsohn º¹±Í À¯Àú ¹öÇÁ ¹ö±× ¼öÁ¤
+// 2013-06-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 BYTE CEnemyData::GetRtnGameUser() 
 {
 	if(!g_pShuttleChild)

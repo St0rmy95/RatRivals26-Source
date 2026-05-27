@@ -3,31 +3,34 @@
 
 
 
-// °øÁö»çÇ× Æ¯¼ö ¹®ÀÚ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined( LANGUAGE_ITALIA )
-	#define	CHAT_ALL			'<'		// °øÁöÃ¤ÆÃ
-	#define	CHAT_GUILD			'@'		// ±æµåÃ¤ÆÃ
-	#define	CHAT_ARENA			'%'		// ¾Æ·¹³ªÃ¤ÆÃ
-	#define	CHAT_WAR			'^'		// ÀüÀïÃ¤ÆÃ
-	#define	CHAT_PARTY			'#'		// Æí´ëÃ¤ÆÃ
-	#define	CHAT_MAP			'!'		// ¸ÊÀüÃ¼Ã¤ÆÃ
-	#define	CHAT_SELL_ALL		'$'		// ¸Å¸ÅÃ¤ÆÃ
-	#define	CHAT_CHATROOM		'&'		// À¯·á¸ÊÀüÃ¼Ã¤ÆÃ
-	#define	CHAT_PTOP			'"'		// ±Ó¼Ó¸»
-	#define	CHAT_INFLUENCE_ALL	'*'		// ÁöµµÀÚ°øÁö
-	#define	CHAT_COMMAND		'/'		// °ÔÀÓ¸í·É¾î
+	#define	CHAT_ALL			'<'		// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_GUILD			'@'		// ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_ARENA			'%'		// ï¿½Æ·ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_WAR			'^'		// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_PARTY			'#'		// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_MAP			'!'		// ï¿½ï¿½ï¿½ï¿½Ã¼Ã¤ï¿½ï¿½
+	#define	CHAT_SELL_ALL		'$'		// ï¿½Å¸ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_CHATROOM		'&'		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼Ã¤ï¿½ï¿½
+	#define	CHAT_PTOP			'"'		// ï¿½Ó¼Ó¸ï¿½
+	#define	CHAT_INFLUENCE_ALL	'*'		// ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½
+	#define	CHAT_COMMAND		'/'		// ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½É¾ï¿½
 #else
-	#define	CHAT_ALL			'~'		// °øÁöÃ¤ÆÃ
-	#define	CHAT_GUILD			'@'		// ±æµåÃ¤ÆÃ
-	#define	CHAT_ARENA			'%'		// ¾Æ·¹³ªÃ¤ÆÃ
-	#define	CHAT_WAR			'^'		// ÀüÀïÃ¤ÆÃ
-	#define	CHAT_PARTY			'#'		// Æí´ëÃ¤ÆÃ
-	#define	CHAT_MAP			'!'		// ¸ÊÀüÃ¼Ã¤ÆÃ
-	#define	CHAT_SELL_ALL		'$'		// ¸Å¸ÅÃ¤ÆÃ
-	#define	CHAT_CHATROOM		'&'		// À¯·á¸ÊÀüÃ¼Ã¤ÆÃ
-	#define	CHAT_PTOP			'"'		// ±Ó¼Ó¸»
-	#define	CHAT_INFLUENCE_ALL	'*'		// ÁöµµÀÚ°øÁö
-	#define	CHAT_COMMAND		'/'		// °ÔÀÓ¸í·É¾î
+	#define	CHAT_ALL			'~'		// GM MESSAGE
+	#define	CHAT_GUILD			'@'		// ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_ARENA			'%'		// ï¿½Æ·ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_WAR			'^'		// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_PARTY			'#'		// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_MAP			'!'		// ï¿½ï¿½ï¿½ï¿½Ã¼Ã¤ï¿½ï¿½
+	#define	CHAT_SELL_ALL		'$'		// ï¿½Å¸ï¿½Ã¤ï¿½ï¿½
+	#define	CHAT_CHATROOM		'&'		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼Ã¤ï¿½ï¿½
+	#define	CHAT_PTOP			'"'		// ï¿½Ó¼Ó¸ï¿½
+	#define	CHAT_INFLUENCE_ALL	'*'		// ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½
+	#define	CHAT_COMMAND		'/'		// ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½É¾ï¿½
+#ifdef _RAT_CHAT_SYSTEM
+	#define _RAT_CHAT_ALL_INFLUENCE	'>' // To Chat ALL
+#endif
 #endif
 
 #endif

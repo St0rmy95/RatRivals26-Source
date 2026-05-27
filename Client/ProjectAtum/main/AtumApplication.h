@@ -13,16 +13,16 @@
 #include "D3DApp.h"
 #include "IMEKey.h"		// imm32.lib
 #include "INFGameMainQSlot.h"
-// 2008-03-19 by bhsohn Ep3¿É¼ÇÃ¢
+// 2008-03-19 by bhsohn Ep3ï¿½É¼ï¿½Ã¢
 //#include "INFSystem.h"
 #include "INFOptionSystem.h"
 
 #include "CInput.h"
 
-// 2009. 06. 09 by ckPark OMI °ÔÀÓ ½ÃÀÛ½Ã Ã¼Å©¼¶ °è»êÇÏµµ·Ï º¯°æ
+// 2009. 06. 09 by ckPark OMI ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #include "sha256.h"
-// end 2009. 06. 09 by ckPark OMI °ÔÀÓ ½ÃÀÛ½Ã Ã¼Å©¼¶ °è»êÇÏµµ·Ï º¯°æ
-#include "zwave_sdk_client.h"		 // 2012-10-13 by jhahn ÇÙ½¯µå->Xigncodeº¯°æ
+// end 2009. 06. 09 by ckPark OMI ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#include "zwave_sdk_client.h"		 // 2012-10-13 by jhahn ï¿½Ù½ï¿½ï¿½ï¿½->Xigncodeï¿½ï¿½ï¿½ï¿½
 
 class CFrustum;
 class CD3DHanFont;
@@ -36,7 +36,7 @@ class IMEKey;
 class CChat;
 class CFieldWinSocket;
 class CIMSocket;
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 class CIMSocketManager;
 class CFieldWinSocketManager;
 class CArenaManager;
@@ -64,68 +64,68 @@ class CTutorialSystem;
 class CInputManager;
 class CGlobalImage;
 class CUnitData;
-class CSinglePlayGame;	// 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
-// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+class CSinglePlayGame;	// 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
+// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 class CJoyStickInput;	
 class CJoyStickFreedback;
-// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
-class CWorldRankManager;		// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+class CWorldRankManager;		// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 class CInfinityManager;
-// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+// 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 class CSkinnedMesh;
 class CMeshInitThread;
-//end 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+//end 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ
+// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 class CPetManager;
-// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ
+// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 
-class CINFEnemyItemInfo;	// 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â
+class CINFEnemyItemInfo;	// 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
-class CMapLoad;    // 2010. 10. 05 by jskim ¸Ê·Îµù ±¸Á¶ º¯°æ
+class CMapLoad;    // 2010. 10. 05 by jskim ï¿½Ê·Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 class CINFGroupManager;
 class CINFImageList;
-// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-class CVTCThread;			// 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+class CVTCThread;			// 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 
-class CProfiler;	// 2014-06-09 by ymjoo ÇÁ·ÎÆÄÀÏ·¯ ±¸Çö
+class CProfiler;	// 2014-06-09 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 typedef struct 
 {
-	INT			ItemNum;						// ¾ÆÀÌÅÛ °íÀ¯¹øÈ£, ÀåÂø ¾ÆÀÌÅÛÀÏ ¶§ (ITEM_BASE*)
-	BYTE		byItemKind;				// ¾ÆÀÌÅÛ Á¾·ù(±â°üÆ÷, ºö, ·ÎÄÏ, ½ºÅ³.....)
-	UID64_t		nUniqueNumber;			// ¾ÆÀÌÅÛ °íÀ¯¹øÈ£
-	INT			nAmount;				// ¾ÆÀÌÅÛ °¹¼ö
-	UINT		nBuildingIndex;			// °Ç¹° ÀÎµ¦½º
-	char		szIconName[20];			// ¾ÆÀÌÅÛ ID
-	char		szName[50];				// ¾ÆÀÌÅÛ ÀÌ¸§
-	UINT		uSellingPrice;			// ÆÇ¸Å °¡°Ý 
-	INT			SourceIndex;			// ÀÌÆåÆ®, ¾ÆÀÌÄÜ(ºò/½º¸ô) ¸®¼Ò½º µ¥ÀÌÅ¸
+	INT			ItemNum;						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ (ITEM_BASE*)
+	BYTE		byItemKind;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å³.....)
+	UID64_t		nUniqueNumber;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	INT			nAmount;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	UINT		nBuildingIndex;			// ï¿½Ç¹ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	char		szIconName[20];			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	char		szName[50];				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	UINT		uSellingPrice;			// ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	INT			SourceIndex;			// ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸
 	BYTE		bySelectType;
 	POINT		ptIcon;
 } stMultiSelectItem;
 
-// 2007-11-20 by bhsohn ¸Ê·Îµù ÇÏ´Â ¹æ½Ä º¯°æ
-// °ÔÀÓ ½ÃÀÛ ½Ã ±¸Á¶Ã¼
+// 2007-11-20 by bhsohn ï¿½Ê·Îµï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 typedef struct 
 {
 	AVECTOR3		vPos;
 	BitFlag16_t		MapWeather;
 } stGameStartInfo;
 
-// 2007-12-21 by bhsohn ÇÁ·Î±×·¥ ´ÙÁß ¶ô ±¸Á¶ »ý¼º
-// ¶ô°ü·Ã ¸ðµå
-#define		MULTI_LOCK_ALL_MATCHING		0		//	¸ðµÎ ¸ÅÄª µÇ¾ßÁö¸¸ Ç®¸°´Ù.
-#define		MULTI_LOCK_ONE_MATCHING		1		//	ÇÏ³ª¸¸ ¸ÅÄªµÇµµ Ç®¸°´Ù.
+// 2007-12-21 by bhsohn ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+#define		MULTI_LOCK_ALL_MATCHING		0		//	ï¿½ï¿½ï¿½ ï¿½ï¿½Äª ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½.
+#define		MULTI_LOCK_ONE_MATCHING		1		//	ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½Äªï¿½Çµï¿½ Ç®ï¿½ï¿½ï¿½ï¿½.
 
-// °ÔÀÓ ½ÃÀÛÇÏ±â À§ÇÑ ±âº» Á¤º¸
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 typedef struct 
 {
 	MessageType_t			nLockMsg;
@@ -133,26 +133,26 @@ typedef struct
 	int						nLockType;
 	BOOL					bFiledServer;
 } stMultiLockInfo;
-// end 2007-12-21 by bhsohn ÇÁ·Î±×·¥ ´ÙÁß ¶ô ±¸Á¶ »ý¼º
+// end 2007-12-21 by bhsohn ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
-// °ÔÀÓ ½ºÅ¸Æ® ¿Ï·á½Ã Ã³¸® µÇ´Â ±¸Á¶Ã¼
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ® ï¿½Ï·ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 typedef struct 
 {
 	char			ServerGroupName0[SIZE_MAX_SERVER_NAME];			// 2007-04-09 by cmkwon
 	char			MainORTestServerName[SIZE_MAX_SERVER_NAME];		// 2007-04-09 by cmkwon
 	char			GamePublisher[SIZE_MAX_GAME_PUBLISHER_NAME];	// 2007-04-09 by cmkwon
 	
-	MAP_CHANNEL_INDEX	MapChannelIndex;		// Ä³¸¯ÅÍ°¡ ¼ÓÇÑ ¸Ê ¹× Ã¤³Î
+	MAP_CHANNEL_INDEX	MapChannelIndex;		// Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½
 	BYTE				CharacterMode0;				// 
 	
 	AVECTOR3			PositionVector;
 	BitFlag16_t			MapWeather;	
-	BOOL				bMemberPCBang;			// °¡¸Í PC¹æ ÇÃ·¡±×
+	BOOL				bMemberPCBang;			// ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 }structGameStartOkInfo;
-// end 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// end 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 
-// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+// 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 struct structLoadingGameData
 {
 	structLoadingGameData()
@@ -162,8 +162,8 @@ struct structLoadingGameData
 	CGameData*		pGameData;
 	int				MeshIndex;
 	int				MeshType;
-	int				Step;					// ·Îµù ½ºÅÜ(1, 6)
-	int				Text_Cnt;				// ÅØ½ºÃÄ ·Îµù ÁøÇà ¼ö
+	int				Step;					// ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½(1, 6)
+	int				Text_Cnt;				// ï¿½Ø½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	int				LoadingPriority;
 	CSkinnedMesh*	pSkinnedMesh;
 };
@@ -178,123 +178,123 @@ struct structLoadingGameInfo
 	CSkinnedMesh*	pSkinnedMesh;
 	int				LoadingPriority;
 };
-// 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 typedef bool (_stdcall *func1) ();
 typedef bool (_stdcall *func2) ();
 typedef bool (_stdcall *func3) (char*);
 typedef void (_stdcall *func4) ();
-// end 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// end 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 
-// 2007-07-10 by bhsohn Åë½Å Å¸ÀÔ ¿¡·¯¿¡ ´ëÇÑ Ã³¸®
+// 2007-07-10 by bhsohn ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 #define SIZE_MAX_ERROR_CHAT_MESSAGE			512
 
-// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-#define MAX_JOYCTL_LIST			10			// MAX_JOY_LIST¿Í µ¿ÀÏÇÑ °ªÀÌ¾î¾ßÇÑ´Ù.
+// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+#define MAX_JOYCTL_LIST			10			// MAX_JOY_LISTï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½Ñ´ï¿½.
 
-// 2009-01-22 by bhsohn Xign Code »ç¿ëÇÏ´Â ³ª¶ó¸¸ ¸ðµâ Ãß°¡
-//////////////////////// °ÔÀÓ °¡µå ¼³Á¤////////////////////////
+// 2009-01-22 by bhsohn Xign Code ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+//////////////////////// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½////////////////////////
 //
-#define		USE_GAMEGUARD_NONE					0		//°ÔÀÓ°¡µå »ç¿ë¾ÈÇÔ
-#define		USE_GAMEGUARD_AHNLAB_HACKSHIELD		1		//ÇÙ½¯µå °ÔÀÓ°¡µå
-#define		USE_GAMEGUARD_XIGNCODE				2		//Xign °ÔÀÓ°¡µå
-#define		USE_GAMEGUARD_NPROTECTOR			3		// 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡				
+#define		USE_GAMEGUARD_NONE					0		//ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define		USE_GAMEGUARD_AHNLAB_HACKSHIELD		1		//ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½
+#define		USE_GAMEGUARD_XIGNCODE				2		//Xign ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½
+#define		USE_GAMEGUARD_NPROTECTOR			3		// 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½				
 // 2009. 06. 17 by ckPark Frost System
 #define		USE_GAMEGUARD_FROST					4
 // end 2009. 06. 17 by ckPark Frost System
-	// 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	// 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 #define		USE_GAMEGUARD_XTRAP					5
-	//end 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	//end 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 
-// 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+// 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 #define		USE_GAMEGUARD_APEX					6
-// end 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
-// 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// end 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
+// 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 #define		USE_GAMEGUARD_VTC					7
-// end 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// end 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 
-// 2013-10-11 by bhsohn XTrap&VTC ¿¬µ¿ ÀÛ¾÷
-#define		USE_GAMEGUARD_XTRAP_N_VTC		8		//XTrap+VTC°¡µå
-// END 2013-10-11 by bhsohn XTrap&VTC ¿¬µ¿ ÀÛ¾÷
+// 2013-10-11 by bhsohn XTrap&VTC ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
+#define		USE_GAMEGUARD_XTRAP_N_VTC		8		//XTrap+VTCï¿½ï¿½ï¿½ï¿½
+// END 2013-10-11 by bhsohn XTrap&VTC ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 
 
 // 2009. 06. 17 by ckPark Frost System
 
 // #if defined(_DEBUG) || defined(INNOVA_RELEASE) || defined(GAMEFORGE_RELEASE)
-// 	// °ÔÀÓ°¡µå »ç¿ë¾ÈÇÔ
+// 	// ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_NONE
 // 	#define		NO_GAMEGUARD
-// #elif defined(LANGUAGE_CHINA) // 2009-04-15 by bhsohn Áß±¹ XignCode»ç¿ë
+// #elif defined(LANGUAGE_CHINA) // 2009-04-15 by bhsohn ï¿½ß±ï¿½ XignCodeï¿½ï¿½ï¿½
 // 	#define		DEFINE_USE_GAMEGUARD_XIGNCODE		
 // 	// XIGNCode
 // 	#define		GAMEGUARD_TYPE					USE_GAMEGUARD_XIGNCODE	
 // 
-// // 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
+// // 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // #elif defined(LANGUAGE_JAPAN)
-// 	// nProtector °ÔÀÓ °¡µå Ãß°¡
+// 	// nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_NPROTECTOR
 // 	#define		DEFINE_USE_GAMEGUARD_NPROTECTOR	
 // 	#pragma comment(lib, "NPGameLib.lib")
 // 	#include "NPGameLib.h"		// 
-// // end 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
+// // end 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // #else
-// 	// ÇÙ½¯µå
+// 	// ï¿½Ù½ï¿½ï¿½ï¿½
 // 	#define		GAMEGUARD_TYPE					USE_GAMEGUARD_AHNLAB_HACKSHIELD		
 // #endif
-// // end 2009-01-22 by bhsohn Xign Code »ç¿ëÇÏ´Â ³ª¶ó¸¸ ¸ðµâ Ãß°¡
+// // end 2009-01-22 by bhsohn Xign Code ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 
-	// 2009. 07. 13 by jsKim °ÔÀÓÆ÷Áö ÇÙ½Çµå Àû¿ë
+	// 2009. 07. 13 by jsKim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 // #if defined(_DEBUG) || defined(GAMEFORGE_RELEASE)
-// 	// °ÔÀÓ°¡µå »ç¿ë¾ÈÇÔ
+// 	// ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_NONE
 // 	#define		NO_GAMEGUARD
 
 // 2013-07-12 by bhsohn China Work
-// 2015-04-13 by jwLee ÀÏº» °ÔÀÓ°¡µå »èÁ¦
-//#if defined(_DEBUG) || defined(TEST140) || defined(WIKIGAMES_ENG)|| defined(LANGUAGE_CHINA)// 2012-10-22 by bhsohn °ÔÀÓ°¡µå µðÆÄÀÎ ¼öÁ¤
-#if defined(_DEBUG) || defined(TEST140) || defined(WIKIGAMES_ENG)|| defined(LANGUAGE_CHINA) || defined(LANGUAGE_JAPAN) // 2012-10-22 by bhsohn °ÔÀÓ°¡µå µðÆÄÀÎ ¼öÁ¤
-// end 2015-04-13 by jwLee ÀÏº» °ÔÀÓ°¡µå »èÁ¦
-// °ÔÀÓ°¡µå »ç¿ë¾ÈÇÔ
+// 2015-04-13 by jwLee ï¿½Ïºï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//#if defined(_DEBUG) || defined(TEST140) || defined(WIKIGAMES_ENG)|| defined(LANGUAGE_CHINA)// 2012-10-22 by bhsohn ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#if defined(_DEBUG) || defined(TEST140) || defined(WIKIGAMES_ENG)|| defined(LANGUAGE_CHINA) || defined(LANGUAGE_JAPAN) // 2012-10-22 by bhsohn ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// end 2015-04-13 by jwLee ï¿½Ïºï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define		GAMEGUARD_TYPE 					USE_GAMEGUARD_NONE
 #define		NO_GAMEGUARD
 
-	// 2011. 01. 18 by jsKim 140¹ø ÇÙ½Çµå Á¦°Å 
+	// 2011. 01. 18 by jsKim 140ï¿½ï¿½ ï¿½Ù½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ 
 #elif  defined(GAMEGUARD_NOT_EXECUTE_HSSON)
 #define		GAMEGUARD_TYPE					USE_GAMEGUARD_NONE
-	// end 2011. 01. 18 by jsKim 140¹ø ÇÙ½Çµå Á¦°Å 
+	// end 2011. 01. 18 by jsKim 140ï¿½ï¿½ ï¿½Ù½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ 
 #elif  defined(GAMEFORGE_RELEASE)
-// 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
+// 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
 //#define		GAMEGUARD_TYPE					USE_GAMEGUARD_AHNLAB_HACKSHIELD
-	// end 2009. 07. 13 by jsKim °ÔÀÓÆ÷Áö ÇÙ½Çµå Àû¿ë
+	// end 2009. 07. 13 by jsKim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½Çµï¿½ ï¿½ï¿½ï¿½ï¿½
 	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_NPROTECTOR
 	#define		DEFINE_USE_GAMEGUARD_NPROTECTOR	
 	#define		DEFINE_USE_GAMEGUARD_NPROTECTOR_AUTH3
 	#pragma comment(lib, "NPGameLib.lib")
 	#include "NPGameLib.h"
-// end 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
+// end 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
 
 
 // 2013-07-12 by bhsohn China Work
 // #elif defined(LANGUAGE_CHINA)
-// 	// 2009-04-15 by bhsohn Áß±¹ XignCode»ç¿ë
+// 	// 2009-04-15 by bhsohn ï¿½ß±ï¿½ XignCodeï¿½ï¿½ï¿½
 // 	#define		DEFINE_USE_GAMEGUARD_XIGNCODE		
 // 	// XIGNCode
 // 	#define		GAMEGUARD_TYPE					USE_GAMEGUARD_XIGNCODE	
 // END 2013-07-12 by bhsohn China Work
-// 2015-04-13 by jwLee ÀÏº» °ÔÀÓ°¡µå »èÁ¦
+// 2015-04-13 by jwLee ï¿½Ïºï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // #elif defined(LANGUAGE_JAPAN)
-// 	// 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
-// 	// nProtector °ÔÀÓ °¡µå Ãß°¡
+// 	// 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+// 	// nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_NPROTECTOR
 // 	#define		DEFINE_USE_GAMEGUARD_NPROTECTOR	
 // 	#pragma comment(lib, "NPGameLib.lib")
 // 	#include "NPGameLib.h"		// 
-// 	// end 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
+// 	// end 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 // 
-// 	// 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
-// end 2015-04-13 by jwLee ÀÏº» °ÔÀÓ°¡µå »èÁ¦
+// 	// 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
+// end 2015-04-13 by jwLee ï¿½Ïºï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #elif defined(LANGUAGE_VIETNAM)
-// 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 // 	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_XTRAP
 // 	#define		DEFINE_USE_GAMEGUARD_XTRAP
 // 
@@ -303,8 +303,8 @@ typedef void (_stdcall *func4) ();
 // 	#pragma comment(lib, "XTrap4Client_ServerPart_st")
 // 	#pragma comment(lib, "XTrap_Unipher_st")
 // 	#include "Xtrap_C_Interface.h"
-	//end 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
-// 2013-10-11 by bhsohn XTrap&VTC ¿¬µ¿ ÀÛ¾÷
+	//end 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
+// 2013-10-11 by bhsohn XTrap&VTC ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 //  	#define		GAMEGUARD_TYPE 					USE_GAMEGUARD_VTC
 // 	#define		DEFINE_USE_GAMEGUARD_VTC
 	#ifdef SC_XTRAP_VTC_GAMEGUARD_BHSOHN_JHSEOL
@@ -320,30 +320,30 @@ typedef void (_stdcall *func4) ();
 		#define		DEFINE_USE_GAMEGUARD_VTC
 
 	#endif
-// END 2013-10-11 by bhsohn XTrap&VTC ¿¬µ¿ ÀÛ¾÷
+// END 2013-10-11 by bhsohn XTrap&VTC ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 
-// end 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+// end 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 
-	// 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 #elif defined(LANGUAGE_THAI)
 	#define		GAMEGUARD_TYPE					USE_GAMEGUARD_APEX
 	#define		DEFINE_USE_GAMEGUARD_APEX
 
 	#include "ApexClient.h"
 	#pragma comment( lib, "AHClientInterface.lib" )
-	// end 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// end 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 
 #elif defined(INNOVA_RELEASE)
 	#define		GAMEGUARD_TYPE					USE_GAMEGUARD_FROST
 	#define		DEFINE_USE_GAMEGUARD_FROST
 
-	// 2010. 01. 13 by ckPark Frost°ÔÀÓ°¡µå 2009.11.10ÀÏÀÚ ¾÷µ¥ÀÌÆ®
+	// 2010. 01. 13 by ckPark Frostï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ 2009.11.10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	#pragma warning (disable : 4786)
-	// end 2010. 01. 13 by ckPark Frost°ÔÀÓ°¡µå 2009.11.10ÀÏÀÚ ¾÷µ¥ÀÌÆ®
+	// end 2010. 01. 13 by ckPark Frostï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ 2009.11.10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
 	#include "shieldSecurity.h"
 	#include "shieldSecurityDll.h"
-// 2010. 11. 05 by jskim °ÔÀÓ°¡µå Àû¿ë (¾Æ¸£ÇîÆ¼³ª)
+// 2010. 11. 05 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Æ¸ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½)
 #elif defined(LANGUAGE_ARGENTINA)
 	#define		GAMEGUARD_TYPE					USE_GAMEGUARD_XTRAP
 	#define		DEFINE_USE_GAMEGUARD_XTRAP
@@ -352,9 +352,9 @@ typedef void (_stdcall *func4) ();
 	#pragma comment(lib, "XTrap4Client_ServerPart_st")
 	#pragma comment(lib, "XTrap_Unipher_st")
 	#include "Xtrap_C_Interface.h"
-// end 2010. 11. 05 by jskim °ÔÀÓ°¡µå Àû¿ë (¾Æ¸£ÇîÆ¼³ª)
-// 2012-10-22 by bhsohn °ÔÀÓ°¡µå µðÆÄÀÎ ¼öÁ¤
-// 2012-10-13 by jhahn ÇÙ½¯µå->Xigncodeº¯°æ
+// end 2010. 11. 05 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Æ¸ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½)
+// 2012-10-22 by bhsohn ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2012-10-13 by jhahn ï¿½Ù½ï¿½ï¿½ï¿½->Xigncodeï¿½ï¿½ï¿½ï¿½
 //#else
 // 	#define				DEFINE_USE_GAMEGUARD_XIGNCODE		
 // 	#define				GAMEGUARD_TYPE					USE_GAMEGUARD_XIGNCODE	
@@ -362,7 +362,7 @@ typedef void (_stdcall *func4) ();
 // 	#define				GAME_GUARD_LICENSE		"FF7cjcycIB38"
 // 	#define				GAME_GUARD_FOLDER		"Xigncode"
 // 	#define				GAME_GUARD_FOLDER_DEBUG	"Xigncode_D"
-//end 2012-10-13 by jhahn ÇÙ½¯µå->Xigncodeº¯°æ
+//end 2012-10-13 by jhahn ï¿½Ù½ï¿½ï¿½ï¿½->Xigncodeï¿½ï¿½ï¿½ï¿½
 #elif defined(YEDANG_KOR)
 	#define				DEFINE_USE_GAMEGUARD_XIGNCODE		
 	#define				GAMEGUARD_TYPE					USE_GAMEGUARD_XIGNCODE	
@@ -372,7 +372,7 @@ typedef void (_stdcall *func4) ();
 	#define				GAME_GUARD_FOLDER_DEBUG	"Xigncode_D"
 #else 
 	#define				GAMEGUARD_TYPE					USE_GAMEGUARD_AHNLAB_HACKSHIELD		
-// END 2012-10-22 by bhsohn °ÔÀÓ°¡µå µðÆÄÀÎ ¼öÁ¤
+// END 2012-10-22 by bhsohn ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
 
 // end 2009. 06. 17 by ckPark Frost System
@@ -402,7 +402,7 @@ public:
 	D3DCAPS9 & GetDeviceCaps() { return m_d3dCaps; }
 	VOID	SendMovePacket(BOOL bActive);	// 2004-11-08 by jschoi
 	void	InitStageEffect( int nIndex, float fPlayTime=5.0f, BOOL bEnableSkip=TRUE );
-	DWORD	ResourceLoadThread();	// load thread function(CInitThread¿Í ÇÔ²² »ç¿ëÇÑ´Ù.)
+	DWORD	ResourceLoadThread();	// load thread function(CInitThreadï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.)
 	DWORD	ResourceRestoreThread();
 	VOID	RenderGame();
 	VOID	CleanText();
@@ -413,7 +413,7 @@ public:
 	VOID	SetCamPosInit();
 	FLOAT	Distance3DTo2D(D3DXVECTOR3 vPos1, D3DXVECTOR3 vPos2);
 	VOID	ChangeEffectTexture(CAtumNode * pNode,char * str);
-	// 2008-01-18 by bhsohn Áß±¹ Å¬¶óÀÌ¾ðÆ® Á×´Â ¹®Á¦ ÇØ°á
+	// 2008-01-18 by bhsohn ï¿½ß±ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½×´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	//VOID	ChangeGameState(DWORD dwType);
 	VOID	ChangeGameState(DWORD dwType, BOOL bUseThread=FALSE);
 	int		GetScreenShotNumber();
@@ -421,7 +421,7 @@ public:
 	void	DeleteEffectList();
 	void	InitSpeedHackTimer();
 	BOOL	IsWindowMode() { return m_bWindowed; }
-	// 2007-07-20 by bhsohn ºê¸®ÇÎ·ë ¼öÁ¤
+	// 2007-07-20 by bhsohn ï¿½ê¸®ï¿½Î·ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DWORD	GetGameState();
 	
     HRESULT OneTimeSceneInit();
@@ -440,7 +440,7 @@ public:
 	void	RenderCity();
 	// remodeling, 2004-03-17 by dhkwon
 	// SendFieldSocket~
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//VOID	SendFieldSocketConnectLogin();
 	VOID	SendFieldSocketConnectLogin(CFieldWinSocket* pFieldSocket);
 	VOID	SendFieldSocketChangeCharacterBodyCondition(BodyCond_t hySingleBodyCondition, BOOL bSet);//FieldSocketCharacterChangeCurrentHPDPSPEP,FieldSocketCharacterChangeCurrentHP
@@ -448,234 +448,234 @@ public:
 	VOID	SendFieldSocketGetShopWarpTargetMapList( MAP_CHANNEL_INDEX mapChannelIndex );	
 	void	SendArenaLoginOk();
 	void	SendAreneEnterRoomWarp();
-	void	SendFCArenaCharacterGameStart();					// ¸ÞÀÎ¼­¹ö¿¡¼­ ¾Æ·¹³ª·Î ·Îµå½Ã
-	void	SendFCCharacterGameStartFromArenaToMainServer();	// ¾Æ·¹³ª ¸®¼Ò½º ·Îµå¿Ï·á 
-	int		NextStepArenaState();		// ¾Æ·¹³ª »óÅÂ°ª ¾÷µ¥ÀÌÆ® 
+	void	SendFCArenaCharacterGameStart();					// ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½
+	void	SendFCCharacterGameStartFromArenaToMainServer();	// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½Ï·ï¿½ 
+	int		NextStepArenaState();		// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 
 	void	ConevertArenaRenderUserName(int nArenaState, char* pSrcDst);
-	CHARACTER* GetMFSMyShuttleInfo();	//MainServer Á¤º¸¸¦ ¾ò¾î¿Â´Ù.
-	void	SetMFSMyShuttleInfo(CHARACTER *pMyShuttleInfo);//MainServer Á¤º¸¸¦ °»½ÅÇÑ´Ù. 
+	CHARACTER* GetMFSMyShuttleInfo();	//MainServer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+	void	SetMFSMyShuttleInfo(CHARACTER *pMyShuttleInfo);//MainServer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
-	// 2007-02-12 by bhsohn Item ´ÙÁß ¼±ÅÃ Ã³¸®
+	// 2007-02-12 by bhsohn Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	DelMultiItemList(BOOL bInitCtlBtn=FALSE);	
 	BOOL	CheckMultItemSel(UID64_t	 nUniqueNumber);	
-	BOOL	CheckCityStoreMultItemSel(UID64_t	 nUniqueNumber); // Ã¢°í¿¡¼­ ¾ÆÀÌÅÛ ¼±ÅÃ ¿©ºÎ ÆÇ´Ù.¤¤
+	BOOL	CheckCityStoreMultItemSel(UID64_t	 nUniqueNumber); // Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½.ï¿½ï¿½
 	int		GetMultiSelectItem();
 	int		GetCityStoreMultiSelectItem();
 	void	GetMultiItemSPI(int nShopId, char* pDstSpi);
 
-	// 2007-03-02 by bhsohn ´ÙÁß ¼±ÅÃ Ãß°¡ º¸¾È
+	// 2007-03-02 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	deque<stMultiSelectItem>* GetMultiSelVector(BYTE byType);
 
 	// by bhsohn 2007-03-12 China Working
 	void DxSetDialogBoxMode(BOOL bEnable);
 
-	// 2007-04-05 by bhsohn ¸Ê·Îµå½Ã, Ã¼Å©¼¶ Ãß°¡
+	// 2007-04-05 by bhsohn ï¿½Ê·Îµï¿½ï¿½, Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 	MAP_CHANNEL_INDEX GetMyShuttleMapChannelIndex();
 
 	// 2007.04.24 by bhsohn China IME Working
 	void	UpdateReadingString(char* pText, int nTextLen);
 	void	UpdateIMEType(char* pText, int nTextLen);
 
-	// 2007-05-17 by bhsohn ¿ÀºêÁ§Æ® µÚ¿¡ ¼û¾úÀ»½Ã ¿¡ ´ëÇÑ Ã³ °Ë»ç Ã³¸®
+	// 2007-05-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ ï¿½Ë»ï¿½ Ã³ï¿½ï¿½
 	BOOL	IsMyShuttleCharacter();
 	// 2007-05-21 by bhsohn China IME Working
 	void	RenderIMEType(int x, int y);
 
-	// 2007-07-11 by bhsohn omi Ã¼Å©¼¶ Ãß°¡
+	// 2007-07-11 by bhsohn omi Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 	void	SendOMICheckSum();
 
-	// 2010. 03. 12 by ckPark Interface.tex Ã¼Å©¼¶ Ãß°¡
+	// 2010. 03. 12 by ckPark Interface.tex Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 	void	SendInterfaceCheckSum( void );
-	// end 2010. 03. 12 by ckPark Interface.tex Ã¼Å©¼¶ Ãß°¡
+	// end 2010. 03. 12 by ckPark Interface.tex Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// 2007-07-24 by bhsohn ³ª·¹ÀÌ¼Ç mp3Ãß°¡
-	// 2009. 01. 22 by ckPark °¢ ¼¼·Âº° ¿ÀÆÛ·¹ÀÌÅÍ MP3 ºÐ¸®
+	// 2007-07-24 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ mp3ï¿½ß°ï¿½
+	// 2009. 01. 22 by ckPark ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ MP3 ï¿½Ð¸ï¿½
 	//void	StartNarrationSound(char* pNarrationSound);
 	void	StartNarrationSound(char* pNarrationSound, char* pErNarrationSound=NULL);
 	void	EndNarrationSound();	
 	void	SetFirstUserIntoFreeSka(BOOL bTake);
 	BOOL	GetFirstUserIntoFreeSka();	
 	
-	// 2007-08-29 by bhsohn ÃÖ¼Ò ÇÁ·¹ÀÓ½Ã ±âº» ¾Æ¸Ó¸¸ ·ÎµùÇÏ°Ô²û º¯°æ
+	// 2007-08-29 by bhsohn ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½âº» ï¿½Æ¸Ó¸ï¿½ ï¿½Îµï¿½ï¿½Ï°Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL	SendMeshObjectCheckSum(int nMeshIndex);
 
-	// 2007-08-29 by bhsohn ÃÖ¼Ò ÇÁ·¹ÀÓ½Ã ±âº» ¾Æ¸Ó¸¸ ·ÎµùÇÏ°Ô²û º¯°æ
+	// 2007-08-29 by bhsohn ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½âº» ï¿½Æ¸Ó¸ï¿½ ï¿½Îµï¿½ï¿½Ï°Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	ReLoadEnemyRenderList();		
 
-	// 2007-09-06 by bhsohn ÇÁ¸®¹Ì¾ö À¯Àú´Â ÃÑ¾Ë¼ö 2¹è
+	// 2007-09-06 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾Ë¼ï¿½ 2ï¿½ï¿½
 	BOOL	IsPrimiumUser();
 
-	// 2007-09-05 by bhsohn ÀüÁø ±âÁöÀü
+	// 2007-09-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void	EnableChatMode(BOOL bChat, BOOL bUpdatIMEDevice);	
 	BOOL	IsMyShuttleLeader();
 	BOOL	IsMyShuttleGuildMaster();
 	BOOL	IsLeaderOutPost();
 
-	// 2007-09-12 by bhsohn 2Â÷ ¾ÏÈ£ ½Ã½ºÅÛ ±¸Çö
+	// 2007-09-12 by bhsohn 2ï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BYTE	IsUseSecondaryPasswordSystem();
 	BYTE	IsSetSecondaryPassword();	
 	void	EnterLock(BOOL bUnLock);
 	BOOL	GetEnterLock();
 	void	SendDeleteCharcter(char* pEncordPassWord);
 
-	// 2008-07-07 by bhsohn 2Â÷ ÆÐ½º¿öµå È°¼ºÈ­½Ã, ÀÎº¥ ¾È¿­¸®°Ô ÇÔ
+	// 2008-07-07 by bhsohn 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½, ï¿½Îºï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	BYTE	IsSecondPassLock();
 	void	SetSecondPassLock(BYTE bySecondPassLock);
 
-	// 2007-12-21 by bhsohn ÇÁ·Î±×·¥ ´ÙÁß ¶ô ±¸Á¶ »ý¼º
+	// 2007-12-21 by bhsohn ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	EnterMultiLock(BOOL bFiledServer, MessageType_t nLockMsg, vector<MessageType_t> vecUnLockMsg, int nLockType);
 	void	CheckMultiLock(BOOL bFiledServer, MessageType_t msgUnLockMsg);
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 
-	// ÇØ´ç ¸Þ½ÃÁö LockÁß ÀÎÁö È®ÀÎ.
+	// ï¿½Ø´ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Lockï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½.
 	bool	IsEnableMultiLock ( MessageType_t nLockMsg );
 
 	void	OnClickArenaShop();
 	void	RequestArenaTeamList();
 	void	SetArenaState(int nState);
 	int		GetArenaState();
-	void	ArenaFinishWarp(BOOL bForceCloseArenaSocket);	// ¾Æ·¹³ª Á¾·á Ã¢¿¡ ´ëÇÑ È®ÀÎ 
+	void	ArenaFinishWarp(BOOL bForceCloseArenaSocket);	// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ 
 	void	ArenaGameStarOk(structGameStartOkInfo *pMsg, BOOL bGotoArena);
 	void	CloseArenaSocket();
 	CHARACTER*	GetArenaCharacterInfo();
-	void	StartGmConnectAenenaServer();		// GMÀÌ ¾Æ·¹³ª ¼­¹ö·Î ¿¬°á 
-	void	GmConnectAenenaIMServer();			// GMÀÌ ¾Æ·¹³ª IM¼­¹ö¿¡ ¿¬°á 
+	void	StartGmConnectAenenaServer();		// GMï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	void	GmConnectAenenaIMServer();			// GMï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	void	SetGmModeConnect(BOOL bGmModeConnect);
 	BOOL	IsGmModeConnect();
 
-	// 2008-03-03 by bhsohn ÅëÇÕ ¾Æ·¹³ª IM¼­¹ö ¿¬°á°úÁ¤ ¼öÁ¤
+	// 2008-03-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	UserConnectAenenaIMServer();
 
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	void	OnClickInfinityField( void );
 	void	UserConnectInfinityIMServer( void );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2008-02-15 by bhsohn ³×Æ®¿öÅ© ¼Óµµ Ã¼Å©
+	// 2008-02-15 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½Óµï¿½ Ã¼Å©
 	VOID	StartNetCheck(char* pCmd);
 	VOID	SendCheckNetState();
 
-	// 2008-03-07 by bhsohn ¼¼·ÂÀü½Ã, ¾Æ·¹³ª ÀÌ¿ë ¸øÇÏ°Ô º¯°æ
+	// 2008-03-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL	IsDoingInfluenceWar();
 
-	// 2008-03-17 by bhsohn À©µµ¿ì ÀÌµ¿½Ã Tick¾Èµé¾î¿À´Â ¹®Á¦ Ã³¸®
+	// 2008-03-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Tickï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	BOOL	IsPossibleWindowMove();
 
-	// 2008-03-27 by bhsohn ¹Ì¼Ç¼º°øÃ¢ÀÌ ¶°ÀÖ´Â »óÅÂ¿¡¼­´Â »óÁ¡ÀÌ ¾È¿­¸®°Ô º¯°æ
+	// 2008-03-27 by bhsohn ï¿½Ì¼Ç¼ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL	IsPossibleShopOpen();
 
-	// 2008-04-07 by bhsohn ½Ã½ºÅÛÅ° °É·¯³»´Â ½Ã½ºÅÛ Ãß°¡
+	// 2008-04-07 by bhsohn ï¿½Ã½ï¿½ï¿½ï¿½Å° ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	BOOL	IsSysKeyDownPermisiion(WPARAM wParam, LPARAM lParam);
 
-	// 2008-06-16 by bhsohn ÅÂ±¹ °ÔÀÓ Á¾·áÈÄ À¥ÆäÀÌÁö ¶ß¿ì°Ô ÇÔ
+	// 2008-06-16 by bhsohn ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ ï¿½ï¿½
 	BOOL	ExcuteExplore();
 
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	InitOptionEtcInfo(sOPTION_ETC* pEtc);
 	BOOL	IsOptionEtc(int nOptionIdx);
 	stcuctRateRect GetOptionInterfacePOS();
 	void	SetOptionInterfacePOS(stcuctRateRect* pRect);
 
 
-	// 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	stcuctRateRect GetChatInterfacePOS(void);
 	void	SetChatInterfacePOS(stcuctRateRect* pRect);
 
-	// end 2009. 02. 03 by ckPark Ã¤ÆÃÃ¢ ÀÎÅÍÆäÀÌ½º Å©±â ÀúÀå
+	// end 2009. 02. 03 by ckPark Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 	int		GetFriendListOnCount();
 
-	// 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
+	// 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
 	BOOL	IsSingletonMode();
 	void	SingPlayGameStartOk(MSG_FC_CHARACTER_GAMESTART_OK * pMsg);
 
-	// 2008-09-17 by bhsohn °ÔÀÓ ½ÇÇàÆÄÀÏ¸í Ã¼Å©¼¶ Ãß°¡
+	// 2008-09-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 	void	SendAtmCheckSum();
 
-	// 2008-11-11 by bhsohn Äù½ºÆ® CheckSumÃß°¡
+	// 2008-11-11 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® CheckSumï¿½ß°ï¿½
 	void	SendQuestCheckSum();
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-	// ÄÁÆ®·Ñ Á¶ÀÌ½ºÆ½
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+	// ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½Æ½
 	CJoyStickInput *GetJoystickControl();
 	BOOL GetAsyncKeyState_DIK_DIJ(int code);	
-	// Á¶ÀÌ½ºÆ½ ÄÁÆ®·Ñ °¹¼ö
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int GetJoystickCtrlDeviceListLen();	
 	char* GetJoystickCtrlDeviceList(int i_nIdx);
 
-	// Áøµ¿ÆÐµå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½
 	CJoyStickFreedback *GetJoyStickFeedback();
 	void SetJoyStickFeedback(BOOL bSetFeedBack, int nPowerIndex);
 
-	// Á¶ÀÌ½ºÆ½ »ç¿ëÀ¯¹«
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	BOOL IsUseJoyStick();
-	BOOL IsUseJoyFeedBack();	// Áøµ¿ »ç¿ë À¯¹«
+	BOOL IsUseJoyFeedBack();	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetUseJoyStick(BOOL bUse);
 	void SetUseJoyFeedBack(BOOL bUse);
 
-	// Á¶ÀÌ½ºÆ½ ¿É¼ÇÁ¤º¸
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	void InitJoyStickOptionInfo(structJoyStickOptionInfo* pJoysticOp);
 
-	// Á¶ÀÌ½ºÆ½ ÀåÄ¡ ÃÊ±âÈ­
+	// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
 	int InitJoyStickDevice(BOOL bJoyControl, BOOL bJoyFeed, char* o_pDevice);
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
-	// 2008-12-29 by bhsohn ·°Å° ¸Ó½Å ¼º°ø ÀÌÆåÆ® Ãß°¡
-	void CreateMyAppEffectData(int i_nType, D3DXVECTOR3	i_vPos, D3DXVECTOR3	i_vVel, D3DXVECTOR3	i_vUp); // ³» À§Ä¡¿¡ ÀÌÆåÆ® »ý¼º
+	// 2008-12-29 by bhsohn ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
+	void CreateMyAppEffectData(int i_nType, D3DXVECTOR3	i_vPos, D3DXVECTOR3	i_vVel, D3DXVECTOR3	i_vUp); // ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	void SendCharcterShowMapEffect(MSG_FC_CHARACTER_SHOW_MAP_EFFECT* i_pMsg);
 	D3DXVECTOR3 GetMyShuttleCharacterPos();
 	D3DXVECTOR3 GetViewDirVel();
-	// end 2008-12-29 by bhsohn ·°Å° ¸Ó½Å ¼º°ø ÀÌÆåÆ® Ãß°¡
+	// end 2008-12-29 by bhsohn ï¿½ï¿½Å° ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 
-	// 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
+	// 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	BOOL InitGameGuardNProtector();
 	BOOL SetGameGuardHWND();
 	BOOL TickGetCheckGameGuardNProtector();		
 	void	HS_SendHackShieldErrorMsg(long lHackClientCode, char * pMsg = NULL);
-	// end 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
-	// 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	// end 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 	void TickGetCheckGameGuardXTrap();
-	//end 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	//end 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	CWorldRankManager*	GetWorldRankManager();
 	void RqAllWorldRankInfo();
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2009-02-24 by bhsohn Ä³½¬¼¥ ÃæÀü À¥ÆäÀÌÁö Ãß°¡
-		// 2012-11-28 by jhjang °ÔÀÓÆ÷Áö À¥ »óÁ¡ ÅëÇÕ Ãß°¡ ÀÛ¾÷
-	// 2012-11-23 by jhjang °ÔÀÓÆ÷Áö À¥ »óÁ¡ ÅëÇÕ ÀÛ¾÷
+	// 2009-02-24 by bhsohn Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+		// 2012-11-28 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Û¾ï¿½
+	// 2012-11-23 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	// void PopupWebWindow(BOOL i_bPopup);
 	// void PopupWebWindow(BOOL i_bPopup,char* strWebSite = NULL);
 	void PopupWebWindow(BOOL i_bPopup,char* strWebSite = NULL,char* strWebParameter = NULL,int nWebPosX = -1,int nWebPosY = -1,int nWebWidth = -1,int nWebHeight = -1);
-	// end 2012-11-23 by jhjang °ÔÀÓÆ÷Áö À¥ »óÁ¡ ÅëÇÕ ÀÛ¾÷
-	// end 2012-11-28 by jhjang °ÔÀÓÆ÷Áö À¥ »óÁ¡ ÅëÇÕ Ãß°¡ ÀÛ¾÷
-	// end 2009-02-24 by bhsohn Ä³½¬¼¥ ÃæÀü À¥ÆäÀÌÁö Ãß°¡
+	// end 2012-11-23 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
+	// end 2012-11-28 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Û¾ï¿½
+	// end 2009-02-24 by bhsohn Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	// 2009-02-26 by bhsohn Japan IME
 	VOID CleanIMEControl();
 	// end 2009-02-26 by bhsohn Japan IME
 
-	// 2009-03-10 by bhsohn nProtector CS¸ðµâ Ãß°¡
+	// 2009-03-10 by bhsohn nProtector CSï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	void SendNpGameMonCheckCSAuth2(PVOID dwArg);
-	// end 2009-03-10 by bhsohn nProtector CS¸ðµâ Ãß°¡
-	// 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
+	// end 2009-03-10 by bhsohn nProtector CSï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
 	void SendNpGameMonCheckCSAuth3(PVOID dwArg);
-	// end 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
+	// end 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
 
-	// 2009-04-08 by bhsohn ´ÙÁß ¼±ÅÃ½Ã, À¯´ÏÅ© ¹× ÀÎÃ¦Æ® µÈ ¾ÆÀÌÅÛ ÆÇ¸Å½Ã °æ°í ¸Þ½ÃÁö Ãâ·Â ±âÈ¹ ¹®¼­(K0000174)
+	// 2009-04-08 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½, ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸Å½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¹ ï¿½ï¿½ï¿½ï¿½(K0000174)
 	void AddMultiSelWarningMsg(UID64_t	UniqueNumber);
-	// end 2009-04-08 by bhsohn ´ÙÁß ¼±ÅÃ½Ã, À¯´ÏÅ© ¹× ÀÎÃ¦Æ® µÈ ¾ÆÀÌÅÛ ÆÇ¸Å½Ã °æ°í ¸Þ½ÃÁö Ãâ·Â ±âÈ¹ ¹®¼­(K0000174)
+	// end 2009-04-08 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½, ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸Å½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¹ ï¿½ï¿½ï¿½ï¿½(K0000174)
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	CInfinityManager*	GetInfinityManager( void );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-   	// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+   	// 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void LoadMeshPorcess();
 	BOOL ObjectLoadingTimeChack();	
 	BOOL IsEmptyLoadingGameDataList(void);
@@ -685,23 +685,23 @@ public:
 	void vecPushBackGameData(structLoadingGameData* nGameData);
 	void vecPushGameData(structLoadingGameData* i_pGameData);
 	BOOL DeleteLoadingGameData(CSkinnedMesh *i_pSkinnedMesh);
-	//end 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+	//end 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	VOID ShotDownGameTime(); // 2012-07-17 by jhahn, ¼Ë´Ù¿î ½Ã°£ Ç¥½Ã
+	VOID ShotDownGameTime(); // 2012-07-17 by jhahn, ï¿½Ë´Ù¿ï¿½ ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
 	
-	void FieldSocketCharacterPCBangPremiumApply(MSG_FC_CHARACTER_PCBANG_PREMIUN_APPLY* pMsg);	// 2012-10-16 by bhsohn NPlay PC¹æ ¸ðµâ
-	void FieldSocketCharacterXignCodeAckPacket(MSG_FC_CHARACTER_XIGNCODE_ACK_PACKET* pMsg);	// 2012-10-17 by bhsohn XignCodeÀÛ¾÷
+	void FieldSocketCharacterPCBangPremiumApply(MSG_FC_CHARACTER_PCBANG_PREMIUN_APPLY* pMsg);	// 2012-10-16 by bhsohn NPlay PCï¿½ï¿½ ï¿½ï¿½ï¿½
+	void FieldSocketCharacterXignCodeAckPacket(MSG_FC_CHARACTER_XIGNCODE_ACK_PACKET* pMsg);	// 2012-10-17 by bhsohn XignCodeï¿½Û¾ï¿½
 	
-	// 2013-05-07 by bhsohn À¥Ä³½¬ »óÁ¡ ÀÎÁõÅ° Ãß°¡
+	// 2013-05-07 by bhsohn ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
 	void FieldSocketShopAuthKey(MSG_FC_SHOP_AUTH_KEY* pMsg); 	
-	// END 2013-05-07 by bhsohn À¥Ä³½¬ »óÁ¡ ÀÎÁõÅ° Ãß°¡
+	// END 2013-05-07 by bhsohn ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
 
-	// 2013-05-07 by bhsohn ¼¼·ÂÆ÷ÀÎÆ® °³¼±¾È ½Ã½ºÅÛ
+	// 2013-05-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	void FieldSocketWarInflConseVictites(MSG_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES* pMsg);
 	void FieldSocketShopInflBuffOk(MSG_FC_SHOP_INFLUENCE_BUFF_OK* pMsg);
-	// END 2013-05-07 by bhsohn ¼¼·ÂÆ÷ÀÎÆ® °³¼±¾È ½Ã½ºÅÛ
+	// END 2013-05-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	void SetCharacterChangeCurrentHPAndDamageBodyCondition(float fHP){CharacterChangeCurrentHPAndDamageBodyCondition(fHP);}			// 2013-06-25 by ssjung µ¥¹ÌÁö ÀÌÆåÆ®°¡ ¾È³ª¿À´Â Çö»ó ¼öÁ¤
+	void SetCharacterChangeCurrentHPAndDamageBodyCondition(float fHP){CharacterChangeCurrentHPAndDamageBodyCondition(fHP);}			// 2013-06-25 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 protected:
 	// MsgProc~
@@ -709,10 +709,10 @@ protected:
 	int MsgProcCity( UINT uMsg, WPARAM wParam, LPARAM lParam );
 	int MsgProcCreate( UINT uMsg, WPARAM wParam, LPARAM lParam );
 	// OnRecvFieldSocket~
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//int		OnRecvFieldSocketMessage( DWORD dwMsgType );
 	int		OnRecvFieldSocketMessage( DWORD wParam, UINT nSocketNotifyType);
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//VOID	OnRecvFieldSocketWS_CONNECTED( USHORT nConnect );
 	VOID	OnRecvFieldSocketWS_CONNECTED( USHORT nConnect, CFieldWinSocket* pFieldSocket);
 	VOID	OnRecvFieldSocketWS_CLOSED(void);
@@ -726,7 +726,7 @@ protected:
 	VOID	FieldSocketCharacterGetMonsterInfoOk(MSG_FC_CHARACTER_GET_MONSTER_INFO_OK* pMsg);
 	VOID	FieldSocketCharacterGameStartOk(MSG_FC_CHARACTER_GAMESTART_OK * pMsg);
 	VOID	FieldSocketCharacterConnectGameStartOk(MSG_FC_CHARACTER_CONNECT_GAMESTART_OK * pMsg);
-	// 2008-03-10 by bhsohn ¾Æ·¹³ª¿¡¼­ ±ÍÈ¯ Æ÷Å» Ã³¸®
+	// 2008-03-10 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Å» Ã³ï¿½ï¿½
 	//VOID	FieldSocketCharacterGameEndOk(MSG_FC_CHARACTER_GAMEEND_OK * pMsg);
 	VOID	FieldSocketCharacterGameEndOk(UINT nSocketNotifyType, MSG_FC_CHARACTER_GAMEEND_OK * pMsg);
 	VOID	FieldSocketMoveOk( MSG_FC_MOVE_OK* pMsg);
@@ -743,8 +743,8 @@ protected:
 	VOID	FieldSocketCharacterUpdateSubleaderOk(MSG_FC_CHARACTER_UPDATE_SUBLEADER_OK * pMsg);
 	VOID	FieldSocketPartyCreateOk(MSG_FC_PARTY_CREATE_OK* pMsg);
 	VOID	FieldSocketPartyRequestInviteQuestion(MSG_FC_PARTY_REQUEST_INVITE_QUESTION* pMsg);
-	VOID	FieldSocketPartyRequestInviteQuestion_THE_ARENA(MSG_FC_PARTY_REQUEST_INVITE_QUESTION_THE_ARENA* pMsg);	/// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : ÆÄÆ¼ °¡ÀÔ ÁØºñ
-	VOID	FieldSocketPartyAutoCreated_THE_ARENA(MSG_FC_PARTY_AUTO_CREATED_THE_ARENA* pMsg);	/// 2012-04-12 by jhseol, ¾Æ·¹³ª Ãß°¡°³¹ß - ÀÚµ¿ÆÄÆ¼ : ÀÚµ¿À¸·Î ÆÄÆ¼¸¦ ¸¸µé¶ó´Â ÆÐÅ¶.
+	VOID	FieldSocketPartyRequestInviteQuestion_THE_ARENA(MSG_FC_PARTY_REQUEST_INVITE_QUESTION_THE_ARENA* pMsg);	/// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½
+	VOID	FieldSocketPartyAutoCreated_THE_ARENA(MSG_FC_PARTY_AUTO_CREATED_THE_ARENA* pMsg);	/// 2012-04-12 by jhseol, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Úµï¿½ï¿½ï¿½Æ¼ : ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶.
 	VOID	FieldSocketPartyRejectInviteOk(MSG_FC_PARTY_REJECT_INVITE_OK* pMsg);
 	VOID	FieldSocketPartyPutMember(MSG_FC_PARTY_PUT_MEMBER* pMsg);
 	VOID	FieldSocketPartyUpdateMemberInfoAll(MSG_FC_PARTY_UPDATE_MEMBER_INFO_ALL* pMsg);
@@ -787,7 +787,7 @@ protected:
 	VOID	FieldSocketEventLeaveBuildingOk(MSG_FC_EVENT_LEAVE_BUILDING_OK* pMsg);
 	VOID	FieldSocketShopCheckGiveTargetOK(MSG_FC_SHOP_CHECK_GIVE_TARGET_OK* pMsg);
 	VOID	FieldSocketShopBuyCashItemOK(MSG_FC_SHOP_BUY_CASH_ITEM_OK* pMsg);
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     VOID	FieldSocketShopBuyItemUpdate(MSG_FC_SHOP_BUY_ITEM_UPDATE* pMsg);
 #endif
 	
@@ -813,9 +813,9 @@ protected:
 	VOID    FieldSocketChatCashAll(MSG_FC_CHAT_CASH_ALL* pMsg);
 	VOID	FieldSocketChatMap(MSG_FC_CHAT_MAP* pMsg);
 	VOID	FieldSocketChatArena(MSG_FC_CHAT_ARENA* pMsg);
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	VOID	FieldSocketChatInfinity( MSG_FC_CHAT_INFINITY* pMsg );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 	VOID	FieldSocketTradeRequestTradeOk(MSG_FC_TRADE_REQUEST_TRADE_OK* pMsg);
@@ -833,11 +833,11 @@ protected:
 	VOID	FieldSocketTradeTransItemOk(MSG_FC_TRADE_TRANS_ITEM_OK* pMsg);
 	VOID	FieldSocketStoreUpdateEndurance(MSG_FC_STORE_UPDATE_ENDURANCE* pMsg);
 	VOID	FieldSocketTradeSeeItemOk(MSG_FC_TRADE_SEE_ITEM_OK* pMsg);
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - °Å·¡ ½Ã Æê Á¤º¸ Àü¼Û
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½Å·ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketTradeSeePetData(MSG_TRADE_PET_DATA* pMsg);
-	VOID	FieldSocketTradeDeletePetData(MSG_TRADE_PET_DATA* pMsg); // °Å·¡½Ã Æê Á¤º¸ »èÁ¦ Ã³¸®
-	VOID	FieldSocketTradeInsertPetData(MSG_FC_ITEM_PET_BASEDATA* pMsg); // °Å·¡½Ã Æê Á¤º¸ Ãß°¡ Ã³¸®
-	// end 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - °Å·¡ ½Ã Æê Á¤º¸ Àü¼Û
+	VOID	FieldSocketTradeDeletePetData(MSG_TRADE_PET_DATA* pMsg); // ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	VOID	FieldSocketTradeInsertPetData(MSG_FC_ITEM_PET_BASEDATA* pMsg); // ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ Ã³ï¿½ï¿½
+	// end 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½Å·ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketCitywarGetOccupyinfoOk(MSG_FC_CITYWAR_GET_OCCUPYINFO_OK* pMsg);
 	VOID	FieldSocketCitywarBringSumoftexOk(MSG_FC_CITYWAR_BRING_SUMOFTEX_OK* pMsg);
 	VOID	FieldSocketCitywarStartWar(MSG_FC_CITYWAR_START_WAR* pMsg);
@@ -845,7 +845,7 @@ protected:
 	VOID	FieldSocketCharacterGetCashMoneyCountOk(MSG_FC_CHARACTER_GET_CASH_MONEY_COUNT_OK* pMsg);
 	VOID	FieldSocketCharacterChangeCharacterModeOk(MSG_FC_CHARACTER_CHANGE_CHARACTER_MODE_OK* pMsg);
 	VOID	FieldSocketSkillUseSkill(MSG_FC_SKILL_USE_SKILL_OK *pMsg);
-	VOID	FieldSocketInvenItempHidePetData(MSG_FC_ITEM_NOTIFY_WINDOW_POSITION* pMsg);	   //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+	VOID	FieldSocketInvenItempHidePetData(MSG_FC_ITEM_NOTIFY_WINDOW_POSITION* pMsg);	   //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	VOID	FieldSocketSkillCancelSkillOK(MSG_FC_SKILL_CANCEL_SKILL_OK * pMsg);
 	VOID	FieldSocketInvalidateSkill(MSG_FC_SKILL_INVALIDATE_SKILL *pMsg);
 	VOID	FieldSocketCharacterGetAccountUniqueNumberOk(MSG_FC_CHARACTER_GET_ACCOUNTUNIQUENUMBER_OK* pMsg);
@@ -949,7 +949,7 @@ protected:
 	VOID	FieldSocketBattleAttackEvasionOk(MSG_FC_BATTLE_ATTACK_EVASION_OK* pMsg);
 	VOID	FieldSocketWarNotifyInvasion(MSG_FC_WAR_NOTIFY_INVASION *pMsg);
 	VOID	FieldSocketWarNotifyInfluenceMonsterDead(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_DEAD *pMsg);
-	VOID	FieldSocketWarNotifyInfluenceAutoMonsterDead(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_DEAD *pMsg); // 2007-02-15 by bhsohn ¸ð¼± ÀÚµ¿ ¼Ò¸ê½Ã ÀÌº¥Æ® ¹ÞÀ½.
+	VOID	FieldSocketWarNotifyInfluenceAutoMonsterDead(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_DEAD *pMsg); // 2007-02-15 by bhsohn ï¿½ï¿½ ï¿½Úµï¿½ ï¿½Ò¸ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 	VOID	FieldSocketWarNotifyInfluenceMonsterIvasion(MSG_FC_WAR_NOTIFY_INFLUENCE_MONSTER_INVASION* pMsg);
 	VOID	FieldSocketWarBossMonsterSummonDataInvasion(MSG_FC_WAR_BOSS_MONSTER_SUMMON_DATA* pMsg);
 	VOID	FieldSocketWarSignBoardInsertString(MSG_FC_WAR_SIGN_BOARD_INSERT_STRING* pMsg);
@@ -963,7 +963,7 @@ protected:
 	VOID	FieldSocketCityWarInfoOutPostOK(MSG_FC_CITY_WARINFO_OUTPOST_OK * pMsg);
 	VOID	FieldSocketInfoGetGuildMarkOK(MSG_FC_INFO_GET_GUILDMARK_OK* pMsg);
 	
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	VOID	FieldSocketWarStrategypointMonsterSummon(MSG_FC_WAR_STRATEGYPOINT_MONSTER_SUMMON* pMsg);
 
 	VOID	FieldSocketAuctionInsertItem(MSG_FC_AUCTION_INSERT_ITEM* pMsg);
@@ -982,33 +982,33 @@ protected:
 	VOID	FieldSocketGuildSummonMember(MSG_FC_GUILD_SUMMON_MEMBER* pMsg);
 	VOID	FieldSocketItemUseCarditemRestoreNotify(MSG_FC_ITEM_USE_CARDITEM_RESTORE_NOTIFY* pMsg);
 	VOID	FieldSocketItemUseCarditemGuildsummonNotify(MSG_FC_ITEM_USE_CARDITEM_GUILDSUMMON_NOTIFY* pMsg);
-	// 2008-03-14 by bhsohn ·¹º§¾÷¿¡ µû¸¥ ÇØÇÇ¾Æ¿ì¾î Ã³¸®
+	// 2008-03-14 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ï¿½ Ã³ï¿½ï¿½
 	VOID	FieldSocketInfoGetHappyHourEventInfoOk(BOOL bLevelUp, MSG_FC_INFO_GET_HAPPY_HOUR_EVENT_INFO_OK* pMsg);
 	VOID	FieldSocketInfoGetGameEventInfoOk(MSG_FC_INFO_GET_GAME_EVENT_INFO_OK* pMsg);
 	VOID	FieldSocketMonsterTutorialMonsterDeadNotify(MSG_FC_MONSTER_TUTORIAL_MONSTER_DEAD_NOTIFY* pMsg);
 
-	// 2009. 09. 18 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå HP¿¡ µû¸¥ ¸ó½ºÅÍ ´ëÈ­
+	// 2009. 09. 18 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ HPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­
 	VOID	FieldSocketMonsterHPTalk( MSG_FC_MONSTER_HPTALK* pMsg );
-	// end 2009. 09. 18 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå HP¿¡ µû¸¥ ¸ó½ºÅÍ ´ëÈ­
-// 2011-02-08 by jhahn EP4 Æ®¸®°Å  ½Ã½ºÅÛ ¿ÀºêÁ§Æ® º¯°æ			
+	// end 2009. 09. 18 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ HPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­
+// 2011-02-08 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½  ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			
 	VOID	FieldObjectChangeOK(MSG_FC_OBJECT_CHANGE* pMsg);
 	VOID	FieldSocketShopClose(MSG_FC_SHOP_CLOSE* pMsg);
 	VOID	FieldSocketSetLimitTime( MSG_FC_SET_LIMITTIME* pMsg);
-//end 2011-02-08 by jhahn EP4 Æ®¸®°Å  ½Ã½ºÅÛ ¿ÀºêÁ§Æ® º¯°æ			
+//end 2011-02-08 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½  ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			
 
-	// 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
+	// 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketMonsterSkill( MSG_FC_MONSTER_SKILL* pMsg );
 	VOID	FieldSocketMonsterMonsterBarrierUsing( MSG_FC_BATTLE_MONSTER_BARRIER_USING* pMsg );
 	VOID	FieldSocketMonsterMonsterBarrierUse( MSG_FC_BATTLE_MONSTER_BARRIER_USE* pMsg );
 	VOID	FieldSocketCharacterDebuffDotInfo( MSG_FC_CHARACTER_DEBUFF_DOT_INFO_OK* pMsg );
 	VOID	FieldSocketCharacterDebuffDotApply( MSG_FC_CHARACTER_DEBUFF_DOT_APPLYING* pMsg );
 	VOID	FieldSocketCharacterDebuffDotRelease( MSG_FC_CHARACTER_DEBUFF_DOT_RELEASE* pMsg );
-	// end 2009. 09. 21 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ¸ó½ºÅÍ ½ºÅ³ ±¸Çö
-	//2011-02-08 by jhahn EP4 Æ®¸®°Å  ½Ã½ºÅÛ
-	VOID	FieldSocketTriggerMapBuffSkill(MSG_FC_TRIGGER_MAP_BUFF_SKILL* pMsg );				//2011-10-24 by jhahn Æ®¸®°Å ½Ã½ºÅÛ 
-	//end 2011-02-08 by jhahn EP4 Æ®¸®°Å  ½Ã½ºÅÛ
+	// end 2009. 09. 21 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	//2011-02-08 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½  ï¿½Ã½ï¿½ï¿½ï¿½
+	VOID	FieldSocketTriggerMapBuffSkill(MSG_FC_TRIGGER_MAP_BUFF_SKILL* pMsg );				//2011-10-24 by jhahn Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 
+	//end 2011-02-08 by jhahn EP4 Æ®ï¿½ï¿½ï¿½ï¿½  ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	VOID	FieldSocketInfinityModeListOK( MSG_FC_INFINITY_MODE_LIST_OK* pMsg );
 	VOID	FieldSocketInfinityReadyListOK( MSG_FC_INFINITY_READY_LIST_OK* pMsg );
 	VOID	FieldSocketInfinityCreateOK( MSG_FC_INFINITY_CREATE_OK* pMsg );
@@ -1041,37 +1041,37 @@ protected:
 	VOID	FieldSocketInfinityDeletedCinema( MSG_FC_INFINITY_DELETED_CINEMA* pMsg );
 	VOID	FieldSocketInfinityEnterByDisConnect( MSG_FC_INFINITY_ENTER_BY_DISCONNECT* pMsg );
 	VOID	FieldSocketInfinityPartyAutoCreated( MSG_FC_PARTY_AUTO_CREATED* pMsg );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2010. 05. 19 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý. (½ÅÈ£Ã³¸® + ¸ó½ºÅÍ Ã³¸®(¼­¹ö) )
+	// 2010. 05. 19 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½È£Ã³ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) )
 	VOID	FieldSocketInfinityRegsiterDifficultyBonusInfoListData ( MSG_INFINITY_DIFFICULTY_LIST_OK* pMsg );
 	VOID	FieldSocketInfinityChangeRoomDifficultyLevelOK( MSG_FC_INFINITY_CHANGE_DIFFICULTY_LEVEL_OK* pMsg );
-	// End 2010. 05. 19 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý. (½ÅÈ£Ã³¸® + ¸ó½ºÅÍ Ã³¸®(¼­¹ö) )
+	// End 2010. 05. 19 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½È£Ã³ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) )
 
-	// 2010. 05. 31 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý. (¿ÀºêÁ§Æ® ¸ó½ºÅÍ ¹ë·±½º Àû¿ë ¹®Á¦ ¼öÁ¤.)
+	// 2010. 05. 31 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ë·±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.)
 	VOID	FieldSocketInfinityReadyCancelAllOK ( MSG_FC_INFINITY_READY_CANCEL_ALL_OK* pMsg );
-	// End 2010. 05. 31 by hsLee ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷ ³­ÀÌµµ Á¶Àý. (¿ÀºêÁ§Æ® ¸ó½ºÅÍ ¹ë·±½º Àû¿ë ¹®Á¦ ¼öÁ¤.)
+	// End 2010. 05. 31 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ë·±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.)
 
-	// 2010. 07. 27 by hsLee ÀÎÇÇ´ÏÆ¼ 2Â÷ °ÅÁ¡ ¹æ¾î ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ Ã³¸®.
+	// 2010. 07. 27 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ Ã³ï¿½ï¿½.
 	VOID	FieldSocketInfinityCinemaSkip ( MSG_FC_INFINITY_SKIP_ENDING_CINEMA_OK * pMsg );
-	// End 2010. 07. 27 by hsLee ÀÎÇÇ´ÏÆ¼ 2Â÷ °ÅÁ¡ ¹æ¾î ½Ã³×¸¶ ¿¬Ãâ ½ºÅµ Ã³¸®.
+	// End 2010. 07. 27 by hsLee ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ Ã³ï¿½ï¿½.
 
-	// 2010. 02. 11 by ckPark ¹ßµ¿·ù ÀåÂø¾ÆÀÌÅÛ
+	// 2010. 02. 11 by ckPark ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketInfoApplyDestParam( MSG_FC_INFO_APPLY_DESTPARAM* pMsg );
 	VOID	FieldSocketInfoApplyDestParamList( MSG_FC_INFO_APPLY_DESTPARAM_LIST* pMsg );
 	VOID	FieldSocketItemEndCoolItemOK( MSG_FC_ITEM_END_COOLINGTIME_ITEM_OK* pMsg );
 	VOID	FieldSocketItemGetCoolTimeInfoOK( MSG_FC_ITEM_GET_COOLINGTIME_INFO_OK* pMsg );
 	VOID	FieldSocketItemUseInvokingWearItemBuff( MSG_FC_ITEM_USE_INVOKING_WEAR_ITEM_BUFF* pMsg );
-	// end 2010. 02. 11 by ckPark ¹ßµ¿·ù ÀåÂø¾ÆÀÌÅÛ
+	// end 2010. 02. 11 by ckPark ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// 2010. 03. 15 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(¿¬Ãâ Ã³¸®)
+	// 2010. 03. 15 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
 	VOID	FieldSocketInfinityChangeAliveForGameClearMonsterHP( MSG_FC_INFINITY_CHANGE_ALIVE_FOR_GAMECLEAR_MONSTERHP* pMsg );
 	VOID	FieldSocketMonsterCreatedAliveForGameClear( MSG_FC_MONSTER_CREATED_ALIVE_FOR_GAMECLEAR* pMsg );
-	// end 2010. 03. 15 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(¿¬Ãâ Ã³¸®)
+	// end 2010. 03. 15 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
 
-	// 2010. 03. 18 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(¸ó½ºÅÍ ½ºÅ³ Ãß°¡)
+	// 2010. 03. 18 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½)
 	VOID	FieldSocketMonsterCancelSkill( MSG_FC_MONSTER_SKILL_CANCEL* pMsg );
-	// end 2010. 03. 18 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(¸ó½ºÅÍ ½ºÅ³ Ãß°¡)
+	// end 2010. 03. 18 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½)
 
 	VOID	FieldSocketCharacterTutorialSkipOk(MSG_FC_CHARACTER_TUTORIAL_SKIP_OK* pMsg);
 	VOID	FieldSocketTutorialStartOK(MSG_FC_TUTORIAL_START_OK* pMsg);
@@ -1093,7 +1093,7 @@ protected:
 	VOID	FieldSocketStoreLogGuildItemOKDone();
 	VOID	FieldSocketEventCallWarpEventReqeust(MSG_FC_EVENT_CALL_WARP_EVENT_REQUEST* pMsg);
 
-	// 2007-03-29 by dgwoo ¹æ¼Û¿ë ¿ÉÀú¹ö ¸ðµå.
+	// 2007-03-29 by dgwoo ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	VOID	FieldSocketCharacterObserverStartOK(MSG_FC_CHARACTER_OBSERVER_START* pMsg);
 	VOID	FieldSocketCharacterObserverEndOK(MSG_FC_CHARACTER_OBSERVER_END* pMsg);
 	VOID	FieldSocketCharacterObserverRegOK(MSG_FC_CHARACTER_OBSERVER_REG* pMsg);
@@ -1105,7 +1105,7 @@ protected:
 	VOID	FieldSocketArenaWatchRemoveUser(MSG_FC_ARENA_WATCH_REMOVE_USER* pMsg);
 	VOID	FieldSocketCharacterWatchInfo(MSG_FC_CHARACTER_WATCH_INFO* pMsg);
 
-	// 2007-08-16 by dgwoo ÀüÁø±âÁö
+	// 2007-08-16 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketOutPostWarBefore(MSG_FC_OUTPOST_WAR_BEFORE* pMsg);
 	VOID	FieldSocketOutPostWarStart(MSG_FC_OUTPOST_WAR_START* pMsg);
 	VOID	FieldSocketOutPostProtectorDestroy(MSG_FC_OUTPOST_PROTECTOR_DESTROY* pMsg);
@@ -1122,11 +1122,11 @@ protected:
 	VOID 	FieldSocketOutPostNextWarSetTimeOk(MSG_FC_OUTPOST_NEXTWAR_SET_TIME_OK* pMsg);
 	VOID	FieldSocketOutPostWarInfo(MSG_FC_OUTPOST_WAR_INFO* pMsg);
 
-	// 2007-09-19 by dgwoo ÅÚ·¹Æ÷Æ®.
+	// 2007-09-19 by dgwoo ï¿½Ú·ï¿½ï¿½ï¿½Æ®.
 	VOID	FieldSocketEventTeleportBuildComplete(MSG_FC_EVENT_TELEPORT_BUILDCOMPLETE* pMsg);
 	VOID	FieldSocketEventTeleportDestroy(MSG_FC_EVENT_TELEPORT_DESTROY* pMsg);
 
-	// 2007-04-19 by dgwoo ¾Æ·¹³ª ½Ã½ºÅÛ.
+	// 2007-04-19 by dgwoo ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½.
 	VOID	FieldSocketArenaRequestTeamOK(MSG_FC_ARENA_REQUEST_TEAM_OK* pMsg);
 	VOID	FieldSocketArenaCreateTeamOK(MSG_FC_ARENA_CREATE_TEAM_OK* pMsg);
 	VOID	FieldSocketArenaEnterTeamOK(MSG_FC_ARENA_ENTER_TEAM_OK* pMsg);
@@ -1164,18 +1164,18 @@ protected:
 	VOID	FieldSocketBazaarBuySellItemOK(MSG_FC_BAZAAR_BUY_SELL_ITEM_OK* pMsg);
 
 	VOID	FieldSocketItemUseRandomBoxOk(MSG_FC_ITEM_USE_RANDOMBOX_OK* pMsg);
-	VOID	FieldSocketItemUseRandomBoxOkDone();	// 2008-08-26 by bhsohn ·£´ý¹Ú½º ½Ã½ºÅÛ º¯°æ
+	VOID	FieldSocketItemUseRandomBoxOkDone();	// 2008-08-26 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketStoreRequestQuickslotOK(MSG_FC_STORE_REQUEST_QUICKSLOT_OK* pMsg);
 	VOID	FieldSocketCharacterUseBonusstatOK(MSG_FC_CHARACTER_USE_BONUSSTAT_OK* pMsg);
 	VOID	FieldSocketUseSkillSupportItemOK(MSG_FC_ITEM_USE_SKILL_SUPPORT_ITEM_OK* pMsg);
 	VOID	FieldSocketGetServerDataTimeOK(MSG_FC_INFO_GET_SERVER_DATE_TIME_OK* pMsg);
 	VOID	FieldSocketRequestPartyWarp(MSG_FC_QUEST_REQUEST_PARTY_WARP* pMsg);
 
-	// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+	// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	VOID	FieldSocketChatAllInfluenceOK(MSG_FC_CHAT_ALL_INFLUENCE * pMsg);
 	VOID	FieldSocketChatOutPostGuild(MSG_FC_CHAT_OUTPOST_GUILD* pMsg);
 
-	// 2007-10-29 by dgwoo Æú½Ã½ºÅÛ
+	// 2007-10-29 by dgwoo ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 	VOID	FieldSocketCityPollRequestLeaderCandidateListOKHeader(MSG_FC_CITY_POLL_REQUEST_LEADER_CANDIDATE_LIST_OK_HEADER* pMsg);
 	VOID	FieldSocketCityPollRequestLeaderCandidateListOK(MSG_FC_CITY_POLL_REQUEST_LEADER_CANDIDATE_LIST_OK* pMsg);
 	VOID	FieldSocketCityPollRequestLeaderCandidateListOKDone();
@@ -1186,36 +1186,36 @@ protected:
 	VOID	FieldSocketCityPollRequestPollDateOK(MSG_FC_CITY_POLL_REQUEST_POLL_DATE_OK* pMsg);
 	VOID	FieldSocketCityPollVoteOK();
 	VOID	FieldSocketCityPollLeaderElectionInfo(MSG_FC_CITY_POLL_LEADER_ELECTION_INFO* pMsg);
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	VOID	FieldSocketQuestRequestMissionMasterHelpInvite(MSG_FC_QUEST_REQUEST_MISSIONMASTER_HELP_INVITE* pMsg);
 	VOID	FieldSocketQuestMissionMasterHelpInviteOK(MSG_FC_QUEST_MISSIONMASTER_HELP_INVITE_OK* pMsg);
 	VOID	FieldSocketQuestMissionMasterHelpRejectOK(MSG_FC_QUEST_MISSIONMASTER_HELP_REJECT_OK* pMsg);
-// end 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// end 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	// 2008-12-30 by bhsohn ÀüÀïº¸»óÃß°¡ ±âÈ¹¾È
+	// 2008-12-30 by bhsohn ï¿½ï¿½ï¿½ïº¸ï¿½ï¿½ï¿½ß°ï¿½ ï¿½ï¿½È¹ï¿½ï¿½
 	VOID	FieldSocketBossContributionGuild(MSG_FC_WAR_BOSS_CONTRIBUTION_GUILD* pMsg);
-	// end 2008-12-30 by bhsohn ÀüÀïº¸»óÃß°¡ ±âÈ¹¾È
+	// end 2008-12-30 by bhsohn ï¿½ï¿½ï¿½ïº¸ï¿½ï¿½ï¿½ß°ï¿½ ï¿½ï¿½È¹ï¿½ï¿½
 
 
-	// 2009. 02. 10 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ Ãß°¡ ¼öÁ¤
+	// 2009. 02. 10 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	VOID	SetWarDeclareInfo(SDECLARATION_OF_WAR* pWarInfo, SDECLARATION_OF_WAR_FORBID_TIME* pForbidTime, BOOL bSetDefault);
-	// end 2009. 02. 10 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ Ãß°¡ ¼öÁ¤
+	// end 2009. 02. 10 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	
-	// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-	// ¼±ÀüÆ÷°í Á¤º¸°¡ µµÂøÇßÀ» °æ¿ì
+	// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	VOID	FieldSocketWarDeclareInfoOK(MSG_FC_INFO_DECLARATION_MSWAR_INFO_OK* pMsg);
-	// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+	// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
 
 
 	// HackShield
-	// 2008-04-04 by bhsohn ÇÙ½¯µå ¹æ½Ä º¯°æ
+	// 2008-04-04 by bhsohn ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//VOID	FieldSocketMoveHackShield_GuidReqMsg(MSG_FC_MOVE_HACKSHIELD_GuidReqMsg* pMsg);
 	VOID	FieldSocketMoveHackShield_CRCReqMsg(MSG_FC_MOVE_HACKSHIELD_CRCReqMsg* pMsg);
 
-	// 2008-11-28 by bhsohn XignCodeÃß°¡
+	// 2008-11-28 by bhsohn XignCodeï¿½ß°ï¿½
 	VOID	FieldSocketMoveXignCodeReqScanInit(UINT nSocketNotifyType, MSG_FC_MOVE_XIGNCODE_REQ_SCAN_INIT* pMsg);
 	VOID	FieldSocketMoveXignCodeReqScanCheck(UINT nSocketNotifyType, MSG_FC_MOVE_XIGNCODE_REQ_SCAN_CHECK* pMsg);
 
@@ -1233,83 +1233,83 @@ protected:
 	VOID	FieldSocketWarMonsterAutoDestroyed(MSG_FC_WAR_MONSTER_AUTO_DESTROYED* pMsg);
 	VOID	FieldSocketWarMonsterDead(MSG_FC_WAR_MONSTER_DEAD* pMsg);
 
-	// 2007-09-12 by bhsohn 2Â÷ ¾ÏÈ£ ½Ã½ºÅÛ ±¸Çö
+	// 2007-09-12 by bhsohn 2ï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	VOID	FieldSocketInfoSecondarypasswordCheckPassword(BOOL bSuccess);
 	VOID	FieldSecondLockOk(MSG_FC_INFO_SECONDARYPASSWORD_LOCK_OK* pMsg);
 	VOID	FieldSocketSecondPasswordUpdateOk(BOOL bSuccess);	
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	void	FieldSocketConnectArenaServerInfo(MSG_FC_CONNECT_ARENASERVER_INFO* pMsg);
 	void	FieldSocketConnectArenaServerLoginOk(MSG_FC_CONNECT_ARENASERVER_LOGIN_OK* pMsg);
 	void	FieldSocketArenaPossibleGameStart(MSG_FC_ARENA_POSSIBLE_GAMESTART* pMsg);	
 	void	FieldSocketCharacterReadyGamestartFromArenaToMainserver(MSG_FC_CHARACTER_READY_GAMESTART_FROM_ARENA_TO_MAINSERVER_OK* pMsg);
 
 
-	// 2009. 04. 06 by ckPark °ÔÀÓ½ÃÀÛ½Ã Áß·® ÀÎÃ¦Æ® Àû¿ë ¾ÈµÈ»óÅÂ·Î ³ª¿À´ø ¹ö±×(0001388)
+	// 2009. 04. 06 by ckPark ï¿½ï¿½ï¿½Ó½ï¿½ï¿½Û½ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ»ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(0001388)
 	void	FieldSocketPutEnchantDone( void );
-	// end 2009. 04. 06 by ckPark °ÔÀÓ½ÃÀÛ½Ã Áß·® ÀÎÃ¦Æ® Àû¿ë ¾ÈµÈ»óÅÂ·Î ³ª¿À´ø ¹ö±×(0001388)
+	// end 2009. 04. 06 by ckPark ï¿½ï¿½ï¿½Ó½ï¿½ï¿½Û½ï¿½ ï¿½ß·ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ»ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(0001388)
 
 	VOID	FieldSocketEventCouponEventUseCouponOK(MSG_FC_EVENT_COUPON_EVENT_USE_COUPON_OK* pMsg);
 	VOID	FieldSocketEventCouponEventInfo(MSG_FC_EVENT_COUPON_EVENT_INFO* pMsg);
 
-	// 2008-02-15 by bhsohn ³×Æ®¿öÅ© ¼Óµµ Ã¼Å©
+	// 2008-02-15 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½Óµï¿½ Ã¼Å©
 	VOID	FieldSocketConnectNetWorkCheckOk(MSG_FC_CONNECT_NETWORK_CHECK_OK* pMsg);
 
-	// 2008-02-25 by bhsohn ¾Æ·¹³ª À¯Àú Á¤º¸ ¼­¹öµµ Ç¥½ÃÇÏ°Ô º¯°æ
+	// 2008-02-25 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	FieldSocketArenaServerSServerGroupForClient(MSG_FC_CONNECT_ARENASERVER_SSERVER_GROUP_FOR_CLIENT* pMsg);
 	
-	// 2008-03-10 by bhsohn ¾Æ·¹³ª¿¡¼­ ±ÍÈ¯ Æ÷Å» Ã³¸®
+	// 2008-03-10 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Å» Ã³ï¿½ï¿½
 	void	FieldSocketArenaUseCityWarpItem();
 	void	FieldSocketInfoMSWarInfoDisplay(MSG_FC_INFO_MSWARINFO_DISPLAY* pMsg);
 	void	FieldSocketInfoMSWarInfoDisplayOptionOK(MSG_FC_INFO_MSWARINFO_DISPLAY_OPTION_OK*);
-	// 2008-03-19 by bhsohn ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢
+	// 2008-03-19 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 	void FieldSocketInfoMsWarInfoResultOk(MSG_FC_INFO_MSWARINFO_RESULT_OK* pMsg);
 	void FieldSocketInfoSpWarInfoResultOkHeader();
 	void FieldSocketInfoSpWarInfoResultOk(MSG_FC_INFO_SPWARINFO_RESULT_OK* pMsg);
-	// end 2008-03-19 by bhsohn ¸ð¼±Àü, °ÅÁ¡Àü Á¤º¸Ã¢
+	// end 2008-03-19 by bhsohn ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 	void FieldSocketEventClickTeleportOK(MSG_FC_EVENT_CLICK_TELEPORT_OK* pMsg);
-	// 2008-04-22 by bhsohn ¸ð¼±/°ÅÁ¡Àü ÁøÇàÁßÀÎ Á¤º¸µµ Ç¥½Ã ÇÏ°Ô º¯°æ
+	// 2008-04-22 by bhsohn ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketInfoSpWarInfoResultOkDone();
 
-	// 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
-	// ÆíÁö ¸®½ºÆ® ¸Þ½ÃÁö
+	// 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ½ï¿½ï¿½ï¿½
 	void FieldSocketChatLetterRqTitleHeader();
 	void FieldSocketChatLetterRqTitle(MSG_FC_CHAT_LETTER_REQUEST_TITLE_OK* pMsg);	
 	void FieldSocketChatLetterRqTitleOkDone();
 
-	void FieldSocketChatALLLetterRqTitle(MSG_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK* pMsg); // ÀüÃ¼ ÆíÁö
-	void FieldSocketChatALLLetterRqTitleOkDone();	 // ÀüÃ¼ ÆíÁö ´Ù ¹Þ¾ÒÀ½
+	void FieldSocketChatALLLetterRqTitle(MSG_FC_CHAT_ALLLETTER_REQUEST_TITLE_OK* pMsg); // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+	void FieldSocketChatALLLetterRqTitleOkDone();	 // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½
 
-	void FieldSocketLetterReadOk(MSG_FC_CHAT_LETTER_READ_OK* pMsg);		// ÆíÁö ³»¿ë ¿äÃ»
-	void FieldSocketAllLetterReadOk(MSG_FC_CHAT_ALLLETTER_READ_OK* pMsg);		// ÀüÃ¼ÆíÁö ³»¿ë ¿äÃ»
-	void FieldSocketChatLetterDelOk();	// ÆíÁö »èÁ¦
-	void FieldSocketChatSendOk();		// ÆíÁö º¸³»±â
+	void FieldSocketLetterReadOk(MSG_FC_CHAT_LETTER_READ_OK* pMsg);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	void FieldSocketAllLetterReadOk(MSG_FC_CHAT_ALLLETTER_READ_OK* pMsg);		// ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	void FieldSocketChatLetterDelOk();	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void FieldSocketChatSendOk();		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void FiedldSocketChatLetterReceive(MSG_FC_CHAT_LETTER_RECEIVE* pMsg);
 	void FiedldSocketChatAllLetterReceive(MSG_FC_CHAT_ALLLETTER_RECEIVE* pMsg);
 	void FieldSocketCharacterGetUserInfoOk(MSG_FC_CHARACTER_GET_USER_INFO_OK* pMsg);
 	
-	void FieldSocketCharacterGetUserItemInfoSecretOk(MSG_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET_OK* pMsg);	// 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â					// 2012-07-12 by isshin ¾ÆÅÛ¹Ì¸®º¸±â On / Off ±â´É - °ø°³ ¿©ºÎ
-	void FieldSocketCharacterGetUserItemInfoOk(MSG_FC_ENEMY_ITEM_INFO* pMsg);		// 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â
-	void FieldSocketCharacterGetUserItemInfoDone(MSG_FC_CHARACTER_GET_USER_ITEM_INFO_OK_DONE* pMsg);	// 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â		
+	void FieldSocketCharacterGetUserItemInfoSecretOk(MSG_FC_CHARACTER_GET_USER_ITEM_INFO_SECRET_OK* pMsg);	// 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½					// 2012-07-12 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ On / Off ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void FieldSocketCharacterGetUserItemInfoOk(MSG_FC_ENEMY_ITEM_INFO* pMsg);		// 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	void FieldSocketCharacterGetUserItemInfoDone(MSG_FC_CHARACTER_GET_USER_ITEM_INFO_OK_DONE* pMsg);	// 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½		
 	void FieldSocketCharacterChangeInfoOptionSecetOk();
-	// end 2008-04-04 by bhsohn Ep3 Ä¿¹Â´ÏÆ¼ Ã¢
-	// 2008-11-04 by dgwoo LuckyMachine±âÈ¹ Ãß°¡.
+	// end 2008-04-04 by bhsohn Ep3 Ä¿ï¿½Â´ï¿½Æ¼ Ã¢
+	// 2008-11-04 by dgwoo LuckyMachineï¿½ï¿½È¹ ï¿½ß°ï¿½.
 	void FieldSocketItemUseRuckyItemOK(MSG_FC_ITEM_USE_LUCKY_ITEM_OK* pMsg);
-	// 2008-11-04 by dgwoo LuckyMachine±âÈ¹ Ãß°¡.
+	// 2008-11-04 by dgwoo LuckyMachineï¿½ï¿½È¹ ï¿½ß°ï¿½.
 
-	// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketItemChangedShapeItemNum( MSG_FC_ITEM_CHANGED_SHAPEITEMNUM* pMsg );
 	void FieldSocketItemChangedEffectItemNum( MSG_FC_ITEM_CHANGED_EFFECTITEMNUM* pMsg );
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2010. 01. 12 by ckPark ¹«°Ô °ÔÀÌÁö °è»ê½Ã ¾ÆÀÌÅÛ ½ºÅÝÀÌ ¾Æ´Ñ ¿øº» ½ºÅÝÀ¸·Î °è»êÇÏ´ø ¹®Á¦ ÇØ°á
+	// 2010. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	void FieldSocketPutAllQuestDone( void );
-	// end 2010. 01. 12 by ckPark ¹«°Ô °ÔÀÌÁö °è»ê½Ã ¾ÆÀÌÅÛ ½ºÅÝÀÌ ¾Æ´Ñ ¿øº» ½ºÅÝÀ¸·Î °è»êÇÏ´ø ¹®Á¦ ÇØ°á
+	// end 2010. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	
-	// 2009-02-03 by bhsohn ¹Ì¼Ç ½ÃÀÛ½Ã ¿Ï·á Ã¼Å© Ã¼Å©
+	// 2009-02-03 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Ï·ï¿½ Ã¼Å© Ã¼Å©
 	void FieldSocketQuestPutAllQuestMonsterCountDone();
-	// end 2009-02-03 by bhsohn ¹Ì¼Ç ½ÃÀÛ½Ã ¿Ï·á Ã¼Å© Ã¼Å©
+	// end 2009-02-03 by bhsohn ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Ï·ï¿½ Ã¼Å© Ã¼Å©
 
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	void FieldSocketInfoWRKGetServiceInfoOk(MSG_FC_INFO_WRK_GET_SERVICE_INFO_OK* pMsg);
 	void FieldSocketInfoWRKGetServiceInfoOkImage(MSG_FC_INFO_WRK_GET_SERVICE_INFO_OK_IMAGE* pMsg);
 	void FieldSocketInfoWRKGetServiceInfoOkDone();
@@ -1318,79 +1318,79 @@ protected:
 	void FieldSocketInfoWRKGetPVPRankerListOk(MSG_FC_INFO_WRK_GET_PVP_RANKER_LIST_OK* pMsg);
 	void FieldSocketCharacterChangeNickNameOk(MSG_FC_CHARACTER_CHANGE_NICKNAME_OK* pMsg);
 	void FieldSocketInfoWrkGetSelfRankingOk(MSG_FC_INFO_WRK_GET_SELF_RANKING_OK* pMsg);
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2009-03-10 by bhsohn nProtector CS¸ðµâ Ãß°¡
+	// 2009-03-10 by bhsohn nProtector CSï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	void FieldSocketMoveNProtectReqAuthData(MSG_FC_MOVE_NPROTECT_REQ_AUTH_DATA* pMsg);
-	// end 2009-03-10 by bhsohn nProtector CS¸ðµâ Ãß°¡
-	// 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
+	// end 2009-03-10 by bhsohn nProtector CSï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketMoveNProtectNewReqAuthData(MSG_FC_MOVE_NPROTECT_NEW_REQ_AUTH_DATA* pMsg);
-	// end 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
-	// 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	// end 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
+	// 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 	void FieldSocketMoveXTrapReqStep(MSG_FC_MOVE_XTRAP_REQ_STEP* pMsg);	
-	//end 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	//end 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 
-	// 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	void FieldSocketApexReqApexData( MSG_FC_MOVE_APEX_REQ_APEXDATA* pMsg );
-	// end 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// end 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 
-	// 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å 
+	// 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ 
 	void FieldSocketCharacterChangeStart(MSG_FC_CHARACTER_CHANGE_START_CITY_MAPINDEX_OK* pMsg);
-	//end 2009. 10. 14 by jskim ÇÁ¸®½ºÄ« Á¦°Å 
-	// 2009. 11. 3 by jskim Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö
+	//end 2009. 10. 14 by jskim ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½ 
+	// 2009. 11. 3 by jskim Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketChangeAddedInventoryCount(MSG_FC_CHARACTER_CHANGE_ADDED_INVENTORY_COUNT* pMsg);
-	//end 2009. 11. 3 by jskim Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö
-	// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+	//end 2009. 11. 3 by jskim Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 	void FieldSocketItemUpdateTransformerOk(MSG_FC_ITEM_UPDATE_TRANSFORMER_OK* pMsg);
-	//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-	// 2009-04-01 by bhsohn ¼¼·Â ºÒ±ÕÇü, ¼¼·Â ÃÊ±âÈ­ ½Ã½ºÅÛ
+	//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	// 2009-04-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Ò±ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½
 	void FieldSocketQuestInserQuest(MSG_FC_QUEST_INSERT_QUEST* pMsg);
 	void FieldSocketQuestDeleteQuest(MSG_FC_QUEST_DELETE_QUEST* pMsg);
-	// end 2009-04-01 by bhsohn ¼¼·Â ºÒ±ÕÇü, ¼¼·Â ÃÊ±âÈ­ ½Ã½ºÅÛ
+	// end 2009-04-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Ò±ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½
 	
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketCharacterKillCount(MSG_FC_CHARACTER_KILLCOUNT* pMsg);
 	void FieldSocketCharacterRestCount(MSG_FC_CHARACTER_RESTCOUNT* pMsg);
 	void FieldSocketCharacterBonusExpRate(MSG_FC_CHARACTER_BONUS_EXP_RATE* pMsg);
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	// 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö ÇÁ·ÎÅäÄÝ Ã³¸®
+	// 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void FieldSocketHomePremium(MSG_FC_ITEM_HOMEPREMIUM_INFO* pMsg);
-	//end 2010. 06. 08 by jskim È¨ÇÁ¸®¹Ì¾ö ÇÁ·ÎÅäÄÝ Ã³¸®
+	//end 2010. 06. 08 by jskim È¨ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ÇÁ·ÎÅäÄÝ Ã³¸®
+	// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void FieldSocketCurrentPetBaseData(MSG_FC_ITEM_PET_BASEDATA* pMsg);
-//	void FieldSocketCurrentPetSkillData(MSG_FC_ITEM_PET_SKILLDATA* pMsg);		   //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-//	void FieldSocketCurrentPetSocketData(MSG_FC_ITEM_PET_SOCKETDATA* pMsg);		   //2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-	// End 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ÇÁ·ÎÅäÄÝ Ã³¸®
+//	void FieldSocketCurrentPetSkillData(MSG_FC_ITEM_PET_SKILLDATA* pMsg);		   //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+//	void FieldSocketCurrentPetSocketData(MSG_FC_ITEM_PET_SOCKETDATA* pMsg);		   //2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	// End 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	void FieldSocketStoreUpdateArmorItemEventInfo(MSG_FC_STORE_UPDATE_ARMOR_ITEM_EVENT_INFO* pMsg); // 2013-05-15 by ssjung ÀÌ´ÞÀÇ ¾Æ¸Ó - ÀÌ´ÞÀÇ ¾Æ¸Ó º¯°æ »çÇ× ÆÐÅ¶ °ü·Ã 
+	void FieldSocketStoreUpdateArmorItemEventInfo(MSG_FC_STORE_UPDATE_ARMOR_ITEM_EVENT_INFO* pMsg); // 2013-05-15 by ssjung ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ - ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ 
 
-	// 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
+	// 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	void FieldSocketCollectionInfo(MSG_FC_COLLECTION_INFO* pMsg);
 	void FieldSocketCollectionShapeChange(MSG_FC_COLLECTION_SHAPE_CHANGE* pMsg);
 	void UpdateStoreShapeItemNum(MSG_FC_ITEM_CHANGED_SHAPEITEMNUM* pMsg );
-	// END 2013-05-28 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ
+	// END 2013-05-28 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2013-06-26 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç Ãß°¡ °³¹ß
-	void PopupUseRandomBoxOk(INT nResultItemNum0);	// »ý¼ºµÈ ItemNum
-	void PopupGetCollectionInfo(INT nResultItemNum0);	// ¾òÀº ¾Æ¸Ó ÄÃ·º¼Ç Á¤º¸
-	// END 2013-06-26 by bhsohn ¾Æ¸Ó ÄÃ·º¼Ç Ãß°¡ °³¹ß
+	// 2013-06-26 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void PopupUseRandomBoxOk(INT nResultItemNum0);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ItemNum
+	void PopupGetCollectionInfo(INT nResultItemNum0);	// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// END 2013-06-26 by bhsohn ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-06-14 by ssjung ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ ÀÌ´ÞÀÇ ¾Æ¸Ó 
+	// 2013-06-14 by ssjung ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ 
 	void FieldSocketCollectionMontylyAromorInit();
 	void FieldSocketCollectionMontylyAromorInfo(MSG_FC_COLLECTION_MONTHLY_AROMOR_EVENT_INFO* pMsg);
-	// end 2013-06-14 by ssjung ¾Æ¸Ó ÄÃ·º¼Ç ½Ã½ºÅÛ ÀÌ´ÞÀÇ ¾Æ¸Ó 
+	// end 2013-06-14 by ssjung ï¿½Æ¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Æ¸ï¿½ 
 
-	void FieldSocketWarInfluenceConsecutivePoint(MSG_FC_WAR_INFLUENCE_CONSECUTIVE_POINT* pMsg);	// 2013-08-02 by ssjung ¿ªÀüÀÇ ¹öÇÁ ÅøÆÁÇ¥½Ã
+	void FieldSocketWarInfluenceConsecutivePoint(MSG_FC_WAR_INFLUENCE_CONSECUTIVE_POINT* pMsg);	// 2013-08-02 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½
 
-	void FieldSocketInfluenceShowInfo(MSG_FC_INFLUENCE_SHOW_INFO* pMsg);		// 2014-06-18 by ymjoo È­¸é »ó´Ü¿¡ ¼¼·Â Ç¥½Ã
+	void FieldSocketInfluenceShowInfo(MSG_FC_INFLUENCE_SHOW_INFO* pMsg);		// 2014-06-18 by ymjoo È­ï¿½ï¿½ ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
-	void FieldSocketNGCWarDisplay(MSG_NGCSPWAR_DISPLAY* pMsg);				   // 2013-08-28 by ssjung °ÅÁ¡Àü ¸®´º¾ó(NGC)
+	void FieldSocketNGCWarDisplay(MSG_NGCSPWAR_DISPLAY* pMsg);				   // 2013-08-28 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(NGC)
 
-	void FieldSocketChracterPayContributionPoint(MSG_FC_CHARACTER_PAY_CONTRIBUTIONPOINT* pMsg); // 2013-10-10 by ssjung, °ÅÁ¡Àü ¸®´º¾ó - ¼¼·ÂÆ÷ÀÎÆ® ºñÀ² º¯°æ
+	void FieldSocketChracterPayContributionPoint(MSG_FC_CHARACTER_PAY_CONTRIBUTIONPOINT* pMsg); // 2013-10-10 by ssjung, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2013-11-29 by ssjung °Å·¡¼Ò ±¸Çö
+// 2013-11-29 by ssjung ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketMarketRegOK(MSG_FC_MARKET_SELL_OK* pMsg);
 	void FieldSocketMarketBuyOK(MSG_FC_MARKET_BUY_OK* pMsg);
 	void FieldSocketMarkeBaseHeader(MSG_FC_MARKET_BASE_INFO_HEAD* pMsg);
@@ -1409,8 +1409,8 @@ protected:
 	void FieldSocketMarkeSortHeader();
 	void FieldSocketMarkeSortOK(MSG_FC_MARKET_SORT_OK* pMsg);
 	void FieldSocketMarkeSortDone(MSG_FC_MARKET_SORT_DONE* pMsg);
-// end 2013-11-29 by ssjung °Å·¡¼Ò ±¸Çö
-// 2014-01-15 by ssjung ÆÄ±« °æ¸ÅÀå ±¸Çö
+// end 2013-11-29 by ssjung ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2014-01-15 by ssjung ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void FieldSocketDestroyAuctionBaseHeader(MSG_FC_DESTROY_AUCTION_BASE_INFO_HEADER* pMsg);
 	void FieldSocketDestroyAuctionBaseOk(MSG_FC_DESTROY_AUCTION_BASE_INFO_OK* pMsg);
 	void FieldSocketDestroyAuctionBaseDone();
@@ -1419,18 +1419,18 @@ protected:
 	void FieldSocketDestroyAuctionMyListOk(MSG_FC_DESTROY_AUCTION_MY_LIST_OK* pMsg);
 	void FieldSocketDestroyAuctionMyListDone();
 	void FieldSocketDestroyAuctionGetOk(MSG_FC_DESTROY_AUCTION_GET_OK* pMsg);
-	void FieldSocketDestroyAuctionNotiStart();						// 2014-06-12 by ymjoo ÆÄ±« °æ¸ÅÀå Ãß°¡ÀÛ¾÷
+	void FieldSocketDestroyAuctionNotiStart();						// 2014-06-12 by ymjoo ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½
 	void FieldSocketDestroyAuctionNotiEnd();
-// end 2014-01-15 by ssjung ÆÄ±« °æ¸ÅÀå ±¸Çö
+// end 2014-01-15 by ssjung ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	void FieldSocketBugtrapSeverInfo(SBUGTRAP_SERVER_INFO* pMsg);	// 2014-02-10 by ssjung, ¹ö±× Æ®·¦
+	void FieldSocketBugtrapSeverInfo(SBUGTRAP_SERVER_INFO* pMsg);	// 2014-02-10 by ssjung, ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½
 
-	void FieldSocketItemUseCardItemChangeInfluenceNotify(MSG_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE_NOTIFY* pMsg);	// 2014-06-10 by ymjoo ¼¼·Â º¯°æ ¾ÆÀÌÅÛ
+	void FieldSocketItemUseCardItemChangeInfluenceNotify(MSG_FC_ITEM_USE_CARDITEM_CHANGE_INFLUENCE_NOTIFY* pMsg);	// 2014-06-10 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 
 	// OnRecvIMSocket~
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//int	OnRecvIMSocketMessage(DWORD wParam);
 	int	OnRecvIMSocketMessage(DWORD wParam, UINT uMsg);
 	// IMSocket~
@@ -1443,32 +1443,35 @@ protected:
 	VOID	IMSocketChatCashAll(MSG_IC_CHAT_CASH_ALL* pMsg);
 	VOID	IMSocketChatInfluenceAll(char* pPacket);
 	VOID	IMSocketChatWar(MSG_IC_CHAT_WAR* pMsg);
+#ifdef _RAT_CHAT_SYSTEM
+	VOID	IMSocketChatInfluenceAll_RAT(MSG_IC_CHAT_INFLUENCE_ALL_RAT* pMsg);
+#endif
 	VOID	IMSocketChatChatRoom(MSG_IC_CHAT_CHATROOM* pMsg);
 	
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 //	VOID	IMSocketChatGetGuildOk(MSG_IC_CHAT_GET_GUILD_OK* pMsg);
 //	VOID	IMSocketChatChangeGuild(MSG_IC_CHAT_CHANGE_GUILD* pMsg);
 //	VOID	IMSocketChatChangeParty(MSG_IC_CHAT_CHANGE_PARTY* pMsg);
 	VOID	IMSocketChatGetGuildOk(MSG_IC_CHAT_GET_GUILD_OK* pMsg, UINT nSocketNotifyType);
 	VOID	IMSocketChatChangeGuild(MSG_IC_CHAT_CHANGE_GUILD* pMsg, UINT nSocketNotifyType);
 	VOID	IMSocketChatChangeParty(MSG_IC_CHAT_CHANGE_PARTY* pMsg, UINT nSocketNotifyType);
-	// end 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// end 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 
 	void	FieldSocketEventInfluenceMark(MSG_FC_EVENT_INFLUENCEMARK* pMsg);
 	void	FieldSocketEventInfluenceMarkEnd();
 
-	// 2008-11-21 by bhsohn °Å·¡ ¿Ï·á ½Ã½ºÅÛ Ã³¸®
+	// 2008-11-21 by bhsohn ï¿½Å·ï¿½ ï¿½Ï·ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	FieldSocketTradeOkTradeNotify(MSG_FC_TRADE_OK_TRADE_NOTIFY* pMsg);
-	// end 2008-11-21 by bhsohn °Å·¡ ¿Ï·á ½Ã½ºÅÛ Ã³¸®
+	// end 2008-11-21 by bhsohn ï¿½Å·ï¿½ ï¿½Ï·ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	
-	// 2010-08-31 by shcho&&jskim, ¿ëÇØ ½Ã½ºÅÛ ±¸Çö
+	// 2010-08-31 by shcho&&jskim, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	FieldSocketDissolDissolutionPutItem(MSG_FC_DISSOLVED_SUCCESS_AND_FAILED* pMsg);
-	// end 2010-08-31 by shcho&&jskim, ¿ëÇØ ½Ã½ºÅÛ ±¸Çö
+	// end 2010-08-31 by shcho&&jskim, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	// 2011-05-17 by jhahn	ÀÎÇÇ3Â÷ ¸ó½ºÅÍ ±³Ã¼
+	// 2011-05-17 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 	void	FieldMonsterChangeOK(MSG_FC_MONSTER_CHANGE_INDEX* pMsg);
-	// end 2011-05-17 by jhahn	ÀÎÇÇ3Â÷ ¸ó½ºÅÍ ±³Ã¼
-	//2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
+	// end 2011-05-17 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+	//2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	void	FieldPetNameChangeOK(MSG_FC_ITEM_PET_SET_NAME_OK* pMsg );
 	void	FieldPetExpRationOK(MSG_FC_ITEM_PET_SET_EXP_RATIO_OK* pMsg);
 	
@@ -1478,19 +1481,19 @@ protected:
 	void	FieldPetSetSocket(MSG_FC_ITEM_PET_SET_SOCKET_OK* pMsg);
 	void	FieldPetSetKitSlot(MSG_FC_ITEM_PET_SET_KIT_SLOT_OK* pMsg);	
 	void	FieldPetSetAutoSkillSlot(MSG_FC_ITEM_PET_SET_AUTOSKILL_SLOT_OK* pMsg);
-	//end 2011-10-06 by jhahn ÆÄÆ®³Ê ¼ºÀåÇü ½Ã½ºÅÛ
-	// 2011-05-30 by jhahn, ÀÎÇÇ3Â÷ ¸ó½ºÅÍ »èÁ¦
+	//end 2011-10-06 by jhahn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	// 2011-05-30 by jhahn, ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	FieldMonsterDeleteOK(MSG_FC_MONSTER_CINEMA_DELETE_NOTIFY* pMsg);
-	// end 2011-05-30 by jhahn, ÀÎÇÇ3Â÷ ¸ó½ºÅÍ »èÁ¦
+	// end 2011-05-30 by jhahn, ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2011-05-30 by jhahn, ÀÎÇÇ3Â÷ ½Ã°£ ¼ÂÆÃ
+	// 2011-05-30 by jhahn, ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	FieldSocketInfinityResetTime( MSG_FC_INFINITY_SET_LIMITTIME* pMsg );
-	// end 2011-05-30 by jhahn, ÀÎÇÇ3Â÷ ½Ã°£ ¼ÂÆÃ
+	// end 2011-05-30 by jhahn, ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-	// 2011-05-17 by jhahn	ÀÎÇÇ3Â÷½Ã³×¸¶ º¯°æ
+	// 2011-05-17 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	FieldInfinityCinemaOK(MSG_FC_INFINITY_MOVIE* pMsg);
-	// end 2011-05-17 by jhahn	ÀÎÇÇ3Â÷½Ã³×¸¶ º¯°æ
+	// end 2011-05-17 by jhahn	ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½Ã³×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	VOID	IMSocketPartyAcceptInviteOk(MSG_IC_PARTY_ACCEPT_INVITE_OK* pMsg);
 	VOID	IMSocketPartyPutMember(MSG_IC_PARTY_PUT_MEMBER* pMsg);
@@ -1575,68 +1578,68 @@ protected:
 	VOID	IMSocketChatRoomChangeMaxMemberOK(MSG_IC_CHATROOM_CHANGE_MAX_MEMBER_OK* pMsg);
 	VOID	IMSocketChatRoomMemberInfoOK(MSG_IC_CHATROOM_MEMBER_INFO_OK* pMsg);
 	VOID	IMSocketChatRoomOtherMemberInfoOK(MSG_IC_CHATROOM_MEMBER_INFO_OK* pMsg);
-	// 2008-07-11 by bhsohn Á¢¼ÓÇÑ Ä£±¸ ¸®½ºÆ® ½Ã½ºÅÛ Ãß°¡
+	// 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	void	IMSocketChatOnlineEachOtherFriendCount(MSG_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT* pMsg);
 
-	// 2008-06-16 by bhsohn EP3°ü·Ã ¹ö±×¼öÁ¤
+	// 2008-06-16 by bhsohn EP3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 	void	IMSocketGuildUpdateIntroductionOk();
 	void	IMSocketGuildDelIntroductionOk();
 	void	IMSocketUpdateSelfIntroOk();
 	void	IMSocketDelSelfIntroOk();
 
-	// 2008-06-18 by bhsohn ¿©´Ü¿øÁõ°¡ Ä«µå °ü·Ã Ã³¸®
+	// 2008-06-18 by bhsohn ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	IMSocketGuildChangeMemberShip(MSG_IC_GUILD_CHANGE_MEMBERSHIP* pMsg);
 
 	
-	// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-	// ¼±ÀüÆ÷°í ¼³Á¤ÀÌ µµÂøÇßÀ» °æ¿ì
+	// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void	IMSocketWarDeclareSetOK(MSG_IC_INFO_DECLARATION_MSWAR_SET_OK* pMsg);
-	// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-	// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+	// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 	void	IMSocketPartyUpdateItemTransformerOk(MSG_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK* pMsg);
-	//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
-	// 2008-07-17 by bhsohn ±æµå¿ø ·©Å© °»½Å½Ã ÆÃ±â´Â ¹®Á¦ ÇØ°á
+	//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	// 2008-07-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½Å½ï¿½ ï¿½Ã±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	void	IMGuildChangeFameRank(MSG_IC_GUILD_CHANGE_FAME_RANK* pMsg);
 
-	// 2009-01-12 by bhsohn Ä£±¸ µî·Ï ´çÇÏ´Â À¯Àú ¸Þ½ÃÁöÃ¢ ±â´É Ãß°¡
+	// 2009-01-12 by bhsohn Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	VOID	IMChatFriendListInsertNotify(MSG_IC_CHAT_FRIENDLIST_INSERT_NOTIFY* pMsg);
-	// end 2009-01-12 by bhsohn Ä£±¸ µî·Ï ´çÇÏ´Â À¯Àú ¸Þ½ÃÁöÃ¢ ±â´É Ãß°¡
+	// end 2009-01-12 by bhsohn Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// 2007-04-19 by bhsohn ¼­Ä¡¾ÆÀÌ ¾ÆÀÌÅÛ Ãß°¡
-	// ¼­Ä¡ ¾ÆÀÌ ÀÌÆåÆ® »ç¿ë
+	// 2007-04-19 by bhsohn ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	VOID	FieldSocketCharacterMapEffectOk(MSG_FC_CHARACTER_SHOW_MAP_EFFECT_OK* pMsg);
 
 	// 2007.04.24 by bhsohn China IME Working
 	BOOL	RenderReadingText(int x, int y);
 
-	// 2007-07-04 by bhsohn ¿ÀÆÛ·¹ÀÌÅÍ Ãß°¡
+	// 2007-07-04 by bhsohn ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	VOID ShowOpMissionComplete(MSG_FC_QUEST_REQUEST_SUCCESS_RESULT* pMsg);	
 
-	// 2007-07-24 by bhsohn ³ª·¹ÀÌ¼Ç mp3Ãß°¡
+	// 2007-07-24 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ mp3ï¿½ß°ï¿½
 	void	CompleteNarrationSound(char* pNarrationMusic);	
 
-	// 2007-11-01 by bhsohn ÇØÇÇ ¾Æ¿ì¾î ÀÌº¥Æ® Ã³¸® ¹æ½Ä º¯°æ
+	// 2007-11-01 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	VOID	RequestHappyHourInfo();
-	// 2007-11-28 by dgwoo ÃÖÃÊ Á¢¼Ó½Ã ¹ÞÀ» ¸Þ½ÃÁö°¡ ÀÖ´ÂÁö ¼­¹ö·Î ¿äÃ».
+	// 2007-11-28 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 	VOID	RequestNotifyMsg();
 
-	// 2007-11-05 by bhsohn ¸ó½ºÅÍ ¿ÀºêÁ§Æ® Ã¼Å©¼¶ Ã³¸®
+	// 2007-11-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©ï¿½ï¿½ Ã³ï¿½ï¿½
 	BOOL	IsMeshMonsterObject(int nMeshIndex);
 
-	// 2007-12-21 by bhsohn ÇÁ·Î±×·¥ ´ÙÁß ¶ô ±¸Á¶ »ý¼º
+	// 2007-12-21 by bhsohn ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	InitMultiLockInfo();
 
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	BOOL	ForceMousePos(UINT uMsg, WPARAM wParam, LPARAM lParam);
 	void	ShowPartyChangeInfo(SPARTY_INFO* pNewSetupInfo);
 
-	// 2008-12-30 by bhsohn ÀüÀïº¸»óÃß°¡ ±âÈ¹¾È
+	// 2008-12-30 by bhsohn ï¿½ï¿½ï¿½ïº¸ï¿½ï¿½ï¿½ß°ï¿½ ï¿½ï¿½È¹ï¿½ï¿½
 	VOID	CreateChatWarContribution(BYTE i_ItemUpdateType, int i_nOrgItemCount, int i_nNewItemCount);
 
 private:
 	void	RenderDbg();
 
-	// 2004-12-13 by jschoi - Fade-In & Out ½Ã½ºÅÛ
+	// 2004-12-13 by jschoi - Fade-In & Out ï¿½Ã½ï¿½ï¿½ï¿½
 	void	FadeEffectTick();
 	void	FadeEffectRender();
 
@@ -1644,43 +1647,43 @@ private:
 	void	RenderRequestEnable();
 	void	RequestEnableTick(float fElapsedTime);
 
-	// 2005-03-17 by jschoi - Error Ã³¸®
+	// 2005-03-17 by jschoi - Error Ã³ï¿½ï¿½
 	BOOL	FieldSocketErrorByMsgType(MSG_ERROR* pMsg);
 	BOOL	FieldSocketErrorByErrorCode(MSG_ERROR* pMsg);
 	BOOL	IMSocketErrorByMsgType(MSG_ERROR* pMsg);
 	BOOL	IMSocketErrorByErrorCode(MSG_ERROR* pMsg);
 
 	/*--------------------------------------------------------------------------*/
-	// 2006-06-05 by ispark, ÇÙ ½¯µå º» ÇÔ¼ö
+	// 2006-06-05 by ispark, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½
 	BOOL	HS_Init();
 	BOOL	HS_UnInit();
 	BOOL	HS_StartService();
 	BOOL	HS_StopService();
 	/*--------------------------------------------------------------------------*/
 	/*--------------------------------------------------------------------------*/
-	// ÇÙ ½¯µå °ü·Ã ÇÔ¼ö
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	BOOL	HS_SaveFuncAdress();
 
-	// 2008-04-04 by bhsohn ÇÙ½¯µå ¹æ½Ä º¯°æ
+	// 2008-04-04 by bhsohn ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//void	HS_MakeGuidAckMsg(unsigned char *pbyReqMsg, unsigned char *pbyAckMsg);
 	//void	HS_MakeCRCAckMsg(unsigned char *pbyReqMsg, unsigned char *pbyAckMsg);
-	// end 2008-04-04 by bhsohn ÇÙ½¯µå ¹æ½Ä º¯°æ
+	// end 2008-04-04 by bhsohn ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
+	// 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	//void	HS_SendHackShieldErrorMsg(long lHackClientCode, char * pMsg = NULL);
 	/*--------------------------------------------------------------------------*/
 	/*--------------------------------------------------------------------------*/
-	// 2006-06-15 by ispark, ÀÏÁ¤ ½Ã°£¿¡ ÆÐÅ¶ º¸³»´Â ÇÔ¼ö
+	// 2006-06-15 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	void	SendOtherPacket();
 	/*--------------------------------------------------------------------------*/
 	
-	// 2006-11-16 by ispark, ¾ËÆÄ ·»´õ¸µ
+	// 2006-11-16 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void	RenderAlpha();
 
-	// 2007-02-12 by bhsohn Item ´ÙÁß ¼±ÅÃ Ã³¸®
+	// 2007-02-12 by bhsohn Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	AddMultiItemList(deque<stMultiSelectItem>* pVector, const stMultiSelectItem* pSelItem, BOOL bfrontAdd);	
 	void	DelMultiItem(deque<stMultiSelectItem>* pVector, INVEN_DISPLAY_INFO *pDisplayInfo);
-	void	DelCityStoreMultiItem(UID64_t	 nUniqueNumber);	// Ã¢°í¿¡¼­ ¼±ÅÃ Ãë¼Ò
+	void	DelCityStoreMultiItem(UID64_t	 nUniqueNumber);	// Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void	SellMultiResponseOK();
 	void	SellMutltiOneItem();
 	void	Convert_DWORD_To_String(DWORD dwNum, char* pDstSpi);
@@ -1696,54 +1699,54 @@ private:
 	BOOL	IsCheckSPIEmpty();
 	BOOL	IsCheckGuildStore();
 
-	// 2007-02-28 by bhsohn ´ÙÁß ÆÇ¸Å½Ã 0 spi¿¡ ´ëÇÑ Ã³¸®
+	// 2007-02-28 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸Å½ï¿½ 0 spiï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	UpdateMultiSellZeroSPIItem(UID64_t nUniqueNumber);
 
-	// 2007-03-09 by bhsohn ´ÙÁß ¼±ÅÃ Ã¢°í ºÎºÐ º¸¾È
+	// 2007-03-09 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL	IsStoreHave(int nItemNum);
 	BOOL	IsInvenHave(int nItemNum);
 
-	// 2007-04-02 by bhsohn MoveÆÐÅ¶À¸·Î Àû±â »óÅÂ Ã¼Å©
+	// 2007-04-02 by bhsohn Moveï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	void	UpdateEnemySkillState(bool bUseSkill, CUnitData* pUnit, ClientIndex_t	ClientIndex, INT ItemNum);
 
-	// 2007-07-09 by bhsohn ¹ÙÀÚ »óÁ¡°ú »óÁ¡ µ¿½Ã ¿ÀÇÂ½Ã¿¡ ´ëÇÑ Ã³¸®
+	// 2007-07-09 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	VOID	CancelBazzarSkill(int nSkillItemNum);
 
-	// 2007-07-24 by bhsohn ³ª·¹ÀÌ¼Ç mp3Ãß°¡
+	// 2007-07-24 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ mp3ï¿½ß°ï¿½
 	void	PlayNarrationSound();
 
-	// 2007-08-03 by bhsohn Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® Ã¼Å©½æ º¸³¿
+	// 2007-08-03 by bhsohn Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	ResetCharecterOmiInfo();
 	
-	// 2007-08-07 by bhsohn ½ºÇÇÄ¿ ¾ÆÀÌÅÛ Ãß°¡
+	// 2007-08-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	VOID	AddSpeakerGMString(char* pGmChat, BOOL bGmColor);
 
-	// 2007-08-23 by bhsohn ¼¼·ÂÀü½Ã ±â¿©µµ°¡ Å« À¯Àú¿¡ ´ëÇÑ ¸Þ½ÃÁö Ã³¸®
+	// 2007-08-23 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	VOID	AlertMsgWarMonsterInfo(MEX_MONSTER_INFO* pMonsterInfo, char* pBestGuildName);
 
 	// 2007-09-05 by bhsohn China IME Working
 	void	TickImeChange();
 
-	// 2008-01-11 by bhsohn 1ºÐµ¿¾È °­Á¦·Î Å¬¶óÀÌ¾ðÆ® ¸ØÃß°Ô ÇÏ¸é Å¬¶óÀÌ¾ðÆ® °­Á¦ Á¾·á
-	BOOL	IsCompultionGame(DWORD dwCapTime);		// °­Á¦ Á¢¼Ó Á¾·á ¿©ºÎ ÆÇ´Ü
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
-	CFieldWinSocket* GetFieldWinSocket(UINT nSocketNotifyType);		// ÇöÀç »óÅÂ¿¡ ¸Â´Â ÇÊµå ¼ÒÄÏ
-	CIMSocket* GetIMWinSocket(UINT nSocketNotifyType);				// ÇöÀç »óÅÂ¿¡ ¸Â´Â IM¼ÒÄÏ
+	// 2008-01-11 by bhsohn 1ï¿½Ðµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ß°ï¿½ ï¿½Ï¸ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	BOOL	IsCompultionGame(DWORD dwCapTime);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
+	CFieldWinSocket* GetFieldWinSocket(UINT nSocketNotifyType);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½Â´ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½
+	CIMSocket* GetIMWinSocket(UINT nSocketNotifyType);				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½Â´ï¿½ IMï¿½ï¿½ï¿½ï¿½
 	void DoModalAreanQuestion();
-	void ReCreateAllGameObject();										// °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ´Ù Áö¿îÈÄ ´Ù½Ã »ý¼º
-	void SetMyShuttleInfo(CHARACTER* pCharacter);		// ³»±âÃ¼ÀÇ Å¬¶óÀÌ¾ðÆ® ÀÎµ¦½º °ª º¯°æ
+	void ReCreateAllGameObject();										// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void SetMyShuttleInfo(CHARACTER* pCharacter);		// ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendArenaIMLogin();
 
-	// 2008-03-03 by bhsohn ÅëÇÕ ¾Æ·¹³ª IM¼­¹ö ¿¬°á°úÁ¤ ¼öÁ¤
+	// 2008-03-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ArenaIMSocketConnectLoginOk();
 	void IMSocketConnectFmToImOk();
 
-	// 2008-05-28 by bhsohn Multi Lock³¡³ª°í ¿äÃ»ÇÒ »çÇ× ÀÖÀ»½Ã¿¡ ´ëÇÑ Ã³¸®
+	// 2008-05-28 by bhsohn Multi Lockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void MultiLockFinished(MessageType_t	nPreLockMsg);
 
-	// 2008-06-03 by bhsohn EP3 ¿©´Ü °ü·Ã Ã³¸®
-	void IMSocketNoticeWriteOk(MSG_IC_GUILD_NOTICE_WRITE_OK* pMsg);		// ¿©´Ü °øÁö »çÇ× µî·Ï
-	// ¿©´Ü Áö¿øÀÚ °ü¸®
+	// 2008-06-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	void IMSocketNoticeWriteOk(MSG_IC_GUILD_NOTICE_WRITE_OK* pMsg);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void IMSocketGetApplicantOkHeader();
 	void IMSocketGetApplicantOKDone();
 	void IMSocketGetApplicantOk(MSG_IC_GUILD_GET_APPLICANT_OK *pMsg);	
@@ -1752,44 +1755,44 @@ private:
 	void IMSocketGuildSearchIntroDone();
 	void IMSocketGuildMemerLevelUp(MSG_IC_GUILD_MEMBER_LEVEL_UP* pMsg);
 
-	// 2008-06-03 by bhsohn EP3 Æí´ë °ü·Ã Ã³¸®
-	void IMSocketPartyListInfoOk(MSG_IC_PARTY_LIST_INFO_OK* pMsg); // Æí´ë ¸®½ºÆ® 
+	// 2008-06-03 by bhsohn EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	void IMSocketPartyListInfoOk(MSG_IC_PARTY_LIST_INFO_OK* pMsg); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® 
 	void IMSocketPartyReCommandMemberOk(MSG_IC_PARTY_RECOMMENDATION_MEMBER_OK* pMsg) ;
 	void IMSocketPartyChangeInfoOk();
 	void IMSocketPartyInfo(MSG_IC_PARTY_INFO* pMsg);
 	void IMSocketGetSelfIntroductionOK(MSG_IC_GUILD_GET_SELF_INTRODUCTION_OK* pMsg);
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	void IMSocketPartyGetAutoInfoOK( MSG_IC_PARTY_GET_AUTO_PARTY_INFO_OK* pMsg );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
+	// 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
 	BOOL SetTempCharcaterInfo();
 
-	// 2008-08-18 by bhsohn 1ÃÊ °£°Ý ¾ÆÀÌÅÛ ÀÌµ¿ ½Ã½ºÅÛ 
+	// 2008-08-18 by bhsohn 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 
 	void TickItemSell();
-	void IntervalSellMutltiOneItem();	// °£°ÝÀ» ÁÖ°í ÆÇ¸Å
+	void IntervalSellMutltiOneItem();	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½Ç¸ï¿½
 
 
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 	void TickInfinityStart( void );
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2010. 03. 23 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÔÀå Ä³½¬¾ÆÀÌÅÛ)
+	// 2010. 03. 23 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	void	TickInfintyMapLoadedSend( void );
-	// end 2010. 03. 23 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÔÀå Ä³½¬¾ÆÀÌÅÛ)
+	// end 2010. 03. 23 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	void TickJoyStickInfo();
 
-	// 2009-04-21 by bhsohn ÀÎº¥¿¡ ¾ÆÀÌÅÛ ÀÌº¥Æ® Áö±Þ½Ã ¸Þ½ÃÁöÃ¢ ¾ÈÂïÈ÷´Â ¹®Á¦ÇØ°á
+	// 2009-04-21 by bhsohn ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½Þ½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½
 	void TradeUpdateItemAddChat(MSG_FC_TRADE_UPDATE_ITEM_COUNT* pMsg);
-	// end 2009-04-21 by bhsohn ÀÎº¥¿¡ ¾ÆÀÌÅÛ ÀÌº¥Æ® Áö±Þ½Ã ¸Þ½ÃÁöÃ¢ ¾ÈÂïÈ÷´Â ¹®Á¦ÇØ°á
+	// end 2009-04-21 by bhsohn ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½Þ½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½
 
-	void TradeItemCenterLockFree();														 // 2013-11-29 by ssjung °Å·¡¼Ò ±¸Çö
+	void TradeItemCenterLockFree();														 // 2013-11-29 by ssjung ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 public:
 
@@ -1799,21 +1802,21 @@ public:
 	void	SetWeb(BOOL bWeb) { m_bWeb = bWeb; }
 	BOOL	GetWeb() { return m_bWeb; }
 //	BOOL	GetCashShopFlag(){return m_bCashShopFlag;}
-	BOOL	GetTestServerFlag() { return m_bTestServer; }	// TRUE : Å×½ºÆ® ¼­¹öÀÓ.
-	// 2012-11-28 by jhjang Å×¼· Á¢¼Ó ¿©ºÎ Ã³¸® Ãß°¡
+	BOOL	GetTestServerFlag() { return m_bTestServer; }	// TRUE : ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	// 2012-11-28 by jhjang ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 	BOOL	GetTestServerConnect() { return m_bIsTestServerConnect; }
 	void 	SetTestServerConnect(BOOL bIsTestServerConnect) { m_bIsTestServerConnect = bIsTestServerConnect; }
-	// end 2012-11-28 by jhjang Å×¼· Á¢¼Ó ¿©ºÎ Ã³¸® Ãß°¡
+	// end 2012-11-28 by jhjang ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 
-	// 2012-11-28 by jhjang Å×¼· Á¢¼Ó ¿©ºÎ Ã³¸® Ãß°¡
+	// 2012-11-28 by jhjang ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 	BYTE	GetDBSid()				{	return m_nDBSid;	}
 	void	SetDBSid(BYTE nDBSid)	{	m_nDBSid = nDBSid;	}
-	// end 2012-11-28 by jhjang Å×¼· Á¢¼Ó ¿©ºÎ Ã³¸® Ãß°¡
+	// end 2012-11-28 by jhjang ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 	void	RenderCandidate(int x, int y);
 	int		SerchMissionCondition(int nNewItemCount = 0);
 	void	SetHanFontLang(LPARAM lParam);
 	char*	GetFontStyle(){ return m_strFont;}
-	void	SendMissionComplete(int nPartyMissionIndex = 0);// 2006-03-28 by ispark, ÆÄÆ¼¹Ì¼ÇÀÏ °æ¿ì ÀÎµ¦½º¸¦ ³Ñ°Ü ¹Þ´Â´Ù.
+	void	SendMissionComplete(int nPartyMissionIndex = 0);// 2006-03-28 by ispark, ï¿½ï¿½Æ¼ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½Þ´Â´ï¿½.
 
 	int		GetUnitArmorColorNum(){return m_nArmorNum;}
 	int		GetUnitArmorColorMax(){return m_nArmorNumMax;}
@@ -1834,15 +1837,15 @@ public:
 	void	CheckReadyStringFiltering(char *szChat, int *nFTWordCounts, int *nFTTotalBytes);
 
 	
-	// 2006-06-05 by ispark, ÇÙ ½¯µå
+	// 2006-06-05 by ispark, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL	HS_Start();
 	void	HS_Close();
 	int	__stdcall HS_CallbackProc ( long lCode, long lParamSize, void* pParam );
 
-	// 2008-11-28 by bhsohn XignCodeÃß°¡
+	// 2008-11-28 by bhsohn XignCodeï¿½ß°ï¿½
 	BOOL StartGameGuard();
 	BOOL CloseGameGuard();
-	// end 2008-11-28 by bhsohn XignCodeÃß°¡
+	// end 2008-11-28 by bhsohn XignCodeï¿½ß°ï¿½
 
 	// 2006-06-15 by ispark
 //	template<class VECTYPE> void	SetIntDataByVector(vector<VECTYPE> &vecInfo, int nIndex);
@@ -1852,22 +1855,22 @@ public:
 	void LostDeviceTick();
 
 	void SetEffectUseItem(ITEM* pItemInfo);
-	// 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void SetPlayEffect(INT nEffectNum,INT nSoundNum);
-	// end 2012-10-12 by jhjang ÇØÇÇ ¾Æ¿ö °æÇèÄ¡ º¸³Ê½º ½Ã½ºÅÛ ¸®´º¾ó
+	// end 2012-10-12 by jhjang ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// 2007-02-12 by bhsohn Æ÷Ä¿½º ÀÒ¾î ¸Ô¾úÀ» ‹šÀÇ ¹®Á¦ Ã³¸®
+	// 2007-02-12 by bhsohn ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½Ò¾ï¿½ ï¿½Ô¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void UpdateCheckTime();
 	FLOAT GetCheckElapsedTime();
 
-	// 2007-02-12 by bhsohn Item ´ÙÁß ¼±ÅÃ Ã³¸®
+	// 2007-02-12 by bhsohn Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	StartSellMultiItem();	
 	BOOL	SetMultiSelectItem(INVEN_DISPLAY_INFO *pDisplayInfo, INVEN_DISPLAY_INFO	*pSelectItem, POINT ptIcon, BYTE bySelectType);
 
-	// 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//BOOL	SetMultiSelectCityStoreItem(CItemInfo* pItemInfo, INVEN_DISPLAY_INFO	*pSelectItem, POINT ptIcon, BYTE bySelectType);
 	BOOL	SetMultiSelectCityStoreItem(CItemInfo* pItemInfo, INVEN_DISPLAY_INFO	*pSelectItem, POINT ptIcon, BYTE bySelectType, INVEN_DISPLAY_INFO  *pDisSelectItem);
-	// end 2009. 08. 27 by ckPark ±×·¡ÇÈ ¸®¼Ò½º º¯°æ ½Ã½ºÅÛ ±¸Çö
+	// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	void	OnCtrlBtnClick(BOOL bCtrlBtnClick);
 	BOOL	GetCtrlBtnClick();	
@@ -1876,29 +1879,29 @@ public:
 	void	StartFromStoreMultiItem();
 	void	FromStoreMultiOneItem();
 
-	// 2007-05-21 by bhsohn ¾Æ·¹³ª ¸Ê¿¡¼± ¹Ì¼ÇÃ¢ Å¬¸¯ ¾ÈµÇ°Ô º¯°æ
+	// 2007-05-21 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½Ã¢ Å¬ï¿½ï¿½ ï¿½ÈµÇ°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MAP_INFO* GetMyShuttleMapInfo();
 	BOOL	IsWarMotherShip();
 	
-	// 2007-06-04 by bhsohn ÇöÀç ÀúÀåµÈ ½Ã°£ ½ºÅ©¸° ¼¦
+	// 2007-06-04 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½
 	HRESULT DrawBMPText(ATUM_DATE_TIME time, HANDLE *pfFilehandle);
 
-	// 2007-06-18 by bhsohn ¾ËÆ®ÅÜ °ü·Ã ¹ö±× Ã³¸®
+	// 2007-06-18 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void	SetKeyBoardLostDevice(BOOL bLostDevice);
 
-	// 2007-11-27 by bhsohn Å×½ºÆ® ¼­¹ö µðÆÄÀÎ
+	// 2007-11-27 by bhsohn ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	BOOL IsTestServerDefine() { return m_bTestServerDefine; }
-// 2007-11-20 by bhsohn ¸Ê·Îµù ÇÏ´Â ¹æ½Ä º¯°æ
+// 2007-11-20 by bhsohn ï¿½Ê·Îµï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	ConnectLoginIMServer(char* pUserId,char* pCharacterName, char* pUserPassWord);
 	void	SendGameStart(ClientIndex_t	ClientIndex, UID32_t CharacterUniqueNumber);
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	void	InitOnlyGameStartOk(AVECTOR3 vPos, BitFlag16_t MapWeather, BOOL bArenaRestart);
 	void	UpdateGameStartMapInfo();
 
-	// 2007-12-17 by bhsohn ¾ÆÀÌÅÛ Á¤º¸°¡ ´Ù ¾È¿À¸é °ÔÀÓ ´ë±â»óÅÂ·Î
+	// 2007-12-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½
 	BOOL	IsLockMode();
 
-	// 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
+	// 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
 	void	InitItemList();
 	void	AddItemList(MSG_FC_TRADE_INSERT_ITEM* pMsg);
 	void	SaveItemList();
@@ -1910,71 +1913,71 @@ public:
 	void	SaveGameStartOkInfo();
 	void	SaveSinglePlayInfo();
 
-	// 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+	// 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 	DWORD	GetCurrentGameTime();
-	// end 2009-03-16 by bhsohn A±â¾î Æ÷´ë ¹æÇâ ÇÁ·ÎÅäÄÝ ÃÖ¼ÒÈ­
+	// end 2009-03-16 by bhsohn Aï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­
 
-	// 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	void	StartApexClient( void );
-	// end 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// end 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	void	ChangeMapObject( ObjectIdx_t nOrigObjIndex, ObjectNum_t nChangeObjIndex );
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+	// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetPlaySearchEyeEffect(CUnitData * pUnit, INT nEffectNum, INT nSoundNum, bool bMoveCheck = true);
 	void ClearPlaySearchEyeEffect(CUnitData * pUnit, INT nEffectNum);
-	// end 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+	// end 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
-	int AddINFCnt();	//ÀÎÅÍÆäÀÌ½º Ã¢ Áßº¹ ´©Àû¼ö¸¦ ´õÇÏ°í, ÃÖÁ¾°ªÀ» °è»êÇÏ¿© ¸®ÅÏ
-	int RemoveINFCnt();	//ÀÎÅÍÆäÀÌ½º Ã¢ Áßº¹ ´©Àû¼ö¸¦ »©°í, ÃÖÁ¾°ªÀ» °è»êÇÏ¿© ¸®ÅÏ
-	int GetINFCnt();	//ÀÎÅÍÆäÀÌ½º Ã¢ Áßº¹ ´©Àû¼ö¸¦ ¸®ÅÏ
+	// 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int AddINFCnt();	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Ã¢ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int RemoveINFCnt();	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Ã¢ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int GetINFCnt();	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Ã¢ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetINFCnt(int nInfCnt);
-	// end 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
+	// end 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+	// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetItemNum(INT nItemNum);
-	// end 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+	// end 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2012-12-21 by bhsohn º£Æ®³² °ÔÀÓ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+	// 2012-12-21 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	void SetClientLogOff(BOOL bClientLogOff) {m_bClientLogOff = bClientLogOff;}
 	BOOL GetClientLogOff() {return m_bClientLogOff;}
-	// END 2012-12-21 by bhsohn º£Æ®³² °ÔÀÓ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+	// END 2012-12-21 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 
-	// 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DWORD GetGameCurrentTime() {return m_dwCurrentTime;}
-	// END 2013-03-25 by bhsohn ÆÄÆ®³Ê Å°Æ® ÀÚµ¿ »ç¿ë ¼ÒÄÏ °ü·Ã ¹ö±× ¼öÁ¤
+	// END 2013-03-25 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ Å°Æ® ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-05-07 by bhsohn À¥Ä³½¬ »óÁ¡ ÀÎÁõÅ° Ãß°¡
+	// 2013-05-07 by bhsohn ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
 	char*	GetAuthenticationKey() {return m_chAuthenticationKey;}
 	void	SetAuthenticationKey(char* pAuthenticationKey) {strncpy(m_chAuthenticationKey, pAuthenticationKey, SIZE_MAX_WEB_AUTHENTICATION_KEY); }
-	// END 2013-05-07 by bhsohn À¥Ä³½¬ »óÁ¡ ÀÎÁõÅ° Ãß°¡
+	// END 2013-05-07 by bhsohn ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
 	
-	// 2013-05-07 by bhsohn ¼¼·ÂÆ÷ÀÎÆ® °³¼±¾È ½Ã½ºÅÛ
+	// 2013-05-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	MSG_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES*	GetInflConVictorites() {return &m_structInflConVictorites;}
 	void	SetInflConVictorites(MSG_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES* pMsg) {memcpy(&m_structInflConVictorites, pMsg, sizeof(MSG_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES));}			
-	// END 2013-05-07 by bhsohn ¼¼·ÂÆ÷ÀÎÆ® °³¼±¾È ½Ã½ºÅÛ
+	// END 2013-05-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	float GetPVPBuffPercent(){return m_fPVPBuffPercent;}		// 2013-08-02 by ssjung ¿ªÀüÀÇ ¹öÇÁ ÅøÆÁÇ¥½Ã
+	float GetPVPBuffPercent(){return m_fPVPBuffPercent;}		// 2013-08-02 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½
 	
-	void CityShopLock(BOOL bState);		// 2014-07-04 by ymjoo »óÁ¡ ¾ÆÀÌÅÛÀÌ ¿©·¯¹ø ±¸ÀÔµÇ´Â Çö»ó ¼öÁ¤
+	void CityShopLock(BOOL bState);		// 2014-07-04 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef SC_COLLECTION_ARMOR_JHSEOL_BCKIM
-	void LookChangeLimitTimeMSG();	// 2013-05-09 by ssjung ¿ÜÇü º¯°æ ±â°£¸¸·á °æ°í ¸Þ½ÃÁö ±¸Çö
+	void LookChangeLimitTimeMSG();	// 2013-05-09 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
-	BOOL GetInitFlag()	{return m_bInitFlag;}									// 2013-07-02 À¯Àú°¡ Ã³À½ ·Îµù ½Ã °ÅºÎÀÚ Ã¤ÆÃ º¸ÀÌ´Â ¹®Á¦ ¼öÁ¤
-	void SetInitFlag(BOOL bFlag)	{m_bInitFlag = bFlag;}						// 2013-07-02 À¯Àú°¡ Ã³À½ ·Îµù ½Ã °ÅºÎÀÚ Ã¤ÆÃ º¸ÀÌ´Â ¹®Á¦ ¼öÁ¤
+	BOOL GetInitFlag()	{return m_bInitFlag;}									// 2013-07-02 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ ï¿½Åºï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void SetInitFlag(BOOL bFlag)	{m_bInitFlag = bFlag;}						// 2013-07-02 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ ï¿½Åºï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public:
-	// 2004-11-11 by jschoi ½ºÇÇµåÇÙ °ü·Ã º¯¼ö
-	int							m_nSendMovePacketCount;	// MovePacketÀ» º¸³½ ¼ö
-	int							m_nCheckSpeedHackCount;	// ½ºÇÇµåÇÙ Ã¼Å© Ä«¿îÆ® 1ÃÊ´ç 5°³
-	DWORD						m_dwCheckSpeedHackTime;		// ½ºÇÇµåÇÙ Ã¼Å© Å¸ÀÓ timeGetTime()
+	// 2004-11-11 by jschoi ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int							m_nSendMovePacketCount;	// MovePacketï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	int							m_nCheckSpeedHackCount;	// ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ Ã¼Å© Ä«ï¿½ï¿½Æ® 1ï¿½Ê´ï¿½ 5ï¿½ï¿½
+	DWORD						m_dwCheckSpeedHackTime;		// ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ Ã¼Å© Å¸ï¿½ï¿½ timeGetTime()
 	DWORD						m_dwSpeedHackTimer;
-	DWORD						m_dwHackCheckTime;		// 2005-12-21 by ispark, ÇÙ Ã¼Å© Å¸ÀÓ(1ºÐ´ç)
-	DWORD						m_dwMoveCheckTime;		// 2006-01-10 by ispark, ¹«ºê Ã¼Å© Å¸ÀÓ(1ºÐ´ç)
-	// 2014-06-27 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (DBG ÅØ½ºÆ®)
+	DWORD						m_dwHackCheckTime;		// 2005-12-21 by ispark, ï¿½ï¿½ Ã¼Å© Å¸ï¿½ï¿½(1ï¿½Ð´ï¿½)
+	DWORD						m_dwMoveCheckTime;		// 2006-01-10 by ispark, ï¿½ï¿½ï¿½ï¿½ Ã¼Å© Å¸ï¿½ï¿½(1ï¿½Ð´ï¿½)
+	// 2014-06-27 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (DBG ï¿½Ø½ï¿½Æ®)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	CD3DHanFont		*			m_pFontDebugFps;
 	CD3DHanFont		*			m_pFontDebugErr;
@@ -1991,55 +1994,55 @@ public:
 	CD3DHanFont		*			m_pFontDebugCharacterPos;
 	CD3DHanFont		*			m_pFontInfl;
 #else
-	CD3DHanFont		*			m_pFontDebug;				// ÅØ½ºÆ® Ç¥½Ã¿ë ÆùÆ®
+	CD3DHanFont		*			m_pFontDebug;				// ï¿½Ø½ï¿½Æ® Ç¥ï¿½Ã¿ï¿½ ï¿½ï¿½Æ®
 #endif
-	// END 2014-06-27 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (DBG ÅØ½ºÆ®)
-	CD3DHanFont		*			m_pFontCandidate[CHAR_INF_CANDIDATE];				// ÇÑÆùÆ®
+	// END 2014-06-27 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (DBG ï¿½Ø½ï¿½Æ®)
+	CD3DHanFont		*			m_pFontCandidate[CHAR_INF_CANDIDATE];				// ï¿½ï¿½ï¿½ï¿½Æ®
 	// 2007.04.24 by bhsohn China IME Working
 	CD3DHanFont		*			m_pFontCompositon;
 	CD3DHanFont		*			m_pFontIMEType;
 
-	CKeyBoardInput	*			m_pKeyBoard;				// KeyBoard Á¦¾î
-	CCamera			*			m_pCamera;					// Camera Á¦¾î
+	CKeyBoardInput	*			m_pKeyBoard;				// KeyBoard ï¿½ï¿½ï¿½ï¿½
+	CCamera			*			m_pCamera;					// Camera ï¿½ï¿½ï¿½ï¿½
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
-	CJoyStickInput*				m_pJoyStick;				// Á¶ÀÌ½ºÆ½ Á¦¾î
-	CJoyStickFreedback*			m_pJoyStickFreedback;				// Áøµ¿ Á¶ÀÌ½ºÆ½ Á¦¾î	
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
+	CJoyStickInput*				m_pJoyStick;				// ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½
+	CJoyStickFreedback*			m_pJoyStickFreedback;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ï¿½ï¿½	
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
 	CUnitRender		*			m_pUnitRender;
-	CCharacterRender*			m_pCharacterRender;			// 2005-07-13 by ispark Ä³¸¯ÅÍ ·»´õ¸µ
-	CShuttleChild	*			m_pShuttleChild;			// ¼ÅÆ² Data
-	CCharacterChild *			m_pCharacterChild;			// Ä³¸¯ÅÍ Data// 2005-07-21 by ispark
+	CCharacterRender*			m_pCharacterRender;			// 2005-07-13 by ispark Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	CShuttleChild	*			m_pShuttleChild;			// ï¿½ï¿½Æ² Data
+	CCharacterChild *			m_pCharacterChild;			// Ä³ï¿½ï¿½ï¿½ï¿½ Data// 2005-07-21 by ispark
 
 	DWORD						m_dwStateBlock;				// 
 	DWORD						m_dwGameState;				
 	LPDIRECT3DVERTEXBUFFER9		m_pVBSleep;
-	BOOL						m_bBazaar;					// ¹ÙÀÚ¸Ê
-	// 2012-07-17 by jhahn, ¼Ë´Ù¿î ½Ã°£ Ç¥½Ã
+	BOOL						m_bBazaar;					// ï¿½ï¿½ï¿½Ú¸ï¿½
+	// 2012-07-17 by jhahn, ï¿½Ë´Ù¿ï¿½ ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
 	BOOL						FristSeting;
 	int							nCount;
 	int							nOldTime;	
 	int							nNewTime;
-	//end 2012-07-17 by jhahn, ¼Ë´Ù¿î ½Ã°£ Ç¥½Ã
+	//end 2012-07-17 by jhahn, ï¿½Ë´Ù¿ï¿½ ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
 
 	CD3DHanFont		*			m_pFontInput;
 	IMEKey						m_inputkey;
 	CChat			*			m_pChat;
 	BOOL						m_bChatMode;
-	BOOL						m_bFixUnitDirMode;				// À¯´Ö ÁøÇà¹æÇâ °íÁ¤ ¸ðµå
-	BOOL						m_bMessageBox;					// ¸Þ½ÃÁö ¹Ú½º°¡ È­¸é»ó¿¡ Á¸ÀçÇÏ´Â°¡?
+	BOOL						m_bFixUnitDirMode;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	BOOL						m_bMessageBox;					// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½?
 	char						m_strChat[SIZE_MAX_CHAT_MESSAGE];
 
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
-	//CFieldWinSocket *			m_pFieldWinSocket;				// ÇÊµå ¼­¹ö
-	CFieldWinSocketManager *			m_pFieldWinSocket;				// ÇÊµå ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
+	//CFieldWinSocket *			m_pFieldWinSocket;				// ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½
+	CFieldWinSocketManager *			m_pFieldWinSocket;				// ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	BOOL						m_bReconnectFieldServer;		// ´Ù¸¥ IP ¼­¹ö·ÎÀÇ ÀçÁ¢¼Ó
+	BOOL						m_bReconnectFieldServer;		// ï¿½Ù¸ï¿½ IP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
-	//CIMSocket		*			m_pIMSocket;					// Ã¤ÆÃ ¼­¹ö
-	CIMSocketManager		*			m_pIMSocket;			// Ã¤ÆÃ ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
+	//CIMSocket		*			m_pIMSocket;					// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CIMSocketManager		*			m_pIMSocket;			// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 
 	char						m_strUserID[SIZE_MAX_ACCOUNT_NAME];
@@ -2054,22 +2057,22 @@ public:
 	BOOL						m_bOtherFieldWarping;
 	USHORT						m_sWarpAreaIndex;
 
-	// 2014-01-06 by bhsohn Xtrap Å×½ºÆ®¼­¹ö Å° ´Ù¸£°Ô Ã³¸®	
-	BOOL						m_bArgcTestServer;			// Launcher¿¡¼­ ¾Ë·ÁÁÖ´Â Test¼­¹ö ¿©ºÎ
-	// END 2014-01-06 by bhsohn Xtrap Å×½ºÆ®¼­¹ö Å° ´Ù¸£°Ô Ã³¸®	
+	// 2014-01-06 by bhsohn Xtrap ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Å° ï¿½Ù¸ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½	
+	BOOL						m_bArgcTestServer;			// Launcherï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö´ï¿½ Testï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// END 2014-01-06 by bhsohn Xtrap ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Å° ï¿½Ù¸ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½	
 
-	INT							m_nInvalidClientIndexCont;		// Å¸Ä³¸¯ÅÍ ¸®½ºÆ®Áß ÀÎµ¦½º°¡ 0 ÀÎ ¸®½ºÆ® ¼ö
+	INT							m_nInvalidClientIndexCont;		// Å¸Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½
 	///////////// Thread ////////////////
-	CMapInitThread	*			m_pMapInitThread;				// ¸Ê ·Îµù
-	CRITICAL_SECTION			m_cs;							// µ¿±âÈ­ °´Ã¼
+	CMapInitThread	*			m_pMapInitThread;				// ï¿½ï¿½ ï¿½Îµï¿½
+	CRITICAL_SECTION			m_cs;							// ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½Ã¼
 	///////////// Tile Texture Buffer /////////////
-	CGameData		*			m_pData;						// µ¥ÀÌÅ¸ÆÄÀÏ (¸ÊÅ¸ÀÏÆÄÀÏ)
+	CGameData		*			m_pData;						// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-	D3DXVECTOR3					m_vClientOldPos;				// Move Á¤º¸ º¸³¾½Ã¿¡ ¿òÁ÷ÀÎ °Å¸®¸¦ Ã¼Å©ÇÏ±âÀ§ÇØ ÀÌÀü ¼ÅÆ²ÁÂÇ¥ ÀúÀå
-	///////////// Render ÂüÁ¶ /////////////
-	INT							m_nCheckRenderPos;				// ·»´õ¸µ °Ë»ç¸¦ ÇØ¾ßÇÒ ºÎºÐÀ» Ã¼Å©ÇÏ´Â º¯¼ö
-	FLOAT						m_fRenderDeleteCheckTime;		// »ç¿ëÇÏÁö ¾ÊÀº ¸®¼Ò½º¸¦ Áö¿ï ½Ã°£ Ã¼Å© 
-	BYTE						m_nItemStorage;					//¾ÆÀÌÅÛÃ¢, Ã¢°í ±¸ºÐ
+	D3DXVECTOR3					m_vClientOldPos;				// Move ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
+	///////////// Render ï¿½ï¿½ï¿½ï¿½ /////////////
+	INT							m_nCheckRenderPos;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ç¸¦ ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	FLOAT						m_fRenderDeleteCheckTime;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ Ã¼Å© 
+	BYTE						m_nItemStorage;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¢, Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// VoIP	//////////////////////////////////////////////////////////////////
 	VOIP_STATE					m_VOIPState;
 	/////////////////////////////////////////////////////////////////////////
@@ -2077,7 +2080,7 @@ public:
 	CEffectRender	*			m_pEffectRender;//by dhkwon	2003.5.13
 	/////////////////////////////////////////////////////////////////////////
 	FLOAT						m_fCheckSocketTime;				// Socket Check Time
-	FLOAT						m_fOldTickTime;					// Áö³­ ElapsedTime
+	FLOAT						m_fOldTickTime;					// ï¿½ï¿½ï¿½ï¿½ ElapsedTime
 	FLOAT						m_fReturnKeyTime;				// Return Key Check Time
 
 	CAtumNode		*			m_pEffectList;
@@ -2086,36 +2089,36 @@ public:
 	BOOL						m_bDebugText;
 	/////////////////////////////////////////////////////////////////////////
 	BOOL						m_bClientQuit;
-	// 2012-12-21 by bhsohn º£Æ®³² °ÔÀÓ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+	// 2012-12-21 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 	BOOL						m_bClientLogOff;
-	// END 2012-12-21 by bhsohn º£Æ®³² °ÔÀÓ Á¾·á ¾ÈµÇ´Â ¹®Á¦ ÇØ°á
+	// END 2012-12-21 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 
 	BOOL						m_bResCheck;
 	BOOL						m_bReadyBeginScene;
 
-	BOOL						m_bDeleteItemSend;			// Item À» Áö¿ì¶ó°í ¼­¹ö¿¡ Àü¼Û
+	BOOL						m_bDeleteItemSend;			// Item ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CInterface				*	m_pInterface;
-	BOOL						m_IsFullMode;					// Ã¢¸ðµåÀÎÁö
+	BOOL						m_IsFullMode;					// Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CAbuseFilter	*			m_pAbuseFilter;
 	CGameData		*			m_pAbuseFilterData;
 
-	FLOAT						m_fBattleCountCheckTime;	// ÆÄÆ¼ ´ë°á½Ã Ä«¿îÆ® ´Ù¿î µé¾î°¡±â À§ÇÑ º¯¼ö
+	FLOAT						m_fBattleCountCheckTime;	// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½Ù¿ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	INT							m_nBattlePartyCount;
-	INT							m_bDegree;					// 0 Àú»ç¾ç, 1 Áß»ç¾ç , 2 °í»ç¾ç, 3 Ãæµ¹Ã³¸®(À¯´Ö)
-	INT							m_bMovePlayer;				// µ¿¿µ»ó ÇÃ·¹ÀÌ Á¦ÇÑ
+	INT							m_bDegree;					// 0 ï¿½ï¿½ï¿½ï¿½ï¿½, 1 ï¿½ß»ï¿½ï¿½ , 2 ï¿½ï¿½ï¿½ï¿½, 3 ï¿½æµ¹Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	INT							m_bMovePlayer;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	char						m_strDebug[512];			// À±¿ø¾¾ µð¹ö±×¿ë ¿¡·¯ ¸Þ¼¼Áö
-	// 2010-09-29 by jskim, SpriteDevice Lost µÇ¾úÀ» ¶§ ±¸Á¶ º¯°æ
+	char						m_strDebug[512];			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+	// 2010-09-29 by jskim, SpriteDevice Lost ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//LPD3DXSPRITE				m_pd3dxSprite;
-	// end 2010-09-29 by jskim, SpriteDevice Lost µÇ¾úÀ» ¶§ ±¸Á¶ º¯°æ
+	// end 2010-09-29 by jskim, SpriteDevice Lost ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	FLOAT						m_fUserCheckTime;
 	char						m_strSeverUserNum[128];
 	char						m_strMapUserNum[128];
 
-	// 2012-11-07 by bhsohn º£Æ®³² ÆÐÅ¶ Ã³¸®
+	// 2012-11-07 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å¶ Ã³ï¿½ï¿½
 	FLOAT						m_fServerLiveTime;
-	// END 2012-11-07 by bhsohn º£Æ®³² ÆÐÅ¶ Ã³¸®
+	// END 2012-11-07 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å¶ Ã³ï¿½ï¿½
 
 	// remodeling, 2004-03-19 by dhkwon
 	CAtumSound					*m_pSound;
@@ -2124,48 +2127,48 @@ public:
 
 	BOOL						m_bReadyToGetGuildInfo;
 
-	// 2007-01-07 by bhsohn ±æµå Á¤º¸ µ¿±âÈ­ ¹®Á¦ °ü·Ã Ã³¸®
+	// 2007-01-07 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	BOOL						m_bReadyFieldGameStartOk;
 
 	CINFStageEffect	*			m_pStageEffect;
 	CQuestData		*			m_pQuestData;
 	CFxSystem *					m_pFxSystem;	
 	BOOL						m_bWeb;
-	BOOL						m_bRequestEnable;		// ¼­¹ö·Î ¿äÃ» ÇÒ ¼ö ÀÖ´Â »óÅÂÀÎ°¡?
-	BOOL						m_bInputItemDone;		// 2007-07-16 by dgwoo Ã³À½ ÁøÀÔ½Ã ¸ðµç ¾ÆÀÌÅÛÀ» ¹Þ¾Ò´Â°¡?
-	float						m_fRequestEnableTime;	// ¸Þ½ÃÁö ¾Ö´Ï¸ÞÀÌ¼ÇÀ» À§ÇÑ ½Ã°£ º¯¼ö
-	DWORD						m_dwTargetting;			// 2005-03-25 by jschoi - Å¸°ÙÆÃ °ü·Ã 
-	CTutorialSystem*			m_pTutorial;			// Æ©Åä¸®¾ó ½Ã½ºÅÛ
+	BOOL						m_bRequestEnable;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
+	BOOL						m_bInputItemDone;		// 2007-07-16 by dgwoo Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Ò´Â°ï¿½?
+	float						m_fRequestEnableTime;	// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DWORD						m_dwTargetting;			// 2005-03-25 by jschoi - Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	CTutorialSystem*			m_pTutorial;			// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	CInputManager*				m_pInputManager;
 	
-	// Ä³¸¯ÅÍ
-	BOOL						m_bCharacter;			// TRUE : Ä³¸¯ÅÍ¸ðµå, FLASE: ±â¾î¸ðµå
+	// Ä³ï¿½ï¿½ï¿½ï¿½
+	BOOL						m_bCharacter;			// TRUE : Ä³ï¿½ï¿½ï¿½Í¸ï¿½ï¿½, FLASE: ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	// 2005-08-10 by ispark
-	// ±×¸²ÀÚ ·»´õ¸µ ÀåÄ¡¿¡ °üÇÑ ¼³Á¤ Ã¼Å© (±×·¡ÇÈ Ä«µå¿¡¼­ Áö¿ø¿¡ ÀÇÇÑ ¹®Á¦)
+	// ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å© (ï¿½×·ï¿½ï¿½ï¿½ Ä«ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	int							m_nDephbias;
 
-	// ¾Æ¸Ó Ä®·¯¸¦ ·»´õ¸µÇÏ±â À§ÇÑ º¯¼öÁöÁ¤
-	int							m_nArmorNum;		// ³ªÀÇ ¼ÅÆ² Ä®¶ó
-	int							m_nArmorNumMax;		// ¾Æ¸Ó°¡ °¡Áú¼ö ÀÖ´Â ÃÖ´ë Ä®¶ó¼ö
+	// ï¿½Æ¸ï¿½ Ä®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int							m_nArmorNum;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² Ä®ï¿½ï¿½
+	int							m_nArmorNumMax;		// ï¿½Æ¸Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ Ä®ï¿½ï¿½ï¿½
 	
-	D3DXVECTOR3					m_vShuttleOldPos;		// Àü ÁÂÇ¥
+	D3DXVECTOR3					m_vShuttleOldPos;		// ï¿½ï¿½ ï¿½ï¿½Ç¥
 
-	// 2010. 10. 05 by jskim ¸Ê·Îµù ±¸Á¶ º¯°æ
+	// 2010. 10. 05 by jskim ï¿½Ê·Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CMapLoad*					m_pMaploading;
-	// end 2010. 10. 05 by jskim ¸Ê·Îµù ±¸Á¶ º¯°æ
+	// end 2010. 10. 05 by jskim ï¿½Ê·Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef _DEBUG
-	// ÀÌº¥Æ® ¿ÀºêÁ§Æ® ·»´õ
-	BOOL						m_bEventObjectRender;	// TURE : °¡´É, FALSE : ºÒ°¡´É
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	BOOL						m_bEventObjectRender;	// TURE : ï¿½ï¿½ï¿½ï¿½, FALSE : ï¿½Ò°ï¿½ï¿½ï¿½
 #endif
 	
-	// IME°ü·Ã ÈÄº¸¸®½ºÆ® ÀúÀå
+	// IMEï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	vector<string>	m_vecStingCandidate;
 	int				m_nGlabalImageCase;
 	char			m_strFont[64];
 
 	/*--------------------------------------------------------------------------*/
-	// µ¥ÀÌÅÍ¸¦ ÀÏÁ¤ ½Ã°£¿¡¸¸ º¸³»±â À§ÇÑ º¯¼ö
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	vectorClientIndex			m_vecCharacterOtherInfo;
 	vectorClientIndex			m_vecCharacterOtherInfoRequest;
 	vectorClientIndex			m_vecCharacterOtherMove;
@@ -2180,78 +2183,78 @@ public:
 	/*--------------------------------------------------------------------------*/
 
 	/*--------------------------------------------------------------------------*/
-	// 2006-07-05 by ispark, °­Á¦ Á¾·á½Ã Ã³¸®ÇÏ´Â ºÎºÐ
-	BOOL						m_bShutDown;				// °­Á¦ Á¾·á?
-	// 2007-07-10 by bhsohn Åë½Å Å¸ÀÔ ¿¡·¯¿¡ ´ëÇÑ Ã³¸®
+	// 2006-07-05 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
+	BOOL						m_bShutDown;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
+	// 2007-07-10 by bhsohn ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	//char						m_strMsgLastError[SIZE_MAX_CHAT_MESSAGE];
 	char						m_strMsgLastError[SIZE_MAX_ERROR_CHAT_MESSAGE];
 
-	BOOL						m_bGameShutDown;		// 2006-08-04 by ispark, °ÔÀÓ °­Á¦ Á¾·á
-	float						m_fGameShutDownTime;	// 2006-08-04 by ispark, °ÔÀÓ °­Á¦ Á¾·á ½Ã°£
+	BOOL						m_bGameShutDown;		// 2006-08-04 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	float						m_fGameShutDownTime;	// 2006-08-04 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 	/*--------------------------------------------------------------------------*/
 	
 	BOOL						m_bCheckQuickSlotSave;
 
-	// 2007-07-27 by dgwoo ¼¼·Â ¼±ÅÃÀ» ÇÑ À¯ÀúÀÎ°¡?
+	// 2007-07-27 by dgwoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 	BOOL						m_bInfregular;	
 
 	vector<MSG_FC_TRADE_INSERT_ITEM>			m_vecTutorialInsertItem;
 	vector<MSG_FC_TRADE_UPDATE_ITEM_COUNT>     m_vecTutorialUpdateItem;
 
-	vector<CItemInfo*>							m_vecWearDisplayInfo;		// 2012-06-14 by isshin ¾ÆÅÛ¹Ì¸®º¸±â
+	vector<CItemInfo*>							m_vecWearDisplayInfo;		// 2012-06-14 by isshin ï¿½ï¿½ï¿½Û¹Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
-	CInfinityManager*			m_pInfinityManager;		// ÀÎÇÇ´ÏÆ¼ UI°ü·Ã Á¤º¸
+	// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	CInfinityManager*			m_pInfinityManager;		// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ UIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	typedef enum ARENASOCKET_TYPE { ARENASOCKET_ARENA, ARENASOCKET_INFINITY, ARENASOCKET_NONE };
 
-	ARENASOCKET_TYPE			m_ArenaSocketType;		// ¾Æ·¹³ª ¼ÒÄÏ Å¸ÀÔ
+	ARENASOCKET_TYPE			m_ArenaSocketType;		// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 
-	BOOL						m_bInfinityMapload;		// ÀÎÇÇ´ÏÆ¼ ¸Ê ·Îµù ÁßÀÎ°¡?(ÀÎÇÇ´ÏÆ¼ ¸Ê ·ÎµùÀº ¼­¹öÀÇ ½ÂÀÎÀÌ ¿Ã¶§±îÁö ´ë±âÇÑ´Ù)
+	BOOL						m_bInfinityMapload;		// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½Î°ï¿½?(ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½)
 
-	BOOL						m_bEnterInfinityAllowed;// ÀÎÇÇ´ÏÆ¼ ¸Ê¿¡ ÀÔÀå Çã°¡(¸ðµç ÆÄÆ¼¿øµéÀÌ ¸Ê·ÎµùÀÌ ´Ù Á¾·á‰çÀ»¶§ TRUE)
+	BOOL						m_bEnterInfinityAllowed;// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ã°¡(ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê·Îµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ TRUE)
 
-	BOOL						m_bInfinityRestart;		// ÀÎÇÇ´ÏÆ¼ Æ¨°åÀ»¶§ ÀçÀÔÀåÀÎ°¡?
-	BOOL						m_bAddInfinityRestartMessageBox;	// ÀÎÇÇ´ÏÆ¼ ÀçÀÔÀå ¸Þ¼¼Áö ¹Ú½º¸¦ ¶ç¿ï°ÍÀÎ°¡?
-	// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
-
-
-	// 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
-	BOOL						m_bWaitInfinityMapLoad;	// ÀÎÇÇ´ÏÆ¼ ¸Ê ·ÎµùÀ» ±â´Ù¸®´Â ÁßÀÎ°¡?
-
-	DWORD						m_nInfinityMapLoadTime;	// ÀÎÇÇ´ÏÆ¼ ¸Ê ·ÎµùÀ» ½ÃÀÛÇÒ ½Ã°£
-
-	MSG_FC_ARENA_POSSIBLE_GAMESTART	m_ArenaStartPacket;	// ÀÎÇÇ´ÏÆ¼ ¸Ê ·Îµù¿¡ »ç¿ëÇÒ ÆÐÅ¶ ÀúÀå
-	// end 2010. 03. 03 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÔÀå UIº¯°æ)
+	BOOL						m_bInfinityRestart;		// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ Æ¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
+	BOOL						m_bAddInfinityRestartMessageBox;	// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
+	// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 
-	// 2010. 03. 23 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÔÀå Ä³½¬¾ÆÀÌÅÛ)
+	// 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
+	BOOL						m_bWaitInfinityMapLoad;	// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½?
+
+	DWORD						m_nInfinityMapLoadTime;	// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+
+	MSG_FC_ARENA_POSSIBLE_GAMESTART	m_ArenaStartPacket;	// ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½
+	// end 2010. 03. 03 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½)
+
+
+	// 2010. 03. 23 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	BOOL						m_bInfinityMapLoadedSendEnable;
 	BOOL						m_bInfinitySkillSetupOKDone;
-	// end 2010. 03. 23 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå 2Â÷(ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÔÀå Ä³½¬¾ÆÀÌÅÛ)
+	// end 2010. 03. 23 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ 2ï¿½ï¿½(ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 
-	// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+	// 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DWORD							m_dwTimeCheck;	
 	vector<structLoadingGameData*>	m_vecLoadingGameData;
 	CMeshInitThread*				m_pMeshInitThread;
 	structLoadingGameData*			m_pLoadingGameData;
-	//end 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
+	//end 2009. 11. 23 by jskim ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CINFImageList*				m_pImageList;
-	// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2015-02-03 by jwLee nProtect ¸Þ¼¼Áö ¿¡·¯¸Þ¼¼Áö Ãâ·Â
-	// 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡	
+	// 2015-02-03 by jwLee nProtect ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½	
 #if defined(DEFINE_USE_GAMEGUARD_NPROTECTOR)
 	char				m_strMsgHackError[SIZE_MAX_ERROR_CHAT_MESSAGE];
 	int					m_bMsgHackError;
 #endif
-	// end 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß
-	// end 2015-02-03 by jwLee nProtect ¸Þ¼¼Áö ¿¡·¯¸Þ¼¼Áö Ãâ·Â
+	// end 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	// end 2015-02-03 by jwLee nProtect ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+	// 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 	HINSTANCE m_hGuardLibrary;
 	func1	m_fnVTCDLLInit;
 	func2	m_fnVTCDLLGetStatus;
@@ -2259,9 +2262,9 @@ public:
 	func4	m_fnVTCDLLExit;
 
 	CVTCThread* m_pVTCGuard;
-	// end 2011. 1. 18 by jskim ¹èÆ®³² VTC°¡µå
+	// end 2011. 1. 18 by jskim ï¿½ï¿½Æ®ï¿½ï¿½ VTCï¿½ï¿½ï¿½ï¿½
 
-	bool				b_CanadaMutex;// 2012-09-17 by jhahn	Ä³³ª´Ù ÇÙ½¯µå Á¦°Å ¹öÀü
+	bool				b_CanadaMutex;// 2012-09-17 by jhahn	Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef _WIREFRAME
 	BOOL		m_bWireframe; //2014-09-03 St0rmy wireframe
@@ -2276,31 +2279,31 @@ public:
 	FLOAT		m_fLatency;
 #endif
 
-	BOOL				m_bTradeCenterLock;												// 2013-11-29 by ssjung °Å·¡¼Ò ±¸Çö
+	BOOL				m_bTradeCenterLock;												// 2013-11-29 by ssjung ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	BOOL				m_bCityShopLock;				// 2014-07-04 by ymjoo »óÁ¡ ¾ÆÀÌÅÛÀÌ ¿©·¯¹ø ±¸ÀÔµÇ´Â Çö»ó ¼öÁ¤
+	BOOL				m_bCityShopLock;				// 2014-07-04 by ymjoo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	SBUGTRAP_SERVER_INFO	m_strBugtrapSeverInfo;		// 2014-02-10 by ssjung, ¹ö±× Æ®·¦
+	SBUGTRAP_SERVER_INFO	m_strBugtrapSeverInfo;		// 2014-02-10 by ssjung, ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½
 
-	CProfiler*			m_pProfiler;					// 2014-06-09 by ymjoo ÇÁ·ÎÆÄÀÏ·¯ ±¸Çö
+	CProfiler*			m_pProfiler;					// 2014-06-09 by ymjoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	bool				m_bDamageSysMessagePrint;	// 2014-12-19 by jwLee "/µ¥¹ÌÁöÃâ·Â" ¸í·É¾î Ãß°¡
+	bool				m_bDamageSysMessagePrint;	// 2014-12-19 by jwLee "/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½É¾ï¿½ ï¿½ß°ï¿½
 
 private:
-//	BOOL						m_bCashShopFlag;		// Ä³½¬¼¥ ÇÃ·¹±×
-	BOOL						m_bTestServer;			// Å×½ºÆ® ¼­¹ö ÇÃ·¡±×
-	BOOL						m_bIsTestServerConnect;	// 2012-11-28 by jhjang Å×¼· Á¢¼Ó ¿©ºÎ Ã³¸® Ãß°¡
+//	BOOL						m_bCashShopFlag;		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
+	BOOL						m_bTestServer;			// ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
+	BOOL						m_bIsTestServerConnect;	// 2012-11-28 by jhjang ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 	BYTE						m_nDBSid;
-	BOOL						m_bDeadByP2PPK;			// PK½Ã Àû À¯´Ö¿¡°Ô Á×¾ú³ª? TRUE : Àû À¯´Ö¿¡°Ô Á×¾ú´Ù.
+	BOOL						m_bDeadByP2PPK;			// PKï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½? TRUE : ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½.
 	
 	MSG_FC_CHARACTER_CASH_PREMIUM_CARD_INFO		m_PremiumCardInfo;	
 
-	// 2007-02-12 by bhsohn Æ÷Ä¿½º ÀÒ¾î ¸Ô¾úÀ» ‹šÀÇ ¹®Á¦ Ã³¸®	
+	// 2007-02-12 by bhsohn ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½Ò¾ï¿½ ï¿½Ô¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½	
 	FLOAT						m_fCheckElapsedTime;	
 	DWORD						m_dwCurrentTime;
 
-	// 2007-02-12 by bhsohn Item ´ÙÁß ¼±ÅÃ Ã³¸®
-	// ÆÇ¸Å º¤ÅÍ
+	// 2007-02-12 by bhsohn Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	// ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	deque<stMultiSelectItem>	m_vecSellMultiSelectItem;			
 	deque<stMultiSelectItem>	m_vecInvenStoreMultiSelectItem;	
 	deque<stMultiSelectItem>	m_vecCityStoreMultiSelectItem;	
@@ -2308,10 +2311,10 @@ private:
 	BOOL						m_bStartMultiSell;
 	BOOL						m_bStartMultiStore;
 
-	// 2007-02-28 by bhsohn ´ÙÁß ÆÇ¸Å½Ã 0 spi¿¡ ´ëÇÑ Ã³¸®
+	// 2007-02-28 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸Å½ï¿½ 0 spiï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	stMultiSelectItem			m_struLastSelMultiItem;
 	
-	// 2007-04-09 by bhsohn °ü¸®ÀÚ °èÁ¤ Ç¥Ãâ Á¤º¸ Ã³¸®
+	// 2007-04-09 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	char						m_strConnectSeverName[1024];	
 
 	// 2007.04.24 by bhsohn China IME Working
@@ -2320,162 +2323,169 @@ private:
 
 	// 2007-05-21 by bhsohn China IME Working
 	FLOAT						m_fIMETypeShowTime;			
-	vector<MSG_FC_ARENA_GM_COMMAND_INFO> m_vecTeamInfo;			// GM¸í·É¾î /¾Æ·¹³ª.
+	vector<MSG_FC_ARENA_GM_COMMAND_INFO> m_vecTeamInfo;			// GMï¿½ï¿½É¾ï¿½ /ï¿½Æ·ï¿½ï¿½ï¿½.
 
-	// 2007-07-10 by bhsohn Åë½Å Å¸ÀÔ ¿¡·¯¿¡ ´ëÇÑ Ã³¸®
+	// 2007-07-10 by bhsohn ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	int							m_nPreComType;
 	int							m_nPreIMComType;
 
-	// 2007-07-24 by bhsohn ³ª·¹ÀÌ¼Ç mp3Ãß°¡
+	// 2007-07-24 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ mp3ï¿½ß°ï¿½
 	char				m_chNarrationSound[256];
-	// 2009. 01. 22 by ckPark °¢ ¼¼·Âº° ¿ÀÆÛ·¹ÀÌÅÍ MP3 ºÐ¸®
+	// 2009. 01. 22 by ckPark ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ MP3 ï¿½Ð¸ï¿½
 	char				m_chErNarrationSound[256];
-	// end 2009. 01. 22 by ckPark °¢ ¼¼·Âº° ¿ÀÆÛ·¹ÀÌÅÍ MP3 ºÐ¸®
+	// end 2009. 01. 22 by ckPark ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ MP3 ï¿½Ð¸ï¿½
 	
-	// 2007-08-03 by bhsohn Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® Ã¼Å©½æ º¸³¿
+	// 2007-08-03 by bhsohn Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	vector<int>					m_vecSendCharacterOmiInfo;
 
-	// 2007-09-12 by bhsohn 2Â÷ ¾ÏÈ£ ½Ã½ºÅÛ ±¸Çö
-	BYTE			m_bIsUseSecondaryPasswordSystem;	// ½Ã½ºÅÛÀ» »ç¿ëÇÒÁö ¿©ºÎ
-	BYTE			m_bIsSetSecondaryPassword;		// ¾ÏÈ£¸¦ ¼³Á¤Çß´ÂÁö ¿©ºÎ
+	// 2007-09-12 by bhsohn 2ï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	BYTE			m_bIsUseSecondaryPasswordSystem;	// ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	BYTE			m_bIsSetSecondaryPassword;		// ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2007-10-30 by dgwoo ¾ÆÀÌÅÛ ¸ñ·ÏÀÌ ¿Ã°æ¿ì´Â ¸¶Áö¸·¿¡ ÇÑ¹ø¸¸ ¼ÒÆÃÇØÁØ´Ù.
+	// 2007-10-30 by dgwoo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	BOOL			m_bResortingItem;
 
-	// 2007-11-27 by bhsohn Å×½ºÆ® ¼­¹ö µðÆÄÀÎ
+	// 2007-11-27 by bhsohn ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	BOOL			m_bTestServerDefine;
 
-	// 2007-11-20 by bhsohn ¸Ê·Îµù ÇÏ´Â ¹æ½Ä º¯°æ
+	// 2007-11-20 by bhsohn ï¿½Ê·Îµï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	stGameStartInfo		m_struGameStartInfo;
 	BOOL				m_bGameStartInfo;	
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	CArenaManager*		m_pArenaManager;
 	
-	// 2007-12-17 by bhsohn ¾ÆÀÌÅÛ Á¤º¸°¡ ´Ù ¾È¿À¸é °ÔÀÓ ´ë±â»óÅÂ·Î
+	// 2007-12-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½
 	
 
-	// 2007-12-21 by bhsohn ÇÁ·Î±×·¥ ´ÙÁß ¶ô ±¸Á¶ »ý¼º	
+	// 2007-12-21 by bhsohn ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	stMultiLockInfo		m_vecLockProtocol;
 
-	// 2008-01-11 by bhsohn 1ºÐµ¿¾È °­Á¦·Î Å¬¶óÀÌ¾ðÆ® ¸ØÃß°Ô ÇÏ¸é Å¬¶óÀÌ¾ðÆ® °­Á¦ Á¾·á
-	DWORD				m_dwLastestTickTime;		// Tick¿¡ ¸¶Áö¸·À¸·Î 	
+	// 2008-01-11 by bhsohn 1ï¿½Ðµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ß°ï¿½ ï¿½Ï¸ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DWORD				m_dwLastestTickTime;		// Tickï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 	
 
 
 
-	// 2008-02-15 by bhsohn ³×Æ®¿öÅ© ¼Óµµ Ã¼Å©
+	// 2008-02-15 by bhsohn ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½Óµï¿½ Ã¼Å©
 	structNetCheckInfo	m_stNetCheckInfo;
 
-	// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+	// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	float				m_fMouseLockTime;
 	BOOL				m_bWndMoving;
 	int					m_nOnFriendCount;
 
-	// 2008-07-07 by bhsohn 2Â÷ ÆÐ½º¿öµå È°¼ºÈ­½Ã, ÀÎº¥ ¾È¿­¸®°Ô ÇÔ
+	// 2008-07-07 by bhsohn 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½, ï¿½Îºï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	BYTE				m_bSecondPassLock;
 
-	// 2008-08-11 by bhsohn ´Üµ¶À¸·Î ½ÇÇà µÇ°Ô²û
+	// 2008-08-11 by bhsohn ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ô²ï¿½
 	CSinglePlayGame*	m_pSinglePlayGame;	
 
-	// 2008-08-18 by bhsohn 1ÃÊ °£°Ý ¾ÆÀÌÅÛ ÀÌµ¿ ½Ã½ºÅÛ 	
+	// 2008-08-18 by bhsohn 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 	
 	DWORD				m_dwSendTermTime;
 	BOOL				m_bSendTerm;
 
-	// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 	float				m_fJoyStickCheckTime;
-	float				m_fJoyStickFeedbackPlayTime;	// Áøµ¿½Ã°£
-	int					m_nJoyStickFeedbackType;		// Áøµ¿Å¸ÀÔ	
+	float				m_fJoyStickFeedbackPlayTime;	// ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	int					m_nJoyStickFeedbackType;		// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½	
 	int					m_nJoyContorlLen;
 	char				m_chJoystickCtrlList[MAX_JOYCTL_LIST][MAX_PATH];
-	// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+	// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
-	// 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡	
+	// 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½	
 	#if defined(DEFINE_USE_GAMEGUARD_NPROTECTOR)	
 		CNPGameLib *		m_pNpgl;
 		float				m_fnProtectorHackCheckTime;
 	#endif
-	// end 2009-01-28 by bhsohn nProtector °ÔÀÓ °¡µå Ãß°¡
-	// 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
+	// end 2009-01-28 by bhsohn nProtector ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	// 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
 	#if defined(DEFINE_USE_GAMEGUARD_NPROTECTOR_AUTH3)
 		BYTE*				m_pNpAuth3Data;
 		int					m_pNpAuth3DataCnt;
 	#endif
-	// end 2015-01-07 by jwLee °ÔÀÓÆ÷Áö nProtector Àû¿ë
-	// 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	// end 2015-01-07 by jwLee ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nProtector ï¿½ï¿½ï¿½ï¿½
+	// 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 	#if defined(DEFINE_USE_GAMEGUARD_XTRAP)	
 		float				m_fXTrapHackCheckTime;
 	#endif
-	//end 2009. 09. 21 by jskim °ÔÀÓ°¡µå XTRAP Àû¿ë(¹èÆ®³²)
+	//end 2009. 09. 21 by jskim ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ XTRAP ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½)
 
-	// 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 	CWorldRankManager*		m_pWorldRankManager;
-	// end 2009-02-13 by bhsohn ¿ùµå ·©Å· ½Ã½ºÅÛ
+	// end 2009-02-13 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// 2009-04-08 by bhsohn ´ÙÁß ¼±ÅÃ½Ã, À¯´ÏÅ© ¹× ÀÎÃ¦Æ® µÈ ¾ÆÀÌÅÛ ÆÇ¸Å½Ã °æ°í ¸Þ½ÃÁö Ãâ·Â ±âÈ¹ ¹®¼­(K0000174)
+	// 2009-04-08 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½, ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸Å½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¹ ï¿½ï¿½ï¿½ï¿½(K0000174)
 	stMultiSelectItem		m_stMultiWarningSelItem;
-	// end 2009-04-08 by bhsohn ´ÙÁß ¼±ÅÃ½Ã, À¯´ÏÅ© ¹× ÀÎÃ¦Æ® µÈ ¾ÆÀÌÅÛ ÆÇ¸Å½Ã °æ°í ¸Þ½ÃÁö Ãâ·Â ±âÈ¹ ¹®¼­(K0000174)
+	// end 2009-04-08 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½, ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ ï¿½ï¿½Ã¦Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸Å½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¹ ï¿½ï¿½ï¿½ï¿½(K0000174)
 
-	// 2009. 06. 09 by ckPark OMI °ÔÀÓ ½ÃÀÛ½Ã Ã¼Å©¼¶ °è»êÇÏµµ·Ï º¯°æ
+	// 2009. 06. 09 by ckPark OMI ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BYTE					m_nOMICheckSum[32];
 	long					m_nOMIFileSize;
-	// end 2009. 06. 09 by ckPark OMI °ÔÀÓ ½ÃÀÛ½Ã Ã¼Å©¼¶ °è»êÇÏµµ·Ï º¯°æ
+	// end 2009. 06. 09 by ckPark OMI ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-	// 2010. 03. 12 by ckPark Interface.tex Ã¼Å©¼¶ Ãß°¡
+	// 2010. 03. 12 by ckPark Interface.tex Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 	BYTE					m_nInterfaceCheckSum[32];
 	long					m_nInterfaceFileSize;
-	// end 2010. 03. 12 by ckPark Interface.tex Ã¼Å©¼¶ Ãß°¡
+	// end 2010. 03. 12 by ckPark Interface.tex Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
 
 
-	// 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	#if defined( DEFINE_USE_GAMEGUARD_APEX )
 		_FUNC_C_REC				m_pApexfp_rec;
 	#endif
-	// end 2009. 11. 03 by ckPark ÅÂ±¹ APEX °ÔÀÓ°¡µå ÀÛ¾÷
+	// end 2009. 11. 03 by ckPark ï¿½Â±ï¿½ APEX ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 
-	// 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
-	int m_nINFCnt;				// ÀÎÅÍÆäÀÌ½ºÃ¢ Áßº¹ ´©Àû¼ö
-	// end 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
+	// 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int m_nINFCnt;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½Ã¢ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// end 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+	// 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	INT						m_nItemNum;
-	// end 2012-11-29 by mspark, ¼­Ä¡¾ÆÀÌ À§Ä¡°¡ ÀÌµ¿ÇÏ´Â Ä³¸¯ÅÍÀÇ À§Ä¡¿Í µ¿ÀÏÇÏµµ·Ï ¼öÁ¤
+	// end 2012-11-29 by mspark, ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	//2013-04-11 by ssjung ¸ð¼±Àü ÁØºñ»óÅÂÀÏ ¶§ ¸Ê ÀÌµ¿½Ã ´Ù½Ã ¹ÂÁ÷ÇÃ·¹ÀÌ¾î µÇ´Â »óÈ²¼öÁ¤
+	//2013-04-11 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½
 	BOOL m_bBossMonsterSummeryReady;
 	BYTE m_byInfluence;
-	//end 2013-04-11 by ssjung ¸ð¼±Àü ÁØºñ»óÅÂÀÏ ¶§ ¸Ê ÀÌµ¿½Ã ´Ù½Ã ¹ÂÁ÷ÇÃ·¹ÀÌ¾î µÇ´Â »óÈ²¼öÁ¤
+	//end 2013-04-11 by ssjung ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-05-07 by bhsohn À¥Ä³½¬ »óÁ¡ ÀÎÁõÅ° Ãß°¡
-	char		m_chAuthenticationKey[SIZE_MAX_WEB_AUTHENTICATION_KEY];  // 2013-03-13 by hskim, À¥ Ä³½Ã »óÁ¡
-	// END 2013-05-07 by bhsohn À¥Ä³½¬ »óÁ¡ ÀÎÁõÅ° Ãß°¡
+	// 2013-05-07 by bhsohn ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
+	char		m_chAuthenticationKey[SIZE_MAX_WEB_AUTHENTICATION_KEY];  // 2013-03-13 by hskim, ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// END 2013-05-07 by bhsohn ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ß°ï¿½
 	
-	// 2013-05-07 by bhsohn ¼¼·ÂÆ÷ÀÎÆ® °³¼±¾È ½Ã½ºÅÛ
+	// 2013-05-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	MSG_FC_WAR_INFLUENCE_CONSECUTIVE_VICTORITES		m_structInflConVictorites;
-	// END 2013-05-07 by bhsohn ¼¼·ÂÆ÷ÀÎÆ® °³¼±¾È ½Ã½ºÅÛ
+	// END 2013-05-07 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	BOOL				m_bInitFlag;		// 2013-07-02 À¯Àú°¡ Ã³À½ ·Îµù ½Ã °ÅºÎÀÚ Ã¤ÆÃ º¸ÀÌ´Â ¹®Á¦ ¼öÁ¤
+	BOOL				m_bInitFlag;		// 2013-07-02 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ ï¿½Åºï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	float				m_fServerLockTime;// 2013-07-05 by bhsohn ¼­¹öÁ¾·á½Ã, °æ°íÀ½ ½Ã½ºÅÛ
+	float				m_fServerLockTime;// 2013-07-05 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	float				m_fPVPBuffPercent;	// 2013-08-02 by ssjung ¿ªÀüÀÇ ¹öÇÁ ÅøÆÁÇ¥½Ã	
+	float				m_fPVPBuffPercent;	// 2013-08-02 by ssjung ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½	
 
-	BYTE				m_SuperiorInfluenceType;	// 2014-06-18 by ymjoo È­¸é »ó´Ü¿¡ ¼¼·Â Ç¥½Ã
+	BYTE				m_SuperiorInfluenceType;	// 2014-06-18 by ymjoo È­ï¿½ï¿½ ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+
+#ifdef _RAT_FFA
+public:
+	bool bIsFFAstarted;
+	int nTimeDiffFFA;// tmStartedFFATime;
+	ATUM_DATE_TIME sTimeEndFFA;// tmStartedFFATime;
+#endif
 };
 
-// Àü¿ªº¯¼ö¼±¾ð
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 extern CAtumApplication			*g_pD3dApp;
 extern CAtumSJ					*g_pAtumSJ;
-extern LPDIRECT3DDEVICE9		g_pD3dDev;	// Àü¿ª µð¹ÙÀÌ½º PTR
+extern LPDIRECT3DDEVICE9		g_pD3dDev;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ PTR
 extern sOPTION_SYSTEM			*g_pSOption;
 extern sOPTION_CHARACTER		*g_pSOptionCharacter;
 extern int						g_nMoveCountPerRate;
 extern float					g_fMoveCountFrame;
-// 2008-06-20 by bhsohn EP3 ¿É¼Ç°ü·Ã Ã³¸®
+// 2008-06-20 by bhsohn EP3 ï¿½É¼Ç°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 extern sOPTION_ETC				*g_pSOptionEtc;
 
-// 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷	
+// 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½	
 extern structJoyStickOptionInfo*		g_pJoysticOp;	
-// end 2008-11-13 by bhsohn Á¶ÀÌ½ºÆ½ ÀÛ¾÷
+// end 2008-11-13 by bhsohn ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½Û¾ï¿½
 
 extern CSceneData				*g_pScene;
 extern CShuttleChild			*g_pShuttleChild;
@@ -2488,7 +2498,7 @@ extern CQuestData				*g_pQuestData;
 extern CCamera					*g_pCamera;
 extern CBackground				*g_pGround;
 
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 //extern CFieldWinSocket			*g_pFieldWinSocket;
 //extern CIMSocket				*g_pIMSocket;
 extern CFieldWinSocketManager	*g_pFieldWinSocket;
@@ -2498,23 +2508,23 @@ extern CINFSelect				*g_pSelect;
 extern CINFChannelList			*g_pChannelList;
 extern CFrustum					*g_pFrustum;
 extern float					g_fSendMovePacket;
-extern BOOL						g_bDetailDrawFrame;		// ¼¼ºÎ ÄÃ¸µ ¿É¼Ç
-extern CTutorialSystem			*g_pTutorial;			// Æ©Åä¸®¾ó
+extern BOOL						g_bDetailDrawFrame;		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½É¼ï¿½
+extern CTutorialSystem			*g_pTutorial;			// Æ©ï¿½ä¸®ï¿½ï¿½
 extern CInputManager			*g_pInputManager;
 extern CInput					g_input;
-extern int						g_nRenderCandidate;		// IME°ü·Ã ÈÄº¸¸®½ºÆ® Ãâ·Â À§Ä¡
+extern int						g_nRenderCandidate;		// IMEï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 extern CGlobalImage				*g_pGImage;
-extern BOOL						g_bEventRecovery;		// ÀÌº¥Æ® È¸º¹À² °ü·Ã Flag
-extern float					g_fEventRecoveryRate;	// ÀÌº¥Æ® È¸º¹À²
-extern ATUM_DATE_TIME			g_ServerDateTime;		// 2006-10-11 by ispark, ¼­¹ö ½Ã°£
-extern int						g_GameStartTime;		// 2006-10-11 by ispark, °ÔÀÓ ½ÃÀÛ ½Ã°£
-// 2009. 08. 19 by jsKim ·£µù Áß ¸Þ´º »ý¼ºÇÒ °æ¿ì Ä¿¼­°¡ º¯ÇÏÁö ¾Ê´Â ¹ö±×
-// 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
-//extern int						g_INFCnt;				// ÀÎÅÍÆäÀÌ½ºÃ¢ Áßº¹ ´©Àû¼ö
-// end 2012-12-17 by jhjang ºñÇàÁß ¸¶¿ì½º Ä¿¼­°¡ Á¦´ë·Î µ¿ÀÛÇÏÁö ¾Ê´Â ¹ö±× ¼öÁ¤
-// end 2009. 08. 19 by jsKim ·£µù Áß ¸Þ´º »ý¼ºÇÒ °æ¿ì Ä¿¼­°¡ º¯ÇÏÁö ¾Ê´Â ¹ö±×
-// 2009. 09. 10 by jsKim ¾Æ·¹³ª ÁøÀÔ½Ã ½ÃÀÛ Ä«¿îÅÍ ¹ö±× ¼öÁ¤
+extern BOOL						g_bEventRecovery;		// ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Flag
+extern float					g_fEventRecoveryRate;	// ï¿½Ìºï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½
+extern ATUM_DATE_TIME			g_ServerDateTime;		// 2006-10-11 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+extern int						g_GameStartTime;		// 2006-10-11 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+// 2009. 08. 19 by jsKim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//extern int						g_INFCnt;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½Ã¢ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// end 2012-12-17 by jhjang ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// end 2009. 08. 19 by jsKim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 2009. 09. 10 by jsKim ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 extern ATUM_DATE_TIME			g_ArenaServerDateTime;
 extern int						g_ArenaStartTime;	
-// end 2009. 09. 10 by jsKim ¾Æ·¹³ª ÁøÀÔ½Ã ½ÃÀÛ Ä«¿îÅÍ ¹ö±× ¼öÁ¤
+// end 2009. 09. 10 by jsKim ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif

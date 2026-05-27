@@ -18,7 +18,7 @@ CIMSocket::CIMSocket(HWND hWnd, UINT wmSock, UINT wmNotify)
 :CWinSocket(hWnd, wmSock, wmNotify, TRUE)
 {
 	FLOG( "CIMSocket()" );
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//g_pIMSocket = this;	
 
 	m_bPeerSequenceNumberInitFlag = FALSE;
@@ -31,7 +31,7 @@ CIMSocket::CIMSocket(HWND hWnd, UINT wmSock, UINT wmNotify)
 CIMSocket::~CIMSocket()
 {
 	FLOG( "~CIMSocket()" );
-	// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+	// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 	//g_pIMSocket = NULL;
 
 }
@@ -77,7 +77,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 		if(m_byPeerSequenceNumber != nSeq)
 		{			
 //			char buf[128];
-//			wsprintf(buf,"CIMSocket::OnRecvdPacket(LPSTR pPacket, int nLength, BYTE nSeq), IMSocket Closed : sequence¹øÈ£[%d]°¡ »ó´ë¹æ[%d]°ú Æ²¸®´Ù.\n",nSeq,m_byPeerSequenceNumber);
+//			wsprintf(buf,"CIMSocket::OnRecvdPacket(LPSTR pPacket, int nLength, BYTE nSeq), IMSocket Closed : sequenceï¿½ï¿½È£[%d]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½[%d]ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½.\n",nSeq,m_byPeerSequenceNumber);
 			DBGOUT("CIMSocket::OnRecvdPacket(LPSTR pPacket, int nLength, BYTE nSeq), IMSocket Closed : sequence Number[%d]is wrong with other Number[%d].\n",nSeq,m_byPeerSequenceNumber);
 			CloseSocket();
 			return FALSE;
@@ -96,13 +96,13 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 		memcpy(&nType, pPacket + nBytesUsed, SIZE_FIELD_TYPE_HEADER);
 		switch(nType)
 		{
-			case T_IC_CONNECT_LOGIN_OK://·Î±×ÀÎ °á°ú
+			case T_IC_CONNECT_LOGIN_OK://ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER;// + sizeof(MSG_IC_CONNECT_LOGIN_OK);
 					bFlag = TRUE;
 				}
 				break;
-			case T_IC_CHAT_PTOP: // 1:1 Ã¤ÆÃÀ» ¹ÞÀº °æ¿ì
+			case T_IC_CHAT_PTOP: // 1:1 Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_PTOP)
 						+((MSG_IC_CHAT_PTOP *)(pPacket+nBytesUsed+SIZE_FIELD_TYPE_HEADER))->MessageLength;
@@ -123,6 +123,14 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;
 				}
 				break;
+#ifdef _RAT_CHAT_SYSTEM
+		case T_IC_CHAT_INFLUENCE_ALL_RAT:
+			{
+				nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_INFLUENCE_ALL_RAT)
+						+((MSG_IC_CHAT_INFLUENCE_ALL_RAT *)(pPacket+nBytesUsed+SIZE_FIELD_TYPE_HEADER))->MessageLength;
+				bFlag = TRUE;
+			}
+#endif
 			case T_IC_CHAT_CHATROOM:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_CHATROOM)
@@ -166,24 +174,24 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 /*					
 					MSG_IC_CHAT_ALL	*pChat = NULL;					
 					pChat = (MSG_IC_CHAT_ALL*)(pPacket + nBytesUsed + SIZE_FIELD_TYPE_HEADER);
-					// nTypeÀÌ Ã¤ÆÃ Á¾·ù,bufCharacterNameÀÌ »ó´ë¹æ Ä³¸¯ÅÍ ÀÌ¸§, bufChat°¡ Ã¤ÆÃ ³»¿ë					
+					// nTypeï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½,bufCharacterNameï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½, bufChatï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_ALL) + pChat->MessageLength;
 					bFlag = TRUE;
 */				}
 				break;
-			case T_IC_CHAT_GET_GUILD_OK:// ±æµå¿ø Á¤º¸ ¿äÃ» °á°ú
+			case T_IC_CHAT_GET_GUILD_OK:// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_GET_GUILD);
 					bFlag = TRUE;
 				}
 				break;
-			case T_IC_CHAT_CHANGE_GUILD://±æµå¿ø Á¤º¸ ¹Ù²ñ
+			case T_IC_CHAT_CHANGE_GUILD://ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_CHANGE_GUILD_OK);
 					bFlag = TRUE;
 				}
 				break;
-/*			case T_IC_CHAT_GET_PARTY_OK:// ÆÄÆ¼¿ø Á¤º¸ ¿äÃ» °á°ú
+/*			case T_IC_CHAT_GET_PARTY_OK:// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_GET_PARTY);
 					bFlag = TRUE;
@@ -338,7 +346,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 				}
 				break;
 			
-				// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+				// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			case T_IC_PARTY_GET_AUTO_PARTY_INFO_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_PARTY_GET_AUTO_PARTY_INFO_OK)
@@ -346,7 +354,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;
 				}
 				break;
-				// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+				// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 			case T_IC_GUILD_CREATE_OK:	
 				{
@@ -613,23 +621,23 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;
 				}
 				break;
-				// 2008-03-03 by bhsohn ÅëÇÕ ¾Æ·¹³ª IM¼­¹ö ¿¬°á°úÁ¤ ¼öÁ¤
+				// 2008-03-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			case T_IC_CONNECT_FM_TO_IM_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER;
 					bFlag = TRUE;
 				}
 				break;
-				// end 2008-03-03 by bhsohn ÅëÇÕ ¾Æ·¹³ª IM¼­¹ö ¿¬°á°úÁ¤ ¼öÁ¤
-				// 2008-06-03 by bhsohn EP3 ¿©´Ü °ü·Ã Ã³¸®
-				// ¿©´Ü °øÁö »çÇ× µî·Ï
+				// end 2008-03-03 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ IMï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// 2008-06-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			case T_IC_GUILD_NOTICE_WRITE_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER+sizeof(MSG_IC_GUILD_NOTICE_WRITE_OK);
 					bFlag = TRUE;
 				}
 				break;
-				// Áö¿øÀÚ °ü¸®
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			case T_IC_GUILD_GET_APPLICANT_OK_HEADER:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER ;
@@ -648,35 +656,35 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;					
 				}
 				break;
-				// ¿©´Ü ¼Ò°³¸¦ ¾ò¾î¿È
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			case T_IC_GUILD_GET_INTRODUCTION_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_GUILD_GET_INTRODUCTION_OK);
 					bFlag = TRUE;					
 				}
 				break;
-				// ¿©´Ü ¼Ò°³¸¦ ¾÷µ¥ÀÌÆ®
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 			case T_IC_GUILD_UPDATE_INTRODUCTION_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER ;
 					bFlag = TRUE;					
 				}
 				break;
-				// ¿©´Ü ¼Ò°³Ãë¼Ò
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½
 			case T_IC_GUILD_DELETE_INTRODUCTION_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER ;
 					bFlag = TRUE;					
 				}
 				break;
-				// ¼±ÅÃÇÑ Áö¿øÀÚ ¼Ò°³¼­¸¦ °¡Á®¿Â´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 			case T_IC_GUILD_GET_SELF_INTRODUCTION_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_GUILD_GET_SELF_INTRODUCTION_OK);
 					bFlag = TRUE;					
 				}
 				break;
-			// ¿©´Ü ¸®½ºÆ® °Ë»ö
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë»ï¿½
 			case T_IC_GUILD_SEARCH_INTRODUCTION_OK_HEADER:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER ;
@@ -695,23 +703,23 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;					
 				}
 				break;
-			// ÀÚ±â ¼Ò°³ ¾÷µ¥ÀÌÆ® 			
+			// ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 			
 			case T_IC_GUILD_UPDATE_SELFINTRODUCTION_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER ;
 					bFlag = TRUE;					
 				}
 				break;		
-				// ÀÚ±â ¼Ò°³ Ãë¼Ò
+				// ï¿½Ú±ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½
 			case T_IC_GUILD_DELETE_SELFINTRODUCTION_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER ;
 					bFlag = TRUE;					
 				}
 				break;
-				// end 2008-06-03 by bhsohn EP3 ¿©´Ü °ü·Ã Ã³¸®
-				// 2008-06-03 by bhsohn EP3 Æí´ë °ü·Ã Ã³¸®
-			case T_IC_PARTY_LIST_INFO_OK:	// ¸®½ºÆ® ¿äÃ»
+				// end 2008-06-03 by bhsohn EP3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// 2008-06-03 by bhsohn EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+			case T_IC_PARTY_LIST_INFO_OK:	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_PARTY_LIST_INFO_OK)
 						+(((MSG_IC_PARTY_LIST_INFO_OK *)(pPacket+nBytesUsed+SIZE_FIELD_TYPE_HEADER))->PartyInfoListCount * sizeof(SPARTY_LIST_INFO));
@@ -724,7 +732,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;					
 				}
 				break;
-			case T_IC_PARTY_RECOMMENDATION_MEMBER_OK:	// ÃßÃµ ÀÎ¿ø
+			case T_IC_PARTY_RECOMMENDATION_MEMBER_OK:	// ï¿½ï¿½Ãµ ï¿½Î¿ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_PARTY_RECOMMENDATION_MEMBER_OK)
 						+(((MSG_IC_PARTY_RECOMMENDATION_MEMBER_OK *)(pPacket+nBytesUsed+SIZE_FIELD_TYPE_HEADER))->Count * sizeof(SRECOMMENDATION_MEMBER_INFO));
@@ -737,7 +745,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;					
 				}
 				break;
-			case T_IC_PARTY_INFO:						// Æí´ë ¼³Á¤ Á¤º¸
+			case T_IC_PARTY_INFO:						// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_PARTY_INFO);
 					bFlag = TRUE;					
@@ -761,16 +769,16 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;					
 				}
 				break;
-				// end 2008-06-03 by bhsohn EP3 Æí´ë °ü·Ã Ã³¸®
-				// 2008-06-18 by bhsohn ¿©´Ü¿øÁõ°¡ Ä«µå °ü·Ã Ã³¸®
+				// end 2008-06-03 by bhsohn EP3 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// 2008-06-18 by bhsohn ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			case T_IC_GUILD_CHANGE_MEMBERSHIP:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_GUILD_CHANGE_MEMBERSHIP);
 					bFlag = TRUE;					
 				}
 				break;
-				// end 2008-06-18 by bhsohn ¿©´Ü¿øÁõ°¡ Ä«µå °ü·Ã Ã³¸®
-				// 2008-06-24 by dgwoo Ã¤ÆÃ¹æ. 
+				// end 2008-06-18 by bhsohn ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+				// 2008-06-24 by dgwoo Ã¤ï¿½Ã¹ï¿½. 
 			case T_IC_CHATROOM_CREATE_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHATROOM_CREATE_OK);
@@ -858,52 +866,52 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;
 				}
 				break;
-				// 2008-07-11 by bhsohn Á¢¼ÓÇÑ Ä£±¸ ¸®½ºÆ® ½Ã½ºÅÛ Ãß°¡
+				// 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			case T_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_ONLINE_EACHOTHER_FRIEND_COUNT);
 					bFlag = TRUE;
 				}
 				break;
-				// end 2008-07-11 by bhsohn Á¢¼ÓÇÑ Ä£±¸ ¸®½ºÆ® ½Ã½ºÅÛ Ãß°¡
+				// end 2008-07-11 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			case T_IC_VOIP_SET_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_VOIP_SET_OK);
 					bFlag = TRUE;
 				}
 				break;
-				// 2008-07-17 by bhsohn ±æµå¿ø ·©Å© °»½Å½Ã ÆÃ±â´Â ¹®Á¦ ÇØ°á
+				// 2008-07-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½Å½ï¿½ ï¿½Ã±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
 			case T_IC_GUILD_CHANGE_FAME_RANK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_GUILD_CHANGE_FAME_RANK);
 					bFlag = TRUE;				
 				}
 				break;
-				// end 2008-07-17 by bhsohn ±æµå¿ø ·©Å© °»½Å½Ã ÆÃ±â´Â ¹®Á¦ ÇØ°á
-				// 2009-01-12 by bhsohn Ä£±¸ µî·Ï ´çÇÏ´Â À¯Àú ¸Þ½ÃÁöÃ¢ ±â´É Ãß°¡
+				// end 2008-07-17 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½Å½ï¿½ ï¿½Ã±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½
+				// 2009-01-12 by bhsohn Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			case T_IC_CHAT_FRIENDLIST_INSERT_NOTIFY:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_FRIENDLIST_INSERT_NOTIFY);
 					bFlag = TRUE;									
 				}
 				break;
-				// end 2009-01-12 by bhsohn Ä£±¸ µî·Ï ´çÇÏ´Â À¯Àú ¸Þ½ÃÁöÃ¢ ±â´É Ãß°¡
-			// 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
+				// end 2009-01-12 by bhsohn Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+			// 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 			case T_IC_INFO_DECLARATION_MSWAR_SET_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_INFO_DECLARATION_MSWAR_SET_OK);
 					bFlag = TRUE;	
 				}
 				break;
-			// end 2009. 01. 12 by ckPark ¼±Àü Æ÷°í ½Ã½ºÅÛ
-				// 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+			// end 2009. 01. 12 by ckPark ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+				// 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 			case T_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK:
 				{
 					nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_PARTY_UPDATE_ITEM_TRANSFORMER_OK);
 					bFlag = TRUE;
 				}
 				break;
-				//end 2010. 03. 18 by jskim ¸ó½ºÅÍº¯½Å Ä«µå
+				//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 
 			case T_ERROR:
 				{
@@ -918,7 +926,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 						m_nOldType = nType;
 						return TRUE;
 					}
-					// ¾îÇÃ¸®ÄÉÀÌ¼Ç¿¡¼­ Á¾·áÇÏ°Ô Àü´Þ
+					// ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ì¼Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 					nTypeSize = nLength - nBytesUsed;
 					pRMsg = new char[nTypeSize];
 					memcpy(pRMsg, pPacket + nBytesUsed, nLength - nBytesUsed);
@@ -926,7 +934,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					m_queueRecvMessage.push(pRMsg);
 					LeaveCriticalSection(&m_criticalRecvMessageQueue);
 					pRMsg = NULL;
-					//  Ã³¸®				
+					//  Ã³ï¿½ï¿½				
 					PostNotify(WS_RECEIVED);
 					if(NULL != pRMsg){ SAFE_DELETE(pRMsg);}
 					DBGOUT("CIMSocket::OnRecvdPacket(LPSTR pPacket, int nLength, BYTE nSeq), IMSocket Closed ( Current Type %s ) : ( Old Type %s ) \n",GetProtocolTypeString(nType),GetProtocolTypeString(m_nOldType));
@@ -958,7 +966,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 			m_queueRecvMessage.push(pRMsg);
 			LeaveCriticalSection(&m_criticalRecvMessageQueue);
 			pRMsg = NULL;
-			//  Ã³¸®				
+			//  Ã³ï¿½ï¿½				
 			PostNotify(WS_RECEIVED);
 			nBytesUsed += nTypeSize;
 			
@@ -979,11 +987,11 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 // T_CHAT_LOGIN_OK
 void CIMSocket::OnRecvdIMLoginOK(MSG_IC_CONNECT_LOGIN_OK* pMsg)
 {
-	if(m_nLoginType == 0 && !pMsg)// °ÔÀÓÁß ·Î±×ÀÎ ¿Ï·á
+	if(m_nLoginType == 0 && !pMsg)// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 	{
 		m_bLogin = TRUE;		
 	} 
-	else if(m_nLoginType == 1 && pMsg)//¸Þ½ÅÀú ·Î±×ÀÎ ¿Ï·á
+	else if(m_nLoginType == 1 && pMsg)//ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 	{
 		memcpy(&m_character, &pMsg->Characters[0],sizeof(MSG_IC_CONNECT_LOGIN_OK));
 		m_bLogin = TRUE;
@@ -997,7 +1005,7 @@ void CIMSocket::OnRecvdGetGuildOK(MSG_IC_CHAT_GET_GUILD_OK* pMsg)
 	FLOG( "CIMSocket::OnRecvdGetGuildOK(MSG_IC_CHAT_GET_GUILD_OK* pMsg)" );
 	MSG_IC_CHAT_GET_GUILD_OK msg;
 	memcpy(&msg, pMsg,sizeof(MSG_IC_CHAT_GET_GUILD_OK));
-	// msgÀÇ ³»¿ëÀÌ ±æµå¿ø ÇÑ¸íÀÇ Á¤º¸
+	// msgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 // T_CHAT_CHANGE_GUILD
@@ -1006,7 +1014,7 @@ void CIMSocket::OnRecvdChangeGuild(MSG_IC_CHAT_CHANGE_GUILD* pMsg)
 	FLOG( "CIMSocket::OnRecvdChangeGuild(MSG_IC_CHAT_CHANGE_GUILD* pMsg)" );
 	MSG_IC_CHAT_CHANGE_GUILD msg;
 	memcpy(&msg, pMsg,sizeof(MSG_IC_CHAT_CHANGE_GUILD));
-	// msgÀÇ ³»¿ëÀÌ ±æµå¿øÇÑ¸íÀÇ º¯°æ Á¤º¸
+	// msgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 /*
 // T_CHAT_GET_PARTY_OK
@@ -1014,7 +1022,7 @@ void CIMSocket::OnRecvdGetPartyOK(MSG_IC_CHAT_GET_PARTY_OK* pMsg)
 {
 	MSG_IC_CHAT_GET_PARTY_OK msg;
 	memcpy(&msg, pMsg,sizeof(MSG_IC_CHAT_GET_PARTY_OK));
-	// msgÀÇ ³»¿ëÀÌ ÆÄÆ¼¿øÇÑ¸íÀÇ Á¤º¸
+	// msgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 */
 // T_CHAT_CHANGE_PARTY
@@ -1023,7 +1031,7 @@ void CIMSocket::OnRecvdChangeParty(MSG_IC_CHAT_CHANGE_PARTY* pMsg)
 	FLOG( "CIMSocket::OnRecvdChangeParty(MSG_IC_CHAT_CHANGE_PARTY* pMsg)" );
 	MSG_IC_CHAT_CHANGE_PARTY msg;
 	memcpy(&msg, pMsg,sizeof(MSG_IC_CHAT_CHANGE_PARTY));
-	// msgÀÇ ³»¿ëÀÌ ÆÄÆ¼¿øÇÑ¸íÀÇ º¯°æ Á¤º¸
+	// msgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 
@@ -1140,7 +1148,7 @@ void CIMSocket::SendChat(int nType,
 		}
 		break;
 
-		// 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+		// 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	case T_IC_CHAT_INFINITY:
 		{
 			MSG_IC_CHAT_INFINITY* pChat = NULL;
@@ -1156,7 +1164,7 @@ void CIMSocket::SendChat(int nType,
 			nBytesUsed += pChat->MessageLength;
 		}
 		break;
-		// end 2009. 11. 02 by ckPark ÀÎÇÇ´ÏÆ¼ ÇÊµå ÀÎ½ºÅÏ½º ´øÁ¯ ½Ã½ºÅÛ
+		// end 2009. 11. 02 by ckPark ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ ï¿½Êµï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 	case T_IC_CHAT_WAR:
 		{
@@ -1171,6 +1179,20 @@ void CIMSocket::SendChat(int nType,
 			nBytesUsed += pChat->MessageLength;
 		}
 		break;
+#ifdef _RAT_CHAT_SYSTEM
+	case T_IC_CHAT_INFLUENCE_ALL_RAT:
+		{
+			MSG_IC_CHAT_INFLUENCE_ALL_RAT	*pChat = NULL;
+			memcpy(buffer, &nType, SIZE_FIELD_TYPE_HEADER);
+			nBytesUsed = SIZE_FIELD_TYPE_HEADER;
+			pChat = (MSG_IC_CHAT_INFLUENCE_ALL_RAT*)(buffer + nBytesUsed);
+			nBytesUsed += sizeof(MSG_IC_CHAT_INFLUENCE_ALL_RAT);
+			strncpy(pChat->FromCharacterName, m_character.CharacterName, SIZE_MAX_CHARACTER_NAME);
+			pChat->MessageLength = nLength;
+			strncpy(buffer+nBytesUsed, strChat, nLength);
+			nBytesUsed += pChat->MessageLength;
+		}
+#endif
 	case T_IC_CHAT_GUILD:
 		{
 			MSG_IC_CHAT_GUILD	*pChat = NULL;
@@ -1256,7 +1278,7 @@ void CIMSocket::SendChat(int nType,
 	g_pD3dApp->m_pSound->PlayD3DSound(SOUND_SEND_CHAT, g_pShuttleChild->m_vPos, FALSE);
 }
 
-// 2007-11-22 by bhsohn ¾Æ·¹³ª ÅëÇÕ¼­¹ö
+// 2007-11-22 by bhsohn ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
 void CIMSocket::SetChaterInfo(CHARACTER* pInfo)
 {
 	memcpy(&m_character, pInfo,sizeof(CHARACTER));

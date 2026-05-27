@@ -334,10 +334,17 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 
 	char buff[256];
 	memset(&buff, 0x00, 256);
+#ifdef _RAT_FFA
+	if (bShowHP && g_pD3dApp->m_pInterface && MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+	{
+		g_pD3dApp->m_pInterface->m_pTarget->RenderHP(x, y, fHP);
+	}
+#else
 	if(bShowHP && g_pD3dApp->m_pInterface) 
 	{
 		g_pD3dApp->m_pInterface->m_pTarget->RenderHP(x, y, fHP); 
 	}
+#endif
 
 //	pChatData->Render( x - (strlen(strName)*3),	y - NAME_FROM_MOUSE_CENTER_Y );
 	// 2005-05-13 by jschoi -  아이디 색 추가
@@ -350,24 +357,29 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 //	int	nMarkRenderXPos = 0;
 	if(nGuildUniqueNumber != 0 )
 	{
-		// 길드 마크 렌더링
-		// 2006-01-12 by ispark, 현재 nMarkRenderXPos 안쓴다.
-//		if(GuildTemp == NULL || GuildTemp->GuildUniqueNumber != nGuildUniqueNumber)
-//		{
-//			nMarkRenderXPos = ID_MENT_GUILD_MENT_POSITION_X;
-//		}		
-//		else if( 0 ==strcmp(g_pGameMain->m_pChat->m_strMyMent, strMent) && 
-//			GuildTemp->GuildCommanderUniqueNumber == g_pShuttleChild->m_myShuttleInfo.CharacterUniqueNumber)
-//		{
-//			nMarkRenderXPos = ID_MENT_GUILD_MENT_POSITION_X-4;
-//		}
-//		else if(GuildTemp->GuildUniqueNumber == nGuildUniqueNumber || 0 ==strcmp(g_pGameMain->m_pChat->m_strMyMent, strMent))
-//		{
-//			nMarkRenderXPos = ID_MENT_GUILD_MENT_POSITION_X+9;
-//		}
+#ifdef _RAT_FFA
+		if (MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+			g_pGameMain->m_pCommunity->GetGuild()->RenderGuildMark(x, y - 10, nGuildUniqueNumber, nCharacterUniqueNumber);
+#else
 		g_pGameMain->m_pCommunity->GetGuild()->RenderGuildMark( x, y - 10, nGuildUniqueNumber, nCharacterUniqueNumber );
+#endif
 	}
 
+#ifdef _RAT_FFA
+	if (strlen(strMent) > 0 && MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+	{
+		// 멘트 렌더링
+		char buf[2][512];
+		int temp, temp2;
+		memset(buf, 0x00, 512 * 2);
+		strncpy(buf[0], strMent, strlen(strMent));
+		// 2006-04-13 by ispark
+		g_pD3dApp->CheckReadyStringFiltering(buf[0], &temp, &temp2);
+		//		g_pD3dApp->m_pAbuseFilter->AbuseFiltering(buf[0],&temp,&temp2);
+		strncpy(buf[1], buf[0], strlen(buf[0]));
+		sprintf(buff, "\\w:%s", buf[1]);
+	}
+#else
 	if(strlen(strMent) > 0)
 	{
 		// 멘트 렌더링
@@ -380,11 +392,8 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 //		g_pD3dApp->m_pAbuseFilter->AbuseFiltering(buf[0],&temp,&temp2);
 		strncpy( buf[1], buf[0], strlen(buf[0]));
 		sprintf(buff, "\\w:%s", buf[1]);
-
-//		m_pFontMent->DrawText( x-(strlen(strName)*3)+nMarkRenderXPos,
-//				y - ID_GUILD_MARK_START_Y-5,GUI_FONT_COLOR, buff);
-//		g_pGameMain->SetMentMessage(x-(strlen(strName)*3)+nMarkRenderXPos, y - ID_GUILD_MARK_START_Y-5, buff);
 	}
+#endif
 
 	// 2006-02-10 by ispark, 글자 길이 가져오기
 	if(pChatData)
@@ -397,6 +406,19 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 		// END 2013-03-06 by bhsohn 복귀 유저 시스템
 
 		pChatData->Render(x - nCharacterNameX, y - 10, dwNameColor);
+#ifdef _RAT_FFA
+		if (strlen(buff) > 0 && MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+		{
+			g_pGameMain->SetMentMessage(x - nCharacterNameX + sizeX + 2, y - 10, buff);
+
+			// 2013-03-06 by bhsohn 복귀 유저 시스템			
+			if (bRtnUser)
+			{
+				nRtnUserStartX += g_pGameMain->GetMentMessageSize(buff);
+			}
+			// END 2013-03-06 by bhsohn 복귀 유저 시스템
+		}
+#else
 		if(strlen(buff) > 0)
 		{
 			g_pGameMain->SetMentMessage(x - nCharacterNameX + sizeX + 2, y - 10, buff);
@@ -404,11 +426,11 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 			// 2013-03-06 by bhsohn 복귀 유저 시스템			
 			if(bRtnUser)
 			{
-				// 스팅 길이를 가져오는 함수가 CDC를 이용하여 느리기 때문에 별도의 처리로 하였다.
 				nRtnUserStartX += g_pGameMain->GetMentMessageSize(buff);
 			}
 			// END 2013-03-06 by bhsohn 복귀 유저 시스템
 		}
+#endif
 		// 2013-03-06 by bhsohn 복귀 유저 시스템
 		if(bRtnUser)
 		{
@@ -672,6 +694,12 @@ void CINFUnitNameInfo::Render()
 						STRNCPY_MEMSET(szCharName, (*itEnemy)->m_infoCharacter.CharacterInfo.CharacterName, SIZE_MAX_ARENA_FULL_NAME);
 						// 서버 이름 제거
 						g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
+#ifdef _RAT_FFA
+						if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) {
+							STRNCPY_MEMSET(szCharName, "FFA Enemy", SIZE_MAX_ARENA_FULL_NAME);
+							g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
+						}
+#endif
 
 						RenderCharacterInfo( (*itEnemy)->m_nObjScreenX, 
 											 nScreenY, 
@@ -697,6 +725,12 @@ void CINFUnitNameInfo::Render()
 							STRNCPY_MEMSET(szCharName, (*itEnemy)->m_infoCharacter.CharacterInfo.CharacterName, SIZE_MAX_ARENA_FULL_NAME);
 							// 서버 이름 제거
 							g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
+#ifdef _RAT_FFA
+							if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) {
+								STRNCPY_MEMSET(szCharName, "FFA Enemy", SIZE_MAX_ARENA_FULL_NAME);
+								g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
+							}
+#endif
 							
 							RenderCharacterInfo( (*itEnemy)->m_nObjScreenX, 
 											 nScreenY, 
@@ -989,6 +1023,11 @@ DWORD CINFUnitNameInfo::GetNameColor(BYTE byCityWarTeamType, BYTE byInfluenceLea
 
 DWORD CINFUnitNameInfo::GetInfluenceColor(int byInfluence, BYTE byInfluenceLeader)
 {
+#ifdef _RAT_FFA
+	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+		return RGB(255, 0, 0);
+#endif
+
 	// 2006-04-21 by ispark, 지도자는 형광녹색, 세력과 무관하게 출력
 	if(COMPARE_RACE(RACE_INFLUENCE_LEADER,byInfluenceLeader))
 	{

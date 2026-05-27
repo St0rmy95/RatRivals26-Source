@@ -16,10 +16,10 @@
 #include "INFMissionPopupInfo.h"
 #include "INFMissionSelInfluence.h"
 #include "INFMissionMasterReg.h"
-// ¹Ì¼Ç À©µµ¿ì Á¾·á
-#define		MISSOIN_SHOW_TREE				0		// ¸®½ºÆ® ÄÁÆ®·Ñ
-#define		MISSOIN_SHOW_POPUP				1		// ÆË¾÷ À©µµ¿ì 
-#define		MISSOIN_SHOW_SEL_INFLUENCE		2		// ¼¼·Â¼±ÅÃ 
+// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define		MISSOIN_SHOW_TREE				0		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Æ®ï¿½ï¿½
+#define		MISSOIN_SHOW_POPUP				1		// ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+#define		MISSOIN_SHOW_SEL_INFLUENCE		2		// ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ 
 #define		MAX_MISSOIN_SHOW				3
 
 class CINFImage;
@@ -47,16 +47,16 @@ public:
 	BOOL IsShowTreeWnd();
 	void ShowTreeWnd(BOOL bFlag, BOOL bSoundPlay);
 
-	// Æ¯Á¤ À§Ä¡ ¹Ì¼Ç
+	// Æ¯ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ì¼ï¿½
 	void SetPosMissionSearchStart(BOOL nstate);
 	void SetPosMissionInfo(CQuest* pQuest);
 	void SetPosMissionComplete(BOOL bFlag);
 
-	// ¼¼·Â¹Ì¼Ç ¼±ÅÃ
+	// ï¿½ï¿½ï¿½Â¹Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL GetInfluenceMission() ;
 	void SetInfluenceMission(BOOL bFlag, float fANIPercent, float fVANPercent);
 
-	// ¹Ì¼Ç Á¤º¸ ÃÊ±âÈ­ 
+	// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
 	void RefreshMission(BOOL bClick, INT QuestIndex);
 
 	void MissionEnd(DWORD dMissionIndex);
@@ -68,38 +68,38 @@ public:
 	BOOL IsLevelSecnQuest(BYTE byUpLevel, int nSuccessQuestIdx, int* o_nPossibleQuestIdx);
 	void LoadQuestList(vector<int>* pVecQuestIndex);
 
-	// Äù½ºÆ® ÀÌ¸§
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¸ï¿½
 	void SetQuestNameString(CQuest* pQuest, vector<string>* o_vecMissionName, 
 											CINFImageListBox* pINFImageListBox, int nMaxString);
-	// ¹Ì¼Ç°á°ú
+	// ï¿½Ì¼Ç°ï¿½ï¿½
 	void SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossibleDesc, 
 										 CINFImageListBox* pINFImageListBox, int nMaxString);
 	
-	// ¸ñÇ¥Ä¡
+	// ï¿½ï¿½Ç¥Ä¡
 	void SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleDesc);
 
-	// ¹Ì¼ÇÀÌ ½ÃÀÛÀÌ °¡´ÉÇÑÁö ÆÇ´Ü	
+	// ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½	
 	BOOL CheckMissionStart();	
 	BOOL CheckMissionIdxStart(DWORD i_dwSelQuestIndex);	
 
-	// ¹Ì¼Ç ½ÃÀÛ
+	// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void MissionStart(DWORD i_dwSelQuestIndex);
 
-	// ¼¼·ÂÆ÷ÀÎÆ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	float GetVCNInflDistributionPercent();
 	float GetANIInflDistributionPercent();
 	
-	// ½Å±Ô À¯Àú ¹Ì¼ÇÃ¢ ¶ß¿ì±â	
+	// ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½Ã¢ ï¿½ß¿ï¿½ï¿½	
 	int	GetMissionMapQuestIdx();
 	void SetMissionMapQuestIdx(int nQuestIdx);
 	void SetFirstPossibleQuestIdx(int nPossibleQuestIdx);
 	int  GetFirstPossibleQuestIdx();
 	void OnClickFirstUserCloseBtn();
 
-	// ¹Ì¼Ç¸Ê °ü·Ã UI¾÷µ¥ÀÌÆ®
+	// ï¿½Ì¼Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	void RefreshMissionUI();
 	
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	void SetMissionMasterWindowShow(BOOL i_bShow);
 	INT	 GetMissionMasterQuestIdx();
 	void UpdateMissionMasterButton();
@@ -113,53 +113,56 @@ private:
 	int OnLButtonUp(WPARAM wParam, LPARAM lParam);
 	int OnMouseMove(WPARAM wParam, LPARAM lParam);
 
-	void OnClickGoMap();	// Ãâ°Ý ¹öÆ° 
-	void OnClickGoMissionMap(); // ¹Ì¼Ç¸ÊÀ¸·Î ÀÌµ¿
+	void OnClickGoMap();	// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° 
+	void OnClickGoMissionMap(); // ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 
 private:
-	// ¹Ì¼Ç Æ®¸®
+	// ï¿½Ì¼ï¿½ Æ®ï¿½ï¿½
 	CINFMissionTreeInfo*	m_pINFMissionTreeInfo;
-	// ÆË¾÷ Æ®¸®
+	// ï¿½Ë¾ï¿½ Æ®ï¿½ï¿½
 	CINFMissionPopupInfo*	m_pINFMissionPopupInfo;
-	// ¼¼·Â ¼±ÅÃ ¹Ì¼Ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½
 	CINFMissionSelInfluence*	m_pINFMissionSelInfluence;
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
-	// ¹Ì¼Ç ¸¶½ºÅÍ µî·Ï Ã¢.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
+	// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¢.
 	CINFMissionMasterReg*	m_pINFMissionMaster;
 	
-	// Ãâ°Ý ¹öÆ°
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 	CINFImageBtn*			m_pGoMapBtn;
-	// ¹Ì¼Ç¸ÊÀ¸·Î ÀÌµ¿
+	// ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	CINFImageBtn*			m_pGoMissionMapBtn;
+#ifdef _RAT_FFA
+	CINFImageBtn*			m_pGoFFABtn;
+#endif
 
 
-	int						m_nShowMissionWnd;		// ¹Ì¼Ç À©µµ¿ì ½ÇÇà	
+	int						m_nShowMissionWnd;		// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	CD3DHanFont*			m_pMissionINGFont[10];
 #else
 	CD3DHanFont	*			m_pMissionINGFont;
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 
 
 	BOOL					m_bSearchPosQuest;
 	CQuest*					m_pHidePosQuest;
 
-	// ¼¼·Â¼±ÅÃ ¹Ì¼Ç
+	// ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½
 	BOOL					m_bInfluenceFlag;
 
-	float					m_fVCNInflDistributionPercent;	// ¹ÙÀÌÁ¦´ÏÀ¯ Á¤±Ô±º ¼¼·ÂºÐÆ÷ - ¼¼·Â¼±ÅÃ ¹Ì¼Ç½Ã¸¸ »ç¿ëµÊ
-	float					m_fANIInflDistributionPercent;	// ¾Ë¸µÅÏ Á¤±Ô±º - ¼¼·Â¼±ÅÃ ¹Ì¼Ç½Ã¸¸ »ç¿ëµÊ
+	float					m_fVCNInflDistributionPercent;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô±ï¿½ ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½Ì¼Ç½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	float					m_fANIInflDistributionPercent;	// ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô±ï¿½ - ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½Ì¼Ç½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// Æ¯Á¤ Áö¿ª Äù½ºÆ®
+	// Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	BOOL					m_bPosMissionComplete;
 
 	int						m_nMyShuttleCharacter;
 
 	int						m_nMissionMapQuestIndex;
-	// ÃÖÃÊÀÇ Äù½ºÆ® ¹øÈ£
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È£
 	int						m_nFirstPossibleQuestIdx;
 };
 

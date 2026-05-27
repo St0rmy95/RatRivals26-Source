@@ -53,14 +53,14 @@ public:
 	void SetEncode(BOOL encode) { m_bEncode = encode; }
 	DataHeader* FindFromFile(char* strName);
 
-	// 2007-04-05 by bhsohn ¸Ê·Îµå½Ã, Ã¼Å©¼¶ Ãß°¡
-	// 2009-05-29 by cmkwon, Hash¾Ë°í¸®Áò Ãß°¡(SHA256) - ¾ÆÇØ¿Í °°ÀÌ ¼öÁ¤µÊ
+	// 2007-04-05 by bhsohn ï¿½Ê·Îµï¿½ï¿½, Ã¼Å©ï¿½ï¿½ ï¿½ß°ï¿½
+	// 2009-05-29 by cmkwon, Hashï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(SHA256) - ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//static BOOL GetCheckSum(UINT *o_puiCheckSum, int *o_pnFileSize, char* pFilePath);
 	static BOOL GetCheckSum(BYTE o_byObjCheckSum[32], int *o_pnFileSize, char* pFilePath);
 
-	// 2007-11-08 by bhsohn ÀÎº¥ ÀÌÆåÆ® °ü·Ã Ã³¸®
+	// 2007-11-08 by bhsohn ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	char *GetZipFilePath();
-	BOOL IsUITexture();				  // 2008-10-15 by bhsohn ¸®¼Ò½º ¸Þ¸ð¸® º¸È£ ±â´É Ãß°¡
+	BOOL IsUITexture();				  // 2008-10-15 by bhsohn ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 private:
 	TotalHeader* pTotal_header;

@@ -2,28 +2,28 @@
 //File has been reorganized and translated to humanish by Inetpub 17-07-2021 - added some comments how it works 
 
 #if defined(_DEBUG)
-#define _ATUM_DEVELOP										// ¼­¹ö¿ë) ¼­¹ö¼Ò½º»ó µð¹ö±ëÀÏ ¶§ È°¼ºÈ­ ÇØÁà¾ß ÇÔ
+#define _ATUM_DEVELOP										// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 #endif
 
 #define S_CAN_SERVER_SETTING_HSSON	//this remains here just for valid compiler profile setting validation
 
 #if defined(_KOR)
-#define KOR_YEDANG_WEB_LAUNCHER_HSSON				// ¿¹´ç À¥·±ÃÄ
-#define YEDANG_RELEASE								// ÇÙ½¯µå, ¸î°¡Áö ±â´É ÇÑ±¹¸¸ ¼öÇà
+#define KOR_YEDANG_WEB_LAUNCHER_HSSON				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define YEDANG_RELEASE								// ï¿½Ù½ï¿½ï¿½ï¿½, ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define S_ARARIO_HSSON								// used to strtok email to get first token as username
-#define KOR_INPUT_LANGUAGE_HSSON					// ÀÔ·Â ¾ð¾î º¯È¯
-#define KOR_HANGEUL_START_HSSON						// ÇÑ±Û ¸ðµå·Î ½ÃÀÛ
-#define KOR_CASHSHOP_INTERFACE_HSSON				// Ä³½¬¼¥ ÀÎÅÍÆäÀÌ½º
-#define KOR_GAME_RATINGS_HSSON						// °ÔÀÓ µî±Þ¹° À§¿øÈ¸ ¾ÆÀÌÄÜ Ãß°¡
-#define KOR_CHARACTER_INTERFACE_POS_HSSON			// ¾ð¾î¿¡ µû¶ó À§Ä¡ ¼öÁ¤
+#define KOR_INPUT_LANGUAGE_HSSON					// ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
+#define KOR_HANGEUL_START_HSSON						// ï¿½Ñ±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define KOR_CASHSHOP_INTERFACE_HSSON				// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½
+#define KOR_GAME_RATINGS_HSSON						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¹ï¿½ ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+#define KOR_CHARACTER_INTERFACE_POS_HSSON			// ï¿½ï¿½î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 #include "Str_KOR/StringDefineCommon.h"
 #include "Str_KOR/StringDefineServer.h"
 #include "Str_KOR/StringDefineClient.h"
 #endif
 
 #if defined(_JPN)
-#define LANGUAGE_JAPAN								// ÀÏº»¿¡ ±âÁ¸¿¡ »ç¿ëÇÏ´ø µðÆÄÀÎ
-#define S_ARARIO_HSSON								// ¾Æ¶ó¸®¿À Ã¤³Î¸µ
+#define LANGUAGE_JAPAN								// ï¿½Ïºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define S_ARARIO_HSSON								// ï¿½Æ¶ó¸®¿ï¿½ Ã¤ï¿½Î¸ï¿½
 #include "Str_JPN/StringDefineCommon.h"
 #include "Str_JPN/StringDefineServer.h"
 #include "Str_JPN/StringDefineClient.h"
@@ -267,6 +267,15 @@
 #define _RAT_RANK_SYSTEM // RankSystem
 #define _RAT_KILL_MSG // To Send server Kill Messages
 
+#define _RAT_GREYBUTTONS
+#define _RAT_FFA
+#ifdef _RAT_FFA
+	#define FFA_MAP (USHORT)9017
+#endif
+
+#define MULTI_LOADER_HSSON
+#define _RAT_CHAT_SYSTEM_OFF
+
 #endif //_RAT
 
 #ifdef _LOG_EXAMPLE_CLIENT // Placed to see an example here for Client Log
@@ -293,5 +302,5 @@ g_pGlobal->WriteSystemLogEX(
 	"[DB Error] DBServer connection failed!"
 );
 // OR
-SendString128(STRING_128_ADMIN_CMD, "»ç°Å¸®:%.4f,  °ø°Ý°Å¸®:%.4f", fSkillAppliedRange, fDistance);
+SendString128(STRING_128_ADMIN_CMD, "ï¿½ï¿½Å¸ï¿½:%.4f,  ï¿½ï¿½ï¿½Ý°Å¸ï¿½:%.4f", fSkillAppliedRange, fDistance);
 #endif

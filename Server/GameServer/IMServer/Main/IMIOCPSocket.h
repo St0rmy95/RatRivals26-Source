@@ -169,6 +169,9 @@ public:
 	ProcessResult Process_IC_CHAT_INFLUENCE_ALL(const char* pPacket, int nLength, int &nBytesUsed, SThreadInfo *i_pThreadInfo);
 	ProcessResult Process_IC_CHAT_ARENA(const char* pPacket, int nLength, int &nBytesUsed, SThreadInfo *i_pThreadInfo);
 	ProcessResult Process_IC_CHAT_WAR(const char* pPacket, int nLength, int &nBytesUsed, SThreadInfo *i_pThreadInfo);		// 2008-05-19 by dhjin, EP3 - 채팅 시스템 변경, 전쟁 채팅
+#ifdef _RAT_CHAT_SYSTEM
+	ProcessResult Process_IC_CHAT_INFLUENCE_ALL_RAT(const char* pPacket, int nLength, int& nBytesUsed, SThreadInfo* i_pThreadInfo);
+#endif
 	ProcessResult Process_IC_CHAT_CHATROOM(const char* pPacket, int nLength, int &nBytesUsed, SThreadInfo *i_pThreadInfo);		// 2008-06-18 by dhjin, EP3 채팅방 - 
 	ProcessResult Process_IC_CHAT_INFINITY(const char* pPacket, int nLength, int &nBytesUsed, SThreadInfo *i_pThreadInfo);		// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 채팅
 

@@ -51,7 +51,7 @@ const char *GetCharacterString(const CHARACTER *pCharac, string &str)
 	char buffer[512];
 	sprintf(buffer, "[A(%s:%d) C(%s:%d) CI(%d)]",
 		pCharac->AccountName, pCharac->AccountUniqueNumber, pCharac->CharacterName, pCharac->CharacterUniqueNumber, pCharac->ClientIndex);
-// 2007-07-18 by cmkwon, Á¤º¸ ¼öÁ¤ - À§¿Í °°ÀÌ ¼öÁ¤
+// 2007-07-18 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	sprintf(buffer, "[A: %s, CH: %s, CI: %d, UN: %d]",
 //		pCharac->AccountName, pCharac->CharacterName, pCharac->ClientIndex, pCharac->CharacterUniqueNumber);
 	str += buffer;
@@ -82,7 +82,7 @@ const char *GetItemGeneralString(const ITEM_GENERAL *pItem, string &str)
 	}
 
 	char buffer[512];
-	// 2008-02-14 by cmkwon, ¼ø¼­ º¯°æ ÇÔ
+	// 2008-02-14 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	sprintf(buffer, "[IN:%d N:%10s UN:%I64d C:%d]",
 		pItem->ItemNum, pItem->ItemInfo->ItemName, pItem->UniqueNumber, pItem->CurrentCount);
 	str += buffer;
@@ -112,7 +112,7 @@ const char *GetItemSkillString(const ITEM_SKILL *pItem, string &str)
 	}
 
 	char buffer[512];
-	// 2008-02-14 by cmkwon, ¼ø¼­ º¯°æ ÇÔ
+	// 2008-02-14 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	sprintf(buffer, "[IN:%d N:%10s UN:%I64d]",
 		pItem->ItemNum, pItem->ItemInfo->ItemName, pItem->UniqueNumber);
 	str += buffer;
@@ -141,11 +141,11 @@ const char *GetRaceString(USHORT race)
 	case RACE_INFLUENCE_LEADER:	return STRCMD_CS_COMMON_RACE_INFLUENCE_LEADER;			// 2006-04-20 by cmkwon
 // 2006-12-08 by dhjin	case RACE_MONSTER2:			return STRCMD_CS_COMMON_RACE_MONSTER2;
 
-// 2007-10-06 by cmkwon, ºÎÁöµµÀÚ 2¸íÀÇ È£ÄªÀ» ´Ù¸£°Ô ¼³Á¤ -
+// 2007-10-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ È£Äªï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
 //	case RACE_INFLUENCE_SUBLEADER: return STRCMD_CS_COMMON_RACE_INFLUENCE_SUBLEADER;	// 2006-12-08 by dhjin
 //	case RACE_NPC:				return STRCMD_CS_COMMON_RACE_NPC;
-	case RACE_INFLUENCE_SUBLEADER_1:	return STRCMD_CS_COMMON_RACE_INFLUENCE_SUBLEADER_1;	// 2007-10-06 by cmkwon, ºÎÁöµµÀÚ 2¸íÀÇ È£ÄªÀ» ´Ù¸£°Ô ¼³Á¤ -
-	case RACE_INFLUENCE_SUBLEADER_2:	return STRCMD_CS_COMMON_RACE_INFLUENCE_SUBLEADER_2;	// 2007-10-06 by cmkwon, ºÎÁöµµÀÚ 2¸íÀÇ È£ÄªÀ» ´Ù¸£°Ô ¼³Á¤ -
+	case RACE_INFLUENCE_SUBLEADER_1:	return STRCMD_CS_COMMON_RACE_INFLUENCE_SUBLEADER_1;	// 2007-10-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ È£Äªï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
+	case RACE_INFLUENCE_SUBLEADER_2:	return STRCMD_CS_COMMON_RACE_INFLUENCE_SUBLEADER_2;	// 2007-10-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ È£Äªï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -
 	case RACE_OPERATION:		return STRCMD_CS_COMMON_RACE_OPERATION;
 	case RACE_GAMEMASTER:		return STRCMD_CS_COMMON_RACE_GAMEMASTER;
 	case RACE_MONITOR:			return STRCMD_CS_COMMON_RACE_MONITOR;
@@ -200,7 +200,7 @@ void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char *peerIP, ENServ
 
 /*	if (HIBYTE(nType) == T0_FC_BATTLE)
 	{
-		// ¹«Á¶°Ç Âï±â!
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½!
 		bPrint = TRUE;
 	} else*/
 	if (printLevel == PRINTLEVEL_NO_MSG)
@@ -246,14 +246,14 @@ void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char *peerIP, ENServ
 //*/
 	)
 	{
-		// PARTY °ü·Ã¸¸ Âï±â
+		// PARTY ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½
 		bPrint = TRUE;
 	}
 	else if (printLevel == PRINTLEVEL_FEW &&
 		HIBYTE(nType) == T0_FI_ADMIN
 	)
 	{
-		// ADMIN ¸¸ Âï±â
+		// ADMIN ï¿½ï¿½ ï¿½ï¿½ï¿½
 		bPrint = TRUE;
 	}
 	else
@@ -261,7 +261,7 @@ void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char *peerIP, ENServ
 		return;
 	}
 
-	// bPrint È®ÀÎÇÏ±â
+	// bPrint È®ï¿½ï¿½ï¿½Ï±ï¿½
 	if (!bPrint) return;
 
 	char szTime[128];
@@ -357,7 +357,7 @@ char *GetMonsterBellString(BYTE i_byMonBell)
 /// \param		
 /// \return		
 ///////////////////////////////////////////////////////////////////////////////
-const char *GetItemDesParameter(DestParam_t i_byDesParameter)		// 2011-08-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚ·áÇü º¯°æ (DestParameter - 255 -> 32767 Áö¿ø)
+const char *GetItemDesParameter(DestParam_t i_byDesParameter)		// 2011-08-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Ú·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (DestParameter - 255 -> 32767 ï¿½ï¿½ï¿½ï¿½)
 {
 	switch(i_byDesParameter)
 	{
@@ -516,7 +516,7 @@ const char *GetItemDesParameter(DestParam_t i_byDesParameter)		// 2011-08-01 by 
 	GET_CASERETURN_STRING_BY_TYPE(DES_DROP_EXP);
 	GET_CASERETURN_STRING_BY_TYPE(DES_DROP_SPI);
 	GET_CASERETURN_STRING_BY_TYPE(DES_DROP_ITEM);
-	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_DROP_RATE);	// 238,2010-11-30 by shcho, ·¹¾î¾ÆÀÌÅÛ µå¶ø È®·ü Áõ°¡ ¾ÆÀÌÅÛ ±¸Çö
+	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_DROP_RATE);	// 238,2010-11-30 by shcho, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	GET_CASERETURN_STRING_BY_TYPE(DES_HP_REPAIR_RATE_FLIGHTING);
 	GET_CASERETURN_STRING_BY_TYPE(DES_DP_REPAIR_RATE);
 	GET_CASERETURN_STRING_BY_TYPE(DES_SP_REPAIR_RATE);
@@ -533,42 +533,42 @@ const char *GetItemDesParameter(DestParam_t i_byDesParameter)		// 2011-08-01 by 
 	GET_CASERETURN_STRING_BY_TYPE(DES_SKILL_BARRIER);
 	GET_CASERETURN_STRING_BY_TYPE(DES_SKILL_HYPERSHOT);
 	GET_CASERETURN_STRING_BY_TYPE(DES_SKILL_SHIELD_PARALYZE);
-	GET_CASERETURN_STRING_BY_TYPE(DES_WARHEAD_SPEED);			// 176, 2007-06-11 by cmkwon, ÅºµÎÀÇ ¼Óµµ
-	GET_CASERETURN_STRING_BY_TYPE(DES_CHAT_ALL_INFLUENCE);		// 177		// 2007-08-09 by cmkwon, ¸ðµç ¼¼·Â¿¡ Ã¤ÆÃ Àü¼ÛÇÏ±â - desparam Ãß°¡, À¯·á¾ÆÀÌÅÛ
-	// 2008-09-22 by dhjin, ½Å±Ô ÀÎÃ¾Æ®
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_BOOSTER_TIME_UP);		// 178		// 2008-09-22 by dhjin, ºÎ½ºÅÍ ½Ã°£ Áõ°¡
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_MAX_SPEED_UP);			// 179		// 2008-09-22 by dhjin, ¿£Áø ÀÏ¹Ý¼Óµµ(ÃÖ´ë) Áõ°¡
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_MIN_SPEED_UP);			// 180		// 2008-09-22 by dhjin, ¿£Áø ÀÏ¹Ý¼Óµµ(ÃÖ¼Ò) Áõ°¡
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_BOOSTER_SPEED_UP);		// 181		// 2008-09-22 by dhjin, ¿£Áø ºÎ½ºÅÍ¼Óµµ Áõ°¡
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_GROUND_SPEED_UP);		// 182		// 2008-09-22 by dhjin, ¿£Áø Áö»ó¼Óµµ Áõ°¡
-	GET_CASERETURN_STRING_BY_TYPE(DES_RADAR_OBJECT_DETECT_RANGE);	// 183		// 2008-09-22 by dhjin, ·¹ÀÌ´õ ¹°Ã¼ °¨Áö ¹Ý°æ
-	GET_CASERETURN_STRING_BY_TYPE(DES_PIERCE_UP_01);				// 184		// 2008-09-22 by dhjin, ±âº»¹«±â ÇÇ¾î½ºÀ² Áõ°¡ Ä«µå
-	GET_CASERETURN_STRING_BY_TYPE(DES_PIERCE_UP_02);				// 185		// 2008-09-22 by dhjin, °í±Þ¹«±â ÇÇ¾î½ºÀ² Áõ°¡ Ä«µå
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_ANGLE_UP);				// 186		// 2008-09-30 by dhjin, ¿£Áø È¸Àü°¢ Áõ°¡ Ä«µå
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_BOOSTERANGLE_UP);		// 187		// 2008-09-30 by dhjin, ¿£Áø ºÎ½ºÅÍ È¸Àü°¢ Áõ°¡ Ä«µå
-	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_PARTNER_SPEED);		// 239,		// 2010-12-21 by jskim, ¸¶À» ÀÌµ¿ ¼Óµµ Áõ°¡ ¾ÆÀÌÅÛ ±¸Çö
-	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_PARTNER_DAMAGE);	// 240,		// 2010-12-21 by jskim, ÆÄÆ®³Ê µ¥¹ÌÁö Áõ°¡ ¾ÆÀÌÅÛ ±¸Çö
-	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_HPDP);				// 241,		// 2010-12-21 by jskim, HP, DP Å°Æ® Àû¿ë·® Áõ°¡ ¾ÆÀÌÅÛ ±¸Çö
-	GET_CASERETURN_STRING_BY_TYPE(DES_SUMMON_POSITION_X);			// 242,		// 2011-05-02 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¼ÒÈ¯½Ã À§Ä¡ º¯°æ (»ó´ë°ª)
-	GET_CASERETURN_STRING_BY_TYPE(DES_SUMMON_POSITION_Y);			// 243,		// 2011-05-02 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¼ÒÈ¯½Ã À§Ä¡ º¯°æ (»ó´ë°ª)
-	GET_CASERETURN_STRING_BY_TYPE(DES_SUMMON_POSITION_Z);			// 244,		// 2011-05-02 by hskim, ÀÎÇÇ´ÏÆ¼ 3Â÷ - ¼ÒÈ¯½Ã À§Ä¡ º¯°æ (»ó´ë°ª)
+	GET_CASERETURN_STRING_BY_TYPE(DES_WARHEAD_SPEED);			// 176, 2007-06-11 by cmkwon, Åºï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_CHAT_ALL_INFLUENCE);		// 177		// 2007-08-09 by cmkwon, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - desparam ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// 2008-09-22 by dhjin, ï¿½Å±ï¿½ ï¿½ï¿½Ã¾Æ®
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_BOOSTER_TIME_UP);		// 178		// 2008-09-22 by dhjin, ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_MAX_SPEED_UP);			// 179		// 2008-09-22 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ý¼Óµï¿½(ï¿½Ö´ï¿½) ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_MIN_SPEED_UP);			// 180		// 2008-09-22 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ý¼Óµï¿½(ï¿½Ö¼ï¿½) ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_BOOSTER_SPEED_UP);		// 181		// 2008-09-22 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Í¼Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_GROUND_SPEED_UP);		// 182		// 2008-09-22 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_RADAR_OBJECT_DETECT_RANGE);	// 183		// 2008-09-22 by dhjin, ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_PIERCE_UP_01);				// 184		// 2008-09-22 by dhjin, ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾î½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_PIERCE_UP_02);				// 185		// 2008-09-22 by dhjin, ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ ï¿½Ç¾î½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_ANGLE_UP);				// 186		// 2008-09-30 by dhjin, ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENGINE_BOOSTERANGLE_UP);		// 187		// 2008-09-30 by dhjin, ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_PARTNER_SPEED);		// 239,		// 2010-12-21 by jskim, ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_PARTNER_DAMAGE);	// 240,		// 2010-12-21 by jskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_RARE_ITEM_HPDP);				// 241,		// 2010-12-21 by jskim, HP, DP Å°Æ® ï¿½ï¿½ï¿½ë·® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_SUMMON_POSITION_X);			// 242,		// 2011-05-02 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ë°ª)
+	GET_CASERETURN_STRING_BY_TYPE(DES_SUMMON_POSITION_Y);			// 243,		// 2011-05-02 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ë°ª)
+	GET_CASERETURN_STRING_BY_TYPE(DES_SUMMON_POSITION_Z);			// 244,		// 2011-05-02 by hskim, ï¿½ï¿½ï¿½Ç´ï¿½Æ¼ 3ï¿½ï¿½ - ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ë°ª)
 
-	GET_CASERETURN_STRING_BY_TYPE(DES_MAPBUFF_RANDOM_ADD_REATTACKTIME);		// 245,		// 2011-09-01 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - È­»êÀç / ¸ð·¡ ÆøÇ³ - ¸Ê¹öÇÁ Ãß°¡ ½Ã°£ Àû¿ë
-	GET_CASERETURN_STRING_BY_TYPE(DES_MAPBUFF_RANDOM_ADD_TIME);				// 246,		// 2011-09-01 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - È­»êÀç / ¸ð·¡ ÆøÇ³ - ¸Ê¹öÇÁ Ãß°¡ ½Ã°£ Àû¿ë
-	GET_CASERETURN_STRING_BY_TYPE(DES_ENCHANT_ONCE_APPLY);					// 247,		// 2011-09-01 by hskim, EP4 [Free to play] - 10È¸ ÀÎÃ¾Æ® ¾ÆÀÌÅÛ ±â´É ±¸Çö
-	GET_CASERETURN_STRING_BY_TYPE(DES_GAMBLE_RARE_ITEM_FIX);				// 248,		// 2011-09-01 by hskim, EP4 [Free to play] - Á¢µÎ/Á¢¹Ì °íÁ¤ ¿É¼Ç
+	GET_CASERETURN_STRING_BY_TYPE(DES_MAPBUFF_RANDOM_ADD_REATTACKTIME);		// 245,		// 2011-09-01 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - È­ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ ï¿½ï¿½Ç³ - ï¿½Ê¹ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_MAPBUFF_RANDOM_ADD_TIME);				// 246,		// 2011-09-01 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - È­ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ ï¿½ï¿½Ç³ - ï¿½Ê¹ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_ENCHANT_ONCE_APPLY);					// 247,		// 2011-09-01 by hskim, EP4 [Free to play] - 10È¸ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_GAMBLE_RARE_ITEM_FIX);				// 248,		// 2011-09-01 by hskim, EP4 [Free to play] - ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½
 
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SOCKET_ITEM_AUTOKIT);		// 23000,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÆÄÆ®³Ê ½Ã½ºÅÛ ¼ÒÄÏ·ù - ÀÚµ¿ Å°Æ®
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SOCKET_ITEM_AUTOSKILL);	// 23001,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÆÄÆ®³Ê ½Ã½ºÅÛ ¼ÒÄÏ·ù - ÀÚµ¿ ½ºÅ³
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SOCKET_ITEM_AUTOKIT);		// 23000,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ - ï¿½Úµï¿½ Å°Æ®
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SOCKET_ITEM_AUTOSKILL);	// 23001,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ - ï¿½Úµï¿½ ï¿½ï¿½Å³
 
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOKIT_HP);			// 239000,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ Å°Æ® HP
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOKIT_SHIELD);		// 239001,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ Å°Æ® Shield
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOKIT_SP);			// 239002,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ Å°Æ® SP
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOKIT_HP);			// 239000,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ Å°Æ® HP
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOKIT_SHIELD);		// 239001,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ Å°Æ® Shield
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOKIT_SP);			// 239002,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ Å°Æ® SP
 
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_AGEAR);		// 239010,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ ½ºÅ³ A ±â¾î
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_BGEAR);		// 239011,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ ½ºÅ³ B ±â¾î
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_IGEAR);		// 239012,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ ½ºÅ³ I ±â¾î
-	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_MGEAR);		// 239013,	// 2011-09-01 by hskim, ÆÄÆ®³Ê ½Ã½ºÅÛ 2Â÷ - ÀÚµ¿ ½ºÅ³ M ±â¾î
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_AGEAR);		// 239010,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ ï¿½ï¿½Å³ A ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_BGEAR);		// 239011,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ ï¿½ï¿½Å³ B ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_IGEAR);		// 239012,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ ï¿½ï¿½Å³ I ï¿½ï¿½ï¿½
+	GET_CASERETURN_STRING_BY_TYPE(DES_PET_SLOT_ITEM_AUTOSKILL_MGEAR);		// 239013,	// 2011-09-01 by hskim, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ - ï¿½Úµï¿½ ï¿½ï¿½Å³ M ï¿½ï¿½ï¿½
 	}
 
 	return "UNKNOWN_DES_PARAMETER";
@@ -706,7 +706,7 @@ Err_t GCheckExcuteParameterList(SEXCUTE_PARAMETER *io_pExeParam)
 	return ERR_NO_ERROR;
 #endif
 
-	// 2008-04-25 by cmkwon, Áö¿ø ¾ð¾î/¼­ºñ½º Ãß°¡½Ã ²À Ãß°¡ µÇ¾î¾ß ÇÏ´Â »çÇ× - [¼­ºñ½º-ÇÊ¼ö] C_Exe1, C_Exe2 ½ÇÇà½Ã ½ÇÇà ÆÄ¶ó¹ÌÅÍ Ã³¸® ÇÔ¼ö Ãß°¡
+	// 2008-04-25 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ - [ï¿½ï¿½ï¿½ï¿½-ï¿½Ê¼ï¿½] C_Exe1, C_Exe2 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ß°ï¿½
 
 #ifdef SERVICE_TYPE_KOREAN_SERVER_1
 	return GCheckExcuteParameterList_Kor(io_pExeParam);
@@ -720,12 +720,12 @@ Err_t GCheckExcuteParameterList(SEXCUTE_PARAMETER *io_pExeParam)
 	return GCheckExcuteParameterList_Eng(io_pExeParam);
 #endif
 
-// 2007-12-21 by cmkwon, Gameforge(Europe) ÇÁ·ÎÁ§Æ® Ãß°¡ - Ãß°¡ÇÔ
-// 2008-12-22 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Gameforge4D ÅÍÅ°¾Æ, ºÒ¾î, ÀÌÅ»¸®¾Æ¾î) - ¾Æ·¡¿Í °°ÀÌ 3°³ ¾ð¾î Ãß°¡
-//#if defined(SERVICE_TYPE_ENGLISH_SERVER_2) || defined(SERVICE_TYPE_GERMAN_SERVER_1)		// 2008-04-25 by cmkwon, Gameforge4D_Deu Ãß°¡ÇÔ - 
-// 2009-06-04 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Gameforge4D Æú¶õµå¾î, ½ºÆäÀÎ¾î) - 
+// 2007-12-21 by cmkwon, Gameforge(Europe) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ - ï¿½ß°ï¿½ï¿½ï¿½
+// 2008-12-22 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Gameforge4D ï¿½ï¿½Å°ï¿½ï¿½, ï¿½Ò¾ï¿½, ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½) - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+//#if defined(SERVICE_TYPE_ENGLISH_SERVER_2) || defined(SERVICE_TYPE_GERMAN_SERVER_1)		// 2008-04-25 by cmkwon, Gameforge4D_Deu ï¿½ß°ï¿½ï¿½ï¿½ - 
+// 2009-06-04 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Gameforge4D ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½) - 
 //#if defined(SERVICE_TYPE_ENGLISH_SERVER_2) || defined(SERVICE_TYPE_GERMAN_SERVER_1) || defined(SERVICE_TYPE_TURKISH_SERVER_1) || defined(SERVICE_TYPE_FRENCH_SERVER_1) || defined(SERVICE_TYPE_ITALIAN_SERVER_1)
-// 2010-11-01 by shcho,	 Áö¿ø ¼­ºñ½º Ãß°¡(Gameforge4D ½ºÆäÀÎ¾î, ¾Æ¸£ÇîÆ¼³ª¾î) -  
+// 2010-11-01 by shcho,	 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Gameforge4D ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½, ï¿½Æ¸ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½) -  
 //#if defined(SERVICE_TYPE_ENGLISH_SERVER_2) || defined(SERVICE_TYPE_GERMAN_SERVER_1) || defined(SERVICE_TYPE_TURKISH_SERVER_1) || defined(SERVICE_TYPE_FRENCH_SERVER_1) || defined(SERVICE_TYPE_ITALIAN_SERVER_1) || defined(SERVICE_TYPE_POLISH_SERVER_1) || defined(SERVICE_TYPE_SPANISH_SERVER_1)
 #if defined(SERVICE_TYPE_ENGLISH_SERVER_2) || defined(SERVICE_TYPE_GERMAN_SERVER_1) || defined(SERVICE_TYPE_TURKISH_SERVER_1) || defined(SERVICE_TYPE_FRENCH_SERVER_1) || defined(SERVICE_TYPE_ITALIAN_SERVER_1) || defined(SERVICE_TYPE_POLISH_SERVER_1) || defined(SERVICE_TYPE_SPANISH_SERVER_1) || defined(SERVICE_TYPE_ARGENTINA_SERVER_1)
 	return GCheckExcuteParameterList_Eng_Server_2(io_pExeParam);
@@ -735,27 +735,27 @@ Err_t GCheckExcuteParameterList(SEXCUTE_PARAMETER *io_pExeParam)
 	return GCheckExcuteParameterList_Viet(io_pExeParam);
 #endif
 
-	// 2007-05-15 by cmkwon, Áß±¹ ¼­¹ö	
+	// 2007-05-15 by cmkwon, ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½	
 #ifdef SERVICE_TYPE_CHINESE_SERVER_1
 	return GCheckExcuteParameterList_Chn(io_pExeParam);
 #endif
 
-// 2008-05-02 by cmkwon, WinnerOnline_Tha Ãß°¡ÇÏ±â - 
+// 2008-05-02 by cmkwon, WinnerOnline_Tha ï¿½ß°ï¿½ï¿½Ï±ï¿½ - 
 #if defined(SERVICE_TYPE_THAI_SERVER_1) || defined(SERVICE_TYPE_SINGAPORE_1) || defined(SERVICE_TYPE_INDONESIA_SERVER_1)
 	return GCheckExcuteParameterList_Tha(io_pExeParam);
 #endif
 
-// 2008-05-29 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Innova_Rus ·¯½Ã¾Æ¾î Ãß°¡) - 
+// 2008-05-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Innova_Rus ï¿½ï¿½ï¿½Ã¾Æ¾ï¿½ ï¿½ß°ï¿½) - 
 #ifdef SERVICE_TYPE_RUSSIAN_SERVER_1
 	return GCheckExcuteParameterList_Rus(io_pExeParam);
 #endif
 
-// 2008-09-23 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(´ë¸¸ Netpower_Tpe) - 
+// 2008-09-23 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½ë¸¸ Netpower_Tpe) - 
 #ifdef SERVICE_TYPE_TAIWANESE_SERVER_1
 	return GCheckExcuteParameterList_Tpe(io_pExeParam);
 #endif
 
-// 2008-12-03 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(ÀÏº» Arario_Jpn) - 
+// 2008-12-03 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Ïºï¿½ Arario_Jpn) - 
 #ifdef SERVICE_TYPE_JAPANESE_SERVER_1
 	return GCheckExcuteParameterList_Jpn(io_pExeParam);
 #endif
@@ -778,7 +778,7 @@ Err_t GCheckExcuteParameterList_Kor(SEXCUTE_PARAMETER *io_pExeParam)
 	{
 	case EXCUTE_FILE_TYPE_SC_EXE:
 
-		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 		if(1 != g_nargvCount && 2 != g_nargvCount)
 		{
 			return ERR_INVALID_EXCUTE_PARAMETER_COUNT;
@@ -792,7 +792,7 @@ Err_t GCheckExcuteParameterList_Kor(SEXCUTE_PARAMETER *io_pExeParam)
 
 		STRNCPY_MEMSET(io_pExeParam->o_szSelectiveShutdownInfo, g_szArrargv[1], SIZE_MAX_SELECTIVE_SHUTDOWN_INFO);
 		break;
-		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 
 	case EXCUTE_FILE_TYPE_SC_ATM:
 		break;
@@ -800,27 +800,27 @@ Err_t GCheckExcuteParameterList_Kor(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
-			// argv[1]: char[24]	// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+			// argv[1]: char[24]	// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			// argv[2]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
-			if(1 != g_nargvCount && 2 != g_nargvCount && 3 != g_nargvCount)		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			if(1 != g_nargvCount && 2 != g_nargvCount && 3 != g_nargvCount)		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			{
 				return ERR_INVALID_EXCUTE_PARAMETER_COUNT;
 			}
 
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 
-			// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			if(3 == g_nargvCount)
 			{
 				STRNCPY_MEMSET(io_pExeParam->o_szSelectiveShutdownInfo, g_szArrargv[1], SIZE_MAX_SELECTIVE_SHUTDOWN_INFO);
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[2], SIZE_MAX_IPADDRESS);				
 			}
-			// end 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// end 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 		}
 		break;
 	}
@@ -845,21 +845,21 @@ Err_t GCheckExcuteParameterList_Kor2(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[20]	AccountName
 			// argv[2]:	char[33]	MD5PWD
 			// argv[3]: int			Seed			[0~
 			// argv[4]:	int			ExcuteType
-			// argv[5]:	char[21]	2007-03-29 by cmkwon, Yedang ÀÎÁõ Key
-			// argv[6]:	char[20]	2007-06-05 by cmkwon, BirthYear - Ãâ»ý³âµµ
-			// argv[7]: char[24]	// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// argv[5]:	char[21]	2007-03-29 by cmkwon, Yedang ï¿½ï¿½ï¿½ï¿½ Key
+			// argv[6]:	char[20]	2007-06-05 by cmkwon, BirthYear - ï¿½ï¿½ï¿½ï¿½âµµ
+			// argv[7]: char[24]	// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			///////////////////////////////////////////////////////////////////////////////			
-			if(7 != g_nargvCount && 8 != g_nargvCount)		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			if(7 != g_nargvCount && 8 != g_nargvCount)		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			{
 				return ERR_INVALID_EXCUTE_PARAMETER_COUNT;
 			}
 
-			// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			if( 7 == g_nargvCount )
 			{
 				g_nargvCount++;
@@ -867,10 +867,10 @@ Err_t GCheckExcuteParameterList_Kor2(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 
 			STRNCPY_MEMSET(io_pExeParam->o_szSelectiveShutdownInfo, g_szArrargv[7], SIZE_MAX_SELECTIVE_SHUTDOWN_INFO);
-			// end 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// end 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 
 			// argv[1]
-			_strlwr(g_szArrargv[1]);				// 2006-10-18 by cmkwon, ¼Ò¹®ÀÚ·Î º¯°æ
+			_strlwr(g_szArrargv[1]);				// 2006-10-18 by cmkwon, ï¿½Ò¹ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			STRNCPY_MEMSET(io_pExeParam->o_szAccountName0, g_szArrargv[1], SIZE_MAX_ACCOUNT_NAME);
 			
 			// argv[2], argv[3]
@@ -881,7 +881,7 @@ Err_t GCheckExcuteParameterList_Kor2(SEXCUTE_PARAMETER *io_pExeParam)
 			{		
 				return ERR_INVALID_EXCUTE_PARAMETER;
 			}	
-			CloseHandle(hMutex);		// 2006-10-19 by cmkwon, ÇÔ¼ö º¯°æ(ReleaseMutex-->CloseHandle)
+			CloseHandle(hMutex);		// 2006-10-19 by cmkwon, ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½(ReleaseMutex-->CloseHandle)
 
 		}
 		break;
@@ -889,26 +889,26 @@ Err_t GCheckExcuteParameterList_Kor2(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[20]	AccountName
 			// argv[2]:	char[33]	MD5PWD
 			// argv[3]: int			Seed			[0~
 			// argv[4]:	int			ExcuteType
-			// argv[5]:	char[21]	2007-03-29 by cmkwon, Yedang ÀÎÁõ Key
-			// argv[6]:	char[20]	2007-06-05 by cmkwon, BirthYear - Ãâ»ý³âµµ
-			// argv[7]: char[24]	// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			// argv[5]:	char[21]	2007-03-29 by cmkwon, Yedang ï¿½ï¿½ï¿½ï¿½ Key
+			// argv[6]:	char[20]	2007-06-05 by cmkwon, BirthYear - ï¿½ï¿½ï¿½ï¿½âµµ
+			// argv[7]: char[24]	// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			// argv[8]: char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
-			if(8 != g_nargvCount && 9 != g_nargvCount)		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			if(8 != g_nargvCount && 9 != g_nargvCount)		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			{
 				return ERR_INVALID_EXCUTE_PARAMETER_COUNT;
 			}
 
 			// argv[1]
-			_strlwr(g_szArrargv[1]);				// 2006-10-18 by cmkwon, ¼Ò¹®ÀÚ·Î º¯°æ
+			_strlwr(g_szArrargv[1]);				// 2006-10-18 by cmkwon, ï¿½Ò¹ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			STRNCPY_MEMSET(io_pExeParam->o_szAccountName0, g_szArrargv[1], SIZE_MAX_ACCOUNT_NAME);
 			
-			STRNCPY_MEMSET(io_pExeParam->o_szSelectiveShutdownInfo, g_szArrargv[7], SIZE_MAX_SELECTIVE_SHUTDOWN_INFO);		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			STRNCPY_MEMSET(io_pExeParam->o_szSelectiveShutdownInfo, g_szArrargv[7], SIZE_MAX_SELECTIVE_SHUTDOWN_INFO);		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 
 			// argv[2], argv[3]
 			char szEncryptMutexName[1024];
@@ -918,15 +918,15 @@ Err_t GCheckExcuteParameterList_Kor2(SEXCUTE_PARAMETER *io_pExeParam)
 			{		
 				return ERR_INVALID_EXCUTE_PARAMETER;
 			}	
-			CloseHandle(hMutex);		// 2006-10-19 by cmkwon, ÇÔ¼ö º¯°æ(ReleaseMutex-->CloseHandle)
+			CloseHandle(hMutex);		// 2006-10-19 by cmkwon, ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½(ReleaseMutex-->CloseHandle)
 
-			if(9 == g_nargvCount)		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
-				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[8], SIZE_MAX_IPADDRESS);		// 2012-07-11 by hskim, ¼±ÅÃÀû ¼Ë´Ù¿î
+			if(9 == g_nargvCount)		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
+				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[8], SIZE_MAX_IPADDRESS);		// 2012-07-11 by hskim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½
 			}
 
 			///////////////////////////////////////////////////////////////////////////////
-			// 2007-06-05 by cmkwon, Ãâ»ý³âµµ¸¦ ³Ñ±ä´Ù
+			// 2007-06-05 by cmkwon, ï¿½ï¿½ï¿½ï¿½âµµï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½
 			io_pExeParam->o_nBirthYear	= atoi(g_szArrargv[6]);
 		}
 		break;
@@ -934,14 +934,14 @@ Err_t GCheckExcuteParameterList_Kor2(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-09 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]: char[16]	FieldServer IP
 			// argv[2]: int			FieldServer Port
 			// argv[3]: char[16]	IMServer IP
 			// argv[4]: int			IMServer Port
-			// argv[5]: Width		ÇØ»óµµ Æø
-			// argv[6]: Height		ÇØ»óµµ ³ôÀÌ
-			// argv[7]: Degree		»ç¾ç ±íÀÌ (0 Àú»ç¾ç, 1 Áß»ç¾ç , 2 °í»ç¾ç, 3 Ãæµ¹Ã³¸®(À¯´Ö))
+			// argv[5]: Width		ï¿½Ø»ï¿½ ï¿½ï¿½
+			// argv[6]: Height		ï¿½Ø»ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// argv[7]: Degree		ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (0 ï¿½ï¿½ï¿½ï¿½ï¿½, 1 ï¿½ß»ï¿½ï¿½ , 2 ï¿½ï¿½ï¿½ï¿½, 3 ï¿½æµ¹Ã³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½))
 			// argv[8]:	char[20]	AccountName
 			// argv[9]:	char[33]	MD5PWD
 			// argv[10]:int			Seed			[0~
@@ -976,7 +976,7 @@ Err_t GCheckExcuteParameterList_Eng(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -985,7 +985,7 @@ Err_t GCheckExcuteParameterList_Eng(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -996,7 +996,7 @@ Err_t GCheckExcuteParameterList_Eng(SEXCUTE_PARAMETER *io_pExeParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			Err_t GCheckExcuteParameterList_Eng_Server_2(SEXCUTE_PARAMETER *io_pExeParam)
-/// \brief		// 2007-12-21 by cmkwon, Gameforge(Europe) ÇÁ·ÎÁ§Æ® Ãß°¡ - GCheckExcuteParameterList_Eng_Server_2() Ãß°¡
+/// \brief		// 2007-12-21 by cmkwon, Gameforge(Europe) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ - GCheckExcuteParameterList_Eng_Server_2() ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2007-12-21 ~ 2007-12-21
 /// \warning	
@@ -1015,7 +1015,7 @@ Err_t GCheckExcuteParameterList_Eng_Server_2(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -1024,7 +1024,7 @@ Err_t GCheckExcuteParameterList_Eng_Server_2(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -1054,7 +1054,7 @@ Err_t GCheckExcuteParameterList_Viet(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -1063,7 +1063,7 @@ Err_t GCheckExcuteParameterList_Viet(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -1094,7 +1094,7 @@ Err_t GCheckExcuteParameterList_Chn(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -1103,7 +1103,7 @@ Err_t GCheckExcuteParameterList_Chn(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -1114,7 +1114,7 @@ Err_t GCheckExcuteParameterList_Chn(SEXCUTE_PARAMETER *io_pExeParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			Err_t GCheckExcuteParameterList_Tha(SEXCUTE_PARAMETER *io_pExeParam)
-/// \brief		// 2008-05-02 by cmkwon, WinnerOnline_Tha Ãß°¡ÇÏ±â - GCheckExcuteParameterList_Tha() Ãß°¡
+/// \brief		// 2008-05-02 by cmkwon, WinnerOnline_Tha ï¿½ß°ï¿½ï¿½Ï±ï¿½ - GCheckExcuteParameterList_Tha() ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2008-05-02 ~ 2005-05-02
 /// \warning	
@@ -1133,7 +1133,7 @@ Err_t GCheckExcuteParameterList_Tha(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -1142,7 +1142,7 @@ Err_t GCheckExcuteParameterList_Tha(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 			
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -1153,7 +1153,7 @@ Err_t GCheckExcuteParameterList_Tha(SEXCUTE_PARAMETER *io_pExeParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			Err_t GCheckExcuteParameterList_Rus(SEXCUTE_PARAMETER *io_pExeParam)
-/// \brief		// 2008-05-29 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(Innova_Rus ·¯½Ã¾Æ¾î Ãß°¡) - GCheckExcuteParameterList_Rus() Ãß°¡
+/// \brief		// 2008-05-29 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(Innova_Rus ï¿½ï¿½ï¿½Ã¾Æ¾ï¿½ ï¿½ß°ï¿½) - GCheckExcuteParameterList_Rus() ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2008-05-29 ~ 2005-05-29
 /// \warning	
@@ -1172,7 +1172,7 @@ Err_t GCheckExcuteParameterList_Rus(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -1181,7 +1181,7 @@ Err_t GCheckExcuteParameterList_Rus(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 			
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -1193,7 +1193,7 @@ Err_t GCheckExcuteParameterList_Rus(SEXCUTE_PARAMETER *io_pExeParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			Err_t GCheckExcuteParameterList_Tpe(SEXCUTE_PARAMETER *io_pExeParam)
-/// \brief		// 2008-09-23 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(´ë¸¸ Netpower_Tpe) - 
+/// \brief		// 2008-09-23 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½ë¸¸ Netpower_Tpe) - 
 /// \author		cmkwon
 /// \date		2008-09-23 ~ 2008-09-23
 /// \warning	
@@ -1212,7 +1212,7 @@ Err_t GCheckExcuteParameterList_Tpe(SEXCUTE_PARAMETER *io_pExeParam)
 		{
 			///////////////////////////////////////////////////////////////////////////////
 			// 2006-10-02 by cmkwon
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[16]	2007-05-15 by cmkwon, PreServer IP
 			///////////////////////////////////////////////////////////////////////////////			
 			if(1 != g_nargvCount && 2 != g_nargvCount)
@@ -1221,7 +1221,7 @@ Err_t GCheckExcuteParameterList_Tpe(SEXCUTE_PARAMETER *io_pExeParam)
 			}
 			
 			if(2 == g_nargvCount)
-			{// 2007-05-15 by cmkwon, PreServer IP°¡ ÀÎÀÚ¸®½ºÆ®¿¡ ÀÖ´Ù
+			{// 2007-05-15 by cmkwon, PreServer IPï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½
 				STRNCPY_MEMSET(io_pExeParam->o_szPreServerIP0, g_szArrargv[1], SIZE_MAX_IPADDRESS);
 			}
 		}
@@ -1232,7 +1232,7 @@ Err_t GCheckExcuteParameterList_Tpe(SEXCUTE_PARAMETER *io_pExeParam)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			Err_t GCheckExcuteParameterList_Jpn(SEXCUTE_PARAMETER *io_pExeParam)
-/// \brief		// 2008-12-03 by cmkwon, Áö¿ø ¼­ºñ½º Ãß°¡(ÀÏº» Arario_Jpn) - 
+/// \brief		// 2008-12-03 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½Ïºï¿½ Arario_Jpn) - 
 /// \author		cmkwon
 /// \date		2008-12-03 ~ 2008-12-03
 /// \warning	
@@ -1247,8 +1247,8 @@ Err_t GCheckExcuteParameterList_Jpn(SEXCUTE_PARAMETER *io_pExeParam)
 	case EXCUTE_FILE_TYPE_SC_EXE:	// ACEonline.atm
 		{
 			///////////////////////////////////////////////////////////////////////////////
-			// 2008-12-18 by cmkwon, ÀÏº» Arario ·±Ã³ ¼öÁ¤ - 
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// 2008-12-18 by cmkwon, ï¿½Ïºï¿½ Arario ï¿½ï¿½Ã³ ï¿½ï¿½ï¿½ï¿½ - 
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[20]	AccountName
 			// argv[2]:	char[33]	Password
 			// argv[3]:	char[301]	Session Key
@@ -1266,8 +1266,8 @@ Err_t GCheckExcuteParameterList_Jpn(SEXCUTE_PARAMETER *io_pExeParam)
 	case EXCUTE_FILE_TYPE_SC_LAUNCHER_ATM:	// Launcher.atm
 		{
 			///////////////////////////////////////////////////////////////////////////////
-			// 2008-12-18 by cmkwon, ÀÏº» Arario ·±Ã³ ¼öÁ¤ - 
-			// argv[0]: char[??]	½ÇÇà ÆÄÀÏ ÀÌ¸§
+			// 2008-12-18 by cmkwon, ï¿½Ïºï¿½ Arario ï¿½ï¿½Ã³ ï¿½ï¿½ï¿½ï¿½ - 
+			// argv[0]: char[??]	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 			// argv[1]:	char[20]	AccountName
 			// argv[2]:	char[33]	Password
 			// argv[3]:	char[301]	Session Key
@@ -1328,7 +1328,7 @@ Err_t GReadVersionInfoFile(VersionInfo *o_pLauncherVerInfo, SREG_DATA_EXE_2 *o_p
 			continue;
 		}
 
-		if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION))	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ	STRMSG_REG_KEY_NAME_LAUNCHER_VERSION->COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION
+		if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION))	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	STRMSG_REG_KEY_NAME_LAUNCHER_VERSION->COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION
 		{
 			token = strtok(NULL, seps);
 			if (token)
@@ -1336,7 +1336,7 @@ Err_t GReadVersionInfoFile(VersionInfo *o_pLauncherVerInfo, SREG_DATA_EXE_2 *o_p
 				o_pLauncherVerInfo->SetVersion(token);
 			}
 		}
-		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION))	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_CLIENT_VERSION->COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION  
+		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION))	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_CLIENT_VERSION->COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION  
 		{
 			char *token = strtok(NULL, seps);
 			if (token)
@@ -1344,9 +1344,9 @@ Err_t GReadVersionInfoFile(VersionInfo *o_pLauncherVerInfo, SREG_DATA_EXE_2 *o_p
 				o_pRegDataExe2->ClientVersion.SetVersion(token);
 			}
 		}
-		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW))	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW
+		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW))	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW
 		{
-// 2007-12-27 by cmkwon, À©µµ¿ìÁî ¸ðµå ±â´É Ãß°¡ - ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
+// 2007-12-27 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			char *token = strtok(NULL, seps);
 //			if (token)
 //			{
@@ -1358,8 +1358,8 @@ Err_t GReadVersionInfoFile(VersionInfo *o_pLauncherVerInfo, SREG_DATA_EXE_2 *o_p
 				STRNCPY_MEMSET(o_pRegDataExe2->WindowDegree, token, SIZE_MAX_WINDOW_DEGREE_NAME);
 			}
 		}
-		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE))	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_WINDOWMODE->COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE
-		{// 2008-01-03 by cmkwon, À©µµ¿ì¸ðµå »óÅÂ ÀúÀåÇÏ±â - GReadVersionInfoFile() ¿¡ Ã³¸® Ãß°¡
+		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE))	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_WINDOWMODE->COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE
+		{// 2008-01-03 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - GReadVersionInfoFile() ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ï¿½
 			char *token = strtok(NULL, seps);
 			if (token)
 			{
@@ -1370,7 +1370,7 @@ Err_t GReadVersionInfoFile(VersionInfo *o_pLauncherVerInfo, SREG_DATA_EXE_2 *o_p
 				}
 			}
 		}
-		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME))	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_ACCOUNT_NAME->COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME
+		else if (0 == stricmp(token, COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME))	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_ACCOUNT_NAME->COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME
 		{
 			char *token = strtok(NULL, seps);
 			if (token)
@@ -1425,12 +1425,12 @@ Err_t GLoadExe2VersionInfo(SREG_DATA_EXE_2 *o_pRegDataEXE2, char *i_szVersionInf
 
 Err_t GWriteVersionInfoFile(VersionInfo *i_pLauncherVerInfo, SREG_DATA_EXE_2 *i_pRegDataEXE2, char *i_szVersionInfoFileName)
 {
-	// Áö¿ì°í »õ·Î ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DeleteFile(i_szVersionInfoFileName);
 	int nErr = GetLastError();
 	SetLastError(0);
 	
-	// ÆÄÀÏ »ý¼º
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 	hFile = CreateFile(i_szVersionInfoFileName, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (INVALID_HANDLE_VALUE == hFile)
@@ -1446,46 +1446,46 @@ Err_t GWriteVersionInfoFile(VersionInfo *i_pLauncherVerInfo, SREG_DATA_EXE_2 *i_
 
 	sprintf(buff, "###############################################################################\r\n");
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
-	sprintf(buff, "#  %s			0.0.0.0\r\n#\r\n", COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ	STRMSG_REG_KEY_NAME_LAUNCHER_VERSION->COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION
+	sprintf(buff, "#  %s			0.0.0.0\r\n#\r\n", COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	STRMSG_REG_KEY_NAME_LAUNCHER_VERSION->COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
-	sprintf(buff, "#  %s			0.0.0.0\r\n", COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION);		// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_CLIENT_VERSION->COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION  
+	sprintf(buff, "#  %s			0.0.0.0\r\n", COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION);		// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_CLIENT_VERSION->COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION  
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
-// 2007-12-27 by cmkwon, À©µµ¿ìÁî ¸ðµå ±â´É Ãß°¡ - ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
+// 2007-12-27 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	sprintf(buff, "#  %s				0\r\n#\r\n", STRMSG_REG_KEY_NAME_WINDOWDEGREE);
-	sprintf(buff, "#  %s			1024x768 (high)\r\n#\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW
+	sprintf(buff, "#  %s			1024x768 (high)\r\n#\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 	
-	// 2008-01-03 by cmkwon, À©µµ¿ì¸ðµå »óÅÂ ÀúÀåÇÏ±â - 
-	sprintf(buff, "#  %s				0\r\n#\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_WINDOWMODE->COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE
+	// 2008-01-03 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - 
+	sprintf(buff, "#  %s				0\r\n#\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_WINDOWMODE->COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 
-	sprintf(buff, "#  %s				Mir\r\n", COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_ACCOUNT_NAME->COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME
+	sprintf(buff, "#  %s				Mir\r\n", COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_ACCOUNT_NAME->COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 	sprintf(buff, "#  %s			ACE\r\n", STRMSG_REG_KEY_NAME_SERVER_GROUP_NAME);
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 	sprintf(buff, "###############################################################################\r\n\r\n");
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 
-	sprintf(buff, "%s\t\t\t%s\r\n\r\n", COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION, i_pLauncherVerInfo->GetVersionString());	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ	STRMSG_REG_KEY_NAME_LAUNCHER_VERSION->COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION
+	sprintf(buff, "%s\t\t\t%s\r\n\r\n", COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION, i_pLauncherVerInfo->GetVersionString());	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	STRMSG_REG_KEY_NAME_LAUNCHER_VERSION->COMMON_STRMSG_REG_KEY_NAME_LAUNCHER_VERSION
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 
-	sprintf(buff, "%s\t\t\t%s\r\n", COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION, i_pRegDataEXE2->ClientVersion.GetVersionString());		// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_CLIENT_VERSION->COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION  
+	sprintf(buff, "%s\t\t\t%s\r\n", COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION, i_pRegDataEXE2->ClientVersion.GetVersionString());		// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_CLIENT_VERSION->COMMON_STRMSG_REG_KEY_NAME_CLIENT_VERSION  
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
-// 2007-12-27 by cmkwon, À©µµ¿ìÁî ¸ðµå ±â´É Ãß°¡ -
+// 2007-12-27 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ -
 //	sprintf(buff, "%s\t\t\t%d\r\n\r\n", STRMSG_REG_KEY_NAME_WINDOWDEGREE, i_pRegDataEXE2->WindowDegree);
-	sprintf(buff, "%s\t\t\t%s\r\n\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW, i_pRegDataEXE2->WindowDegree);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW
+	sprintf(buff, "%s\t\t\t%s\r\n\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW, i_pRegDataEXE2->WindowDegree);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ COMMON_STRMSG_REG_KEY_NAME_WINDOWDEGREE_NEW
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 	
-	// 2008-01-03 by cmkwon, À©µµ¿ì¸ðµå »óÅÂ ÀúÀåÇÏ±â - 
-	sprintf(buff, "%s\t\t\t\t%d\r\n\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE, i_pRegDataEXE2->IsWindowMode);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_WINDOWMODE->COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE
+	// 2008-01-03 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - 
+	sprintf(buff, "%s\t\t\t\t%d\r\n\r\n", COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE, i_pRegDataEXE2->IsWindowMode);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_WINDOWMODE->COMMON_STRMSG_REG_KEY_NAME_WINDOWMODE
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 
-	sprintf(buff, "%s\t\t\t\t%s\r\n", COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME, i_pRegDataEXE2->BeforeAccountName);	// 2013-10-15 by bckim, ±¹°¡º° °ø¿ëÀ¸·Î ¾²´Â ½ºÆ®¸µ ±¸ºÐ STRMSG_REG_KEY_NAME_ACCOUNT_NAME->COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME
+	sprintf(buff, "%s\t\t\t\t%s\r\n", COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME, i_pRegDataEXE2->BeforeAccountName);	// 2013-10-15 by bckim, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ STRMSG_REG_KEY_NAME_ACCOUNT_NAME->COMMON_STRMSG_REG_KEY_NAME_ACCOUNT_NAME
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 	sprintf(buff, "%s\t\t\t%s\r\n", STRMSG_REG_KEY_NAME_SERVER_GROUP_NAME, i_pRegDataEXE2->SelectedServerGroupName);
 	WriteFile(hFile, buff, strlen(buff), &nWritten, NULL);
 	
-	CloseHandle(hFile);		// ÆÄÀÏ ´Ý±â
+	CloseHandle(hFile);		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½
 	return ERR_NO_ERROR;
 }
 
@@ -1512,9 +1512,9 @@ Err_t GSaveExe2VersionInfo(SREG_DATA_EXE_2 *i_pRegDataEXE2, char *i_szVersionInf
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// 2008-04-25 by cmkwon, Áö¿ø ¾ð¾î/¼­ºñ½º Ãß°¡½Ã ²À Ãß°¡ µÇ¾î¾ß ÇÏ´Â »çÇ× - [¼­ºñ½º-ÇÊ¼ö] AdminTool, DBTool, Monitor ¿¡ º¸¿©Áú ¼­¹ö±º ¸®½ºÆ® Á¤ÀÇ
+// 2008-04-25 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ - [ï¿½ï¿½ï¿½ï¿½-ï¿½Ê¼ï¿½] AdminTool, DBTool, Monitor ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
-// 2006-01-09 by cmkwon, EP2¸¦ À§ÇØ¼­ DB¸íÀ» º¯°æÁß
+// 2006-01-09 by cmkwon, EP2ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //						atum_db_account			--> atum2_db_account
 //						atum_db_[n]				--> atum2_db_[n]
 //						atum_db_account_test	--> atum2_db_account_test
@@ -1522,12 +1522,12 @@ Err_t GSaveExe2VersionInfo(SREG_DATA_EXE_2 *i_pRegDataEXE2, char *i_szVersionInf
 #ifndef _ATUM_CLIENT
 GAME_SERVER_INFO_FOR_ADMIN g_arrGameServers[] = 
 {
-	// 2007-11-07 by cmkwon, ·Î±× DB ¼­¹ö µû·Î ±¸ÃàÇÏ±â - ÇÊµå 4°³ Ãß°¡, LogDBIP, LogDBPort, LogDBUID, LogDBPWD
+	// 2007-11-07 by cmkwon, ï¿½Î±ï¿½ DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - ï¿½Êµï¿½ 4ï¿½ï¿½ ï¿½ß°ï¿½, LogDBIP, LogDBPort, LogDBUID, LogDBPWD
 	// {Name, XOREncodedPreServerIP, XOREncodedDBServerIP, DBServerPort, XOREncodedDBUserID, XOREncodedDBPWD, DB Name, LogDBIP, LogDBPort, LogDBUID, LogDBPWD, PreServerIP, DBServerIP, DBUserID, DBPWD}
-	// 2007-10-24 by cmkwon, ¼­¹ö Á¤º¸ ¾ÏÈ£È­ - Key
-	// #define STR_XOR_KEY_STRING_SERVER_INFO			"~8xANs(^fP{)34$(fcbTN$(C-=x"	// 2007-10-24 by cmkwon, ¼­¹ö Á¤º¸ ¾ÏÈ£È­ - DB Server Password XOR Key
+	// 2007-10-24 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£È­ - Key
+	// #define STR_XOR_KEY_STRING_SERVER_INFO			"~8xANs(^fP{)34$(fcbTN$(C-=x"	// 2007-10-24 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£È­ - DB Server Password XOR Key
 
-// 2008-08-29 by cmkwon, AdminTool,DBTool ¼­¹ö±º ¸®½ºÆ® °ü·Ã ¼öÁ¤(¼­ºñ½ºº°·Î º¸ÀÌ°Ô) - 
+// 2008-08-29 by cmkwon, AdminTool,DBTool ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ñ½ººï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½) - 
 //#ifdef _ATUM_ADMIN_RELEASE
 
 #ifdef SERVICE_TYPE_ENGLISH_SERVER_1
@@ -1552,7 +1552,7 @@ GAME_SERVER_INFO_FOR_ADMIN g_arrGameServers[] =
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			void GDecryptGameServerInfoByXOR(void)
-/// \brief		// 2007-10-24 by cmkwon, ¼­¹ö Á¤º¸ ¾ÏÈ£È­ -
+/// \brief		// 2007-10-24 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£È­ -
 /// \author		cmkwon
 /// \date		2007-10-24 ~ 2007-10-24
 /// \warning	
@@ -1593,13 +1593,13 @@ void GDecryptGameServerInfoByXOR(void)
 		}
 		
 		///////////////////////////////////////////////////////////////////////////////		
-		// 2007-11-07 by cmkwon, ·Î±× DB ¼­¹ö µû·Î ±¸ÃàÇÏ±â - GAME_SERVER_INFO_FOR_ADMIN ±¸ÃÊÁ¦¿¡ 4°³ ÇÊµå Ãß°¡
-		// 2007-11-07 by cmkwon, LogDBIP, LogDBUID, LogDBPWD ÀÇ ÇÊµå´Â ÀÎÄÚµù µÇ¾î ÀÖÀ¸¹Ç·Î ¾Æ·¡¿Í °°ÀÌ º¹È£È­ ÇØ¾ß ÇÔ
+		// 2007-11-07 by cmkwon, ï¿½Î±ï¿½ DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ - GAME_SERVER_INFO_FOR_ADMIN ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 4ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ß°ï¿½
+		// 2007-11-07 by cmkwon, LogDBIP, LogDBUID, LogDBPWD ï¿½ï¿½ ï¿½Êµï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£È­ ï¿½Ø¾ï¿½ ï¿½ï¿½
 		char szEncryptData[1024];
 
 		memset(szEncryptData, 0x00, 1024);
-		strncpy(szEncryptData, g_arrGameServers[i].LogDBIP, 2*SIZE_MAX_ADDRESS - 1);		// 2009-01-15 by cmkwon, PreServer, DBServer Á¤º¸ DNS·Î ¼³Á¤ °¡´ÉÇÏ°Ô ¼öÁ¤ - ±âÁ¸(SIZE_MAX_IPADDRESS)
-		memset(g_arrGameServers[i].LogDBIP, 0x00, 2*SIZE_MAX_ADDRESS);						// 2009-01-15 by cmkwon, PreServer, DBServer Á¤º¸ DNS·Î ¼³Á¤ °¡´ÉÇÏ°Ô ¼öÁ¤ - ±âÁ¸(SIZE_MAX_IPADDRESS)
+		strncpy(szEncryptData, g_arrGameServers[i].LogDBIP, 2*SIZE_MAX_ADDRESS - 1);		// 2009-01-15 by cmkwon, PreServer, DBServer ï¿½ï¿½ï¿½ï¿½ DNSï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½(SIZE_MAX_IPADDRESS)
+		memset(g_arrGameServers[i].LogDBIP, 0x00, 2*SIZE_MAX_ADDRESS);						// 2009-01-15 by cmkwon, PreServer, DBServer ï¿½ï¿½ï¿½ï¿½ DNSï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½(SIZE_MAX_IPADDRESS)
 		memset(byEncodedBinary, 0x00, 1024);
 		if(XOR::XORString2Binary(byEncodedBinary, szEncryptData))
 		{
@@ -1630,7 +1630,7 @@ void GDecryptGameServerInfoByXOR(void)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			char *GetDayOfWeekString(int i_nDayOfWeek)
-/// \brief		// 2007-10-30 by cmkwon, ¼¼·Âº° ÇØÇÇ¾Æ¿ö ÀÌº¥Æ® ±¸Çö -
+/// \brief		// 2007-10-30 by cmkwon, ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ -
 /// \author		cmkwon
 /// \date		2007-10-30 ~ 2007-10-30
 /// \warning	
@@ -1658,7 +1658,7 @@ char *GetDayOfWeekString(int i_nDayOfWeek)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			char *GetWPUTString(BYTE i_byWPUT)
-/// \brief		// 2009-01-22 by cmkwon, ÀüÀï °ü·Ã °ÔÀÓ ·Î±× ¼öÁ¤ - 
+/// \brief		// 2009-01-22 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2009-01-22 ~ 2009-01-22
 /// \warning	
@@ -1677,8 +1677,8 @@ char *GetWPUTString(BYTE i_byWPUT)
 	case WPUT_OUTPOSTWAR:			return "WPUT_OUTPOSTWAR";
 	case WPUT_SHOP:					return "WPUT_SHOP";
 	case WPUT_ADMIN_COMMAND:		return "WPUT_ADMIN_COMMAND";
-	case WPUT_TRIGGER:				return "WPUT_TRIGGER";			// 2011-11-07 by hskim, EP4 [Æ®¸®°Å ½Ã½ºÅÛ] - NCG °ÅÁ¡Àü ½Ã½ºÅÛ
-	case WPUT_MARKET:				return "WPUT_MARKET";	 		// 2013-11-25 by jhseol&bckim, °Å·¡¼Ò
+	case WPUT_TRIGGER:				return "WPUT_TRIGGER";			// 2011-11-07 by hskim, EP4 [Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½] - NCG ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	case WPUT_MARKET:				return "WPUT_MARKET";	 		// 2013-11-25 by jhseol&bckim, ï¿½Å·ï¿½ï¿½ï¿½
 	}
 
 	return WPUT_UNKNOWN;
@@ -1687,7 +1687,7 @@ char *GetWPUTString(BYTE i_byWPUT)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			char *LowercaseOnly_i_forTurkish(char *i_szString, int i_nMaxLen)
-/// \brief		// 2009-01-23 by cmkwon, ÅÍÅ° i,I ¹®ÀÚ ¹®Á¦ Ã³¸® -
+/// \brief		// 2009-01-23 by cmkwon, ï¿½ï¿½Å° i,I ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ -
 /// \author		cmkwon
 /// \date		2009-01-23 ~ 2009-01-23
 /// \warning	
@@ -1702,13 +1702,13 @@ char *LowercaseOnly_i_forTurkish(char *i_szString, int i_nMaxLen)
 	int		nLen		= min(i_nMaxLen, strlen(i_szString));
 	while(pCurChar && pCurChar < i_szString + nLen)
 	{
-		// 2009-01-23 by cmkwon, I¹®ÀÚ¸¸À» i·Î º¯°æ
+		// 2009-01-23 by cmkwon, Iï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ iï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if('I' == *pCurChar)
 		{
 			*pCurChar = 'i';
 		}
 		
-		pCurChar = CharNext(pCurChar);		// 2007-12-05 by cmkwon, ´ÙÀ½ ¹®ÀÚ·Î ÀÌµ¿
+		pCurChar = CharNext(pCurChar);		// 2007-12-05 by cmkwon, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½Ìµï¿½
 	}
 #endif
 	return i_szString;
@@ -1716,7 +1716,7 @@ char *LowercaseOnly_i_forTurkish(char *i_szString, int i_nMaxLen)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			int GetArrIdxByUnitMaskforWRK(INT i_unitMask)
-/// \brief		// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
+/// \brief		// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2009-02-18 ~ 2009-02-18
 /// \warning	
@@ -1753,7 +1753,7 @@ int GetArrIdxByUnitMaskforWRK(INT i_unitMask)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			int GetUnitMaskByArrIdxforWRK(INT i_arrIdx)
-/// \brief		// 2009-02-12 by cmkwon, EP3-3 ¿ùµå·©Å·½Ã½ºÅÛ ±¸Çö - 
+/// \brief		// 2009-02-12 by cmkwon, EP3-3 ï¿½ï¿½ï¿½å·©Å·ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2009-02-18 ~ 2009-02-18
 /// \warning	
@@ -1777,7 +1777,7 @@ int GetUnitMaskByArrIdxforWRK(INT i_arrIdx)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			int GetArrayIndexByInfluenceType(BYTE i_byInflTy)
-/// \brief		// 2007-10-30 by cmkwon, ¼¼·Âº° ÇØÇÇ¾Æ¿ö ÀÌº¥Æ® ±¸Çö - GetArrayIndexByInfluenceType() ÇÔ¼ö Ãß°¡
+/// \brief		// 2007-10-30 by cmkwon, ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - GetArrayIndexByInfluenceType() ï¿½Ô¼ï¿½ ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2007-11-01 ~ 2007-11-01
 /// \warning	
@@ -1800,7 +1800,7 @@ int GetArrayIndexByInfluenceType(BYTE i_byInflTy)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BYTE GetInfluenceTypeByArrayIndex(int i_nArrIdx)
-/// \brief		// 2007-10-30 by cmkwon, ¼¼·Âº° ÇØÇÇ¾Æ¿ö ÀÌº¥Æ® ±¸Çö - GetInfluenceTypeByArrayIndex() ÇÔ¼ö Ãß°¡
+/// \brief		// 2007-10-30 by cmkwon, ï¿½ï¿½ï¿½Âºï¿½ ï¿½ï¿½ï¿½Ç¾Æ¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - GetInfluenceTypeByArrayIndex() ï¿½Ô¼ï¿½ ï¿½ß°ï¿½
 /// \author		cmkwon
 /// \date		2007-11-01 ~ 2007-11-01
 /// \warning	
@@ -1823,7 +1823,7 @@ BYTE GetInfluenceTypeByArrayIndex(int i_nArrIdx)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2008-06-03 by cmkwon, AdminTool, DBTool »ç¿ë½Ã ¾ÆÀÌÅÛ °Ë»ö½Ã ÄÞº¸¹Ú½º¿¡¼­ °Ë»ö ±â´É Ãß°¡(K0000143) - 
+/// \brief		// 2008-06-03 by cmkwon, AdminTool, DBTool ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(K0000143) - 
 /// \author		cmkwon
 /// \date		2008-06-03 ~ 2008-06-03
 /// \warning	
@@ -1870,7 +1870,7 @@ MEX_ITEM_INFO& MEX_ITEM_INFO::operator=(const ITEM& rhs)
 	this->Range				= rhs.Range;			
 	this->Price				= rhs.Price;
 	this->CashPrice			= rhs.CashPrice;
-// 2009-04-21 by cmkwon, ITEM¿¡ DesParam ÇÊµå °³¼ö 8°³·Î ´Ã¸®±â - ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
+// 2009-04-21 by cmkwon, ITEMï¿½ï¿½ DesParam ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	this->DestParameter1	= rhs.DestParameter1;	
 // 	this->ParameterValue1	= rhs.ParameterValue1;
 // 	this->DestParameter2	= rhs.DestParameter2;	
@@ -1884,7 +1884,7 @@ MEX_ITEM_INFO& MEX_ITEM_INFO::operator=(const ITEM& rhs)
 
 	this->ReAttacktime		= rhs.ReAttacktime;	
 	this->Time				= rhs.Time;			
-	this->RepeatTime		= rhs.RepeatTime;			// 2006-12-08 by cmkwon, Ãß°¡ÇÔ
+	this->RepeatTime		= rhs.RepeatTime;			// 2006-12-08 by cmkwon, ï¿½ß°ï¿½ï¿½ï¿½
 	this->RangeAngle		= rhs.RangeAngle;		
 	this->MultiTarget		= rhs.MultiTarget;	
 	this->ExplosionRange	= rhs.ExplosionRange;	
@@ -1915,7 +1915,7 @@ ITEM& ITEM::operator=(const MEX_ITEM_INFO& rhs)
 	this->Range				= rhs.Range;			
 	this->Price				= rhs.Price;
 	this->CashPrice			= rhs.CashPrice;
-// 2009-04-21 by cmkwon, ITEM¿¡ DesParam ÇÊµå °³¼ö 8°³·Î ´Ã¸®±â - ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤
+// 2009-04-21 by cmkwon, ITEMï¿½ï¿½ DesParam ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ - ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	this->DestParameter1	= rhs.DestParameter1;	
 // 	this->ParameterValue1	= rhs.ParameterValue1;
 // 	this->DestParameter2	= rhs.DestParameter2;	
@@ -1929,7 +1929,7 @@ ITEM& ITEM::operator=(const MEX_ITEM_INFO& rhs)
 
 	this->ReAttacktime		= rhs.ReAttacktime;	
 	this->Time				= rhs.Time;			
-	this->RepeatTime		= rhs.RepeatTime;			// 2006-12-08 by cmkwon, Ãß°¡ÇÔ
+	this->RepeatTime		= rhs.RepeatTime;			// 2006-12-08 by cmkwon, ï¿½ß°ï¿½ï¿½ï¿½
 	this->RangeAngle		= rhs.RangeAngle;		
 	this->MultiTarget		= rhs.MultiTarget;	
 	this->ExplosionRange	= rhs.ExplosionRange;	
@@ -1974,10 +1974,10 @@ BOOL GCheckLimitLevel(EN_CHECK_TYPE i_checkType, int i_nLevel)
 		}
 		break;
 //	case CHECK_TYPE_GUILD_CREATE:
-//	case CHECK_TYPE_CHAT_SELL_ALL:		// 2008-05-19 by dhjin, EP3 - Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ, ÀüÀï Ã¤ÆÃ
+//	case CHECK_TYPE_CHAT_SELL_ALL:		// 2008-05-19 by dhjin, EP3 - Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 	case CHECK_TYPE_GUILD_CREATE:
 		{
-			if(i_nLevel >= GuildCommanderMinLevel)		// 2008-10-13 by dhjin, ¿©´ÜÀå À§ÀÓ °¡´É ·¹º§ Ã¼Å© Ãß°¡.
+			if(i_nLevel >= GuildCommanderMinLevel)		// 2008-10-13 by dhjin, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½ß°ï¿½.
 			{
 				return TRUE;
 			}
@@ -1999,7 +1999,7 @@ BOOL GCheckLimitLevel(EN_CHECK_TYPE i_checkType, int i_nLevel)
 			}
 		}
 		break;
-	case CHECK_TYPE_CHAT_WAR:			// 2008-05-19 by dhjin, EP3 - Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ, ÀüÀï Ã¤ÆÃ
+	case CHECK_TYPE_CHAT_WAR:			// 2008-05-19 by dhjin, EP3 - Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 		{
 			if(i_nLevel >= 20)
 			{
@@ -2007,6 +2007,15 @@ BOOL GCheckLimitLevel(EN_CHECK_TYPE i_checkType, int i_nLevel)
 			}
 		}
 		break;
+#ifdef _RAT_CHAT_SYSTEM
+	case CHECK_TYPE_CHAT_INFLUENCE_ALL_RAT:
+		{
+			if (i_nLevel >= 20)
+			{
+				return TRUE;
+			}
+		}
+#endif
 	}
 	return FALSE;
 }
@@ -2028,7 +2037,7 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 {
 	switch(i_checkType)
 	{
-	case CHECK_TYPE_TRADE:		// °ü¸®ÀÚ °ü·Ã ¿¹¿Ü Ã³¸® ÇÊ¿ä, 2005-12-06 by cmkwon
+	case CHECK_TYPE_TRADE:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ê¿ï¿½, 2005-12-06 by cmkwon
 		{
 			if ( COMPARE_RACE(i_usRace, RACE_DEMO|RACE_GUEST|RACE_MONITOR|RACE_GAMEMASTER)
 				|| COMPARE_RACE(i_usPeerRace, RACE_DEMO|RACE_GUEST|RACE_MONITOR|RACE_GAMEMASTER) )
@@ -2037,14 +2046,14 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 			}
 
 			if(COMPARE_RACE(i_usRace, RACE_OPERATION))
-			{// 2005-12-06 by cmkwon, °ü¸®ÀÚµµ °ü¸®ÀÚ ³¢¸®¸¸ °Å·¡ °¡´É, ³»°¡ °ü¸®ÀÚ ÀÏ¶§
+			{// 2005-12-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½
 				if(FALSE == COMPARE_RACE(i_usPeerRace, RACE_OPERATION))
 				{
 					return FALSE;
 				}
 			}
 			else if(COMPARE_RACE(i_usPeerRace, RACE_OPERATION))
-			{// 2005-12-06 by cmkwon, °ü¸®ÀÚµµ °ü¸®ÀÚ ³¢¸®¸¸ °Å·¡ °¡´É, »ó´ë¹æÀÌ °ü¸®ÀÚ ÀÏ¶§
+			{// 2005-12-06 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½
 				if(FALSE == COMPARE_RACE(i_usRace, RACE_OPERATION))
 				{
 					return FALSE;
@@ -2052,34 +2061,34 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 			}
 			else
 			{
-// 2006-05-18 by cmkwon, ¾Æ·¡¿Í °°ÀÌ °°Àº ¼¼·ÂÀÌ ¾Æ´Ï¸é °Å·¡ ºÒ°¡
+// 2006-05-18 by cmkwon, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½Å·ï¿½ ï¿½Ò°ï¿½
 // 				if(COMPARE_INFLUENCE(i_byInfluenceTy, INFLUENCE_TYPE_ANI))
-// 				{// ¹Ý¶õ¼¼·Â
+// 				{// ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½
 // 					if(i_byInfluenceTy != i_byPeerInfluenceTy)
-// 					{// ´Ù¸¥ ¼¼·ÂÇÏ°í´Â °Å·¡ ºÒ°¡
+// 					{// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½Ò°ï¿½
 // 						return FALSE;
 // 					}
 // 				}
 // 				else
-// 				{// ÀÏ¹Ý¼¼·Â, Á¤±Ô¼¼·Â
+// 				{// ï¿½Ï¹Ý¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½
 // 					if(FALSE == COMPARE_INFLUENCE(i_byPeerInfluenceTy, INFLUENCE_TYPE_NORMAL|INFLUENCE_TYPE_VCN))
-// 					{// ´Ù¸¥ ¼¼·ÂÇÏ°í´Â °Å·¡ ºÒ°¡
+// 					{// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½Ò°ï¿½
 // 						return FALSE;
 // 					}
 // 				}
 
 				if(COMPARE_INFLUENCE(i_byInfluenceTy, INFLUENCE_TYPE_NORMAL))
-				{// ÀÏ¹Ý¼¼·ÂÀº °Å·¡ ºÒ°¡
+				{// ï¿½Ï¹Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½Ò°ï¿½
 					return FALSE;
 				}
 
 				if(COMPARE_INFLUENCE(i_byPeerInfluenceTy, INFLUENCE_TYPE_NORMAL))
-				{// ÀÏ¹Ý¼¼·ÂÀº °Å·¡ ºÒ°¡
+				{// ï¿½Ï¹Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½Ò°ï¿½
 					return FALSE;
 				}
 				
 				if(i_byInfluenceTy != i_byPeerInfluenceTy)
-				{// 2006-05-18 by cmkwon, ´Ù¸¥ ¼¼·ÂÀÓ
+				{// 2006-05-18 by cmkwon, ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					return FALSE;
 				}
 			}
@@ -2095,20 +2104,20 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 
 			if(COMPARE_RACE(i_usRace, RACE_OPERATION|RACE_GAMEMASTER)
 				^ COMPARE_RACE(i_usPeerRace, RACE_OPERATION|RACE_GAMEMASTER))
-			{// 2006-08-07 by cmkwon, ÀÚ½Å°ú »ó´ë¹æ Áß¿¡ ÇÑ¸í¸¸ °ü¸®ÀÚ È¤Àº ¿î¿µÀÚ ÀÏ¶§
+			{// 2006-08-07 by cmkwon, ï¿½Ú½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½î¿µï¿½ï¿½ ï¿½Ï¶ï¿½
 				return FALSE;
 			}			
 		}
 		break;
 
-	case CHECK_TYPE_GUILD_JOIN:		// °ü¸®ÀÚ Ã³¸® ÇÊ¿ä ¾øÀ½, 2005-12-07 by cmkwon
+	case CHECK_TYPE_GUILD_JOIN:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½, 2005-12-07 by cmkwon
 		{
 			if(COMPARE_INFLUENCE(i_byPeerInfluenceTy, INFLUENCE_TYPE_NORMAL))
-			{// ÀÏ¹Ý¼¼·ÂÀº ¿©´Ü Âü¿© ºÒ°¡
+			{// ï¿½Ï¹Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 				return FALSE;
 			}
 			if(i_byInfluenceTy != i_byPeerInfluenceTy)
-			{// ¼¼·ÂÀÌ ´Ù¸£¸é ¿©´Ü Âü¿© ºÒ°¡
+			{// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 				return FALSE;
 			}
 		}
@@ -2119,12 +2128,12 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 	case CHECK_TYPE_CHAT_CASH_ALL:		// 2005-12-07 by cmkwon
 	case CHECK_TYPE_BATTLE_PARTY_WAR:		// 2006-01-05 by cmkwon
 	case CHECK_TYPE_BATTLE_GUILD_WAR:		// 2006-01-05 by cmkwon
-	case CHECK_TYPE_CHAT_WAR:			// 2008-05-19 by dhjin, EP3 - Ã¤ÆÃ ½Ã½ºÅÛ º¯°æ, ÀüÀï Ã¤ÆÃ
-		{// °°Àº ¼¼·Â¸¸ °¡´ÉÇÏ´Ù
+	case CHECK_TYPE_CHAT_WAR:			// 2008-05-19 by dhjin, EP3 - Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+		{// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 			if(i_byInfluenceTy != i_byPeerInfluenceTy)
 			{
 				//////////////////////////////////////////////////////////////////////////
-				// 2006-10-12 by dhjin, ´Ù¸¥ ¼¼·ÂÀº ºÒ°¡
+				// 2006-10-12 by dhjin, ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 				//if(FALSE == COMPARE_INFLUENCE(i_byInfluenceTy, INFLUENCE_TYPE_NORMAL|INFLUENCE_TYPE_VCN)
 				//	|| FALSE == COMPARE_INFLUENCE(i_byPeerInfluenceTy, INFLUENCE_TYPE_NORMAL|INFLUENCE_TYPE_VCN))
 				//{
@@ -2133,12 +2142,15 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 			}
 		}
 		break;
+#ifdef _RAT_CHAT_SYSTEM
+	case CHECK_TYPE_CHAT_INFLUENCE_ALL_RAT:
+#endif
 	case CHECK_TYPE_CHAT_PTOP:		// 2005-12-07 by cmkwon
 	case CHECK_TYPE_VOIP_1to1:		// 2005-12-07 by cmkwon
 		{
 			///////////////////////////////////////////////////////////////////////////////
-			// 1. ÇÑ¸íÀÌ¶óµµ °ü¸®ÀÚ, °ÔÀÓ¸¶½ºÅÍ´Â ¹«Á¶°Ç °¡´É
-			// 2. ¼¼·ÂÀÌ ´Ù¸£¸é ºÒ°¡
+			// 1. ï¿½Ñ¸ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 			if(COMPARE_RACE(i_usRace, RACE_OPERATION|RACE_GAMEMASTER)
 				|| COMPARE_RACE(i_usPeerRace, RACE_OPERATION|RACE_GAMEMASTER))
 			{
@@ -2223,7 +2235,7 @@ char *GetLeader8SubLeaderString(BYTE i_byInflTy, USHORT i_usRace)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			INT CalcGradeByRate(float i_nMaxValue, float i_nValue, INT i_nRate)
-/// \brief		¸ð¼±Àü Á¤º¸ Ç¥½Ã ±âÈ¹¾È - ºñÀ²¿¡ µû¸¥ µî±ÞÀ» °è»êÇÑ´Ù.
+/// \brief		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// \author		dhjin
 /// \date		2008-03-24 ~ 2008-03-24
 /// \warning	
@@ -2247,7 +2259,7 @@ INT CalcGradeByRate(float i_nMaxValue, float i_nValue, INT i_nRate)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2009-10-22 by cmkwon, ½Ã°£ Á¦ÇÑÇü·ù ¾ÆÀÌÅÛ ½Ã½ºÅÛ Á¤¸® - 
+/// \brief		// 2009-10-22 by cmkwon, ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2009-10-22 ~ 2009-10-22
 /// \warning	
@@ -2268,7 +2280,7 @@ inline int GetNumberOfBits(INT64 i_n64Mask)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2009-11-02 by cmkwon, Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö - 
+/// \brief		// 2009-11-02 by cmkwon, Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2009-11-02 ~ 2009-11-02
 /// \warning	
@@ -2289,7 +2301,7 @@ BYTE CHARACTER::GetAddedPermanentInventoryCount(BYTE i_enStorage/*=ITEM_IN_CHARA
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2009-11-02 by cmkwon, Ä³½¬(ÀÎº¥/Ã¢°í È®Àå) ¾ÆÀÌÅÛ Ãß°¡ ±¸Çö - 
+/// \brief		// 2009-11-02 by cmkwon, Ä³ï¿½ï¿½(ï¿½Îºï¿½/Ã¢ï¿½ï¿½ È®ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2009-11-03 ~ 2009-11-03
 /// \warning	
@@ -2321,7 +2333,7 @@ BOOL CHARACTER::SetAddedPermanentInventoryCount(BYTE i_byAddCount, BYTE i_enStor
 	return TRUE;
 }
 
-struct find_if_INT		// 2010-01-18 by cmkwon, ¾ÆÀÌÅÛ »ç¿ë½Ã Parameter Áßº¹ Ã¼Å© ½Ã½ºÅÛ ±¸Çö - 
+struct find_if_INT		// 2010-01-18 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Parameter ï¿½ßºï¿½ Ã¼Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 {
 	find_if_INT(INT i_findValue): m_findValue(i_findValue){};
 	bool operator()(const INT i_nValue)
@@ -2333,7 +2345,7 @@ struct find_if_INT		// 2010-01-18 by cmkwon, ¾ÆÀÌÅÛ »ç¿ë½Ã Parameter Áßº¹ Ã¼Å© ½
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			
-/// \brief		// 2010-01-18 by cmkwon, ¾ÆÀÌÅÛ »ç¿ë½Ã Parameter Áßº¹ Ã¼Å© ½Ã½ºÅÛ ±¸Çö - 
+/// \brief		// 2010-01-18 by cmkwon, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Parameter ï¿½ßºï¿½ Ã¼Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 
 /// \author		cmkwon
 /// \date		2010-01-18 ~ 2010-01-18
 /// \warning	
@@ -2408,7 +2420,7 @@ void ITEM_SKILL::operator delete(void* p)
 }
 
 
-// 2010-06-15 by shcho&hslee Æê½Ã½ºÅÛ - ¸Þ¸ð¸® Ç® »ç¿ë.
+// 2010-06-15 by shcho&hslee ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ - ï¿½Þ¸ï¿½ Ç® ï¿½ï¿½ï¿½.
 void * tPET_CURRENTINFO :: operator new(size_t size)
 {
 	return CVMemPool::vmObjectNew(size);
@@ -2419,7 +2431,7 @@ void tPET_CURRENTINFO :: operator delete(void* p)
 	CVMemPool::vmObjectDelete(p, sizeof(tPET_CURRENTINFO));
 }
 
-// 2010-11 by dhjin, ¾Æ¶ó¸®¿À Ã¤³Î¸µ ·Î±×ÀÎ.
+// 2010-11 by dhjin, ï¿½Æ¶ó¸®¿ï¿½ Ã¤ï¿½Î¸ï¿½ ï¿½Î±ï¿½ï¿½ï¿½.
 char* GetConnectPublisherName(eCONNECT_PUBLISHER i_eCONNECT_PUBLISHER)
 {
 	switch(i_eCONNECT_PUBLISHER)
@@ -2435,7 +2447,7 @@ char* GetConnectPublisherName(eCONNECT_PUBLISHER i_eCONNECT_PUBLISHER)
 		}
 	}
 }
-// 2011-11-18 by shcho, ¼­¹ö´Ù¿î ÇÁ¸®Æä¾î¼­¹ö´Ù¿î Á¦°Å Ã³¸® - Ãß°¡ ¸í·É¹® »èÁ¦
+// 2011-11-18 by shcho, ï¿½ï¿½ï¿½ï¿½ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¼­ï¿½ï¿½ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ - ï¿½ß°ï¿½ ï¿½ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CheckAdminCommand(char *token)
 {
 
@@ -2444,7 +2456,7 @@ BOOL CheckAdminCommand(char *token)
 #endif
 
 	if(
-	// ¿©±â ÀÖ´Â ¸í·É¾î´Â ´Ù ºÒ°¡·Î Ã³¸®ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½.
 	0 == stricmp(token, STRCMD_CS_COMMAND_ITEMINSERTbyKIND)
 	|| 0 == stricmp(token, STRCMD_CS_COMMAND_ITEMINSERTbyKIND_1)
 	|| 0 == stricmp(token, STRCMD_CS_COMMAND_ITEMINSERTbyKIND_HELP)
@@ -2538,7 +2550,7 @@ BOOL CheckAdminCommand(char *token)
 	return FALSE;
 }
 
-// 2013-03-13 by hskim, À¥ Ä³½Ã »óÁ¡ - RawData Àü¼Û ±â´É Ãß°¡
+// 2013-03-13 by hskim, ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - RawData ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 char *StrCaseStr(const char *s, const char *find)
 {
 	char c, sc;
@@ -2577,7 +2589,7 @@ char *StrRCaseStr(const char *s, const char *find)
 
 	return ((char *)s + len + 1);
 }
-// end 2013-03-13 by hskim, À¥ Ä³½Ã »óÁ¡ - RawData Àü¼Û ±â´É Ãß°¡
+// end 2013-03-13 by hskim, ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - RawData ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 //void * ENCHANT::operator new(size_t size)
 //{

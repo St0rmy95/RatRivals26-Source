@@ -190,6 +190,9 @@ BOOL CIMIOCPSocket::OnRecvdPacketIMServer(const char* pPacket, int nLength, BYTE
 		case T_IC_CHAT_INFLUENCE_ALL:		// 2006-04-21 by cmkwon
 		case T_IC_CHAT_ARENA:				// 2007-05-02 by dhjin
 		case T_IC_CHAT_WAR:				// 2008-05-19 by dhjin, EP3 - 채팅 시스템 변경, 전쟁 채팅
+#ifdef _RAT_CHAT_SYSTEM
+		case T_IC_CHAT_INFLUENCE_ALL_RAT:
+#endif
 		case T_IC_CHAT_CHATROOM:				// 2008-06-18 by dhjin, EP3 채팅방 - 
 		case T_IC_CHAT_INFINITY:			// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 채팅
 		case T_IC_CHAT_FRIENDLIST_AND_REJECTLIST_LOADING:
@@ -690,6 +693,11 @@ BOOL CIMIOCPSocket::OnRecvdPacketIMServer(const char* pPacket, int nLength, BYTE
 		case T_IC_CHAT_WAR:				// 2008-05-19 by dhjin, EP3 - 채팅 시스템 변경, 전쟁 채팅
 			procRes = Process_IC_CHAT_WAR(pPacket, nLength, nBytesUsed, i_pThreadInfo);
 			break;
+#ifdef _RAT_CHAT_SYSTEM
+		case T_IC_CHAT_INFLUENCE_ALL_RAT:
+			procRes = Process_IC_CHAT_INFLUENCE_ALL_RAT(pPacket, nLength, nBytesUsed, i_pThreadInfo);
+			break;
+#endif
 		case T_IC_CHAT_CHATROOM:				// 2008-06-18 by dhjin, EP3 채팅방 - 
 			procRes = Process_IC_CHAT_CHATROOM(pPacket, nLength, nBytesUsed, i_pThreadInfo);
 			break;
@@ -3259,6 +3267,88 @@ ProcessResult CIMIOCPSocket::Process_IC_CHAT_WAR(const char* pPacket, int nLengt
 	}
 	return RES_RETURN_TRUE;
 }
+
+#ifdef _RAT_CHAT_SYSTEM
+ProcessResult CIMIOCPSocket::Process_IC_CHAT_INFLUENCE_ALL_RAT(const char* pPacket, int nLength, int& nBytesUsed, SThreadInfo* i_pThreadInfo)
+{
+	int						nRecvTypeSize;
+	MSG_IC_CHAT_WAR* pRecvChatWar;
+	char* chatString;
+
+	nRecvTypeSize = sizeof(MSG_IC_CHAT_WAR) + ((MSG_IC_CHAT_WAR*)(pPacket + nBytesUsed))->MessageLength;
+	if (nLength - nBytesUsed < nRecvTypeSize)
+	{
+		SendErrorMessage(T_IC_CHAT_WAR, ERR_PROTOCOL_INVALID_FIELD_DATA);
+		Close(0x12005);
+		return RES_RETURN_FALSE;
+	}
+	pRecvChatWar = (MSG_IC_CHAT_WAR*)(pPacket + nBytesUsed);
+	chatString = (char*)(pPacket + nBytesUsed + sizeof(MSG_IC_CHAT_WAR));
+	nBytesUsed += nRecvTypeSize;
+
+	if (strnicmp(m_character.CharacterName, pRecvChatWar->FromCharacterName, SIZE_MAX_CHARACTER_NAME) != 0)
+	{
+		SendErrorMessage(T_IC_CHAT_WAR, ERR_CHAT_CHARACTER_NAME_NOT_MATCHED);
+		Close(0x12006);
+		return RES_RETURN_FALSE;
+	}
+
+	if (i_pThreadInfo)
+	{// 2007-02-21 by cmkwon
+		i_pThreadInfo->nParam1++;
+	}
+
+	int nRemainMinute = 0;
+	if (ms_pIMIOCP->m_chatBlockManager.IsExistChatBlockList(&nRemainMinute, m_character.CharacterName)
+		|| ms_pIMIOCP->m_chatBlockManagerByLeader.IsExistChatBlockList(&nRemainMinute, m_character.CharacterName))	// 2008-12-30 by cmkwon, 지도자 채팅 제한 카드 구현 - T_IC_CHAT_WAR, 전쟁
+	{
+		SendErrorMessage(T_IC_CHAT_WAR, ERR_CHAT_CHAT_BLOCKED, nRemainMinute);
+		return RES_BREAK;
+	}
+
+	if (FALSE == COMPARE_INFLUENCE(m_character.InfluenceType, INFLUENCE_TYPE_VCN | INFLUENCE_TYPE_ANI))
+	{// 2006-06-13 by cmkwon, 세력 선택 유저만이 거래 채팅 가능
+		SendErrorMessage(T_IC_CHAT_WAR, ERR_REQ_CHOOSE_INFLUENCE_TYPE);
+		return RES_BREAK;
+	}
+
+	if (FALSE == GCheckLimitLevel(CHECK_TYPE_CHAT_WAR, m_character.Level))
+	{
+		SendErrorMessage(T_IC_CHAT_WAR, ERR_PROTOCOL_REQ_LEVEL_NOT_MATCHED);
+		return RES_BREAK;
+	}
+
+	// 채팅 필터링
+	if (!FilterChattingString(chatString))
+	{
+		SendErrorMessage(T_IC_CHAT_WAR, ERR_CHAT_NOT_ALLOWED_STRING);
+		return RES_BREAK;
+	}
+
+	if (i_pThreadInfo)
+	{// 2007-02-21 by cmkwon
+		i_pThreadInfo->nParam1++;
+	}
+
+	char szChatting[1024];
+	sprintf(szChatting, "Chat_War|%s|%d|%d|%s\r\n",
+		pRecvChatWar->FromCharacterName, m_character.MapChannelIndex.MapIndex,
+		m_character.MapChannelIndex.ChannelIndex, (char*)pRecvChatWar + sizeof(MSG_IC_CHAT_SELL_ALL));
+	// 2007-11-13 by cmkwon, 관리자, 운영자 채팅 로그 저장하기 - CIMGlobal::WriteChattingLog() 함수 인자 추가
+	g_pIMGlobal->WriteChattingLog(szChatting, m_character.Race);
+
+	///////////////////////////////////////////////////////////////////////////////
+	// 2005-12-07 by cmkwon, 거래는 동일한 세력에게만 전송한다
+	ms_pIMIOCP->SendChatMsgToAllClients(CHAT_TYPE_WAR, ((BYTE*)pRecvChatWar) - SIZE_FIELD_TYPE_HEADER
+		, SIZE_FIELD_TYPE_HEADER + nRecvTypeSize, m_character.InfluenceType);
+
+	if (i_pThreadInfo)
+	{// 2007-02-21 by cmkwon
+		i_pThreadInfo->nParam1++;
+	}
+	return RES_RETURN_TRUE;
+}
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			ProcessResult CIMIOCPSocket::Process_IC_CHAT_CHATROOM(const char* pPacket, int nLength, int &nBytesUsed, SThreadInfo *i_pThreadInfo)

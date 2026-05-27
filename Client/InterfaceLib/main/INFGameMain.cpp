@@ -7293,51 +7293,63 @@ void CINFGameMain::GoWarpMapChange(int nQuestMapIdx)
 		
 	CHARACTER myShuttle = GetMyShuttleInfo();
 
-	// 2007.09.19 by bhsohn 전진 기지 출격 처리
-	if(IS_OUTPOST_CITY_MAP_INDEX(myShuttle.MapChannelIndex.MapIndex))
-	{
-		m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);
-		BOOL bGoMissionMap = g_pShuttleChild->SendGoMissionMap();				
-		
-		if(FALSE == bGoMissionMap)
+		// 2007.09.19 by bhsohn 전진 기지 출격 처리
+		if(IS_OUTPOST_CITY_MAP_INDEX(myShuttle.MapChannelIndex.MapIndex))
 		{
-			// 미션맵 안 보내면 출격 발동
-			CObjectChild * pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPosition(EVENT_TYPE_CHARACTERMODE_WARP, g_pCharacterChild->m_vPos, 10240.0f);
-			if(pCurrentObjEvent)
+			m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);
+			BOOL bGoMissionMap = g_pShuttleChild->SendGoMissionMap();
+
+			if (FALSE == bGoMissionMap)
 			{
-				g_pShuttleChild->SendFieldSocketRequestEventObjectWarpIn(pCurrentObjEvent);
-			}
-			// 2008-04-22 by bhsohn 전진기지 출격 안되는 문제 해결
-			else
-			{
-				// EVENT_TYPE_CHARACTERMODE_WARP 을 못찾으면 EVENT_TYPE_CHARACTERMODE_DIRECTLY_WARP 를 찾는다.
-				pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPosition(EVENT_TYPE_CHARACTERMODE_DIRECTLY_WARP, g_pCharacterChild->m_vPos, 10240.0f);
-				if(pCurrentObjEvent)
+				// 미션맵 안 보내면 출격 발동
+				CObjectChild* pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPosition(EVENT_TYPE_CHARACTERMODE_WARP, g_pCharacterChild->m_vPos, 10240.0f);
+				if (pCurrentObjEvent)
 				{
 					g_pShuttleChild->SendFieldSocketRequestEventObjectWarpIn(pCurrentObjEvent);
-				}				
+				}
+				// 2008-04-22 by bhsohn 전진기지 출격 안되는 문제 해결
+				else
+				{
+					// EVENT_TYPE_CHARACTERMODE_WARP 을 못찾으면 EVENT_TYPE_CHARACTERMODE_DIRECTLY_WARP 를 찾는다.
+					pCurrentObjEvent = g_pScene->FindEventObjectByTypeAndPosition(EVENT_TYPE_CHARACTERMODE_DIRECTLY_WARP, g_pCharacterChild->m_vPos, 10240.0f);
+					if (pCurrentObjEvent)
+					{
+						g_pShuttleChild->SendFieldSocketRequestEventObjectWarpIn(pCurrentObjEvent);
+					}
+				}
+				// end 2008-04-22 by bhsohn 전진기지 출격 안되는 문제 해결
 			}
-			// end 2008-04-22 by bhsohn 전진기지 출격 안되는 문제 해결
 		}
-	}
-	else
-	{
-		// 미션맵이 0이면 그냥 출격
-		// 미션맵으로 이동
-		g_pD3dApp->StartFadeEffect(TRUE,3,D3DCOLOR_ARGB(0,0,0,0));
-		g_pCharacterChild->FineObjectTakeOff();	
-		m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);
-	}
-	// end 2007.09.19 by bhsohn 전진 기지 출격 처리
+		else
+		{
+#ifdef _RAT_FFA
+			if (FFA_MAP == nQuestMapIdx)
+			{
+				m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);
+				g_pShuttleChild->SendGoMissionMap();
+			}
+			else
+			{
+				g_pD3dApp->StartFadeEffect(TRUE, 3, D3DCOLOR_ARGB(0, 0, 0, 0));
+				g_pCharacterChild->FineObjectTakeOff();
+				m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);
+			}
+#else
+			g_pD3dApp->StartFadeEffect(TRUE, 3, D3DCOLOR_ARGB(0, 0, 0, 0));
+			g_pCharacterChild->FineObjectTakeOff();
+			m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);
+#endif
+		}
+		// end 2007.09.19 by bhsohn 전진 기지 출격 처리
 
-	// 2008-06-17 by bhsohn 편대 관련 처리
-	if(g_pShuttleChild 
-		&& g_pShuttleChild->m_pClientParty 
-		&& g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER 
-		&& g_pShuttleChild->m_pClientParty->IsFormationFlight())
-	{
-		g_pShuttleChild->m_pClientParty->TempPartyFormation(FLIGHT_FORM_NONE);
-	}
+		// 2008-06-17 by bhsohn 편대 관련 처리
+		if(g_pShuttleChild 
+			&& g_pShuttleChild->m_pClientParty 
+			&& g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER 
+			&& g_pShuttleChild->m_pClientParty->IsFormationFlight())
+		{
+			g_pShuttleChild->m_pClientParty->TempPartyFormation(FLIGHT_FORM_NONE);
+		}
 
 }
 

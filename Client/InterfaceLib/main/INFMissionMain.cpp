@@ -17,40 +17,48 @@
 #include "ClientParty.h"
 
 #include "INFMissionMain.h"
-#include "INFGameMainQSlot.h"			// 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#include "INFGameMainQSlot.h"			// 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 2011-03-02 by hsSon, ¹Ì¼Ç ±Û¾¾ À§Ä¡ ¼öÁ¤
+// 2011-03-02 by hsSon, ï¿½Ì¼ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 #define MISSION_VIEW_INFO_POSX				(g_pD3dApp->GetBackBufferDesc().Width-410*HIDPI_COEFF)
-// end 2011-03-02 by hsSon, ¹Ì¼Ç ±Û¾¾ À§Ä¡ ¼öÁ¤
+// end 2011-03-02 by hsSon, ï¿½Ì¼ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 
 #define MISSION_FONT_HEIGHT_GAB				17*HIDPI_COEFF
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-// Ãâ°Ý ¹öÆ° 
-#define GO_MAP_POS_X						((g_pD3dApp->GetBackBufferDesc().Width-70)/2)//(g_pD3dApp->GetBackBufferDesc().Width-127)
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+// Go Map
+#define GO_MAP_POS_X						((g_pD3dApp->GetBackBufferDesc().Width/2)-46)//(g_pD3dApp->GetBackBufferDesc().Width-127)
 #define GO_MAP_POS_Y						(g_pD3dApp->GetBackBufferDesc().Height-110*HIDPI_COEFF)
 
-// Go Mission¸Ê
-#define GO_MISSION_MAP_POS_X				((g_pD3dApp->GetBackBufferDesc().Width/2)-80)//(g_pD3dApp->GetBackBufferDesc().Width-253)
-#define GO_MISSION_MAP_POS_Y				(g_pD3dApp->GetBackBufferDesc().Height-110*HIDPI_COEFF)			  
+// Go Mission
+#define GO_MISSION_MAP_POS_X				((g_pD3dApp->GetBackBufferDesc().Width/2)-123)//(g_pD3dApp->GetBackBufferDesc().Width-253)
+#define GO_MISSION_MAP_POS_Y				(g_pD3dApp->GetBackBufferDesc().Height-110*HIDPI_COEFF)
+
+#ifdef _RAT_FFA
+// Go FFA
+#define GO_MAP_FFA_POS_X					((g_pD3dApp->GetBackBufferDesc().Width/2)+31)
+#define GO_MAP_FFA_POS_Y					(g_pD3dApp->GetBackBufferDesc().Height-124*HIDPI_COEFF)
+#endif 
+
 #else 
-// Ãâ°Ý ¹öÆ° 
+// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° 
 #define GO_MAP_POS_X						((g_pD3dApp->GetBackBufferDesc().Width-105)/2)//(g_pD3dApp->GetBackBufferDesc().Width-127)
 #define GO_MAP_POS_Y						(g_pD3dApp->GetBackBufferDesc().Height-75)
 
-// Go Mission¸Ê
+// Go Missionï¿½ï¿½
 #define GO_MISSION_MAP_POS_X				((g_pD3dApp->GetBackBufferDesc().Width/2)-105)//(g_pD3dApp->GetBackBufferDesc().Width-253)
 #define GO_MISSION_MAP_POS_Y				(g_pD3dApp->GetBackBufferDesc().Height-75)
 #endif
 
 
-// Ã¹ ÄÉ¸¯ Äù½ºÆ®
+// Ã¹ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 #define	FIRST_QUEST								101
 
-// ¼¼·Â¼±ÅÃ Quest
+// ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ Quest
 #define	SELECT_QUEST							112
 
-// 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
-// ·¹º§¼øÀ¸·Î Á¤·Ä
+// 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 struct QuestIdx_Sort_Level: binary_function<structQuestInfo, structQuestInfo, bool>
 {
 	bool operator()(structQuestInfo pArenaItemInfo1, structQuestInfo pArenaItemInfo2)
@@ -62,7 +70,7 @@ struct QuestIdx_Sort_Level: binary_function<structQuestInfo, structQuestInfo, bo
 		return FALSE;
     };
 };
-// END 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
+// END 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
 
 //////////////////////////////////////////////////////////////////////
@@ -73,17 +81,20 @@ CINFMissionMain::CINFMissionMain()
 {
 	m_pGoMapBtn = NULL;
 	m_pGoMissionMapBtn = NULL;
+#ifdef _RAT_FFA
+	m_pGoFFABtn = NULL;
+#endif
 
 	m_pINFMissionTreeInfo = NULL;
 	m_pINFMissionPopupInfo = NULL;
 	m_pINFMissionSelInfluence = NULL;
-	m_pINFMissionMaster		= NULL; // 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+	m_pINFMissionMaster		= NULL; // 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	m_nShowMissionWnd = 0;
 	
 	//m_nShowMissionWnd |= (1<<MISSOIN_SHOW_TREE);	
 	//m_nShowMissionWnd |= (1<<MISSOIN_SHOW_SEL_INFLUENCE);	
 
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(int i = 0 ; i < 10 ; ++i)
 	{
@@ -92,7 +103,7 @@ CINFMissionMain::CINFMissionMain()
 #else
 	m_pMissionINGFont = NULL;
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 
 	m_bSearchPosQuest = FALSE;
 	m_pHidePosQuest = NULL;
@@ -126,6 +137,13 @@ CINFMissionMain::~CINFMissionMain()
 		m_pINFMissionTreeInfo->DeleteDeviceObjects();	
 		SAFE_DELETE(m_pINFMissionTreeInfo);
 	}
+#ifdef _RAT_FFA
+	if (m_pGoFFABtn)
+	{
+		m_pGoFFABtn->DeleteDeviceObjects();
+		SAFE_DELETE(m_pGoFFABtn);
+	}
+#endif
 	if(m_pINFMissionPopupInfo)
 	{
 		m_pINFMissionPopupInfo->DeleteDeviceObjects();	
@@ -136,14 +154,14 @@ CINFMissionMain::~CINFMissionMain()
 		m_pINFMissionSelInfluence->DeleteDeviceObjects();	
 		SAFE_DELETE(m_pINFMissionSelInfluence);
 	}
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if(m_pINFMissionMaster)
 	{
 		m_pINFMissionMaster->DeleteDeviceObjects();
 		SAFE_DELETE(m_pINFMissionMaster);
 	}
 	
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(int i = 0 ; i < 10 ; ++i)
 	{
@@ -160,7 +178,7 @@ CINFMissionMain::~CINFMissionMain()
  		SAFE_DELETE(m_pMissionINGFont);
  	}
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 }
 
 
@@ -191,7 +209,7 @@ HRESULT CINFMissionMain::InitDeviceObjects()
 		}	
 		m_pINFMissionSelInfluence->InitDeviceObjects();		
 	}
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	{
 		if(NULL == m_pINFMissionMaster)
 		{
@@ -200,7 +218,7 @@ HRESULT CINFMissionMain::InitDeviceObjects()
 		m_pINFMissionMaster->InitDeviceObjects();
 	}
 
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(int i = 0 ; i < 10 ; ++i)
 	{
@@ -219,12 +237,12 @@ HRESULT CINFMissionMain::InitDeviceObjects()
  		m_pMissionINGFont->InitDeviceObjects(g_pD3dDev) ;
  	}
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 	
-	// Ãâ°Ý ¹öÆ° 	
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° 	
 	{
 		char szUpBtn[30], szDownBtn[30], szSelBtn[30], szDisBtn[30];
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		wsprintf(szUpBtn, "goshn01");															  
 #else 
 		wsprintf(szUpBtn, "goshn");
@@ -236,14 +254,14 @@ HRESULT CINFMissionMain::InitDeviceObjects()
 		{
 			m_pGoMapBtn = new CINFImageBtn;
 		}
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö	
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 		//m_pGoMapBtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn);
 		m_pGoMapBtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn,"STRTOOLTIP1");
-		// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö	
+		// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 		
 	}
 	
-	// ¹Ì¼Ç ¸ÊÀ¸·Î ÀÌµ¿
+	// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	{
 		char szUpBtn[30], szDownBtn[30], szSelBtn[30], szDisBtn[30];
 		wsprintf(szUpBtn, "migon");
@@ -254,12 +272,29 @@ HRESULT CINFMissionMain::InitDeviceObjects()
 		{
 			m_pGoMissionMapBtn = new CINFImageBtn;
 		}
-		// 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö	
-		//m_pGoMissionMapBtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn);
-		m_pGoMissionMapBtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn,"STRTOOLTIP2");
-		// end 2011. 1. 12 by jskim UI ÀÌ¹ÌÁö ¹öÆ° ÅøÆÁ ±¸Çö	
+		// 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+		m_pGoMissionMapBtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn, "STRTOOLTIP2");
+
+		// end 2011. 1. 12 by jskim UI ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 		
 	}
+	
+#ifdef _RAT_FFA
+	{
+		char szUpBtn[30], szDownBtn[30], szSelBtn[30], szDisBtn[30];
+		wsprintf(szUpBtn, "gosh_FFA_n");
+		wsprintf(szDownBtn, "gosh_FFA_s");
+		wsprintf(szSelBtn, "gosh_FFA_o");
+		wsprintf(szDisBtn, "gosh_FFA_no"); // Cannot fit _gosh_FFA_not --> SO its "gosh_FFA_no"
+		if (NULL == m_pGoFFABtn)
+		{
+			m_pGoFFABtn = new CINFImageBtn;
+		}
+		
+		m_pGoFFABtn->InitDeviceObjects(szUpBtn, szDownBtn, szSelBtn, szDisBtn,	"STRTOOLTIP1");
+	}
+#endif
+	
 	return S_OK ;
 }
 
@@ -268,10 +303,10 @@ HRESULT CINFMissionMain::RestoreDeviceObjects()
 	m_pINFMissionTreeInfo->RestoreDeviceObjects();
 	m_pINFMissionPopupInfo->RestoreDeviceObjects();
 	m_pINFMissionSelInfluence->RestoreDeviceObjects();
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	m_pINFMissionMaster->RestoreDeviceObjects();
 
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(int i = 0 ; i < 10 ; ++i)
 	{
@@ -280,18 +315,23 @@ HRESULT CINFMissionMain::RestoreDeviceObjects()
 #else
 	m_pMissionINGFont->RestoreDeviceObjects();
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 
-	// Ãâ°Ý ¹öÆ° 
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° 
 	{
 		m_pGoMapBtn->RestoreDeviceObjects();		
 //		m_pGoMapBtn->SetBtnPosition(GO_MAP_POS_X, GO_MAP_POS_Y);
 	}
-	// ¹Ì¼Ç¸ÊÀ¸·Î ÀÌµ¿
+	// ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	{			
 		m_pGoMissionMapBtn->RestoreDeviceObjects();		
 //		m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X, GO_MISSION_MAP_POS_Y);
 	}
+#ifdef _RAT_FFA
+	{
+		m_pGoFFABtn->RestoreDeviceObjects();
+	}
+#endif
 	
 	return S_OK ;
 }
@@ -307,11 +347,11 @@ HRESULT CINFMissionMain::DeleteDeviceObjects()
 	m_pINFMissionSelInfluence->DeleteDeviceObjects();	
 	SAFE_DELETE(m_pINFMissionSelInfluence);		
 	
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	m_pINFMissionMaster->DeleteDeviceObjects();
 	SAFE_DELETE(m_pINFMissionMaster);
 
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(int i = 0 ; i < 10 ; ++i)
 	{
@@ -322,7 +362,7 @@ HRESULT CINFMissionMain::DeleteDeviceObjects()
  	m_pMissionINGFont->DeleteDeviceObjects();	
  	SAFE_DELETE(m_pMissionINGFont);			
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 
 	{
 		m_pGoMapBtn->DeleteDeviceObjects();	
@@ -333,6 +373,12 @@ HRESULT CINFMissionMain::DeleteDeviceObjects()
 		m_pGoMissionMapBtn->DeleteDeviceObjects();	
 		SAFE_DELETE(m_pGoMissionMapBtn);
 	}
+#ifdef _RAT_FFA
+	{
+		m_pGoFFABtn->DeleteDeviceObjects();
+		SAFE_DELETE(m_pGoFFABtn);
+	}
+#endif
 
 
 	return S_OK ;
@@ -343,10 +389,10 @@ HRESULT CINFMissionMain::InvalidateDeviceObjects()
 	m_pINFMissionTreeInfo->InvalidateDeviceObjects();
 	m_pINFMissionPopupInfo->InvalidateDeviceObjects();
 	m_pINFMissionSelInfluence->InvalidateDeviceObjects();
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 	m_pINFMissionMaster->InvalidateDeviceObjects();
 
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	for(int i = 0 ; i < 10 ; ++i)
 	{
@@ -355,11 +401,15 @@ HRESULT CINFMissionMain::InvalidateDeviceObjects()
 #else
 	m_pMissionINGFont->InvalidateDeviceObjects();
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 
 	m_pGoMapBtn->InvalidateDeviceObjects();		
 
 	m_pGoMissionMapBtn->InvalidateDeviceObjects();		
+	
+#ifdef _RAT_FFA
+	m_pGoFFABtn->InvalidateDeviceObjects();
+#endif
 
 
 	return S_OK ;
@@ -367,10 +417,10 @@ HRESULT CINFMissionMain::InvalidateDeviceObjects()
 
 void CINFMissionMain::Tick()
 {
-	// ¼û°ÜÁø ¹Ì¼Ç 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ 
 	TickHideMission();
 
-	// ¸®½ºÆ® ÄÁÆ®·Ñ 
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Æ®ï¿½ï¿½ 
 	if(IsShowWnd(MISSOIN_SHOW_TREE))
 	{
 		m_pINFMissionTreeInfo->Tick();		
@@ -383,8 +433,8 @@ void CINFMissionMain::Tick()
 	{
 		m_pINFMissionSelInfluence->Tick();
 	}	
-	m_pINFMissionMaster->Tick();// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
-	// ¹öÆ°µé
+	m_pINFMissionMaster->Tick();// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
+	// ï¿½ï¿½Æ°ï¿½ï¿½
 	TickBtn();
 }
 void CINFMissionMain::TickBtn()
@@ -395,12 +445,19 @@ void CINFMissionMain::TickBtn()
 		
 		BOOL bShowGoMissionMapBtn,  bShowGoMapBtn;
 		bShowGoMissionMapBtn = bShowGoMapBtn = FALSE;
-		// ¹ÙÀÚ»óÁ¡ÀÌ¸é ¹«Á¶°Ç ¾Èº¸ÀÓ
-		if(FALSE == g_pGameMain->IsBazaar())		
+#ifdef _RAT_FFA
+		BOOL bGoFFAMapBtn = FALSE;
+#endif
+		
+		// ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½ï¿½
+		if(FALSE == g_pGameMain->IsBazaar())
 		{
 			if(m_nMyShuttleCharacter)
 			{
 				bShowGoMissionMapBtn =  bShowGoMapBtn = TRUE;
+#ifdef _RAT_FFA
+				bGoFFAMapBtn = TRUE;
+#endif
 			}
 			CQuest *pQuestInfo = g_pQuestData->GetProgressMission();
 			if(NULL == pQuestInfo)
@@ -413,31 +470,102 @@ void CINFMissionMain::TickBtn()
 			}
 		}		
 
+#ifdef _RAT_GREYBUTTONS
+		USHORT MapIndex = g_pShuttleChild->GetMyShuttleInfo().MapChannelIndex.MapIndex;
+#endif
+
 		if(m_pGoMissionMapBtn)
 		{
-			m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X,GO_MISSION_MAP_POS_Y);
-			m_pGoMissionMapBtn->ShowWindow(bShowGoMissionMapBtn );			
+			m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X, GO_MISSION_MAP_POS_Y);
+#ifdef _RAT_GREYBUTTONS
+			if (bShowGoMissionMapBtn == FALSE)
+			{
+				if (IS_OUTPOST_CITY_MAP_INDEX(MapIndex)
+					|| IS_CITY_MAP_INDEX(MapIndex))
+				{
+					m_pGoMissionMapBtn->EnableBtn(false);
+					m_pGoMissionMapBtn->ShowWindow(TRUE);
+				}
+				else
+				{
+					m_pGoMissionMapBtn->EnableBtn(false);
+					m_pGoMissionMapBtn->ShowWindow(bShowGoMissionMapBtn);
+				}
+			}
+			else
+			{
+				m_pGoMissionMapBtn->EnableBtn(true);
+				m_pGoMissionMapBtn->ShowWindow(bShowGoMissionMapBtn);
+			}
+#else
+			m_pGoMissionMapBtn->ShowWindow(bShowGoMissionMapBtn);
+#endif
+
 		}
 		if(m_pGoMapBtn)
 		{
-			DWORD nGoBtnPos = GO_MAP_POS_X;
-			if(bShowGoMissionMapBtn)
+//#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			m_pGoMapBtn->SetBtnPosition(GO_MAP_POS_X, GO_MAP_POS_Y);
+#ifdef _RAT_GREYBUTTONS
+			if (bShowGoMapBtn == FALSE)
 			{
-				nGoBtnPos += (m_pGoMapBtn->GetImgSize().x/2);
+				if (IS_OUTPOST_CITY_MAP_INDEX(MapIndex)
+					|| IS_CITY_MAP_INDEX(MapIndex))
+				{
+					m_pGoMapBtn->EnableBtn(false);
+					m_pGoMapBtn->ShowWindow(TRUE);
+				}
+				else
+				{
+					m_pGoMapBtn->EnableBtn(false);
+					m_pGoMapBtn->ShowWindow(bShowGoMapBtn);
+				}
 			}
-
-//#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
-			m_pGoMapBtn->SetBtnPosition(nGoBtnPos, GO_MAP_POS_Y);
+			else
+			{
+				m_pGoMapBtn->EnableBtn(true);
+				m_pGoMapBtn->ShowWindow(bShowGoMapBtn);
+			}
+#else
 			m_pGoMapBtn->ShowWindow(bShowGoMapBtn);
+#endif
 //#endif
-		}	
+		}
+#ifdef _RAT_FFA
+		{
+			m_pGoFFABtn->SetBtnPosition(GO_MAP_FFA_POS_X, GO_MAP_FFA_POS_Y);
+#ifdef _RAT_GREYBUTTONS
+				if (bGoFFAMapBtn == FALSE)
+				{
+					if (IS_OUTPOST_CITY_MAP_INDEX(MapIndex)
+						|| IS_CITY_MAP_INDEX(MapIndex))
+					{
+						m_pGoFFABtn->EnableBtn(false);
+						m_pGoFFABtn->ShowWindow(TRUE);
+					}
+					else
+					{
+						m_pGoFFABtn->EnableBtn(false);
+						m_pGoFFABtn->ShowWindow(bGoFFAMapBtn);
+					}
+				}
+				else
+				{
+					m_pGoFFABtn->EnableBtn(true);
+					m_pGoFFABtn->ShowWindow(bGoFFAMapBtn);
+				}
+#else
+		m_pGoFFABtn->ShowWindow(bGoFFAMapBtn);
+#endif
+		}
+#endif
 	}		
 }
 
 void CINFMissionMain::TickHideMission()
 {
 	if(m_bSearchPosQuest == TRUE && m_pHidePosQuest)
-	{	// Æ¯Á¤ Æ÷Áö¼Ç¿¡ Äù½ºÆ®°¡ ÀÖ´Â°æ¿ì °Ë»ö ÈÄ ½ÇÇàÇÑ´Ù.
+	{	// Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´Â°ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		CQuest *pQuestInfo = g_pQuestData->GetProgressMission();
 		if(pQuestInfo == NULL)
 		{
@@ -448,13 +576,13 @@ void CINFMissionMain::TickHideMission()
 			{
 				char buff[512];
 				ZERO_MEMORY(buff);
-				wsprintf(buff, STRMSG_C_050825_0001, m_pHidePosQuest->QuestName); //"¹Ì¼Ç %s¸¦(À») ½ÃÀÛÇÏ½Ã°Ú½À´Ï±î?"
+				wsprintf(buff, STRMSG_C_050825_0001, m_pHidePosQuest->QuestName); //"ï¿½Ì¼ï¿½ %sï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"
 				g_pGameMain->AddMsgBox(buff,_Q_MISSION_START, (DWORD)m_pHidePosQuest->QuestIndex);
 				m_bSearchPosQuest = FALSE;
 			}
 		}
 	}
-	// Æ¯Á¤Áö¿ª ¹Ì¼Ç ¿Ï·á
+	// Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ ï¿½Ï·ï¿½
 	if(m_bPosMissionComplete == TRUE)
 	{
 		int nMissionIndex = g_pD3dApp->SerchMissionCondition();
@@ -464,11 +592,11 @@ void CINFMissionMain::TickHideMission()
 			m_bPosMissionComplete = FALSE;
 		}
 	}
-	// ¹Ì¼Ç ¿Ï·á ½Ã°£ Ç¥½Ã
-	// Äù½ºÆ® ³²Àº½Ã°£ Ç¥½Ã
+	// ï¿½Ì¼ï¿½ ï¿½Ï·ï¿½ ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
 	if(g_pGameMain->m_bQuestLimitTimeView)
 	{	
-		// 2008-04-07 by bhsohn Äù½ºÆ® ½Ã°£ Áö¿¬µÇ´Â ¹®Á¦ Ã³¸®
+		// 2008-04-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		float fElapsedTime = g_pD3dApp->GetCheckElapsedTime();
 		float fGetQuestTimeElapse = g_pGameMain->GetQuestTimeElapse();
 		fGetQuestTimeElapse -= fElapsedTime;				
@@ -477,15 +605,15 @@ void CINFMissionMain::TickHideMission()
 		if(fGetQuestTimeElapse <-5)
 		{
 			g_pGameMain->m_bQuestLimitTimeView = FALSE;
-			// ³¡ ³µ´ç ¹Ì¼ÇÃë¼Ò º¸³»±â
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			CQuest *pQuestInfo = g_pQuestData->GetProgressMission();
 			if(pQuestInfo)
 			{
 				// 2005-08-02 ispark
 				if(QUEST_END_TYPE_TIME_OVER == pQuestInfo->QuestEndType)
 				{
-					// ¹Ì¼Ç ¿Ï·á º¸³»±â
-					// 2006-03-27 by ispark, ÆÄÆ¼¹Ì¼Ç Ãß°¡
+					// ï¿½Ì¼ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					// 2006-03-27 by ispark, ï¿½ï¿½Æ¼ï¿½Ì¼ï¿½ ï¿½ß°ï¿½
 					if(pQuestInfo->IsPartyQuest())
 					{
 						g_pQuestData->SendFieldSocketQuestRequestSuccessCheck(pQuestInfo->QuestIndex);
@@ -498,98 +626,47 @@ void CINFMissionMain::TickHideMission()
 				}
 				else
 				{
-					// ¹Ì¼Ç Ãë¼Ò º¸³»±â
+					// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					g_pGameMain->SetImageInfo(MISSION_FAI, TRUE);
 				}
 			}
 		}
-		
-
-		// 2007-12-05 by bhsohn alt+tab½Ã Äù½ºÆ® ½Ã°£ ¾È°¡´Â ¹®Á¦ Ã³¸®
-		//float fElapsedTime = g_pD3dApp->GetElapsedTime();
-//		float fElapsedTime = g_pD3dApp->GetCheckElapsedTime();
-//		g_pGameMain->m_fTimeElapse -= fElapsedTime;				
-//		if(g_pGameMain->m_fTimeElapse < 0)
-//		{
-//			// 2007-12-05 by bhsohn alt+tab½Ã Äù½ºÆ® ½Ã°£ ¾È°¡´Â ¹®Á¦ Ã³¸®
-//			//g_pGameMain->m_fTimeElapse = 1;
-//			//g_pGameMain->m_nTimeSecond--;
-//			g_pGameMain->m_fTimeElapse = 1;
-//			if(fElapsedTime < 1.0f)
-//			{				
-//				g_pGameMain->m_nTimeSecond--;
-//			}
-//			else
-//			{
-//				g_pGameMain->m_nTimeSecond -= (int)(fElapsedTime);				
-//			}
-//			
-//			if(g_pGameMain->m_nTimeSecond<-5)
-//			{
-//				g_pGameMain->m_bQuestLimitTimeView = FALSE;
-//				// ³¡ ³µ´ç ¹Ì¼ÇÃë¼Ò º¸³»±â
-//				CQuest *pQuestInfo = g_pQuestData->GetProgressMission();
-//				if(pQuestInfo)
-//				{
-//					// 2005-08-02 ispark
-//					if(QUEST_END_TYPE_TIME_OVER == pQuestInfo->QuestEndType)
-//					{
-//						// ¹Ì¼Ç ¿Ï·á º¸³»±â
-//						// 2006-03-27 by ispark, ÆÄÆ¼¹Ì¼Ç Ãß°¡
-//						if(pQuestInfo->IsPartyQuest())
-//						{
-//							g_pQuestData->SendFieldSocketQuestRequestSuccessCheck(pQuestInfo->QuestIndex);
-//						}
-//						else
-//						{
-//							g_pGameMain->SetImageInfo(MISSION_SUC, TRUE);
-//							//g_pD3dApp->SendMissionComplete();
-//						}
-//					}
-//					else
-//					{
-//						// ¹Ì¼Ç Ãë¼Ò º¸³»±â
-//						g_pGameMain->SetImageInfo(MISSION_FAI, TRUE);
-//					}
-//				}
-//			}
-//		}		
 	}
 }
 void CINFMissionMain::Render()
 {
-	// °¢°¢ÀÇ ¹öÆ°µé
-#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½
+#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int  nPosX, nPosY;
 	nPosX = g_pGameMain->m_pQuickSlot->m_nX;
 	nPosY = g_pGameMain->m_pQuickSlot->m_nY;
 	int Y = nPosY  - QSLOT_TAB_NUMBER * ( QSLOT_ICON_INTERVAL + 2 ) - m_pGoMissionMapBtn->GetImgSize().y + 25;
 	if( g_pGameMain->m_pQuickSlot->IsSlotOpen() == FALSE )
 	{
-		m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X,Y);
+		m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X, GO_MISSION_MAP_POS_Y);
 	}
 	else
 	{
 		m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X,GO_MISSION_MAP_POS_Y);	
 	}
-	DWORD nGoBtnPos = GO_MAP_POS_X;
-	{
-		nGoBtnPos += (m_pGoMapBtn->GetImgSize().x/2);
-	}
 	if( g_pGameMain->m_pQuickSlot->IsSlotOpen() == FALSE )
 	{
-		m_pGoMapBtn->SetBtnPosition(nGoBtnPos, Y);
+		m_pGoMapBtn->SetBtnPosition(GO_MAP_POS_X, GO_MAP_POS_Y);
 	}
 	else
 	{
-		m_pGoMapBtn->SetBtnPosition(nGoBtnPos, GO_MAP_POS_Y);
+		m_pGoMapBtn->SetBtnPosition(GO_MAP_POS_X, GO_MAP_POS_Y);
 	}
-	// end 2011. 10. 10 by jskim UI½Ã½ºÅÛ º¯°æ													  
+	// end 2011. 10. 10 by jskim UIï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½													  
 #endif
 	m_pGoMapBtn->Render();
-	m_pGoMissionMapBtn->Render();
 
-	// ¸®½ºÆ® ÄÁÆ®·Ñ 
+	m_pGoMissionMapBtn->Render();
+#ifdef _RAT_FFA
+	m_pGoFFABtn->Render();
+#endif
+
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Æ®ï¿½ï¿½ 
 	if(IsShowWnd(MISSOIN_SHOW_TREE))
 	{
 		m_pINFMissionTreeInfo->Render();
@@ -602,12 +679,12 @@ void CINFMissionMain::Render()
 	{
 		m_pINFMissionSelInfluence->Render();
 	}	
-	m_pINFMissionMaster->Render();// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+	m_pINFMissionMaster->Render();// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 }
 
 int CINFMissionMain::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {	
-	// 2008-12-09 by dgwoo ¹Ì¼Ç ¸¶½ºÅÍ ½Ã½ºÅÛ.
+	// 2008-12-09 by dgwoo ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½.
 	if(INF_MSGPROC_BREAK == m_pINFMissionMaster->WndProc(uMsg,wParam,lParam))
 		return INF_MSGPROC_BREAK;
 
@@ -666,7 +743,7 @@ int CINFMissionMain::OnLButtonDown(WPARAM wParam, LPARAM lParam)
 	{
 		if(TRUE == m_pGoMapBtn->OnLButtonDown(pt))
 		{
-			// ¹öÆ°À§¿¡ ¸¶¿ì½º°¡ ÀÖ´Ù.
+			// ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½Ö´ï¿½.
 			return  INF_MSGPROC_BREAK;
 		}		
 	}
@@ -674,10 +751,19 @@ int CINFMissionMain::OnLButtonDown(WPARAM wParam, LPARAM lParam)
 	{
 		if(TRUE == m_pGoMissionMapBtn->OnLButtonDown(pt))
 		{
-			// ¹öÆ°À§¿¡ ¸¶¿ì½º°¡ ÀÖ´Ù.
+			// ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½Ö´ï¿½.
 			return  INF_MSGPROC_BREAK;
 		}		
 	}
+	
+#ifdef _RAT_FFA
+	{
+		if (TRUE == m_pGoFFABtn->OnLButtonDown(pt))
+		{
+			return INF_MSGPROC_BREAK;
+		}
+	}
+#endif
 
 	return INF_MSGPROC_NORMAL;	
 }
@@ -693,7 +779,7 @@ int CINFMissionMain::OnLButtonUp(WPARAM wParam, LPARAM lParam)
 		if(TRUE == m_pGoMapBtn->OnLButtonUp(pt))
 		{			
 			OnClickGoMap();
-			// ¹öÆ° Å¬¸¯ 
+			// ï¿½ï¿½Æ° Å¬ï¿½ï¿½ 
 			g_pD3dApp->m_pSound->PlayD3DSound(SOUND_SELECT_BUTTON, D3DXVECTOR3(0,0,0), FALSE);			
 			return  INF_MSGPROC_BREAK;
 		}
@@ -703,17 +789,29 @@ int CINFMissionMain::OnLButtonUp(WPARAM wParam, LPARAM lParam)
 		if(TRUE == m_pGoMissionMapBtn->OnLButtonUp(pt))
 		{			
 			OnClickGoMissionMap();
-			// ¹öÆ° Å¬¸¯ 
+			// ï¿½ï¿½Æ° Å¬ï¿½ï¿½ 
 			g_pD3dApp->m_pSound->PlayD3DSound(SOUND_SELECT_BUTTON, D3DXVECTOR3(0,0,0), FALSE);			
 			return  INF_MSGPROC_BREAK;
 		}
 	}
+	
+#ifdef _RAT_FFA
+	{
+		if (TRUE == m_pGoFFABtn->OnLButtonUp(pt))
+		{
+			g_pGameMain->GoWarpMapChange(FFA_MAP);
+
+			g_pD3dApp->m_pSound->PlayD3DSound(SOUND_SELECT_BUTTON, D3DXVECTOR3(0,0,0), FALSE);
+			return  INF_MSGPROC_BREAK;
+		}
+	}
+#endif
 	return INF_MSGPROC_NORMAL;	
 }
 void CINFMissionMain::OnClickGoMap()
 {
 	// 2005-11-16 by ispark
-	// Ãâ°Ý ÀÌµ¿ Á¶°Ç °Ë»ö
+	// ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if(!CheckMissionStart())
 	{
 		return;
@@ -725,7 +823,7 @@ void CINFMissionMain::OnClickGoMap()
 	{		
 //		g_pD3dApp->StartFadeEffect(TRUE,3,D3DCOLOR_ARGB(0,0,0,0));		
 //		g_pCharacterChild->FineObjectTakeOff();				
-		// 0ÀÌ¸é ±×³É Ãâ°Ý		
+		// 0ï¿½Ì¸ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½		
 		g_pGameMain->GoWarpMapChange(0);
 		
 	}
@@ -736,7 +834,7 @@ void CINFMissionMain::OnClickGoMap()
 		{
 			char buf[512];
 			ZERO_MEMORY(buf);
-			wsprintf(buf, STRMSG_C_050818_0010, pQuest->QuestName); //"'%s' ¹Ì¼Ç ¿Ï·á ÈÄ Ãâ°Ý°¡´É!"
+			wsprintf(buf, STRMSG_C_050818_0010, pQuest->QuestName); //"'%s' ï¿½Ì¼ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ý°ï¿½ï¿½ï¿½!"
 			g_pGameMain->AddMsgBox( buf, _MESSAGE);
 		}
 		else
@@ -749,7 +847,7 @@ void CINFMissionMain::OnClickGoMap()
 }
 void CINFMissionMain::OnClickGoMissionMap()
 {	
-	// Ãâ°Ý ÀÌµ¿ Á¶°Ç °Ë»ö
+	// ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if(!CheckMissionStart())
 	{
 		return;
@@ -760,6 +858,7 @@ void CINFMissionMain::OnClickGoMissionMap()
 		return;
 	}
 	g_pGameMain->GoWarpMapChange(pProgressMission->QuestIndex);		
+
 }
 
 int CINFMissionMain::OnMouseMove(WPARAM wParam, LPARAM lParam)
@@ -770,7 +869,10 @@ int CINFMissionMain::OnMouseMove(WPARAM wParam, LPARAM lParam)
 	CheckMouseReverse(&pt);	
 	
 	m_pGoMapBtn->OnMouseMove(pt);	
-	m_pGoMissionMapBtn->OnMouseMove(pt);	
+	m_pGoMissionMapBtn->OnMouseMove(pt);
+#ifdef _RAT_FFA
+	m_pGoFFABtn->OnMouseMove(pt);
+#endif
 
 	return INF_MSGPROC_NORMAL;	
 }
@@ -796,16 +898,16 @@ void CINFMissionMain::RenderMissionINGInfo()
 		return;
 	}
 	
-	int nLineCount = 0;		// ¶óÀÎ ³ÏÀÌ
-	int nbreak = 0;		// ¶óÀÎ ºê·¹ÀÌÅ©
+	int nLineCount = 0;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int nbreak = 0;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¹ï¿½ï¿½Å©
 	char buf[128];
 	int nCount = 0;
 	vector<int> nVecItemNum;
 	int nItemNum = 0;
 	nVecItemNum.clear();
 	
-	// ¹Ì¼Ç ÀÌ¸§ Ç¥½Ã
-	// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// ï¿½Ì¼ï¿½ ï¿½Ì¸ï¿½ Ç¥ï¿½ï¿½
+	// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 	m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 													20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -816,11 +918,11 @@ void CINFMissionMain::RenderMissionINGInfo()
  					GUI_FONT_COLOR_W, 
  					pQuestInfo->QuestName);
 #endif
-	// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+	// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 	nLineCount++;
 	
-	// 2014-02-19 by ymjoo Äù½ºÆ® ½ºÅ©¸³Æ® Ãß°¡ - ¾ÆÀÌÅÛ »ç¿ë
-	// ÀÌÇÏ »ç¿ë ¾ÆÀÌÅÛ
+	// 2014-02-19 by ymjoo ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vector<ITEM_W_COUNT>::iterator itUseItem = pQuestInfo->TargetUseItemVector.begin();
 	list<string> sQuestUseItemSameItemCheckList;
 	while(itUseItem != pQuestInfo->TargetUseItemVector.end())
@@ -863,7 +965,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 			{
 				wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, itUseItem->Count);
 			}
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -871,7 +973,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			sQuestUseItemSameItemCheckList.push_back(buf);
 			nCount = itUseItem->Count;
 			nVecItemNum.push_back(itUseItem->ItemNum);
@@ -883,7 +985,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 		{
 			ZERO_MEMORY(buf);
 			wsprintf(buf, "ItemNum : %d Check", itUseItem->ItemNum);
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -891,16 +993,16 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 			nbreak++;
 		}
 #endif
 		itUseItem++;
 	}
-	// END 2014-02-19 by ymjoo Äù½ºÆ® ½ºÅ©¸³Æ® Ãß°¡ - ¾ÆÀÌÅÛ »ç¿ë
+	// END 2014-02-19 by ymjoo ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// ÀÌÇÏ ÇÊ¿ä ¾ÆÀÌÅÛ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vector<ITEM_W_COUNT>::iterator it = pQuestInfo->TargetItemVector.begin();
 	while(it != pQuestInfo->TargetItemVector.end())
 	{
@@ -908,7 +1010,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 			break;
 		
 		if(it->Count < 0)
-		{// 2007-03-15 by dgwoo À§Ä¡Á¤º¸¸¸ º¸ÀÌ´Â µ¥ÀÌÅ¸
+		{// 2007-03-15 by dgwoo ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸
 			it++;
 			continue;
 		}
@@ -917,11 +1019,11 @@ void CINFMissionMain::RenderMissionINGInfo()
 		if(pItem)
 		{				
 			ZERO_MEMORY(buf);
-			// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-			//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, (*it).Count); //"¸ñÇ¥:%s %d°³"
-			wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, (*it).Count); //"¸ñÇ¥:%s %d°³"
-			// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, (*it).Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"
+			wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, (*it).Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"
+			// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -929,7 +1031,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nCount = it->Count;
 			nVecItemNum.push_back(it->ItemNum);
 			nLineCount++;
@@ -940,7 +1042,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 		{
 			ZERO_MEMORY(buf);
 			wsprintf(buf, "ItemNum : %d Check",it->ItemNum);
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -948,7 +1050,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 			nbreak++;
 		}
@@ -957,7 +1059,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 		it++;
 	}
 	
-	// ÀÌÇÏ ¸ñÇ¥ ¸ó½ºÅÍ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
 	vector<MONSTER_W_COUNT>::iterator itMonC = pQuestInfo->TargetMonsterVector.begin();
 	while(itMonC != pQuestInfo->TargetMonsterVector.end())
 	{
@@ -965,11 +1067,11 @@ void CINFMissionMain::RenderMissionINGInfo()
 		{
 			MEX_MONSTER_INFO * pTempIn = g_pGameMain->CheckMonsterInfo((*itMonC).MonsterUniqueNumber);
 			ZERO_MEMORY(buf);
-			// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-			//wsprintf( buf, STRMSG_C_050726_0002,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%d°³/%d°³\\w"
-			wsprintf( buf, STRMSG_C_090112_0203,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%d°³/%d°³\\w"
-			// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//wsprintf( buf, STRMSG_C_050726_0002,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%dï¿½ï¿½/%dï¿½ï¿½\\w"
+			wsprintf( buf, STRMSG_C_090112_0203,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%dï¿½ï¿½/%dï¿½ï¿½\\w"
+			// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -977,7 +1079,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 		}
 		itMonC++;
@@ -991,7 +1093,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 			break;
 		
 		if(it2->ItemWithCount.Count < 0)
-		{// 2007-03-15 by dgwoo À§Ä¡Á¤º¸¸¸ °¡Áö´Â µ¥ÀÌÅ¸ 
+		{// 2007-03-15 by dgwoo ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ 
 			it2++;
 			continue;
 		}
@@ -1002,12 +1104,12 @@ void CINFMissionMain::RenderMissionINGInfo()
 			if(pQuestInfo->vecQuestDropItem.size()<0)
 			{
 				ZERO_MEMORY(buf);
-				// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-				//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"				
-				wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"				
-				// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+				// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"				
+				wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"				
+				// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				
-				// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+				// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 				m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 																20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1017,7 +1119,7 @@ void CINFMissionMain::RenderMissionINGInfo()
  					20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W,
  					buf);
 #endif
-				// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+				// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 				
 				nCount = it2->ItemWithCount.Count;
 				nVecItemNum.push_back(it2->ItemWithCount.ItemNum);
@@ -1035,14 +1137,14 @@ void CINFMissionMain::RenderMissionINGInfo()
 					if(pMonster)
 					{
 						ZERO_MEMORY(buf);
-						// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+						// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						wsprintf(buf, STRMSG_C_050818_0011, pItem->ItemName,pMonster->MonsterName,
-// 							it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"						
+// 							it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"						
 						wsprintf(buf, STRMSG_C_090112_0205, pItem->ItemName,pMonster->MonsterName,
-							it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"						
-						// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+							it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"						
+						// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						
-						// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+						// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 						m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 																		20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1052,7 +1154,7 @@ void CINFMissionMain::RenderMissionINGInfo()
  							20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W,
  							buf);
 #endif
-						// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+						// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 						
 						nCount = it2->ItemWithCount.Count;
 						nVecItemNum.push_back(it2->ItemWithCount.ItemNum);
@@ -1064,7 +1166,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 				itItem++;
 			}				
 
-			// 2007-07-30 by bhsohn Äù½ºÆ® ÁøÇà »ó´ë ¼¼·Â¿¡ ´ëÇÑ Á¤º¸ Ç¥½Ã ¾ÈµÇ´Â ¹ö±× ¼öÁ¤			
+			// 2007-07-30 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
 			vector<QUEST_DROP_CHARACTER2ITEM>::iterator itCharacter = pQuestInfo->vecQuestDropCharacter2Item.begin();
 			while(itCharacter != pQuestInfo->vecQuestDropCharacter2Item.end())
 			{
@@ -1072,12 +1174,12 @@ void CINFMissionMain::RenderMissionINGInfo()
 				if(pItem->ItemNum == pItemInfoMap->Character2Item.ItemNumber)
 				{					
 					ZERO_MEMORY(buf);
-					// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-					//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"						
-					wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"						
-					// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+					// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"						
+					wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"						
+					// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					
-					// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+					// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 					m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 																	20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1087,7 +1189,7 @@ void CINFMissionMain::RenderMissionINGInfo()
  						20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W,
  						buf);
 #endif
-					// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+					// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 					
 					nCount = it2->ItemWithCount.Count;
 					nVecItemNum.push_back(it2->ItemWithCount.ItemNum);
@@ -1097,14 +1199,14 @@ void CINFMissionMain::RenderMissionINGInfo()
 				}
 				itCharacter++;
 			}
-			// end 2007-07-30 by bhsohn Äù½ºÆ® ÁøÇà »ó´ë ¼¼·Â¿¡ ´ëÇÑ Á¤º¸ Ç¥½Ã ¾ÈµÇ´Â ¹ö±× ¼öÁ¤			
+			// end 2007-07-30 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
 		}
 #ifdef _DEBUG
 		else if(NULL == pItem)
 		{
 			ZERO_MEMORY(buf);
 			wsprintf(buf, "ItemNum : %d Check",it2->ItemWithCount.ItemNum);
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1112,7 +1214,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nbreak++;
 			nLineCount++;
 		}
@@ -1120,12 +1222,12 @@ void CINFMissionMain::RenderMissionINGInfo()
 		//////////////////////////////////////////////////////////////////////////
 		it2++;
 	}
-	// ÀÌÇÏ NPC ÀÌ¸§
+	// ï¿½ï¿½ï¿½ï¿½ NPC ï¿½Ì¸ï¿½
 	if(strlen(pQuestInfo->TargetMeetNPCInfo.NPCName)>0)
 	{
 		ZERO_MEMORY(buf);			
-		wsprintf(buf, STRMSG_C_050726_0003, pQuestInfo->TargetMeetNPCInfo.NPCName); // "[%s]À» Ã£¾Æ°¡¶ó!"
-		// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+		wsprintf(buf, STRMSG_C_050726_0003, pQuestInfo->TargetMeetNPCInfo.NPCName); // "[%s]ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ï¿½ï¿½!"
+		// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 		m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 														20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1133,20 +1235,20 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 		m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-		// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+		// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 		nLineCount++;
 	}
 	
-	// ÀÌÇÏ ¸¸³ª¾ßÇÏ´Â ¿ÀºêÁ§Æ®
-	// ÀÌÇÏ ¾î¶°ÇÑ ¸ÊÀÇ ¿öÇÁ°ÔÀÌÆ® Åë°ú
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½î¶°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	if(pQuestInfo->TargetMeetObjectMapArea.MapIndex)
 	{
 		MAP_INFO* pMapInfo = g_pGameMain->GetMapInfo(pQuestInfo->TargetMeetObjectMapArea.MapIndex);
 		if(pMapInfo)
 		{
 			ZERO_MEMORY(buf);			
-			wsprintf(buf, STRMSG_C_050726_0004, pMapInfo->MapName); //"[%s]À» Åë°úÇÏ¶ó!"
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			wsprintf(buf, STRMSG_C_050726_0004, pMapInfo->MapName); //"[%s]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½!"
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1154,17 +1256,17 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 		}
 	}
 	
-	// ÀÌÇÏ ¸ñÇ¥ ·¹º§¾÷
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(pQuestInfo->QuestEndType == QUEST_END_TYPE_LEVEL_UP)
 	{
 		ZERO_MEMORY(buf);			
-		wsprintf(buf, STRMSG_C_050805_0001); // "·¹º§À» ÇÑ´Ü°è ¿Ã¸®¼¼¿ä"
-		// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+		wsprintf(buf, STRMSG_C_050805_0001); // "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´Ü°ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½"
+		// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 		m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 														20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1172,26 +1274,26 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 		m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-		// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+		// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 		nLineCount++;
 	}
 	
-	// Äù½ºÆ® ³²Àº½Ã°£ Ç¥½Ã
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
 	if(g_pGameMain->m_bQuestLimitTimeView)
 	{
 		ZERO_MEMORY(buf);					
-		// 2008-04-07 by bhsohn Äù½ºÆ® ½Ã°£ Áö¿¬µÇ´Â ¹®Á¦ Ã³¸®
+		// 2008-04-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //		if(g_pGameMain->m_nTimeSecond >= 0)		
 //		{
-//			wsprintf(buf, STRMSG_C_INTERFACE_0020, g_pGameMain->m_nTimeSecond/60, g_pGameMain->m_nTimeSecond%60);//"[³²Àº½Ã°£] %2.dºÐ %2.dÃÊ"
+//			wsprintf(buf, STRMSG_C_INTERFACE_0020, g_pGameMain->m_nTimeSecond/60, g_pGameMain->m_nTimeSecond%60);//"[ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½] %2.dï¿½ï¿½ %2.dï¿½ï¿½"
 //			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 //			nLineCount++;
 //		}
 		if(g_pGameMain->GetQuestTimeElapse() >= 0)
 		{
 			int nTimeSecond = (int)g_pGameMain->GetQuestTimeElapse();
-			wsprintf(buf, STRMSG_C_INTERFACE_0020, nTimeSecond/60, nTimeSecond%60);//"[³²Àº½Ã°£] %2.dºÐ %2.dÃÊ"
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			wsprintf(buf, STRMSG_C_INTERFACE_0020, nTimeSecond/60, nTimeSecond%60);//"[ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½] %2.dï¿½ï¿½ %2.dï¿½ï¿½"
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1199,20 +1301,20 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 		}
-		// end 2008-04-07 by bhsohn Äù½ºÆ® ½Ã°£ Áö¿¬µÇ´Â ¹®Á¦ Ã³¸®
+		// end 2008-04-07 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	}
-	// 2007-04-10 by dgwoo ¹Í½º ¾ÆÀÌÅÛÀÌ ÀÖÀ¸¸é.
+	// 2007-04-10 by dgwoo ï¿½Í½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if(pQuestInfo->TargetMixItemTarget.Count > 0)
 	{
 		ZERO_MEMORY(buf);	
 		ITEM* pItem = g_pGameMain->GetServerItemInfo(pQuestInfo->TargetMixItemTarget.ItemNum);
 		if(pItem != NULL)
 		{
-			wsprintf(buf, STRMSG_C_070410_0100,pItem->ItemName);	//"[ÆÑÅä¸®]¿¡¼­ %s(À¸)·Î Á¶ÇÕÇÏ¶ó"
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			wsprintf(buf, STRMSG_C_070410_0100,pItem->ItemName);	//"[ï¿½ï¿½ï¿½ä¸®]ï¿½ï¿½ï¿½ï¿½ %s(ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½"
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1220,12 +1322,12 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 		}
 	}
 	
-	// Äù½ºÆ® ¾ÆÀÌÅÛ ¸î°³ ½Àµæ
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î°³ ï¿½ï¿½ï¿½ï¿½
 	vector<int>::iterator vecInt = nVecItemNum.begin();
 	while(vecInt != nVecItemNum.end())
 	{
@@ -1233,8 +1335,8 @@ void CINFMissionMain::RenderMissionINGInfo()
 		if( pItem )
 		{
 			ZERO_MEMORY(buf);
-			wsprintf( buf, STRMSG_C_050726_0005, pItem->ItemInfo->ItemName, pItem->CurrentCount );//"\\e%s\\e \\w%d°³/%d\\w"
-			// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			wsprintf( buf, STRMSG_C_050726_0005, pItem->ItemInfo->ItemName, pItem->CurrentCount );//"\\e%s\\e \\w%dï¿½ï¿½/%d\\w"
+			// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 			m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 															20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1242,13 +1344,13 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 			m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-			// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+			// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 			nLineCount++;
 		}
 		vecInt++;
 	}
 	
-	// Äù½ºÆ® ¸ó½ºÅÍ¸¦ »ç³ÉÇÑ ¼ö
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	vector<MONSTER_W_COUNT>::iterator itMon = pQuestInfo->TargetMonsterVector.begin();
 	while(itMon != pQuestInfo->TargetMonsterVector.end())
 	{
@@ -1263,8 +1365,8 @@ void CINFMissionMain::RenderMissionINGInfo()
 					if(0 < itMon->Count)
 					{
 						ZERO_MEMORY(buf);
-						wsprintf( buf, STRMSG_C_051026_0001,pTempInfo->MonsterName, (*it).nMonsterCount, (*itMon).Count ); //"\\e%s\\e \\w%d°³/%d°³\\w"
-						// 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+						wsprintf( buf, STRMSG_C_051026_0001,pTempInfo->MonsterName, (*it).nMonsterCount, (*itMon).Count ); //"\\e%s\\e \\w%dï¿½ï¿½/%dï¿½ï¿½\\w"
+						// 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 #ifdef C_DRAWTEXT_UPGRADE_YMJOO
 						m_pMissionINGFont[min(9, nLineCount)]->DrawText(MISSION_VIEW_INFO_POSX, 
 																		20 + (nLineCount * MISSION_FONT_HEIGHT_GAB), 
@@ -1272,7 +1374,7 @@ void CINFMissionMain::RenderMissionINGInfo()
 #else
 						m_pMissionINGFont->DrawText(MISSION_VIEW_INFO_POSX, 20+(nLineCount*MISSION_FONT_HEIGHT_GAB), GUI_FONT_COLOR_W, buf);
 #endif
-						// END 2014-07-02 by ymjoo DrawText ¼º´É °³¼± ÀÛ¾÷ (ÁøÇàÁß¹Ì¼Ç)
+						// END 2014-07-02 by ymjoo DrawText ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ß¹Ì¼ï¿½)
 						nLineCount++;
 					}
 				}					
@@ -1350,7 +1452,7 @@ void CINFMissionMain::SetPosMissionComplete(BOOL bFlag)
 	m_bPosMissionComplete = bFlag; 
 }
 
-// ¼¼·Â¹Ì¼Ç ¼±ÅÃ
+// ï¿½ï¿½ï¿½Â¹Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 BOOL CINFMissionMain::GetInfluenceMission() 
 {
 	return m_bInfluenceFlag;
@@ -1369,7 +1471,7 @@ void CINFMissionMain::SetInfluenceMission(BOOL bFlag, float fANIPercent, float f
 		m_pINFMissionSelInfluence->HideSelInfluence();
 	}
 	
-	// ¼¼·Â¼±ÅÃ ¹Ì¼Ç ¼³Á¤ºÎºÐ ( TRUE ¼³Á¤½Ã ´Ù¸¥¹Ì¼Ç ½ÇÇà ºÒ°¡, Ãâ°ÝÇÏ±â ºÒ°¡)
+	// ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ ( TRUE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½, ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½Ò°ï¿½)
 	m_fANIInflDistributionPercent = fANIPercent;
 	m_fVCNInflDistributionPercent = fVANPercent;
 	m_bInfluenceFlag = bFlag;
@@ -1379,11 +1481,11 @@ void CINFMissionMain::SetInfluenceMission(BOOL bFlag, float fANIPercent, float f
 //		InitInfluenceMission();	
 //	}
 }
-// ¼¼·Â ¼±ÅÃ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 void CINFMissionMain::RefreshMission(BOOL bClick, INT QuestIndex)
 {	
-	// ¹öÆ° Á¤º¸ °»½Å
+	// ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_nMyShuttleCharacter = -1;
 	m_pINFMissionTreeInfo->RefreshMission(bClick, QuestIndex);
 }
@@ -1406,15 +1508,15 @@ void CINFMissionMain::SelectNextMission(INT nQuestIndex)
 
 BOOL CINFMissionMain::IsLevelSecnQuest(BYTE byUpLevel, int nSuccessQuestIdx, int* o_nPossibleQuestIdx)
 {	
-	// ¸ðµç ¹Ì¼Ç ÀÎµ¦½º ³Ñ¹ö.
+	// ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½.
 	vector<int>		vecQuestIndex;	
 	vecQuestIndex.clear();
 
-	// 2008-12-29 by bhsohn ·¹º§¾÷½Ã, ¹Ì¼Ç¿ÀÆÛ·¹ÀÌÅÍ ¾È¶ß´Â ¹ö±× ¼öÁ¤
+	// 2008-12-29 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¼Ç¿ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¶ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	CQuest* pSueccessQuest = g_pQuestData->FindQuest(nSuccessQuestIdx);		
 // 	if(NULL == pSueccessQuest)
 // 	{
-// 		// Àü¿¡ ¿Ï·áÇÑ Äù½ºÆ®ÀÌ´Ù.
+// 		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ì´ï¿½.
 // 		return FALSE;
 // 	}
 	CQuest* pSueccessQuest = NULL;
@@ -1423,19 +1525,19 @@ BOOL CINFMissionMain::IsLevelSecnQuest(BYTE byUpLevel, int nSuccessQuestIdx, int
 		pSueccessQuest = g_pQuestData->FindQuest(nSuccessQuestIdx);		
 		if(NULL == pSueccessQuest)
 		{
-			// Àü¿¡ ¿Ï·áÇÑ Äù½ºÆ®ÀÌ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ì´ï¿½.
 			return FALSE;
 		}
 	}
-	// end 2008-12-29 by bhsohn ·¹º§¾÷½Ã, ¹Ì¼Ç¿ÀÆÛ·¹ÀÌÅÍ ¾È¶ß´Â ¹ö±× ¼öÁ¤
+	// end 2008-12-29 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¼Ç¿ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¶ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	// ¿Ï·áµÈ Äù½ºÆ® ¸®½ºÆ® ¾ò¾î¿À±â
+	// ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	LoadQuestList(&vecQuestIndex);
 
-	// 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
+	// 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 	vector<structQuestInfo>	vecTmpQuest;	
 	vecTmpQuest.clear();
-	// END 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
+	// END 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
 	vector<int>::iterator it = vecQuestIndex.begin();
 	while(it != vecQuestIndex.end())
@@ -1452,34 +1554,34 @@ BOOL CINFMissionMain::IsLevelSecnQuest(BYTE byUpLevel, int nSuccessQuestIdx, int
 			it++;
 			continue;			
 		}
-		// ¿Ï·áµÈ Äù½ºÆ®´Â °Ë»ö¾ÈÇÑ´Ù..
+		// ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½..
 		if(g_pQuestData->IsQuestCompleted(pQuest->QuestIndex))
 		{
 			it++;
 			continue;			
 		}
-		// 2008-12-29 by bhsohn ·¹º§¾÷½Ã, ¹Ì¼Ç¿ÀÆÛ·¹ÀÌÅÍ ¾È¶ß´Â ¹ö±× ¼öÁ¤
+		// 2008-12-29 by bhsohn ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¼Ç¿ï¿½ï¿½Û·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¶ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//if(pSueccessQuest->QuestEpisodeType != pQuest->QuestEpisodeType)
 		if((nSuccessQuestIdx != -1) 
 			&& pSueccessQuest 
 			&& pSueccessQuest->QuestEpisodeType != pQuest->QuestEpisodeType)
 		{
-			// Äù½ºÆ® ¿¡ÇÇ¼Òµå Å¸ÀÔÀÌ ¼­·Î ´Ù¸£¸é °Ë»ö¾ÈÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ç¼Òµï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			it++;
 			continue;			
 		}
 		if(byUpLevel < pQuest->ReqLevel.Min)
 		{			
-//			return FALSE;		// 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
+//			return FALSE;		// 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 		}		
 		else 
 		{
 			(*o_nPossibleQuestIdx) = nQuestIdx;
 			
-			// 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
-			// ÇÒ¼ö ÀÖ´Â ½Ã³ª¸®¿À Äù½ºÆ®¸¦ ¾ÈÇß´Ù.
+			// 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
+			// ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½.
 //			return TRUE;
-			// ÀÓ½Ã ¹öÆÛ¿¡ ³ÖÀÚ
+			// ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(byUpLevel <= pQuest->ReqLevel.Max)
 			{
 				structQuestInfo struTmpInfo;
@@ -1491,13 +1593,13 @@ BOOL CINFMissionMain::IsLevelSecnQuest(BYTE byUpLevel, int nSuccessQuestIdx, int
 
 				vecTmpQuest.push_back(struTmpInfo);
 			}
-			// END 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
+			// END 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 		}
 		it++;
 	}
 
-	// 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
-	// ·¹º§¼øÀ¸·Î Á¤·Ä	
+	// 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	if(vecTmpQuest.size() >0)
 	{
 		sort(vecTmpQuest.begin(), vecTmpQuest.end(), QuestIdx_Sort_Level());
@@ -1507,7 +1609,7 @@ BOOL CINFMissionMain::IsLevelSecnQuest(BYTE byUpLevel, int nSuccessQuestIdx, int
 		(*o_nPossibleQuestIdx) = struTmp.nQuestIndex;
 		return TRUE;
 	}
-	// END 2012-11-29 by bhsohn È¥µ·ÀÇ »ç¸· Äù½ºÆ® ¾È³ª¿À´Â ¹ö±×¼öÁ¤
+	// END 2012-11-29 by bhsohn È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ç¸· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 
 	return FALSE;
 }
@@ -1516,11 +1618,11 @@ void CINFMissionMain::LoadQuestList(vector<int>* pVecQuestIndex)
 {	 
 	CHARACTER myShuttleInfo = g_pShuttleChild->GetMyShuttleInfo();
 	
-	// ÇöÀç ¿ì¸® ÁøÇüÀÇ ÀüÃ¼ Äù½ºÆ®¸¦ ¾ò¾î¿Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ì¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 	vector<int> vecQuestInflue;
 	vecQuestInflue = g_pQuestData->GetRaceQuestIndex(myShuttleInfo.InfluenceType);
 	
-	// ÀüÃ¼ ¹Ì¼ÇÀ» °¡Á®¿À´Â ºÎºÐ
+	// ï¿½ï¿½Ã¼ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 	vector<int> vecQuestTemp;
 	vecQuestTemp = g_pQuestData->GetRaceQuestIndex(INFLUENCE_TYPE_ALL_MASK);	
 	vector<int>::iterator itQuest = vecQuestTemp.begin();
@@ -1528,9 +1630,9 @@ void CINFMissionMain::LoadQuestList(vector<int>* pVecQuestIndex)
 	{
 		if(g_pQuestData->IsQuestCompleted(*itQuest))
 		{
-			// ºñÈ¿À² ÀûÀÎ ¹æ¹ýÀÌÁö¸¸ ±âÁ¸ÀÇ ¹æ½ÄÀ» ¹Ù²ÙÁö ¾Ê°í ¼¼·ÂÀÌ Æ²¸®´õ¶óµµ 
-			// ¿Ï·á ¹Ì¼ÇÀ» º¸¿©ÁÖ±â À§ÇÑ ¹æ¹ý
-			// ÈÄ¿¡ ±³Ã¼ ¿ä¸Á
+			// ï¿½ï¿½È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+			// ï¿½Ï·ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// ï¿½Ä¿ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 			BOOL nQFlag = TRUE;
 			vector<int>::iterator itQuestSolve = vecQuestInflue.begin();
 			while(itQuestSolve != vecQuestInflue.end())
@@ -1549,7 +1651,7 @@ void CINFMissionMain::LoadQuestList(vector<int>* pVecQuestIndex)
 		}
 		itQuest++;
 	}
-	// ¸¶Âù°¡Áö ±³Ã¼ ¿ä¸Á
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 	vector<int>::iterator itQuestSolve2 = vecQuestInflue.begin();
 	while(itQuestSolve2 != vecQuestInflue.end())
 	{
@@ -1564,7 +1666,7 @@ void CINFMissionMain::SetQuestNameString(CQuest* pQuest, vector<string>* o_vecMi
 	char buf[64];
 	ZERO_MEMORY(buf);	
 	
-	// ÀÌ¸§ ¼³Á¤	
+	// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	char strMissionNameTemp[50] = {0,};
 	ZERO_MEMORY(strMissionNameTemp);		
 	int nMaxLevel = pQuest->ReqLevel.Max;
@@ -1585,16 +1687,16 @@ void CINFMissionMain::SetQuestNameString(CQuest* pQuest, vector<string>* o_vecMi
 void CINFMissionMain::SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossibleDesc, 
 										 CINFImageListBox* pINFImageListBox, int nMaxString)
 {
-	// ¹Ì¼Ç °á°ú
+	// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
 	MEX_QUEST_INFO* pCharacterQuest = g_pQuestData->FindCharacterQuest(pQuest->QuestIndex);
 	if(pCharacterQuest)
 	{
 		if(g_pQuestData->IsQuestProgress(pQuest->QuestIndex))
 		{
-			// 2008-12-16 by dgwoo ¹Ì¼Ç ¸¶½ºÅÍÀÏ °æ¿ì¸¸ Ãß°¡.
+			// 2008-12-16 by dgwoo ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¸ ï¿½ß°ï¿½.
 			if(pQuest->QuestPartyType == QUEST_PARTYTYPE_PARTY)
 				o_vecPossibleDesc->push_back(STRMSG_C_081215_0100);
-			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yÁøÇà»óÈ²\\y"
+			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yï¿½ï¿½ï¿½ï¿½ï¿½È²\\y"
 			//m_bProgressMission = TRUE;
 //			STRING_CULL(pQuest->QuestNPCInfo.MidTalk, 
 //				MISSION_MAX_DESC_STRING, &m_vecPossibleDesc, m_pMissionFontRight[1]);
@@ -1606,10 +1708,10 @@ void CINFMissionMain::SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossib
 		}
 		else if(g_pQuestData->IsQuestCompleted(pQuest->QuestIndex))
 		{
-			// 2008-12-16 by dgwoo ¹Ì¼Ç ¸¶½ºÅÍÀÏ °æ¿ì¸¸ Ãß°¡.
+			// 2008-12-16 by dgwoo ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¸ ï¿½ß°ï¿½.
 			if(pQuest->QuestPartyType == QUEST_PARTYTYPE_PARTY)
 				o_vecPossibleDesc->push_back(STRMSG_C_081215_0100);
-			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yÁøÇà»óÈ²\\y"
+			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yï¿½ï¿½ï¿½ï¿½ï¿½È²\\y"
 //			STRING_CULL(pQuest->QuestNPCInfo.SuccessTalk, 
 //				MISSION_MAX_DESC_STRING, &m_vecPossibleDesc, m_pMissionFontRight[1]);			
 			pINFImageListBox->SetStringCull(1, pQuest->QuestNPCInfo.SuccessTalk, 
@@ -1618,17 +1720,17 @@ void CINFMissionMain::SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossib
 
 			o_vecPossibleDesc->push_back("          ");
 		}
-//		ÇöÀç ½ÇÆÐ »óÈ²Àº ¾øÀ½
+//		ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		else if()
 //		{
 //			pQuest->TargetMeetNPCInfo.FailTalk;
 //		}
 		else
 		{
-			// 2008-12-16 by dgwoo ¹Ì¼Ç ¸¶½ºÅÍÀÏ °æ¿ì¸¸ Ãß°¡.
+			// 2008-12-16 by dgwoo ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¸ ï¿½ß°ï¿½.
 			if(pQuest->QuestPartyType == QUEST_PARTYTYPE_PARTY)
 				o_vecPossibleDesc->push_back(STRMSG_C_081215_0100);
-			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yÁøÇà»óÈ²\\y"
+			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yï¿½ï¿½ï¿½ï¿½ï¿½È²\\y"
 //			STRING_CULL(pQuest->QuestNPCInfo.PreTalk, 
 //				MISSION_MAX_DESC_STRING, &m_vecPossibleDesc, m_pMissionFontRight[1]);
 			pINFImageListBox->SetStringCull(1, pQuest->QuestNPCInfo.PreTalk, 
@@ -1642,10 +1744,10 @@ void CINFMissionMain::SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossib
 	{		
 		if(strlen(pQuest->QuestNPCInfo.PreTalk) > 1)
 		{
-			// 2008-12-16 by dgwoo ¹Ì¼Ç ¸¶½ºÅÍÀÏ °æ¿ì¸¸ Ãß°¡.
+			// 2008-12-16 by dgwoo ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¸ ï¿½ß°ï¿½.
 			if(pQuest->QuestPartyType == QUEST_PARTYTYPE_PARTY)
 				o_vecPossibleDesc->push_back(STRMSG_C_081215_0100);
-			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yÁøÇà»óÈ²\\y"
+			o_vecPossibleDesc->push_back(STRMSG_C_050726_0001); //"\\yï¿½ï¿½ï¿½ï¿½ï¿½È²\\y"
 //		STRING_CULL(pQuest->QuestNPCInfo.PreTalk, 
 //				MISSION_MAX_DESC_STRING, &m_vecPossibleDesc, m_pMissionFontRight[1]);
 			pINFImageListBox->SetStringCull(1, pQuest->QuestNPCInfo.PreTalk, 
@@ -1658,15 +1760,15 @@ void CINFMissionMain::SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossib
 	// 
 	if(pCharacterQuest && pCharacterQuest->QuestState == QUEST_STATE_COMPLETED)
 	{
-		// ¹Ì¼Ç ¼³¸í
-		o_vecPossibleDesc->push_back(STRMSG_C_051209_0001); //"\\y¹è°æ¼³¸í\\y"
+		// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+		o_vecPossibleDesc->push_back(STRMSG_C_051209_0001); //"\\yï¿½ï¿½æ¼³ï¿½ï¿½\\y"
 //		STRING_CULL(pQuest->QuestDescription, 
 //			MISSION_MAX_DESC_STRING, &m_vecPossibleDesc, m_pMissionFontRight[1]);
 		pINFImageListBox->SetStringCull(1, pQuest->QuestDescription, 
 													o_vecPossibleDesc, 
 													nMaxString);
 
-		// ¹öÆ°À¸·Î ÀÎÇÑ °ø¹é Ãß°¡
+		// ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		o_vecPossibleDesc->push_back("          ");
 	}
 	
@@ -1674,30 +1776,30 @@ void CINFMissionMain::SetQuestResult(CQuest* pQuest, vector<string>* o_vecPossib
 
 void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleDesc)
 {
-	// 2007-07-30 by bhsohn ¿Ï·áµÈ ¹Ì¼ÇÀº ¸ñÇ¥ Ç¥½ÃÇÏÁö ¾ÈÀ½
+	// 2007-07-30 by bhsohn ï¿½Ï·ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(g_pQuestData->IsQuestCompleted(pQuest->QuestIndex))
 	{
-		// ¿Ï·áµÈ ¹Ì¼ÇÀº ¸ñÇ¥ Ç¥½ÃÇÏÁö ¾ÈÀ½
+		// ï¿½Ï·ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return;
 	}
-	// end 2007-07-30 by bhsohn ¿Ï·áµÈ ¹Ì¼ÇÀº ¸ñÇ¥ Ç¥½ÃÇÏÁö ¾ÈÀ½
+	// end 2007-07-30 by bhsohn ï¿½Ï·ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 
-	//2011-10-27 by jhahn ÀÎÇÇ3Â÷ Äù½ºÆ® Ã¢ ¼öÁ¤
+	//2011-10-27 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã¢ ï¿½ï¿½ï¿½ï¿½
 	if(pQuest->QuestEpisodeType != QUEST_INFINITY_TYPE_3) 
-	o_vecPossibleDesc->push_back(STRMSG_C_070627_0207); //"\\y¸ñÇ¥\\y"
-	//end 2011-10-27 by jhahn ÀÎÇÇ3Â÷ Äù½ºÆ® Ã¢ ¼öÁ¤
+	o_vecPossibleDesc->push_back(STRMSG_C_070627_0207); //"\\yï¿½ï¿½Ç¥\\y"
+	//end 2011-10-27 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã¢ ï¿½ï¿½ï¿½ï¿½
 
 	int nStartDesc = o_vecPossibleDesc->size();
 
-	int nbreak = 0;		// ¶óÀÎ ºê·¹ÀÌÅ©
+	int nbreak = 0;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¹ï¿½ï¿½Å©
 	int nCount = 0;
 	int nLineCount=0;
 	char buf[128];
 
-	// 2014-02-19 by ymjoo Äù½ºÆ® ½ºÅ©¸³Æ® Ãß°¡ - ¾ÆÀÌÅÛ »ç¿ë
-	// ÀÌÇÏ »ç¿ë ¾ÆÀÌÅÛ
+	// 2014-02-19 by ymjoo ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vector<ITEM_W_COUNT>::iterator itUseItem = pQuest->TargetUseItemVector.begin();
 	list<string> sQuestUseItemSameItemCheckList;
 	while(itUseItem != pQuest->TargetUseItemVector.end())
@@ -1747,9 +1849,9 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		}
 		itUseItem++;
 	}
-	// END 2014-02-19 by ymjoo Äù½ºÆ® ½ºÅ©¸³Æ® Ãß°¡ - ¾ÆÀÌÅÛ »ç¿ë
+	// END 2014-02-19 by ymjoo ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// ÀÌÇÏ ÇÊ¿ä ¾ÆÀÌÅÛ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vector<ITEM_W_COUNT>::iterator it = pQuest->TargetItemVector.begin();
 	while(it != pQuest->TargetItemVector.end())
 	{
@@ -1759,7 +1861,7 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		}
 		if(it->Count < 0)
 		{
-			// À§Ä¡Á¤º¸¸¸ º¸ÀÌ´Â µ¥ÀÌÅ¸
+			// ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸
 			it++;
 			continue;
 		}
@@ -1767,10 +1869,10 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		if(pItem)
 		{				
 			ZERO_MEMORY(buf);
-			// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-			//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, (*it).Count); //"¸ñÇ¥:%s %d°³"	
-			wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, (*it).Count); //"¸ñÇ¥:%s %d°³"	
-			// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+			// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, (*it).Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"	
+			wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, (*it).Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"	
+			// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			o_vecPossibleDesc->push_back(buf);
 			nCount = it->Count;			
 			nLineCount++;
@@ -1778,7 +1880,7 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		}	
 		it++;
 	}
-		// ÀÌÇÏ ¸ñÇ¥ ¸ó½ºÅÍ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
 	vector<MONSTER_W_COUNT>::iterator itMonC = pQuest->TargetMonsterVector.begin();
 	while(itMonC != pQuest->TargetMonsterVector.end())
 	{
@@ -1786,10 +1888,10 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		{
 			MEX_MONSTER_INFO * pTempIn = g_pGameMain->CheckMonsterInfo((*itMonC).MonsterUniqueNumber);
 			ZERO_MEMORY(buf);
-			// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-			//wsprintf( buf, STRMSG_C_050726_0002,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%d°³/%d°³\\w"
-			wsprintf( buf, STRMSG_C_090112_0203,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%d°³/%d°³\\w"
-			// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+			// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//wsprintf( buf, STRMSG_C_050726_0002,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%dï¿½ï¿½/%dï¿½ï¿½\\w"
+			wsprintf( buf, STRMSG_C_090112_0203,pTempIn->MonsterName, (*itMonC).Count ); //"\\e%s\\e \\w%dï¿½ï¿½/%dï¿½ï¿½\\w"
+			// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			o_vecPossibleDesc->push_back(buf);
 			nLineCount++;
 		}
@@ -1807,7 +1909,7 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		
 		if(it2->ItemWithCount.Count < 0)
 		{
-			// À§Ä¡Á¤º¸¸¸ °¡Áö´Â µ¥ÀÌÅ¸ 
+			// ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ 
 			it2++;
 			continue;
 		}
@@ -1818,10 +1920,10 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 			if(pQuest->vecQuestDropItem.size()<0)
 			{
 				ZERO_MEMORY(buf);
-				// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-				//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"				
-				wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"				
-				// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+				// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"				
+				wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"				
+				// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				
 				o_vecPossibleDesc->push_back(buf);
 				
@@ -1840,12 +1942,12 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 					if(pMonster)
 					{
 						ZERO_MEMORY(buf);
-						// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+						// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						wsprintf(buf, STRMSG_C_050818_0011, pItem->ItemName,pMonster->MonsterName,
-// 							it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"	
+// 							it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"	
 						wsprintf(buf, STRMSG_C_090112_0205, pItem->ItemName,pMonster->MonsterName,
-							it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"	
-						// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+							it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"	
+						// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						
 						o_vecPossibleDesc->push_back(buf);
 						
@@ -1857,7 +1959,7 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 				
 				itItem++;
 			}				
-			// 2007-07-30 by bhsohn Äù½ºÆ® ÁøÇà »ó´ë ¼¼·Â¿¡ ´ëÇÑ Á¤º¸ Ç¥½Ã ¾ÈµÇ´Â ¹ö±× ¼öÁ¤			
+			// 2007-07-30 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
 			vector<QUEST_DROP_CHARACTER2ITEM>::iterator itCharacter = pQuest->vecQuestDropCharacter2Item.begin();
 			while(itCharacter != pQuest->vecQuestDropCharacter2Item.end())
 			{
@@ -1865,10 +1967,10 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 				if(pItem->ItemNum == pItemInfoMap->Character2Item.ItemNumber)
 				{					
 					ZERO_MEMORY(buf);
-					// 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
-					//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"											
-					wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"¸ñÇ¥:%s %d°³"											
-					// end 2009-01-12 by bhsohn ÀÏº» Ãß°¡ ¼öÁ¤»çÇ×
+					// 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					//wsprintf(buf, STRMSG_C_050726_0002, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"											
+					wsprintf(buf, STRMSG_C_090112_0203, pItem->ItemName, it2->ItemWithCount.Count); //"ï¿½ï¿½Ç¥:%s %dï¿½ï¿½"											
+					// end 2009-01-12 by bhsohn ï¿½Ïºï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 										
 					nCount = it2->ItemWithCount.Count;
 					o_vecPossibleDesc->push_back(buf);
@@ -1878,49 +1980,49 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 				}
 				itCharacter++;
 			}
-			// end 2007-07-30 by bhsohn Äù½ºÆ® ÁøÇà »ó´ë ¼¼·Â¿¡ ´ëÇÑ Á¤º¸ Ç¥½Ã ¾ÈµÇ´Â ¹ö±× ¼öÁ¤		
+			// end 2007-07-30 by bhsohn ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		
 		}
 		//////////////////////////////////////////////////////////////////////////
 		it2++;
 	}
-	// ÀÌÇÏ NPC ÀÌ¸§
+	// ï¿½ï¿½ï¿½ï¿½ NPC ï¿½Ì¸ï¿½
 	if(strlen(pQuest->TargetMeetNPCInfo.NPCName)>0)
 	{
 		ZERO_MEMORY(buf);			
-		wsprintf(buf, STRMSG_C_050726_0003, pQuest->TargetMeetNPCInfo.NPCName); // "[%s]À» Ã£¾Æ°¡¶ó!"
+		wsprintf(buf, STRMSG_C_050726_0003, pQuest->TargetMeetNPCInfo.NPCName); // "[%s]ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ï¿½ï¿½!"
 		o_vecPossibleDesc->push_back(buf);
 		nLineCount++;
 	}
 	
-	// ÀÌÇÏ ¸¸³ª¾ßÇÏ´Â ¿ÀºêÁ§Æ®
-	// ÀÌÇÏ ¾î¶°ÇÑ ¸ÊÀÇ ¿öÇÁ°ÔÀÌÆ® Åë°ú
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½î¶°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	if(pQuest->TargetMeetObjectMapArea.MapIndex)
 	{
 		MAP_INFO* pMapInfo = g_pGameMain->GetMapInfo(pQuest->TargetMeetObjectMapArea.MapIndex);
 		if(pMapInfo)
 		{
 			ZERO_MEMORY(buf);			
-			wsprintf(buf, STRMSG_C_050726_0004, pMapInfo->MapName); //"[%s]À» Åë°úÇÏ¶ó!"
+			wsprintf(buf, STRMSG_C_050726_0004, pMapInfo->MapName); //"[%s]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½!"
 			o_vecPossibleDesc->push_back(buf);
 			nLineCount++;
 		}
 	}
 	
-	// ÀÌÇÏ ¸ñÇ¥ ·¹º§¾÷
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(pQuest->QuestEndType == QUEST_END_TYPE_LEVEL_UP)
 	{
 		ZERO_MEMORY(buf);			
-		wsprintf(buf, STRMSG_C_050805_0001); // "·¹º§À» ÇÑ´Ü°è ¿Ã¸®¼¼¿ä"
+		wsprintf(buf, STRMSG_C_050805_0001); // "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´Ü°ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½"
 		o_vecPossibleDesc->push_back(buf);
 		nLineCount++;
 	}
 	
-	// Äù½ºÆ® ³²Àº½Ã°£ Ç¥½Ã
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ Ç¥ï¿½ï¿½
 	if(pQuest->TimeLimitInMinutes)
 	{
 		ZERO_MEMORY(buf);
 		
-		wsprintf(buf, STRMSG_C_INTERFACE_0020, pQuest->TimeLimitInMinutes, 0);//"[³²Àº½Ã°£] %2.dºÐ %2.dÃÊ"
+		wsprintf(buf, STRMSG_C_INTERFACE_0020, pQuest->TimeLimitInMinutes, 0);//"[ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½] %2.dï¿½ï¿½ %2.dï¿½ï¿½"
 		o_vecPossibleDesc->push_back(buf);
 		nLineCount++;
 		
@@ -1932,14 +2034,14 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		ITEM* pItem = g_pGameMain->GetServerItemInfo(pQuest->TargetMixItemTarget.ItemNum);
 		if(pItem != NULL)
 		{
-			wsprintf(buf, STRMSG_C_070410_0100,pItem->ItemName);	//"[ÆÑÅä¸®]¿¡¼­ %s(À¸)·Î Á¶ÇÕÇÏ¶ó"
+			wsprintf(buf, STRMSG_C_070410_0100,pItem->ItemName);	//"[ï¿½ï¿½ï¿½ä¸®]ï¿½ï¿½ï¿½ï¿½ %s(ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½"
 			o_vecPossibleDesc->push_back(buf);
 			nLineCount++;
 		}
 	}	
 	
 	
-	// Äù½ºÆ® ¸ó½ºÅÍ¸¦ »ç³ÉÇÑ ¼ö
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	vector<MONSTER_W_COUNT>::iterator itMon = pQuest->TargetMonsterVector.begin();
 	while(itMon != pQuest->TargetMonsterVector.end())
 	{
@@ -1954,7 +2056,7 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 					if(0 < itMon->Count)
 					{
 						ZERO_MEMORY(buf);
-						wsprintf( buf, STRMSG_C_070627_0208,pTempInfo->MonsterName, (*itMon).Count ); //"\\e%s\\e \\w%d°³\\w"	
+						wsprintf( buf, STRMSG_C_070627_0208,pTempInfo->MonsterName, (*itMon).Count ); //"\\e%s\\e \\w%dï¿½ï¿½\\w"	
 						o_vecPossibleDesc->push_back(buf);
 						nLineCount++;
 					}
@@ -1965,15 +2067,15 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 		itMon++;
 	}	
 
-	// ½ÃÀÛ½Ã ¹Ù·Î ¿Ï·á µÇ´Â ¹Ì¼Ç 
+	// ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Ù·ï¿½ ï¿½Ï·ï¿½ ï¿½Ç´ï¿½ ï¿½Ì¼ï¿½ 
 	if(o_vecPossibleDesc->size() == nStartDesc)
 	{
-		//2011-07-12 by jhahn ÀÎÇÇ3Â÷ Äù½ºÆ® Ã¢ ¹Ì¼Ç ¿Ï·á ¸ñ·Ï ¾È±×¸®±â
+		//2011-07-12 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã¢ ï¿½Ì¼ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ ï¿½È±×¸ï¿½ï¿½ï¿½
 		if(pQuest->QuestEpisodeType != QUEST_INFINITY_TYPE_3)
-		// end 2011-07-12 by jhahn ÀÎÇÇ3Â÷ Äù½ºÆ® Ã¢ ¹Ì¼Ç ¿Ï·á ¸ñ·Ï ¾È±×¸®±â
+		// end 2011-07-12 by jhahn ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã¢ ï¿½Ì¼ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ ï¿½È±×¸ï¿½ï¿½ï¿½
 		{
 		ZERO_MEMORY(buf);
-		wsprintf( buf, STRMSG_C_070627_0209); //"ÀÌ¹ø ¹Ì¼ÇÀº ¹Ì¼Ç½ÃÀÛ½Ã ¹Ù·Î ¿Ï·áµÇ´Â ¹Ì¼ÇÀÔ´Ï´Ù."	
+		wsprintf( buf, STRMSG_C_070627_0209); //"ï¿½Ì¹ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ì¼Ç½ï¿½ï¿½Û½ï¿½ ï¿½Ù·ï¿½ ï¿½Ï·ï¿½Ç´ï¿½ ï¿½Ì¼ï¿½ï¿½Ô´Ï´ï¿½."	
 		o_vecPossibleDesc->push_back(buf);
 		}
 	}
@@ -1984,7 +2086,7 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			BOOL CINFMissionInfo::CheckMissionStart()
-/// \brief		¹Ì¼Ç ¼öÇàÀ» À§ÇÑ Á¶°Ç °Ë»ö
+/// \brief		ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 /// \author		ispark
 /// \date		2005-11-16 ~ 2005-11-16
 /// \warning	
@@ -1994,65 +2096,65 @@ void CINFMissionMain::SetGoalInfo(CQuest* pQuest, vector<string>* o_vecPossibleD
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CINFMissionMain::CheckMissionStart()
 {
-	// ·¹ÀÌ´õ´Â °æ°í·Î¸¸ Ãâ·Â	
+	// ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½	
 	if(FALSE == g_pStoreData->IsShuttleWearItem(POS_PROW))
 	{
-		g_pGameMain->CreateChatChild(STRMSG_C_051229_0101,COLOR_SYSTEM); // "·¹ÀÌ´õ°¡ ÀåÂøµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù."
+		g_pGameMain->CreateChatChild(STRMSG_C_051229_0101,COLOR_SYSTEM); // "ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½."
 	}
 
 	//*--------------------------------------------------------------------------*//
-	// ¿£ÁøÀÌ ¾ø´Ù¸é ¹Ì¼Ç Ãâ¹ß ¸øÇÔ	
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	if(FALSE == g_pStoreData->IsShuttleWearItem(POS_REAR))
 	{
-		g_pGameMain->CreateChatChild(STRMSG_C_051115_0002,COLOR_SYSTEM); // "¿£Áø ¹ÌÀåÂøÀ¸·Î ½ÇÇàÇÒ ¼ö ¾ø½À´Ï´Ù."
+		g_pGameMain->CreateChatChild(STRMSG_C_051115_0002,COLOR_SYSTEM); // "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		return FALSE;
 	}
 	
 	if(FALSE == g_pStoreData->IsShuttleWearItem(POS_CENTER))
 	{
-		g_pGameMain->CreateChatChild(STRMSG_C_051206_0001,COLOR_SYSTEM); // "¾Æ¸Ó ¹ÌÀåÂøÀ¸·Î ½ÇÇàÇÒ ¼ö ¾ø½À´Ï´Ù."
+		g_pGameMain->CreateChatChild(STRMSG_C_051206_0001,COLOR_SYSTEM); // "ï¿½Æ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		return FALSE;
 	}
 
-	// 2006-10-17 by ispark, Á×¾î ÀÖÀ» °æ¿ì Ãâ°Ý ¸øÇÏ°Ô
+	// 2006-10-17 by ispark, ï¿½×¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½
 	if(g_pShuttleChild->CheckUnitState() == BREAKDOWN)
 	{
-		g_pGameMain->CreateChatChild(STRMSG_C_061017_0001,COLOR_SYSTEM); // "Ãâ°Ý ÇÒ ¼ö ¾ø½À´Ï´Ù."
+		g_pGameMain->CreateChatChild(STRMSG_C_061017_0001,COLOR_SYSTEM); // "ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		return FALSE;
 	}
 	
-	// 2007-07-09 by bhsohn Ãâ°Ý°ú ¹ÙÀÚ»óÁ¡ µ¿½Ã »ç¿ë½Ã ¹®Á¦Á¡ Ã³¸®
+	// 2007-07-09 by bhsohn ï¿½ï¿½Ý°ï¿½ ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	if(g_pInterface->IsBazarOpen())
 	{		
-		g_pGameMain->CreateChatChild(STRMSG_C_061017_0001,COLOR_SYSTEM); // "Ãâ°Ý ÇÒ ¼ö ¾ø½À´Ï´Ù."
+		g_pGameMain->CreateChatChild(STRMSG_C_061017_0001,COLOR_SYSTEM); // "ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		return FALSE;
 	}	
-	// end 2007-07-09 by bhsohn Ãâ°Ý°ú ¹ÙÀÚ»óÁ¡ µ¿½Ã »ç¿ë½Ã ¹®Á¦Á¡ Ã³¸®
+	// end 2007-07-09 by bhsohn ï¿½ï¿½Ý°ï¿½ ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	// 2009-04-30 by bhsohn ¼¼·Â ¼±ÅÃÃ¢ ÀÖÀ»½Ã Ãâ°Ý ¸øÇÏ°Ô ¼öÁ¤
+	// 2009-04-30 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(IsShowWnd(MISSOIN_SHOW_SEL_INFLUENCE))
 	{
 		return FALSE;
 	}
-	// end 2009-04-30 by bhsohn ¼¼·Â ¼±ÅÃÃ¢ ÀÖÀ»½Ã Ãâ°Ý ¸øÇÏ°Ô ¼öÁ¤
+	// end 2009-04-30 by bhsohn ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 2013-09-02 by ssjung ÇÊµåÀÌµ¿±ÝÁö¾ÆÀÌÅÛ
+	// 2013-09-02 by ssjung ï¿½Êµï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(g_pGameMain && !g_pGameMain->UserWarpRestriction())
 	{
 		return FALSE;
 	}
-	// end 2013-09-02 by ssjung ÇÊµåÀÌµ¿±ÝÁö¾ÆÀÌÅÛ
+	// end 2013-09-02 by ssjung ï¿½Êµï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	return TRUE;
 }
 
 BOOL CINFMissionMain::CheckMissionIdxStart(DWORD i_dwSelQuestIndex)
 {
-	// 2005-12-07 by ispark, ¼¼·Â ¼±ÅÃ ¹Ì¼ÇÀÏ °æ¿ì ÆÄÆ¼»óÅÂ°¡ ¾Æ´Ò¶§ Å¬¸¯ °¡´É
+	// 2005-12-07 by ispark, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ò¶ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(i_dwSelQuestIndex == SELECT_QUEST && 
 		g_pShuttleChild->GetPartyInfo().bPartyType != _NOPARTY)
 	{
-		g_pGameMain->CreateChatChild(STRMSG_C_051207_0001,COLOR_SYSTEM); // "Æí´ë»óÅÂ¿¡¼­´Â ¼¼·ÂÀ» ¼±ÅÃÇÒ ¼ö ¾ø½À´Ï´Ù."
+		g_pGameMain->CreateChatChild(STRMSG_C_051207_0001,COLOR_SYSTEM); // "ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
 		return FALSE;
 	}
 	return TRUE;
@@ -2079,22 +2181,22 @@ void CINFMissionMain::MissionStart(DWORD i_dwSelQuestIndex)
 	CQuest* pQuest = g_pQuestData->FindQuest(i_dwSelQuestIndex);
 	if(pQuest && pQuest->QuestEndType != QUEST_END_TYPE_IMMEDIATE)
 	{
-		// ½ÃÀÛ½Ã ¹Ù·Î ³¡³ª´Â ¹Ì¼Ç ¹Ì¼ÇÃ¢ ´ÝÁö ¾ÊÀ½.
+		// ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ ï¿½Ì¼ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		ShowTreeWnd(FALSE, FALSE);		
 	}	
 	
-	// Æ¯Á¤ Æ÷Áö¼Ç ¿Ï·á ¹Ì¼Ç °Ë»ç
+	// Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ì¼ï¿½ ï¿½Ë»ï¿½
 	CQuest* pQuest2 = g_pQuestData->FindPosCompleteQuest( i_dwSelQuestIndex );
 	if(pQuest2)
 	{
 		SetPosMissionComplete(TRUE);
 	}
-	// ¼¼·Â ¼±ÅÃ ¹Ì¼Ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½
 	if(pQuest->QuestEndType == QUEST_END_TYPE_SELECT_INFLUENCE)
 	{
 		STAGE_EFFECT_DATA stStageData;
 		stStageData.nMissionIndex = i_dwSelQuestIndex;
-		// 2008-04-02 by bhsohn ¼¼·Â¼±ÅÃ ÇÁ·Ñ·Î±× ½ºÅµ°¡´ÉÇÏ°Ô º¯°æ
+		// 2008-04-02 by bhsohn ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ·Î±ï¿½ ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//g_pInterface->InitSoundScript("Influence.tex", &stStageData, MISSION_PRE, FALSE);
 		g_pInterface->InitSoundScript("Influence.tex", &stStageData, MISSION_PRE, TRUE);
 		return;
@@ -2102,15 +2204,15 @@ void CINFMissionMain::MissionStart(DWORD i_dwSelQuestIndex)
 	
 	g_pQuestData->SendFieldSocketQuestRequestStart(i_dwSelQuestIndex,0);	
 
-	// 2008-06-17 by bhsohn Æí´ë °ü·Ã Ã³¸®
-	// °­Á¦·Î ÀÚÀ¯ ºñÇàÀ¸·Î
+	// 2008-06-17 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(g_pShuttleChild->m_pClientParty 
 		&& g_pShuttleChild->m_pClientParty->GetPartyInfo().bPartyType == _PARTYMASTER 
 		&& g_pShuttleChild->m_pClientParty->IsFormationFlight())
 	{
 		g_pShuttleChild->m_pClientParty->TempPartyFormation(FLIGHT_FORM_NONE);
 	}
-	// end 2008-06-17 by bhsohn Æí´ë °ü·Ã Ã³¸®
+	// end 2008-06-17 by bhsohn ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
 }
 
@@ -2145,12 +2247,12 @@ void CINFMissionMain::RefreshMissionUI()
 {
 	m_nMyShuttleCharacter = -1;
 }
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 void CINFMissionMain::SetMissionMasterWindowShow(BOOL i_bShow)
 {
 	m_pINFMissionMaster->SetWindowShow(i_bShow);
 }
-// 2008-12-09 by dgwoo ¹Ì¼Ç¸¶½ºÅÍ.
+// 2008-12-09 by dgwoo ï¿½Ì¼Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½.
 INT	CINFMissionMain::GetMissionMasterQuestIdx()
 {
 	return m_pINFMissionTreeInfo->GetMissionMasterIdx();
