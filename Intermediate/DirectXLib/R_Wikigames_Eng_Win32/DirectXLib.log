@@ -1,7 +1,0 @@
-﻿  AtumSound.cpp
-  Camera.cpp
-  D3DHanFont.cpp
-  DSound3D.cpp
-  WaveFile.cpp
-  d3dapp.cpp
-  DirectXLib.vcxproj -> D:\RatRivals26\Source\Build\Lib\DirectXLib.lib
