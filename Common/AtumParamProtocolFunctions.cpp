@@ -2007,7 +2007,7 @@ BOOL GCheckLimitLevel(EN_CHECK_TYPE i_checkType, int i_nLevel)
 			}
 		}
 		break;
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	case CHECK_TYPE_CHAT_INFLUENCE_ALL_RAT:
 		{
 			if (i_nLevel >= 20)
@@ -2142,7 +2142,7 @@ BOOL GCheckRaceAndInfluenceType(EN_CHECK_TYPE i_checkType
 			}
 		}
 		break;
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	case CHECK_TYPE_CHAT_INFLUENCE_ALL_RAT:
 #endif
 	case CHECK_TYPE_CHAT_PTOP:		// 2005-12-07 by cmkwon
@@ -2602,7 +2602,7 @@ char *StrRCaseStr(const char *s, const char *find)
 //}
 #endif // _ATUM_SERVER
 
-#ifdef _RAT_RANK_SYSTEM
+#if _RAT_RANK_SYSTEM
 
 // 1. Initialize the table values exactly once here
 std::map<int, SRANK_DATA> SRANK_SYSTEM::Table = {

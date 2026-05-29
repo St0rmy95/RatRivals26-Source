@@ -1114,56 +1114,6 @@ void CFieldMapChannel::OnMonsterDeadFieldMapChannel(CFieldMonster *i_pFMonster)
 	// end 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템	
 }
 
-// 2005-12-17 by cmkwon, 죽은 후 AttackTime 적용을 위해 NPC Server 에서 처리하도록  수정함
-/////////////////////////////////////////////////////////////////////////////////
-///// \fn			void CFieldMapChannel::BattleAttackOnMonsterDead(CFieldMonster *i_pFMonster)
-///// \brief		
-///// \author		cmkwon
-///// \date		2005-10-28 ~ 2005-10-28
-///// \warning	
-/////
-///// \param		
-///// \return		
-/////////////////////////////////////////////////////////////////////////////////
-//void CFieldMapChannel::BattleAttackOnMonsterDead(CFieldMonster *i_pFMonster)
-//{
-//	MONSTER_INFO *pMonInfo = i_pFMonster->MonsterInfoPtr;
-//
-//	INIT_MSG_WITH_BUFFER(MSG_FN_ADMIN_SUMMON_MONSTER, T_FN_ADMIN_SUMMON_MONSTER, pSSummonMonster, SendBuf);
-//	pSSummonMonster->ChannelIndex			= this->m_MapChannelIndex.ChannelIndex;
-//	strncpy(pSSummonMonster->CharacterName, pMonInfo->MonsterName, SIZE_MAX_CHARACTER_NAME);
-//	pSSummonMonster->MonsterTargetType1		= MONSTER_TARGETTYPE_NORMAL;
-//	pSSummonMonster->TargetTypeData1		= 0;
-//	pSSummonMonster->CltIdxForTargetType1	= 0;
-//	pSSummonMonster->Position				= i_pFMonster->PositionVector;
-//
-//	for(int i=0; i < ARRAY_SIZE_MONSTER_ITEM; i++)
-//	{
-//		// 2005-10-28 by cmkwon, 사용 가능한 아이템인지 체크
-//		ITEM *pMonItem = pMonInfo->ItemInfo[i].pItemInfo;
-//		if(NULL == pMonItem
-//			|| 0 != pMonItem->Charging					// Charging=0 인 아이템이 죽을 때 사용하는 몬스터 아이템
-//			|| DES_SUMMON != pMonItem->DestParameter1)	// 현재는 소환 아이템만 사용 가능
-//		{
-//			continue;
-//		}
-//
-//		// 2005-10-28 by cmkwon, 사용 확률 체크
-//		int nRand = RAND256();
-//		if(nRand > pMonItem->HitRate)
-//		{
-//			continue;
-//		}
-//
-//		///////////////////////////////////////////////////////////////////////////////
-//		// NPC Server로 전송
-//		pSSummonMonster->MonsterUnitKind		= pMonItem->ParameterValue1;
-//		pSSummonMonster->NumOfMonster			= max(1, pMonItem->MultiNum);
-//		this->Send2NPCServerW(SendBuf, MSG_SIZE(MSG_FN_ADMIN_SUMMON_MONSTER));
-//	}
-//}
-
-
 BOOL CFieldMapChannel::Send2NPCServerW(BYTE *pData, int nSize)
 {
 	return m_pFieldMapProject->Send2NPCServer(pData, nSize);

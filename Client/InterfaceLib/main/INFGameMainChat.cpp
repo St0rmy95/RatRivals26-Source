@@ -4423,7 +4423,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						strChatType = CHAT_WAR;
 						// end 2010. 04. 09 by ckPark Ŭ���̾�Ʈ ���ö����� ���� �߰�
 					}
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 					else if (m_strInputMessage[0] == _RAT_CHAT_ALL_INFLUENCE)
 					{
 						if(strlen(m_strInputMessage) > 1)
@@ -9192,50 +9192,6 @@ void CINFGameMainChat::GetCurselString(char* o_pStrTxt)
 
 }
 
-// 2010. 02. 23 by jskim ä�ù��� ���� �� ����ȭ
-// 2009. 07. 30 by jsKim ä��â ���� ���� �� ��� ����
-// ������ ����
-// void CINFGameMainChat::BlockCleanChat(int chLen)
-// {
-// 	char chTmp[SIZE_MAX_CHAT_MESSAGE];
-// 	ZERO_MEMORY(chTmp);
-// 	int nFindNevtPos;
-// 	int nStringLen = GetStringBuffLen(m_strBkInputMessage);	
-// 	if(chLen < 0)
-// 	{	// ���� ������ ����
-// 		nFindNevtPos= GetStringBuffPos(m_strNextBackupMessage, abs(chLen));	
-// 		
-// 		strcpy(chTmp, &m_strNextBackupMessage[nFindNevtPos]);
-// 		strncpy(m_strNextBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
-// 		
-// 
-// 		SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
-// 		
-// 		// ������ ���ۿ� ����
-// 		strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);
-// 	}
-// 	else if(chLen > 0)
-// 	{	// ������ ������ ����
-// 		int nFindLen = GetStringBuffLen(m_strPreBackupMessage)-abs(m_ptCurselPos.x-m_ptSelCurselPos.x);
-// 		nFindNevtPos = GetStringBuffPos(m_strPreBackupMessage,nFindLen);
-// 			
-// 	if(nFindLen >= 0)
-// 		{
-// 			strncpy(chTmp, m_strPreBackupMessage, nFindNevtPos);
-// 		
-// 			strncpy(m_strPreBackupMessage, chTmp, SIZE_MAX_CHAT_MESSAGE);
-// 		
-// 			SetChatMsgBuff(g_pD3dApp->m_inputkey.m_full_str);			
-// 		
-// 			m_ptCurselPos.x = GetStringBuffLen(m_strPreBackupMessage);
-// 		
-// 			strncpy(m_strInputMessage, m_strBkInputMessage, SIZE_MAX_CHAT_MESSAGE);	
-// 		}
-// 	}	
-// 	m_ptSelCurselPos.x=-1;
-// 	m_bShiftClick=FALSE;
-// 	m_bCaretCursel=FALSE;
-// }
 void CINFGameMainChat::BlockCleanChat(int LeftBlockPos,int RightBlockPos)
 {
 	char chTmp[SIZE_MAX_CHAT_MESSAGE];
@@ -9280,7 +9236,7 @@ bool CINFGameMainChat::ChatModeChack(char i_Chr)
 		|| i_Chr == CHAT_GUILD
 		|| i_Chr == CHAT_PARTY
 		|| i_Chr == CHAT_WAR
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 		|| i_Chr == _RAT_CHAT_ALL_INFLUENCE
 #endif
 		|| i_Chr == CHAT_MAP

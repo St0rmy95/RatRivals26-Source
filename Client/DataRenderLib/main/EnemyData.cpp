@@ -339,7 +339,7 @@ void CEnemyData::Init()
 	CChatMoveData * pData;
 	if(COMPARE_RACE(m_infoCharacter.CharacterInfo.Race,RACE_GAMEMASTER))
 	{
-#ifdef _RAT_FFA
+#if _FFA_HIDE_NAME
 		if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			pData = new CChatMoveData(m_pIDChat, "FFA Enemy", COLOR_CHARACTER_ID02, 9, 256, 32);
 		else
@@ -352,7 +352,7 @@ void CEnemyData::Init()
 	}
 	else
 	{
-#ifdef _RAT_FFA
+#if _FFA_HIDE_NAME
 		if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			pData = new CChatMoveData(m_pIDChat, "FFA Enemy", COLOR_CHARACTER_ID00, 9, 256, 32);
 		else
@@ -424,7 +424,7 @@ void CEnemyData::Init()
 	}
 	//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_GEAR
 	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 		pItem = NULL;
 #endif
@@ -480,17 +480,11 @@ void CEnemyData::Init()
 
 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	if(g_pShuttleChild->IsInfluenceWarType(m_infoCharacter.CharacterInfo.InfluenceType) == TRUE)
-#ifdef _RAT_FFA
-	if ( (g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex == m_infoCharacter.CharacterInfo.MapChannelIndex.MapIndex && MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType))
+#if _RAT_FFA
+	if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType) ||
+		(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex == m_infoCharacter.CharacterInfo.MapChannelIndex.MapIndex && MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType))
 	{
 		SetPkState(PK_WAR, TRUE);
-	}
-	else
-	{
-		if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType))
-		{
-			SetPkState(PK_WAR, TRUE);
-		}
 	}
 #else
 	if(!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType))
@@ -2002,7 +1996,7 @@ void CEnemyData::InitItemPoint()
 			}
 			//end 2010. 03. 18 by jskim ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ Ä«ï¿½ï¿½
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_GEAR
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 				pItem = NULL;
 #endif
@@ -2173,7 +2167,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 
 			ITEM*	pShapeItem	= g_pDatabase->GetServerItemInfo( nShapeItemNum );
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_ITEM
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 				pShapeItem = NULL;
 #endif
@@ -2203,7 +2197,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 			CreateSecondaryWeaponItem( pItem, pShapeItem );
 			// end 2009. 08. 27 by ckPark ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_ITEM
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 				pShapeItem = NULL;
 #endif
@@ -2276,7 +2270,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 					nItemNum = pItem->SourceIndex;
 			}
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_GEAR
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 				pItem = NULL;
 #endif
@@ -2361,7 +2355,7 @@ void	CEnemyData::ChangeItemPoint( BYTE bPos, INT nItemNum, INT nShapeItemNum, IN
 		{
 			DeleteWearItem( WEAR_ITEM_KIND_WINGIN );
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_GEAR
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 				break;
 #endif
@@ -3651,7 +3645,7 @@ void CEnemyData::TickUnit(float fElapsedTime)
 				nItemNum = pItem->SourceIndex;
 		}
 
-#ifdef _RAT_FFA
+#if _FFA_HIDE_GEAR
 		if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			pItem = NULL;
 #endif
@@ -4189,7 +4183,7 @@ void CEnemyData::SetAlphaData()
 
 	if((((!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, m_infoCharacter.CharacterInfo.InfluenceType)		// ´Ù¸¥ ¼¼·ÂÀÌ°Å³ª.
 		|| IsPkEnable())																// PK¸ðµåÀÏ¶§.
-#ifdef _RAT_FFA
+#if _RAT_FFA
 		|| MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType
 #endif
 		)
@@ -4307,7 +4301,7 @@ BOOL CEnemyData::IsSameInfluence(BYTE	myInfluenceType, BYTE	emenyInfluenceType)
 ///////////////////////////////////////////////////////////////////////////////
 void CEnemyData::RefreshMarkItem()
 {
-#ifdef _RAT_FFA
+#if _FFA_HIDE_MARK
 	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 		return;
 #endif

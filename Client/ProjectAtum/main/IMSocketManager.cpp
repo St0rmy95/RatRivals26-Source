@@ -273,7 +273,7 @@ void CIMSocketManager::SendChat(int nType, char* strCharacter, char* strChat)
 	case T_IC_CHAT_CASH_ALL:	// ���� �� ä��(&)
 	case T_IC_CHAT_PTOP:		// �ӼӸ� ä�� 
 	case T_IC_CHAT_WAR:
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	case T_IC_CHAT_INFLUENCE_ALL_RAT:
 #endif
 	case T_IC_CHAT_CHATROOM:

@@ -345,6 +345,9 @@ xbool CALLBACK AceOnlineXigncodeCallback(ULONG Code , ULONG W , PVOID L , PVOID 
 #define SCREENSHOT_FILE_PATH			".\\ScreenShot\\"	
 // end 2009-02-03 by bhsohn ��ũ���� ���� ����
 
+#if _KILL_FEED
+#include "INFEvoKillfeed.h"
+#endif
 
 // 2012-11-07 by bhsohn ��Ʈ�� ��Ŷ ó��
 #define CLIENT_LIVE_CHECK_TIME			1.0f
@@ -4042,7 +4045,7 @@ void CAtumApplication::SetCamPosInit()
 			m_pCamera->Init(m_pShuttleChild->m_vPos,m_pShuttleChild->m_vVel, 3.14f/13.0f, 60.0f);		// 2014-02-06 by ymjoo ī�޶� ����ġ�� ��������� ���� ����
 			//m_pCamera->Init(m_pShuttleChild->m_vPos,m_pShuttleChild->m_vVel, 3.14f/13.0f, 30.0f);//3.14f/13.0f : ���ְ� ī�޶� ���̰� 15�� �Ǵ� ���� ���� // 2005.6.13 by dhkwon
 		}
-#ifdef _RAT_FOV
+#if _RAT_FOV
 		float nFOVVal = 180.0f / g_pSOption->sFOVangle;
 		m_pCamera->SetProjParams(D3DX_PI / nFOVVal, fAspect, 1.0f, 100000.0f);
 #else
@@ -7027,6 +7030,13 @@ int CAtumApplication::OnRecvFieldSocketMessage( DWORD wParam, UINT nSocketNotify
 						FieldSocketCitywarMonsterDead((MSG_FC_CITYWAR_MONSTER_DEAD*)(pPacket+SIZE_FIELD_TYPE_HEADER));
 					}
 					break;
+#if _KILL_FEED
+				case T_FC_CHARACTER_DEAD_NOTIFY_MAP:
+				{
+					FieldSocketCharacterDeadNotifyMap((MSG_FC_CHARACTER_DEAD_NOTIFY_MAP*)(pPacket + SIZE_FIELD_TYPE_HEADER));
+				}
+				break;
+#endif
 				case T_FC_CHARACTER_CHANGE_INFLUENCE_TYPE:
 					{
 						FieldSocketCharacterChangeInfluenceType((MSG_FC_CHARACTER_CHANGE_INFLUENCE_TYPE*)(pPacket+SIZE_FIELD_TYPE_HEADER));						
@@ -34774,21 +34784,15 @@ VOID CAtumApplication::FieldSocketCharacterChangeInfluenceType(MSG_FC_CHARACTER_
 		CMapEnemyIterator itEnemy = g_pScene->m_mapEnemyList.begin();
 		while(itEnemy != g_pScene->m_mapEnemyList.end())
 		{
-#ifdef _RAT_FFA
-			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+#if _RAT_FFA
+			if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, itEnemy->second->m_infoCharacter.CharacterInfo.InfluenceType) 
+				|| MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			{
 				itEnemy->second->SetPkState(PK_WAR, TRUE);
 			}
 			else
 			{
-				if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, itEnemy->second->m_infoCharacter.CharacterInfo.InfluenceType))
-				{
-					itEnemy->second->SetPkState(PK_WAR, TRUE);
-				}
-				else
-				{
-					itEnemy->second->SetPkState(PK_WAR, FALSE);
-				}
+				itEnemy->second->SetPkState(PK_WAR, FALSE);
 			}
 #else
 			if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, itEnemy->second->m_infoCharacter.CharacterInfo.InfluenceType))
@@ -34825,21 +34829,15 @@ VOID CAtumApplication::FieldSocketCharacterChangeInfluenceType(MSG_FC_CHARACTER_
 		CMapEnemyIterator itEnemy = g_pScene->m_mapEnemyList.find(pMsg->ClientIndex);
 		if(itEnemy != g_pScene->m_mapEnemyList.end())
 		{
-#ifdef _RAT_FFA
-			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
+#if _RAT_FFA
+			if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, itEnemy->second->m_infoCharacter.CharacterInfo.InfluenceType) 
+				|| MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			{
 				itEnemy->second->SetPkState(PK_WAR, TRUE);
 			}
 			else
 			{
-				if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, itEnemy->second->m_infoCharacter.CharacterInfo.InfluenceType))
-				{
-					itEnemy->second->SetPkState(PK_WAR, TRUE);
-				}
-				else
-				{
-					itEnemy->second->SetPkState(PK_WAR, FALSE);
-				}
+				itEnemy->second->SetPkState(PK_WAR, FALSE);
 			}
 #else
 			if (!IsInfluenceCharacter(g_pShuttleChild->m_myShuttleInfo.InfluenceType, itEnemy->second->m_infoCharacter.CharacterInfo.InfluenceType))
@@ -47037,6 +47035,14 @@ void CAtumApplication::FieldSocketChracterPayContributionPoint(MSG_FC_CHARACTER_
 #endif
 }
 // end 2013-10-10 by ssjung, ������ ������ - ��������Ʈ ���� ����
+
+#if _KILL_FEED
+VOID CAtumApplication::FieldSocketCharacterDeadNotifyMap(MSG_FC_CHARACTER_DEAD_NOTIFY_MAP* pMsg)
+{
+	// if (g_pSOption && g_pSOption->bKillFeed) <-- An Option That can be added to stop KillFeed
+	m_pInterface->m_pGameMain->m_pINFEvoKillfeed->AddKillFeedItem(pMsg);
+}
+#endif
 
 // 2013-11-29 by ssjung �ŷ��� ����
 void CAtumApplication::FieldSocketMarketRegOK(MSG_FC_MARKET_SELL_OK* pMsg)

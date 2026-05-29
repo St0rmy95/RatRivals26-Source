@@ -93,6 +93,10 @@
 // 2008-10-15 by bhsohn ���ҽ� �޸� ��ȣ ��� �߰�
 #include "GameDataLast.h"
 
+#if _KILL_FEED
+#include "INFEvoKillfeed.h"
+#endif // _KILL_FEED
+
 #include "INFChangeCharactor.h" // 2013-04-05 by bhsohn �ɸ��� ���� â ������ ���� ���� ó��
 
 #include "Profiler.h"		// 2014-06-09 by ymjoo �������Ϸ� ����
@@ -1141,6 +1145,10 @@ void CInterface::Tick()
 				}
 			}
 
+#if _KILL_FEED
+			m_pGameMain->m_pINFEvoKillfeed->Tick(); // tick with interface on and off (m_bShowInterface)
+#endif
+
 			// 2006-07-30 by ispark, ���� ����
 			if(m_pBazaarShop)
 			{
@@ -1438,6 +1446,12 @@ void CInterface::Render()
 				{
 					m_pGameMain->m_pQuickSlot->Render();
 				}
+#if _KILL_FEED
+				if (g_pGameMain && m_pGameMain->m_pINFEvoKillfeed)
+				{
+					m_pGameMain->m_pINFEvoKillfeed->Render();
+				}
+#endif
 				
 				//////////////////////////////////////////////////////////////////////////
 				// �켱���� ������ ����
@@ -2025,7 +2039,7 @@ void CInterface::InitOptionData()
 	// end 2010. 10. 26 �� ���۷����� �ɼ� ó��
 	g_pSOption->sMp3Player = OPTION_DEFAULT_MP3_USE;					// �����÷��̾�
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	g_pSOption->sFOVangle = OPTION_DEFAULT_FOV;
 #endif
 	g_pSOption->sHandle = TRUE ;										// ���콺 ����Ʈ ���̱�
@@ -2162,12 +2176,12 @@ BOOL CInterface::LoadOptionFile()
 	}
 	fclose(fp);
 
-#ifdef _RAT_FOV
-	if (g_pSOption->sFOVangle >= _RAT_FOV_MAX)
-		g_pSOption->sFOVangle = _RAT_FOV_MAX;
+#if _RAT_FOV
+	if (g_pSOption->sFOVangle >= _FOV_MAX)
+		g_pSOption->sFOVangle = _FOV_MAX;
 
-	if (g_pSOption->sFOVangle <= _RAT_FOV_MIN)
-		g_pSOption->sFOVangle = _RAT_FOV_MIN;
+	if (g_pSOption->sFOVangle <= _FOV_MIN)
+		g_pSOption->sFOVangle = _FOV_MIN;
 #endif
 
 	if(g_pSOption->sSoundVolume > 0) 

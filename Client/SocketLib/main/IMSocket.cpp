@@ -123,7 +123,7 @@ BOOL CIMSocket::OnRecvdPacket(LPSTR pPacket,
 					bFlag = TRUE;
 				}
 				break;
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 		case T_IC_CHAT_INFLUENCE_ALL_RAT:
 			{
 				nTypeSize = SIZE_FIELD_TYPE_HEADER + sizeof(MSG_IC_CHAT_INFLUENCE_ALL_RAT)
@@ -1179,7 +1179,7 @@ void CIMSocket::SendChat(int nType,
 			nBytesUsed += pChat->MessageLength;
 		}
 		break;
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	case T_IC_CHAT_INFLUENCE_ALL_RAT:
 		{
 			MSG_IC_CHAT_INFLUENCE_ALL_RAT	*pChat = NULL;

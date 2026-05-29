@@ -1667,7 +1667,7 @@ void CShuttleChild::Tick(float fElapsedTime)
 	// 2008-11-13 by bhsohn ���̽�ƽ �۾�
 	m_bSetCursorPos = FALSE;
 
-#ifdef _RAT_AG_SIEGE
+#if _RAT_AG_SIEGE
 	if (_RAT_SiegeCooldown > 0.0f)
 	{
 		_RAT_SiegeCooldown -= fElapsedTime;
@@ -2409,7 +2409,7 @@ void CShuttleChild::CheckIndexList(MSG_FC_CHARACTER_GET_OTHER_INFO_OK* pMsg)
 //			pEnemy->m_infoCharacter.CharacterRenderInfo = pMsg->CharacterRenderInfo;
 			pEnemy->Init();
 			strcpy(((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString,pEnemy->m_infoCharacter.CharacterInfo.CharacterName);
-#ifdef _RAT_FFA
+#if _FFA_HIDE_NAME
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			{
 				strcpy(((CChatMoveData *)pEnemy->m_pIDChat->m_pChild)->m_szString, "FFA Enemy");
@@ -4227,10 +4227,10 @@ void CShuttleChild::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 						{
 							SetPKMode( FALSE );
 						}
-#ifdef _RAT_AG_SIEGE
+#if _RAT_AG_SIEGE
 						if (!_RAT_bSiegeCooldownDebouncer)
 						{
-							_RAT_SiegeCooldown = _RAT_AG_SIEGE_LOCK_COOLDOWN;
+							_RAT_SiegeCooldown = _SIEGE_LOCK_COOLDOWN;
 							_RAT_bSiegeCooldown = TRUE;
 							_RAT_bSiegeCooldownDebouncer = TRUE;
 						}
@@ -8801,7 +8801,7 @@ void CShuttleChild::SiegeTarget()
 		// Ÿ���� ���󰡱�
 		//--------------------------------------------------------------------------//
 		// 2006-11-03 by dgwoo
-#ifdef _RAT_AG_SIEGE
+#if _RAT_AG_SIEGE
 		if (!_RAT_bSiegeCooldown)
 			pointmoveflag = TRUE;
 		else
@@ -8927,7 +8927,7 @@ void CShuttleChild::SiegeTarget()
 		}		
 	}	
 
-#ifdef _RAT_AG_SIEGE
+#if _RAT_AG_SIEGE
 	if (!_RAT_bSiegeCooldown)
 		m_bAGearFollowEnemy = pointmoveflag;
 	else
@@ -8957,8 +8957,8 @@ void CShuttleChild::GetSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR3* 
 	D3DXVECTOR3 v, MouseD;				// ��ġ���� ���콺 ���� 
 	D3DXMATRIX matProj,matView,matTemp;;
 	
-#ifdef _RAT_AG_SIEGE
-	float fAnimationShotMove = _RAT_AG_SIEGE_GROUND_SENSIVITY;
+#if _RAT_AG_SIEGE
+	float fAnimationShotMove = _SIEGE_GROUND_SENSIVITY;
 #else
 	float fAnimationShotMove = A_GEAR_SIGEMODE_MOVETIMING;
 #endif
@@ -9015,8 +9015,8 @@ void CShuttleChild::GetAirSiegeUpVelVector(D3DXVECTOR3	*o_vWeaponVel,	D3DXVECTOR
 
 	BOOL bRefreshUpVector = FALSE;
 	BOOL bRefreshVelVector = FALSE;
-#ifdef _RAT_AG_SIEGE
-	float fAnimationShotMove = _RAT_AG_SIEGE_AIR_SENSIVITY;
+#if _RAT_AG_SIEGE
+	float fAnimationShotMove = _SIEGE_AIR_SENSIVITY;
 #else
 	float fAnimationShotMove = A_GEAR_SIGEMODE_MOVETIMING;
 #endif

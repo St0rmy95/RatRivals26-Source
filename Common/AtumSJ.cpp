@@ -335,6 +335,7 @@ const char* CAtumSJ::GetMapName(MapIndex_t i_nMapIndex)
 	return STRCMD_CS_COMMON_MAPNAME_UNKNOWN;
 }
 
+
 USHORT CAtumSJ::GetTransport(CHARACTER* pCharacter)
 {
 // 2005-09-27 by cmkwon, 무게게이즈는 장착된 아이템만 적용하도록 수정함 - 최대무게량에 레벨당 추가량을 삭제한다.

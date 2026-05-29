@@ -194,7 +194,7 @@ const char* GetProtocolTypeString(MessageType_t msgType)
 	case T_IC_CHAT_INFLUENCE_ALL:						return "T_IC_CHAT_INFLUENCE_ALL";
 	case T_IC_CHAT_ARENA:								return "T_IC_CHAT_ARENA";
 	case T_IC_CHAT_WAR:									return "T_IC_CHAT_WAR";			// 2008-05-19 by dhjin, EP3 - ä�� �ý��� ����, ���� ä��
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	case T_IC_CHAT_INFLUENCE_ALL_RAT:					return "T_IC_CHAT_INFLUENCE_ALL_RAT";
 #endif
 	case T_IC_CHAT_CHATROOM:							return "T_IC_CHAT_CHATROOM";	// 2008-06-18 by dhjin, EP3 ä�ù� - 

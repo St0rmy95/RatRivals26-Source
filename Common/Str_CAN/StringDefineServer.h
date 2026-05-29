@@ -763,7 +763,7 @@
 	#define STRMSG_070410_0008   	" %s' data duplication to Jamboree server  DB(atum2_db_20) failed - Unknown (%d)!!"
 
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef _RAT_BORDERLESS
+#if !_RAT_BORDERLESS // Check in Reverse to let it Work --> True is False --> False is True
 #define STRMSG_WINDOW_DEGREE_800x600_LOW			"800x600 (low)"
 #define STRMSG_WINDOW_DEGREE_800x600_MEDIUM			"800x600 (medium)"
 #define STRMSG_WINDOW_DEGREE_800x600_HIGH			"800x600 (high)"

@@ -56,7 +56,7 @@ typedef vector<SSERVER_GROUP_FOR_LAUNCHER>		vectSSERVER_GROUP_FOR_LAUNCHER;
 
 typedef vector<DEVMODE>			vectDEVMODE;		// 2008-01-03 by cmkwon, 지원하는 해상도 리스트만 보여주기 - 
 
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 struct SWINDOW_DEGREE
 {
 	char* szWindowDegreeName;

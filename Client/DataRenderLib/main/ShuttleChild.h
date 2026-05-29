@@ -149,7 +149,7 @@ public:
 	void WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam);
 	void CheckMapRegion();
 
-#ifdef _RAT_AG_SIEGE
+#if _RAT_AG_SIEGE
 	float _RAT_SiegeCooldown = 0.0f;
 	bool _RAT_bSiegeCooldown = false;
 	bool _RAT_bSiegeCooldownDebouncer = false;

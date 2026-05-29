@@ -663,7 +663,7 @@ void CINFGameMainUnitInfoBar::SetEXP(float fExp)
 	// 2006-02-07 by ispark
 	fExp = min(99.99f, fExp);
 	fExp = max(0.00f, fExp);
-#ifdef _RAT_RANK_SYSTEM
+#if _RAT_RANK_SYSTEM
 	int PlayerFame = g_pShuttleChild->m_myShuttleInfo.Propensity;
 
 	SRANK_SYSTEM pRANK_SYSTEM;
@@ -673,7 +673,7 @@ void CINFGameMainUnitInfoBar::SetEXP(float fExp)
 
 	if (g_pShuttleChild->m_myShuttleInfo.Level == CHARACTER_MAX_LEVEL)
 	{
-#ifdef _RAT_RANK_SYSTEM
+#if _RAT_RANK_SYSTEM
 		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "\\m[%s\\m] \\wLevel \\c%d", pRANK_DATA.Name.c_str(), g_pShuttleChild->m_myShuttleInfo.Level);
 #else
 		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "Level %d", g_pShuttleChild->m_myShuttleInfo.Level);
@@ -681,7 +681,7 @@ void CINFGameMainUnitInfoBar::SetEXP(float fExp)
 	}
 	else
 	{
-#ifdef _RAT_RANK_SYSTEM
+#if _RAT_RANK_SYSTEM
 		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "\\m[%s\\m] \\wLv.\\c%d \\e%5.1f%%", pRANK_DATA.Name.c_str(), g_pShuttleChild->m_myShuttleInfo.Level, fExp);
 #else
 		sprintf(m_szGageInfo[GAMEMAIN_GAGE_EXP_UP], "Lv.%d  %5.2f%%", g_pShuttleChild->m_myShuttleInfo.Level, fExp);
@@ -3070,7 +3070,7 @@ BOOL CINFGameMainUnitInfoBar::RenderCurrentEvent(UINT x, UINT y)
 		return TRUE;	// ���������� ��
 	}
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if (g_pShuttleChild && (IsPkEnableMap(g_pShuttleChild->m_myShuttleInfo.MapChannelIndex.MapIndex) || MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType))
 	{
 		if (g_pShuttleChild &&

@@ -2413,54 +2413,6 @@ void CFieldIOCPSocket::SendString128Static(BYTE string128_type, char* pFormat, .
 		DbgOut(szErrStr);
 	}
 
-// 2006-04-13 by cmkwon
-// 	int nHeaderSize = 0;
-// 	INIT_MSG_WITH_BUFFER(MSG_FC_STRING_128, T_FC_STRING_128, MsgStr, SendBuf);
-// 	MsgStr->PrintType = STR128_PRINT_TYPE_STATIC;
-// 	if (string128_type == STRING_128_DEBUG_L1)
-// 	{
-// 		strcpy(MsgStr->String, "[D1]");
-// 		nHeaderSize = 4;
-// 	}
-// 	else if (string128_type == STRING_128_DEBUG_L2)
-// 	{
-// 		strcpy(MsgStr->String, "[D2]");
-// 		nHeaderSize = 4;
-// 	}
-// 	else if (string128_type == STRING_128_DEBUG_L3)
-// 	{
-// 		strcpy(MsgStr->String, "[D3]");
-// 		nHeaderSize = 4;
-// 	}
-// 	else if (string128_type == STRING_128_ADMIN_CMD)
-// 	{
-// 		strcpy(MsgStr->String, "[A]");
-// 		nHeaderSize = 3;
-// 	}
-// 
-// 	va_list args;
-// 	va_start(args, pFormat);
-// 	vsprintf(MsgStr->String+nHeaderSize, pFormat, args);
-// 	int ret = GDeleteNewLine(MsgStr->String);	// delete newline character(s)
-// 	if (ret < 128)
-// 	{
-// 		SendAddData(SendBuf, MSG_SIZE(MSG_FC_STRING_128));
-// 	}
-// 	else
-// 	{
-// 		MsgStr->String[127] = '\0';
-// 		DBGOUT("  Error: String Too Long For STRING_128(ret: %d): %s\r\n", ret, MsgStr->String);
-// 		SendAddData(SendBuf, MSG_SIZE(MSG_FC_STRING_128));
-// 	}
-// 	va_end(args);
-
-// check: static string128은 찍지 말자, 20031203, kelovon
-//	if (string128_type == STRING_128_ADMIN_CMD)
-//	{
-//		DBGOUT2(DO2_SYSLOG|DO2_DBGOUT, "	SendString128 %s: %s\r\n",
-//			GetCharacterString(&m_character, string()),
-//			MsgStr->String);
-//	}
 }
 
 void CFieldIOCPSocket::SendString128(BYTE string128_type, char* pFormat, ...)
@@ -2652,54 +2604,6 @@ void CFieldIOCPSocket::SendString128(BYTE string128_type, char* pFormat, ...)
 			GetCharacterString(&m_character, string()),
 			szStrTemp);
 	}
-
-// 2006-04-13 by cmkwon, 위의 코드로 수정함
-// 	int nHeaderSize = 0;
-// 	INIT_MSG_WITH_BUFFER(MSG_FC_STRING_128, T_FC_STRING_128, MsgStr, SendBuf);
-// 	MsgStr->PrintType = STR128_PRINT_TYPE_CHAT;
-// 	if (string128_type == STRING_128_DEBUG_L1)
-// 	{
-// 		strcpy(MsgStr->String, "[D1]");
-// 		nHeaderSize = 4;
-// 	}
-// 	else if (string128_type == STRING_128_DEBUG_L2)
-// 	{
-// 		strcpy(MsgStr->String, "[D2]");
-// 		nHeaderSize = 4;
-// 	}
-// 	else if (string128_type == STRING_128_DEBUG_L3)
-// 	{
-// 		strcpy(MsgStr->String, "[D3]");
-// 		nHeaderSize = 4;
-// 	}
-// 	else if (string128_type == STRING_128_ADMIN_CMD)
-// 	{
-// 		strcpy(MsgStr->String, "[A]");
-// 		nHeaderSize = 3;
-// 	}
-// 
-// 	va_list args;
-// 	va_start(args, pFormat);
-// 	vsprintf(MsgStr->String+nHeaderSize, pFormat, args);
-// 	int ret = GDeleteNewLine(MsgStr->String);	// delete newline character(s)
-// 	if (ret < 128)
-// 	{
-// 		SendAddData(SendBuf, MSG_SIZE(MSG_FC_STRING_128));
-// 	}
-// 	else
-// 	{
-// 		MsgStr->String[127] = '\0';
-// 		DBGOUT("  Error: String Too Long For STRING_128(ret: %d): %s\r\n", ret, MsgStr->String);
-// 		SendAddData(SendBuf, MSG_SIZE(MSG_FC_STRING_128));
-// 	}
-// 	va_end(args);
-// 
-// 	if (string128_type == STRING_128_ADMIN_CMD)
-// 	{
-// 		DBGOUT2(DO2_SYSLOG, "	SendString128 %s: %s\r\n",
-// 			GetCharacterString(&m_character, string()),
-// 			MsgStr->String);
-// 	}
 }
 
 ProcessResult CFieldIOCPSocket::Process_FC_PARTY_REQUEST_INVITE(const char* pPacket, int nLength, int &nBytesUsed)
@@ -20105,45 +20009,6 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 			ProcessSPIPenaltyOnDead();
 		}
 	}
-// 2006-02-28 by cmkwon, 위와 같이 수정함
-// 	if (GCheckLimitLevel(CHECK_TYPE_PENALTY_ON_DEAD, m_character.Level)
-// 		&& damageType != DAMAGE_BY_PK)
-// 	{
-// 
-// 		if(NULL == m_pCurrentFieldMapChannel->m_pRefCityWar1
-// 			|| m_pCurrentFieldMapChannel->m_pRefCityWar1->MapIndex != m_pCurrentFieldMapChannel->m_MapChannelIndex.MapIndex
-// 			|| CITYWAR_STATE_STARTED != m_pCurrentFieldMapChannel->m_pRefCityWar1->GetCityWarState())
-// 		{// 도시점령전 진행중일때 점령전 맵에서는 경험치 다운이 없다
-// 
-// 			ProcessSPIPenaltyOnDead();
-// 
-// // 2005-06-29 by cmkwon, SPI 다운으로 처리
-// //			///////////////////////////////////////////////////////////////////////////////
-// //			// 레벨별 경험치 다운 처리
-// //			Experience_t expDecrement	= CAtumSJ::GetLevelExperience(m_character.Level)->ExperienceLossOnDeath;
-// //			expDecrement				= max(0, expDecrement - expDecrement*GetPlusRateExpRepair());
-// //
-// //			Experience_t expOfLevel		= CAtumSJ::GetInitialExperienceOfLevel(m_character.Level);
-// //			if (m_character.Experience - expDecrement <= expOfLevel)
-// //			{
-// //				CAtumLogSender::SendLogMessageEXP(this, expOfLevel - m_character.Experience, expOfLevel);	// Send Log
-// //				this->m_character.DownExperience	= m_character.Experience - expOfLevel;
-// //				m_character.Experience				= expOfLevel;
-// //			}
-// //			else
-// //			{
-// //				m_character.Experience				-= expDecrement;
-// //				CAtumLogSender::SendLogMessageEXP(this, -expDecrement, m_character.Experience);				// Send Log
-// //				this->m_character.DownExperience	= expDecrement;
-// //			}
-// //
-// //			QPARAM_CHARACTER_CHANGE_EXP *pQChangeEXP	= new QPARAM_CHARACTER_CHANGE_EXP;
-// //			pQChangeEXP->CharacterUniqueNumber			= m_character.CharacterUniqueNumber;
-// //			pQChangeEXP->Experience						= m_character.Experience;
-// //			ms_pFieldIOCP->m_pAtumDBManager->MakeAndEnqueueQuery(QT_ChangeExp, this, m_character.AccountUniqueNumber, pQChangeEXP);
-// //			SendCharacterInfo(T_FC_CHARACTER_CHANGE_EXP);
-// 		}
-//	}
 
 	///////////////////////////////////////////////////////////////////////////////
 	// 2005-12-27 by cmkwon, 세력전 명성 처리
@@ -20152,7 +20017,7 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 		&& this->GetCharacter()->InfluenceType != i_pAttackUser->GetCharacter()->InfluenceType
 		&& COMPARE_INFLUENCE(this->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI)
 		&& COMPARE_INFLUENCE(i_pAttackUser->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI)
-#ifdef _RAT_FFA
+#if _RAT_FFA
 		|| ((!g_pFieldGlobal->IsArenaServer() && MAP_INFLUENCE_PVP_ALL == m_pCurrentFieldMapChannel->m_pFieldMapProject->GetMapInfluenceType()))
 #endif
 		)
@@ -20325,6 +20190,79 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	// 2009-09-23 by cmkwon, 필드창고 캐쉬 아이템 구현 - CFieldIOCPSocket::CharacterDeadRoutine(), 캐릭터 죽을때 초기화 처리
 	m_ItemManager.SetUsingFieldStore(FALSE);
 	m_ItemManager.SetUsingStore(FALSE);				// 2013-04-12 by jhseol, 필드창고 사용으로 더블인첸트 버그 수정
+
+#if _KILL_FEED
+	// Map Info incase you may need
+	USHORT MapIndex = this->m_character.MapChannelIndex.MapIndex;
+	const MAP_INFO* pMapInfo = CAtumSJ::GetMapInfo(MapIndex);
+
+	MSG_FC_CHARACTER_DEAD_NOTIFY_MAP msg;
+
+	// PlayerCharacter	--> this->m_character;
+	// EnemyCharacter	--> i_pAttackUser->m_character;
+
+	INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_DEAD_NOTIFY_MAP, T_FC_CHARACTER_DEAD_NOTIFY_MAP, msgCharacterDeadMap, msgCharacterDeadMapBuf);
+
+	// Set Channel
+	msgCharacterDeadMap->MapChannel = m_pCurrentFieldMapChannel->GetMapChannelIndex();
+	msgCharacterDeadMap->DamageType = damageType;
+#ifdef _RAT_FFA
+	// Set FFA
+	if (pMapInfo->MapInfluenceType == MAP_INFLUENCE_PVP_ALL) msgCharacterDeadMap->bIsFFA = true;
+#endif
+	STRNCPY_MEMSET(msgCharacterDeadMap->PlayerName, this->m_character.CharacterName, SIZE_MAX_CHARACTER_NAME);
+	msgCharacterDeadMap->PlayerInfluence = this->m_character.InfluenceType;
+
+	if (i_pAttackUser && i_pAttackUser->IsValidCharacter(FALSE))
+	{
+		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, i_pAttackUser->m_character.CharacterName, SIZE_MAX_CHARACTER_NAME);
+		msgCharacterDeadMap->EnemyInfluence = i_pAttackUser->m_character.InfluenceType;
+	}
+	else
+	{
+		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, " ", SIZE_MAX_CHARACTER_NAME);
+		msgCharacterDeadMap->EnemyInfluence = 0;
+	}
+
+#if _KILL_STREAK
+	char szTemp[256];
+	char szTemp2[256];
+
+		// Check if LastKillTime has Exceeded KillStreakTime
+		if (timeGetTime() - i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime < _KILL_STREAK_TIME * 1000)
+		{
+			// Add to Kill Streak
+			i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak += 1;
+			sprintf(szTemp, "i_pAttackUser KillStreak1 : %i // PlayerKillStreak1 : %i", i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak, this->m_character.KILLSTREAK_INFO.KillStreak);
+			SendString128(STRING_128_ADMIN_CMD, szTemp); // Send it here immediately!
+		}
+		else
+		{
+			// Reset the Count
+			i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak = 1;
+			sprintf(szTemp, "i_pAttackUser KillStreak2 : %i // PlayerKillStreak2 : %i", i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak, this->m_character.KILLSTREAK_INFO.KillStreak);
+			SendString128(STRING_128_ADMIN_CMD, szTemp); // Send it here immediately!
+		}
+
+		sprintf(szTemp2, "Time : %u", timeGetTime() - i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime);
+		SendString128(STRING_128_ADMIN_CMD, szTemp2);
+		// Announce the KillStreak of Enemy to the Client Packet Map
+		msgCharacterDeadMap->KillStreak = i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak;
+
+		// Update the last kill time so the streak can continue on the next kill
+		i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime = timeGetTime();
+
+
+	// Reset Dead Character's KillStreak
+	this->m_character.KILLSTREAK_INFO.KillStreak = 0;
+
+	// Safe debug output for the victim's wipeout (Doesn't access i_pAttackUser pointer)
+	sprintf(szTemp, "Victim reset. PlayerKillStreak4 : %i", this->m_character.KILLSTREAK_INFO.KillStreak);
+	SendString128(STRING_128_ADMIN_CMD, szTemp);
+#endif
+
+	m_pCurrentFieldMapChannel->SendMessageToAllInChannel(msgCharacterDeadMapBuf, MSG_SIZE(MSG_FC_CHARACTER_DEAD_NOTIFY_MAP), INFLUENCE_TYPE_ALL_MASK, 0);
+#endif
 }
 
 BOOL CFieldIOCPSocket::CharacterDeadGameStartRoutine(BOOL i_bNotify
@@ -21301,6 +21239,16 @@ void CFieldIOCPSocket::OnWarpDone(EnumWarpType warpType)
 			ms_pFieldIOCP->WarOtherInflStayTime(this, FALSE);
 		}
 	}
+#if _KILL_STREAK_TOWN_RESET
+	USHORT PlayerMapIndex = m_character.MapChannelIndex.MapIndex;
+
+	// Check if in OutPost or Town
+	if (IS_OUTPOST_CITY_MAP_INDEX(PlayerMapIndex) || IS_CITY_MAP_INDEX(PlayerMapIndex))
+	{
+		// Reset the Kill Streak on Town
+		m_character.KILLSTREAK_INFO.KillStreak = 0;
+	}
+#endif
 
 	// start 2011-10-28 by hskim, EP4 [트리거 시스템] - 크리스탈 시스템
 	this->GetCurrentFieldMapProject()->InsertEnterOneTimeLimited(m_character.CharacterUniqueNumber);
@@ -29631,19 +29579,21 @@ void CFieldIOCPSocket::InfluenceWarBonus2Killer(CFieldIOCPSocket *i_pFISockDeade
 
 	// 2006-02-09 by cmkwon, 명성치 보너스
 	this->AddCharacterFame();
-#ifdef _RAT_KILL_MSG // Kill Message Announce
+
+#if _RAT_KILL_MSG // Kill Message Announce
 	// 1. GATHER DATA & CONSTRUCT STRING ONCE (Outside the Loop)
 	USHORT MapIndex = this->m_character.MapChannelIndex.MapIndex;
 	if (MapIndex)
 	{
 		string MapName = CAtumSJ::GetMapName(MapIndex);
+		const MAP_INFO* pMapInfo = CAtumSJ::GetMapInfo(MapIndex);
 
-#ifdef _RAT_FFA
-		if (MapIndex == FFA_MAP)
+#if _RAT_FFA
+		if (pMapInfo->MapInfluenceType == MAP_INFLUENCE_PVP_ALL)
 		{
 			MapName == "FFA";
 		}
-#endif
+#endif // _RAT_FFA
 
 		BYTE PlayerInfluence = this->m_character.InfluenceType;
 		string PlayerName = this->m_character.CharacterName;
@@ -29801,200 +29751,6 @@ void CFieldIOCPSocket::InfluenceWarBonus2Killer(CFieldIOCPSocket *i_pFISockDeade
 		}
 	}
 }
-
-
-// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 사용하지 않음
-/////////////////////////////////////////////////////////////////////////////////
-///// \fn			Err_t CFieldIOCPSocket::SecurityCheckVersion(MSG_FC_MOVE_HACKSHIELD_GuidAckMsg *i_pGuidAckMsg/*=NULL*/)
-///// \brief		
-///// \author		cmkwon
-///// \date		2006-06-05 ~ 2006-06-05
-///// \warning	
-/////
-///// \param		
-///// \return		
-/////////////////////////////////////////////////////////////////////////////////
-//Err_t CFieldIOCPSocket::SecurityCheckVersion(MSG_FC_MOVE_HACKSHIELD_GuidAckMsg *i_pGuidAckMsg/*=NULL*/)
-//{
-// 	if(COMPARE_RACE(m_character.Race, RACE_OPERATION))
-// 	{// 2006-06-05 by cmkwon
-// 		return ERR_NO_ERROR;
-// 	}
-// 
-// 	switch(g_pFieldGlobal->GetLanguageType())
-// 	{
-// 	case LANGUAGE_TYPE_KOREAN:
-// 	case LANGUAGE_TYPE_VIETNAMESE:
-// // 2007-12-28 by cmkwon, 영어는 핵쉴드 제외
-// //	case LANGUAGE_TYPE_ENGLISH:				// 2006-07-04 by cmkwon
-// 	case LANGUAGE_TYPE_CHINESE:				// 2007-11-23 by cmkwon, 중국 핵쉴드 버그 수정
-// 		{
-// 			if(NULL == i_pGuidAckMsg)
-// 			{
-// 				if(FALSE == m_Security_bCheckVersion)
-// 				{
-// 					INIT_MSG_WITH_BUFFER(MSG_FC_MOVE_HACKSHIELD_GuidReqMsg, T_FC_MOVE_HACKSHIELD_GuidReqMsg, pSGuidReq, SendBuf);
-// 					DWORD dwRet = _AntiCpSvr_MakeGuidReqMsg(pSGuidReq->pbyGuidReqMsg, m_Security_pbyGuidReqInfo);
-// 					if(ERROR_SUCCESS != dwRet)
-// 					{
-// 						char szSysLog[1024];
-// 						wsprintf(szSysLog, "[Error] CFieldIOCPSocket::SecurityCheckVersion_ _AntiCpSvr_MakeGuidReqMsg() error(0x%X)\r\n", dwRet);
-// 						g_pFieldGlobal->WriteSystemLog(szSysLog);
-// 						DbgOut(szSysLog);
-// 						return ERR_NO_ERROR;
-// 					}
-// 
-// // 2008-03-25 by cmkwon, 테스트용 로그
-// // 					char szTmReqMsg[1024];
-// // 					char szTmReqInfo[1024];
-// // 					XOR::XORBinary2String(szTmReqMsg, pSGuidReq->pbyGuidReqMsg, SIZEOF_GUIDREQMSG);
-// // 					XOR::XORBinary2String(szTmReqInfo, m_Security_pbyGuidReqInfo, SIZEOF_GUIDREQINFO);
-// // 					g_pFieldGlobal->WriteSystemLogEX(TRUE, "CFieldIOCPSocket::SecurityCheckVersion_ Req   %s, %s\r\n", szTmReqMsg, szTmReqInfo);
-// 
-// 					SendAddData(SendBuf, MSG_SIZE(MSG_FC_MOVE_HACKSHIELD_GuidReqMsg));
-// 					return ERR_SECURITY_NOT_CHECK_VERSION;
-// 				}
-// 			}
-// 			else
-// 			{
-// 
-// // 2008-03-25 by cmkwon, 테스트용 로그
-// // 				char szTmReqMsg[1024];
-// // 				char szTmReqInfo[1024];
-// // 				XOR::XORBinary2String(szTmReqMsg, i_pGuidAckMsg->pbyGuidAckMsg, SIZEOF_GUIDACKMSG);
-// // 				XOR::XORBinary2String(szTmReqInfo, m_Security_pbyGuidReqInfo, SIZEOF_GUIDREQINFO);
-// // 				g_pFieldGlobal->WriteSystemLogEX(TRUE, "CFieldIOCPSocket::SecurityCheckVersion_ Recvd %s, %s\r\n", szTmReqMsg, szTmReqInfo);
-// 
-// 				// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - 아래와 같이 인자 수정됨
-// 				//DWORD dwRet = _AntiCpSvr_AnalyzeGuidAckMsg(i_pGuidAckMsg->pbyGuidAckMsg, m_Security_pbyGuidReqInfo, &m_Security_plCRCInfo);
-// 				DWORD dwRet = _AntiCpSvr_AnalyzeGuidAckMsg(i_pGuidAckMsg->pbyGuidAckMsg, m_Security_pbyGuidReqInfo, &m_Security_ClientContext);
-// 				if(ERROR_SUCCESS != dwRet)
-// 				{
-// 					char szSysLog[1024];
-// 					wsprintf(szSysLog, "[Error] CFieldIOCPSocket::SecurityCheckVersion_ _AntiCpSvr_AnalyzeGuidAckMsg() error(0x%X)\r\n", dwRet);
-// 					g_pFieldGlobal->WriteSystemLog(szSysLog);
-// 					DbgOut(szSysLog);
-// 
-// 					CAtumLogSender::SendLogMessageHackingLog(this, ERR_SECURITY_HACKING_GUID);
-// 					SendErrorMessage(T_FC_MOVE_HACKSHIELD_GuidReqMsg, ERR_SECURITY_HACKING_GUID, 0, 0, NULL, TRUE); 
-// 					this->Close(0, FALSE, 3000);
-// 					return ERR_NO_ERROR;
-// 				}
-// 
-// 				m_Security_bCheckVersion	= TRUE;
-// 			}
-// 		}
-// 		break;
-// 	default:
-// 		{
-// 			return ERR_NO_ERROR;
-// 		}
-// 	}
-//
-//	return ERR_NO_ERROR;
-//}
-//
-/////////////////////////////////////////////////////////////////////////////////
-///// \fn			Err_t CFieldIOCPSocket::SecurityCheckClient_1(MSG_FC_MOVE_HACKSHIELD_CRCAckMsg *i_pCRCAckMsg/*=NULL*/)
-///// \brief		
-///// \author		cmkwon
-///// \date		2006-06-05 ~ 2006-06-05
-///// \warning	
-/////
-///// \param		
-///// \return		
-/////////////////////////////////////////////////////////////////////////////////
-//Err_t CFieldIOCPSocket::SecurityCheckClient_1(MSG_FC_MOVE_HACKSHIELD_CRCAckMsg *i_pCRCAckMsg/*=NULL*/)
-//{
-// 2008-04-03 by cmkwon, 핵쉴드 서버 연동 시스템 수정 - 사용하지 않음
-// 	if(COMPARE_RACE(m_character.Race, RACE_OPERATION))
-// 	{// 2006-06-05 by cmkwon
-// 		return ERR_NO_ERROR;
-// 	}
-// 
-// 	if(FALSE == m_Security_bCheckVersion)
-// 	{// 2006-06-05 by cmkwon, 초기화 안됨
-// 		return ERR_NO_ERROR;
-// 	}
-// 
-// 	switch(g_pFieldGlobal->GetLanguageType())
-// 	{
-// 	case LANGUAGE_TYPE_KOREAN:
-// 	case LANGUAGE_TYPE_VIETNAMESE:
-// // 2007-12-28 by cmkwon, 영어는 핵쉴드 제외
-// //	case LANGUAGE_TYPE_ENGLISH:				// 2006-07-04 by cmkwon
-// 	case LANGUAGE_TYPE_CHINESE:				// 2007-11-23 by cmkwon, 중국 핵쉴드 버그 수정
-// 		{
-// 
-// 			if(NULL == i_pCRCAckMsg)
-// 			{
-// 				if(m_Security_bSendCRCReqMsg)
-// 				{// 2006-06-08 by cmkwon, 이전에 보낸 메시지 응답을 받지 못한 상태이다
-// 					char szSysLog[1024];
-// 					DWORD dwCur = timeGetTime();
-// 					wsprintf(szSysLog, "[Error] CFieldIOCPSocket::SecurityCheckClient_1_ TermTick(%d) = CurrentTick(%d) - BeforeTick(%d)\r\n"
-// 						, dwCur - m_dwSetTickSecurity_bSendCRCReqMsg, dwCur, m_dwSetTickSecurity_bSendCRCReqMsg);
-// 					g_pFieldGlobal->WriteSystemLog(szSysLog);
-// 					DbgOut(szSysLog);
-// 
-// 					CAtumLogSender::SendLogMessageHackingLog(this, ERR_SECURITY_HACKING_CRC);
-// 					SendErrorMessage(T_FC_MOVE_HACKSHIELD_CRCAckMsg, ERR_SECURITY_HACKING_CRC, 0, 0, NULL, TRUE); 
-// 					this->Close(0, FALSE, 3000);
-// 					return ERR_NO_ERROR;
-// 				}
-// 
-// 				INIT_MSG_WITH_BUFFER(MSG_FC_MOVE_HACKSHIELD_CRCReqMsg, T_FC_MOVE_HACKSHIELD_CRCReqMsg, pSCRCReq, SendBuf);
-// 				// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - 아래와 같이 인자 수정됨
-// 				//DWORD dwRet = _AntiCpSvr_MakeReqMsg(m_Security_plCRCInfo, pSCRCReq->pbyReqMsg, m_Security_pbyReqInfo, m_Security_ulOption);
-// 				DWORD dwRet = _AntiCpSvr_MakeReqMsg(&m_Security_ClientContext, pSCRCReq->pbyReqMsg, m_Security_pbyReqInfo, m_Security_ulOption);
-// 				if(ERROR_SUCCESS != dwRet)
-// 				{
-// 					char szSysLog[1024];
-// 					wsprintf(szSysLog, "[Error] CFieldIOCPSocket::SecurityCheckClient_1_ _AntiCpSvr_MakeReqMsg() error(0x%X)\r\n", dwRet);
-// 					g_pFieldGlobal->WriteSystemLog(szSysLog);
-// 					DbgOut(szSysLog);
-// 
-// 					CAtumLogSender::SendLogMessageHackingLog(this, ERR_SECURITY_HACKING_CRC);
-// 					SendErrorMessage(T_FC_MOVE_HACKSHIELD_CRCAckMsg, ERR_SECURITY_HACKING_CRC, 0, 0, NULL, TRUE); 
-// 					this->Close(0, FALSE, 3000);
-// 					return ERR_NO_ERROR;
-// 				}
-// 				SendAddData(SendBuf, MSG_SIZE(MSG_FC_MOVE_HACKSHIELD_CRCReqMsg));
-// 
-// 				m_Security_bSendCRCReqMsg			= TRUE;							// 2006-06-08 by cmkwon
-// 				m_Security_ulOption					= ANTICPSVR_CHECK_GAME_MEMORY;	// 2006-06-05 by cmkwon, 한번 실행 후 변경
-// 				m_dwSetTickSecurity_bSendCRCReqMsg	= timeGetTime();				// 2006-10-21 by cmkwon, 추가
-// 				return ERR_SECURITY_NOT_CHECK_VERSION;
-// 			}
-// 			else
-// 			{
-// 				// 2008-03-24 by cmkwon, 핵쉴드 2.0 적용 - 아래와 같이 인자 수정됨
-// 				//DWORD dwRet = _AntiCpSvr_AnalyzeAckMsg(m_Security_plCRCInfo, i_pCRCAckMsg->pbyAckMsg, m_Security_pbyReqInfo);
-// 				DWORD dwRet = _AntiCpSvr_AnalyzeAckMsg(&m_Security_ClientContext, i_pCRCAckMsg->pbyAckMsg, m_Security_pbyReqInfo);
-// 				if(ERROR_SUCCESS != dwRet)
-// 				{
-// 					char szSysLog[1024];
-// 					wsprintf(szSysLog, "[Error] CFieldIOCPSocket::SecurityCheckClient_1_ _AntiCpSvr_AnalyzeAckMsg() error(0x%X)\r\n", dwRet);
-// 					g_pFieldGlobal->WriteSystemLog(szSysLog);
-// 					DbgOut(szSysLog);
-// 
-// 					CAtumLogSender::SendLogMessageHackingLog(this, ERR_SECURITY_HACKING_CRC);
-// 					SendErrorMessage(T_FC_MOVE_HACKSHIELD_CRCAckMsg, ERR_SECURITY_HACKING_CRC, 0, 0, NULL, TRUE); 
-// 					this->Close(0, FALSE, 3000);
-// 					return ERR_NO_ERROR;
-// 				}
-// 				m_Security_bSendCRCReqMsg		= FALSE;				// 2006-06-08 by cmkwon
-// 			}
-// 		}
-// 		break;
-// 	default:
-// 		{
-// 			return ERR_NO_ERROR;
-// 		}
-// 	}
-//
-//	return ERR_NO_ERROR;
-//}
 
 ///////////////////////////////////////////////////////////////////////////////
 // 2009-11-04 by cmkwon, 태국 게임가드 Apex로 변경 - 
@@ -32198,7 +31954,7 @@ BOOL CFieldIOCPSocket::APPopAttackParameter(SATTACK_PARAMETER *o_pAttParam, UID1
 /// \param		
 /// \return		
 ///////////////////////////////////////////////////////////////////////////////
-#ifdef _RAT_ANTI_CHEAT
+#if _RAT_ANTI_CHEAT
 void CFieldIOCPSocket::APCalcAttckParameter(SATTACK_PARAMETER* o_pAttParam, ITEM* i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent, bool isDroneAttack)	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
 {
 	BOOL			bIsPrimaryAttack = FALSE;

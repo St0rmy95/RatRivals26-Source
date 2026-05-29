@@ -557,6 +557,9 @@
     <ClCompile Include="main\SpriteDrawFix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main\INFEvoKillfeed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main\CalendarBuilder.h">
@@ -1106,6 +1109,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main\SpriteDrawFix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main\INFEvoKillfeed.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

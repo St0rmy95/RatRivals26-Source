@@ -745,7 +745,7 @@ void CINFCityLab::Render()
 #endif
 	// 2015-05-29 by jwlee 연구소 UI 변경
 #if defined(C_LABORATORY_UI_CHANGE_JWLEE)
-#ifdef _RAT_LAB_SKIP
+#if _RAT_LAB_SKIP
 	// Do not Create Line Effect when Laboratory Animation Skip is enabled.
 	int i;
 #else // _RAT_LAB_SKIP
@@ -1051,7 +1051,7 @@ void CINFCityLab::Tick()
 	int nComAniCount = 0;
 	switch (m_nAniState)
 	{
-#ifdef _RAT_LAB_SKIP
+#if _RAT_LAB_SKIP
 	case LABORATORY_ANIMATION_STATE_ICON_ING:
 		ChangeAniState(LABORATORY_ANIMATION_STATE_LINE_START);
 		break;
@@ -1108,7 +1108,7 @@ void CINFCityLab::Tick()
 	case LABORATORY_ANIMATION_STATE_RESULT_ING:
 		if (m_bAniView[LABORATORY_GROUP_TTARGET])
 		{
-#ifdef _RAT_LAB_SKIP
+#if _RAT_LAB_SKIP
 			// Skip Animation Part
 			m_vecTarget = m_vecSource;
 			// 2015-07-28 by jwlee 연구소 UI 변경 2차
@@ -1145,7 +1145,7 @@ void CINFCityLab::Tick()
 		}
 		break;
 	case LABORATORY_ANIMATION_STATE_RESULT_SUCCESS:
-#ifdef _RAT_LAB_SKIP
+#if _RAT_LAB_SKIP
 		// Skip Animation Part
 		ChangeAniState(LABORATORY_ANIMATION_STATE_RESULT_SUCCESS_END);
 #else // _RAT_LAB_SKIP
@@ -2868,7 +2868,7 @@ bool CINFCityLab :: IsWarning_EnchantFail ( void )
 			bHavePreventionDeleteItem = TRUE;
 		}
 		
-#ifdef _RAT_LAB_E5_WARNING
+#if _RAT_LAB_E5_WARNING
 		if ( pcItemInfo->GetEnchantNumber() >= _RAT_LAB_E5_WARNING_VALUE)
 		{
 			bWaringEnchantLevel = TRUE;

@@ -75,6 +75,7 @@ typedef mt_vector<CBossWarContributionCalculation*>			mtvectCBossWarContribution
 typedef mt_vector<CWarContributionCalculation*>				mtvectCOutPostWarContributionCalculation;		// 2008-12-22 by dhjin, 전쟁 보상 추가안
 typedef mt_vector<CWarContributionCalculation*>				mtvectCStrategyPointWarContributionCalculation;		// 2008-12-22 by dhjin, 전쟁 보상 추가안
 
+
 struct SARENA_USE_FIELD_SERVER_INFO
 {// 2007-12-27 by dhjin, 아레나 통합 - 아레나 서버에서 사용하는 필드 서버 정보
 	USHORT			MFS_ID;
@@ -432,6 +433,7 @@ protected:
 // 2007-02-12 by cmkwon, 필요없음	vector<CFieldIOCPSocket*>		m_vecMapIOCPSocket;
 
 public:
+
 	SERVER_ID						m_FieldServerID;
 	CAtumFieldDBManager				*m_pAtumDBManager;
 	CFieldTickManager				*m_pFieldTickManager;			// Tick manager

@@ -971,8 +971,8 @@ enum EN_DAY_OF_WEEK
 // 2005-12-26 by cmkwon
 // ��Ʈ �÷��� ���� �ƴ� - ti_MapInfo���̺��� MapInfluenceType �ʵ� �� ���� Ÿ�� ����
 #define MAP_INFLUENCE_NEUTRALITY		(USHORT)0		// �߸� ����
-#ifdef _RAT_FFA
-#define MAP_INFLUENCE_PVP_ALL			(USHORT) 50
+#if _RAT_FFA
+#define MAP_INFLUENCE_PVP_ALL			REF_MAP_INFLUENCE_PVP_ALL
 #endif
 #define MAP_INFLUENCE_NON_DISPUTE		(USHORT)400		// ������ ����� ���� // 2012-01-17 by hskim, EP4 [����� ����] - ������ ���� ���� ����
 #define MAP_INFLUENCE_HELL				(USHORT)500		// ���� ���� (������ Backmap ���� �̵� �� �ʱ� ���� �Ұ� ����) // 2011-10-28 by hskim, EP4 [Ʈ���� �ý���] - ũ����Ż �ý���
@@ -2830,7 +2830,15 @@ struct SArenaPlayInfo
 ///////////////////////////////////////////////////////////////////////////////
 struct CHARACTER_DB_EX;
 
-#ifdef _RAT_RANK_SYSTEM
+#if _KILL_STREAK
+struct SKILL_STREAK_DATA
+{
+	int		KillStreak;
+	DWORD	LastKillTime;
+};
+#endif // _KILL_STREAK
+
+#if _RAT_RANK_SYSTEM
 struct SRANK_DATA
 {
 	int ID = 0;							// Integer ID (e.g., 1)
@@ -2859,43 +2867,47 @@ struct SRANK_SYSTEM
 
 #endif // _RAT_RANK_SYSTEM
 
-#ifdef _RAT_ANTI_CHEAT
-// Weapon
-struct SATTACK_COOLDOWN {
-	DWORD	Primary_LastAttackTime;
-	UINT	Primary_ReAttacktime;
+#if _RAT_ANTI_CHEAT
+	// Weapon
+	struct SATTACK_COOLDOWN {
+		DWORD	Primary_LastAttackTime;
+		UINT	Primary_ReAttacktime;
 
-	DWORD	Secondary_LastAttackTime;
-	UINT	Secondary_ReAttacktime;
+		DWORD	Secondary_LastAttackTime;
+		UINT	Secondary_ReAttacktime;
 
-	INT		Secondary_ShotCount;
-	INT		Secondary_ShotCountMAX;
+		INT		Secondary_ShotCount;
+		INT		Secondary_ShotCountMAX;
 
-	BOOL	Secondary_isOnUse = false;
-};
+		BOOL	Secondary_isOnUse = false;
+	};
 
-// Engine
-struct SENGINE_INFO {
-	FLOAT				m_fShuttleSpeed;
-	FLOAT				m_fShuttleSpeedMax;
-	FLOAT				m_fShuttleSpeedMin;
-	FLOAT				m_fShuttleSpeedBoosterOn;
-	FLOAT				m_fShuttleGroundSpeed;
-	FLOAT				m_fShuttleGroundSpeedMax;
+	// Engine
+	struct SENGINE_INFO {
+		FLOAT				m_fShuttleSpeed;
+		FLOAT				m_fShuttleSpeedMax;
+		FLOAT				m_fShuttleSpeedMin;
+		FLOAT				m_fShuttleSpeedBoosterOn;
+		FLOAT				m_fShuttleGroundSpeed;
+		FLOAT				m_fShuttleGroundSpeedMax;
 
-	FLOAT				m_fRealShuttleSpeedMax;
-	FLOAT				m_fRealShuttleSpeedMin;
-	FLOAT				m_fRealShuttleSpeedBoosterOn;
-};
+		FLOAT				m_fRealShuttleSpeedMax;
+		FLOAT				m_fRealShuttleSpeedMin;
+		FLOAT				m_fRealShuttleSpeedBoosterOn;
+	};
 #endif // _RAT_ANTI_CHEAT
 
 struct CHARACTER
 {
-#ifdef _RAT_RANK_SYSTEM
+#if _KILL_STREAK
+	SKILL_STREAK_DATA	KILLSTREAK_INFO;
+#endif // _KILL_STREAK
+
+#if _RAT_RANK_SYSTEM
 	int					RankID;							// 2012-04-12 by jhseol, �Ʒ��� �߰����� - �Ʒ��� Rank ID
 #endif // _RAT_RANK_SYSTEM
 
-#ifdef _RAT_ANTI_CHEAT
+#if _RAT_ANTI_CHEAT
 	SATTACK_COOLDOWN	ATTACK_INFO;
 	SENGINE_INFO		ENGINE_INFO;
 #endif // _RAT_ANTI_CHEAT
@@ -4943,7 +4955,7 @@ enum EN_CHECK_TYPE
 //	CHECK_TYPE_VOIP_1to1			= 106,		// ����ä�� - 1:1 ä��// 2005-12-07 by cmkwon
 //	CHECK_TYPE_CHAT_WAR				= 107		// 2008-05-19 by dhjin, EP3 - ä�� �ý��� ����, ���� ä��
 	CHECK_TYPE_CHAT_WAR				= 106,		// 2008-05-19 by dhjin, EP3 - ä�� �ý��� ����, ���� ä��
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	CHECK_TYPE_CHAT_INFLUENCE_ALL_RAT = 109,
 #endif
 

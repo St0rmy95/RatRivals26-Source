@@ -202,7 +202,7 @@ typedef struct
 	BOOL sPetOPBalance;				// 2010. 10. 26 by jskim 펫 오퍼레이터 옵션 처리
 	BOOL sMp3Player;
 	
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	int sFOVangle;
 #endif
 

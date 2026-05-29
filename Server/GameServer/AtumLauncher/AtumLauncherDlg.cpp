@@ -76,7 +76,7 @@ static char THIS_FILE[] = __FILE__;
 #define STRING_SERVER_GROUP_NAME_DELIMIT				" "
 #define TICKGAP_NETWORK_STATE_WORST_PING_TICK			1500		// 2007-06-21 by cmkwon, Æò±Õ Ping ¼Óµµ¸¦ ¸®ÅÏÇÏµµ·Ï ¼öÁ¤ÇÔ
 
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 SWINDOW_DEGREE g_pWindowDegreeList[] =
 {
 	{STRMSG_WINDOW_DEGREE_1024x768_LOW,		1024, 768, 0},
@@ -1891,7 +1891,7 @@ LONG CAtumLauncherDlg::OnSocketNotify(WPARAM wParam, LPARAM lParam)
 						szTmpWindowDegree.Format("%d %d %d", nCX, nCY, nDegree);
 
 						DBGOUT(" Resolution ==> %s\r\n", szTmpWindowDegree);
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 						if (FALSE == this->IsDlgButtonChecked(IDC_CHECK_WINDOWS_MODE)) //disable full scr
 						{
 							m_nWindowModeReg = GAME_MODE_WINDOW;//GAME_MODE_FULLSCREEN;
@@ -2986,7 +2986,7 @@ BOOL CAtumLauncherDlg::FindWindowResolutionByWindowDegree(int* o_pnCX, int* o_pn
 	*o_pnCY		= 0;
 	*o_pnDegree = 0;
 
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 	// Loop through static list
 	for (int i = 0; g_pWindowDegreeList[i].szWindowDegreeName != nullptr; i++)
 	{
@@ -3035,7 +3035,7 @@ int CAtumLauncherDlg::InsertWindowDegreeList(CComboBox* i_pComboBox, BOOL i_bWin
 
 	int nInsertedCnts = 0;
 
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 	// Loop through static list
 	for (int i = 0; g_pWindowDegreeList[i].szWindowDegreeName != nullptr; i++)
 	{
@@ -3127,7 +3127,7 @@ int CAtumLauncherDlg::FindWindowDegreeComboBoxIndex(CComboBox *i_pComboBox, char
 ///////////////////////////////////////////////////////////////////////////////
 int CAtumLauncherDlg::InitSupportedWindowResolutionList(void)
 {
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 	DEVMODE devMode;
 	INT32 modeExist;
 
@@ -3231,7 +3231,7 @@ int CAtumLauncherDlg::InitSupportedWindowResolutionList(void)
 BOOL CAtumLauncherDlg::IsSupportedResolution(int i_nWidth, int i_nHeight)
 {
 	int nCnts = m_vectSupportedResolutionList.size();
-#ifdef _RAT_BORDERLESS
+#if _RAT_BORDERLESS
 	if (i_nWidth == 0 && i_nHeight == 0)
 	{
 		return TRUE;//for borderless

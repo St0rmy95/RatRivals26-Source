@@ -34,7 +34,7 @@
 #define GO_MISSION_MAP_POS_X				((g_pD3dApp->GetBackBufferDesc().Width/2)-123)//(g_pD3dApp->GetBackBufferDesc().Width-253)
 #define GO_MISSION_MAP_POS_Y				(g_pD3dApp->GetBackBufferDesc().Height-110*HIDPI_COEFF)
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 // Go FFA
 #define GO_MAP_FFA_POS_X					((g_pD3dApp->GetBackBufferDesc().Width/2)+31)
 #define GO_MAP_FFA_POS_Y					(g_pD3dApp->GetBackBufferDesc().Height-124*HIDPI_COEFF)
@@ -81,7 +81,7 @@ CINFMissionMain::CINFMissionMain()
 {
 	m_pGoMapBtn = NULL;
 	m_pGoMissionMapBtn = NULL;
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	m_pGoFFABtn = NULL;
 #endif
 
@@ -137,7 +137,7 @@ CINFMissionMain::~CINFMissionMain()
 		m_pINFMissionTreeInfo->DeleteDeviceObjects();	
 		SAFE_DELETE(m_pINFMissionTreeInfo);
 	}
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if (m_pGoFFABtn)
 	{
 		m_pGoFFABtn->DeleteDeviceObjects();
@@ -279,7 +279,7 @@ HRESULT CINFMissionMain::InitDeviceObjects()
 		
 	}
 	
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	{
 		char szUpBtn[30], szDownBtn[30], szSelBtn[30], szDisBtn[30];
 		wsprintf(szUpBtn, "gosh_FFA_n");
@@ -327,7 +327,7 @@ HRESULT CINFMissionMain::RestoreDeviceObjects()
 		m_pGoMissionMapBtn->RestoreDeviceObjects();		
 //		m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X, GO_MISSION_MAP_POS_Y);
 	}
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	{
 		m_pGoFFABtn->RestoreDeviceObjects();
 	}
@@ -373,7 +373,7 @@ HRESULT CINFMissionMain::DeleteDeviceObjects()
 		m_pGoMissionMapBtn->DeleteDeviceObjects();	
 		SAFE_DELETE(m_pGoMissionMapBtn);
 	}
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	{
 		m_pGoFFABtn->DeleteDeviceObjects();
 		SAFE_DELETE(m_pGoFFABtn);
@@ -407,7 +407,7 @@ HRESULT CINFMissionMain::InvalidateDeviceObjects()
 
 	m_pGoMissionMapBtn->InvalidateDeviceObjects();		
 	
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	m_pGoFFABtn->InvalidateDeviceObjects();
 #endif
 
@@ -445,7 +445,7 @@ void CINFMissionMain::TickBtn()
 		
 		BOOL bShowGoMissionMapBtn,  bShowGoMapBtn;
 		bShowGoMissionMapBtn = bShowGoMapBtn = FALSE;
-#ifdef _RAT_FFA
+#if _RAT_FFA
 		BOOL bGoFFAMapBtn = FALSE;
 #endif
 		
@@ -455,7 +455,7 @@ void CINFMissionMain::TickBtn()
 			if(m_nMyShuttleCharacter)
 			{
 				bShowGoMissionMapBtn =  bShowGoMapBtn = TRUE;
-#ifdef _RAT_FFA
+#if _RAT_FFA
 				bGoFFAMapBtn = TRUE;
 #endif
 			}
@@ -470,14 +470,14 @@ void CINFMissionMain::TickBtn()
 			}
 		}		
 
-#ifdef _RAT_GREYBUTTONS
+#if _RAT_GREYBUTTONS
 		USHORT MapIndex = g_pShuttleChild->GetMyShuttleInfo().MapChannelIndex.MapIndex;
 #endif
 
 		if(m_pGoMissionMapBtn)
 		{
 			m_pGoMissionMapBtn->SetBtnPosition(GO_MISSION_MAP_POS_X, GO_MISSION_MAP_POS_Y);
-#ifdef _RAT_GREYBUTTONS
+#if _RAT_GREYBUTTONS
 			if (bShowGoMissionMapBtn == FALSE)
 			{
 				if (IS_OUTPOST_CITY_MAP_INDEX(MapIndex)
@@ -506,7 +506,7 @@ void CINFMissionMain::TickBtn()
 		{
 //#ifndef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI�ý��� ����
 			m_pGoMapBtn->SetBtnPosition(GO_MAP_POS_X, GO_MAP_POS_Y);
-#ifdef _RAT_GREYBUTTONS
+#if _RAT_GREYBUTTONS
 			if (bShowGoMapBtn == FALSE)
 			{
 				if (IS_OUTPOST_CITY_MAP_INDEX(MapIndex)
@@ -531,10 +531,10 @@ void CINFMissionMain::TickBtn()
 #endif
 //#endif
 		}
-#ifdef _RAT_FFA
+#if _RAT_FFA
 		{
 			m_pGoFFABtn->SetBtnPosition(GO_MAP_FFA_POS_X, GO_MAP_FFA_POS_Y);
-#ifdef _RAT_GREYBUTTONS
+#if _RAT_GREYBUTTONS
 				if (bGoFFAMapBtn == FALSE)
 				{
 					if (IS_OUTPOST_CITY_MAP_INDEX(MapIndex)
@@ -662,7 +662,7 @@ void CINFMissionMain::Render()
 	m_pGoMapBtn->Render();
 
 	m_pGoMissionMapBtn->Render();
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	m_pGoFFABtn->Render();
 #endif
 
@@ -756,7 +756,7 @@ int CINFMissionMain::OnLButtonDown(WPARAM wParam, LPARAM lParam)
 		}		
 	}
 	
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	{
 		if (TRUE == m_pGoFFABtn->OnLButtonDown(pt))
 		{
@@ -795,7 +795,7 @@ int CINFMissionMain::OnLButtonUp(WPARAM wParam, LPARAM lParam)
 		}
 	}
 	
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	{
 		if (TRUE == m_pGoFFABtn->OnLButtonUp(pt))
 		{
@@ -870,7 +870,7 @@ int CINFMissionMain::OnMouseMove(WPARAM wParam, LPARAM lParam)
 	
 	m_pGoMapBtn->OnMouseMove(pt);	
 	m_pGoMissionMapBtn->OnMouseMove(pt);
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	m_pGoFFABtn->OnMouseMove(pt);
 #endif
 

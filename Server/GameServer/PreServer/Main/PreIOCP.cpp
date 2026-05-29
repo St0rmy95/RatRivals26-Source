@@ -206,7 +206,7 @@ BOOL CPreIOCP::IOCPInit(void)
 
 // 2008-07-11 by cmkwon, MySQL 지원을 위해 수정(IP,Port 로 DB 서버 연결) - 아래와 같이 수정 함
 //	BOOL bRet = odbcStmt.Init((LPCSTR)g_pGlobalGameServer->GetODBCDSN(), (LPCSTR)g_pGlobalGameServer->GetODBCUID(), (LPCSTR)g_pGlobalGameServer->GetODBCPASSWORD());
-#ifdef _RAT_SQL
+#if _RAT_SQL
 	BOOL bRet = odbcStmt.Init(
 		g_pGlobalGameServer->GetDBServerIP(),
 		g_pGlobalGameServer->GetDBServerPort(),

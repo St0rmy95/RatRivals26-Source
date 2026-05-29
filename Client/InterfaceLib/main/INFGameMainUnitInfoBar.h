@@ -30,7 +30,7 @@
 
 #define GAMEMAIN_GAGE_NUMBER			9		
 #define GAMEMAIN_GAGE_LINE_NUMBER		12
-#ifdef _RAT_RANK_SYSTEM
+#if _RAT_RANK_SYSTEM
 #define GAMEMAIN_GAGE_LINE_LENGTH		64
 #else
 #define GAMEMAIN_GAGE_LINE_LENGTH		32
@@ -347,7 +347,7 @@ public:
 	BOOL			m_bKillCountToolTip;
 // end 2013-07-15 by ssjung 캐나다 데카의 축복, 기운 관련 툴팁 표시
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	BOOL			m_bShowFFAInfo;
 #endif // _RAT_FFA
 

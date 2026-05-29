@@ -18969,7 +18969,7 @@ BYTE CFieldIOCPSocket::CalcDamageKind(float fDistance, float fDistanceVar)
 	}
 }
 
-#ifdef _RAT_ANTI_CHEAT
+#if _RAT_ANTI_CHEAT
 ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, int nLength, int& nBytesUsed)
 {
 	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_BATTLE_ATTACK,
@@ -19487,7 +19487,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_BATTLE_ATTACK(const char* pPacket, in
 		// end 2013-07-23 by jhseol, 몬스터 추가대미지 미적용 옵션.
 		this->APCalcAttckParameter(&attParam, pAttackItem, pMsgAttackOK->WeaponIndex, tempAttack2Target/*eAttack2Target*/, tmBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - tmBuffPercent 추가		// 2013-05-09 by hskim, 세력 포인트 개선
 		
-#ifdef _RAT_ANTI_CHEAT // Weapon Explosion and Speed
+#if _ADV_EXPLOSION && _ADV_SPEED // Weapon Explosion and Speed
 		CParamFactor* pAttParamFactor = this->GetParamFactor();
 		pMsgAttackOK->ServerExplosionRange_Secondary = CAtumSJ::GetExplosionRange(pAttackItem, pAttParamFactor);
 		pMsgAttackOK->ServerWarheadSpeed_Secondary = CAtumSJ::GetWarHeadSpeed(pAttackItem, pAttParamFactor);
@@ -26679,7 +26679,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_ITEM_USE_ENCHANT(const char* pPacket,
 				&& COMPARE_BIT_FLAG(pSock->GetCharacter()->UnitKind, UNITKIND_ALL_MASK))	// 2008-09-09 by cmkwon, /세력소환 명령어 인자 리스트에 기어타입 추가 - 기어타입 인자 추가
 			{
 
-#ifdef _RAT_LAB_MSG
+#if _RAT_LAB_MSG
 				RARE_ITEM_INFO* pPrefixInfo = ms_pFieldIOCP->GetRareItemInfo(pItemTarget->PrefixCodeNum);
 				RARE_ITEM_INFO* pSuffixInfo = ms_pFieldIOCP->GetRareItemInfo(pItemTarget->SuffixCodeNum);
 				char szPrefixName[SIZE_MAX_RARE_FIX_NAME];
@@ -32459,7 +32459,7 @@ ProcessResult CFieldIOCPSocket::Process_FC_QUEST_MOVE_QUEST_MAP(const char* pPac
 	DECLARE_MESSAGE_AND_CHECK_SIZE(pPacket, nLength, nBytesUsed, T_FC_QUEST_MOVE_QUEST_MAP,
 									MSG_FC_QUEST_MOVE_QUEST_MAP, pRMsg);
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if(FFA_MAP == pRMsg->QuestIndex0)
 	{
 		char szTemp[256];

@@ -20,7 +20,7 @@ class CINFImageBtn;
 class CINFImageRadioBtn;
 class CD3DHanFont;
 class CINFListBox;
-#ifdef _RAT_FOV
+#if _RAT_FOV
 class CINFScrollBar;
 #endif
 class CINFGroupImage;											  // 2011. 10. 10 by jskim UI시스템 변경
@@ -74,7 +74,7 @@ class CINFArenaScrollBar;
 #define		OPTION_ETC_MUSIC				7	// Music플레이어 보기
 #define		MAX_OPTION_ETC_RADIO			8	
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 #define OPTION_DEFAULT_FOV	90
 #endif
 
@@ -246,7 +246,7 @@ private:
 	CINFImageBtn*	m_pOptionLogOff;	// 로그오프
 	CINFImageBtn*	m_pOptionGameEnd;	// 게임종료
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	CINFScrollBar* m_pFovImg;
 	CINFImage* m_pFovStep;
 	CD3DHanFont* m_pFovFont;

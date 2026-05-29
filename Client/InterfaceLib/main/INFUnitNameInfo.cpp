@@ -334,7 +334,7 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 
 	char buff[256];
 	memset(&buff, 0x00, 256);
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if (bShowHP && g_pD3dApp->m_pInterface && MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 	{
 		g_pD3dApp->m_pInterface->m_pTarget->RenderHP(x, y, fHP);
@@ -357,7 +357,7 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 //	int	nMarkRenderXPos = 0;
 	if(nGuildUniqueNumber != 0 )
 	{
-#ifdef _RAT_FFA
+#if _RAT_FFA
 		if (MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 			g_pGameMain->m_pCommunity->GetGuild()->RenderGuildMark(x, y - 10, nGuildUniqueNumber, nCharacterUniqueNumber);
 #else
@@ -365,7 +365,7 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 #endif
 	}
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if (strlen(strMent) > 0 && MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 	{
 		// 멘트 렌더링
@@ -406,7 +406,7 @@ void CINFUnitNameInfo::RenderCharacterInfo(int x, int y, CChatMoveData* pChatDat
 		// END 2013-03-06 by bhsohn 복귀 유저 시스템
 
 		pChatData->Render(x - nCharacterNameX, y - 10, dwNameColor);
-#ifdef _RAT_FFA
+#if _RAT_FFA
 		if (strlen(buff) > 0 && MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 		{
 			g_pGameMain->SetMentMessage(x - nCharacterNameX + sizeX + 2, y - 10, buff);
@@ -694,7 +694,7 @@ void CINFUnitNameInfo::Render()
 						STRNCPY_MEMSET(szCharName, (*itEnemy)->m_infoCharacter.CharacterInfo.CharacterName, SIZE_MAX_ARENA_FULL_NAME);
 						// 서버 이름 제거
 						g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
-#ifdef _RAT_FFA
+#if _FFA_HIDE_NAME
 						if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) {
 							STRNCPY_MEMSET(szCharName, "FFA Enemy", SIZE_MAX_ARENA_FULL_NAME);
 							g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
@@ -725,7 +725,7 @@ void CINFUnitNameInfo::Render()
 							STRNCPY_MEMSET(szCharName, (*itEnemy)->m_infoCharacter.CharacterInfo.CharacterName, SIZE_MAX_ARENA_FULL_NAME);
 							// 서버 이름 제거
 							g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
-#ifdef _RAT_FFA
+#if _FFA_HIDE_NAME
 							if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) {
 								STRNCPY_MEMSET(szCharName, "FFA Enemy", SIZE_MAX_ARENA_FULL_NAME);
 								g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
@@ -1023,7 +1023,7 @@ DWORD CINFUnitNameInfo::GetNameColor(BYTE byCityWarTeamType, BYTE byInfluenceLea
 
 DWORD CINFUnitNameInfo::GetInfluenceColor(int byInfluence, BYTE byInfluenceLeader)
 {
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 		return RGB(255, 0, 0);
 #endif

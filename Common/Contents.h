@@ -237,44 +237,78 @@
 
 ///////////////////////////////////
 // RAT ADDED DEFINES 2026
-#define _RAT
+#define _RAT TRUE
 
-#ifdef _RAT
+#if _RAT
+	///////////////// SHARED [SERVER & CLIENT] ////////////////////
+	#define _RAT_LAB			TRUE
 
-#define _RAT_BORDERLESS // Enable Borderless
-#define _RAT_MOUSE_CLIP // Enable Mouse Clip on Window Mode
+	#define _RAT_ANTI_CHEAT		TRUE
+	#if _RAT_ANTI_CHEAT
+		#define _ADV_EXPLOSION	TRUE
+		#define _ADV_SPEED		TRUE
+	#endif
 
-#define _RAT_FOV // Enable FOV Change
-#define _RAT_FOV_MIN	60				//minimum fov angle
-#define _RAT_FOV_MAX	120				//maximum fov angle
+	#define _RAT_FFA			TRUE
+	#if _RAT_FFA
+		#define _FFA_HIDE_NAME		FALSE
+		#define _FFA_HIDE_GEAR		FALSE
+		#define _FFA_HIDE_ITEM		FALSE
+		#define _FFA_HIDE_MARK		FALSE
 
-#define _RAT_SQL // Enable for Debug System of SQL in FieldServer
+		#define FFA_MAP (USHORT)9017
+		#define REF_MAP_INFLUENCE_PVP_ALL (USHORT) 50
+	#endif
 
-#define _RAT_LAB_SKIP // Skip Laboratory
-#define _RAT_LAB_MSG // Message on Laboratory after Enchant
-#define _RAT_LAB_E5_WARNING // Warning for E5 in Laboratory
-#define _RAT_LAB_E5_WARNING_VALUE 10 // The Number for it (default 5)
+	#define _RAT_CHAT_SYSTEM	FALSE
+	#define _RAT_RANK_SYSTEM	TRUE	// RankSystem
 
-#define _RAT_AG_SIEGE // AG Siege Related Settings
-#define _RAT_AG_SIEGE_LOCK_COOLDOWN 1.0f // Lock cooldown for siege, in Seconds
-#define _RAT_AG_SIEGE_GROUND_SENSIVITY 0.05f // 0.1f = NORMAL
-#define _RAT_AG_SIEGE_AIR_SENSIVITY 0.05f // 0.1f = NORMAL
+	#define _RAT_KILL_MSG		TRUE	// After Kill
 
-#define _RAT_ANTI_CHEAT // Rat's Custom Anti-Cheat
+	#define _KILL_STREAK		TRUE	// After Kill
+	#if _KILL_STREAK
+		#define _KILL_STREAK_TOWN_RESET TRUE
+		#define _KILL_STREAK_TIME	30
+	#endif
 
-#define _RAT_OPEN_SUPPLY_SHOP // Open Supply Shop
+	#define _KILL_FEED			TRUE	// On Death
+	/////////////////////////// SERVER ///////////////////////////
+	#define _RAT_SQL			TRUE
 
-#define _RAT_RANK_SYSTEM // RankSystem
-#define _RAT_KILL_MSG // To Send server Kill Messages
+	#if _RAT_LAB
+	#define _RAT_LAB_MSG		TRUE
+	#endif
 
-#define _RAT_GREYBUTTONS
-#define _RAT_FFA
-#ifdef _RAT_FFA
-	#define FFA_MAP (USHORT)9017
+	/////////////////////////// CLIENT ///////////////////////////
+	#define _RAT_BORDERLESS		TRUE
+	#define _RAT_MOUSE_CLIP		TRUE
+
+	#define _RAT_FOV			TRUE
+
+	#if _RAT_FOV
+		#define _FOV_MIN		60
+		#define _FOV_MAX		120
+	#endif
+
+	#if _RAT_LAB
+		#define _RAT_LAB_SKIP				TRUE
+		#define _RAT_LAB_E5_WARNING			TRUE
+		#define _RAT_LAB_E5_WARNING_VALUE	10	// The Number for it (default 5)
+	#endif
+
+	#define _RAT_AG_SIEGE					TRUE
+#if _RAT_AG_SIEGE
+	#define _SIEGE_LOCK_COOLDOWN			1.0f	// Lock cooldown for siege, in Seconds
+	#define _SIEGE_GROUND_SENSIVITY			0.05f	// 0.1f = NORMAL
+	#define _SIEGE_AIR_SENSIVITY			0.05f	// 0.1f = NORMAL
 #endif
 
-#define MULTI_LOADER_HSSON
-#define _RAT_CHAT_SYSTEM_OFF
+	#define _RAT_GREYBUTTONS	TRUE
+
+	#define MULTI_LOAD_ENABLE	TRUE
+	#if MULTI_LOAD_ENABLE
+		#define MULTI_LOADER_HSSON
+	#endif
 
 #endif //_RAT
 

@@ -247,6 +247,9 @@ class CINFMotherShipManager;				// 2008-04-04 by bhsohn 모선전 관리 클래스 추가
 class CINFGameMainSysMsg;					// 2008-11-3 by bhsohn 서버 시간 보기 버튼 추가
 class CINFOpJoystick;						// 2008-11-13 by bhsohn 조이스틱 작업
 class CINFWorldRankWnd;						// 2009-02-13 by bhsohn 월드 랭킹 시스템
+#if _KILL_FEED
+class INFEvoKillfeed;
+#endif
 class CINFItemMixWnd;						// 2013-02-20 by bhsohn 인게임 조합창 처리
 class CINFItemMenuList;						// 2013-02-26 by bhsohn 인게임 조합 검색 처리
 class CINFArmorCollectWnd;					// 2013-05-28 by bhsohn 아머 컬렉션 시스템
@@ -755,6 +758,9 @@ public:
 	CINFGameMainFAQ			*	m_pInfGameMainFaq;
 	CINFMenuList			*	m_pMenuList;
 	CINFCouponWindow		*	m_pCouponWindow;
+#if _KILL_FEED
+	INFEvoKillfeed* m_pINFEvoKillfeed;
+#endif // _KILL_FEED
 
 #ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI시스템 변경
 	CINFImageBtn			*	m_pImgButton[GAMEMAIN_BUTTON_NUMBER];

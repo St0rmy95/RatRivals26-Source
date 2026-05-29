@@ -190,7 +190,7 @@ BOOL CIMIOCPSocket::OnRecvdPacketIMServer(const char* pPacket, int nLength, BYTE
 		case T_IC_CHAT_INFLUENCE_ALL:		// 2006-04-21 by cmkwon
 		case T_IC_CHAT_ARENA:				// 2007-05-02 by dhjin
 		case T_IC_CHAT_WAR:				// 2008-05-19 by dhjin, EP3 - 채팅 시스템 변경, 전쟁 채팅
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 		case T_IC_CHAT_INFLUENCE_ALL_RAT:
 #endif
 		case T_IC_CHAT_CHATROOM:				// 2008-06-18 by dhjin, EP3 채팅방 - 
@@ -693,7 +693,7 @@ BOOL CIMIOCPSocket::OnRecvdPacketIMServer(const char* pPacket, int nLength, BYTE
 		case T_IC_CHAT_WAR:				// 2008-05-19 by dhjin, EP3 - 채팅 시스템 변경, 전쟁 채팅
 			procRes = Process_IC_CHAT_WAR(pPacket, nLength, nBytesUsed, i_pThreadInfo);
 			break;
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 		case T_IC_CHAT_INFLUENCE_ALL_RAT:
 			procRes = Process_IC_CHAT_INFLUENCE_ALL_RAT(pPacket, nLength, nBytesUsed, i_pThreadInfo);
 			break;
@@ -3268,7 +3268,7 @@ ProcessResult CIMIOCPSocket::Process_IC_CHAT_WAR(const char* pPacket, int nLengt
 	return RES_RETURN_TRUE;
 }
 
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 ProcessResult CIMIOCPSocket::Process_IC_CHAT_INFLUENCE_ALL_RAT(const char* pPacket, int nLength, int& nBytesUsed, SThreadInfo* i_pThreadInfo)
 {
 	int						nRecvTypeSize;

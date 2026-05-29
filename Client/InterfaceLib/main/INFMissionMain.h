@@ -131,7 +131,7 @@ private:
 	CINFImageBtn*			m_pGoMapBtn;
 	// �̼Ǹ����� �̵�
 	CINFImageBtn*			m_pGoMissionMapBtn;
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	CINFImageBtn*			m_pGoFFABtn;
 #endif
 

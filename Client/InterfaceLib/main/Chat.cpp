@@ -60,31 +60,7 @@ HRESULT CChat::DeleteDeviceObjects()
 void CChat::CreateChatChild(TCHAR *str,int type, int chatType/* = CHAT_TAB_SYSTEM */, char* szWisperToCharacterName, char *szWisperFromCharacterName)
 {
 	FLOG( "CChat::CreateChatChild(TCHAR *str,int type, int chatType)" );
-/*	m_nDataNum++;
-	if(m_nDataNum > 7)
-	{
-		CAtumNode * pChild = m_pChild;
-		while(pChild)
-		{
-			if(!pChild->m_pNext)
-				break;
-			pChild = pChild->m_pNext;
-		}
-		if(pChild)
-		{
-			pChild->m_bUsing = FALSE;
-		}
-		m_nDataNum = 7;
-	}
-	CChatData * pChatData = new CChatData(str,1024,32,type);
-	pChatData->InitDeviceObjects();
-	pChatData->RestoreDeviceObjects();
-	AddChild(pChatData);
 
-*/
-	// 임시 코드
-//	int temp,temp2;
-//	g_pD3dApp->m_pAbuseFilter->AbuseFiltering(str,&temp,&temp2);
 	if(g_pD3dApp->m_pInterface && g_pGameMain && g_pGameMain->m_pChat)
 	{
 		g_pGameMain->m_pChat->AddBuffer(chatType, str, type, szWisperToCharacterName, szWisperFromCharacterName);

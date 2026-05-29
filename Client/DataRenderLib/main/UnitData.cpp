@@ -2097,7 +2097,7 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			{
 				attackData.bZigZagWeapon = FALSE;
 			}
-#ifdef _RAT_ANTI_CHEAT // Weapon Speed
+#if _ADV_SPEED // Weapon Speed
 			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 #endif // _RAT_ANTI_CHEAT
 
@@ -2141,7 +2141,7 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			{
 				attackData.bZigZagWeapon = TRUE;
 			}
-#ifdef _RAT_ANTI_CHEAT // Weapon Explosion and Speed
+#if _ADV_EXPLOSION && _ADV_SPEED	// Weapon Explosion and Speed
 			attackData.fExplosionRange = attackData.AttackData.ServerExplosionRange_Secondary;
 			// 2007-06-15 by dgwoo 아래 함수로 만들것.
 			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
@@ -2170,7 +2170,7 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 		break;
 	case ORBIT_UPDOWN_ROCKET_270:
 		{
-#ifdef _RAT_ANTI_CHEAT // Weapon Speed
+#if _ADV_SPEED // Weapon Speed
 			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 #endif // _RAT_ANTI_CHEAT
 
@@ -2192,7 +2192,7 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			// 2006-08-14 by ispark, 로켓형과 같이 쓰이는 몹이 있다. 그러므로 임시 저장후 다시 셋팅
 			BOOL bSaveZigZagTemp = attackData.bZigZagWeapon;
 			attackData.bZigZagWeapon = 0;
-#ifdef _RAT_ANTI_CHEAT // Weapon Speed
+#if _ADV_SPEED // Weapon Speed
 			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
 #endif // _RAT_ANTI_CHEAT
 

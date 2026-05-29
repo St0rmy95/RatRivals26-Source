@@ -1079,6 +1079,9 @@ protected:
 	VOID	FieldSocketTutorialEndOK();
 	VOID	FieldSocketCharacterDeadNotify(MSG_FC_CHARACTER_DEAD_NOTIFY* pMsg);
 	VOID	FieldSocketCitywarMonsterDead(MSG_FC_CITYWAR_MONSTER_DEAD* pMsg);
+#if _KILL_FEED
+	VOID    FieldSocketCharacterDeadNotifyMap(MSG_FC_CHARACTER_DEAD_NOTIFY_MAP* pMsg);
+#endif
 	VOID	FieldSocketCharacterChangeInfluenceType(MSG_FC_CHARACTER_CHANGE_INFLUENCE_TYPE* pMsg);
 	VOID	FieldSocketCharacterChangePropensity(MSG_FC_CHARACTER_CHANGE_PROPENSITY* pMsg);
 	VOID	FieldSocketRequestRepairOk(MSG_FC_SHOP_REQUEST_REPAIR_OK* pMsg);
@@ -1443,7 +1446,7 @@ protected:
 	VOID	IMSocketChatCashAll(MSG_IC_CHAT_CASH_ALL* pMsg);
 	VOID	IMSocketChatInfluenceAll(char* pPacket);
 	VOID	IMSocketChatWar(MSG_IC_CHAT_WAR* pMsg);
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 	VOID	IMSocketChatInfluenceAll_RAT(MSG_IC_CHAT_INFLUENCE_ALL_RAT* pMsg);
 #endif
 	VOID	IMSocketChatChatRoom(MSG_IC_CHAT_CHATROOM* pMsg);
@@ -2464,7 +2467,7 @@ private:
 
 	BYTE				m_SuperiorInfluenceType;	// 2014-06-18 by ymjoo ȭ�� ��ܿ� ���� ǥ��
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 public:
 	bool bIsFFAstarted;
 	int nTimeDiffFFA;// tmStartedFFATime;

@@ -630,38 +630,6 @@ BOOL CIOCPSocket::SendAddData(BYTE* pData, int nSize, EN_PACKET_PRIORITY i_enPac
 	// 2008-03-13 by cmkwon, 대규모 전쟁시 클라이언트 팅기는거 수정 - 기존 소스를 CheckNetworkState() 함수에서 처리
 	this->CheckNetworkState();
 
-	
-// 2008-03-13 by cmkwon, 대규모 전쟁시 클라이언트 팅기는거 수정 - 위와 같이 CheckNetworkState() 로 처리	
-// 	DWORD	dwCur = timeGetTime();
-// 	if(3000 < dwCur - m_dwTickLastCheckTimeNetwork)
-// 	{
-// 		// 2008-03-10 by cmkwon, 대규모 전쟁시 클라이언트 팅기는거 수정 - 50 으로 수정(<==30)
-// 		if(50 < m_nCurrentWriteBufCounts)
-// 		{
-// 			m_dwBadNetworkContinueTime += dwCur-m_dwTickLastCheckTimeNetwork;	// 2007-10-23 by cmkwon, 버그 수정
-// 
-// 			// 2008-03-10 by cmkwon, 대규모 전쟁시 클라이언트 팅기는거 수정 - 100 으로 수정(<==40)
-// 			if(m_nBeforMaxWriteBufCountsAtCheckTime < m_nMaxWriteBufCounts
-// 				|| 100 < m_nCurrentWriteBufCounts)
-// 			{
-// 				// 2004-11-13 by cmkwon, m_dwTickLastCheckTimeNetwork를 Update하고 호출해야한다(그렇지 않은면 루프가 발생한다)
-// 				m_dwTickLastCheckTimeNetwork = dwCur;				
-// 				this->SendNetworkErrorMessage(m_nCurrentWriteBufCounts, m_dwBadNetworkContinueTime);
-// 			}
-// 			char szTemp[1024];
-// 			wsprintf(szTemp, "	idx(%4d) ==> CurBufCnt(%d) OverlappedSendingCnt(%d) BadNetworkContinueTime(%d)\r\n"
-// 				, m_nClientArrayIndex, m_nCurrentWriteBufCounts - m_dwCountOverlappedSending, m_dwCountOverlappedSending, m_dwBadNetworkContinueTime);
-// 			DBGOUT(szTemp);
-// 			g_pGlobal->WriteSystemLog(szTemp);
-// 		}
-// 		else
-// 		{
-// 			m_dwBadNetworkContinueTime = 0;
-// 		}
-// 		m_nBeforMaxWriteBufCountsAtCheckTime = m_nMaxWriteBufCounts;
-// 		m_dwTickLastCheckTimeNetwork = dwCur;
-// 	}
-
 	return TRUE;
 }
 

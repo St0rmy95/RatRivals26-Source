@@ -1326,7 +1326,7 @@ public:
 	BOOL APInsertAttackParameter(SATTACK_PARAMETER *i_pAttParam);
 	SATTACK_PARAMETER *APFindAttackParameterNoLock(UID16_t i_WeaponIndex);
 	BOOL APPopAttackParameter(SATTACK_PARAMETER *o_pAttParam, UID16_t i_WeaponIndex);
-#ifdef _RAT_ANTI_CHEAT
+#if _RAT_ANTI_CHEAT
 	void APCalcAttckParameter(SATTACK_PARAMETER* o_pAttParam, ITEM* i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent = 0.0f, bool isDroneAttack = false);
 #else
 	void APCalcAttckParameter(SATTACK_PARAMETER *o_pAttParam, ITEM *i_pWeaponItemInfo, UID16_t i_WeaponIndex, enumAttackToTarget eAttackToTarget, float i_PvPBuffPercent = 0.0f);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선

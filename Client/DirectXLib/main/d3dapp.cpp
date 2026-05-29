@@ -1700,7 +1700,7 @@ HRESULT CD3DApplication::Initialize3DEnvironment()
 		// Confine cursor to fullscreen window
 		if (m_bClipCursorWhenFullscreen)
 		{
-#ifdef _RAT_MOUSE_CLIP
+#if _RAT_MOUSE_CLIP
 			RECT rcWindow;
 			GetWindowRect(m_hWnd, &rcWindow);
 			ClipCursor(&rcWindow);
@@ -1834,7 +1834,7 @@ HRESULT CD3DApplication::Resize3DEnvironment()
 	// Confine cursor to fullscreen window
 	if (m_bClipCursorWhenFullscreen)
 	{
-#ifdef _RAT_MOUSE_CLIP
+#if _RAT_MOUSE_CLIP
 		RECT rcWindow;
 		GetWindowRect(m_hWnd, &rcWindow);
 		ClipCursor(&rcWindow);

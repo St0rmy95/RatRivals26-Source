@@ -1145,7 +1145,7 @@ POINT CINFTarget::RenderTargetArrow( D3DXVECTOR3 vPos )
 			memset(szCharacterName, 0x00, SIZE_MAX_ARENA_FULL_NAME);
 			strncpy(szCharacterName, pUnit->m_infoCharacter.CharacterInfo.CharacterName, SIZE_MAX_CHARACTER_NAME);
 			g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharacterName);
-#ifdef _RAT_FFA
+#if _RAT_FFA
 			//FFA name change
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) {
 				strncpy(szCharacterName, "FFA Enemy", SIZE_MAX_CHARACTER_NAME);
@@ -1629,7 +1629,7 @@ void CINFTarget::RenderAutoTarget(BOOL bAutoTarget,
 			if(((CEnemyData*)pUnit)->m_infoCharacter.CharacterInfo.GuildUniqueNumber != 0)
 			{
 				// 2007-11-30 by bhsohn 타켓한 적 여단 마크 위치 수정
-#ifdef _RAT_FFA
+#if _RAT_FFA
 				if (MAP_INFLUENCE_PVP_ALL != g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 				{
 					g_pGameMain->m_pCommunity->GetGuild()->RenderGuildMark(x, y - 25,
@@ -1666,7 +1666,7 @@ void CINFTarget::RenderAutoTarget(BOOL bAutoTarget,
 			// 서버 이름 제거
 			g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
 
-#ifdef _RAT_FFA
+#if _RAT_FFA
 			if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType) {
 				STRNCPY_MEMSET(szCharName, "FFA Enemy", SIZE_MAX_ARENA_FULL_NAME);
 				g_pD3dApp->ConevertArenaRenderUserName(g_pD3dApp->GetArenaState(), szCharName);
@@ -1802,7 +1802,7 @@ void CINFTarget::RenderGameMainMonsterInfo(CMonsterData* pUnit, int x, int y, fl
 void CINFTarget::RenderGameMainEnemyInfo(CEnemyData* pUnit, int x, int y)
 {
 	m_pOtherInfo->SetLockOnTarget(1);
-#ifdef _RAT_FFA
+#if _RAT_FFA
 	if (MAP_INFLUENCE_PVP_ALL == g_pD3dApp->GetMyShuttleMapInfo()->MapInfluenceType)
 		return;
 #endif

@@ -66,6 +66,11 @@
 #include "INFCommunityGuild.h"
 #include "INFTarget.h"
 #include "INFMp3Player.h"
+
+#if _KILL_FEED
+#include "INFEvoKillfeed.h"
+#endif
+
 #include "TutorialSystem.h"
 #include "INFMissionInfo.h"
 // 2007-06-12 by bhsohn 미션 인터페이스 수정안
@@ -495,6 +500,9 @@ CINFGameMain::CINFGameMain(CAtumNode* pParent)
 	m_pINFOpJoystick = NULL;	
 	// end 2008-11-13 by bhsohn 조이스틱 작업
 
+#if _KILL_FEED
+	m_pINFEvoKillfeed = nullptr;
+#endif
 
 //#ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI시스템 변경
 	m_GruopImagemanager = NULL;																	  
@@ -685,6 +693,11 @@ CINFGameMain::~CINFGameMain()
 	// 2010. 04. 28 by hsLee 인피니티 필드 2차 난이도 조절.
 	ResetToolTipEx();
 	// End. 2010. 04. 28 by hsLee 인피니티 필드 2차 난이도 조절.
+
+#if _KILL_FEED
+	if (m_pINFEvoKillfeed)
+		SAFE_DELETE(m_pINFEvoKillfeed);
+#endif
 
 // 2013-10-01 by ssjung 1주년 이벤트
 	if(m_pFirstAnniversaryEvent)
@@ -1195,6 +1208,11 @@ HRESULT CINFGameMain::InitDeviceObjects()
 	}
 	// end 2008-06-20 by bhsohn EP3 옵션관련 처리
 
+#if _KILL_FEED
+	m_pINFEvoKillfeed = new INFEvoKillfeed();
+	m_pINFEvoKillfeed->SetGameData(m_pGameData);
+	m_pINFEvoKillfeed->InitDeviceObjects();
+#endif
 
 // 2013-10-01 by ssjung 1주년 이벤트
 #ifdef C_FIRST_ANNIVERSARY_EVENT
@@ -1514,6 +1532,11 @@ HRESULT CINFGameMain::RestoreDeviceObjects()
 	
 	m_ptGageBack = m_pAltiMeterGage->GetImgSize();
 	m_ptGagePin = m_pAltiMeterPin->GetImgSize();
+
+#if _KILL_FEED
+	if (m_pINFEvoKillfeed)
+		m_pINFEvoKillfeed->RestoreDeviceObjects();
+#endif
 
 // 2014-03-11 by ssjung&ymjoo 월드맵 구현
 #ifdef C_WORLD_MAP_SSJUNG_YMJOO
@@ -1886,6 +1909,14 @@ HRESULT CINFGameMain::DeleteDeviceObjects()
 	ResetToolTipEx();
 	// End. 2010. 04. 28 by hsLee 인피니티 필드 2차 난이도 조절.
 
+#if _KILL_FEED
+	if (m_pINFEvoKillfeed)
+	{
+		m_pINFEvoKillfeed->DeleteDeviceObjects();
+		SAFE_DELETE(m_pINFEvoKillfeed);
+	}
+#endif
+
 // 2014-03-11 by ssjung&ymjoo 월드맵 구현
 #ifdef C_WORLD_MAP_SSJUNG_YMJOO
 	if(m_pWorldMap)
@@ -2144,6 +2175,11 @@ HRESULT CINFGameMain::InvalidateDeviceObjects()
 		// 2010. 04. 28 by hsLee 인피니티 필드 2차 난이도 조절.
 		ResetToolTipEx();
 		// End. 2010. 04. 28 by hsLee 인피니티 필드 2차 난이도 조절.
+
+#if _KILL_FEED
+		if (m_pINFEvoKillfeed)
+			m_pINFEvoKillfeed->InvalidateDeviceObjects();
+#endif
 
 // 2014-03-11 by ssjung&ymjoo 월드맵 구현
 #ifdef C_WORLD_MAP_SSJUNG_YMJOO
@@ -7322,7 +7358,7 @@ void CINFGameMain::GoWarpMapChange(int nQuestMapIdx)
 		}
 		else
 		{
-#ifdef _RAT_FFA
+#if _RAT_FFA
 			if (FFA_MAP == nQuestMapIdx)
 			{
 				m_pMissionMain->SetMissionMapQuestIdx(nQuestMapIdx);

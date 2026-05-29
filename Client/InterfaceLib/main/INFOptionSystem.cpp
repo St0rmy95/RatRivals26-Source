@@ -36,7 +36,7 @@
 // 2011-07-06 by shcho, hsson 아레나 게임 진입 시 캐릭터 선택 못하게 수정
 #include "INFGameArena.h"
 // end 2011-07-06 by shcho, hsson 아레나 게임 진입 시 캐릭터 선택 못하게 수정,
-#ifdef _RAT_FOV
+#if _RAT_FOV
 #include "INFScrollBar.h"
 #endif
 
@@ -223,7 +223,7 @@
 #define OPTION_RADIO_MP3_X				304
 #define OPTION_RADIO_MP3_Y				622
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 #define OPTION_FOV_X			165
 #define OPTION_FOV_Y			517
 #endif
@@ -454,7 +454,7 @@ CINFOptionSystem::CINFOptionSystem(CAtumNode* pParent)
 	// end 2012-10-31 by jhjang 포인터 초기화 코드 추가
 	m_pMp3On = NULL;
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	m_pFovImg = NULL;
 	m_pFovStep = NULL;
 	m_pFovFont = NULL;
@@ -512,7 +512,7 @@ CINFOptionSystem::~CINFOptionSystem()
 	SAFE_DELETE(m_pVol);																		  
 #endif
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	SAFE_DELETE(m_pFovImg);
 	SAFE_DELETE(m_pFovStep);
 	SAFE_DELETE(m_pFovFont);
@@ -655,7 +655,7 @@ HRESULT CINFOptionSystem::InitDeviceObjects()
 		}
 		m_pFontHaeSang->InitDeviceObjects(g_pD3dDev);
 	}
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	{
 		if (NULL == m_pFovFont)
 		{
@@ -932,7 +932,7 @@ HRESULT CINFOptionSystem::InitDeviceObjects()
 	m_pVol->InitDeviceObjects(g_pD3dDev);
 #endif
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	m_pFovImg = new CINFScrollBar(this,
 		OPTION_FOV_X,
 		OPTION_FOV_Y,
@@ -945,7 +945,7 @@ HRESULT CINFOptionSystem::InitDeviceObjects()
 	);
 	m_pFovImg->SetGameData(m_pGameData);
 	m_pFovImg->InitDeviceObjects();
-	m_pFovImg->SetNumberOfData(_RAT_FOV_MAX - 60);
+	m_pFovImg->SetNumberOfData(_FOV_MAX - 60);
 	m_pFovImg->SetCurrentIndex(g_pSOption->sFOVangle - 60);
 	//	m_pFovImg->SetCurrentIndex(1); //05-03-2017 by inet - after relog fov always come back to 60
 	m_pFovStep = new CINFImage;
@@ -1096,19 +1096,19 @@ HRESULT CINFOptionSystem::RestoreDeviceObjects()
 	{
 		m_pCloseBtn->RestoreDeviceObjects();		
 	}
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	m_pFovStep->RestoreDeviceObjects();
 	m_pFovFont->RestoreDeviceObjects();
 	m_pFovImg->SetScrollLinePos(OPTION_FOV_X, OPTION_FOV_Y);
 	m_pFovImg->SetWheelRect(g_pD3dApp->GetBackBufferDesc().Width - 256,
 		g_pD3dApp->GetBackBufferDesc().Height - 37,
 		g_pD3dApp->GetBackBufferDesc().Width - 9,
-		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (_RAT_FOV_MAX - _RAT_FOV_MIN)));
+		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (_FOV_MAX - _FOV_MIN)));
 	m_pFovImg->RestoreDeviceObjects();
 	m_pFovImg->SetWheelRect(g_pD3dApp->GetBackBufferDesc().Width - 256,
 		g_pD3dApp->GetBackBufferDesc().Height - 37,
 		g_pD3dApp->GetBackBufferDesc().Width - 9,
-		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (_RAT_FOV_MAX - _RAT_FOV_MIN)));
+		g_pD3dApp->GetBackBufferDesc().Height - 24 + (2 * (_FOV_MAX - _FOV_MIN)));
 #endif
 
 #ifdef C_EPSODE4_UI_CHANGE_JSKIM					        // 2011. 10. 10 by jskim UI시스템 변경
@@ -1253,7 +1253,7 @@ HRESULT CINFOptionSystem::DeleteDeviceObjects()
 		SAFE_DELETE(m_pCloseBtn);
 	}
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	if (m_pFovImg)
 	{
 		m_pFovImg->DeleteDeviceObjects();
@@ -1413,7 +1413,7 @@ HRESULT CINFOptionSystem::InvalidateDeviceObjects()
 	}
 #endif
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	if (m_pFovImg)
 	{
 		m_pFovImg->InvalidateDeviceObjects();
@@ -1437,11 +1437,11 @@ HRESULT CINFOptionSystem::InvalidateDeviceObjects()
 
 void CINFOptionSystem::Tick()
 {
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	int nAngle = m_pFovImg->GetCurrentScrollIndex() + 60;
 
-	if (nAngle >= _RAT_FOV_MAX)
-		nAngle = _RAT_FOV_MAX;
+	if (nAngle >= _FOV_MAX)
+		nAngle = _FOV_MAX;
 	if (g_pSOption->sFOVangle != nAngle)
 	{
 		g_pSOption->sFOVangle = nAngle;
@@ -1696,7 +1696,7 @@ void CINFOptionSystem::Render()
 	m_pCloseBtn->Render();	
 #endif
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	{
 		m_pFovImg->Render();
 	}
@@ -1720,7 +1720,7 @@ int CINFOptionSystem::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	FLOG( "CINFOptionSystem::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)" );
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	if (m_pFovImg)
 	{
 		if (m_pFovImg->WndProc(uMsg, wParam, lParam) == INF_MSGPROC_BREAK)
@@ -2082,7 +2082,7 @@ void CINFOptionSystem::UpdateBtnPos(int nBackPosX, int nBackPosY)
 		// end 2009-05-06 by bhsohn 중국 로그오프창 막음
 	}
 
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	{
 		nPosX = nBackPosX + OPTION_FOV_X;
 		nPosY = nBackPosY + OPTION_FOV_Y;
@@ -3492,7 +3492,7 @@ void CINFOptionSystem::OnClickEtcRadio(int nRadioId)
 // 적용버튼
 void CINFOptionSystem::OnClickApply()
 {
-#ifdef _RAT_FOV
+#if _RAT_FOV
 	m_pSOptionOld.sFOVangle = m_pFovImg->GetCurrentScrollIndex() + 60;
 	m_struOpInfo.struSOptionSetup.sFOVangle = m_pFovImg->GetCurrentScrollIndex() + 60;
 #endif

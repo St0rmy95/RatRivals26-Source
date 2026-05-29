@@ -28,8 +28,8 @@
 	#define	CHAT_PTOP			'"'		// �ӼӸ�
 	#define	CHAT_INFLUENCE_ALL	'*'		// �����ڰ���
 	#define	CHAT_COMMAND		'/'		// ���Ӹ��ɾ�
-#ifdef _RAT_CHAT_SYSTEM
-	#define _RAT_CHAT_ALL_INFLUENCE	'>' // To Chat ALL
+#if _RAT_CHAT_SYSTEM
+	#define _RAT_CHAT_ALL_INFLUENCE	'<' // To Chat ALL
 #endif
 #endif
 

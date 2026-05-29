@@ -45,7 +45,7 @@ public:
 	SQLHSTMT GetSTMTHandle() { return m_hstmt; }
 	mt_lock *GetLockPtr(void){				return &m_lock;};		// 2006-04-27 by cmkwon
 
-#ifdef _RAT_SQL
+#if _RAT_SQL
 	// Error information accessors
 	const char* GetLastSqlState_RAT() { return m_szLastSqlState; }
 	int GetLastNativeError_RAT() { return m_nLastNativeError; }
@@ -58,7 +58,7 @@ public:
 	SQLHSTMT    m_hstmt;
 	mt_lock        m_lock;
 
-#ifdef _RAT_SQL
+#if _RAT_SQL
 private:
 	char        m_szLastSqlState[MAXDBMSGBUFLEN];
 	int            m_nLastNativeError;

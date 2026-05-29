@@ -628,7 +628,7 @@ void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char* peerIP, ENServ
 #define T1_IC_CHAT_INFLUENCE_ALL			0x32	// ���� ��ü ä�� - ���������ڸ� ����
 #define T1_IC_CHAT_ARENA					0x33	// 2007-05-02 by dhjin, �Ʒ��� ä��
 #define T1_IC_CHAT_WAR						0x34	// 2008-05-19 by dhjin, EP3 - ä�� �ý��� ����, ���� ä��
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 #define T1_IC_CHAT_INFLUENCE_ALL_RAT		0x37
 #endif
 #define T1_IC_CHAT_CHATROOM					0x35	// 2008-06-18 by dhjin, EP3 ä�ù� - 
@@ -2312,7 +2312,7 @@ void PrintExchangeMsg(BYTE SendOrRecv, MessageType_t nType, char* peerIP, ENServ
 #define T_IC_CHAT_INFLUENCE_ALL					(MessageType_t)((T0_IC_CHAT<<8)|T1_IC_CHAT_INFLUENCE_ALL)	// ���� ��ü ä�� - ���������ڸ� ����
 #define T_IC_CHAT_ARENA							(MessageType_t)((T0_IC_CHAT<<8)|T1_IC_CHAT_ARENA)			// 2007-05-02 by dhjin, �Ʒ��� ä��
 #define T_IC_CHAT_WAR							(MessageType_t)((T0_IC_CHAT<<8)|T1_IC_CHAT_WAR)				// 2008-05-19 by dhjin, EP3 - ä�� �ý��� ����, ���� ä��
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 #define T_IC_CHAT_INFLUENCE_ALL_RAT				(MessageType_t)((T0_IC_CHAT<<8)|T1_IC_CHAT_INFLUENCE_ALL_RAT)
 #endif
 #define T_IC_CHAT_CHATROOM						(MessageType_t)((T0_IC_CHAT<<8)|T1_IC_CHAT_CHATROOM)		// 2008-06-18 by dhjin, EP3 ä�ù� - 
@@ -4756,7 +4756,7 @@ typedef MSG_IC_CHAT_MAP				MSG_IC_CHAT_CASH_ALL;
 typedef MSG_IC_CHAT_MAP				MSG_IC_CHAT_INFLUENCE_ALL;			// 2006-04-21 by cmkwon
 typedef MSG_IC_CHAT_MAP				MSG_IC_CHAT_ARENA;					// 2007-05-02 by dhjin
 typedef MSG_IC_CHAT_MAP				MSG_IC_CHAT_WAR;					// 2008-05-19 by dhjin, EP3 - ä�� �ý��� ����, ���� ä��
-#ifdef _RAT_CHAT_SYSTEM
+#if _RAT_CHAT_SYSTEM
 typedef MSG_IC_CHAT_MAP				MSG_IC_CHAT_INFLUENCE_ALL_RAT;
 #endif
 typedef MSG_IC_CHAT_MAP				MSG_IC_CHAT_INFINITY;				// 2009-09-09 ~ 2010 by dhjin, ���Ǵ�Ƽ - ���� ä��
@@ -6131,7 +6131,7 @@ typedef struct
 
 ///////////////////////////////////////////////////////////////////////////////
 // 2007-06-04 by cmkwon
-#ifdef _RAT_ANTI_CHEAT
+#if _RAT_ANTI_CHEAT
 struct SATTACK_PARAMETER
 {
 	UID16_t			WeaponIndex;					// ź�� ������ȣ - 2�� ���⸸ ó����
@@ -6166,7 +6166,7 @@ typedef mt_vector<SATTACK_PARAMETER>			mtvectSATTACK_PARAMETER;		// 2007-06-07 b
 typedef vector<SATTACK_PARAMETER>				vectSATTACK_PARAMETER;			// 2010-04-05 by cmkwon, ����2�� M2M 2�� ���� ���� ó�� - 
 #endif
 
-#ifdef _RAT_ANTI_CHEAT
+#if _RAT_ANTI_CHEAT
 typedef struct
 {
 	ClientIndex_t	AttackIndex;
@@ -11134,6 +11134,9 @@ struct MSG_FL_LOG_PKLOSS : public FL_USER_LOG_BASE
 #define DAMAGE_BY_PK			((BYTE)2)
 #define DAMAGE_BY_FUEL_ALLIN	((BYTE)3)
 #define DAMAGE_BY_NA			((BYTE)10)	// �� �� ���ų� ���ʿ��� ���
+#if _KILL_STREAK
+#define KILL_STREAK_ANNOUNCE	((BYTE)15)
+#endif
 
 struct MSG_FL_LOG_DEAD : public FL_USER_LOG_BASE
 {
@@ -16334,6 +16337,29 @@ struct MSG_NGCSPWAR_DISPLAY
 	ATUM_DATE_TIME	StartTime;				// ���� �����ð�, �ش� �ð� ���� 1�ð����� ������ ����
 };
 // end 2013-08-14 by jhseol, ������ ������ - NGC ����
+
+#if _KILL_FEED
+	#define T1_FC_CHARACTER_DEAD_NOTIFY_MAP		0xA5    // send killmessage to all players on same map
+	#define T_FC_CHARACTER_DEAD_NOTIFY_MAP		(MessageType_t)((T0_FC_CHARACTER<<8)|T1_FC_CHARACTER_DEAD_NOTIFY_MAP)
+
+	struct MSG_FC_CHARACTER_DEAD_NOTIFY_MAP
+	{
+		MAP_CHANNEL_INDEX MapChannel;
+		BOOL bIsFFA;
+		BYTE DamageType;
+
+		char PlayerName[SIZE_MAX_CHARACTER_NAME];
+		BYTE PlayerInfluence;
+
+		char EnemyName[SIZE_MAX_CHARACTER_NAME];
+		BYTE EnemyInfluence;
+
+#if _KILL_STREAK
+		int KillStreak;
+#endif
+
+	};
+#endif
 
 // 2013-11-25 by jhseol&bckim, �ŷ��� - ��Ŷ �߰�
 /////////////////////////////////////////////////////////////////////////////////////////////
