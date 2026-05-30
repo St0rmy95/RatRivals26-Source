@@ -19926,10 +19926,10 @@ void CFieldIOCPSocket::CharacterGameEndRoutine(void)
 
 // 캐릭터가 죽고 GameEndRoutine() 혹은 DEAD_GAMESTART 하기 이전(사이)에 처리될 사항들
 void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
-											, CFieldMonster *i_pAttackMonster/*=NULL*/
-											, CFieldIOCPSocket *i_pAttackUser/*=NULL*/)
-{	
-	m_TimerManager.m_TEIDGradualHPUP			= NULL;		// Timer 중지하기
+	, CFieldMonster* i_pAttackMonster/*=NULL*/
+	, CFieldIOCPSocket* i_pAttackUser/*=NULL*/)
+{
+	m_TimerManager.m_TEIDGradualHPUP = NULL;		// Timer 중지하기
 
 	m_TimerManager.m_nRemainedTimeOfGradualHPUP = 0;
 	m_TimerManager.m_nRemainedTimeOfGradualDPUP = 0;
@@ -19949,29 +19949,29 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 
 	this->m_SkillManager.ResetDebuffSkill();
 	this->m_SkillManager.ResetDotSkill();
-	if(g_pFieldGlobal->IsArenaServer()
+	if (g_pFieldGlobal->IsArenaServer()
 		&& INFINITY_STATE_PLAYING <= this->m_InfinityPlayingInfo.InfinityState) {
 		// 인피 로그용
 		m_InfinityPlayingInfo.DeathCount++;
- 		if(0 != m_InfinityPlayingInfo.TimePenaltyValue || 0 != m_InfinityPlayingInfo.HPPenaltyValue ) {		// 2011-06-14 by hskim, 인피니티 3차 - 패널티 기능 추가 (HP 및 시간 동시 지원을 위해)
- 			// 2010-03-31 by dhjin, 인피니티(기지방어) - 밑과 같이 수정 // 2009-09-09 ~ 2010-01-13 by dhjin, 인피니티 - 죽은 유저 이름 정보 전송 추가, // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 사망시 패널티 추가
+		if (0 != m_InfinityPlayingInfo.TimePenaltyValue || 0 != m_InfinityPlayingInfo.HPPenaltyValue) {		// 2011-06-14 by hskim, 인피니티 3차 - 패널티 기능 추가 (HP 및 시간 동시 지원을 위해)
+			// 2010-03-31 by dhjin, 인피니티(기지방어) - 밑과 같이 수정 // 2009-09-09 ~ 2010-01-13 by dhjin, 인피니티 - 죽은 유저 이름 정보 전송 추가, // 2009-09-09 ~ 2010 by dhjin, 인피니티 - 인피 사망시 패널티 추가
 // 			this->ms_pFieldIOCP->m_InfinityManager.CalcLimitTimeByUserDeathW(this->m_character.CharacterName, m_InfinityPlayingInfo.ModeTypeNum, m_InfinityPlayingInfo.InfinityCreateUID);
 			this->ms_pFieldIOCP->m_InfinityManager.ProcessingInfinityPenalty(this->m_character.CharacterName, m_InfinityPlayingInfo.ModeTypeNum, m_InfinityPlayingInfo.InfinityCreateUID);
- 		}
+		}
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	// 2009-09-09 ~ 2010 by dhjin, 인피니티 - 사망시 체프 존재하면 삭제한다.
-	if(FALSE != m_mtvectFieldDummy.empty()) {
+	if (FALSE != m_mtvectFieldDummy.empty()) {
 		mt_auto_lock mtA(&m_mtvectFieldDummy);
-		m_bDummyCheck			= FALSE;
+		m_bDummyCheck = FALSE;
 		INIT_MSG_WITH_BUFFER(MSG_FC_BATTLE_DELETE_DUMMY_OK, T_FC_BATTLE_DELETE_DUMMY_OK, pDummySMsg, DummySendBuf);
-		pDummySMsg->AttackIndex		= GetCharacter()->ClientIndex;
+		pDummySMsg->AttackIndex = GetCharacter()->ClientIndex;
 		mtvectFieldDummy::iterator itr = m_mtvectFieldDummy.begin();
-		for(; itr != m_mtvectFieldDummy.end(); itr++)
+		for (; itr != m_mtvectFieldDummy.end(); itr++)
 		{
-			FIELD_DUMMY *pFDummy	= *itr;
-			pDummySMsg->ItemFieldIndex	= pFDummy->ItemFieldIndex;
-			
+			FIELD_DUMMY* pFDummy = *itr;
+			pDummySMsg->ItemFieldIndex = pFDummy->ItemFieldIndex;
+
 			// 2006-12-06 by cmkwon, 주위의 모든 캐릭터에게 전송
 			this->SendInRangeMessageAroundMe(DummySendBuf, MSG_SIZE(MSG_FC_BATTLE_DELETE_DUMMY_OK), TRUE);
 		}
@@ -19979,16 +19979,16 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 		mtA.auto_unlock_cancel();
 	}
 
-	m_character.CurrentHP						= 0.0f;		// HP 초기화
-	m_character.CurrentDP						= 0.0f;		// DP 초기화
-// 2006-04-10 by cmkwon, ProcessSPIPenaltyOnDead() 함수에서 초기화 한다.
-// 	m_character.DownExperience					= 0.0f;		// 유닛이 죽을때 다운된 경험치 초기화
-// 	m_character.DownSPIOnDeath					= 0;		// 2006-04-10 by cmkwon, 캐릭터가 죽을때 떨어지는 SPI
+	m_character.CurrentHP = 0.0f;		// HP 초기화
+	m_character.CurrentDP = 0.0f;		// DP 초기화
+	// 2006-04-10 by cmkwon, ProcessSPIPenaltyOnDead() 함수에서 초기화 한다.
+	// 	m_character.DownExperience					= 0.0f;		// 유닛이 죽을때 다운된 경험치 초기화
+	// 	m_character.DownSPIOnDeath					= 0;		// 2006-04-10 by cmkwon, 캐릭터가 죽을때 떨어지는 SPI
 
 	SetBodyConditionBit(m_character.BodyCondition, BODYCON_DEAD_MASK);
-	QPARAM_CHARACTER_CHANGE_BODYCONDITION *pQBodyCondition = new QPARAM_CHARACTER_CHANGE_BODYCONDITION;
-	pQBodyCondition->CharacterUniqueNumber	= m_character.CharacterUniqueNumber;
-	pQBodyCondition->BodyCondition			= m_character.BodyCondition;
+	QPARAM_CHARACTER_CHANGE_BODYCONDITION* pQBodyCondition = new QPARAM_CHARACTER_CHANGE_BODYCONDITION;
+	pQBodyCondition->CharacterUniqueNumber = m_character.CharacterUniqueNumber;
+	pQBodyCondition->BodyCondition = m_character.BodyCondition;
 	ms_pFieldIOCP->m_pAtumDBManager->MakeAndEnqueueQuery(QT_ChangeBodyCondition, this, m_character.AccountUniqueNumber, pQBodyCondition);
 	SendCharacterInfo(T_FC_CHARACTER_CHANGE_CURRENTHPDPSPEP);
 
@@ -20003,7 +20003,7 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 		&& damageType != DAMAGE_BY_PK)
 	{// 2006-02-28 by cmkwon, 세력전 몬스터에 의해 죽은 경우 제외
 
-		if(DAMAGE_BY_MONSTER != damageType
+		if (DAMAGE_BY_MONSTER != damageType
 			|| (DAMAGE_BY_MONSTER == damageType && i_pAttackMonster && FALSE == IS_INFLWAR_MONSTER(i_pAttackMonster->MonsterInfoPtr->Belligerence)))
 		{
 			ProcessSPIPenaltyOnDead();
@@ -20012,11 +20012,11 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 
 	///////////////////////////////////////////////////////////////////////////////
 	// 2005-12-27 by cmkwon, 세력전 명성 처리
-	if( i_pAttackUser
+	if (i_pAttackUser
 		&& i_pAttackUser->IsValidCharacter(FALSE)
 		&& this->GetCharacter()->InfluenceType != i_pAttackUser->GetCharacter()->InfluenceType
-		&& COMPARE_INFLUENCE(this->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI)
-		&& COMPARE_INFLUENCE(i_pAttackUser->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN|INFLUENCE_TYPE_ANI)
+		&& COMPARE_INFLUENCE(this->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN | INFLUENCE_TYPE_ANI)
+		&& COMPARE_INFLUENCE(i_pAttackUser->GetCharacter()->InfluenceType, INFLUENCE_TYPE_VCN | INFLUENCE_TYPE_ANI)
 #if _RAT_FFA
 		|| ((!g_pFieldGlobal->IsArenaServer() && MAP_INFLUENCE_PVP_ALL == m_pCurrentFieldMapChannel->m_pFieldMapProject->GetMapInfluenceType()))
 #endif
@@ -20024,13 +20024,13 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	{
 		//////////////////////////////////////////////////////////////////////////
 		// 2008-03-11 by dhjin, 아레나 통합 - 아레나 서버에서는 명성치, 세력전, 킬마크 관련 처리를 하지 않는다.
-		if(FALSE == g_pFieldGlobal->IsArenaServer())
+		if (FALSE == g_pFieldGlobal->IsArenaServer())
 		{
-			if(ms_pFieldIOCP->GetP2PPKFamePoint(i_pAttackUser->GetCharacter()->CharacterName, GetCharacter()->CharacterName))
+			if (ms_pFieldIOCP->GetP2PPKFamePoint(i_pAttackUser->GetCharacter()->CharacterName, GetCharacter()->CharacterName))
 			{
 				i_pAttackUser->InfluenceWarBonus2Killer(this);
 
-// 2013-05-09 by hskim, 세력 포인트 개선
+				// 2013-05-09 by hskim, 세력 포인트 개선
 #ifdef SC_UPGRADE_INFLUENCE_POINT_HSKIM_BHSOHN
 #else
 				///////////////////////////////////////////////////////////////////////////////
@@ -20042,7 +20042,7 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 
 		//////////////////////////////////////////////////////////////////////////
 		// 2008-02-21 by dhjin, 아레나 통합 - 아레나 서버에서 유저 이름 '\xxx' 띠고 보여주기, 다음과 같이 수정
-		if(g_pFieldGlobal->IsArenaServer())
+		if (g_pFieldGlobal->IsArenaServer())
 		{
 			CHAR SendArenaCharacterName[SIZE_MAX_CHARACTER_NAME];
 			MEMSET_ZERO(SendArenaCharacterName, SIZE_MAX_CHARACTER_NAME);
@@ -20055,16 +20055,16 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 			MEMSET_ZERO(SendArenaCharacterName, SIZE_MAX_CHARACTER_NAME);
 			STRNCPY_MEMSET(ArenaCharacterName, this->GetCharacter()->CharacterName, SIZE_MAX_CHARACTER_NAME);
 			ms_pFieldIOCP->ConvertArenaRenderUserName(ArenaCharacterName, SendArenaCharacterName);
-			i_pAttackUser->SendString128(STRING_128_USER_NOTICE, STRMSG_080428_0001, SendArenaCharacterName);		
-		}	
+			i_pAttackUser->SendString128(STRING_128_USER_NOTICE, STRMSG_080428_0001, SendArenaCharacterName);
+		}
 		else
 		{
 			this->SendString128(STRING_128_USER_NOTICE, STRMSG_061107_0000, i_pAttackUser->GetCharacter()->CharacterName);
 		}
-//		// 2006-11-07 by cmkwon, 추가됨
-//		this->SendString128(STRING_128_USER_NOTICE, STRMSG_061107_0000, i_pAttackUser->GetCharacter()->CharacterName);
+		//		// 2006-11-07 by cmkwon, 추가됨
+		//		this->SendString128(STRING_128_USER_NOTICE, STRMSG_061107_0000, i_pAttackUser->GetCharacter()->CharacterName);
 
-		// 2006-03-06 by cmkwon, 세력전시에 상대 세력에 의해 내가 죽은 로그
+				// 2006-03-06 by cmkwon, 세력전시에 상대 세력에 의해 내가 죽은 로그
 		CAtumLogSender::SendLogMessagePvELOSS(this, i_pAttackUser->GetCharacter()->CharacterUniqueNumber);
 
 		// 2006-03-06 by cmkwon, 세력전시 상대세력이 나를 죽인 로그
@@ -20074,11 +20074,11 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	// 일대일 대결 결과 처리
 	if (IS_VALID_CLIENT_INDEX(m_peerP2PPKClientIndex))
 	{
-		CFieldIOCPSocket *pPeerPKSocket = ms_pFieldIOCP->GetFieldIOCPSocket(m_peerP2PPKClientIndex);
+		CFieldIOCPSocket* pPeerPKSocket = ms_pFieldIOCP->GetFieldIOCPSocket(m_peerP2PPKClientIndex);
 		OnP2PPKEnd(pPeerPKSocket, this);
-		if(DAMAGE_BY_PK == damageType)
+		if (DAMAGE_BY_PK == damageType)
 		{// 캐릭에 의해서 죽었을 때만 워프게이트에서 부활
-			m_bDeadReasonByPK				= TRUE;
+			m_bDeadReasonByPK = TRUE;
 		}
 	}
 
@@ -20095,21 +20095,21 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 //	CAtumLogSender::SendLogMessageDEAD(this, damageType);	// 2012-08-30 by jhseol, 풀로그 남기기 - 변경전의 함수 임으로 주석 해제 안함.
 #endif	//#ifdef S_FULL_LOG_JHSEOL
 	// end 2012-08-30 by jhseol, 풀로그 남기기
-	if(NULL != i_pAttackUser) {
+	if (NULL != i_pAttackUser) {
 		CAtumLogSender::SendLogMessageDEAD(this, damageType, i_pAttackUser->GetCurrentAttackItemNum());
 	}
-	else if(NULL != i_pAttackMonster) {
+	else if (NULL != i_pAttackMonster) {
 		CAtumLogSender::SendLogMessageDEAD(this, damageType, i_pAttackMonster->GetCurrentAttackItemNum());
 	}
 	else {
 		CAtumLogSender::SendLogMessageDEAD(this, damageType, 0);
 	}
-	
+
 	///////////////////////////////////////////////////////////////////////////
 	// 거래 reset하기
 	if (IS_VALID_UNIQUE_NUMBER(m_peerTraderCharacterUniqueNumber))
 	{
-		CFieldIOCPSocket *pPeerTraderSocket = ms_pFieldIOCP->m_mapCharacterUniqueNumber.findLock(m_peerTraderCharacterUniqueNumber);
+		CFieldIOCPSocket* pPeerTraderSocket = ms_pFieldIOCP->m_mapCharacterUniqueNumber.findLock(m_peerTraderCharacterUniqueNumber);
 		if (pPeerTraderSocket
 			&& pPeerTraderSocket->IsValidCharacter(FALSE))
 		{
@@ -20149,31 +20149,31 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 
 	//
 	INIT_MSG_WITH_BUFFER(MSG_FC_CHARACTER_DEAD_NOTIFY, T_FC_CHARACTER_DEAD_NOTIFY, pFCDead, SendBuf);
-	pFCDead->ClientIndex		= m_character.ClientIndex;
-	pFCDead->byDamageKind		= damageType;
-	pFCDead->bDeadByP2PPK		= this->m_bDeadReasonByPK;
+	pFCDead->ClientIndex = m_character.ClientIndex;
+	pFCDead->byDamageKind = damageType;
+	pFCDead->bDeadByP2PPK = this->m_bDeadReasonByPK;
 	this->SendAddData(SendBuf, MSG_SIZE(MSG_FC_CHARACTER_DEAD_NOTIFY));
 
 	// IM Server에 DEAD 메세지를 전송한다.
 	INIT_MSG(MSG_FI_CONNECT_NOTIFY_DEAD, T_FI_CONNECT_NOTIFY_DEAD, pMsgDead, SendBuf);
-	pMsgDead->CharacterUniqueNumber	= m_character.CharacterUniqueNumber;
-	pMsgDead->AttackerGuildUID		= this->m_uidAttackerGuildUID;
+	pMsgDead->CharacterUniqueNumber = m_character.CharacterUniqueNumber;
+	pMsgDead->AttackerGuildUID = this->m_uidAttackerGuildUID;
 	ms_pFieldIOCP->m_pIMWinSocket->Write(SendBuf, MSG_SIZE(MSG_FI_CONNECT_NOTIFY_DEAD));
 
 	// 2005-08-30 by cmkwon, 몬스터 사냥 퀘스트 몬스터 카운트 처리
-	if(i_pAttackMonster)
+	if (i_pAttackMonster)
 	{
 		this->CheckSuccessAllQuestByAttackMonsterNum(i_pAttackMonster->MonsterInfoPtr->MonsterUnitKind);
 	}
 
 	//////////////////////////////////////////////////////////////////////////
 	// 2007-04-24 by dhjin, ARENA_STATE_WARING 상태이면 아레나 맵이므로 아레나에서 처리할 것 처리
-	if(IS_MAP_INFLUENCE_ARENA(m_pCurrentFieldMapChannel->GetMapInfluenceTypeW())
+	if (IS_MAP_INFLUENCE_ARENA(m_pCurrentFieldMapChannel->GetMapInfluenceTypeW())
 		&& ARENA_STATE_FIGHTING_WARING == this->m_ArenaInfo.State)
 	{
-		if(i_pAttackUser
+		if (i_pAttackUser
 			&& i_pAttackUser->IsValidCharacter(FALSE))
-		{		
+		{
 			i_pAttackUser->m_ArenaInfo.ShootingDown++;
 			this->m_ArenaInfo.SufferingAttack++;
 		}
@@ -20206,17 +20206,20 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	// Set Channel
 	msgCharacterDeadMap->MapChannel = m_pCurrentFieldMapChannel->GetMapChannelIndex();
 	msgCharacterDeadMap->DamageType = damageType;
-#ifdef _RAT_FFA
-	// Set FFA
-	if (pMapInfo->MapInfluenceType == MAP_INFLUENCE_PVP_ALL) msgCharacterDeadMap->bIsFFA = true;
-#endif
-	STRNCPY_MEMSET(msgCharacterDeadMap->PlayerName, this->m_character.CharacterName, SIZE_MAX_CHARACTER_NAME);
+	msgCharacterDeadMap->KillStreak = 0;
+
+	STRNCPY_MEMSET(msgCharacterDeadMap->PlayerName, this->m_character.CharacterName, SIZE_MAX_CHARACTER_RAT);
 	msgCharacterDeadMap->PlayerInfluence = this->m_character.InfluenceType;
 
 	if (i_pAttackUser && i_pAttackUser->IsValidCharacter(FALSE))
 	{
-		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, i_pAttackUser->m_character.CharacterName, SIZE_MAX_CHARACTER_NAME);
+		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, i_pAttackUser->m_character.CharacterName, SIZE_MAX_CHARACTER_RAT);
 		msgCharacterDeadMap->EnemyInfluence = i_pAttackUser->m_character.InfluenceType;
+	}
+	else if (i_pAttackMonster && i_pAttackMonster->IsValidMonster(FALSE))
+	{
+		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, i_pAttackMonster->MonsterInfoPtr->MonsterName, SIZE_MAX_CHARACTER_RAT);
+		msgCharacterDeadMap->EnemyInfluence = INFLUENCE_TYPE_RRP;
 	}
 	else
 	{
@@ -20225,44 +20228,36 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	}
 
 #if _KILL_STREAK
-	char szTemp[256];
-	char szTemp2[256];
+	if (i_pAttackUser && i_pAttackUser->IsValidCharacter(FALSE))
+	{
+		DWORD dwCurrentTime = timeGetTime();
+		DWORD dwTimeElapsed = dwCurrentTime - i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime;
 
 		// Check if LastKillTime has Exceeded KillStreakTime
-		if (timeGetTime() - i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime < _KILL_STREAK_TIME * 1000)
+		if (dwTimeElapsed <= (_KILL_STREAK_TIME * 1000))
 		{
 			// Add to Kill Streak
 			i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak += 1;
-			sprintf(szTemp, "i_pAttackUser KillStreak1 : %i // PlayerKillStreak1 : %i", i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak, this->m_character.KILLSTREAK_INFO.KillStreak);
-			SendString128(STRING_128_ADMIN_CMD, szTemp); // Send it here immediately!
 		}
 		else
 		{
 			// Reset the Count
 			i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak = 1;
-			sprintf(szTemp, "i_pAttackUser KillStreak2 : %i // PlayerKillStreak2 : %i", i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak, this->m_character.KILLSTREAK_INFO.KillStreak);
-			SendString128(STRING_128_ADMIN_CMD, szTemp); // Send it here immediately!
 		}
 
-		sprintf(szTemp2, "Time : %u", timeGetTime() - i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime);
-		SendString128(STRING_128_ADMIN_CMD, szTemp2);
+		// Update the last kill time so the streak can continue on the next kill
+		i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime = dwCurrentTime;
+
 		// Announce the KillStreak of Enemy to the Client Packet Map
 		msgCharacterDeadMap->KillStreak = i_pAttackUser->m_character.KILLSTREAK_INFO.KillStreak;
-
-		// Update the last kill time so the streak can continue on the next kill
-		i_pAttackUser->m_character.KILLSTREAK_INFO.LastKillTime = timeGetTime();
-
+	}
 
 	// Reset Dead Character's KillStreak
 	this->m_character.KILLSTREAK_INFO.KillStreak = 0;
-
-	// Safe debug output for the victim's wipeout (Doesn't access i_pAttackUser pointer)
-	sprintf(szTemp, "Victim reset. PlayerKillStreak4 : %i", this->m_character.KILLSTREAK_INFO.KillStreak);
-	SendString128(STRING_128_ADMIN_CMD, szTemp);
-#endif
+#endif // _KILL_STREAK
 
 	m_pCurrentFieldMapChannel->SendMessageToAllInChannel(msgCharacterDeadMapBuf, MSG_SIZE(MSG_FC_CHARACTER_DEAD_NOTIFY_MAP), INFLUENCE_TYPE_ALL_MASK, 0);
-#endif
+#endif // _KILL_FEED
 }
 
 BOOL CFieldIOCPSocket::CharacterDeadGameStartRoutine(BOOL i_bNotify

@@ -9,6 +9,13 @@
 #include "d3dx9core.h"
 #include "dxutil.h"
 
+#define ICON_CRASH			"wisopt0"		// Crash Death
+#define ICON_CRASH_FUEL		"fuelG01"		// Fuel Death
+
+#define ICON_KILL_PVE		"more_s1"		// Monster
+#define ICON_KILL_PVP		"kill_icon"		// Kill icon PK
+
+#define ICON_BIGBOOM		"xclose1"		// B-Gear BigBoom
 
 #define  D3DFVF_KFITEMVERTEX (D3DFVF_XYZRHW  | D3DFVF_TEX1)
 struct KillfeedItemVertex
@@ -21,8 +28,17 @@ INFEvoKillfeed::INFEvoKillfeed()
 {
 	m_vecItems.reserve(40);
 	
-	m_kfBeginX = g_pApp->GetWidth() - 230;
-	m_kfBeginY = 200;
+	// 1. Define Anchor Ratios (Top-Right = X: 1.0, Y: 0.0)
+	float anchorX = 1.0f;
+	float anchorY = 0.0f;
+
+	// 2. Define your exact 1080p pixel offsets
+	int offsetX = -300;
+	int offsetY = 15;
+
+	// 3. Compute the native position using screen dimensions
+	m_kfBeginX = static_cast<int>(g_pApp->GetWidth() * anchorX) + offsetX;
+	m_kfBeginY = static_cast<int>(g_pApp->GetHeight() * anchorY) + offsetY;
 
 	m_pFont = nullptr;
 	m_pMissleIcon = nullptr;
@@ -47,32 +63,33 @@ HRESULT INFEvoKillfeed::InitDeviceObjects()
 {
 	// thanks to Salz_mich_ein for help with the icons
 	DataHeader* pDataHeader = NULL;
-	pDataHeader = m_pGameData->Find("kill_icon");
-	if (pDataHeader)
-	{
-		m_pMissleIcon = new CINFImageEx;
-		m_pMissleIcon->InitDeviceObjects(pDataHeader);
-	}
-	pDataHeader = m_pGameData->Find("wisopt0");
+	pDataHeader = m_pGameData->Find(ICON_CRASH);
 	if (pDataHeader)
 	{
 		m_pCrashIcon = new CINFImageEx;
 		m_pCrashIcon->InitDeviceObjects(pDataHeader);
 	}
-	pDataHeader = m_pGameData->Find("fuelG01");
+	pDataHeader = m_pGameData->Find(ICON_CRASH_FUEL);
 	if (pDataHeader)
 	{
 		m_pFuelIcon = new CINFImageEx;
 		m_pFuelIcon->InitDeviceObjects(pDataHeader);
 	}
-	pDataHeader = m_pGameData->Find("more_s1");
+	//////////////////////////////////////////////
+	pDataHeader = m_pGameData->Find(ICON_KILL_PVE);
 	if (pDataHeader)
 	{
 		m_pMonsterIcon = new CINFImageEx;
 		m_pMonsterIcon->InitDeviceObjects(pDataHeader);
 	}
-
-	pDataHeader = m_pGameData->Find("xclose1");
+	pDataHeader = m_pGameData->Find(ICON_KILL_PVP);
+	if (pDataHeader)
+	{
+		m_pMissleIcon = new CINFImageEx;
+		m_pMissleIcon->InitDeviceObjects(pDataHeader);
+	}
+	//////////////////////////////////////////////
+	pDataHeader = m_pGameData->Find(ICON_BIGBOOM);
 	if (pDataHeader)
 	{
 		m_pBigBoomIcon = new CINFImageEx;
@@ -199,7 +216,7 @@ void INFEvoKillfeed::Render()
 	{
 		auto item = (*rev_iter).get();
 		if (item) {
-			item->Move(m_kfBeginX - item->GetWidth(), m_kfBeginY + offset_y);
+			item->Move(m_kfBeginX - (item->GetWidth() / 2), m_kfBeginY + offset_y);
 
 			// Dynamically set Direct3D blending factor using the item's current fading alpha
 			DWORD itemAlphaFactor = D3DCOLOR_ARGB(item->GetAlpha(), 255, 255, 255);
@@ -299,10 +316,6 @@ KillFeedItem::KillFeedItem(INFEvoKillfeed* parent, MSG_FC_CHARACTER_DEAD_NOTIFY_
 		m_targetIsMe = false;
 	}
 
-#if _KILL_STREAK
-	// Capture the killstreak value from the server's network packet
-	m_killStreak = msg->KillStreak;
-#endif
 }
 
 KillFeedItem::~KillFeedItem()
@@ -323,8 +336,22 @@ HRESULT KillFeedItem::RestoreDeviceObjects()
 	}
 	short nMMEventHelpMe = 101;
 	short nMMEventMarkForm = 102;
-	SIZE attackerstringsize = m_pParent->GetFont()->GetStringSize(m_data.PlayerName);
-	SIZE targetstringsize = m_pParent->GetFont()->GetStringSize(m_data.EnemyName);
+
+	// --- HELPER TO STRIP COLOR CODES FOR ACCURATE MONSTER/NPC TEXT SIZE MEASUREMENT ---
+	auto GetCleanStringSize = [this](const char* sourceText) -> SIZE {
+		std::string cleanStr = "";
+		for (size_t i = 0; sourceText[i] != '\0'; ++i) {
+			if (sourceText[i] == '\\' && sourceText[i + 1] != '\0') {
+				i++; // Skip the '\' and the color indicator character (e.g., 'c', 'e', 'r')
+				continue;
+			}
+			cleanStr += sourceText[i];
+		}
+		return m_pParent->GetFont()->GetStringSize(const_cast<char*>(cleanStr.c_str()));
+		};
+
+	SIZE attackerstringsize = GetCleanStringSize(m_data.PlayerName);
+	SIZE targetstringsize = GetCleanStringSize(m_data.EnemyName);
 	char szHelpMeMsg[100];
 
 	// --- 1. DETERMINE WHICH ICON WE ARE USING UP FRONT ---
@@ -340,58 +367,72 @@ HRESULT KillFeedItem::RestoreDeviceObjects()
 
 	// --- 2. DYNAMICALLY READ TRUE ICON DIMENSIONS ---
 	int realIconWidth = 0;
-	int realIconHeight = KFITEM_ICON_HEIGHT; // Fallback to header definition
+	int realIconHeight = KFITEM_ICON_HEIGHT;
 
 	if (icon)
 	{
 		realIconWidth = icon->GetImgSize().x;
-
 		if (icon->GetImgSize().y > realIconHeight)
 		{
 			realIconHeight = icon->GetImgSize().y;
 		}
 	}
 
-	// Add a little breathing room padding around the icon if it exists
-	int iconSpaceAllocation = (realIconWidth > 0) ? (realIconWidth + 10) : 0;
+	int iconSpaceAllocation = (realIconWidth > 0) ? (realIconWidth + 6) : 0;
+
+	// --- 3. CALCULATE STREAK PREFIX CONFIGS ---
+	char szCombo[32] = { 0 };
+	int streakSpaceAllocation = 0;
+	char finalStreakMsg[32] = { 0 }; // Replaces the std::string entirely
 
 #if _KILL_STREAK
-	// ----------------------------------------------------
-	// ADVANCED MULTI-KILL COMBO CONFIGURATION
-	// ----------------------------------------------------
-	int baseRowHeight = realIconHeight + 2 * KFITEM_TEXT_MARGIN_Y;
-
-	// Dynamic Width Row 1: Left Margin + Attacker Text + Calculated Icon Width Space + Target Text + Right Margin
-	int widthRow1 = KFITEM_TEXT_MARGIN_X + iconSpaceAllocation + targetstringsize.cx + KFITEM_TEXT_MARGIN_X;
-	if (m_data.DamageType == DAMAGE_BY_PK)
+	// Only render streak prefix layout text if it's an actual active combo streak (> 1)
+	if (m_data.DamageType == DAMAGE_BY_PK && m_data.KillStreak > 1)
 	{
-		widthRow1 += attackerstringsize.cx;
+		const char* colorFlag = "\\y"; // Default color for streaks > 1
+
+		// Must check from highest to lowest!
+		if (m_data.KillStreak >= 10)       colorFlag = "\\m"; // Magenta for 10+
+		else if (m_data.KillStreak >= 7)   colorFlag = "\\r"; // Red for 7+
+		else if (m_data.KillStreak >= 5)   colorFlag = "\\e"; // Orange for 5+
+
+		// This builds: [ColorFlag]x[StreakNumber] -> e.g., "\yx5"
+		sprintf(finalStreakMsg, "%sx%i", colorFlag, m_data.KillStreak);
+
+		// Then measure the clean size as usual
+		SIZE comboStringSize = m_pParent->GetFont()->GetStringSize(finalStreakMsg);
+		streakSpaceAllocation = comboStringSize.cx + 6;
 	}
-
-	int widthRow2 = 0;
-	int height = baseRowHeight;
-	char szCombo[32] = { 0 };
-
-	if (m_data.DamageType == DAMAGE_BY_PK && m_killStreak > 1)
-	{
-		sprintf(szCombo, "x%i", m_killStreak);
-		string fullStreakString = string(m_data.PlayerName) + " " + szCombo;
-		SIZE streakStringSize = m_pParent->GetFont()->GetStringSize(const_cast<char*>(fullStreakString.c_str()));
-
-		widthRow2 = streakStringSize.cx + (2 * KFITEM_TEXT_MARGIN_X);
-		height = baseRowHeight * 2;
-	}
-
-	// Canvas wrapper matches the exact dimension of the longest row cleanly
-	int width = (widthRow2 > widthRow1) ? widthRow2 : widthRow1;
-#else
-	// ----------------------------------------------------
-	// ORIGINAL 1-ROW NATIVE RENDERING BLUEPRINT
-	// ----------------------------------------------------
-	int width = targetstringsize.cx + realIconWidth + 4 + 2 * KFITEM_TEXT_MARGIN_X;
-	width += (m_data.DamageType == DAMAGE_BY_PK) ? attackerstringsize.cx + 4 : 0;
-	int height = realIconHeight + 2 * KFITEM_TEXT_MARGIN_Y;
 #endif
+
+	// --- 4. SCENARIO CANVAS WIDTH CALCULATION ---
+	int width = (2 * KFITEM_TEXT_MARGIN_X);
+
+	switch (m_data.DamageType)
+	{
+	case DAMAGE_BY_COLLISION:
+	case DAMAGE_BY_FUEL_ALLIN:
+		// Format: [Icon] [PlayerName]
+		width += iconSpaceAllocation + attackerstringsize.cx;
+		break;
+
+	case DAMAGE_BY_MONSTER:
+		// Format: [Me/TargetName] [Icon] [MonsterName]
+		width += targetstringsize.cx + iconSpaceAllocation + attackerstringsize.cx;
+		break;
+
+	case DAMAGE_BY_PK:
+	case DAMAGE_BY_NA:
+		// Format: [KillStreak] [PlayerName] [Icon] [EnemyName]
+		width += streakSpaceAllocation + attackerstringsize.cx + iconSpaceAllocation + targetstringsize.cx;
+		break;
+
+	default:
+		width += attackerstringsize.cx + iconSpaceAllocation + targetstringsize.cx;
+		break;
+	}
+
+	int height = realIconHeight + 2 * KFITEM_TEXT_MARGIN_Y;
 
 	if (!SUCCEEDED(g_pD3dDev->CreateTexture(width, height, 0, D3DUSAGE_RENDERTARGET, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT, &m_pTexture, 0)))
 	{
@@ -431,80 +472,123 @@ HRESULT KillFeedItem::RestoreDeviceObjects()
 	}
 
 	BYTE myInfluence = g_pShuttleChild->m_myShuttleInfo.InfluenceType;
-	DWORD attackercolor = m_attackerIsMe ? KFITEM_TEXT_COLOR_ME : ((myInfluence == m_data.PlayerInfluence) ? KFITEM_TEXT_COLOR_ALLY : KFITEM_TEXT_COLOR_ENEMY);
-	DWORD targetcolor = m_targetIsMe ? KFITEM_TEXT_COLOR_ME : ((myInfluence == m_data.EnemyInfluence) ? KFITEM_TEXT_COLOR_ALLY : KFITEM_TEXT_COLOR_ENEMY);
+	DWORD attackercolor;
+	DWORD targetcolor;
 
-	int attackername_offset = 0;
-
-#if _KILL_STREAK
-	int row1_text_offset_y = static_cast<int>(static_cast<float>(baseRowHeight - attackerstringsize.cy) / 2 - 0.5f);
-#else
-	int row1_text_offset_y = static_cast<int>(static_cast<float>(height - attackerstringsize.cy) / 2 - 0.5f);
-#endif
-
-	// --- STEP 3: DRAW ATTACKER TEXT ---
-	if (m_data.DamageType == DAMAGE_BY_PK)
+#if _KILL_FEED_INF_COLORS
+	if (!m_attackerIsMe)
 	{
-		m_pParent->GetFont()->DrawTextA(KFITEM_TEXT_MARGIN_X, row1_text_offset_y - 4, attackercolor, m_data.PlayerName, 0);
-		attackername_offset = attackerstringsize.cx;
+		if (m_data.PlayerInfluence == INFLUENCE_TYPE_ANI)			attackercolor = KFITEM_TEXT_COLOR_ANI;
+		else if (m_data.PlayerInfluence == INFLUENCE_TYPE_VCN)		attackercolor = KFITEM_TEXT_COLOR_BCU;
+		else if (m_data.PlayerInfluence == INFLUENCE_TYPE_RRP)		attackercolor = KFITEM_TEXT_COLOR_ENEMY;
+		else														attackercolor = KFITEM_TEXT_COLOR_ALL;
 	}
-
-	// --- STEP 4: RENDER SYSTEM ACTION ICON GRAPHICS USING REAL IMAGE DIMENSIONS ---
-	if (icon)
-	{
-		int icon_x_pos = KFITEM_TEXT_MARGIN_X + attackername_offset + 5; // 5px padding before icon
-		icon->Move(icon_x_pos, KFITEM_TEXT_MARGIN_Y);
-		icon->SetScale(1.0f, 1.0f);
-		icon->Render();
-	}
-
-	// --- STEP 5: DRAW TARGET OR VICTIM META LINE ---
-#if _KILL_STREAK
-	int target_text_offset_y = static_cast<int>(static_cast<float>(baseRowHeight - targetstringsize.cy) / 2 - 0.5f);
-#else
-	int target_text_offset_y = static_cast<int>(static_cast<float>(height - targetstringsize.cy) / 2 - 0.5f);
-#endif
-
-	// The target name starts perfectly right after Attacker Name + Dynamic Icon Space Allocation
-	int target_x_pos = KFITEM_TEXT_MARGIN_X + attackername_offset + iconSpaceAllocation;
-
-	if (m_data.DamageType == nMMEventHelpMe)
-		m_pParent->GetFont()->DrawTextA(target_x_pos, target_text_offset_y - 4, RGB(0, 125, 255), szHelpMeMsg, 0);
-	else if (m_data.DamageType == nMMEventMarkForm)
-		m_pParent->GetFont()->DrawTextA(target_x_pos, target_text_offset_y - 4, RGB(0, 255, 0), szHelpMeMsg, 0);
 	else
 	{
-#if _KILL_STREAK
-		m_pParent->GetFont()->DrawTextA(target_x_pos, target_text_offset_y - 4, targetcolor, m_data.EnemyName, 0);
-#else
-		m_pParent->GetFont()->DrawTextA(width - targetstringsize.cx - KFITEM_TEXT_MARGIN_X, target_text_offset_y - 4, targetcolor, m_data.EnemyName, 0);
-#endif
+		attackercolor = COLOR_PARTY;
 	}
 
-	// --- STEP 6: RENDER ROW 2 (LOCKS TEXT TO THE RIGHTMOST CORNER) ---
-#if _KILL_STREAK
-	if (szCombo[0] != '\0')
+	if (!m_targetIsMe)
 	{
-		int row2_text_offset_y = baseRowHeight + static_cast<int>(static_cast<float>(baseRowHeight - attackerstringsize.cy) / 2 - 0.5f);
-
-		SIZE comboStringSize = m_pParent->GetFont()->GetStringSize(szCombo);
-		int row2_combo_x = width - comboStringSize.cx - KFITEM_TEXT_MARGIN_X;
-		int row2_name_x = row2_combo_x - attackerstringsize.cx - KFITEM_TEXT_MARGIN_X;
-
-		// Draw Player Name aligned left of the combo multiplier text
-		m_pParent->GetFont()->DrawTextA(row2_name_x, row2_text_offset_y - 4, attackercolor, m_data.PlayerName, 0);
-
-		string colorFlag = "\\c";
-		if (m_killStreak == 3)       colorFlag = "\\e";
-		else if (m_killStreak == 4)  colorFlag = "\\m";
-		else if (m_killStreak >= 5)  colorFlag = "\\r";
-
-		string finalStreakMsg = colorFlag + szCombo;
-
-		// Draw Combo multiplier text pinned right
-		m_pParent->GetFont()->DrawTextA(row2_combo_x, row2_text_offset_y - 4, attackercolor, const_cast<char*>(finalStreakMsg.c_str()), 0);
+		if (m_data.EnemyInfluence == INFLUENCE_TYPE_ANI)			targetcolor = KFITEM_TEXT_COLOR_ANI;
+		else if (m_data.EnemyInfluence == INFLUENCE_TYPE_VCN)		targetcolor = KFITEM_TEXT_COLOR_BCU;
+		else if (m_data.EnemyInfluence == INFLUENCE_TYPE_RRP)		targetcolor = KFITEM_TEXT_COLOR_ENEMY;
+		else														targetcolor = KFITEM_TEXT_COLOR_ALL;
 	}
+	else
+	{
+		targetcolor = COLOR_PARTY;
+	}
+#else
+	attackercolor = m_attackerIsMe ? KFITEM_TEXT_COLOR_ME : ((myInfluence == m_data.PlayerInfluence) ? KFITEM_TEXT_COLOR_ALLY : KFITEM_TEXT_COLOR_ENEMY);
+	targetcolor = m_targetIsMe ? KFITEM_TEXT_COLOR_ME : ((myInfluence == m_data.EnemyInfluence) ? KFITEM_TEXT_COLOR_ALLY : KFITEM_TEXT_COLOR_ENEMY);
 #endif
+
+	int text_offset_y = static_cast<int>(static_cast<float>(height - attackerstringsize.cy) / 2 - 0.5f);
+	int current_render_x = KFITEM_TEXT_MARGIN_X;
+
+	// --- 5. RENDER CASES ---
+	switch (m_data.DamageType)
+	{
+	case DAMAGE_BY_COLLISION:
+	case DAMAGE_BY_FUEL_ALLIN:
+	{
+		// Format: [Icon] [PlayerName]
+		if (icon)
+		{
+			icon->Move(current_render_x, KFITEM_TEXT_MARGIN_Y);
+			icon->SetScale(1.0f, 1.0f);
+			icon->Render();
+			current_render_x += iconSpaceAllocation;
+		}
+
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, attackercolor, m_data.PlayerName, 0);
+	}
+	break;
+
+	case DAMAGE_BY_MONSTER:
+	{
+		// Format: [Me / TargetName] [Icon] [MonsterName]
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, targetcolor, m_data.EnemyName, 0);
+		current_render_x += targetstringsize.cx;
+
+		if (icon)
+		{
+			icon->Move(current_render_x + 2, KFITEM_TEXT_MARGIN_Y);
+			icon->SetScale(1.0f, 1.0f);
+			icon->Render();
+			current_render_x += iconSpaceAllocation;
+		}
+
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, attackercolor, m_data.PlayerName, 0);
+	}
+	break;
+
+	case DAMAGE_BY_PK:
+	case DAMAGE_BY_NA:
+	{
+		// Format: [KillStreak] [PlayerName] [Icon] [EnemyName]
+#if _KILL_STREAK
+		if (finalStreakMsg[0] != '\0')
+		{
+			// Much cleaner! Just drop 'finalStreakMsg' right in.
+			m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, attackercolor, finalStreakMsg, 0);
+			current_render_x += streakSpaceAllocation;
+		}
+#endif
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, attackercolor, m_data.PlayerName, 0);
+		current_render_x += attackerstringsize.cx;
+
+		if (icon)
+		{
+			icon->Move(current_render_x + 2, KFITEM_TEXT_MARGIN_Y);
+			icon->SetScale(1.0f, 1.0f);
+			icon->Render();
+			current_render_x += iconSpaceAllocation;
+		}
+
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, targetcolor, m_data.EnemyName, 0);
+	}
+	break;
+
+	default:
+	{
+		// Generic system fallback sequence
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, attackercolor, m_data.PlayerName, 0);
+		current_render_x += attackerstringsize.cx;
+
+		if (icon)
+		{
+			icon->Move(current_render_x + 2, KFITEM_TEXT_MARGIN_Y);
+			icon->SetScale(1.0f, 1.0f);
+			icon->Render();
+			current_render_x += iconSpaceAllocation;
+		}
+
+		m_pParent->GetFont()->DrawTextA(current_render_x, text_offset_y - 4, targetcolor, m_data.EnemyName, 0);
+	}
+	break;
+	}
 
 	g_pD3dDev->SetViewport(&vp_orig);
 	if (!SUCCEEDED(g_pD3dDev->SetRenderTarget(0, pBackbuffer)))

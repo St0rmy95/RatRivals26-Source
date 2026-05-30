@@ -263,15 +263,19 @@
 	#define _RAT_CHAT_SYSTEM	FALSE
 	#define _RAT_RANK_SYSTEM	TRUE	// RankSystem
 
-	#define _RAT_KILL_MSG		TRUE	// After Kill
+	#define _RAT_KILL_MSG				TRUE	// After Kill
 
 	#define _KILL_STREAK		TRUE	// After Kill
 	#if _KILL_STREAK
-		#define _KILL_STREAK_TOWN_RESET TRUE
-		#define _KILL_STREAK_TIME	30
+		#define _KILL_STREAK_DOUBLE_ROW		FALSE
+		#define _KILL_STREAK_TOWN_RESET		TRUE
+		#define _KILL_STREAK_TIME			30
 	#endif
 
 	#define _KILL_FEED			TRUE	// On Death
+	#if _KILL_FEED
+		#define _KILL_FEED_INF_COLORS	TRUE
+	#endif
 	/////////////////////////// SERVER ///////////////////////////
 	#define _RAT_SQL			TRUE
 
@@ -323,7 +327,7 @@ g_pD3dApp->m_pChat->CreateChatChild("Refinery OPEN", COLOR_SKILL_USE, CHAT_TAB_S
 char szTemp[256];
 sprintf(szTemp, "[BOMBING DBG] ExplosionRange1 : %f\n", attackData.fExplosionRange);
 // This pushes it straight to Visual Studio Output tab
-OutputDebugStringA(szTemp)
+OutputDebugStringA(szTemp);
 #endif
 
 #ifdef _LOG_EXAMPLE_SERVER // Placed to see an example here for Server Log
