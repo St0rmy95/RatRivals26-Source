@@ -11134,9 +11134,6 @@ struct MSG_FL_LOG_PKLOSS : public FL_USER_LOG_BASE
 #define DAMAGE_BY_PK			((BYTE)2)
 #define DAMAGE_BY_FUEL_ALLIN	((BYTE)3)
 #define DAMAGE_BY_NA			((BYTE)10)	// �� �� ���ų� ���ʿ��� ���
-#if _KILL_STREAK
-#define KILL_STREAK_ANNOUNCE	((BYTE)15)
-#endif
 
 struct MSG_FL_LOG_DEAD : public FL_USER_LOG_BASE
 {
@@ -16342,16 +16339,17 @@ struct MSG_NGCSPWAR_DISPLAY
 	#define T1_FC_CHARACTER_DEAD_NOTIFY_MAP		0xA5    // send killmessage to all players on same map
 	#define T_FC_CHARACTER_DEAD_NOTIFY_MAP		(MessageType_t)((T0_FC_CHARACTER<<8)|T1_FC_CHARACTER_DEAD_NOTIFY_MAP)
 
+	#define SIZE_MAX_CHARACTER_RAT				30 // default 20
+
 	struct MSG_FC_CHARACTER_DEAD_NOTIFY_MAP
 	{
 		MAP_CHANNEL_INDEX MapChannel;
-		BOOL bIsFFA;
 		BYTE DamageType;
 
-		char PlayerName[SIZE_MAX_CHARACTER_NAME];
+		char PlayerName[SIZE_MAX_CHARACTER_RAT];
 		BYTE PlayerInfluence;
 
-		char EnemyName[SIZE_MAX_CHARACTER_NAME];
+		char EnemyName[SIZE_MAX_CHARACTER_RAT];
 		BYTE EnemyInfluence;
 
 #if _KILL_STREAK

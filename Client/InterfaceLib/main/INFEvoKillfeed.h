@@ -22,6 +22,12 @@
 #define KFITEM_TEXT_COLOR_ALLY		   COLOR_CHARACTER_ID00
 #define KFITEM_TEXT_COLOR_ME           0x42C4F9
 
+#if _KILL_FEED_INF_COLORS
+	#define KFITEM_TEXT_COLOR_ANI	0xFFFF00	// Cyan
+	#define KFITEM_TEXT_COLOR_BCU	0x007FFF	// Orange
+	#define KFITEM_TEXT_COLOR_ALL	0xFFFFFF	// White
+#endif
+
 #define KFITEM_BACKGROUND_COLOR_NORMAL D3DCOLOR_ARGB(0, 0, 0, 0)    //D3DCOLOR_ARGB(100, 25, 92, 140)
 #define KFITEM_BACKGROUND_COLOR_PLAYER D3DCOLOR_ARGB(0, 0, 0, 0)    //D3DCOLOR_ARGB(170, 245, 184, 32)
 #define KILLFEED_ITEM_SPACING 2	//vertical space between two items
@@ -59,9 +65,6 @@ private:
 	MSG_FC_CHARACTER_DEAD_NOTIFY_MAP m_data;
 	bool m_attackerIsMe;
 	bool m_targetIsMe;
-#if _KILL_STREAK
-	int m_killStreak;
-#endif
 
 	IDirect3DSurface9* m_pSurface;
 	IDirect3DTexture9* m_pTexture;

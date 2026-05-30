@@ -942,7 +942,7 @@ enum EN_DAY_OF_WEEK
 // ��Ʈ �÷��� ���� - ���� Ÿ������ ���� �߿� �ϳ��� ���� ������.
 #define INFLUENCE_TYPE_UNKNOWN				(BYTE)0x0000	// �˼� ����
 #define INFLUENCE_TYPE_NORMAL				(BYTE)0x0001	// 2005-12-20 by cmkwon, ���������� �Ϲݱ�
-#define INFLUENCE_TYPE_VCN					(BYTE)0x0002	// 2005-12-20 by cmkwon, ���������� ���Ա�, ����(V.C.U: Vijuenill City United.)
+#define INFLUENCE_TYPE_VCN					(BYTE)0x0002	// BCU 2005-12-20 by cmkwon, ���������� ���Ա�, ����(V.C.U: Vijuenill City United.)
 #define INFLUENCE_TYPE_ANI					(BYTE)0x0004	// 2005-12-20 by cmkwon, �˸��� ���Ա�, ����(�� �������� ���� -�˸��� ��Ƽ �ݶ���- (A.N.I: Anti Nationalism Influence))
 #define INFLUENCE_TYPE_RRP					(BYTE)0x0008	// �κ��Ͼ� ���� ���� - ��Ż���� ���決- (R.R.P: Robenia Revolution Federation)
 #define INFLUENCE_TYPE_ALL_MASK				(BYTE)0x00FF	// ��� ����, 255
