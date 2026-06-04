@@ -16346,11 +16346,11 @@ struct MSG_NGCSPWAR_DISPLAY
 		MAP_CHANNEL_INDEX MapChannel;
 		BYTE DamageType;
 
-		char PlayerName[SIZE_MAX_CHARACTER_RAT];
-		BYTE PlayerInfluence;
+		char AttackerName[SIZE_MAX_CHARACTER_RAT];
+		BYTE AttackerInfluence;
 
-		char EnemyName[SIZE_MAX_CHARACTER_RAT];
-		BYTE EnemyInfluence;
+		char TargetName[SIZE_MAX_CHARACTER_RAT];
+		BYTE TargetInfluence;
 
 #if _KILL_STREAK
 		int KillStreak;

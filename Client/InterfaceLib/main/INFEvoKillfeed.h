@@ -14,9 +14,16 @@
 #define KFITEM_TEXT_MARGIN_X 5
 #define KFITEM_TEXT_MARGIN_Y 2
 
-#define KFITEM_LIFETIME 12s	 // total lifetime
+#define KFITEM_LIFETIME 15s		// total lifetime
 #define KFITEM_FADEOUT_TIME 2s
 #define KFITEM_HEIGHT (KFITEM_ICON_HEIGHT + 2 * KFITEM_TEXT_MARGIN_Y)
+
+#if _KILL_STREAK
+#define KFITEM_OFFSET_Y 100
+
+#define KFITEM_LIFETIME_KS 5s	// total lifetime
+#define KFITEM_FADEOUT_TIME_KS 1s
+#endif
 
 #define KFITEM_TEXT_COLOR_ENEMY		   COLOR_CHARACTER_ID01
 #define KFITEM_TEXT_COLOR_ALLY		   COLOR_CHARACTER_ID00
@@ -73,7 +80,47 @@ private:
 	RECT m_coordinates;
 	bool m_remove;
 	bool m_initialised;
-};											  
+
+};
+
+#if _KILL_STREAK
+class KillStreakMsg : public CINFBase
+{
+public:
+	KillStreakMsg(INFEvoKillfeed* parent, MSG_FC_CHARACTER_DEAD_NOTIFY_MAP* msg);
+	~KillStreakMsg();
+	virtual HRESULT InitDeviceObjects();
+	virtual HRESULT RestoreDeviceObjects();
+	virtual HRESULT DeleteDeviceObjects();
+	virtual HRESULT InvalidateDeviceObjects();
+	virtual void Render();
+	virtual void Tick();
+	void Move(int x, int y);
+	bool ShouldBeRemoved() { return m_remove; };
+	void Set_ShouldRemove() { m_forceremove = true; };
+	bool Get_ForceRemove() { return m_forceremove; };
+	int GetWidth() { return m_coordinates.right - m_coordinates.left; };
+	int GetHeight() { return m_coordinates.bottom - m_coordinates.top; };
+	byte GetAlpha() const { return m_alpha; }
+private:
+	void UpdateVertexBuffer(int x, int y);
+
+private:
+	INFEvoKillfeed* m_pParent;
+	std::chrono::time_point<std::chrono::system_clock> m_createdTime;
+	byte m_alpha;
+	MSG_FC_CHARACTER_DEAD_NOTIFY_MAP m_data;
+
+	IDirect3DSurface9* m_pSurface;
+	IDirect3DTexture9* m_pTexture;
+	IDirect3DVertexBuffer9* m_pVB;
+
+	RECT m_coordinates;
+	bool m_remove;
+	bool m_forceremove;
+	bool m_initialised;
+};
+#endif
 
 
 class INFEvoKillfeed : public CINFBase
@@ -89,20 +136,30 @@ public:
 	virtual void Tick();
 
 	CD3DHanFont* GetFont() { return m_pFont; };
-	CINFImageEx* GetPlayerIcon() { return m_pMissleIcon; };
+	CINFImageEx* GetPlayerIcon() { return m_pDeathIcon1; };
 	CINFImageEx* GetCrashIcon() { return m_pCrashIcon; };
 	CINFImageEx* GetFuelIcon() { return m_pFuelIcon; };
 	CINFImageEx* GetMonsterIcon() { return m_pMonsterIcon; };
 	CINFImageEx* GetBigBoomIcon() { return m_pBigBoomIcon; };
 
+#if _RAT_CUSTOM_ICONS
+	CINFImageEx* GetRandomDeathIcon();
+#endif
+
 	void AddKillFeedItem(MSG_FC_CHARACTER_DEAD_NOTIFY_MAP* msg);
 
 private:
 	std::vector<std::unique_ptr<KillFeedItem>> m_vecItems;
+#if _KILL_STREAK
+	std::vector<std::unique_ptr<KillStreakMsg>> m_vecKillStreakMsg;
+#endif
 	int m_kfBeginX;
 	int m_kfBeginY;
 	CD3DHanFont* m_pFont;
-	CINFImageEx* m_pMissleIcon;
+	CINFImageEx* m_pDeathIcon1;
+	CINFImageEx* m_pDeathIcon2;
+	CINFImageEx* m_pDeathIcon3;
+	CINFImageEx* m_pDeathIcon4;
 	CINFImageEx* m_pCrashIcon;
 	CINFImageEx* m_pFuelIcon;
 	CINFImageEx* m_pMonsterIcon;

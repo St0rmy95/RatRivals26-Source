@@ -2097,8 +2097,17 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			{
 				attackData.bZigZagWeapon = FALSE;
 			}
-#if _ADV_SPEED // Weapon Speed
-			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+#if _ADV_SPEED // Weapon 
+			if (attackData.AttackData.ServerWarheadSpeed_Secondary != 0)
+			{
+				attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+			}
+			else
+			{
+				attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
+			}
+#else
+			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
 #endif // _RAT_ANTI_CHEAT
 
 			// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
@@ -2142,9 +2151,28 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 				attackData.bZigZagWeapon = TRUE;
 			}
 #if _ADV_EXPLOSION && _ADV_SPEED	// Weapon Explosion and Speed
-			attackData.fExplosionRange = attackData.AttackData.ServerExplosionRange_Secondary;
-			// 2007-06-15 by dgwoo ¾Æ·¡ ÇÔ¼ö·Î ¸¸µé°Í.
-			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+
+			if (attackData.AttackData.ServerExplosionRange_Secondary != 0)
+			{
+				attackData.fExplosionRange = attackData.AttackData.ServerExplosionRange_Secondary;
+			}
+			else
+			{
+				attackData.fExplosionRange = CAtumSJ::GetExplosionRange(pWeaponITEM, &g_pShuttleChild->m_paramFactor);
+			}
+
+			if (attackData.AttackData.ServerWarheadSpeed_Secondary != 0)
+			{
+				attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+			}
+			else
+			{
+				attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
+			}
+#else
+			attackData.fExplosionRange = CAtumSJ::GetExplosionRange(pWeaponITEM, &g_pShuttleChild->m_paramFactor);
+			// 2007-06-15 by dgwoo ??·? ÇÔ?ö·Î ¸¸µé°Í.
+			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
 #endif // _RAT_ANTI_CHEAT
 			//pWeaponITEM->RepeatTime * (1.0f+m_paramFactor.pfm_WARHEAD_SPEED);
 
@@ -2171,7 +2199,16 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 	case ORBIT_UPDOWN_ROCKET_270:
 		{
 #if _ADV_SPEED // Weapon Speed
+		if (attackData.AttackData.ServerWarheadSpeed_Secondary != 0)
+		{
 			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+		}
+		else
+		{
+			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
+		}
+#else
+		attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
 #endif // _RAT_ANTI_CHEAT
 
 			// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ
@@ -2193,7 +2230,16 @@ void CUnitData::CreateWeapon( ATTACK_DATA& attackData, ITEM* pWeaponITEM, ITEM* 
 			BOOL bSaveZigZagTemp = attackData.bZigZagWeapon;
 			attackData.bZigZagWeapon = 0;
 #if _ADV_SPEED // Weapon Speed
-			attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+			if (attackData.AttackData.ServerWarheadSpeed_Secondary != 0)
+			{
+				attackData.fWarheadSpeed = attackData.AttackData.ServerWarheadSpeed_Secondary;
+			}
+			else
+			{
+				attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
+			}
+#else
+			attackData.fWarheadSpeed = CAtumSJ::GetWarHeadSpeed(pWeaponITEM, &m_paramFactor);
 #endif // _RAT_ANTI_CHEAT
 
 			// 2009. 11. 23 by jskim ¸®¼Ò½º ·Îµù ±¸Á¶ º¯°æ

@@ -7076,22 +7076,6 @@ BOOL CFieldIOCPSocket::OnRecvdPacketFieldServer(const char* pPacket, int nLength
 	// UDP 처리 루틴 - NPC 와의 통신
 	if(m_bUDPFlag == TRUE)
 	{
-// 2006-05-19 by cmkwon
-// 		if(strncmp(m_szPeerIP, pPeerIP, SIZE_MAX_IPADDRESS) != 0 || m_nPeerPort != nPeerPort)
-// 		{
-// 			// Protocl Error 처리
-// 			// - UDP로 받은 패킷의 IP와 Port가 서버에 설정된 Client의 IP, Port와 같지 않다
-// 			// Error Code : ERR_PROTOCOL_INVALID_PEER
-// 			//SendErrorMessage(T_FIELD_IOCP, ERR_PROTOCOL_INVALID_PEER);
-// 
-// 			char szSystemLog[256];
-// 			sprintf(szSystemLog, "  ERR_PROTOCOL_INVALID_PEER SocketIndex[%3d] RecvIP[%15s] Port[%4d]\r\n",
-// 				this->GetClientArrayIndex(), pPeerIP, nPeerPort);
-// 			g_pFieldGlobal->WriteSystemLog(szSystemLog);
-// 			DBGOUT(szSystemLog);
-// 
-// 			return FALSE;
-// 		}
 
 		while(this->IsUsing() && nBytesUsed < nLength)
 		{

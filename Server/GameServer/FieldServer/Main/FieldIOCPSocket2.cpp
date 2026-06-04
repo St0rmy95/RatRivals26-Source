@@ -20208,23 +20208,23 @@ void CFieldIOCPSocket::CharacterDeadRoutine(BYTE damageType
 	msgCharacterDeadMap->DamageType = damageType;
 	msgCharacterDeadMap->KillStreak = 0;
 
-	STRNCPY_MEMSET(msgCharacterDeadMap->PlayerName, this->m_character.CharacterName, SIZE_MAX_CHARACTER_RAT);
-	msgCharacterDeadMap->PlayerInfluence = this->m_character.InfluenceType;
+	STRNCPY_MEMSET(msgCharacterDeadMap->TargetName, this->m_character.CharacterName, SIZE_MAX_CHARACTER_RAT);
+	msgCharacterDeadMap->TargetInfluence = this->m_character.InfluenceType;
 
 	if (i_pAttackUser && i_pAttackUser->IsValidCharacter(FALSE))
 	{
-		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, i_pAttackUser->m_character.CharacterName, SIZE_MAX_CHARACTER_RAT);
-		msgCharacterDeadMap->EnemyInfluence = i_pAttackUser->m_character.InfluenceType;
+		STRNCPY_MEMSET(msgCharacterDeadMap->AttackerName, i_pAttackUser->m_character.CharacterName, SIZE_MAX_CHARACTER_RAT);
+		msgCharacterDeadMap->AttackerInfluence = i_pAttackUser->m_character.InfluenceType;
 	}
 	else if (i_pAttackMonster && i_pAttackMonster->IsValidMonster(FALSE))
 	{
-		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, i_pAttackMonster->MonsterInfoPtr->MonsterName, SIZE_MAX_CHARACTER_RAT);
-		msgCharacterDeadMap->EnemyInfluence = INFLUENCE_TYPE_RRP;
+		STRNCPY_MEMSET(msgCharacterDeadMap->AttackerName, i_pAttackMonster->MonsterInfoPtr->MonsterName, SIZE_MAX_CHARACTER_RAT);
+		msgCharacterDeadMap->AttackerInfluence = INFLUENCE_TYPE_RRP;
 	}
 	else
 	{
-		STRNCPY_MEMSET(msgCharacterDeadMap->EnemyName, " ", SIZE_MAX_CHARACTER_NAME);
-		msgCharacterDeadMap->EnemyInfluence = 0;
+		STRNCPY_MEMSET(msgCharacterDeadMap->AttackerName, " ", SIZE_MAX_CHARACTER_NAME);
+		msgCharacterDeadMap->AttackerInfluence = 0;
 	}
 
 #if _KILL_STREAK
@@ -31974,6 +31974,7 @@ void CFieldIOCPSocket::APCalcAttckParameter(SATTACK_PARAMETER* o_pAttParam, ITEM
 	o_pAttParam->fPierceAttackProbability = CAtumSJ::GetAttackC_PierceAttackProbability(statAttackPart, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, pCharacter->Level, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선 - // 2010-02-19 by cmkwon, 100이하 레벨 최대스탯 수치 버그 수정 - 인자추가(, BYTE i_byLevel)// 2008-09-22 by dhjin, 신규 인첸트
 	o_pAttParam->fAttack = CAtumSJ::GetAttackC(pCharacter, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가		// 2013-05-09 by hskim, 세력 포인트 개선
 	o_pAttParam->fMaxAttack = CAtumSJ::GetMaxAttackC(pCharacter, i_pWeaponItemInfo, pAttParamFactor, bIsPrimaryAttack, eAttackToTarget, i_PvPBuffPercent);	// 2013-08-01 by jhseol, 역전의 버프 리뉴얼 - i_PvPBuffPercent 추가	// 2013-05-09 by hskim, 세력 포인트 개선
+
 
 		// Check is Primary
 		if(bIsPrimaryAttack)

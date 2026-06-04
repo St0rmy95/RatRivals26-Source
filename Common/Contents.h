@@ -314,6 +314,8 @@
 		#define MULTI_LOADER_HSSON
 	#endif
 
+#define _RAT_CUSTOM_ICONS	TRUE
+
 #endif //_RAT
 
 #ifdef _LOG_EXAMPLE_CLIENT // Placed to see an example here for Client Log
