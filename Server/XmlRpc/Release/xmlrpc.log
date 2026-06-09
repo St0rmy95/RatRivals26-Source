@@ -1,2 +1,0 @@
-﻿D:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(1580,5): warning MSB8012: TargetPath(D:\RatRivals26\Source\Server\XmlRpc\Release\xmlrpc.lib) does not match the Library's OutputFile property value (D:\RatRivals26\Source\Build\Lib\xmlrpc.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
-  xmlrpc.vcxproj -> D:\RatRivals26\Source\Server\XmlRpc\Release\xmlrpc.lib
