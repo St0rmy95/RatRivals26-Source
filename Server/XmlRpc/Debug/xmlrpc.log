@@ -1,7 +1,0 @@
-﻿  Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35730 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _LIB /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm- /EHsc /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo".\Debug\\" /Fd".\Debug\xmlrpc_d.pdb" /FR".\Debug\\" /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt src\XmlRpcClient.cpp src\XmlRpcDispatch.cpp src\XmlRpcServer.cpp src\XmlRpcServerConnection.cpp src\XmlRpcServerMethod.cpp src\XmlRpcSocket.cpp src\XmlRpcSource.cpp src\XmlRpcUtil.cpp src\XmlRpcValue.cpp
-  XmlRpcClient.cpp
-D:\RatRivals26\Source\Server\XmlRpc\src\XmlRpcClient.cpp(247,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\RatRivals26\Source\Server\XmlRpc\src\XmlRpcClient.cpp(252,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  XmlRpcDispatch.cpp
